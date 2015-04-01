@@ -13,3 +13,6 @@ if (isToolBuild())
     $userDirs = "tlab;" @ $userDirs;  //replaced tools with tlab
 ```
 * If using without the Native tools folder, you need to paste the supplied tools/ folder since some images path are set directly in the engine code
+
+# Notes
+For current Pre-Alpha version, I have included my personnal helpers scripts since some are use in TorqueLab. I will make sure to embed those used inside TorqueLab in future release.
