@@ -1,0 +1,91 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(ToolsMsgBoxOKDlg) {
+   position = "0 0";
+   extent = "1280 1024";
+   minExtent = "8 8";
+   horizSizing = "width";
+   vertSizing = "height";
+   profile = "GuiOverlayProfile";
+   visible = "1";
+   active = "1";
+   tooltipProfile = "GuiToolTipProfile";
+   hovertime = "1000";
+   isContainer = "1";
+   canSave = "1";
+   canSaveDynamicFields = "1";
+      helpTag = "0";
+      tooltipWidth = "500";
+
+   new GuiWindowCtrl(TMBOKFrame) {
+      text = "New Window";
+      resizeWidth = "1";
+      resizeHeight = "1";
+      canMove = "1";
+      canClose = "0";
+      canMinimize = "0";
+      canMaximize = "0";
+      canCollapse = "0";
+      edgeSnap = "1";
+      margin = "0 0 0 0";
+      padding = "0 0 0 0";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "490 458";
+      extent = "300 107";
+      minExtent = "48 95";
+      horizSizing = "center";
+      vertSizing = "center";
+      profile = "ToolsWindowProfile";
+      visible = "1";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+
+      new GuiMLTextCtrl(TMBOKText) {
+         lineSpacing = "2";
+         allowColorChars = "0";
+         maxChars = "-1";
+         useURLMouseCursor = "0";
+         position = "9 35";
+         extent = "281 13";
+         minExtent = "8 8";
+         horizSizing = "center";
+         vertSizing = "bottom";
+         profile = "ToolsGuiTextBase_C";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiButtonCtrl() {
+         text = "Ok";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "0";
+         position = "111 75";
+         extent = "80 24";
+         minExtent = "8 8";
+         horizSizing = "right";
+         vertSizing = "top";
+         profile = "ToolsGuiButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "ToolsMsgCallback(ToolsMsgBoxOKDlg,ToolsMsgBoxOKDlg.callback);";
+         accelerator = "return";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+   };
+};
+//--- OBJECT WRITE END ---

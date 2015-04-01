@@ -1,0 +1,101 @@
+//==============================================================================
+// Lab Editor ->
+// Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
+//------------------------------------------------------------------------------
+//==============================================================================
+
+// Material Editor
+function MaterialEditorPlugin::onWorldEditorStartup( %this ) {
+    Parent::onWorldEditorStartup( %this );
+    %this.customPalette = "SceneEditorPalette";
+
+
+    %map = new ActionMap();
+    %map.bindCmd( keyboard, "1", "EWorldEditorNoneModeBtn.performClick();", "" );  // Select
+    %map.bindCmd( keyboard, "2", "EWorldEditorMoveModeBtn.performClick();", "" );  // Move
+    %map.bindCmd( keyboard, "3", "EWorldEditorRotateModeBtn.performClick();", "" );  // Rotate
+    %map.bindCmd( keyboard, "4", "EWorldEditorScaleModeBtn.performClick();", "" );  // Scale
+    %map.bindCmd( keyboard, "f", "FitToSelectionBtn.performClick();", "" );// Fit Camera to Selection
+    %map.bindCmd( keyboard, "z", "EditorGuiStatusBar.setCamera(\"Standard Camera\");", "" );// Free Camera
+    %map.bindCmd( keyboard, "n", "ToggleNodeBar->renderHandleBtn.performClick();", "" );// Render Node
+    %map.bindCmd( keyboard, "shift n", "ToggleNodeBar->renderTextBtn.performClick();", "" );// Render Node Text
+    %map.bindCmd( keyboard, "alt s", "MaterialEditorGui.save();", "" );// Save Material
+    //%map.bindCmd( keyboard, "delete", "ToggleNodeBar->renderTextBtn.performClick();", "" );// delete Material
+    %map.bindCmd( keyboard, "g", "ESnapOptions-->GridSnapButton.performClick();" ); // Grid Snappping
+    %map.bindCmd( keyboard, "t", "SnapToBar->objectSnapDownBtn.performClick();", "" );// Terrain Snapping
+    %map.bindCmd( keyboard, "b", "SnapToBar-->objectSnapBtn.performClick();" ); // Soft Snappping
+    %map.bindCmd( keyboard, "v", "SceneEditorToolbar->boundingBoxColBtn.performClick();", "" );// Bounds Selection
+    %map.bindCmd( keyboard, "o", "EToolbarObjectCenterDropdown->objectBoxBtn.performClick(); objectCenterDropdown.toggle();", "" );// Object Center
+    %map.bindCmd( keyboard, "p", "EToolbarObjectCenterDropdown->objectBoundsBtn.performClick(); objectCenterDropdown.toggle();", "" );// Bounds Center
+    %map.bindCmd( keyboard, "k", "EToolbarObjectTransformDropdown->objectTransformBtn.performClick(); EToolbarObjectTransformDropdown.toggle();", "" );// Object Transform
+    %map.bindCmd( keyboard, "l", "EToolbarObjectTransformDropdown->worldTransformBtn.performClick(); EToolbarObjectTransformDropdown.toggle();", "" );// World Transform
+
+    MaterialEditorPlugin.map = %map;
+
+    MaterialEditorGui.fileSpec = "Torque Material Files (materials.cs)|materials.cs|All Files (*.*)|*.*|";
+    MaterialEditorGui.textureFormats = "Image Files (*.png, *.jpg, *.dds, *.bmp, *.gif, *.jng. *.tga)|*.png;*.jpg;*.dds;*.bmp;*.gif;*.jng;*.tga|All Files (*.*)|*.*|";
+    MaterialEditorGui.modelFormats = "DTS Files (*.dts)|*.dts";
+    MaterialEditorGui.lastTexturePath = "";
+    MaterialEditorGui.lastTextureFile = "";
+    MaterialEditorGui.lastModelPath = "";
+    MaterialEditorGui.lastModelFile = "";
+    MaterialEditorGui.currentMaterial = "";
+    MaterialEditorGui.lastMaterial = "";
+    MaterialEditorGui.currentCubemap = "";
+    MaterialEditorGui.currentObject = "";
+
+    MaterialEditorGui.livePreview = "1";
+    MaterialEditorGui.currentLayer = "0";
+    MaterialEditorGui.currentMode = "Material";
+    MaterialEditorGui.currentMeshMode = "EditorShape";
+
+    new ArrayObject(UnlistedCubemaps);
+    UnlistedCubemaps.add( "unlistedCubemaps", matEdCubeMapPreviewMat );
+    UnlistedCubemaps.add( "unlistedCubemaps", WarnMatCubeMap );
+
+    //MaterialEditor persistence manager
+    new PersistenceManager(matEd_PersistMan);
+
+    MaterialEditorGui.establishMaterials();
+}
+
+function MaterialEditorPlugin::onActivated( %this ) {
+    if($gfx::wireframe) {
+        $wasInWireFrameMode = true;
+        $gfx::wireframe = false;
+    } else {
+        $wasInWireFrameMode = false;
+    }
+    
+    MaterialEditorGui.initGui();
+    
+    WEditorPlugin.onActivated();
+ 
+    EditorGui-->SceneEditorToolbar.setVisible( true );
+
+    MaterialEditorGui.currentObject = $Lab::materialEditorList;
+    // Execute the back end scripts that actually do the work.
+    MaterialEditorGui.open();
+    %this.map.push();
+
+    Parent::onActivated(%this);
+}
+
+function MaterialEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
+    WEditorPlugin.onEditMenuSelect( %editMenu );
+}
+
+function MaterialEditorPlugin::onDeactivated( %this ) {
+    if($wasInWireFrameMode)
+        $gfx::wireframe = true;
+
+    WEditorPlugin.onDeactivated();
+
+    MaterialEditorGui.quit();
+
+  
+    EditorGui-->SceneEditorToolbar.setVisible( false );
+    %this.map.pop();
+
+    Parent::onDeactivated(%this);
+}
