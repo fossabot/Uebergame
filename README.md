@@ -12,4 +12,4 @@ TorqueLab is a completly revamping on the native Torque3D game editors (tools fo
 if (isToolBuild())
     $userDirs = "tlab;" @ $userDirs;  //replaced tools with tlab
 ```
-
+* If using without the Native tools folder, you need to paste the supplied tools/ folder since some images path are set directly in the engine code
