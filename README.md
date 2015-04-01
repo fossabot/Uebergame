@@ -6,7 +6,7 @@ TorqueLab is a completly revamping on the native Torque3D game editors (tools fo
 
 ## Instalation
 * Paste tlab/ folder into your game folder
-* Change the tool folder in the root main.cs file. (To use a pref, visit [Advanced Installation](https://github.com/Mud-H/TorqueLab/wiki/Advanced-Installation#add-a-pref-to-set-native-editor-or-torquelab)
+* Change the tool folder in the root main.cs file. (To use a pref, visit [Advanced Installation](https://github.com/Mud-H/TorqueLab/wiki/Advanced-Installation#add-a-pref-to-set-native-editor-or-torquelab) )
 ```
   // load tools scripts if we're a tool build
 if (isToolBuild())
