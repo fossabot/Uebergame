@@ -70,7 +70,7 @@
          canSave = "1";
          canSaveDynamicFields = "0";
 
-         new GuiLabBox() {
+         new GuiContainer() {
             margin = "0 0 0 0";
             padding = "0 0 0 0";
             anchorTop = "1";
@@ -144,7 +144,7 @@
                canSaveDynamicFields = "0";
             };
          };
-         new GuiLabBox() {
+         new GuiContainer() {
             margin = "0 0 0 0";
             padding = "0 0 0 0";
             anchorTop = "1";
@@ -255,7 +255,7 @@
          canSave = "1";
          canSaveDynamicFields = "0";
 
-         new GuiLabButtonCtrl() {
+         new GuiButtonCtrl() {
             buttonMargin = "4 4";
             iconLocation = "Left";
             sizeIconToButton = "0";
@@ -286,7 +286,7 @@
             canSave = "1";
             canSaveDynamicFields = "0";
          };
-         new GuiLabButtonCtrl() {
+         new GuiButtonCtrl() {
             buttonMargin = "4 4";
             iconLocation = "Left";
             sizeIconToButton = "0";
@@ -352,7 +352,7 @@
       canSave = "1";
       canSaveDynamicFields = "0";
 
-      new GuiLabBox() {
+      new GuiContainer() {
          margin = "0 0 0 0";
          padding = "0 0 0 0";
          anchorTop = "1";
@@ -435,7 +435,7 @@
          canSave = "1";
          canSaveDynamicFields = "0";
 
-         new GuiLabButtonCtrl() {
+         new GuiButtonCtrl() {
             buttonMargin = "4 4";
             iconLocation = "Left";
             sizeIconToButton = "0";

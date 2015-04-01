@@ -1164,7 +1164,7 @@
                      canSaveDynamicFields = "0";
                   };
                };
-               new GuiLabButtonCtrl(CreatorNavUpButton) {
+               new GuiButtonCtrl(CreatorNavUpButton) {
                   buttonMargin = "4 4";
                   iconBitmap = "tlab/gui/icons/base_assets/folderup.png";
                   iconLocation = "Left";

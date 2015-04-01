@@ -54,7 +54,7 @@ function buildLabParams( %params ) {
 
 		%displayWidget = %widgetsControl.findObjectByInternalName(%displayType);
 		if(isObject(%displayWidget)) {
-			%displayCtrl = cloneWidget(%displayWidget);
+			%displayCtrl = cloneObject(%displayWidget);
 			%displayClass = %displayCtrl.getClassName();
 			switch$(%displayClass) {
 			case "GuiRolloutCtrl":
@@ -142,7 +142,7 @@ function buildLabParams( %params ) {
 			}
 
 			%paramsFieldList = trim(%paramsFieldList SPC %fieldSetting);
-			%pill = cloneWidget(%fieldWidget);
+			%pill = cloneObject(%fieldWidget);
 			%fieldCategory = %fieldType;
 			if (%pill.paramType !$= "") %fieldCategory = %pill.paramType;
 

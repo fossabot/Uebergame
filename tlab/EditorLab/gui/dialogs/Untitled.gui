@@ -1,5 +1,5 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiLabButtonCtrl() {
+%guiContent = new GuiButtonCtrl() {
    buttonMargin = "4 4";
    iconLocation = "Left";
    sizeIconToButton = "0";

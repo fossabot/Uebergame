@@ -17,7 +17,7 @@
    canSaveDynamicFields = "1";
       helpTag = "0";
 
-   new GuiLabBox(EToolDialogSlider) {
+   new GuiContainer(EToolDialogSlider) {
       margin = "0 0 0 0";
       padding = "0 0 0 0";
       anchorTop = "1";

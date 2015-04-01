@@ -28,7 +28,7 @@ function LabSettingsDlg::createSettingContainer( %this,%group,%subgroup ) {
 		warnLog("There's already an object using that name:",%containerName.getName(),"ObjId=",%containerName.getId());
 		return;
 	}
-	%newContainer = cloneWidget(LS_SampleContainer);
+	%newContainer = cloneObject(LS_SampleContainer);
 	%newContainer.setName(%containerName);
 	%newContainer.internalName = %group@"_"@%subgroup;
 	LS_SettingsContainer.add(%newContainer);
