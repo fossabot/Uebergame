@@ -60,7 +60,7 @@ function Lab::buildArrayCfgParams( %this,%array,%rebuild ) {
 		delObj(%container);
 
 	if (!isObject(%container)) {
-		%newContainer = cloneWidget(LS_SampleContainer);
+		%newContainer = cloneObject(LS_SampleContainer);
 		%newContainer.setName(%container);
 		%newContainer.internalName = %groupLink;
 		LS_SettingsContainer.add(%newContainer);
