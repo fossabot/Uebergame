@@ -102,7 +102,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl(EAddBookmarkWindowOK) {
-         bitmap = "tlab/gui/oldImages/new";
+         bitmap = "tlab/gui/icons/default/new";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";

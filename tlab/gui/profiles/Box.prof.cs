@@ -105,11 +105,13 @@ singleton GuiControlProfile(ToolsGuiBoxBorder : ToolsDefaultProfile)
 {
 	fontSize = "18";
 	textOffset = "8 1";
-	bitmap = "tlab/gui/images/container_assets/GuiBoxBorder";
+	bitmap = "tlab/gui/images/container_assets/GuiBoxBorder.png";
    fontType = "Aeleron Bold";
-   fillColor = "233 233 233 255";
-   border = "-1";
+   fillColor = "27 27 27 255";
+   border = "-2";
    hasBitmapArray = "1";
+   opaque = "1";
+   borderThickness = "0";
 };
 //------------------------------------------------------------------------------
 //==============================================================================

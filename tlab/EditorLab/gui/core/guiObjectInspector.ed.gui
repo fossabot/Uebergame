@@ -94,7 +94,7 @@
          };
          
          new GuiBitmapButtonCtrl() {
-            bitmap = "tlab/gui/oldImages/clear-icon";
+            bitmap = "tlab/gui/icons/default/clear-icon";
             groupNum = "-1";
             buttonType = "PushButton";
             useMouseEvents = "0";

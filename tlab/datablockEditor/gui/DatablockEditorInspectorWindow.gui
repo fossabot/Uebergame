@@ -165,7 +165,7 @@
          active = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/save-icon";
+         bitmap = "tlab/gui/icons/default/save-icon";
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
@@ -185,7 +185,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/save-as";
+         bitmap = "tlab/gui/icons/default/save-as";
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";

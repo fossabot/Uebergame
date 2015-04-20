@@ -161,7 +161,7 @@ function EWToolsToolbar::reset( %this ) {
 	EWToolsToolbarDecoy.setVisible(false);
 	EWToolsToolbarDecoy.setExtent((29 + 4) * %count + 4, 31);
 
-	%this-->resizeArrow.setBitmap( "tlab/gui/oldImages/collapse-toolbar" );
+	%this-->resizeArrow.setBitmap( "tlab/gui/icons/default/collapse-toolbar" );
 }
 function EWToolsToolbar::expand( %this, %close ) {
 	%this.isClosed = !%close;
@@ -178,7 +178,7 @@ function EWToolsToolbar::toggleSize( %this, %useDynamics ) {
 	// in a very neat, spiffy way
 	EWToolsToolbar-->resizeArrow.setExtent("10","40");
 	if ( %this.isClosed == 0 ) {
-		%image = "tlab/gui/oldImages/expand-toolbar";
+		%image = "tlab/gui/icons/default/expand-toolbar";
 
 		for( %i = 0 ; %i < ToolsToolbarArray.getCount(); %i++ ) {
 			%object = ToolsToolbarArray.getObject(%i);
@@ -203,7 +203,7 @@ function EWToolsToolbar::toggleSize( %this, %useDynamics ) {
 
 		EWToolsToolbarDecoy.extent ="22 31";
 	} else {
-		%image = "tlab/gui/oldImages/collapse-toolbar";
+		%image = "tlab/gui/icons/default/collapse-toolbar";
 
 		%count = ToolsToolbarArray.getCount();
 		for( %i = 0 ; %i < %count; %i++ )
@@ -355,7 +355,8 @@ function Lab::openDisabledPluginsBin( %this,%removeOnly ) {
 
 	if (%bin.isVisible())
 		return;
-
+   
+   %bin.position.y = EWToolsToolbar.extent.y + 4;
 	if (%removeOnly) {
 		%bin.extent.y = %bin.lowBox;
 	} else {

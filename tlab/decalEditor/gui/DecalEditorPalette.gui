@@ -29,7 +29,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Select Decal (1)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/menubar/arrow";
+      bitmap = "tlab/gui/icons/default/menubar/arrow";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -51,7 +51,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Move Decal (2)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/road-river/move-point";
+      bitmap = "tlab/gui/icons/default/road-river/move-point";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -72,7 +72,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Rotate Decal (3)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/road-river/rotate-point";
+      bitmap = "tlab/gui/icons/default/road-river/rotate-point";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -93,7 +93,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Scale Decal (4)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/road-river/scale-point";
+      bitmap = "tlab/gui/icons/default/road-river/scale-point";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };

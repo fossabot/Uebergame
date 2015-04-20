@@ -72,7 +72,7 @@ new GuiControlProfile( ToolsGuiGroupBorderProfile ) {
     opaque = false;
     hasBitmapArray = true;
 
-    bitmap = "tlab/gui/oldImages/group-border";
+    bitmap = "tlab/gui/icons/default/group-border";
     category = "Tools";
 };
 
@@ -101,7 +101,7 @@ new GuiControlProfile( ToolsGuiModelessDialogProfile ) {
 new GuiControlProfile( ToolsGuiRLProgressBitmapProfile ) {
     border = false;
     hasBitmapArray = true;
-    bitmap = "./images/rl-loadingbar";
+    bitmap = "tlab/gui/icons/default/rl-loadingbar";
     category = "Tools";
 };
 
@@ -117,7 +117,7 @@ new GuiControlProfile(ToolsGuiEditorTabPage) {
     fixedExtent = false;
     justify = "center";
     canKeyFocus = false;
-    bitmap = "./images/tab";
+    bitmap = "tlab/gui/icons/default/tab";
     hasBitmapArray = true;
     category = "Tools";
 };
@@ -130,7 +130,7 @@ new GuiControlProfile( ToolsGuiRadioProfile ) {
     fontColor = "20 20 20";
     fontColorHL = "80 80 80";
     fixedExtent = true;
-    bitmap = "./images/radioButton";
+    bitmap = "tlab/gui/icons/default/radioButton";
     hasBitmapArray = true;
     category = "Tools";
 };
@@ -235,7 +235,7 @@ new GuiControlProfile( ToolsGuiFormProfile : ToolsDefaultProfile ) {
     profileForChildren = ToolsGuiButtonProfile;
     opaque = false;
     hasBitmapArray = true;
-    bitmap = "./images/button";
+    bitmap = "tlab/gui/icons/default/button";
     category = "Tools";
 };
 

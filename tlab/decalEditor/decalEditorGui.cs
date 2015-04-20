@@ -219,9 +219,9 @@ function DecalEditorTabBook::onTabSelected( %this, %text, %idx ) {
 }
 
 function DecalEditorTreeView::onDefineIcons() {
-    %icons = "tlab/gui/oldImages/treeview/default:" @
-             "tlab/gui/gui/classIcons/decal:" @
-             "tlab/gui/gui/classIcons/decalNode:";
+    %icons = "tlab/gui/icons/default/treeview/default:" @
+             "tlab/gui/icons/class_assets/decal:" @
+             "tlab/gui/icons/class_assets/decalNode:";
 
     DecalEditorTreeView.buildIconTable( %icons );
 }

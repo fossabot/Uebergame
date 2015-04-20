@@ -253,10 +253,10 @@ function EWorldEditor::areAllSelectedObjectsOfType( %this, %className ) {
 function EWorldEditorToggleCamera::toggleBitmap(%this) {
 	%currentImage = %this.bitmap;
 
-	if ( %currentImage $= "tlab/gui/oldImages/toolbar/player" )
-		%image = "tlab/gui/oldImages/toolbar/camera";
+	if ( %currentImage $= "tlab/gui/icons/default/toolbar/player" )
+		%image = "tlab/gui/icons/default/toolbar/camera";
 	else
-		%image = "tlab/gui/oldImages/toolbar/player";
+		%image = "tlab/gui/icons/default/toolbar/player";
 
 	%this.setBitmap( %image );
 }

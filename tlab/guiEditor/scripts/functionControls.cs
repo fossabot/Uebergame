@@ -57,32 +57,7 @@ function Lab::AlignCtrlToParent(%this,%direction) {
    
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-function GuiControl::AlignCtrlToParent(%this,%direction) {
-  
-      %control = %this;
-      %parent = %control.parentGroup;
-     if (!isObject(%parent)){
-         info(%control.getName()," have no parent to be forced inside");
-         return;
-          
-      } 
-      
-      switch$(%direction){
-         case "right": //Set max right of parent        
-            %control.position.x = %parent.extent.x - %control.extent.x - $GuiEditorAlignMargin;
-         case "left": //Set max left of parent        
-            %control.position.x = $GuiEditorAlignMargin;
-         case "top": //Set max left of parent        
-            %control.position.y = $GuiEditorAlignMargin;
-          case "bottom": //Set max right of parent        
-            %control.position.y = %parent.extent.y - %control.extent.y -$GuiEditorAlignMargin;
-      } 
-     
-  
-   
-}
-//------------------------------------------------------------------------------
+
 //==============================================================================
 function Lab::setSelectedControlAsReference(%this) {
    %selection =  GuiEditor.getSelection();

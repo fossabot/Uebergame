@@ -136,7 +136,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          Command = "MaterialSelector.createNewMaterial();";
          hovertime = "1000";
          tooltip = "Create New Unmapped Material";
-         bitmap = "tlab/gui/oldImages/new";
+         bitmap = "tlab/gui/icons/default/new";
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
@@ -157,7 +157,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          Command = "MaterialSelector.showDeleteDialog();";
          hovertime = "1000";
          tooltip = "Delete Material";
-         bitmap = "tlab/gui/oldImages/delete";
+         bitmap = "tlab/gui/icons/default/delete";
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
@@ -486,7 +486,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          profile = "ToolsDefaultProfile";
          position = "612 39";
          extent = "150 150";
-         bitmap = "tlab/gui/oldImages/terrainpainter/terrain-painter-border-large";
+         bitmap = "tlab/gui/icons/default/terrainpainter/terrain-painter-border-large";
          visible = false;
       };
       new GuiTextCtrl(){
@@ -894,7 +894,7 @@ function MaterialSelector::buildStaticFilters( %this )
             Command = "MaterialSelector_addFilterWindow.setVisible(1); MaterialSelectorOverlay.pushToBack(MaterialSelector_addFilterWindow);";
             hovertime = "1000";
             tooltip = "Create New Tag";
-            bitmap = "tlab/gui/oldImages/new";
+            bitmap = "tlab/gui/icons/default/new";
             groupNum = "-1";
             buttonType = "PushButton";
             useMouseEvents = "0";
@@ -914,7 +914,7 @@ function MaterialSelector::buildStaticFilters( %this )
             Command = "MaterialSelector.clearMaterialFilters();";
             hovertime = "1000";
             tooltip = "Clear Selected Tag";
-            bitmap = "tlab/gui/oldImages/clear-btn";
+            bitmap = "tlab/gui/icons/default/clear-btn";
             groupNum = "-1";
             buttonType = "PushButton";
             useMouseEvents = "0";

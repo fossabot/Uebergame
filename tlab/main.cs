@@ -36,7 +36,7 @@ $Lab::materialEditorList = "";
 $LabIgnoreEnableFolderList = "base debugger editorClasses forestEditor levels resources";
 
 if (!$HelperLabLoaded)
-   exec("./helpers/initHelpers.cs"); 
+   exec("tlab/helpers/initHelpers.cs"); 
 //---------------------------------------------------------------------------------------------
 // Tools Package.
 //---------------------------------------------------------------------------------------------

@@ -139,7 +139,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/clear-icon";
+               bitmap = "tlab/gui/icons/default/clear-icon";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -287,7 +287,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/clear-icon";
+               bitmap = "tlab/gui/icons/default/clear-icon";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -382,7 +382,7 @@
          };
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/delete";
+         bitmap = "tlab/gui/icons/default/delete";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -410,7 +410,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/new";
+         bitmap = "tlab/gui/icons/default/new";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -525,7 +525,7 @@
             canSaveDynamicFields = "0";
 
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-rewind.png";
+               bitmap = "tlab/gui/icons/base_assets/mediarestart.png";
                bitmapMode = "Stretched";
                autoFitExtents = "1";
                useModifiers = "0";
@@ -551,7 +551,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-play.png";
+               bitmap = "tlab/gui/icons/base_assets/mediaplay.png";
                bitmapMode = "Stretched";
                autoFitExtents = "1";
                useModifiers = "0";
@@ -577,7 +577,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-stop.png";
+               bitmap = "tlab/gui/icons/base_assets/mediastop.png";
                bitmapMode = "Stretched";
                autoFitExtents = "1";
                useModifiers = "0";
@@ -603,7 +603,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-pause.png";
+               bitmap = "tlab/gui/icons/base_assets/mediapause.png";
                bitmapMode = "Stretched";
                autoFitExtents = "1";
                useModifiers = "0";
@@ -629,7 +629,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-camera.png";
+               bitmap = "tlab/gui/icons/base_assets/storestate.png";
                bitmapMode = "Stretched";
                autoFitExtents = "1";
                useModifiers = "0";
@@ -655,7 +655,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-up.png";
+               bitmap = "tlab/gui/icons/base_assets/mediaprev.png";
                bitmapMode = "Stretched";
                autoFitExtents = "1";
                useModifiers = "0";
@@ -820,7 +820,7 @@
          };
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/save-icon";
+         bitmap = "tlab/gui/icons/default/save-icon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -846,7 +846,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/save-as";
+         bitmap = "tlab/gui/icons/default/save-as";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -2917,7 +2917,7 @@
             canSaveDynamicFields = "0";
 
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-rewind.png";
+               bitmap = "tlab/gui/icons/base_assets/mediarestart.png";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -2943,7 +2943,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-play.png";
+               bitmap = "tlab/gui/icons/base_assets/mediaplay.png";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -2969,7 +2969,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-stop.png";
+               bitmap = "tlab/gui/icons/base_assets/mediastop.png";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -2995,7 +2995,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-pause.png";
+               bitmap = "tlab/gui/icons/base_assets/mediapause.png";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -3021,7 +3021,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-camera.png";
+               bitmap = "tlab/gui/icons/base_assets/storestate.png";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -3047,7 +3047,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/icons/editors-assets/32media-up.png";
+               bitmap = "tlab/gui/icons/base_assets/mediaprev.png";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -3224,7 +3224,7 @@
                      canSaveDynamicFields = "0";
 
                      new GuiBitmapButtonCtrl() {
-                        bitmap = "tlab/gui/oldImages/delete";
+                        bitmap = "tlab/gui/icons/default/delete";
                         bitmapMode = "Stretched";
                         autoFitExtents = "0";
                         useModifiers = "0";
@@ -3251,7 +3251,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapButtonCtrl(SceneAddSimGroupButton1) {
-                        bitmap = "tlab/gui/oldImages/add-simgroup-btn";
+                        bitmap = "tlab/gui/icons/default/add-simgroup-btn";
                         bitmapMode = "Stretched";
                         autoFitExtents = "0";
                         useModifiers = "1";
@@ -3277,7 +3277,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapButtonCtrl() {
-                        bitmap = "tlab/gui/oldImages/lock";
+                        bitmap = "tlab/gui/icons/default/lock";
                         bitmapMode = "Stretched";
                         autoFitExtents = "0";
                         useModifiers = "0";
@@ -3392,7 +3392,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapButtonCtrl() {
-                              bitmap = "tlab/gui/oldImages/clear-icon";
+                              bitmap = "tlab/gui/icons/default/clear-icon";
                               bitmapMode = "Stretched";
                               autoFitExtents = "0";
                               useModifiers = "0";
@@ -3593,7 +3593,7 @@
 
                                     new GuiIconButtonCtrl() {
                                        buttonMargin = "2 2";
-                                       iconBitmap = "tlab/gui/oldImages/folder.png";
+                                       iconBitmap = "tlab/gui/icons/default/folder.png";
                                        iconLocation = "Left";
                                        sizeIconToButton = "0";
                                        makeIconSquare = "0";
@@ -3624,7 +3624,7 @@
                                     };
                                     new GuiIconButtonCtrl() {
                                        buttonMargin = "2 2";
-                                       iconBitmap = "tlab/gui/oldImages/folder.png";
+                                       iconBitmap = "tlab/gui/icons/default/folder.png";
                                        iconLocation = "Left";
                                        sizeIconToButton = "0";
                                        makeIconSquare = "0";
@@ -3655,7 +3655,7 @@
                                     };
                                     new GuiIconButtonCtrl() {
                                        buttonMargin = "2 2";
-                                       iconBitmap = "tlab/gui/oldImages/folder.png";
+                                       iconBitmap = "tlab/gui/icons/default/folder.png";
                                        iconLocation = "Left";
                                        sizeIconToButton = "0";
                                        makeIconSquare = "0";
@@ -3686,7 +3686,7 @@
                                     };
                                     new GuiIconButtonCtrl() {
                                        buttonMargin = "2 2";
-                                       iconBitmap = "tlab/gui/oldImages/folder.png";
+                                       iconBitmap = "tlab/gui/icons/default/folder.png";
                                        iconLocation = "Left";
                                        sizeIconToButton = "0";
                                        makeIconSquare = "0";
@@ -3717,7 +3717,7 @@
                                     };
                                     new GuiIconButtonCtrl() {
                                        buttonMargin = "2 2";
-                                       iconBitmap = "tlab/gui/oldImages/folder.png";
+                                       iconBitmap = "tlab/gui/icons/default/folder.png";
                                        iconLocation = "Left";
                                        sizeIconToButton = "0";
                                        makeIconSquare = "0";
@@ -3748,7 +3748,7 @@
                                     };
                                     new GuiIconButtonCtrl() {
                                        buttonMargin = "2 2";
-                                       iconBitmap = "tlab/gui/oldImages/folder.png";
+                                       iconBitmap = "tlab/gui/icons/default/folder.png";
                                        iconLocation = "Left";
                                        sizeIconToButton = "0";
                                        makeIconSquare = "0";
@@ -3779,7 +3779,7 @@
                                     };
                                     new GuiIconButtonCtrl() {
                                        buttonMargin = "2 2";
-                                       iconBitmap = "tlab/gui/oldImages/folder.png";
+                                       iconBitmap = "tlab/gui/icons/default/folder.png";
                                        iconLocation = "Left";
                                        sizeIconToButton = "0";
                                        makeIconSquare = "0";
@@ -3810,7 +3810,7 @@
                                     };
                                     new GuiIconButtonCtrl() {
                                        buttonMargin = "2 2";
-                                       iconBitmap = "tlab/gui/oldImages/folder.png";
+                                       iconBitmap = "tlab/gui/icons/default/folder.png";
                                        iconLocation = "Left";
                                        sizeIconToButton = "0";
                                        makeIconSquare = "0";
@@ -3859,7 +3859,7 @@
                               canSaveDynamicFields = "0";
 
                               new GuiBitmapButtonCtrl(CreatorNavUpButton1) {
-                                 bitmap = "tlab/gui/oldImages/folderUp";
+                                 bitmap = "tlab/gui/icons/default/folderUp";
                                  bitmapMode = "Stretched";
                                  autoFitExtents = "0";
                                  useModifiers = "0";

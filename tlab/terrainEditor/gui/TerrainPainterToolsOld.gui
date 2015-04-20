@@ -134,7 +134,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapCtrl(ETerrainMaterialSelectedBorder) {
-               bitmap = "tlab/gui/oldImages/terrainpainter/terrain-painter-border-large";
+               bitmap = "tlab/gui/icons/default/terrainpainter/terrain-painter-border-large";
                wrap = "0";
                position = "0 0";
                extent = "277 175";
@@ -348,7 +348,7 @@
                   canSaveDynamicFields = "0";
 
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/delete";
+                     bitmap = "tlab/gui/icons/default/delete";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";
@@ -409,7 +409,7 @@
                   canSaveDynamicFields = "0";
 
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/delete";
+                     bitmap = "tlab/gui/icons/default/delete";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";
@@ -470,7 +470,7 @@
                   canSaveDynamicFields = "0";
 
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/delete";
+                     bitmap = "tlab/gui/icons/default/delete";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";
@@ -531,7 +531,7 @@
                   canSaveDynamicFields = "0";
 
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/delete";
+                     bitmap = "tlab/gui/icons/default/delete";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";
@@ -592,7 +592,7 @@
                   canSaveDynamicFields = "0";
 
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/delete";
+                     bitmap = "tlab/gui/icons/default/delete";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";
@@ -619,7 +619,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "tlab/gui/oldImages/terrainpainter/new_layer_icon";
+                  iconBitmap = "tlab/gui/icons/default/terrainpainter/new_layer_icon";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";

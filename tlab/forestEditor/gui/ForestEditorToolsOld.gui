@@ -373,7 +373,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/delete";
+               bitmap = "tlab/gui/icons/default/delete";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -479,7 +479,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/delete";
+               bitmap = "tlab/gui/icons/default/delete";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";

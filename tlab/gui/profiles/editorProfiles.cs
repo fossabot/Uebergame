@@ -58,7 +58,7 @@ singleton GuiControlProfile (EditorScrollProfile) {
     border = 3;
     borderThickness = 2;
     borderColor = "0 0 0";
-    bitmap = "tlab/gui/oldImages/scrollBar";
+    bitmap = "tlab/gui/icons/default/scrollBar";
     hasBitmapArray = true;
     category = "Editor";
 };
@@ -73,7 +73,7 @@ singleton GuiControlProfile (GuiEditorClassProfile) {
     fontColorHL = "50 50 50";
     fixedExtent = true;
     justify = "center";
-    bitmap = "tlab/gui/oldImages/scrollBar";
+    bitmap = "tlab/gui/icons/default/scrollBar";
     hasBitmapArray = true;
     category = "Editor";
 };

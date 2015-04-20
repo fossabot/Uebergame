@@ -36,12 +36,14 @@ function Lab::initLabEditor( %this ) {
 	//%this.initSettings();
 
 	%this.initMenubar();
-
+   
+   %this.initGameLab();
 }
 //------------------------------------------------------------------------------
 
 //==============================================================================
 function Lab::initEditorGui( %this ) {
+   
 	newScriptObject("LabEditor");
 	newSimSet("LabGuiSet");
 	newSimSet("LabPluginGuiSet");

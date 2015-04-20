@@ -278,7 +278,7 @@
          };
       };
       new GuiBitmapButtonCtrl(SaveDecalsButton) {
-         bitmap = "tlab/gui/oldImages/save-icon";
+         bitmap = "tlab/gui/icons/default/save-icon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -303,7 +303,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl(RetargetDecalButton) {
-         bitmap = "tlab/gui/oldImages/retarget-btn";
+         bitmap = "tlab/gui/icons/default/retarget-btn";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -327,7 +327,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl(NewDecalButton) {
-         bitmap = "tlab/gui/oldImages/new";
+         bitmap = "tlab/gui/icons/default/new";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -351,7 +351,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl(DeleteDecalButton) {
-         bitmap = "tlab/gui/oldImages/delete";
+         bitmap = "tlab/gui/icons/default/delete";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -553,7 +553,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapCtrl() {
-                        bitmap = "tlab/gui/oldImages/terrainpainter/terrain-painter-border-large";
+                        bitmap = "tlab/gui/icons/default/terrainpainter/terrain-painter-border-large";
                         wrap = "0";
                         position = "36 0";
                         extent = "188 186";
@@ -1039,7 +1039,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapCtrl() {
-                        bitmap = "tlab/gui/oldImages/terrainpainter/terrain-painter-border-large.png";
+                        bitmap = "tlab/gui/icons/default/terrainpainter/terrain-painter-border-large.png";
                         wrap = "0";
                         position = "0 0";
                         extent = "261 181";

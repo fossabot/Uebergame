@@ -112,7 +112,7 @@
             canSaveDynamicFields = "0";
          };
          new GuiBitmapButtonCtrl() {
-            bitmap = "tlab/gui/oldImages/new";
+            bitmap = "tlab/gui/icons/default/new";
             autoFit = "0";
             text = "Create";
             groupNum = "-1";

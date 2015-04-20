@@ -259,7 +259,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapButtonCtrl() {
-                        bitmap = "tlab/gui/oldImages/new";
+                        bitmap = "tlab/gui/icons/default/new";
                         bitmapMode = "Stretched";
                         autoFitExtents = "0";
                         useModifiers = "0";
@@ -284,7 +284,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapButtonCtrl() {
-                        bitmap = "tlab/gui/oldImages/save-icon";
+                        bitmap = "tlab/gui/icons/default/save-icon";
                         bitmapMode = "Stretched";
                         autoFitExtents = "0";
                         useModifiers = "0";
@@ -309,7 +309,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapButtonCtrl() {
-                        bitmap = "tlab/gui/oldImages/delete";
+                        bitmap = "tlab/gui/icons/default/delete";
                         bitmapMode = "Stretched";
                         autoFitExtents = "0";
                         useModifiers = "0";
@@ -644,7 +644,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-v";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
                               wrap = "0";
                               position = "0 3";
                               extent = "261 2";
@@ -1097,7 +1097,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-v";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
                               wrap = "0";
                               position = "0 3";
                               extent = "261 2";
@@ -1372,7 +1372,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "151 0";
                               extent = "2 18";
@@ -1390,7 +1390,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "163 0";
                               extent = "2 18";
@@ -1408,7 +1408,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "175 0";
                               extent = "2 18";
@@ -1426,7 +1426,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "187 0";
                               extent = "2 18";
@@ -1444,7 +1444,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "200 0";
                               extent = "2 18";
@@ -1554,7 +1554,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "151 0";
                               extent = "2 18";
@@ -1572,7 +1572,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "163 0";
                               extent = "2 18";
@@ -1590,7 +1590,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "175 0";
                               extent = "2 18";
@@ -1608,7 +1608,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "187 0";
                               extent = "2 18";
@@ -1626,7 +1626,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "200 0";
                               extent = "2 18";
@@ -1735,7 +1735,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-v";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
                               wrap = "0";
                               position = "0 3";
                               extent = "261 2";
@@ -2215,7 +2215,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapButtonCtrl() {
-                              bitmap = "tlab/gui/oldImages/clear-icon";
+                              bitmap = "tlab/gui/icons/default/clear-icon";
                               bitmapMode = "Stretched";
                               autoFitExtents = "0";
                               useModifiers = "0";
@@ -2308,7 +2308,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapButtonCtrl() {
-                              bitmap = "tlab/gui/oldImages/clear-icon";
+                              bitmap = "tlab/gui/icons/default/clear-icon";
                               bitmapMode = "Stretched";
                               autoFitExtents = "0";
                               useModifiers = "0";
@@ -2401,7 +2401,7 @@
                               canSaveDynamicFields = "0";
                            };
                            new GuiBitmapButtonCtrl() {
-                              bitmap = "tlab/gui/oldImages/clear-icon";
+                              bitmap = "tlab/gui/icons/default/clear-icon";
                               bitmapMode = "Stretched";
                               autoFitExtents = "0";
                               useModifiers = "0";
@@ -2746,7 +2746,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-v";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
                               wrap = "0";
                               position = "0 3";
                               extent = "261 2";
@@ -3162,7 +3162,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapButtonCtrl(PEP_NewParticleButton) {
-                        bitmap = "tlab/gui/oldImages/new";
+                        bitmap = "tlab/gui/icons/default/new";
                         bitmapMode = "Stretched";
                         autoFitExtents = "0";
                         useModifiers = "1";
@@ -3186,7 +3186,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapButtonCtrl() {
-                        bitmap = "tlab/gui/oldImages/save-icon";
+                        bitmap = "tlab/gui/icons/default/save-icon";
                         bitmapMode = "Stretched";
                         autoFitExtents = "0";
                         useModifiers = "0";
@@ -3211,7 +3211,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapButtonCtrl() {
-                        bitmap = "tlab/gui/oldImages/delete";
+                        bitmap = "tlab/gui/icons/default/delete";
                         bitmapMode = "Stretched";
                         autoFitExtents = "0";
                         useModifiers = "0";
@@ -3485,7 +3485,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-v";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
                               wrap = "0";
                               position = "0 3";
                               extent = "261 2";
@@ -3938,7 +3938,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-v";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
                               wrap = "0";
                               position = "0 3";
                               extent = "261 2";
@@ -3972,7 +3972,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "175 0";
                               extent = "2 18";
@@ -4226,7 +4226,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "175 0";
                               extent = "2 18";
@@ -4336,7 +4336,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-h";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-h";
                               wrap = "0";
                               position = "175 0";
                               extent = "2 18";
@@ -4445,7 +4445,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-v";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
                               wrap = "0";
                               position = "0 3";
                               extent = "261 2";
@@ -4749,7 +4749,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-v";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
                               wrap = "0";
                               position = "0 3";
                               extent = "261 2";
@@ -5150,7 +5150,7 @@
                            canSaveDynamicFields = "0";
 
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx/separator-v";
+                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
                               wrap = "0";
                               position = "0 3";
                               extent = "261 2";
@@ -5567,7 +5567,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/classIcons/camera";
+         bitmap = "tlab/gui/icons/class_assets/camera";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";

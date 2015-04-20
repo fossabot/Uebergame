@@ -122,7 +122,8 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 	$LabMenu[%id++] = "Camera";
 	$LabMenuItem[%id,%itemId++] = "World Camera";
 	$LabMenuItem[%id,%itemId++] = "Player Camera";
-	$LabMenuItem[%id,%itemId++] = "-";
+	$LabMenuItem[%id,%itemId++] = "-";	
+	$LabMenuItem[%id,%itemId++] = "Toggle Control Object" TAB %menuCmdCtrl SPC "M" TAB "cmdServer(\"Lab.toggleControlObject\");";
 	$LabMenuItem[%id,%itemId++] = "Toggle Camera" TAB %menuCmdCtrl SPC "C" TAB "cmdServer(\"Game.ToggleClientCamera\");";
 	$LabMenuItem[%id,%itemId++] = "Place Camera at Selection" TAB "Ctrl Q" TAB "EWorldEditor.dropCameraToSelection();";
 	$LabMenuItem[%id,%itemId++] = "Place Camera at Player" TAB "Alt Q" TAB "commandToServer('dropCameraAtPlayer');";

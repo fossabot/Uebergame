@@ -391,7 +391,7 @@
          Command = "matEd_addCubemapWindow.setVisible(1);"; // -------------- Needs Hookup Create New Cubemap
          hovertime = "1000";
          tooltip = "Create New Cubemap";
-         bitmap = "tlab/gui/oldImages/new";
+         bitmap = "tlab/gui/icons/default/new";
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
@@ -411,7 +411,7 @@
          Command = "MaterialEditorGui.showDeleteCubemapDialog();"; // -------------- Needs Hookup Delete Cubemap
          hovertime = "1000";
          tooltip = "Delete Cubemap";
-         bitmap = "tlab/gui/oldImages/delete";
+         bitmap = "tlab/gui/icons/default/delete";
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
@@ -432,7 +432,7 @@
          Command = "MaterialEditorGui.showSaveCubemapDialog();"; // -------------- Needs Hookup Save Cubemap
          hovertime = "1000";
          tooltip = "Save Cubemap";
-         bitmap = "tlab/gui/oldImages/save-icon";
+         bitmap = "tlab/gui/icons/default/save-icon";
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";

@@ -1184,13 +1184,13 @@ function ColladaImportTreeView::onDefineIcons(%this)
    %this._imageExMaterial = 7;
 
    %icons = ":" @                                                    // no icon
-            "tlab/gui/oldImages/ColladaImport/iconNode:" @             // normal node
-            "tlab/gui/oldImages/ColladaImport/iconMesh:" @             // mesh
-            "tlab/gui/oldImages/ColladaImport/iconMaterial:" @         // new material
-            "tlab/gui/oldImages/ColladaImport/iconLight:" @            // light
-            "tlab/gui/oldImages/ColladaImport/iconAnimation:" @        // sequence
-            "tlab/gui/oldImages/ColladaImport/iconIgnoreNode:" @       // ignored node
-            "tlab/gui/oldImages/ColladaImport/iconExistingMaterial";   // existing material
+            "tlab/gui/icons/default/ColladaImport/iconNode:" @             // normal node
+            "tlab/gui/icons/default/ColladaImport/iconMesh:" @             // mesh
+            "tlab/gui/icons/default/ColladaImport/iconMaterial:" @         // new material
+            "tlab/gui/icons/default/ColladaImport/iconLight:" @            // light
+            "tlab/gui/icons/default/ColladaImport/iconAnimation:" @        // sequence
+            "tlab/gui/icons/default/ColladaImport/iconIgnoreNode:" @       // ignored node
+            "tlab/gui/icons/default/ColladaImport/iconExistingMaterial";   // existing material
 
    %this.buildIconTable( %icons );
 }

@@ -32,7 +32,7 @@
       text = "Button";
       buttonType = "RadioButton";
       useMouseEvents = "0";
-      bitmap = "tlab/gui/oldImages/brushAdjustHeight";
+      bitmap = "tlab/gui/icons/default/brushAdjustHeight";
    };
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";
@@ -54,7 +54,7 @@
       text = "Button";
       buttonType = "RadioButton";
       useMouseEvents = "0";
-      bitmap = "tlab/gui/oldImages/raiseHeight";
+      bitmap = "tlab/gui/icons/default/raiseHeight";
    };
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";
@@ -76,7 +76,7 @@
       text = "Button";
       buttonType = "RadioButton";
       useMouseEvents = "0";
-      bitmap = "tlab/gui/oldImages/lowerHeight";
+      bitmap = "tlab/gui/icons/default/lowerHeight";
    };
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";
@@ -98,7 +98,7 @@
       text = "Button";
       buttonType = "RadioButton";
       useMouseEvents = "0";
-      bitmap = "tlab/gui/oldImages/smoothHeight";
+      bitmap = "tlab/gui/icons/default/smoothHeight";
    };
    new GuiBitmapButtonCtrl() {  
       canSaveDynamicFields = "0";  
@@ -120,7 +120,7 @@
       text = "Button";  
       buttonType = "RadioButton";  
       useMouseEvents = "0";  
-      bitmap = "tlab/gui/oldImages/softCurve";  
+      bitmap = "tlab/gui/icons/default/softCurve";  
    };  
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";
@@ -142,7 +142,7 @@
       text = "Button";
       buttonType = "RadioButton";
       useMouseEvents = "0";
-      bitmap = "tlab/gui/oldImages/brushPaintNoise";
+      bitmap = "tlab/gui/icons/default/brushPaintNoise";
    };   
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";
@@ -164,7 +164,7 @@
       text = "Button";
       buttonType = "RadioButton";
       useMouseEvents = "0";
-      bitmap = "tlab/gui/oldImages/flattenHeight";
+      bitmap = "tlab/gui/icons/default/flattenHeight";
    };
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";
@@ -186,7 +186,7 @@
       text = "Button";
       buttonType = "RadioButton";
       useMouseEvents = "0";
-      bitmap = "tlab/gui/oldImages/setHeight";
+      bitmap = "tlab/gui/icons/default/setHeight";
    };
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";
@@ -208,7 +208,7 @@
       text = "Button";
       buttonType = "RadioButton";
       useMouseEvents = "0";
-      bitmap = "tlab/gui/oldImages/setEmpty";
+      bitmap = "tlab/gui/icons/default/setEmpty";
    };
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";
@@ -230,6 +230,6 @@
       text = "Button";
       buttonType = "RadioButton";
       useMouseEvents = "0";
-      bitmap = "tlab/gui/oldImages/clearEmpty";
+      bitmap = "tlab/gui/icons/default/clearEmpty";
    };
 };

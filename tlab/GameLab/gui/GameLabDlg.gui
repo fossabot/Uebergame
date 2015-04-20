@@ -1,0 +1,27 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(GameLabDlg) {
+   position = "0 0";
+   extent = "1280 1024";
+   minExtent = "8 8";
+   horizSizing = "width";
+   vertSizing = "height";
+   profile = "GuiOverlayProfile";
+   visible = "1";
+   active = "1";
+   tooltipProfile = "GuiToolTipProfile";
+   hovertime = "1000";
+   isContainer = "1";
+   canSave = "1";
+   canSaveDynamicFields = "1";
+      enabled = "1";
+      launchInEditor = "0";
+      modeCode0 = "Core";
+      modeCode1 = "Action";
+      modeCode2 = "FPS";
+      modeCode3 = "RTS";
+      tooltipWidth = "500";
+
+   
+};
+//--- OBJECT WRITE END ---
+

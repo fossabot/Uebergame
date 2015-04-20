@@ -535,6 +535,7 @@ function GuiEditCanvas::quit( %this ) {
 
    $InGuiEditor = false;
     Canvas.setContent(GuiEditor.initialContent);
+    
     // Canvas.setContent(GuiEditor.lastContent);
    
     //Temp fix to disable MLAA when in GUI editor

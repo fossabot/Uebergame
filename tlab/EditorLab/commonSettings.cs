@@ -102,9 +102,9 @@ function Lab::initCommonSettings( %this ) {
    %ar.setVal("renderPlane",       "0" TAB "renderPlane" TAB "TextEdit" TAB "" TAB "" TAB %gid);
    %ar.setVal("renderPlaneHashes",       "0" TAB "renderPlaneHashes" TAB "TextEdit" TAB "" TAB "" TAB %gid);
    %ar.setVal("planeDim",       "500" TAB "planeDim" TAB "TextEdit" TAB "" TAB "" TAB %gid);
-    %ar.setVal("defaultHandle",       "tlab/gui/oldImages/DefaultHandle" TAB "defaultHandle" TAB "TextEdit" TAB "" TAB "EWorldEditor" TAB %gid);
-     %ar.setVal("lockedHandle",       "tlab/gui/oldImages/LockedHandle" TAB "lockedHandle" TAB "TextEdit" TAB "" TAB "EWorldEditor" TAB %gid);
-      %ar.setVal("selectHandle",       "tlab/gui/oldImages/SelectHandle" TAB "selectHandle" TAB "TextEdit" TAB "" TAB "EWorldEditor" TAB %gid);
+    %ar.setVal("defaultHandle",       "tlab/gui/icons/default/DefaultHandle" TAB "defaultHandle" TAB "TextEdit" TAB "" TAB "EWorldEditor" TAB %gid);
+     %ar.setVal("lockedHandle",       "tlab/gui/icons/default/LockedHandle" TAB "lockedHandle" TAB "TextEdit" TAB "" TAB "EWorldEditor" TAB %gid);
+      %ar.setVal("selectHandle",       "tlab/gui/icons/default/SelectHandle" TAB "selectHandle" TAB "TextEdit" TAB "" TAB "EWorldEditor" TAB %gid);
 %ar.setVal("documentationLocal",       "../../../Documentation/Official Documentation.html" TAB "documentationLocal" TAB "TextEdit" TAB "" TAB "Lab" TAB %gid);
 %ar.setVal("documentationReference",       "../../../Documentation/Torque 3D - Script Manual.chm" TAB "documentationReference" TAB "TextEdit" TAB "" TAB "Lab" TAB %gid);
 %ar.setVal("documentationURL",       "http://www.garagegames.com/products/torque-3d/documentation/user" TAB "documentationURL" TAB "TextEdit" TAB "" TAB "Lab" TAB %gid);

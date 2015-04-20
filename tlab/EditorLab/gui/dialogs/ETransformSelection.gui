@@ -313,7 +313,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx/separator-v.png";
+         bitmap = "tlab/gui/images/gfx_assets/separator-v.png";
          wrap = "0";
          position = "0 111";
          extent = "123 2";
@@ -608,7 +608,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx/separator-v.png";
+         bitmap = "tlab/gui/images/gfx_assets/separator-v.png";
          wrap = "0";
          position = "0 251";
          extent = "123 2";

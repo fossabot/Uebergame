@@ -91,7 +91,7 @@
          tooltipprofile = "ToolsGuiToolTipProfile";
          ToolTip = "World Editor";
          hovertime = "1000";
-         bitmap = "tlab/gui/oldImages/lock";
+         bitmap = "tlab/gui/icons/default/lock";
          buttonType = "ToggleButton";
          groupNum = "-1";
          text = "";
@@ -115,7 +115,7 @@
          tooltipprofile = "ToolsGuiToolTipProfile";
          ToolTip = "World Editor";
          hovertime = "1000";
-         bitmap = "tlab/gui/oldImages/delete";
+         bitmap = "tlab/gui/icons/default/delete";
          buttonType = "PushButton";
          groupNum = "-1";
          text = "";

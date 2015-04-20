@@ -276,7 +276,7 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 
 		new GuiBitmapButtonCtrl() {
 			class = "EManageBookmarksGoToButton";
-			bitmap = "tlab/gui/oldImages/camera-btn";
+			bitmap = "tlab/gui/icons/default/camera-btn";
 			groupNum = "-1";
 			buttonType = "PushButton";
 			useMouseEvents = "0";
@@ -312,7 +312,7 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 
 		new GuiBitmapButtonCtrl() {
 			class = "EManageBookmarksDeleteButton";
-			bitmap = "tlab/gui/oldImages/delete";
+			bitmap = "tlab/gui/icons/default/delete";
 			groupNum = "-1";
 			buttonType = "PushButton";
 			useMouseEvents = "0";
