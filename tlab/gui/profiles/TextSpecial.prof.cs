@@ -99,7 +99,7 @@ singleton GuiControlProfile( ToolsGuiNumericTextEditProfile : ToolsGuiTextEditPr
 //------------------------------------------------------------------------------
 //==============================================================================
 singleton GuiControlProfile( ToolsGuiNumericDropSliderTextProfile : ToolsGuiTextEditProfile ) {
-    bitmap = "./images/textEditSliderBox";
+    bitmap = "tlab/gui/icons/default/textEditSliderBox";
     category = "Tools";
 };
 //------------------------------------------------------------------------------

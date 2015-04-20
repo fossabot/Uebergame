@@ -17,7 +17,7 @@ singleton GuiControlProfile( ToolsGuiSliderProfile ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 singleton GuiControlProfile( ToolsGuiSliderBoxProfile ) {
-    bitmap = "./images/slider-w-box";
+    bitmap = "tlab/gui/icons/default/slider-w-box";
     category = "Tools";
 };
 //------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ singleton GuiControlProfile( ToolsGuiPopupMenuItemBorder : ToolsDefaultProfile )
     fixedExtent = false;
     justify = "center";
     canKeyFocus = false;
-    bitmap = "./images/button";
+    bitmap = "tlab/gui/icons/default/button";
     category = "Tools";
 };
 //------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ singleton GuiControlProfile( ToolsGuiPopUpMenuDefault : ToolsDefaultProfile ) {
     border = 0;
     borderThickness = 0;
     fixedExtent = true;
-    bitmap = "./images/scrollbar";
+    bitmap = "tlab/gui/icons/default/scrollbar";
     hasBitmapArray = true;
     profileForChildren = ToolsGuiPopupMenuItemBorder;
     fillColor = "242 241 240 ";//"255 255 255";//100
@@ -73,7 +73,7 @@ singleton GuiControlProfile( ToolsGuiPopUpMenuProfile : ToolsGuiPopUpMenuDefault
 //------------------------------------------------------------------------------
 //==============================================================================
 singleton GuiControlProfile( ToolsGuiPopUpMenuTabProfile : ToolsGuiPopUpMenuDefault ) {
-    bitmap             = "./images/dropDown-tab";
+    bitmap             = "tlab/gui/icons/default/dropDown-tab";
     textOffset         = "6 4";
     canKeyFocus        = true;
     hasBitmapArray     = true;
@@ -86,7 +86,7 @@ singleton GuiControlProfile( ToolsGuiPopUpMenuTabProfile : ToolsGuiPopUpMenuDefa
 singleton GuiControlProfile( ToolsGuiPopUpMenuEditProfile : ToolsGuiPopUpMenuDefault ) {
     textOffset         = "6 4";
     canKeyFocus        = true;
-    bitmap             = "./images/dropDown";
+    bitmap             = "tlab/gui/icons/default/dropDown";
     hasBitmapArray     = true;
     border             = 1;
     profileForChildren = ToolsGuiPopUpMenuDefault;

@@ -135,7 +135,7 @@ singleton GuiControlProfile( ToolsGuiCheckBoxTitle ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 singleton GuiControlProfile( ToolsGuiCheckBoxListProfile : ToolsGuiCheckBoxProfile) {
-    bitmap = "./images/checkbox-list";
+    bitmap = "tlab/gui/icons/default/checkbox-list";
     category = "Tools";
 };
 //------------------------------------------------------------------------------
@@ -161,7 +161,7 @@ singleton GuiControlProfile( ToolsGuiInspectorCheckBoxTitleProfile : ToolsGuiChe
 //------------------------------------------------------------------------------
 //==============================================================================
 new GuiControlProfile( ToolsGuiThumbHighlightButtonProfile : ToolsGuiButtonProfile ) {
-    bitmap = "./images/thumbHightlightButton";
+    bitmap = "tlab/gui/icons/default/thumbHightlightButton";
     category = "Tools";
 };
 //------------------------------------------------------------------------------
