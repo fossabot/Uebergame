@@ -246,7 +246,7 @@
                canSaveDynamicFields = "0";
 
                new GuiBitmapButtonCtrl() {
-                  bitmap = "tlab/gui/oldImages/folderUp";
+                  bitmap = "tlab/gui/icons/default/folderUp";
                   bitmapMode = "Stretched";
                   autoFitExtents = "0";
                   useModifiers = "0";
@@ -355,7 +355,7 @@
 
                   new GuiIconButtonCtrl() {
                      buttonMargin = "2 2";
-                     iconBitmap = "tlab/gui/oldImages/folder.png";
+                     iconBitmap = "tlab/gui/icons/default/folder.png";
                      iconLocation = "Left";
                      sizeIconToButton = "1";
                      makeIconSquare = "1";
@@ -387,7 +387,7 @@
                   };
                   new GuiIconButtonCtrl() {
                      buttonMargin = "2 2";
-                     iconBitmap = "tlab/gui/oldImages/folder.png";
+                     iconBitmap = "tlab/gui/icons/default/folder.png";
                      iconLocation = "Left";
                      sizeIconToButton = "1";
                      makeIconSquare = "1";
@@ -1473,7 +1473,7 @@
                   canSaveDynamicFields = "0";
                };
                new GuiBitmapButtonCtrl() {
-                  bitmap = "tlab/gui/oldImages/new";
+                  bitmap = "tlab/gui/icons/default/new";
                   bitmapMode = "Stretched";
                   autoFitExtents = "0";
                   useModifiers = "0";
@@ -1499,7 +1499,7 @@
                   canSaveDynamicFields = "0";
                };
                new GuiBitmapButtonCtrl() {
-                  bitmap = "tlab/gui/oldImages/delete";
+                  bitmap = "tlab/gui/icons/default/delete";
                   bitmapMode = "Stretched";
                   autoFitExtents = "0";
                   useModifiers = "0";
@@ -2015,7 +2015,7 @@
                   };
                   new GuiIconButtonCtrl() {
                      buttonMargin = "0 4";
-                     iconBitmap = "tlab/gui/oldImages/menubar/world-transform_n";
+                     iconBitmap = "tlab/gui/icons/default/menubar/world-transform_n";
                      iconLocation = "Left";
                      sizeIconToButton = "0";
                      makeIconSquare = "0";
@@ -2047,7 +2047,7 @@
                   };
                   new GuiIconButtonCtrl() {
                      buttonMargin = "0 4";
-                     iconBitmap = "tlab/gui/oldImages/menubar/object-transform_n";
+                     iconBitmap = "tlab/gui/icons/default/menubar/object-transform_n";
                      iconLocation = "Left";
                      sizeIconToButton = "0";
                      makeIconSquare = "0";
@@ -2472,7 +2472,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiBitmapCtrl() {
-                     bitmap = "tlab/gui/oldImages/inactive-overlay";
+                     bitmap = "tlab/gui/icons/default/inactive-overlay";
                      wrap = "0";
                      position = "4 45";
                      extent = "193 42";
@@ -2731,7 +2731,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "0 4";
-                  iconBitmap = "tlab/gui/oldImages/toolbar/matterial-editor_n";
+                  iconBitmap = "tlab/gui/icons/default/toolbar/matterial-editor_n";
                   iconLocation = "Left";
                   sizeIconToButton = "0";
                   makeIconSquare = "0";
@@ -2786,7 +2786,7 @@
          };
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/save-icon";
+         bitmap = "tlab/gui/icons/default/save-icon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -2812,7 +2812,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/new";
+         bitmap = "tlab/gui/icons/default/new";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -2838,7 +2838,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/delete";
+         bitmap = "tlab/gui/icons/default/delete";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -3060,7 +3060,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiBitmapCtrl() {
-                     bitmap = "tlab/gui/oldImages/inactive-overlay";
+                     bitmap = "tlab/gui/icons/default/inactive-overlay";
                      wrap = "0";
                      position = "57 19";
                      extent = "122 20";
@@ -3948,7 +3948,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiBitmapCtrl() {
-                     bitmap = "tlab/gui/oldImages/inactive-overlay";
+                     bitmap = "tlab/gui/icons/default/inactive-overlay";
                      wrap = "0";
                      position = "4 18";
                      extent = "193 64";
@@ -4169,7 +4169,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/delete";
+                     bitmap = "tlab/gui/icons/default/delete";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";
@@ -4194,7 +4194,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/new";
+                     bitmap = "tlab/gui/icons/default/new";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";
@@ -4667,7 +4667,7 @@
                      };
                   };
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/delete";
+                     bitmap = "tlab/gui/icons/default/delete";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";
@@ -4692,7 +4692,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/new";
+                     bitmap = "tlab/gui/icons/default/new";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";
@@ -5673,7 +5673,7 @@
                   canSaveDynamicFields = "0";
                };
                new GuiBitmapCtrl() {
-                  bitmap = "tlab/gui/oldImages/inactive-overlay";
+                  bitmap = "tlab/gui/icons/default/inactive-overlay";
                   wrap = "0";
                   position = "0 47";
                   extent = "199 175";

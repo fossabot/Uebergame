@@ -72,7 +72,7 @@ new GuiControlProfile( ToolsGuiGroupBorderProfile ) {
     opaque = false;
     hasBitmapArray = true;
 
-    bitmap = "tlab/gui/oldImages/group-border";
+    bitmap = "tlab/gui/icons/default/group-border";
     category = "Tools";
 };
 

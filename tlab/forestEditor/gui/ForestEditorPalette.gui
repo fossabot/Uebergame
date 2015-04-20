@@ -29,7 +29,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Select Item (1)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/menubar/arrow";
+      bitmap = "tlab/gui/icons/default/menubar/arrow";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };    
@@ -50,7 +50,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Move Item (2)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/menubar/translate";
+      bitmap = "tlab/gui/icons/default/menubar/translate";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -71,7 +71,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Rotate Item (3)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/menubar/rotate";
+      bitmap = "tlab/gui/icons/default/menubar/rotate";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -92,7 +92,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Scale Item (4)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/menubar/scale";
+      bitmap = "tlab/gui/icons/default/menubar/scale";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };

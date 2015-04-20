@@ -23,6 +23,11 @@ Lab.loadEditorProfiles($LabExecGui);
 //Create Lab Editor Core Objects
 exec("tlab/EditorLab/initLabEditor.cs");
 exec("tlab/EditorLab/commonSettings.cs");
+
+//------------------------------------------------------------------------------
+//Load GameLab system (In-Game Editor)
+exec("tlab/GameLab/initGameLab.cs");
+
 //------------------------------------------------------------------------------
 //Load the Editor Menubar Scripts
 exec("tlab/EditorLab/menubar/manageMenu.cs");
@@ -47,16 +52,29 @@ exec("tlab/EditorLab/scripts/cameraCommands.cs");
 exec("tlab/EditorLab/scripts/editorBinds.cs");
 //------------------------------------------------------------------------------
 //Load the Editor Main Gui
-exec("tlab/EditorLab/helpers/paramsBuilder.cs");
-exec("tlab/EditorLab/helpers/paramsFunctions.cs");
-exec("tlab/EditorLab/helpers/guiHelpers.cs");
-exec("tlab/EditorLab/helpers/objectsGroup.cs");
-exec("tlab/EditorLab/helpers/sceneObjects.cs");
-exec("tlab/EditorLab/helpers/guiTreeView.cs");
+function execLabHelpers(%forced  ) {
+   exec("tlab/EditorLab/helpers/paramsBuilder.cs");
+   exec("tlab/EditorLab/helpers/paramsFunctions.cs");
+   exec("tlab/EditorLab/helpers/guiHelpers.cs");
+   exec("tlab/EditorLab/helpers/objectsGroup.cs");
+   exec("tlab/EditorLab/helpers/sceneObjects.cs");
+   exec("tlab/EditorLab/helpers/guiTreeView.cs");
+   
+   //The following are from the main HelperLab system, don't exec if loaded
+   exec("tlab/EditorLab/helpers/ObjectClass/GuiControl.cs");
+   if (!$HelperLabLoaded || %forced){
+      exec("tlab/EditorLab/helpers/ObjectClass/simObjectHelpers.cs");
+      exec("tlab/EditorLab/helpers/ObjectClass/simGroupHelpers.cs");
+      exec("tlab/EditorLab/helpers/ObjectClass/ScriptObjectHelpers.cs");
+   }
+      
+}
+execLabHelpers();
+
 //------------------------------------------------------------------------------
 //Load the Editor Main Gui
 
-function execLabFunctions(  ) {
+function execLabFunctions( ) {
    exec("tlab/EditorLab/functions/objectsGroup.cs");
    exec("tlab/EditorLab/functions/objectsSelect.cs");
    exec("tlab/EditorLab/functions/objectsCopy.cs");

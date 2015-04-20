@@ -97,8 +97,8 @@ function GuiEditorTreeView::onDefineIcons(%this) {
              ":" @       // SimGroup2
              ":" @       // SimGroup3
              ":" @       // SimGroup4
-             "tlab/gui/oldImages/treeview/hidden:" @
-             "tlab/gui/oldImages/lockedHandle";
+             "tlab/gui/icons/default/treeview/hidden:" @
+             "tlab/gui/icons/default/lockedHandle";
 
     GuiEditorTreeView.buildIconTable( %icons );
 }

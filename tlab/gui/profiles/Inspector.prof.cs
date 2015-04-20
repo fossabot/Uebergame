@@ -89,7 +89,7 @@ singleton GuiControlProfile( GuiInspectorTextEditProfile ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 singleton GuiControlProfile( GuiDropdownTextEditProfile :  GuiInspectorTextEditProfile ) {
-    bitmap = "tlab/gui/oldImages/dropdown-textEdit";
+    bitmap = "tlab/gui/icons/default/dropdown-textEdit";
     category = "Editor";
 };
 //------------------------------------------------------------------------------
@@ -240,7 +240,7 @@ singleton GuiControlProfile( GuiInspectorStackProfile ) {
 //==============================================================================
 // Used in SourceCode
 singleton GuiControlProfile( InspectorTypeCheckboxProfile : GuiInspectorFieldProfile ) {
-    bitmap = "tlab/gui/oldImages/checkBox";
+    bitmap = "tlab/gui/icons/default/checkBox";
     hasBitmapArray = true;
     opaque=false;
     border=false;

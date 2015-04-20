@@ -343,7 +343,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/oldImages/clear-icon";
+                     bitmap = "tlab/gui/icons/default/clear-icon";
                      bitmapMode = "Stretched";
                      autoFitExtents = "0";
                      useModifiers = "0";

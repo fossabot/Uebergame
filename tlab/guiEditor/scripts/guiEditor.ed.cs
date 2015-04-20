@@ -786,11 +786,11 @@ function GuiEditorTabBook::onTabSelected( %this, %text, %index ) {
         %sidebar-->button3.setVisible( true );
         %sidebar-->button4.setVisible( true );
 
-        %sidebar-->button4.setBitmap( "tlab/gui/oldImages/delete" );
+        %sidebar-->button4.setBitmap( "tlab/gui/icons/default/delete" );
         %sidebar-->button4.command = "GuiEditor.deleteSelection();";
         %sidebar-->button4.tooltip = "Delete Selected Control(s)";
 
-        %sidebar-->button3.setBitmap( "tlab/gui/oldImages/visible" );
+        %sidebar-->button3.setBitmap( "tlab/gui/icons/default/visible" );
         %sidebar-->button3.command = "GuiEditor.toggleHideSelection();";
         %sidebar-->button3.tooltip = "Hide Selected Control(s)";
 
@@ -801,19 +801,19 @@ function GuiEditorTabBook::onTabSelected( %this, %text, %index ) {
         %sidebar-->button3.setVisible( true );
         %sidebar-->button4.setVisible( true );
 
-        %sidebar-->button4.setBitmap( "tlab/gui/oldImages/delete" );
+        %sidebar-->button4.setBitmap( "tlab/gui/icons/default/delete" );
         %sidebar-->button4.command = "GuiEditor.showDeleteProfileDialog( GuiEditorProfilesTree.getSelectedProfile() );";
         %sidebar-->button4.tooltip = "Delete Selected Profile";
 
-        %sidebar-->button3.setBitmap( "tlab/gui/oldImages/new" );
+        %sidebar-->button3.setBitmap( "tlab/gui/icons/default/new" );
         %sidebar-->button3.command = "GuiEditor.createNewProfile( \"Unnamed\" );";
         %sidebar-->button3.tooltip = "Create New Profile with Default Values";
 
-        %sidebar-->button2.setBitmap( "tlab/gui/oldImages/copy-btn" );
+        %sidebar-->button2.setBitmap( "tlab/gui/icons/default/copy-btn" );
         %sidebar-->button2.command = "GuiEditor.createNewProfile( GuiEditorProfilesTree.getSelectedProfile().getName(), GuiEditorProfilesTree.getSelectedProfile() );";
         %sidebar-->button2.tooltip = "Create New Profile by Copying the Selected Profile";
 
-        %sidebar-->button1.setBitmap( "tlab/gui/oldImages/reset-icon" );
+        %sidebar-->button1.setBitmap( "tlab/gui/icons/default/reset-icon" );
         %sidebar-->button1.command = "GuiEditor.revertProfile( GuiEditorProfilesTree.getSelectedProfile() );";
         %sidebar-->button1.tooltip = "Revert Changes to the Selected Profile";
 

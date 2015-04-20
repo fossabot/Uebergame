@@ -152,7 +152,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
     // Add one more layer as the 'add new' layer.
     %ctrl = new GuiIconButtonCtrl() {
         profile = "ToolsGuiIconButtonStackProfile";
-        iconBitmap = "tlab/gui/oldImages/terrainpainter/new_layer_icon";
+        iconBitmap = "tlab/gui/icons/default/terrainpainter/new_layer_icon";
         iconLocation = "Left";
         textLocation = "Right";
         extent = %listWidth SPC "46";

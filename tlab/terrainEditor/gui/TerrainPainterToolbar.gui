@@ -94,7 +94,7 @@
             canSaveDynamicFields = "0";
          };
          new GuiBitmapButtonCtrl() {
-            bitmap = "tlab/gui/oldImages/dropslider";
+            bitmap = "tlab/gui/icons/default/dropslider";
             bitmapMode = "Stretched";
             autoFitExtents = "0";
             useModifiers = "0";
@@ -120,7 +120,7 @@
             canSaveDynamicFields = "0";
          };
          new GuiBitmapButtonCtrl() {
-            bitmap = "tlab/gui/oldImages/circleBrush";
+            bitmap = "tlab/gui/icons/default/circleBrush";
             bitmapMode = "Stretched";
             autoFitExtents = "0";
             useModifiers = "0";
@@ -147,7 +147,7 @@
             canSaveDynamicFields = "0";
          };
          new GuiBitmapButtonCtrl() {
-            bitmap = "tlab/gui/oldImages/boxBrush";
+            bitmap = "tlab/gui/icons/default/boxBrush";
             bitmapMode = "Stretched";
             autoFitExtents = "0";
             useModifiers = "0";
@@ -199,7 +199,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx/separator-h.png";
+         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
          wrap = "0";
          position = "124 0";
          extent = "2 26";
@@ -291,7 +291,7 @@
             canSaveDynamicFields = "0";
          };
          new GuiBitmapButtonCtrl() {
-            bitmap = "tlab/gui/oldImages/dropslider";
+            bitmap = "tlab/gui/icons/default/dropslider";
             bitmapMode = "Stretched";
             autoFitExtents = "0";
             useModifiers = "0";
@@ -350,7 +350,7 @@
             canSaveDynamicFields = "0";
          };
          new GuiBitmapButtonCtrl() {
-            bitmap = "tlab/gui/oldImages/dropslider";
+            bitmap = "tlab/gui/icons/default/dropslider";
             bitmapMode = "Stretched";
             autoFitExtents = "0";
             useModifiers = "0";
@@ -377,7 +377,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx/separator-h.png";
+         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
          wrap = "0";
          position = "258 0";
          extent = "2 26";
@@ -466,7 +466,7 @@
             canSaveDynamicFields = "0";
          };
          new GuiBitmapButtonCtrl() {
-            bitmap = "tlab/gui/oldImages/dropslider";
+            bitmap = "tlab/gui/icons/default/dropslider";
             bitmapMode = "Stretched";
             autoFitExtents = "0";
             useModifiers = "0";

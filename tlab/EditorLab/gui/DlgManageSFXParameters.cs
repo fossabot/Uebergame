@@ -485,7 +485,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				altCommand = %parameter @ ".value = $thisControl.getValue();";
 			};
 			new GuiBitmapButtonCtrl() {
-				bitmap = "tlab/gui/oldImages/reset-icon";
+				bitmap = "tlab/gui/icons/default/reset-icon";
 				autoFit = "0";
 				groupNum = "-1";
 				buttonType = "PushButton";
@@ -506,7 +506,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				command = %parameter @ ".reset();";
 			};
 			new GuiBitmapButtonCtrl() {
-				bitmap = "tlab/gui/oldImages/delete";
+				bitmap = "tlab/gui/icons/default/delete";
 				autoFit = "0";
 				groupNum = "-1";
 				buttonType = "PushButton";

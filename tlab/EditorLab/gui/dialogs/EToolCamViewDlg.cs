@@ -35,12 +35,15 @@ function EToolCamViewDlg::addCamViewToCtrl(%this,%ctrl) {
    
    if (!isObject(EToolCamViewSet))
       newSimSet("EToolCamViewSet");
-      
+   
+   //Make sure to delete the Camview if already assigned
+   delObj(%ctrl-->CamViewFrame);
+   
    %camCtrl = %this-->camViewCtrl.deepClone();
    %ctrl.add(%camCtrl);
    %camCtrl.superClass = "EToolCamCtrl";
    %camCtrl.position = EWToolsPaletteContainer.extent.x SPC EWToolsToolbar.extent.y;
-   %camCtrl.internalName = "CamViewFrame1";  
+   %camCtrl.internalName = "CamViewFrame";  
    %camCtrl-->dragCam.viewCtrl = %camCtrl;
    //%camCtrl.AlignCtrlToParent("right");   
    %this.setCurrentView(%camCtrl); 

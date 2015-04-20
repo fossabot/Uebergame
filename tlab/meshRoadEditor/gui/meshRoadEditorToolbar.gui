@@ -47,7 +47,7 @@
       canSaveDynamicFields = "0";
 
       new GuiBitmapButtonCtrl(MeshRoadEditorShowSplineBtn) {
-         bitmap = "tlab/gui/oldImages/road-river/menubar/show-spline";
+         bitmap = "tlab/gui/icons/default/road-river/menubar/show-spline";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -73,7 +73,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl(MeshRoadEditorWireframeBtn) {
-         bitmap = "tlab/gui/oldImages/road-river/menubar/show-wireframe";
+         bitmap = "tlab/gui/icons/default/road-river/menubar/show-wireframe";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -99,7 +99,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl(MeshRoadEditorShowRoadBtn) {
-         bitmap = "tlab/gui/oldImages/road-river/menubar/show-texture";
+         bitmap = "tlab/gui/icons/default/road-river/menubar/show-texture";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -197,7 +197,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/dropslider";
+         bitmap = "tlab/gui/icons/default/dropslider";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -295,7 +295,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/dropslider";
+         bitmap = "tlab/gui/icons/default/dropslider";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";

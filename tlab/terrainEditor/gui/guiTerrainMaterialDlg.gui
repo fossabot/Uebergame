@@ -394,7 +394,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/oldImages/inactive-overlay";
+         bitmap = "tlab/gui/icons/default/inactive-overlay";
          wrap = "0";
          position = "361 23";
          extent = "190 438";

@@ -29,7 +29,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Select Mesh Road (1)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/menubar/arrow";
+      bitmap = "tlab/gui/icons/default/menubar/arrow";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    }; 
@@ -51,7 +51,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Move Point (2)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/road-river/move-point";
+      bitmap = "tlab/gui/icons/default/road-river/move-point";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -72,7 +72,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Rotate Point (3)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/road-river/rotate-point";
+      bitmap = "tlab/gui/icons/default/road-river/rotate-point";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -93,7 +93,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Scale Point (4)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/road-river/scale-point";
+      bitmap = "tlab/gui/icons/default/road-river/scale-point";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -114,7 +114,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Create Road (5)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/road-river/add-mesh-road";
+      bitmap = "tlab/gui/icons/default/road-river/add-mesh-road";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -135,7 +135,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Insert Point (+)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/road-river/add-point";
+      bitmap = "tlab/gui/icons/default/road-river/add-point";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -156,7 +156,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Remove Point (-)";
       hovertime = "1000";
-      bitmap = "tlab/gui/oldImages/road-river/subtract-point";
+      bitmap = "tlab/gui/icons/default/road-river/subtract-point";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };

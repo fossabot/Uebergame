@@ -161,7 +161,7 @@ Lab.addGui( EMissionArea ,"Dialog");
 
 	Lab.setMenuDefaultState();
 
-	EditorGuiToolbar-->cameraTypes.setBitmap("tlab/gui/oldImages/toolbar/player");
+	EditorGuiToolbar-->cameraTypes.setBitmap("tlab/gui/icons/default/toolbar/player");
 
 	/*
 	EWorldEditorCameraSpeed.clear();

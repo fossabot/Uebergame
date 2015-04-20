@@ -1112,35 +1112,7 @@
             };
          };
       };
-      new GuiIconButtonCtrl() {
-         buttonMargin = "2 2";
-         iconBitmap = "tlab/gui/oldImages/icons/editors-assets/tool-labphysic.png";
-         iconLocation = "Left";
-         sizeIconToButton = "1";
-         makeIconSquare = "0";
-         textLocation = "Left";
-         textMargin = "4";
-         autoSize = "0";
-         offsetHover = "1232364915 678389358";
-         offsetPressed = "1633899298 1931502956";
-         groupNum = "-1";
-         buttonType = "ToggleButton";
-         useMouseEvents = "0";
-         position = "72 101";
-         extent = "24 24";
-         minExtent = "8 2";
-         horizSizing = "right";
-         vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonProfile";
-         visible = "1";
-         active = "1";
-         tooltipProfile = "GuiToolTipProfile";
-         hovertime = "1000";
-         isContainer = "0";
-         internalName = "ToolIcon";
-         canSave = "1";
-         canSaveDynamicFields = "0";
-      };
+      
    };
 };
 //--- OBJECT WRITE END ---

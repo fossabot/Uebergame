@@ -125,7 +125,7 @@
       };
       new GuiIconButtonCtrl() {
          buttonMargin = "4 4";
-         iconBitmap = "tlab/gui/oldImages/iconCancel.png";
+         iconBitmap = "tlab/gui/icons/default/iconCancel.png";
          iconLocation = "Left";
          sizeIconToButton = "0";
          makeIconSquare = "0";
@@ -152,7 +152,7 @@
       };
       new GuiIconButtonCtrl() {
          buttonMargin = "4 4";
-         iconBitmap = "tlab/gui/oldImages/iconAccept.png";
+         iconBitmap = "tlab/gui/icons/default/iconAccept.png";
          iconLocation = "Left";
          sizeIconToButton = "0";
          makeIconSquare = "0";

@@ -165,7 +165,7 @@ new GuiControlProfile( ToolsGuiThumbHighlightButtonProfile : ToolsGuiButtonProfi
     category = "Tools";
 };
 //------------------------------------------------------------------------------
-singleton GuiControlProfile(ToolsGuiRadioMain : GuiDefaultProfile)
+singleton GuiControlProfile(ToolsGuiRadioMain : ToolsDefaultProfile)
 {
 	fillColor = "254 253 253 255";
 	fillColorHL = "221 221 221 255";
@@ -181,6 +181,6 @@ singleton GuiControlProfile(ToolsGuiRadioMain : GuiDefaultProfile)
    fontColorNA = "Black";
    justify = "Center";
    fontType = "Gotham Bold";
-   category = "Game";
+   category = "Tools";
    fontColors[8] = "255 0 255 255";
 };

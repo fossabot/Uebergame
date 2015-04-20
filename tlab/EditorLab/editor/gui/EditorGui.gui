@@ -7,7 +7,7 @@
    anchorLeft = "1";
    anchorRight = "0";
    position = "0 0";
-   extent = "1280 1024";
+   extent = "1440 900";
    minExtent = "8 8";
    horizSizing = "right";
    vertSizing = "bottom";
@@ -31,7 +31,7 @@
       anchorLeft = "1";
       anchorRight = "0";
       position = "0 0";
-      extent = "1280 26";
+      extent = "1440 26";
       minExtent = "8 2";
       horizSizing = "width";
       vertSizing = "bottom";
@@ -47,7 +47,7 @@
       new GuiMenuBar(LabMenu) {
          padding = "0";
          position = "0 2";
-         extent = "1280 22";
+         extent = "1440 22";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
@@ -69,7 +69,7 @@
       anchorLeft = "1";
       anchorRight = "0";
       position = "0 26";
-      extent = "1280 36";
+      extent = "1440 36";
       minExtent = "8 2";
       horizSizing = "width";
       vertSizing = "bottom";
@@ -92,7 +92,6 @@
          dynamicPos = "0";
          changeChildSizeToFit = "1";
          changeChildPosition = "1";
-         preventReordering = "1";
          position = "4 2";
          extent = "187 32";
          minExtent = "16 16";
@@ -118,7 +117,6 @@
             dynamicPos = "0";
             changeChildSizeToFit = "1";
             changeChildPosition = "1";
-            preventReordering = "0";
             position = "0 0";
             extent = "187 32";
             minExtent = "16 16";
@@ -135,15 +133,13 @@
 
             new GuiIconButtonCtrl() {
                buttonMargin = "1 1";
-               iconBitmap = "tlab/gui/oldImages/toolbar/camera";
+               iconBitmap = "tlab/gui/icons/default/toolbar/camera";
                iconLocation = "Left";
                sizeIconToButton = "0";
                makeIconSquare = "0";
                textLocation = "Left";
                textMargin = "4";
                autoSize = "0";
-               offsetHover = "-1 -1";
-               offsetPressed = "1 1";
                groupNum = "-1";
                buttonType = "PushButton";
                useMouseEvents = "0";
@@ -165,7 +161,7 @@
                canSaveDynamicFields = "0";
 
                new GuiBitmapCtrl() {
-                  bitmap = "tlab/gui/oldImages/dropdown-button-arrow";
+                  bitmap = "tlab/gui/icons/default/dropdown-button-arrow";
                   wrap = "0";
                   position = "26 28";
                   extent = "4 4";
@@ -192,8 +188,6 @@
                textLocation = "Left";
                textMargin = "4";
                autoSize = "0";
-               offsetHover = "-1 -1";
-               offsetPressed = "1 1";
                groupNum = "-1";
                buttonType = "PushButton";
                useMouseEvents = "0";
@@ -221,8 +215,6 @@
                textLocation = "Left";
                textMargin = "4";
                autoSize = "0";
-               offsetHover = "-1 -1";
-               offsetPressed = "1 1";
                groupNum = "-1";
                buttonType = "PushButton";
                useMouseEvents = "0";
@@ -242,7 +234,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapCtrl() {
-               bitmap = "tlab/gui/images/gfx/separator-h.png";
+               bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
                wrap = "0";
                position = "90 0";
                extent = "2 32";
@@ -267,8 +259,6 @@
                textLocation = "Left";
                textMargin = "4";
                autoSize = "0";
-               offsetHover = "-1 -1";
-               offsetPressed = "1 1";
                groupNum = "-1";
                buttonType = "PushButton";
                useMouseEvents = "0";
@@ -290,7 +280,7 @@
                canSaveDynamicFields = "0";
 
                new GuiBitmapCtrl() {
-                  bitmap = "tlab/gui/oldImages/dropdown-button-arrow";
+                  bitmap = "tlab/gui/icons/default/dropdown-button-arrow";
                   wrap = "0";
                   position = "26 28";
                   extent = "4 4";
@@ -317,8 +307,6 @@
                textLocation = "Left";
                textMargin = "4";
                autoSize = "0";
-               offsetHover = "-1 -1";
-               offsetPressed = "1 1";
                groupNum = "-1";
                buttonType = "PushButton";
                useMouseEvents = "0";
@@ -339,7 +327,7 @@
                canSaveDynamicFields = "0";
 
                new GuiBitmapCtrl() {
-                  bitmap = "tlab/gui/oldImages/dropdown-button-arrow";
+                  bitmap = "tlab/gui/icons/default/dropdown-button-arrow";
                   wrap = "0";
                   position = "26 28";
                   extent = "4 4";
@@ -427,7 +415,7 @@
                   canSaveDynamicFields = "0";
                };
                new GuiBitmapButtonCtrl() {
-                  bitmap = "tlab/gui/oldImages/dropslider";
+                  bitmap = "tlab/gui/icons/default/dropslider";
                   bitmapMode = "Stretched";
                   autoFitExtents = "0";
                   useModifiers = "0";
@@ -478,7 +466,7 @@
                canSaveDynamicFields = "0";
 
                new GuiBitmapCtrl() {
-                  bitmap = "tlab/gui/oldImages/dropdown-button-arrow";
+                  bitmap = "tlab/gui/icons/default/dropdown-button-arrow";
                   wrap = "0";
                   position = "26 26";
                   extent = "4 4";
@@ -545,7 +533,7 @@
       };
    };
    new GuiFrameSetCtrl(EditorFrameMain) {
-      columns = "0 1000";
+      columns = "0 1125";
       rows = "0";
       borderWidth = "2";
       borderColor = "106 106 106 255";
@@ -561,7 +549,7 @@
       anchorLeft = "0";
       anchorRight = "1";
       position = "0 62";
-      extent = "1280 938";
+      extent = "1440 814";
       minExtent = "8 2";
       horizSizing = "width";
       vertSizing = "height";
@@ -582,7 +570,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "0 0";
-         extent = "998 938";
+         extent = "1123 814";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
@@ -604,7 +592,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "998 938";
+            extent = "1123 814";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -619,20 +607,20 @@
             canSaveDynamicFields = "0";
 
             new WorldEditor(EWorldEditor) {
-               gridSnap = "1";
+               gridSnap = "0";
                dropAtBounds = "1";
                dropBelowCameraOffset = "15";
                dropAtScreenCenterScalar = "1";
                dropAtScreenCenterMax = "100";
-               dropType = "toTerrain";
+               dropType = "atOrigin";
                popupBackgroundColor = "100 100 100 255";
                popupTextColor = "255 255 0 255";
-               objectTextColor = "254 248 231 255";
+               objectTextColor = "255 255 255 255";
                selectionBoxColor = "255 255 0 255";
                objSelectColor = "255 0 0 255";
                objMouseOverSelectColor = "0 0 255 255";
                objMouseOverColor = "0 255 0 255";
-               dragRectColor = "3 254 97 255";
+               dragRectColor = "3 219 48 255";
                faceSelectColor = "255 255 0 255";
                boundingBoxCollision = "0";
                objectMeshCollision = "1";
@@ -644,17 +632,17 @@
                renderObjText = "1";
                renderObjHandle = "1";
                renderSelectionBox = "1";
-               selectHandle = "tlab/gui/oldImages/SelectHandle";
-               defaultHandle = "tlab/gui/oldImages/DefaultHandle";
-               lockedHandle = "tlab/gui/oldImages/LockedHandle";
+               selectHandle = "tlab/gui/icons/default/SelectHandle";
+               defaultHandle = "tlab/gui/icons/default/DefaultHandle";
+               lockedHandle = "tlab/gui/icons/default/LockedHandle";
                fadeIcons = "1";
                fadeIconsDist = "8";
                isDirty = "0";
                stickToGround = "0";
                toggleIgnoreList = "0";
                gridSize = "0.5";
-               gridColor = "248 3 254 255";
-               gridOriginColor = "18 185 18 222";
+               gridColor = "102 102 102 100";
+               gridOriginColor = "255 255 255 100";
                gridMinorTickColor = "51 51 51 100";
                renderOrthoGrid = "1";
                renderOrthoGridPixelBias = "10";
@@ -683,16 +671,17 @@
                anchorLeft = "0";
                anchorRight = "0";
                position = "0 0";
-               extent = "998 938";
+               extent = "1123 814";
                minExtent = "8 8";
                horizSizing = "width";
                vertSizing = "height";
                profile = "WorldEditorProfile";
-               visible = "1";
+               visible = "0";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
                hovertime = "1000";
                isContainer = "0";
+               hidden = "1";
                canSave = "1";
                canSaveDynamicFields = "0";
             };
@@ -751,7 +740,7 @@
                anchorLeft = "0";
                anchorRight = "0";
                position = "0 0";
-               extent = "998 938";
+               extent = "1123 814";
                minExtent = "8 8";
                horizSizing = "width";
                vertSizing = "height";
@@ -774,7 +763,7 @@
                   anchorBottom = "0";
                   anchorLeft = "1";
                   anchorRight = "0";
-                  position = "288 887";
+                  position = "288 763";
                   extent = "129 18";
                   minExtent = "8 8";
                   horizSizing = "right";
@@ -797,7 +786,7 @@
                   anchorBottom = "0";
                   anchorLeft = "1";
                   anchorRight = "0";
-                  position = "40 887";
+                  position = "40 763";
                   extent = "110 18";
                   minExtent = "8 8";
                   horizSizing = "right";
@@ -820,7 +809,7 @@
                   anchorBottom = "0";
                   anchorLeft = "1";
                   anchorRight = "0";
-                  position = "289 888";
+                  position = "289 764";
                   extent = "129 18";
                   minExtent = "8 8";
                   horizSizing = "right";
@@ -843,7 +832,7 @@
                   anchorBottom = "0";
                   anchorLeft = "1";
                   anchorRight = "0";
-                  position = "41 888";
+                  position = "41 764";
                   extent = "173 18";
                   minExtent = "8 8";
                   horizSizing = "right";
@@ -867,7 +856,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "998 938";
+            extent = "1123 814";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -945,7 +934,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "GuiBoxBorderProfile";
+            profile = "ToolsGuiBoxBorder";
             visible = "0";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1090,18 +1079,6 @@
                };
             };
             new GuiButtonCtrl() {
-               buttonMargin = "4 4";
-               iconLocation = "Left";
-               sizeIconToButton = "0";
-               makeIconSquare = "0";
-               textLocation = "Center";
-               textVertical = "Top";
-               textOffset = "0 -2";
-               renderText = "1";
-               autoSize = "0";
-               offsetHover = "0 0";
-               offsetPressed = "0 0";
-               useModifiers = "0";
                text = "I\'m done";
                groupNum = "-1";
                buttonType = "PushButton";
@@ -1130,7 +1107,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "606 40";
+            extent = "569 40";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -1152,7 +1129,7 @@
                groupNum = "1";
                buttonType = "RadioButton";
                useMouseEvents = "0";
-               position = "116167 0";
+               position = "117182 0";
                extent = "36 40";
                minExtent = "7 2";
                horizSizing = "left";
@@ -1170,7 +1147,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiDynamicCtrlArrayControl(ToolsToolbarArray) {
-               colCount = "3284";
+               colCount = "3312";
                colSize = "36";
                rowCount = "1";
                rowSize = "40";
@@ -1182,7 +1159,7 @@
                dynamicSize = "0";
                padding = "0 0 0 0";
                position = "4 0";
-               extent = "121542 40";
+               extent = "122557 40";
                minExtent = "1024 32";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -1198,7 +1175,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/oldImages/collapse-toolbar";
+               bitmap = "tlab/gui/icons/default/collapse-toolbar";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -1206,7 +1183,7 @@
                groupNum = "-1";
                buttonType = "PushButton";
                useMouseEvents = "0";
-               position = "599 0";
+               position = "562 0";
                extent = "10 40";
                minExtent = "7 2";
                horizSizing = "left";
@@ -1226,7 +1203,7 @@
             new GuiDecoyCtrl(EWToolsToolbarDecoy) {
                isDecoy = "1";
                position = "1 1";
-               extent = "674 31";
+               extent = "634 31";
                minExtent = "8 8";
                horizSizing = "right";
                vertSizing = "bottom";
@@ -1249,8 +1226,8 @@
          anchorBottom = "0";
          anchorLeft = "1";
          anchorRight = "0";
-         position = "1000 0";
-         extent = "280 938";
+         position = "1125 0";
+         extent = "315 814";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
@@ -1273,8 +1250,8 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "0 1000";
-      extent = "1280 24";
+      position = "0 876";
+      extent = "1440 24";
       minExtent = "8 8";
       horizSizing = "width";
       vertSizing = "top";
@@ -1288,7 +1265,7 @@
       canSaveDynamicFields = "0";
 
       new GuiTextCtrl(EWorldEditorStatusBarInfo) {
-         text = "Move selection.  SHIFT while dragging duplicates objects.  CTRL to toggle soft snap.  ALT to toggle grid snap.";
+         text = "Shape editor ( Shift Click ) to speed up camera.";
          maxLength = "255";
          margin = "0 0 0 0";
          padding = "0 0 0 0";
@@ -1297,7 +1274,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "3 2";
-         extent = "1890 18";
+         extent = "2050 18";
          minExtent = "8 8";
          horizSizing = "width";
          vertSizing = "bottom";
@@ -1311,9 +1288,9 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx/separator-h.png";
+         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
          wrap = "0";
-         position = "939 2";
+         position = "1099 2";
          extent = "2 18";
          minExtent = "1 1";
          horizSizing = "left";
@@ -1328,7 +1305,6 @@
          canSaveDynamicFields = "0";
       };
       new GuiTextCtrl(EWorldEditorStatusBarSelection) {
-         text = "0 objects selected";
          maxLength = "255";
          margin = "0 0 0 0";
          padding = "0 0 0 0";
@@ -1336,7 +1312,7 @@
          anchorBottom = "0";
          anchorLeft = "1";
          anchorRight = "0";
-         position = "949 2";
+         position = "1109 2";
          extent = "180 18";
          minExtent = "8 8";
          horizSizing = "left";
@@ -1351,9 +1327,9 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx/separator-h.png";
+         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
          wrap = "0";
-         position = "1139 2";
+         position = "1299 2";
          extent = "2 18";
          minExtent = "1 1";
          horizSizing = "left";
@@ -1380,7 +1356,7 @@
          anchorBottom = "0";
          anchorLeft = "1";
          anchorRight = "0";
-         position = "1147 2";
+         position = "1307 2";
          extent = "120 18";
          minExtent = "8 8";
          horizSizing = "left";
@@ -1395,9 +1371,9 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx/separator-h.png";
+         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
          wrap = "0";
-         position = "1280 2";
+         position = "1440 2";
          extent = "2 18";
          minExtent = "1 1";
          horizSizing = "left";

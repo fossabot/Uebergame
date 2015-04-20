@@ -528,7 +528,3 @@ function GuiEditor::onControlInspectPostApply(%this, %object) {
     GuiEditorTreeView.update();
 }
 
-function GuiEditor::onFitIntoParents( %this ) {
-    %selected = %this.getSelection();
-    //TODO
-}

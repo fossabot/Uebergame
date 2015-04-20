@@ -52,7 +52,7 @@
 
       new GuiIconButtonCtrl() {
          buttonMargin = "0 0";
-         iconBitmap = "tlab/gui/oldImages/boxBrush_n.PNG";
+         iconBitmap = "tlab/gui/icons/default/boxBrush_n.PNG";
          iconLocation = "Left";
          sizeIconToButton = "1";
          makeIconSquare = "1";
@@ -83,7 +83,7 @@
       };
       new GuiIconButtonCtrl() {
          buttonMargin = "0 0";
-         iconBitmap = "tlab/gui/oldImages/circleBrush_n.PNG";
+         iconBitmap = "tlab/gui/icons/default/circleBrush_n.PNG";
          iconLocation = "Left";
          sizeIconToButton = "1";
          makeIconSquare = "1";
@@ -183,7 +183,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/dropslider";
+         bitmap = "tlab/gui/icons/default/dropslider";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -277,7 +277,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/dropslider";
+         bitmap = "tlab/gui/icons/default/dropslider";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -371,7 +371,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/dropslider";
+         bitmap = "tlab/gui/icons/default/dropslider";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -465,7 +465,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/dropslider";
+         bitmap = "tlab/gui/icons/default/dropslider";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -491,7 +491,7 @@
       };
    };
    new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/gui/oldImages/layers-btn";
+      bitmap = "tlab/gui/icons/default/layers-btn";
       bitmapMode = "Stretched";
       autoFitExtents = "0";
       useModifiers = "0";

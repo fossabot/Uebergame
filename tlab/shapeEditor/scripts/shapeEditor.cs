@@ -465,7 +465,7 @@ function ShapeEdSelectWindow::addFolderIcon( %this, %text ) {
     %ctrl = %this.createIcon();
 
     %ctrl.altCommand = "ShapeEdSelectWindow.navigateDown( \"" @ %text @ "\" );";
-    %ctrl.iconBitmap = "tlab/gui/oldImages/folder.png";
+    %ctrl.iconBitmap = "tlab/gui/icons/default/folder.png";
     %ctrl.text = %text;
     %ctrl.tooltip = %text;
     %ctrl.class = "CreatorFolderIconBtn";
@@ -488,7 +488,7 @@ function ShapeEdSelectWindow::addShapeIcon( %this, %fullPath ) {
            "Last Modified: " @ fileModifiedTime( %fullPath );
 
     %ctrl.altCommand = "ShapeEdSelectWindow.onSelect( \"" @ %fullPath @ "\" );";
-    %ctrl.iconBitmap = ( ( %ext $= ".dts" ) ? EditorIconRegistry::findIconByClassName( "TSStatic" ) : "tlab/gui/oldImages/iconCollada" );
+    %ctrl.iconBitmap = ( ( %ext $= ".dts" ) ? EditorIconRegistry::findIconByClassName( "TSStatic" ) : "tlab/gui/icons/default/iconCollada" );
     %ctrl.text = %file;
     %ctrl.class = "CreatorStaticIconBtn";
     %ctrl.tooltip = %tip;
@@ -2120,7 +2120,7 @@ function ShapeEdDetailTree::onDefineIcons(%this) {
     %this._imageHidden = 1;
 
     %icons = ":" @                                        // no icon
-             "tlab/gui/oldImages/visible_i:";               // hidden
+             "tlab/gui/icons/default/visible_i:";               // hidden
 
     %this.buildIconTable( %icons );
 }

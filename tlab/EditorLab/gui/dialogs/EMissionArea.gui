@@ -60,7 +60,7 @@
    };
    new GuiMissionAreaCtrl(MissionAreaTerrain) {
       squareBitmap = "0";
-      handleBitmap = "tlab/gui/oldImages/DefaultHandle.png";
+      handleBitmap = "tlab/gui/icons/default/DefaultHandle.png";
       missionBoundsColor = "255 0 0 255";
       cameraColor = "255 0 0 255";
       wrap = "0";

@@ -120,7 +120,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/dropslider";
+         bitmap = "tlab/gui/icons/default/dropslider";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -192,7 +192,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/dropslider";
+         bitmap = "tlab/gui/icons/default/dropslider";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -309,7 +309,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/oldImages/dropslider";
+         bitmap = "tlab/gui/icons/default/dropslider";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";

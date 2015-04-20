@@ -126,10 +126,10 @@ function Lab::resizeEditorGui( %this ) {
 	        (getWord(SceneEditorToolbar-->softSnapSizeTextEdit.getGlobalPosition(), 1)) + 18;
 
 	foreach(%gui in $LabEditorContainer)
-		fitIntoParents(%gui);
+		%gui.fitIntoParents();
 
 	foreach(%gui in LabEditorGuiSet) {	
-		fitIntoParents(%gui);
+		%gui.fitIntoParents();
 	}
 
 
@@ -139,3 +139,4 @@ function Lab::resizeEditorGui( %this ) {
 
 }
 //------------------------------------------------------------------------------
+

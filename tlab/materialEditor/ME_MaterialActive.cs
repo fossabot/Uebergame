@@ -238,6 +238,12 @@ singleton Material(baseTkMetalFenceA_mat)
    mapTo = "baseTkMetalFenceA";
    diffuseMap[0] = "art/textures/Tracks/Fence/WallFenceA/TrackWire_A.png";
    materialTag0 = "Miscellaneous";
+   diffuseColor[0] = "0.2 0.2 0.2 1";
+   doubleSided = "1";
+   translucent = "1";
+   translucentZWrite = "1";
+   alphaTest = "1";
+   alphaRef = "21";
 };
 
 singleton Material(baseTkSimpleWallA_mat)
@@ -258,5 +264,19 @@ singleton Material(baseTkSimpleWallA_AdB_mat)
 {
    mapTo = "baseTkSimpleWallA_AdB";
    diffuseMap[0] = "art/textures/Tracks/Border/SimpleWallA/sWallA_AdB.png";
+   materialTag0 = "Miscellaneous";
+};
+
+singleton Material(baseFH_fkWoodLogA_mat)
+{
+   mapTo = "baseFH_fkWoodLogA";
+   diffuseMap[0] = "art/shapes/mapModels/FarmHill/Fences/fkWoodLog/images/fkWoodLogA.png";
+   materialTag0 = "Miscellaneous";
+};
+
+singleton Material(baseFHBoatHutA_mat)
+{
+   mapTo = "baseFHBoatHutA";
+   diffuseMap[0] = "art/shapes/mapModels/FarmHill/OldHarbor/Buildings/BoatHut/images/BoatHut_d_d.png";
    materialTag0 = "Miscellaneous";
 };

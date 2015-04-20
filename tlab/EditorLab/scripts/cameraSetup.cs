@@ -56,6 +56,15 @@ $LabCameraDisplayMode["Smooth Rot Camera"] = "NewtonDamped";
 //------------------------------------------------------------------------------
 function Lab::setInitialCamera(%this)
 {  
+   %this.gameControlObject = LocalClientConnection.getControlObject();
+   if (!isObject(LocalClientConnection.camera)){
+      %this.gameCam = LocalClientConnection.getCameraObject();
+      LocalClientConnection.camera = spawnObject("Camera", "Observer");
+     
+   }
+    LocalClientConnection.camera.scopeToClient(LocalClientConnection);
+   LocalClientConnection.setCameraObject(LocalClientConnection.camera);
+      
    Lab.clientWasControlling = LocalClientConnection.getControlObject();
    if (%this.LaunchInFreeview || !isObject(LocalClientConnection.player)){
       
@@ -70,6 +79,26 @@ function Lab::setInitialCamera(%this)
       %this.setCameraPlayerMode();
              
   
+}
+function Lab::setGameCamera(%this)
+{  
+   if (isObject(%this.gameCam)){
+      %this.gameCam.scopeToClient(LocalClientConnection);
+      LocalClientConnection.setCameraObject(%this.gameCam);    
+   }  
+}
+
+function Lab::toggleControlObject(%this)
+{  
+   if (!isObject(%this.gameControlObject)){
+      warnLog("There's no Game control object stored:",%this.gameControlObject);
+      return;
+   }
+   //If Client is controlling game object, set control camera, else do contrary...
+   if (%this.gameControlObject == LocalClientConnection.getControlObject())      
+      LocalClientConnection.setCOntrolObject(LocalClientConnection.camera);   
+   else
+      LocalClientConnection.setCOntrolObject(%this.gameControlObject);  
 }
 
 //==============================================================================
@@ -221,23 +250,23 @@ function Lab::syncCameraGui( %this,%forced ) {
 		if(%mode $= "Fly" && LocalClientConnection.camera.newtonMode) {
 			if(LocalClientConnection.camera.newtonRotation == true) {
 				EditorGui-->NewtonianRotationCamera.setStateOn(true);
-				%cameraTypesButton.setBitmap("tlab/gui/oldImages/menubar/smooth-cam-rot");
+				%cameraTypesButton.setBitmap("tlab/gui/icons/default/menubar/smooth-cam-rot");
 				%flyModeRadioItem = 4;
 				EditorGuiStatusBar.setCamera("Smooth Rot Camera");
 			} else {
 				EditorGui-->NewtonianCamera.setStateOn(true);
-				%cameraTypesButton.setBitmap("tlab/gui/oldImages/menubar/smooth-cam");
+				%cameraTypesButton.setBitmap("tlab/gui/icons/default/menubar/smooth-cam");
 				%flyModeRadioItem = 3;
 				EditorGuiStatusBar.setCamera("Smooth Camera");
 			}
 		} else if(%mode $= "EditOrbit") {
 			EditorGui-->OrbitCamera.setStateOn(true);
-			%cameraTypesButton.setBitmap("tlab/gui/oldImages/menubar/orbit-cam");
+			%cameraTypesButton.setBitmap("tlab/gui/icons/default/menubar/orbit-cam");
 			%flyModeRadioItem = 1;
 			EditorGuiStatusBar.setCamera("Orbit Camera");
 		} else { // default camera mode
 			//EditorGui-->StandardCamera.setStateOn(true);
-			%cameraTypesButton.setBitmap("tlab/gui/oldImages/toolbar/camera");
+			%cameraTypesButton.setBitmap("tlab/gui/icons/default/toolbar/camera");
 			%flyModeRadioItem = 0;
 			EditorGuiStatusBar.setCamera("Standard Camera");
 		}
@@ -252,7 +281,7 @@ function Lab::syncCameraGui( %this,%forced ) {
 		if( $SkipCameraSync )
 			return;
 		//EditorGui-->trdPersonCamera.setStateOn(true);
-		//%cameraTypesButton.setBitmap("tlab/gui/oldImages/toolbar/3rd-person-camera");
+		//%cameraTypesButton.setBitmap("tlab/gui/icons/default/toolbar/3rd-person-camera");
 		%flyModeRadioItem = 1;
 		//quick way select menu bar options
 		Lab.checkFindItem("Camera",0,1,1);
@@ -264,7 +293,7 @@ function Lab::syncCameraGui( %this,%forced ) {
 		if( $SkipCameraSync )
 			return;
 		EditorGui-->PlayerCamera.setStateOn(true);
-		%cameraTypesButton.setBitmap("tlab/gui/oldImages/toolbar/player");
+		%cameraTypesButton.setBitmap("tlab/gui/icons/default/toolbar/player");
 		%flyModeRadioItem = 0;
 		//quick way select menu bar options
 		Lab.checkFindItem("Camera",0,1,1);
@@ -280,6 +309,11 @@ function Lab::syncCameraGui( %this,%forced ) {
 function Lab::fitCameraToSelection( %this,%orbit ) {
    if (%orbit){
       Lab.setCameraViewMode("Orbit Camera",false);
+   }
+   //GuiShapeEdPreview have it's own function
+   if (isObject(Lab.fitCameraGui)){
+      Lab.fitCameraGui.fitToShape();
+      return;
    }
   %radius = EWorldEditor.getSelectionRadius()+1;
    LocalClientConnection.camera.autoFitRadius(%radius);

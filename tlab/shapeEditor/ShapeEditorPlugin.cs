@@ -48,8 +48,9 @@ function ShapeEditorPlugin::open(%this, %filename) {
         // Get editor settings (note the sun angle is not configured in the settings
         // dialog, so apply the settings here instead of in readSettings)
        
-       
-       
+       ShapeEdPreviewGui.fitIntoParents();
+       ShapeEdPreviewGui-->previewBackground.fitIntoParents();
+       ShapeEdShapeView.fitIntoParents();
         $wasInWireFrameMode = $gfx::wireframe;
         ShapeEditorToolbar-->wireframeMode.setStateOn($gfx::wireframe);
 
@@ -96,7 +97,9 @@ function ShapeEditorPlugin::open(%this, %filename) {
 
 function ShapeEditorPlugin::onActivated(%this) {
     %this.open("");
-
+   
+   //Assign the Camera fit to the GuiShapeEdPreview 
+   Lab.fitCameraGui = ShapeEdShapeView;
     // Try to start with the shape selected in the world editor
     %count = EWorldEditor.getSelectionSize();
     for (%i = 0; %i < %count; %i++) {

@@ -633,7 +633,7 @@ function SceneCreatorWindow::addStaticIcon( %this, %fullPath ) {
     %createCmd = "SceneCreatorWindow.createStatic( \\\"" @ %fullPath @ "\\\" );";
     %ctrl.altCommand = "ColladaImportDlg.showDialog( \"" @ %fullPath @ "\", \"" @ %createCmd @ "\" );";
 
-    %ctrl.iconBitmap = ( ( %ext $= ".dts" ) ? EditorIconRegistry::findIconByClassName( "TSStatic" ) : "tlab/gui/oldImages/iconCollada" );
+    %ctrl.iconBitmap = ( ( %ext $= ".dts" ) ? EditorIconRegistry::findIconByClassName( "TSStatic" ) : "tlab/gui/icons/default/iconCollada" );
     %ctrl.text = %file;
     %ctrl.class = "CreatorStaticIconBtn";
     %ctrl.tooltip = %tip;
