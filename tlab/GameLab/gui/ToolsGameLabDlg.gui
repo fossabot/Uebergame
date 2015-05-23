@@ -1,5 +1,5 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiControl(GameLabDlg) {
+%guiContent = new GuiControl(ToolsGameLabDlg) {
    position = "0 0";
    extent = "1280 1024";
    minExtent = "8 8";
@@ -19,9 +19,7 @@
       modeCode1 = "Action";
       modeCode2 = "FPS";
       modeCode3 = "RTS";
-      tooltipWidth = "500";
-
-   
+      tooltipWidth = "500";   
 };
 //--- OBJECT WRITE END ---
 

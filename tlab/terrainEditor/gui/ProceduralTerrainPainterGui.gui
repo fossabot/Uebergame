@@ -134,7 +134,7 @@
       new GuiTextEditCtrl() {  
          canSaveDynamicFields = "0";  
          isContainer = "0";  
-         Profile = "ToolsGuiTextEditProfile";  
+         Profile = "ToolspfTextEditMain";  
          HorizSizing = "right";  
          VertSizing = "bottom";  
          Position = "97 35";  
@@ -161,7 +161,7 @@
       new GuiTextEditCtrl() {  
          canSaveDynamicFields = "0";  
          isContainer = "0";  
-         Profile = "ToolsGuiTextEditProfile";  
+         Profile = "ToolspfTextEditMain";  
          HorizSizing = "right";  
          VertSizing = "bottom";  
          Position = "97 60";  
@@ -254,7 +254,7 @@
       new GuiTextEditCtrl() {  
          canSaveDynamicFields = "0";  
          isContainer = "0";  
-         Profile = "ToolsGuiTextEditProfile";  
+         Profile = "ToolspfTextEditMain";  
          HorizSizing = "right";  
          VertSizing = "bottom";  
          Position = "97 99";  
@@ -281,7 +281,7 @@
       new GuiTextEditCtrl() {  
          canSaveDynamicFields = "0";  
          isContainer = "0";  
-         Profile = "ToolsGuiTextEditProfile";  
+         Profile = "ToolspfTextEditMain";  
          HorizSizing = "right";  
          VertSizing = "bottom";  
          Position = "97 124";  

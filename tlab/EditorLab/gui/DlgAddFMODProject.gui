@@ -94,7 +94,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "7 72";
@@ -121,7 +121,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "7 127";
@@ -170,7 +170,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "7 30";

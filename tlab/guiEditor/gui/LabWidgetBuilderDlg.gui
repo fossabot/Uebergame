@@ -36,7 +36,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "GuiWindowProfile";
+      profile = "pfWindowMain";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -161,7 +161,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "GuiTextEditProfile";
+                  profile = "pfTextEditMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.updateWidgetOption(\"display\");";
@@ -235,7 +235,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "GuiTextEditProfile";
+                  profile = "pfTextEditMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.updateWidgetOption(\"defaultData\");";
@@ -309,7 +309,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "GuiTextEditProfile";
+                  profile = "pfTextEditMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.updateWidgetOption(\"options\");";
@@ -383,7 +383,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "GuiTextEditProfile";
+                  profile = "pfTextEditMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.updateWidgetOption(\"linkData\");";
@@ -524,7 +524,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiPopUpMenuProfile";
+                  profile = "ToolspfDropdownMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.selectWidgetStyle($ThisControl.getSelected());";
@@ -597,7 +597,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiPopUpMenuProfile";
+                  profile = "ToolspfDropdownMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.selectWidgetType($ThisControl.getSelected());";
@@ -670,7 +670,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiPopUpMenuProfile";
+                  profile = "ToolspfDropdownMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.selectWidget($ThisControl.getSelected());";
@@ -741,7 +741,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "GuiPanelBackgroundA";
+               profile = "pfPanelDarkA";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -769,7 +769,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "GuiTextEditProfile";
+                  profile = "pfTextEditMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";

@@ -45,7 +45,7 @@
          text = "Enter the break condition:";
       };
       new GuiTextEditCtrl(BreakCondition) {
-         profile = "ToolsGuiTextEditProfile";
+         profile = "ToolspfTextEditMain";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 44";
@@ -72,7 +72,7 @@
          text = "Pass Count:";
       };
       new GuiTextEditCtrl(BreakPassCount) {
-         profile = "ToolsGuiTextEditProfile";
+         profile = "ToolspfTextEditMain";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 84";
@@ -99,7 +99,7 @@
          text = "Clear:";
       };
       new GuiTextEditCtrl(BreakClear) {
-         profile = "ToolsGuiTextEditProfile";
+         profile = "ToolspfTextEditMain";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 124";

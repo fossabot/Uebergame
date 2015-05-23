@@ -32,7 +32,7 @@ singleton GuiControlProfile( ToolsGuiTextListProfile : ToolsGuiTextProfile ) {
 // GuiTextEditCtrl Profiles
 //==============================================================================
 //==============================================================================
-singleton GuiControlProfile( ToolsGuiTextEditProfile ) {
+singleton GuiControlProfile( ToolspfTextEditMain ) {
     opaque = true;
     bitmap = "tlab/gui/images/element_assets/GuiTextEditBase.png";
 
@@ -89,16 +89,17 @@ singleton GuiControlProfile( ToolsGuiTextEditDark ) {
     fontColors[3] = "98 100 137 255";
    bevelColorHL = "255 0 255 255";
    fontColors[0] = "194 254 254 255";
+   modal = "1";
 };
 //------------------------------------------------------------------------------
 //==============================================================================
-singleton GuiControlProfile( ToolsGuiNumericTextEditProfile : ToolsGuiTextEditProfile ) {
+singleton GuiControlProfile( ToolsGuiNumericTextEditProfile : ToolspfTextEditMain ) {
     numbersOnly = true;
     category = "Tools";
 };
 //------------------------------------------------------------------------------
 //==============================================================================
-singleton GuiControlProfile( ToolsGuiNumericDropSliderTextProfile : ToolsGuiTextEditProfile ) {
+singleton GuiControlProfile( ToolsGuiNumericDropSliderTextProfile : ToolspfTextEditMain ) {
     bitmap = "tlab/gui/icons/default/textEditSliderBox";
     category = "Tools";
 };

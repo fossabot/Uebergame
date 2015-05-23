@@ -171,7 +171,7 @@ new GuiControlProfile( ToolsGuiListBoxProfile ) {
 
 
 
-new GuiControlProfile( ToolsGuiTreeViewProfile ) {
+new GuiControlProfile( ToolspfTreeViewMain ) {
     bitmap = "tlab/gui/images/element_assets/GuiTreeViewBase.png";
     autoSizeHeight = true;
     canKeyFocus = true;

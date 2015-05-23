@@ -201,7 +201,7 @@
                text = "Open File:";
             };
             new GuiPopUpMenuCtrl(DebuggerFilePopup) {
-               profile = "ToolsGuiPopUpMenuProfile";
+               profile = "ToolspfDropdownMain";
                horizSizing = "right";
                vertSizing = "bottom";
                position = "64 4";
@@ -563,7 +563,7 @@
                text = "%";
             };
             new GuiTextEditCtrl(DbgConsoleEntry) {
-               profile = "ToolsGuiTextEditProfile";
+               profile = "ToolspfTextEditMain";
                horizSizing = "width";
                vertSizing = "top";
                position = "29 83";

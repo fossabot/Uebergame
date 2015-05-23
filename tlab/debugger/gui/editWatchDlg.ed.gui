@@ -45,7 +45,7 @@
          text = "Enter the new value:";
       };
       new GuiTextEditCtrl(EditWatchDialogValue) {
-         profile = "ToolsGuiTextEditProfile";
+         profile = "ToolspfTextEditMain";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 44";

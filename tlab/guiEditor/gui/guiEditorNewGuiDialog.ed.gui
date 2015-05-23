@@ -132,7 +132,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             isContainer = "0";
-            profile = "ToolsGuiTextEditProfile";
+            profile = "ToolspfTextEditMain";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "103 13";
@@ -180,7 +180,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             isContainer = "0";
-            profile = "ToolsGuiPopUpMenuProfile";
+            profile = "ToolspfDropdownMain";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "103 44";

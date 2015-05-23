@@ -1690,7 +1690,7 @@ function ShapeEdShapeView::onThreadPosChanged( %this, %pos, %inTransition ) {
         if ( %inTransition )
             ShapeEdThreadSlider.profile = GuiShapeEdTransitionSliderProfile;
         else
-            ShapeEdThreadSlider.profile = ToolsGuiSliderProfile;
+            ShapeEdThreadSlider.profile = ToolspfSliderMain;
     }
 }
 

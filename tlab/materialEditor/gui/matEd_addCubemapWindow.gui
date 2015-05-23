@@ -32,7 +32,7 @@
          canSaveDynamicFields = "0";
          internalName = "cubemapName";
          isContainer = "0";
-         Profile = "ToolsGuiTextEditProfile";
+         Profile = "ToolspfTextEditMain";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "96 35";

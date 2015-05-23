@@ -291,7 +291,7 @@
             horizSizing = "width";
             vertSizing = "bottom";
             fixedAspectRatio = "0";
-            profile = "ToolsGuiTextEditProfile";
+            profile = "ToolspfTextEditMain";
             visible = "0";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -320,7 +320,7 @@
             horizSizing = "width";
             vertSizing = "bottom";
             fixedAspectRatio = "0";
-            profile = "ToolsGuiTextEditProfile";
+            profile = "ToolspfTextEditMain";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -372,7 +372,7 @@
             horizSizing = "width";
             vertSizing = "bottom";
             fixedAspectRatio = "0";
-            profile = "ToolsGuiPopUpMenuProfile";
+            profile = "ToolspfDropdownMain";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";

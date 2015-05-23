@@ -26,7 +26,7 @@ function LabMsgBoxesGui::showWindow( %this,%type,%title,%message,%callback1,%cal
    %buttonCoord = $LabMsgButtonsCoord[%type];
    %buttonCount = getFieldCount(%buttonData);
     devLog("LabMsgBoxesGui::showWindow",%title);  
-   LabMsgBoxesGui.callOnChildrenNoRecurse("setVisible",false);
+  // LabMsgBoxesGui.callOnChildrenNoRecurse("setVisible",false);
    pushDlg(LabMsgBoxesGui);
    %dlg = LabMsgBoxesGui-->dialogBase;
    %dlg.setVisible(true);
@@ -68,7 +68,7 @@ function LabMsgBoxesGui::showWindow( %this,%type,%title,%message,%callback1,%cal
 //==============================================================================
 function LabMsgBoxesGui::hideWindow( %this ) {
    devLog("LabMsgBoxesGui::hideWindow",%this);  
-   LabMsgBoxesGui.callOnChildrenNoRecurse("setVisible",false);
+   //LabMsgBoxesGui.callOnChildrenNoRecurse("setVisible",false);
 	popDlg(LabMsgBoxesGui);
 }
 //------------------------------------------------------------------------------

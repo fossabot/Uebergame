@@ -54,7 +54,7 @@
 
          new GuiTreeViewCtrl(InspectTreeView) {
             canSaveDynamicFields = "0";
-            Profile = "ToolsGuiTreeViewProfile";
+            Profile = "ToolspfTreeViewMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "2 2";
@@ -124,7 +124,7 @@
 
          new GuiTextEditCtrl(InspectObjectName) {
             canSaveDynamicFields = "0";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "121 8";
@@ -171,7 +171,7 @@
          };
          new GuiTextEditCtrl(InspectObjectInternalName) {
             canSaveDynamicFields = "0";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "121 35";

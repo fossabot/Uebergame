@@ -116,7 +116,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextEditProfile";
+               profile = "ToolspfTextEditMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -209,7 +209,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextEditProfile";
+               profile = "ToolspfTextEditMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -229,7 +229,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiSliderProfile";
+               profile = "ToolspfSliderMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -327,7 +327,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiPopUpMenuProfile";
+               profile = "ToolspfDropdownMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -640,7 +640,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiSliderProfile";
+               profile = "ToolspfSliderMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -790,7 +790,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextEditProfile";
+                  profile = "ToolspfTextEditMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -883,7 +883,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextEditProfile";
+                  profile = "ToolspfTextEditMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -903,7 +903,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "GuiSliderProfile";
+                  profile = "pfSliderMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -1001,7 +1001,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "GuiPopUpMenuProfile";
+                  profile = "pfDropdownMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";

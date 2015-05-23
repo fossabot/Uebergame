@@ -272,7 +272,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiSliderProfile";
+            profile = "ToolspfSliderMain";
             visible = "1";
             active = "1";
             variable = "1";

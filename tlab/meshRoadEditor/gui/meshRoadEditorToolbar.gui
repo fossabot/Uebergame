@@ -1,24 +1,137 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiControl(MeshRoadEditorToolbar,EditorGuiGroup) {
-   position = "164 0";
+   position = "195 0";
    extent = "800 32";
    minExtent = "8 2";
    horizSizing = "right";
    vertSizing = "bottom";
    profile = "ToolsDefaultProfile";
-   visible = "1";
+   visible = "0";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
-   tooltipWidth = "500";
    isContainer = "1";
    internalName = "MeshRoadEditorToolbar";
+   hidden = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
-      defaultParent = "2056";
-      EditorContainer = "2254";
+      defaultParent = "5206";
+      EditorContainer = "5408";
       enabled = "1";
+      tooltipWidth = "500";
 
+   new GuiStackControl() {
+      stackingType = "Horizontal";
+      horizStacking = "Left to Right";
+      vertStacking = "Top to Bottom";
+      padding = "2";
+      dynamicSize = "1";
+      dynamicNonStackExtent = "0";
+      dynamicPos = "0";
+      changeChildSizeToFit = "1";
+      changeChildPosition = "1";
+      position = "0 0";
+      extent = "94 30";
+      minExtent = "16 16";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      profile = "GuiDefaultProfile";
+      visible = "1";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+
+      new GuiIconButtonCtrl(MeshRoadEditorShowSplineBtn) {
+         buttonMargin = "1 1";
+         iconBitmap = "tlab/gui/icons/toolbar_assets/RoadSpline.png";
+         iconLocation = "Left";
+         sizeIconToButton = "0";
+         makeIconSquare = "0";
+         textLocation = "Left";
+         textMargin = "4";
+         autoSize = "0";
+         groupNum = "-1";
+         buttonType = "ToggleButton";
+         useMouseEvents = "0";
+         position = "0 0";
+         extent = "30 30";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsGuiIconButtonSmallProfile";
+         visible = "1";
+         active = "1";
+         variable = "$MeshRoad::showSpline";
+         tooltipProfile = "GuiToolTipProfile";
+         tooltip = "Show Spline (Z)";
+         hovertime = "1000";
+         isContainer = "0";
+         internalName = "ShowSplineBtn";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiIconButtonCtrl(MeshRoadEditorWireframeBtn) {
+         buttonMargin = "1 1";
+         iconBitmap = "tlab/gui/icons/toolbar_assets/RoadMesh.png";
+         iconLocation = "Left";
+         sizeIconToButton = "0";
+         makeIconSquare = "0";
+         textLocation = "Left";
+         textMargin = "4";
+         autoSize = "0";
+         groupNum = "-1";
+         buttonType = "ToggleButton";
+         useMouseEvents = "0";
+         position = "32 0";
+         extent = "30 30";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsGuiIconButtonSmallProfile";
+         visible = "1";
+         active = "1";
+         variable = "$MeshRoad::wireframe";
+         tooltipProfile = "GuiToolTipProfile";
+         tooltip = "Show Wireframe (X)";
+         hovertime = "1000";
+         isContainer = "0";
+         internalName = "WireframeBtn";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiIconButtonCtrl(MeshRoadEditorShowRoadBtn) {
+         buttonMargin = "1 1";
+         iconBitmap = "tlab/gui/icons/toolbar_assets/RoadShaded.png";
+         iconLocation = "Left";
+         sizeIconToButton = "0";
+         makeIconSquare = "0";
+         textLocation = "Left";
+         textMargin = "4";
+         autoSize = "0";
+         groupNum = "-1";
+         buttonType = "ToggleButton";
+         useMouseEvents = "0";
+         position = "64 0";
+         extent = "30 30";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsGuiIconButtonStackProfile";
+         visible = "1";
+         active = "1";
+         variable = "$MeshRoad::showRoad";
+         tooltipProfile = "GuiToolTipProfile";
+         tooltip = "Show Road Texture (V)";
+         hovertime = "1000";
+         isContainer = "0";
+         internalName = "ShowRoadBtn";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+   };
    new GuiDynamicCtrlArrayControl() {
       colCount = "3";
       colSize = "29";
@@ -37,16 +150,16 @@
       horizSizing = "right";
       vertSizing = "bottom";
       profile = "GuiDefaultProfile";
-      visible = "1";
+      visible = "0";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
       hovertime = "1000";
-      tooltipWidth = "500";
       isContainer = "1";
+      hidden = "1";
       canSave = "1";
       canSaveDynamicFields = "0";
 
-      new GuiBitmapButtonCtrl(MeshRoadEditorShowSplineBtn) {
+      new GuiBitmapButtonCtrl() {
          bitmap = "tlab/gui/icons/default/road-river/menubar/show-spline";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
@@ -67,12 +180,11 @@
          tooltipProfile = "ToolsGuiToolTipProfile";
          tooltip = "Show Spline (Z)";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";
       };
-      new GuiBitmapButtonCtrl(MeshRoadEditorWireframeBtn) {
+      new GuiBitmapButtonCtrl() {
          bitmap = "tlab/gui/icons/default/road-river/menubar/show-wireframe";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
@@ -93,12 +205,11 @@
          tooltipProfile = "ToolsGuiToolTipProfile";
          tooltip = "Show Wireframe (X)";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";
       };
-      new GuiBitmapButtonCtrl(MeshRoadEditorShowRoadBtn) {
+      new GuiBitmapButtonCtrl() {
          bitmap = "tlab/gui/icons/default/road-river/menubar/show-texture";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
@@ -117,9 +228,7 @@
          active = "1";
          variable = "$MeshRoad::showRoad";
          tooltipProfile = "ToolsGuiToolTipProfile";
-         tooltip = "Show Road Texture (V)";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";
@@ -132,12 +241,12 @@
       horizSizing = "right";
       vertSizing = "bottom";
       profile = "ToolsGuiTransparentProfile";
-      visible = "1";
+      visible = "0";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
       hovertime = "1000";
-      tooltipWidth = "500";
       isContainer = "1";
+      hidden = "1";
       canSave = "1";
       canSaveDynamicFields = "0";
 
@@ -155,12 +264,11 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextTiny";
+         profile = "GuiTextProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";
@@ -180,17 +288,16 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "3 10";
-         extent = "27 20";
+         extent = "27 19";
          minExtent = "8 16";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditProfile";
+         profile = "ToolspfTextEditMain";
          visible = "1";
          active = "1";
          command = "MeshRoadEditorGui.DefaultWidth = $ThisControl.getValue();";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          internalName = "TextEdit";
          canSave = "1";
@@ -217,7 +324,6 @@
          tooltipProfile = "ToolsGuiToolTipProfile";
          tooltip = "Changes Default Road Width";
          hovertime = "750";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";
@@ -230,12 +336,12 @@
       horizSizing = "right";
       vertSizing = "bottom";
       profile = "ToolsGuiTransparentProfile";
-      visible = "1";
+      visible = "0";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
       hovertime = "1000";
-      tooltipWidth = "500";
       isContainer = "1";
+      hidden = "1";
       canSave = "1";
       canSaveDynamicFields = "0";
 
@@ -253,12 +359,11 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextTiny";
+         profile = "GuiTextProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";
@@ -278,17 +383,16 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "3 10";
-         extent = "27 20";
+         extent = "27 19";
          minExtent = "8 16";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditProfile";
+         profile = "ToolspfTextEditMain";
          visible = "1";
          active = "1";
          command = "MeshRoadEditorGui.DefaultDepth = $ThisControl.getValue();";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          internalName = "TextEdit";
          canSave = "1";
@@ -315,7 +419,6 @@
          tooltipProfile = "ToolsGuiToolTipProfile";
          tooltip = "Changes Default Road Depth";
          hovertime = "750";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";

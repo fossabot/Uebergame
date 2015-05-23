@@ -150,7 +150,7 @@
          AnchorLeft = "1";
          AnchorRight = "0";
          isContainer = "0";
-         Profile = "ToolsGuiTextEditProfile";
+         Profile = "ToolspfTextEditMain";
          HorizSizing = "width";
          VertSizing = "bottom";
          position = "4 23";

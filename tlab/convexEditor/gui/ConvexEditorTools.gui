@@ -154,7 +154,7 @@
                minExtent = "8 8";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTreeViewProfile";
+               profile = "ToolspfTreeViewMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -300,7 +300,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextEditProfile";
+                  profile = "ToolspfTextEditMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ConvexEditorGui.editNodeDetails();";
@@ -391,7 +391,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextEditProfile";
+                  profile = "ToolspfTextEditMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ConvexEditorGui.editNodeDetails();";
@@ -482,7 +482,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextEditProfile";
+                  profile = "ToolspfTextEditMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ConvexEditorGui.editNodeDetails();";
@@ -511,7 +511,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextEditProfile";
+                  profile = "ToolspfTextEditMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ConvexEditorGui.editNodeDetails();";

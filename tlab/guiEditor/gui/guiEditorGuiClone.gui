@@ -204,7 +204,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "GuiPopUpMenuProfile";
+               profile = "pfDropdownMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -231,7 +231,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "GuiPopUpMenuProfile";
+               profile = "pfDropdownMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -803,7 +803,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "GuiTextEditProfile";
+                     profile = "pfTextEditMain";
                      visible = "1";
                      active = "1";
                      variable = "$CloneEditorAlignMargin";
@@ -925,7 +925,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "GuiScrollProfile";
+            profile = "pfScrollMain";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1043,7 +1043,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "GuiTabBookProfile";
+            profile = "pfTabMain";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1149,7 +1149,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
-                        profile = "GuiTextEditProfile";
+                        profile = "pfTextEditMain";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -1204,7 +1204,7 @@
                         minExtent = "8 64";
                         horizSizing = "width";
                         vertSizing = "height";
-                        profile = "GuiScrollProfile";
+                        profile = "pfScrollMain";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -1240,7 +1240,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "GuiTreeViewProfile";
+                           profile = "pfTreeViewMain";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1286,7 +1286,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "height";
-                        profile = "GuiScrollProfile";
+                        profile = "pfScrollMain";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -1393,7 +1393,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "height";
-                  profile = "GuiScrollProfile";
+                  profile = "pfScrollMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -1525,7 +1525,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
-                        profile = "GuiTextEditProfile";
+                        profile = "pfTextEditMain";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -1580,7 +1580,7 @@
                         minExtent = "8 64";
                         horizSizing = "width";
                         vertSizing = "height";
-                        profile = "GuiScrollProfile";
+                        profile = "pfScrollMain";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -1616,7 +1616,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "GuiTreeViewProfile";
+                           profile = "pfTreeViewMain";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1660,7 +1660,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
-                        profile = "GuiTextEditProfile";
+                        profile = "pfTextEditMain";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -1739,7 +1739,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "height";
-                        profile = "GuiScrollProfile";
+                        profile = "pfScrollMain";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";

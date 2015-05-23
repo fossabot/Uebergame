@@ -186,7 +186,7 @@
                   minExtent = "8 -500";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTreeViewProfile";
+                  profile = "ToolspfTreeViewMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -286,7 +286,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiPopUpMenuProfile";
+                  profile = "ToolspfDropdownMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -485,7 +485,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiPopUpMenuProfile";
+                  profile = "ToolspfDropdownMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -945,7 +945,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "0";
                      altCommand = "ShapeEdSequences.onEditName();";
@@ -998,7 +998,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -1071,7 +1071,7 @@
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "0";
                      altCommand = "ShapeEdSequences.onEditPriority();";
@@ -1125,7 +1125,7 @@
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdSequences.onEditSeqInOut(\"out\", $ThisControl.getText());";
@@ -1178,7 +1178,7 @@
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdSequences.onEditSeqInOut(\"in\", $ThisControl.getText());";
@@ -1252,7 +1252,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdSequences.onEditBlend();";
@@ -1282,7 +1282,7 @@
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdSequences.onEditBlend();";
@@ -1588,7 +1588,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextEditProfile";
+                  profile = "ToolspfTextEditMain";
                   visible = "1";
                   active = "0";
                   altCommand = "ShapeEdTriggerList.onEditSelection();";
@@ -1640,7 +1640,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextEditProfile";
+                  profile = "ToolspfTextEditMain";
                   visible = "1";
                   active = "0";
                   altCommand = "ShapeEdTriggerList.onEditSelection();";
@@ -1756,7 +1756,7 @@
                   minExtent = "8 8";
                   horizSizing = "right";
                   vertSizing = "height";
-                  profile = "ToolsGuiTreeViewProfile";
+                  profile = "ToolspfTreeViewMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1974,7 +1974,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "0";
                      altCommand = "ShapeEdNodes.onEditName();";
@@ -2003,7 +2003,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -2095,7 +2095,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "0";
                      altCommand = "ShapeEdNodes.onEditTransform();";
@@ -2125,7 +2125,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "0";
                      altCommand = "ShapeEdNodes.onEditTransform();";
@@ -2237,7 +2237,7 @@
                      minExtent = "8 8";
                      horizSizing = "right";
                      vertSizing = "height";
-                     profile = "ToolsGuiTreeViewProfile";
+                     profile = "ToolspfTreeViewMain";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2325,7 +2325,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdDetails.onEditName();";
@@ -2355,7 +2355,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdDetails.onEditSize();";
@@ -2407,7 +2407,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdDetails.onEditBBType();";
@@ -2459,7 +2459,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdDetails.onSetObjectNode();";
@@ -2529,7 +2529,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -3047,7 +3047,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiSliderProfile";
+                     profile = "ToolspfSliderMain";
                      visible = "1";
                      active = "1";
                      variable = "ShapeEdShapeView.currentDL";
@@ -3193,7 +3193,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      variable = "ShapeEdShapeView.detailSize";
@@ -3697,7 +3697,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdDetails.onEditImposter();";
@@ -3751,7 +3751,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdDetails.onEditImposter();";
@@ -3805,7 +3805,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdDetails.onEditImposter();";
@@ -3882,7 +3882,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdDetails.onEditImposter();";
@@ -3936,7 +3936,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditProfile";
+                     profile = "ToolspfTextEditMain";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdDetails.onEditImposter();";
@@ -4259,7 +4259,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -4310,7 +4310,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdMountWindow.updateSelectedMount();";
@@ -4363,7 +4363,7 @@
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdMountWindow.updateSelectedMount();";
@@ -4393,7 +4393,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiPopUpMenuProfile";
+                     profile = "ToolspfDropdownMain";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdMountWindow.setMountThreadSequence();";
@@ -4415,7 +4415,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "top";
-                     profile = "ToolsGuiSliderProfile";
+                     profile = "ToolspfSliderMain";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -4727,7 +4727,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "top";
-                  profile = "ToolsGuiSliderProfile";
+                  profile = "ToolspfSliderMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -4855,7 +4855,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "top";
-                  profile = "ToolsGuiTextEditProfile";
+                  profile = "ToolspfTextEditMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -4930,7 +4930,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "top";
-                  profile = "ToolsGuiPopUpMenuProfile";
+                  profile = "ToolspfDropdownMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -4982,7 +4982,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "top";
-                  profile = "ToolsGuiPopUpMenuProfile";
+                  profile = "ToolspfDropdownMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -5082,7 +5082,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiPopUpMenuProfile";
+                  profile = "ToolspfDropdownMain";
                   visible = "1";
                   active = "1";
                   command = "ShapeEdColWindow.editCollision();";
@@ -5135,7 +5135,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiPopUpMenuProfile";
+                  profile = "ToolspfDropdownMain";
                   visible = "1";
                   active = "1";
                   command = "ShapeEdColWindow.editCollision();";
@@ -5180,7 +5180,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiSliderProfile";
+                  profile = "ToolspfSliderMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ShapeEdColWindow-->hullDepthText.setText( mFloor($ThisControl.getValue()) );";
@@ -5249,7 +5249,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiSliderProfile";
+                  profile = "ToolspfSliderMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ShapeEdColWindow-->hullMergeText.setText( mFloor($ThisControl.getValue()) );";
@@ -5318,7 +5318,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiSliderProfile";
+                  profile = "ToolspfSliderMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ShapeEdColWindow-->hullConcaveText.setText( mFloor($ThisControl.getValue()) );";
@@ -5387,7 +5387,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiSliderProfile";
+                  profile = "ToolspfSliderMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ShapeEdColWindow-->hullMaxVertsText.setText( mFloor($ThisControl.getValue()) );";
@@ -5456,7 +5456,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiSliderProfile";
+                  profile = "ToolspfSliderMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ShapeEdColWindow-->hullMaxBoxErrorText.setText( mFloor($ThisControl.getValue()) );";
@@ -5525,7 +5525,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiSliderProfile";
+                  profile = "ToolspfSliderMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ShapeEdColWindow-->hullMaxSphereErrorText.setText( mFloor($ThisControl.getValue()) );";
@@ -5594,7 +5594,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiSliderProfile";
+                  profile = "ToolspfSliderMain";
                   visible = "1";
                   active = "1";
                   altCommand = "ShapeEdColWindow-->hullMaxCapsuleErrorText.setText( mFloor($ThisControl.getValue()) );";

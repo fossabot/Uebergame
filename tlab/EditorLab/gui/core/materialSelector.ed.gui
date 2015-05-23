@@ -253,7 +253,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
             };
             new GuiPopupMenuCtrlEx(){
                internalName = "materialPreviewCountPopup";
-               Profile = "ToolsGuiPopUpMenuProfile";
+               Profile = "ToolspfDropdownMain";
                Position = "104 2";
                Extent = "40 18";
                HorizSizing = "right";
@@ -552,7 +552,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          canSaveDynamicFields = "0";
          internalName = "tagName";
          isContainer = "0";
-         Profile = "ToolsGuiTextEditProfile";
+         Profile = "ToolspfTextEditMain";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "64 35";

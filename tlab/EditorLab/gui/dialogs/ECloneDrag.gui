@@ -55,7 +55,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextEditProfile";
+      profile = "ToolspfTextEditMain";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";

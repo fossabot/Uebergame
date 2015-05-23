@@ -93,7 +93,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiPopUpMenuProfile";
+            Profile = "ToolspfDropdownMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             Position = "6 20";
@@ -143,7 +143,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiPopUpMenuProfile";
+            Profile = "ToolspfDropdownMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             Position = "6 57";
@@ -221,7 +221,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             Position = "6 93";
@@ -254,7 +254,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             Position = "6 128";

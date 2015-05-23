@@ -206,7 +206,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTreeViewProfile";
+                     profile = "ToolspfTreeViewMain";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -304,7 +304,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTreeViewProfile";
+                     profile = "ToolspfTreeViewMain";
                      visible = "1";
                      active = "1";
                      altCommand = "$ThisControl.onDoubleClick();";

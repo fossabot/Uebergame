@@ -18,8 +18,8 @@ $tmpGroup = new SimGroup() {
     canSaveDynamicFields = "1";
     myFile = "art/gui/CastleBlast/Windows.pstyle.cs";
 
-    new ScriptObject(ToolsGuiWindowProfile_Style) {
-        internalName = "GuiWindowProfile";
+    new ScriptObject(ToolspfWindowMain_Style) {
+        internalName = "pfWindowMain";
         canSave = "1";
         canSaveDynamicFields = "1";
         autoSizeHeight = "0";
@@ -59,7 +59,7 @@ $tmpGroup = new SimGroup() {
         text = "untitled";
         textOffset = "40 2";
     };
-    new ScriptObject(ToolsGuiRolloutProfile_Style) {
+    new ScriptObject(ToolspfRolloutMain_Style) {
         internalName = "";
         canSave = "1";
         canSaveDynamicFields = "1";

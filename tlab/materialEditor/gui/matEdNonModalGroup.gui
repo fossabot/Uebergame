@@ -155,7 +155,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiPopUpMenuProfile";
+         Profile = "ToolspfDropdownMain";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "10 32";
@@ -237,7 +237,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiTextEditProfile";
+         Profile = "ToolspfTextEditMain";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "10 60";

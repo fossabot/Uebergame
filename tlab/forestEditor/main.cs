@@ -51,13 +51,13 @@ exec( "tlab/ForestEditor/ForestEditMeshTree.cs" );
     ForestEditorPalleteWindow.position = getWord($pref::Video::mode, 0) - 209  SPC getWord(EditorGuiToolbar.extent, 1)-1;
 
     new SimSet(ForestTools) {
-        new ForestBrushTool() {
+        new ForestBrushTool(ForestToolBrush) {
             internalName = "BrushTool";
             toolTip = "Paint Tool";
             buttonImage = "tlab/forest/images/brushTool";
         };
 
-        new ForestSelectionTool() {
+        new ForestSelectionTool(ForestToolSelection) {
             internalName = "SelectionTool";
             toolTip = "Selection Tool";
             buttonImage = "tlab/forest/images/selectionTool";

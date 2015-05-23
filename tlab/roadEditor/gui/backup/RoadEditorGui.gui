@@ -167,7 +167,7 @@
                canSaveDynamicFields = "0";
                Enabled = "1";
                isContainer = "1";
-               Profile = "ToolsGuiTreeViewProfile";
+               Profile = "ToolspfTreeViewMain";
                HorizSizing = "right";
                VertSizing = "bottom";
                Position = "1 1";
@@ -252,7 +252,7 @@
          };
          new GuiTextEditCtrl(){
             internalName = "position";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "width";
             VertSizing = "bottom";
             Position = "57 21";
@@ -270,7 +270,7 @@
          };
          new GuiTextEditCtrl(){
             internalName = "width";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "width";
             VertSizing = "bottom";
             Position = "57 42";

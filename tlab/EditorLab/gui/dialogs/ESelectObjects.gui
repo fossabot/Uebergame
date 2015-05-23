@@ -278,7 +278,7 @@
          minExtent = "20 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditProfile";
+         profile = "ToolspfTextEditMain";
          visible = "0";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -308,7 +308,7 @@
          minExtent = "20 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditProfile";
+         profile = "ToolspfTextEditMain";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -361,7 +361,7 @@
          minExtent = "20 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolsGuiPopUpMenuProfile";
+         profile = "ToolspfDropdownMain";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";

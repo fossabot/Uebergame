@@ -300,7 +300,7 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 		new GuiTextEditCtrl() {
 			class = "EManageBookmarksTextEdit";
 			internalName = "BookmarkName";
-			profile="ToolsGuiTextEditProfile";
+			profile="ToolspfTextEditMain";
 			HorizSizing = "width";
 			VertSizing = "bottom";
 			position = "22 2";

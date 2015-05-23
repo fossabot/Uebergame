@@ -48,7 +48,7 @@
          ticks = "100";
          value = "0.1";
          isContainer = "0";
-         Profile = "ToolsGuiSliderProfile";
+         Profile = "ToolspfSliderMain";
          HorizSizing = "width";
          VertSizing = "bottom";
          position = "37 27";

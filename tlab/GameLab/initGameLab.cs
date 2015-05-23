@@ -6,8 +6,8 @@
 
 //==============================================================================
 function Lab::initGameLab( %this ) {
-   exec("tlab/GameLab/gui/GameLabDlg.gui");
-   exec("tlab/GameLab/gui/GameLabDlg.cs");
+   exec("tlab/GameLab/gui/ToolsGameLabDlg.gui");
+   exec("tlab/GameLab/gui/ToolsGameLabDlg.cs");
    
    exec("tlab/GameLab/scripts/manageGameGuis.cs");
 }

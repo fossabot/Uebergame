@@ -97,7 +97,7 @@ package Lab {
             %folder = findFirstFile( %pattern );
         }
         while ( %folder !$= "" ) {
-            if( filePath( %folder ) !$= "tools" ) { // Skip the actual 'tools' folder...we want the children
+            if( filePath( %folder ) !$= "tools" && filePath( %folder ) !$= "tlab" ) { // Skip the actual 'tools' folder...we want the children
                 %folder = filePath( %folder );
                 %editor = fileName( %folder );
                 if ( IsDirectory( %folder ) ) {

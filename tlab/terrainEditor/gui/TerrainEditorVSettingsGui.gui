@@ -40,7 +40,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
          helpTag = "0";
 
          new GuiTextEditCtrl() {
-            profile = "ToolsGuiTextEditProfile";
+            profile = "ToolspfTextEditMain";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "86 12";
@@ -58,7 +58,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             tooltip = "Adjust height increment.";
          };
          new GuiTextEditCtrl() {
-            profile = "ToolsGuiTextEditProfile";
+            profile = "ToolspfTextEditMain";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "86 62";
@@ -76,7 +76,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             tooltip = "Scale height increment.";
          };
          new GuiTextEditCtrl() {
-            profile = "ToolsGuiTextEditProfile";
+            profile = "ToolspfTextEditMain";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "86 87";
@@ -239,7 +239,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             maxLength = "255";
          };
          new GuiTextEditCtrl() {
-            profile = "ToolsGuiTextEditProfile";
+            profile = "ToolspfTextEditMain";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "125 187";

@@ -131,7 +131,7 @@
             Enabled = "1";
             Component = "textEdit";
             isContainer = "0";
-            Profile = "ToolsGuiTextEditProfile";
+            Profile = "ToolspfTextEditMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "72 11";
@@ -161,7 +161,7 @@
             Enabled = "1";
             Component = "Slider";
             isContainer = "0";
-            Profile = "ToolsGuiSliderProfile";
+            Profile = "ToolspfSliderMain";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "112 14";

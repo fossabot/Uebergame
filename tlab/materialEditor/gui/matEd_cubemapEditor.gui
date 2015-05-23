@@ -39,7 +39,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiTextEditProfile";
+         Profile = "ToolspfTextEditMain";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "338 40";

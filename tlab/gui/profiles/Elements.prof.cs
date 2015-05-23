@@ -9,7 +9,7 @@
 //==============================================================================
 
 //==============================================================================
-singleton GuiControlProfile( ToolsGuiSliderProfile ) {
+singleton GuiControlProfile( ToolspfSliderMain ) {
     bitmap = "tlab/gui/images/element_assets/GuiSliderDot.png";
     category = "Tools";
    fontColors[8] = "255 0 255 255";
@@ -62,7 +62,7 @@ singleton GuiControlProfile( ToolsGuiPopUpMenuDefault : ToolsDefaultProfile ) {
 };
 //------------------------------------------------------------------------------
 //==============================================================================
-singleton GuiControlProfile( ToolsGuiPopUpMenuProfile : ToolsGuiPopUpMenuDefault ) {
+singleton GuiControlProfile( ToolspfDropdownMain : ToolsGuiPopUpMenuDefault ) {
     textOffset         = "6 4";
     bitmap             = "tlab/gui/images/element_assets/GuiDropdownMain.png";
     hasBitmapArray     = true;

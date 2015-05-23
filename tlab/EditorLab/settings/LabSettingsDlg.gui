@@ -687,7 +687,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ConvexEditor\",\"\",\"\");";
@@ -945,7 +945,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_DatablockEditor\",\"\",\"\");";
@@ -1383,7 +1383,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ForestEditor\",\"\",\"\");";
@@ -1460,7 +1460,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ForestEditor\",\"\",\"\");";
@@ -1537,7 +1537,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ForestEditor\",\"\",\"\");";
@@ -2695,7 +2695,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -2772,7 +2772,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -2849,7 +2849,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -2926,7 +2926,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3056,7 +3056,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3133,7 +3133,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3210,7 +3210,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3340,7 +3340,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3417,7 +3417,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3494,7 +3494,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3571,7 +3571,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3648,7 +3648,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -4086,7 +4086,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4163,7 +4163,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4240,7 +4240,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4317,7 +4317,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4394,7 +4394,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4471,7 +4471,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4548,7 +4548,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4625,7 +4625,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4755,7 +4755,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4832,7 +4832,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4909,7 +4909,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -5039,7 +5039,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -5116,7 +5116,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -5193,7 +5193,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -5270,7 +5270,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -5528,7 +5528,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5605,7 +5605,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5682,7 +5682,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5759,7 +5759,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5836,7 +5836,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5966,7 +5966,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6043,7 +6043,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6120,7 +6120,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6197,7 +6197,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6274,7 +6274,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6351,7 +6351,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6428,7 +6428,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6505,7 +6505,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6582,7 +6582,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6659,7 +6659,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -7107,7 +7107,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiSliderProfile";
+                              profile = "ToolspfSliderMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Input\",\"\",\"\");";
@@ -7195,7 +7195,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiSliderProfile";
+                              profile = "ToolspfSliderMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Input\",\"\",\"\");";
@@ -7454,7 +7454,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7531,7 +7531,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7608,7 +7608,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7771,7 +7771,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7848,7 +7848,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -8116,7 +8116,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiSliderProfile";
+                              profile = "ToolspfSliderMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8280,7 +8280,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8357,7 +8357,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8520,7 +8520,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8597,7 +8597,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -10134,7 +10134,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_GridUnit\",\"\",\"\");";
@@ -10156,7 +10156,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiSliderProfile";
+                              profile = "ToolspfSliderMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_GridUnit\",\"\",\"\");";
@@ -10673,7 +10673,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -10750,7 +10750,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -10999,7 +10999,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11076,7 +11076,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11153,7 +11153,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11230,7 +11230,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11918,7 +11918,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -11995,7 +11995,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12072,7 +12072,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12149,7 +12149,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12226,7 +12226,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12303,7 +12303,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12380,7 +12380,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12457,7 +12457,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12534,7 +12534,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12611,7 +12611,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12869,7 +12869,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -12946,7 +12946,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13023,7 +13023,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13100,7 +13100,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13177,7 +13177,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13254,7 +13254,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13331,7 +13331,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextEditProfile";
+                              profile = "ToolspfTextEditMain";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13460,7 +13460,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextEditProfile";
+               profile = "ToolspfTextEditMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13535,7 +13535,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextEditProfile";
+               profile = "ToolspfTextEditMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13610,7 +13610,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextEditProfile";
+               profile = "ToolspfTextEditMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13708,7 +13708,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiPopUpMenuProfile";
+               profile = "ToolspfDropdownMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13782,7 +13782,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiPopUpMenuProfile";
+               profile = "ToolspfDropdownMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14103,7 +14103,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextEditProfile";
+               profile = "ToolspfTextEditMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14123,7 +14123,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiSliderProfile";
+               profile = "ToolspfSliderMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14208,7 +14208,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiSliderProfile";
+               profile = "ToolspfSliderMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14293,7 +14293,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiSliderProfile";
+               profile = "ToolspfSliderMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";

@@ -85,7 +85,7 @@
          new GuiTextEditCtrl() {
             position = "2 3";
             extent = "278 18";
-            profile = "ToolsGuiTextEditProfile";
+            profile = "ToolspfTextEditMain";
             horizSizing = "width";
             vertSizing = "bottom";
             superClass = "GuiTreeViewFilterText";
@@ -162,7 +162,7 @@
                canRenameObjects = "1";
                renameInternal = "0";
                isContainer = "1";
-               profile = "ToolsGuiTreeViewProfile";
+               profile = "ToolspfTreeViewMain";
                horizSizing = "width";
                vertSizing = "bottom";
                position = "1 1";
@@ -377,7 +377,7 @@
                      canRenameObjects = "1";
                      renameInternal = "0";
                      isContainer = "1";
-                     profile = "ToolsGuiTreeViewProfile";
+                     profile = "ToolspfTreeViewMain";
                      horizSizing = "right";
                      vertSizing = "bottom";
                      position = "1 1";
