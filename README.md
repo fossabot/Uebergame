@@ -1,5 +1,5 @@
-# TorqueLab v0.1 - Pre-Alpha 
-**Pre-Alpha version warning (Messy scripts and unused files present)**
+# TorqueLab v0.1.4 - Early Alpha
+**Early-Alpha version warning (Messy scripts and unused files present)**
 
 ## What's TorqueLab
 TorqueLab is a completly revamping on the native Torque3D game editors (tools folder). The initial releases doesn't provide much new features, the work is focus on the scripts structure and the interface. Once those are completed, new features would be added.
