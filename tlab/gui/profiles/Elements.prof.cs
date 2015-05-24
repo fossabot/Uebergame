@@ -5,6 +5,12 @@
 //==============================================================================
 
 //==============================================================================
+//==============================================================================
+// Slider Profiles -> (GuiSliderCtrl)
+//==============================================================================
+//==============================================================================
+
+//==============================================================================
 // GuiSliderCtrl Profiles
 //==============================================================================
 
@@ -13,7 +19,7 @@
 //------------------------------------------------------------------------------
 singleton GuiControlProfile(ToolsSliderProfile : ToolsDefaultProfile)
 {
-   bitmap = "tlab/gui/assets/element_assets/GuiSliderProfile.png";
+   bitmap = "tlab/gui/assets/element/GuiSliderProfile.png";
 };
 //------------------------------------------------------------------------------
 
@@ -22,7 +28,7 @@ singleton GuiControlProfile(ToolsSliderProfile : ToolsDefaultProfile)
 //------------------------------------------------------------------------------
 singleton GuiControlProfile(ToolsSliderKnob : ToolsDefaultProfile)
 {
-   bitmap = "tlab/gui/assets/element_assets/GuiSliderKnob.png";
+   bitmap = "tlab/gui/assets/element/GuiSliderAlt.png";
 };
 //------------------------------------------------------------------------------
 
@@ -31,6 +37,6 @@ singleton GuiControlProfile(ToolsSliderKnob : ToolsDefaultProfile)
 //------------------------------------------------------------------------------
 singleton GuiControlProfile(ToolsSliderBox : ToolsDefaultProfile)
 {
-   bitmap = "tlab/gui/assets/element_assets/GuiSliderBox.png";
+   bitmap = "tlab/gui/assets/element/GuiSliderBox.png";
 };
 //------------------------------------------------------------------------------

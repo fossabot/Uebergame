@@ -447,7 +447,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/assets/gfx_assets/Divider-v.png";
+         bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
          position = "360 0";
          extent = "3 28";
@@ -494,7 +494,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/assets/gfx_assets/Divider-v.png";
+         bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
          position = "397 0";
          extent = "3 28";
@@ -593,7 +593,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/assets/gfx_assets/Divider-v.png";
+         bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
          position = "466 0";
          extent = "3 28";
@@ -693,7 +693,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/assets/gfx_assets/Divider-v.png";
+         bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
          position = "535 0";
          extent = "3 30";
@@ -791,7 +791,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/assets/gfx_assets/Divider-v.png";
+         bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
          position = "604 0";
          extent = "3 30";

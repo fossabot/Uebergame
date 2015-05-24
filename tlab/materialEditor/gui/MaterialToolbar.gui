@@ -40,7 +40,7 @@
       position = "86 3";
       Extent = "2 26";
       MinExtent = "1 1";
-      bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
+      bitmap = "tlab/gui/assets/gfx/separator-h.png";
    };
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";

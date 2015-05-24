@@ -176,7 +176,7 @@
 
       new GuiContainer(){ //Node Properties
          isContainer = "1";
-         Profile = "ToolsBoxNavDark";
+         Profile = "ToolsBoxTitleDark";
          HorizSizing = "width";
          VertSizing = "bottom";
          Position = "4 24";
@@ -268,7 +268,7 @@
       };
       new GuiContainer(){ //Conve Road Properties
          isContainer = "1";
-         Profile = "ToolsBoxNavDark";
+         Profile = "ToolsBoxTitleDark";
          HorizSizing = "width";
          VertSizing = "bottom";
          Position = "4 112";

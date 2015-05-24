@@ -9,26 +9,26 @@
 //==============================================================================
 
 //==============================================================================
-//ToolsBoxNavDark Style
+//ToolsBoxTitleDark Style
 //------------------------------------------------------------------------------
-singleton GuiControlProfile( ToolsBoxNavDark : ToolsDefaultProfile ) {
+singleton GuiControlProfile( ToolsBoxTitleDark : ToolsDefaultProfile ) {
      opaque = false;
     border = -2;
     category = "ToolsContainers";
-    bitmap = "tlab/gui/assets/container_assets/GuiBoxNavDark";
+    bitmap = "tlab/gui/assets/container/GuiBoxTitleDark";
     fontColors[2] = "0 0 0 255";
     fontColorNA = "0 0 0 255";
 };
 //------------------------------------------------------------------------------
 
 //==============================================================================
-//ToolsBoxNavTitle Style
+//ToolsBoxTitleBar Style
 //------------------------------------------------------------------------------
-singleton GuiControlProfile( ToolsBoxNavTitle : ToolsDefaultProfile ) {
+singleton GuiControlProfile( ToolsBoxTitleBar : ToolsDefaultProfile ) {
     opaque = false;
     border = -2;
     category = "ToolsContainers";
-    bitmap = "tlab/gui/assets/container_assets/GuiBoxNavTitle.png";
+    bitmap = "tlab/gui/assets/container/GuiBoxTitleBar.png";
     fontColors[2] = "0 0 0 255";
     fontColorNA = "0 0 0 255";
    fontType = "Gotham Black";

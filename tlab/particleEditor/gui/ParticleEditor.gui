@@ -1,6 +1,6 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiWindowCollapseCtrl(PE_Window) {
-   text = "Particle Editor - Particles";
+   text = "Particle Editor - Emitters";
    resizeWidth = "1";
    resizeHeight = "1";
    canMove = "1";
@@ -17,11 +17,11 @@
    anchorLeft = "1";
    anchorRight = "0";
    position = "0 0";
-   extent = "280 938";
+   extent = "280 814";
    minExtent = "210 140";
    horizSizing = "windowRelative";
    vertSizing = "windowRelative";
-   profile = "ToolsWindowProfile";
+   profile = "ToolsWindowProfile_Dark";
    visible = "1";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
@@ -29,8 +29,8 @@
    isContainer = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
-      defaultParent = "GuiGroup";
-      EditorContainer = "2780";
+      defaultParent = "guiGroup";
+      EditorContainer = "4098";
       editorParent = "2289";
       enabled = "1";
       minSize = "50 50";
@@ -43,7 +43,7 @@
       tabHeight = "17";
       allowReorder = "0";
       defaultPage = "-1";
-      selectedPage = "1";
+      selectedPage = "0";
       frontTabPadding = "0";
       docking = "Client";
       margin = "0 0 0 0";
@@ -53,7 +53,7 @@
       anchorLeft = "1";
       anchorRight = "0";
       position = "5 27";
-      extent = "270 904";
+      extent = "270 780";
       minExtent = "8 2";
       horizSizing = "width";
       vertSizing = "height";
@@ -78,18 +78,17 @@
          anchorBottom = "0";
          anchorLeft = "1";
          anchorRight = "0";
-         position = "0 19";
-         extent = "270 886";
+         position = "0 17";
+         extent = "270 763";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
          profile = "ToolsPanelDarkA";
-         visible = "0";
+         visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
          isContainer = "1";
-         hidden = "1";
          canSave = "1";
          canSaveDynamicFields = "0";
 
@@ -109,7 +108,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "270 886";
+            extent = "270 763";
             minExtent = "8 8";
             horizSizing = "width";
             vertSizing = "height";
@@ -132,7 +131,6 @@
                dynamicPos = "0";
                changeChildSizeToFit = "1";
                changeChildPosition = "1";
-               preventReordering = "1";
                position = "3 3";
                extent = "270 703";
                minExtent = "16 16";
@@ -168,7 +166,7 @@
                      sbUsesNAColor = "0";
                      reverseTextList = "0";
                      bitmapBounds = "16 16";
-                     text = "EmberEmitter";
+                     text = "BulletDirtDustEmitter";
                      maxLength = "255";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -306,7 +304,6 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  resizeChild = "1";
                   position = "0 26";
                   extent = "270 133";
                   minExtent = "8 2";
@@ -333,7 +330,6 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     preventReordering = "1";
                      position = "4 25";
                      extent = "262 108";
                      minExtent = "16 16";
@@ -391,7 +387,7 @@
                            range = "0 1000";
                            ticks = "0";
                            snap = "0";
-                           value = "0";
+                           value = "250";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -415,7 +411,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0";
+                           text = "250";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -608,7 +604,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -668,7 +664,7 @@
                            range = "1 1000";
                            ticks = "0";
                            snap = "0";
-                           value = "100";
+                           value = "20";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -692,7 +688,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "100";
+                           text = "20";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -760,7 +756,7 @@
                            range = "0 999";
                            ticks = "0";
                            snap = "0";
-                           value = "0";
+                           value = "10";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -784,7 +780,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0";
+                           text = "10";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -819,7 +815,6 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  resizeChild = "1";
                   position = "0 159";
                   extent = "270 133";
                   minExtent = "8 2";
@@ -846,7 +841,6 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     preventReordering = "1";
                      position = "4 25";
                      extent = "262 108";
                      minExtent = "16 16";
@@ -904,7 +898,7 @@
                            range = "0 100";
                            ticks = "0";
                            snap = "0";
-                           value = "0.75";
+                           value = "1";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -928,7 +922,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0.75";
+                           text = "1";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -996,7 +990,7 @@
                            range = "0 100";
                            ticks = "0";
                            snap = "0";
-                           value = "0";
+                           value = "1";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -1020,7 +1014,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0";
+                           text = "1";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -1061,7 +1055,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -1277,7 +1271,6 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  resizeChild = "1";
                   position = "0 292";
                   extent = "270 133";
                   minExtent = "8 2";
@@ -1304,7 +1297,6 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     preventReordering = "1";
                      position = "4 25";
                      extent = "262 108";
                      minExtent = "16 16";
@@ -1336,7 +1328,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "151 0";
                            extent = "2 18";
@@ -1354,7 +1346,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "163 0";
                            extent = "2 18";
@@ -1372,7 +1364,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -1390,7 +1382,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "187 0";
                            extent = "2 18";
@@ -1408,7 +1400,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "200 0";
                            extent = "2 18";
@@ -1452,7 +1444,7 @@
                            range = "0 180";
                            ticks = "0";
                            snap = "0";
-                           value = "1";
+                           value = "0";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -1476,7 +1468,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "1";
+                           text = "0";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -1518,7 +1510,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "151 0";
                            extent = "2 18";
@@ -1536,7 +1528,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "163 0";
                            extent = "2 18";
@@ -1554,7 +1546,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -1572,7 +1564,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "187 0";
                            extent = "2 18";
@@ -1590,7 +1582,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "200 0";
                            extent = "2 18";
@@ -1634,7 +1626,7 @@
                            range = "0 180";
                            ticks = "0";
                            snap = "0";
-                           value = "100";
+                           value = "180";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -1658,7 +1650,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "100";
+                           text = "180";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -1699,7 +1691,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -1851,7 +1843,7 @@
                            range = "0 10";
                            ticks = "0";
                            snap = "0";
-                           value = "2";
+                           value = "0";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -1875,7 +1867,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "2";
+                           text = "0";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -2001,7 +1993,6 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  resizeChild = "1";
                   position = "0 425";
                   extent = "270 105";
                   minExtent = "8 2";
@@ -2028,7 +2019,6 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     preventReordering = "1";
                      position = "4 25";
                      extent = "262 80";
                      minExtent = "16 16";
@@ -2086,7 +2076,7 @@
                            sbUsesNAColor = "0";
                            reverseTextList = "0";
                            bitmapBounds = "16 16";
-                           text = "EmberParticle";
+                           text = "BulletDirtDust";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -2400,7 +2390,6 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  resizeChild = "1";
                   position = "0 530";
                   extent = "270 173";
                   minExtent = "8 2";
@@ -2427,7 +2416,6 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     preventReordering = "1";
                      position = "4 25";
                      extent = "262 148";
                      minExtent = "16 16";
@@ -2485,7 +2473,7 @@
                            sbUsesNAColor = "0";
                            reverseTextList = "0";
                            bitmapBounds = "16 16";
-                           text = "ADDITIVE";
+                           text = "NORMAL";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -2498,7 +2486,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "pfDropdownMain";
+                           profile = "GuiPopUpMenuProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"blendStyle\", $ThisControl.getText());";
@@ -2710,7 +2698,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -2989,11 +2977,12 @@
          horizSizing = "width";
          vertSizing = "height";
          profile = "ToolsPanelDarkA";
-         visible = "1";
+         visible = "0";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
          isContainer = "1";
+         hidden = "1";
          canSave = "1";
          canSaveDynamicFields = "0";
 
@@ -3036,7 +3025,6 @@
                dynamicPos = "0";
                changeChildSizeToFit = "1";
                changeChildPosition = "1";
-               preventReordering = "1";
                position = "1 3";
                extent = "270 578";
                minExtent = "16 16";
@@ -3072,7 +3060,7 @@
                      sbUsesNAColor = "0";
                      reverseTextList = "0";
                      bitmapBounds = "16 16";
-                     text = "EmberParticle";
+                     text = "BulletDirtDust";
                      maxLength = "255";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -3209,7 +3197,6 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  resizeChild = "1";
                   position = "0 26";
                   extent = "270 125";
                   minExtent = "8 2";
@@ -3236,7 +3223,6 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     preventReordering = "1";
                      position = "4 25";
                      extent = "262 100";
                      minExtent = "16 16";
@@ -3313,7 +3299,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapButtonCtrl() {
-                           bitmap = "art/gfx/particles/ember";
+                           bitmap = "art/gfx/particles/impact";
                            bitmapMode = "Stretched";
                            autoFitExtents = "0";
                            useModifiers = "0";
@@ -3389,7 +3375,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "art/gfx/particles/ember";
+                           text = "art/gfx/particles/impact";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -3406,7 +3392,7 @@
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
-                           tooltip = "art/gfx/particles/ember";
+                           tooltip = "art/gfx/particles/impact";
                            hovertime = "1000";
                            isContainer = "0";
                            internalName = "PEP_previewImageName";
@@ -3450,7 +3436,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -3510,7 +3496,7 @@
                            range = "1 9000";
                            ticks = "0";
                            snap = "0";
-                           value = "5000";
+                           value = "800";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -3534,7 +3520,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "5000";
+                           text = "800";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -3602,7 +3588,7 @@
                            range = "0 8999";
                            ticks = "0";
                            snap = "0";
-                           value = "0";
+                           value = "300";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -3626,7 +3612,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0";
+                           text = "300";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -3661,7 +3647,6 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  resizeChild = "1";
                   position = "0 151";
                   extent = "270 113";
                   minExtent = "8 2";
@@ -3688,7 +3673,6 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     preventReordering = "1";
                      position = "4 25";
                      extent = "262 88";
                      minExtent = "16 16";
@@ -3838,7 +3822,7 @@
                            range = "-10 10";
                            ticks = "0";
                            snap = "0";
-                           value = "0";
+                           value = "-0.83";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -3862,7 +3846,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0";
+                           text = "-0.83";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -3903,7 +3887,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -3937,7 +3921,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -3981,7 +3965,7 @@
                            range = "-1 1";
                            ticks = "0";
                            snap = "0";
-                           value = "-0.0512821";
+                           value = "-0.100122";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -4005,7 +3989,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "-0.0512821";
+                           text = "-0.100122";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -4073,7 +4057,7 @@
                            range = "0 1";
                            ticks = "0";
                            snap = "0";
-                           value = "0";
+                           value = "0.997067";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -4097,7 +4081,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0";
+                           text = "0.997067";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -4132,7 +4116,6 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  resizeChild = "1";
                   position = "0 264";
                   extent = "270 93";
                   minExtent = "8 2";
@@ -4159,7 +4142,6 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     preventReordering = "1";
                      position = "4 25";
                      extent = "262 68";
                      minExtent = "16 16";
@@ -4191,7 +4173,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -4235,7 +4217,7 @@
                            range = "-1000 999";
                            ticks = "0";
                            snap = "0";
-                           value = "-90";
+                           value = "-180";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -4259,7 +4241,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "-90";
+                           text = "-180";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -4301,7 +4283,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -4345,7 +4327,7 @@
                            range = "-999 1000";
                            ticks = "0";
                            snap = "0";
-                           value = "90";
+                           value = "180";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -4369,7 +4351,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "90";
+                           text = "180";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -4410,7 +4392,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -4529,7 +4511,6 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  resizeChild = "1";
                   position = "0 357";
                   extent = "270 221";
                   minExtent = "8 2";
@@ -4556,7 +4537,6 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     preventReordering = "1";
                      position = "4 25";
                      extent = "262 196";
                      minExtent = "16 16";
@@ -4610,7 +4590,9 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiSwatchButtonCtrl(PE_ColorTintSwatch0) {
-                           color = "1 0.795276 0 0.795276";
+                           color = "0.496063 0.393701 0.299213 0.685039";
+                           gridBitmap = "tools/gui/images/transp_grid";
+                           autoMap = "0";
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "1";
@@ -4632,7 +4614,9 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiSwatchButtonCtrl(PE_ColorTintSwatch1) {
-                           color = "1 0.692913 0 0.795276";
+                           color = "0.685039 0.606299 0.527559 0.346457";
+                           gridBitmap = "tools/gui/images/transp_grid";
+                           autoMap = "0";
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "1";
@@ -4654,7 +4638,9 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiSwatchButtonCtrl(PE_ColorTintSwatch2) {
-                           color = "1 0 0 0.19685";
+                           color = "0.897638 0.84252 0.795276 0";
+                           gridBitmap = "tools/gui/images/transp_grid";
+                           autoMap = "0";
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "1";
@@ -4677,6 +4663,8 @@
                         };
                         new GuiSwatchButtonCtrl(PE_ColorTintSwatch3) {
                            color = "1 1 1 1";
+                           gridBitmap = "tools/gui/images/transp_grid";
+                           autoMap = "0";
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "1";
@@ -4714,7 +4702,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -4774,7 +4762,7 @@
                            range = "0 50";
                            ticks = "0";
                            snap = "0";
-                           value = "0.0488311";
+                           value = "0.997986";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -4798,7 +4786,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0.0488311";
+                           text = "0.997986";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -4866,7 +4854,7 @@
                            range = "0 50";
                            ticks = "0";
                            snap = "0";
-                           value = "0.0976622";
+                           value = "1.99902";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -4890,7 +4878,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0.0976622";
+                           text = "1.99902";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -4958,7 +4946,7 @@
                            range = "0 50";
                            ticks = "0";
                            snap = "0";
-                           value = "0.0488311";
+                           value = "2.49954";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -4982,7 +4970,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0.0488311";
+                           text = "2.49954";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -5115,7 +5103,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -5267,7 +5255,7 @@
                            range = "0 1";
                            ticks = "0";
                            snap = "0";
-                           value = "0.498039";
+                           value = "0.494118";
                            position = "147 2";
                            extent = "58 12";
                            minExtent = "8 2";
@@ -5291,7 +5279,7 @@
                            sinkAllKeyEvents = "0";
                            password = "0";
                            passwordMask = "*";
-                           text = "0.498039";
+                           text = "0.494118";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";

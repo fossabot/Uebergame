@@ -1,27 +1,21 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiControl(TerrainImportGui,EditorGuiGroup) {
    position = "0 0";
-   extent = "1280 1024";
+   extent = "1440 900";
    minExtent = "8 2";
    horizSizing = "right";
    vertSizing = "bottom";
    profile = "ToolsGuiOverlayProfile";
    visible = "1";
    active = "1";
-   tooltipProfile = "ToolsGuiToolTipProfile";
+   tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
    isContainer = "1";
-   langTableMod = "Default";
    canSave = "1";
    canSaveDynamicFields = "1";
-      activeIdx = "15";
-      channelsArray = "9868";
-      defaultParent = "2489";
-      EditorContainer = "2709";
+      channelsArray = "20358";
       enabled = "1";
-      isDecoy = "0";
-      isDlg = "1";
-      namesArray = "9867";
+      namesArray = "20357";
 
    new GuiWindowCtrl() {
       text = "Import Terrain Height Map";
@@ -40,12 +34,12 @@
       anchorBottom = "1";
       anchorLeft = "1";
       anchorRight = "1";
-      position = "280 242";
-      extent = "719 539";
+      position = "267 96";
+      extent = "905 708";
       minExtent = "391 257";
       horizSizing = "center";
       vertSizing = "center";
-      profile = "pfWindowMain";
+      profile = "GuiWindowProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "ToolsGuiToolTipProfile";
@@ -123,7 +117,7 @@
             sinkAllKeyEvents = "0";
             password = "0";
             passwordMask = "*";
-            text = "F:/T3D WorkPlace/T3Dtlab/Gametlab/StarterKit/levels/ContentPackDemos/FarmPackDemoA/terrain_src/heightMap/hm_full.png";
+            text = "F:/T3DProjects/ContentLabT3D/My Projects/ContentLab/game/levels/FarmPack/ValleyDemo/terrain_src/hmExport/TestA/theTerrain_heightmap.png";
             maxLength = "1024";
             margin = "0 0 0 0";
             padding = "0 0 0 0";
@@ -136,7 +130,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "bottom";
-            profile = "pfTextEditMain";
+            profile = "GuiTextEditProfile";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -190,7 +184,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "pfTextEditMain";
+            profile = "GuiTextEditProfile";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -244,7 +238,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "pfTextEditMain";
+            profile = "GuiTextEditProfile";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -298,7 +292,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "pfTextEditMain";
+            profile = "GuiTextEditProfile";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -373,7 +367,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "pfTextEditMain";
+            profile = "GuiTextEditProfile";
             visible = "1";
             active = "1";
             variable = "$Terrain::SplatMapSize";
@@ -388,7 +382,7 @@
       };
       new GuiControl() {
          position = "11 87";
-         extent = "698 402";
+         extent = "884 571";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
@@ -418,7 +412,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 27";
-            extent = "693 348";
+            extent = "879 517";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -438,11 +432,11 @@
                fitParentWidth = "1";
                clipColumnText = "1";
                position = "3 3";
-               extent = "687 54";
+               extent = "873 32";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "top";
-               profile = "ToolsTextBase_List";
+               profile = "ToolsGuiTextListProfile";
                visible = "1";
                active = "1";
                altCommand = "TerrainImportGui.onOpacityListDblClick();";
@@ -452,7 +446,7 @@
                langTableMod = "Default";
                internalName = "OpacityLayerTextList";
                canSave = "1";
-               canSaveDynamicFields = "0";
+               canSaveDynamicFields = "1";
             };
          };
          new GuiTextCtrl() {
@@ -488,7 +482,7 @@
             anchorBottom = "0";
             anchorLeft = "1";
             anchorRight = "0";
-            position = "432 14";
+            position = "618 14";
             extent = "30 9";
             minExtent = "8 2";
             horizSizing = "left";
@@ -508,7 +502,7 @@
             groupNum = "-1";
             buttonType = "PushButton";
             useMouseEvents = "0";
-            position = "588 383";
+            position = "774 552";
             extent = "92 18";
             minExtent = "8 2";
             horizSizing = "left";
@@ -529,7 +523,7 @@
             groupNum = "-1";
             buttonType = "PushButton";
             useMouseEvents = "0";
-            position = "8 383";
+            position = "194 552";
             extent = "96 18";
             minExtent = "8 2";
             horizSizing = "left";
@@ -550,7 +544,7 @@
             groupNum = "-1";
             buttonType = "PushButton";
             useMouseEvents = "0";
-            position = "475 383";
+            position = "661 552";
             extent = "104 18";
             minExtent = "8 2";
             horizSizing = "left";
@@ -575,7 +569,7 @@
             anchorBottom = "0";
             anchorLeft = "1";
             anchorRight = "0";
-            position = "484 14";
+            position = "670 14";
             extent = "155 9";
             minExtent = "8 2";
             horizSizing = "left";
@@ -595,7 +589,7 @@
             groupNum = "-1";
             buttonType = "PushButton";
             useMouseEvents = "0";
-            position = "358 382";
+            position = "544 551";
             extent = "104 18";
             minExtent = "8 2";
             horizSizing = "left";
@@ -617,7 +611,7 @@
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
-         position = "6 506";
+         position = "192 506";
          extent = "88 24";
          minExtent = "8 2";
          horizSizing = "left";
@@ -711,7 +705,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "pfDropdownMain";
+            profile = "GuiPopUpMenuProfile";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -740,7 +734,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "pfTextEditMain";
+            profile = "GuiTextEditProfile";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";

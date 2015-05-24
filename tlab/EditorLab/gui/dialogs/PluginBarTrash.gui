@@ -115,7 +115,7 @@
       canSaveDynamicFields = "0";
 
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/assets/plugin_assets/MeshRoadEditorIcon";
+         bitmap = "tlab/gui/assets/plugin/MeshRoadEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -142,7 +142,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/assets/plugin_assets/RiverEditorIcon";
+         bitmap = "tlab/gui/assets/plugin/RiverEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -169,7 +169,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/assets/plugin_assets/RoadEditorIcon";
+         bitmap = "tlab/gui/assets/plugin/RoadEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -196,7 +196,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/assets/plugin_assets/DecalEditorIcon";
+         bitmap = "tlab/gui/assets/plugin/DecalEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -223,7 +223,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/assets/plugin_assets/MissionAreaEditorIcon";
+         bitmap = "tlab/gui/assets/plugin/MissionAreaEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -250,7 +250,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/assets/plugin_assets/LabPhysicIcon";
+         bitmap = "tlab/gui/assets/plugin/LabPhysicIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";

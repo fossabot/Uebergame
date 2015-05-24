@@ -1,6 +1,6 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiChunkedBitmapCtrl(LabWidgetsGui) {
-   bitmap = "art/gui/images/background/background";
+   bitmap = "art/images/background/background";
    useVariable = "0";
    tile = "0";
    position = "0 0";

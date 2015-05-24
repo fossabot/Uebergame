@@ -21,36 +21,55 @@ singleton GuiControlProfile( GuiInspectorProfile  : ToolsDefaultProfile ) {
 //------------------------------------------------------------------------------
 //GuiPopUpMenuProfile Item
 delObj(GuiPopUpMenuProfile_Item);
-singleton GuiControlProfile(GuiPopUpMenuProfile_Item : ToolsDefaultProfile)
+singleton GuiControlProfile(GuiPopUpMenuProfile_List : ToolsDefaultProfile)
 {
    modal = "1";
-   fontSize = "22";
-   fontColors[1] = "255 160 0 255";
-   fontColorHL = "255 160 0 255";
-   autoSizeWidth = "1";
-   autoSizeHeight = "1";
-   fillColorSEL = "0 255 6 255";
-};
-//------------------------------------------------------------------------------
-//GuiPopUpMenuProfile List
-delObj(GuiPopUpMenuProfile_List);
-singleton GuiControlProfile (GuiPopUpMenuProfile_List : ToolsDefaultProfile)
-{   
-   hasBitmapArray     = false;
    fontSize = "18";
    fontColors[1] = "255 160 0 255";
    fontColorHL = "255 160 0 255";
    autoSizeWidth = "1";
    autoSizeHeight = "1";
-   modal = "1";
-   fillColor = "25 25 25 237";
+   fillColorSEL = "199 152 15 240";
+   opaque = "1";
+   bevelColorHL = "255 0 255 255";
+   fontColors[0] = "0 0 0 255";
+   fontColor = "0 0 0 255";
+   fillColor = "0 1 16 255";
    fillColorHL = "180 113 18 169";
    fontColors[2] = "3 206 254 255";
+   fontColors[3] = "254 3 62 255";
    fontColorNA = "3 206 254 255";
-   profileForChildren = "ToolsDropdownMain_Item";
-   fillColorSEL = "199 152 15 240";
+   fontColorSEL = "254 3 62 255";
+   profileForChildren = "GuiPopUpMenuProfile_Item";
+};
+//------------------------------------------------------------------------------
+//GuiPopUpMenuProfile List
+delObj(GuiPopUpMenuProfile_List);
+singleton GuiControlProfile (GuiPopUpMenuProfile : ToolsDefaultProfile)
+{   
+   hasBitmapArray     = "1";
+   fontSize = "17";
+   fontColors[1] = "255 160 0 255";
+   fontColorHL = "255 160 0 255";
+   autoSizeWidth = "0";
+   autoSizeHeight = "0";
+   modal = "1";
+   fillColor = "242 241 241 255";
+   fillColorHL = "228 228 235 255";
+   fontColors[2] = "3 206 254 255";
+   fontColorNA = "3 206 254 255";
+   profileForChildren = "GuiPopUpMenuProfile_List";
+   fillColorSEL = "98 100 137 255";
    fontColors[3] = "254 3 62 255";
    fontColorSEL = "254 3 62 255";
+   opaque = "1";
+   bevelColorHL = "255 0 255 255";
+   fontColors[0] = "0 0 0 255";
+   fontColor = "0 0 0 255";
+   fontType = "Davidan";
+   justify = "Center";
+   bitmap = "tlab/gui/assets/element/GuiDropdownProfile_Thin.png";
+   category = "GameList";
   
 };
 //------------------------------------------------------------------------------
@@ -60,7 +79,7 @@ singleton GuiControlProfile (GuiPopUpMenuProfile : ToolsDefaultProfile)
 {   
   hasBitmapArray     = "1";
   profileForChildren = "ToolsDropdownMain_List";
- 	bitmap = "tlab/gui/assets/element_assets/GuiDropdownMain_Thin.png";
+ 	bitmap = "tlab/gui/assets/element/GuiDropdownProfile_Thin.png";
    fontSize = "15";
    justify = "Center";
    fillColor = "242 241 241 255";  
@@ -90,11 +109,11 @@ singleton GuiControlProfile( GuiButtonProfile : ToolsDefaultProfile ) {
     justify = "center";
     category = "ToolsButtons";
     opaque = "1";
-    border = "1";
+    border = "-2";
     fontColors[0] = "254 254 254 255";
     fontColors[2] = "200 200 200 255";
     fontColorNA = "200 200 200 255";
-    bitmap = "tlab/gui/assets/button_assets/ToolsButtonProfile.png";
+    bitmap = "tlab/gui/assets/button/GuiButtonProfile.png";
     hasBitmapArray = "1";
     fixedExtent = "0";
    bevelColorLL = "Magenta";
@@ -119,7 +138,7 @@ singleton GuiControlProfile( GuiInspectorCheckBoxProfile : ToolsDefaultProfile )
     fontColorNA = "200 200 200";
     fixedExtent = 1;
     justify = "left";
-    bitmap = "tlab/gui/assets/button_assets/GuiCheckboxProfile_S1.png";
+    bitmap = "tlab/gui/assets/button/GuiCheckboxProfile_S1.png";
     hasBitmapArray = true;
     category = "Tools";
     fontType = "Gotham Book";
@@ -144,7 +163,7 @@ singleton GuiControlProfile( GuiInspectorButtonProfile : ToolsButtonProfile ) {
     fontColors[0] = "254 254 254 255";
     fontColors[2] = "200 200 200 255";
     fontColorNA = "200 200 200 255";
-    bitmap = "tlab/gui/assets/button_assets/GuiButtonProfile.png";
+    bitmap = "tlab/gui/assets/button/GuiButtonProfile.png";
     fixedExtent = "0";
    bevelColorLL = "Magenta";
    textOffset = "0 2";
@@ -162,7 +181,7 @@ singleton GuiControlProfile(GuiInspectorSwatchButtonProfile : GuiInspectorButton
 	fillColorNA = "200 200 200 255";
 	fontSize = "24";
 	textOffset = "16 10";
-	bitmap = "tlab/gui/assets/button_assets/GuiButtonProfile.png";
+	bitmap = "tlab/gui/assets/button/GuiButtonProfile.png";
 	hasBitmapArray = "1";
 	fontColors[0] = "253 253 253 255";
 	fontColor = "253 253 253 255";
@@ -233,7 +252,7 @@ singleton GuiControlProfile( GuiInspectorGroupProfile : ToolsDefaultProfile ) {
     fontColorHL = "25 25 25 220";
     fontColorNA = "128 128 128 255";
     textOffset = "20 0";
-    bitmap = "tlab/gui/assets/container_assets/GuiRolloutProfile.png";
+    bitmap = "tlab/gui/assets/container/GuiRolloutProfile.png";
     opaque = "0";
     fillColor = "0 0 0 237";
     fillColorNA = "255 255 255 255";
@@ -384,3 +403,17 @@ singleton GuiControlProfile( InspectorTypeCheckboxProfile : GuiInspectorFieldPro
 
 
 
+
+singleton GuiControlProfile(GuiPopUpMenuProfile_Item : ToolsDefaultProfile)
+{
+   opaque = "1";
+   fillColorSEL = "0 255 6 255";
+   bevelColorHL = "255 0 255 255";
+   fontSize = "22";
+   fontColors[0] = "0 0 0 255";
+   fontColors[1] = "255 160 0 255";
+   fontColor = "0 0 0 255";
+   fontColorHL = "255 160 0 255";
+   autoSizeWidth = "1";
+   autoSizeHeight = "1";
+};

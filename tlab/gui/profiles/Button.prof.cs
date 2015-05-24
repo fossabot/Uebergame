@@ -22,7 +22,7 @@ singleton GuiControlProfile( ToolsButtonProfile : ToolsDefaultProfile ) {
     fontColors[0] = "254 254 254 255";
     fontColors[2] = "200 200 200 255";
     fontColorNA = "200 200 200 255";
-    bitmap = "tlab/gui/assets/button_assets/GuiButtonProfile.png";
+    bitmap = "tlab/gui/assets/button/GuiButtonProfile.png";
     hasBitmapArray = "1";
     fixedExtent = "0";
    bevelColorLL = "Magenta";
@@ -38,7 +38,7 @@ singleton GuiControlProfile( ToolsButtonProfile : ToolsDefaultProfile ) {
 //ToolsButtonDark Style
 //------------------------------------------------------------------------------
 singleton GuiControlProfile( ToolsButtonDark : ToolsButtonProfile ) {
-    bitmap = "tlab/gui/assets/button_assets/GuiButtonDark.png";
+    bitmap = "tlab/gui/assets/button/GuiButtonDark.png";
      border = "-2";
 };
 //------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ singleton GuiControlProfile( ToolsButtonDark : ToolsButtonProfile ) {
 //ToolsButtonHighlight Style - Special style for highlighting stuff
 //------------------------------------------------------------------------------
 singleton GuiControlProfile( ToolsButtonHighlight : ToolsButtonProfile ) {
-    bitmap = "tlab/gui/assets/button_assets/GuiButtonHighlight.png";
+    bitmap = "tlab/gui/assets/button/GuiButtonHighlight.png";
 };
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -68,7 +68,7 @@ singleton GuiControlProfile( ToolsCheckBoxProfile : ToolsDefaultProfile ) {
     fontColorNA = "200 200 200";
     fixedExtent = 1;
     justify = "left";
-    bitmap = "tlab/gui/assets/button_assets/GuiCheckboxProfile.png";
+    bitmap = "tlab/gui/assets/button/GuiCheckboxProfile.png";
     hasBitmapArray = true;
     category = "Tools";
     fontType = "Gotham Book";
@@ -81,28 +81,28 @@ singleton GuiControlProfile( ToolsCheckBoxProfile : ToolsDefaultProfile ) {
 //------------------------------------------------------------------------------
 //ToolsCheckBoxProfile Small #1
 singleton GuiControlProfile( ToolsCheckBoxProfile_S1 : ToolsCheckBoxProfile ) {
-	bitmap = "tlab/gui/assets/button_assets/GuiCheckboxProfile_S1.png";
+	bitmap = "tlab/gui/assets/button/GuiCheckboxProfile_S1.png";
    fontSize = "14";
    
 };
 //------------------------------------------------------------------------------
 //ToolsCheckBoxProfile Large #1
 singleton GuiControlProfile( ToolsCheckBoxProfile_L1 : ToolsCheckBoxProfile ) {
-	bitmap = "tlab/gui/assets/button_assets/GuiCheckboxProfile_L1.png";
+	bitmap = "tlab/gui/assets/button/GuiCheckboxProfile_L1.png";
    fontSize = "22";
    
 };
 //------------------------------------------------------------------------------
 //ToolsCheckBoxProfile_S1 Variation for list
 singleton GuiControlProfile( ToolsCheckBoxProfile_List : ToolsCheckBoxProfile ) {
-	bitmap = "tlab/gui/assets/button_assets/GuiCheckboxProfile_List.png";
+	bitmap = "tlab/gui/assets/button/GuiCheckboxProfile_List.png";
    fontSize = "22";
    
 };
 //------------------------------------------------------------------------------
 //ToolsCheckBoxProfile_S1 Variation for cancel
 singleton GuiControlProfile( ToolsCheckBoxProfile_Cancel : ToolsCheckBoxProfile ) {
-	bitmap = "tlab/gui/assets/button_assets/GuiCheckboxProfile_Cancel.png";
+	bitmap = "tlab/gui/assets/button/GuiCheckboxProfile_Cancel.png";
    fontSize = "22";
    
 };
@@ -122,7 +122,7 @@ singleton GuiControlProfile(ToolsRadioProfile : ToolsDefaultProfile)
 	fillColorNA = "200 200 200 255";
 	fontSize = "20";
 	textOffset = "16 10";
-	bitmap = "tlab/gui/assets/button_assets/GuiRadioProfile.png";
+	bitmap = "tlab/gui/assets/button/GuiRadioProfile.png";
 	hasBitmapArray = "1";
 	fontColors[0] = "250 250 250 255";
 	fontColor = "250 250 250 255";
@@ -137,8 +137,35 @@ singleton GuiControlProfile(ToolsRadioProfile : ToolsDefaultProfile)
 //------------------------------------------------------------------------------
 //ToolsRadioProfile Large #1 
 singleton GuiControlProfile( ToolsRadioProfile_L1 : ToolsRadioProfile ) {
-	bitmap = "tlab/gui/assets/button_assets/GuiRadioProfile_l1.png";
+	bitmap = "tlab/gui/assets/button/GuiRadioProfile_l1.png";
    fontSize = "14";
    
+};
+//------------------------------------------------------------------------------
+
+//==============================================================================
+// Swatch Button Profile -> Used in stock code (Do not remove)
+//==============================================================================
+//------------------------------------------------------------------------------
+singleton GuiControlProfile(GuiSwatchButtonProfile : GuiDefaultProfile)
+{
+	fillColor = "254 253 253 255";
+	fillColorHL = "221 221 221 255";
+	fillColorNA = "200 200 200 255";
+	fontSize = "24";
+	textOffset = "16 10";
+	bitmap = "art/gui/Lab/assets/button/GuiButton";
+	hasBitmapArray = "1";
+	fontColors[0] = "253 253 253 255";
+	fontColor = "253 253 253 255";
+   border = "-1";
+   fontColors[2] = "Black";
+   fontColorNA = "Black";
+    category = "Tools";
+};
+//------------------------------------------------------------------------------
+singleton GuiControlProfile(ToolsSwatchButtonProfile : GuiSwatchButtonProfile)
+{
+	 category = "Tools";
 };
 //------------------------------------------------------------------------------

@@ -76,7 +76,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
-         profile = "ToolsBoxNavDark";
+         profile = "ToolsBoxTitleDark";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -120,7 +120,7 @@
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "height";
-               profile = "ToolsBoxNavDark";
+               profile = "ToolsBoxTitleDark";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -177,7 +177,7 @@
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "height";
-               profile = "ToolsBoxNavDark";
+               profile = "ToolsBoxTitleDark";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -199,7 +199,7 @@
                   minExtent = "8 2";
                   horizSizing = "relative";
                   vertSizing = "relative";
-                  profile = "ToolsBoxNavDark";
+                  profile = "ToolsBoxTitleDark";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -262,7 +262,7 @@
                   minExtent = "8 2";
                   horizSizing = "relative";
                   vertSizing = "relative";
-                  profile = "ToolsBoxNavDark";
+                  profile = "ToolsBoxTitleDark";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";

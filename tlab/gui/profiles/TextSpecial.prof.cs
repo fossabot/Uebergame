@@ -16,7 +16,7 @@
 //------------------------------------------------------------------------------
 singleton GuiControlProfile( ToolsTextEditProfile : ToolsDefaultProfile ) {
     opaque = true;
-    bitmap = "tlab/gui/assets/element_assets/GuiTextEditProfile.png";
+    bitmap = "tlab/gui/assets/element/GuiTextEditProfile.png";
 
     hasBitmapArray = true;
     border = -2; // fix to display textEdit img
@@ -52,7 +52,7 @@ singleton GuiControlProfile( ToolsTextEditProfile_Num : ToolsTextEditProfile ) {
 //------------------------------------------------------------------------------
 singleton GuiControlProfile( ToolsTextEditDark : ToolsDefaultProfile ) {
     opaque = true;
-    bitmap = "tlab/gui/assets/element_assets/GuiTextEditDark.png";
+    bitmap = "tlab/gui/assets/element/GuiTextEditDark.png";
 
     hasBitmapArray = true;
     border = -2; // fix to display textEdit img
@@ -83,7 +83,7 @@ singleton GuiControlProfile( ToolsTextEditDark : ToolsDefaultProfile ) {
 //------------------------------------------------------------------------------
 //ToolsTextEditDark Blue border variation
 singleton GuiControlProfile( ToolsTextEditDark_Blue : ToolsTextEditDark ) {  
-    bitmap = "tlab/gui/assets/element_assets/GuiTextEditDark_Blue.png";
+    bitmap = "tlab/gui/assets/element/GuiTextEditDark_Blue.png";
 };
 //------------------------------------------------------------------------------
 //ToolsTextEditDark Blue border variation

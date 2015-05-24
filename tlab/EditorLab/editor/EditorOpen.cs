@@ -23,8 +23,8 @@ function Editor::open(%this) {
       Lab.currentEditor = Lab.defaultPlugin;
 	
 	Lab.setEditor( Lab.currentEditor, true );
-	Lab.activatePlugin(Lab.currentEditor);
-	Lab.SyncEditor();
+
+	//Lab.SyncEditor();
 	Canvas.setContent(EditorGui);
 	//The default menu seem to be create somewhere between setCOntent and here
 	if(!$Cfg_UseCoreMenubar && isObject(Lab.menuBar))

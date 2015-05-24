@@ -154,7 +154,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapCtrl() {
-               bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
+               bitmap = "tlab/gui/assets/gfx/separator-h.png";
                wrap = "0";
                position = "98 3";
                extent = "2 26";
@@ -241,7 +241,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapCtrl() {
-               bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
+               bitmap = "tlab/gui/assets/gfx/separator-h.png";
                wrap = "0";
                position = "307 3";
                extent = "2 26";
@@ -348,7 +348,7 @@
                };
             };
             new GuiBitmapCtrl() {
-               bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
+               bitmap = "tlab/gui/assets/gfx/separator-h.png";
                wrap = "0";
                position = "415 3";
                extent = "2 26";
@@ -547,7 +547,7 @@
                };
             };
             new GuiBitmapCtrl() {
-               bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
+               bitmap = "tlab/gui/assets/gfx/separator-h.png";
                wrap = "0";
                position = "582 3";
                extent = "2 26";
@@ -564,7 +564,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapCtrl() {
-               bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
+               bitmap = "tlab/gui/assets/gfx/separator-h.png";
                wrap = "0";
                position = "639 3";
                extent = "2 26";

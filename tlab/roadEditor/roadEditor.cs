@@ -36,7 +36,7 @@ singleton GuiControlProfile (GuiSimpleBorderProfile) {
 singleton GuiCursor(RoadEditorMoveCursor) {
     hotSpot = "4 4";
     renderOffset = "0 0";
-    bitmapName = "art/gui/images/cursors/macCursor";
+    bitmapName = "art/images/cursors/macCursor";
     category = "Editor";
 };
 

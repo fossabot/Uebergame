@@ -98,7 +98,7 @@
 
          new GuiSwatchButtonCtrl(matEd_previewBackground) {
             color = "0.976471 0.980392 0.976471 0";
-            gridBitmap = "tlab/gui/assets/gfx_assets/grid.png";
+            gridBitmap = "tlab/gui/assets/gfx/grid.png";
             autoMap = "0";
             groupNum = "-1";
             buttonType = "PushButton";
@@ -258,7 +258,7 @@
 
                new GuiSwatchButtonCtrl(MaterialPreviewBackgroundPicker) {
                   color = "0.976471 0.980392 0.976471 0";
-                  gridBitmap = "tlab/gui/assets/gfx_assets/grid.png";
+                  gridBitmap = "tlab/gui/assets/gfx/grid.png";
                   autoMap = "0";
                   groupNum = "-1";
                   buttonType = "PushButton";
@@ -1249,7 +1249,7 @@
                         };
                      };
                      new GuiBitmapCtrl() {
-                        bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                        bitmap = "tlab/gui/images/gfx/separator-v";
                         wrap = "0";
                         position = "0 52";
                         extent = "275 2";
@@ -1422,7 +1422,7 @@
                         };
                      };
                      new GuiBitmapCtrl() {
-                        bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                        bitmap = "tlab/gui/images/gfx/separator-v";
                         wrap = "0";
                         position = "0 106";
                         extent = "275 2";
@@ -1853,7 +1853,7 @@
                               };
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                              bitmap = "tlab/gui/images/gfx/separator-v";
                               wrap = "0";
                               position = "0 52";
                               extent = "267 2";
@@ -2079,7 +2079,7 @@
                               };
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                              bitmap = "tlab/gui/images/gfx/separator-v";
                               wrap = "0";
                               position = "0 106";
                               extent = "267 2";
@@ -2252,7 +2252,7 @@
                               };
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                              bitmap = "tlab/gui/images/gfx/separator-v";
                               wrap = "0";
                               position = "0 160";
                               extent = "267 2";
@@ -2425,7 +2425,7 @@
                               };
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                              bitmap = "tlab/gui/images/gfx/separator-v";
                               wrap = "0";
                               position = "0 214";
                               extent = "267 2";
@@ -2598,7 +2598,7 @@
                               };
                            };
                            new GuiBitmapCtrl() {
-                              bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                              bitmap = "tlab/gui/images/gfx/separator-v";
                               wrap = "0";
                               position = "0 268";
                               extent = "267 2";

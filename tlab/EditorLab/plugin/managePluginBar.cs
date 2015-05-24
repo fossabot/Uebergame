@@ -88,10 +88,10 @@ function Lab::addPluginToBar( %this, %pluginObj ) {
 //------------------------------------------------------------------------------
 function Lab::createPluginIcon( %this, %pluginObj ) {
 
-	%icon = "tlab/gui/assets/plugin_assets/"@%pluginObj.plugin@"Icon";
+	%icon = "tlab/gui/assets/plugin/"@%pluginObj.plugin@"Icon";
 
 	if (!isFile(%icon@"_n.png"))
-		%icon = "tlab/gui/assets/plugin_assets/TerrainEditorIcon";
+		%icon = "tlab/gui/assets/plugin/TerrainEditorIcon";
 
 	%button = cloneObject(EditorGui-->PluginIconSrc);
 	%button.internalName = %pluginObj.plugin;
@@ -129,9 +129,9 @@ function Lab::addToPluginBar( %this, %pluginName, %tooltip,%disabled ) {
 		}
 	}
 	if(!%alreadyExists) {
-		%icon = "tlab/gui/assets/plugin_assets/"@%pluginName.plugin@"Icon";
+		%icon = "tlab/gui/assets/plugin/"@%pluginName.plugin@"Icon";
 
-		if (!isFile(%icon@"_n.png")) %icon = "tlab/gui/assets/plugin_assets/TerrainEditorIcon";
+		if (!isFile(%icon@"_n.png")) %icon = "tlab/gui/assets/plugin/TerrainEditorIcon";
 		%button = cloneObject(EditorGui-->PluginIconSrc);
 		%button.internalName = %pluginName;
 		%button.command = "Lab.setEditor(" @ %pluginName @ ");";

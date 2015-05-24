@@ -1,7 +1,7 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiFrameSetCtrl(ConvexEditorTools) {
    columns = "0";
-   rows = "0 347";
+   rows = "0 346";
    borderWidth = "4";
    borderColor = "0 0 0 0";
    borderEnable = "alwaysOn";
@@ -16,25 +16,24 @@
    anchorLeft = "1";
    anchorRight = "0";
    position = "0 0";
-   extent = "360 814";
+   extent = "315 814";
    minExtent = "8 2";
    horizSizing = "right";
    vertSizing = "bottom";
    profile = "GuiDefaultProfile";
-   visible = "0";
+   visible = "1";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
    isContainer = "1";
-   hidden = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
       currentLayer = "0";
       currentMaterial = "1357";
       currentMeshMode = "EditorShape";
       currentMode = "Material";
-      defaultParent = "GuiGroup";
-      EditorContainer = "2780";
+      defaultParent = "guiGroup";
+      EditorContainer = "4098";
       fileSpec = "Torque Material Files (materials.cs)|materials.cs|All Files (*.*)|*.*|";
       lastMaterial = "1357";
       livePreview = "1";
@@ -61,12 +60,12 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "0 0";
-      extent = "360 343";
+      position = "0 -1";
+      extent = "315 342";
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsWindowProfile";
+      profile = "ToolsWindowProfile_Dark";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -84,7 +83,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "8 30";
-         extent = "344 305";
+         extent = "299 304";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
@@ -114,7 +113,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "344 305";
+            extent = "299 304";
             minExtent = "8 8";
             horizSizing = "width";
             vertSizing = "height";
@@ -150,7 +149,7 @@
                canRenameObjects = "1";
                renameInternal = "0";
                position = "3 3";
-               extent = "338 21";
+               extent = "293 21";
                minExtent = "8 8";
                horizSizing = "right";
                vertSizing = "bottom";
@@ -183,8 +182,8 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "0 343";
-      extent = "360 471";
+      position = "0 346";
+      extent = "315 468";
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
@@ -206,11 +205,11 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "8 30";
-         extent = "344 102";
+         extent = "299 102";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolsBoxNavTitle";
+         profile = "ToolsBoxTitleBar";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -252,7 +251,6 @@
             dynamicPos = "0";
             changeChildSizeToFit = "1";
             changeChildPosition = "1";
-            preventReordering = "0";
             position = "10 29";
             extent = "247 64";
             minExtent = "16 16";
@@ -534,11 +532,11 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "8 135";
-         extent = "344 144";
+         extent = "299 144";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolsBoxNavTitle";
+         profile = "ToolsBoxTitleBar";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -587,7 +585,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "3 24";
-            extent = "338 79";
+            extent = "293 79";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -603,7 +601,6 @@
             new GuiInspector(ConvexInspector) {
                dividerMargin = "5";
                showCustomFields = "1";
-               dividerPos = "0.62";
                stackingType = "Vertical";
                horizStacking = "Left to Right";
                vertStacking = "Top to Bottom";
@@ -613,9 +610,8 @@
                dynamicPos = "0";
                changeChildSizeToFit = "1";
                changeChildPosition = "1";
-               preventReordering = "1";
                position = "3 3";
-               extent = "332 16";
+               extent = "287 16";
                minExtent = "16 16";
                horizSizing = "right";
                vertSizing = "bottom";
@@ -635,7 +631,7 @@
             maxChars = "-1";
             useURLMouseCursor = "0";
             position = "1 106";
-            extent = "343 13";
+            extent = "298 15";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "top";

@@ -36,7 +36,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          VertSizing = "bottom";
          Position = "4 22";
          Extent = "120 31";
-         Profile = "ToolsBoxNavDark";
+         Profile = "ToolsBoxTitleDark";
       };
       new GuiTextCtrl(){
          Profile = "ToolsDefaultProfile";
@@ -105,7 +105,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          };
       };
       new GuiContainer(){
-         Profile = "ToolsBoxNavDark";
+         Profile = "ToolsBoxTitleDark";
          Position = "128 22";
          Extent = "480 31";
          HorizSizing = "width";
@@ -381,7 +381,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          };
       };
       new GuiContainer(){
-         Profile = "ToolsBoxNavDark";
+         Profile = "ToolsBoxTitleDark";
          Position = "612 206";
          Extent = "150 31";
          HorizSizing = "left";
@@ -454,7 +454,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          };
       };
       new GuiContainer(){
-         Profile = "ToolsBoxNavDark";
+         Profile = "ToolsBoxTitleDark";
          Position = "612 22";
          Extent = "150 167";
          HorizSizing = "left";
@@ -789,7 +789,7 @@ function MaterialSelector::buildStaticFilters( %this )
          parentGroup = %filterArray;
          
          new GuiContainer(){
-            profile = "ToolsBoxNavDark";
+            profile = "ToolsBoxTitleDark";
             Position = "-1 0";
             Extent = "128 32";
             HorizSizing = "right";
@@ -864,7 +864,7 @@ function MaterialSelector::buildStaticFilters( %this )
          parentGroup = %filterArray;
          
          new GuiContainer(){
-            profile = "ToolsBoxNavDark";
+            profile = "ToolsBoxTitleDark";
             Position = "-1 0";
             Extent = "128 32";
             HorizSizing = "right";

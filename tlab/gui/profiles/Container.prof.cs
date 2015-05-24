@@ -22,7 +22,7 @@ singleton GuiControlProfile( ToolsWindowProfile : ToolsDefaultProfile ) {
     bevelColorHL = "255 255 255";
     bevelColorLL = "0 0 0";
     text = "untitled";
-    bitmap = "tlab/gui/assets/container_assets/GuiWindowProfile.png";
+    bitmap = "tlab/gui/assets/container/GuiWindowProfile.png";
     textOffset = "8 2";
     hasBitmapArray = true;
     justify = "left";
@@ -35,10 +35,12 @@ singleton GuiControlProfile( ToolsWindowProfile : ToolsDefaultProfile ) {
 //------------------------------------------------------------------------------
 //ToolsWindowProfile Dark center variation
 singleton GuiControlProfile( ToolsWindowProfile_Dark : ToolsWindowProfile ) {
-	bitmap = "tlab/gui/assets/container_assets/GuiWindowProfile_Dark.png";
+	bitmap = "tlab/gui/assets/container/GuiWindowProfile_Dark.png";
    fillColor = "20 25 31 255";
    fontColors[1] = "0 0 0 255";
    fontColorHL = "0 0 0 255";
+   fontSize = "17";
+   textOffset = "6 3";
 };
 //------------------------------------------------------------------------------
 
@@ -49,12 +51,12 @@ singleton GuiControlProfile( ToolsWindowProfile_Dark : ToolsWindowProfile ) {
 //ToolsScrollProfile Style
 //------------------------------------------------------------------------------
 singleton GuiControlProfile( ToolsScrollProfile : ToolsDefaultProfile ) {
-     opaque = "1";
+     opaque = "0";
     fillcolor = "254 254 254 55";
     fontColor = "0 0 0";
     fontColorHL = "150 150 150";
     border = "0";
-    bitmap = "tlab/gui/assets/container_assets/GuiScrollProfile.png";
+    bitmap = "tlab/gui/assets/container/GuiScrollProfile.png";
     hasBitmapArray = true;
     category = "Tools";
     fontColors[1] = "150 150 150 255";
@@ -65,12 +67,16 @@ singleton GuiControlProfile( ToolsScrollProfile : ToolsDefaultProfile ) {
 //------------------------------------------------------------------------------
 //ToolsScrollProfile Dark Fill 100%
 singleton GuiControlProfile( ToolsScrollProfile_Dark : ToolsScrollProfile ) {
-	bitmap = "tlab/gui/assets/container_assets/GuiScrollProfile.png";
+	bitmap = "tlab/gui/assets/container/GuiScrollProfile.png";
+   opaque = "1";
+   fillColor = "34 34 34 255";
 };
 //------------------------------------------------------------------------------
 //ToolsScrollProfile Dark Fill 50%
 singleton GuiControlProfile( ToolsScrollProfile_Dark_T50 : ToolsScrollProfile ) {
-	bitmap = "tlab/gui/assets/container_assets/GuiScrollProfile.png";
+	bitmap = "tlab/gui/assets/container/GuiScrollProfile.png";
+   opaque = "1";
+   fillColor = "21 21 21 127";
 };
 //------------------------------------------------------------------------------
 
@@ -85,7 +91,7 @@ singleton GuiControlProfile( ToolsTabBookProfile : ToolsDefaultProfile ) {
     border = "0";
     opaque = false;
     hasBitmapArray = true;
-    bitmap = "tlab/gui/assets/container_assets/GuiTabBookProfile";
+    bitmap = "tlab/gui/assets/container/GuiTabBookProfile";
 
     category = "Tools";
    fontType = "Gotham Book";
@@ -107,7 +113,7 @@ singleton GuiControlProfile( ToolsTabBookBasic : ToolsDefaultProfile ) {
     border = "0";
     opaque = false;
     hasBitmapArray = true;
-    bitmap = "tlab/gui/assets/container_assets/ToolsTabBookBasic";
+    bitmap = "tlab/gui/assets/container/GuiTabBookBasic";
 
     category = "Tools";
    fontType = "Gotham Book";
@@ -129,7 +135,7 @@ singleton GuiControlProfile( ToolsTabBookColor : ToolsDefaultProfile ) {
     border = "0";
     opaque = false;
     hasBitmapArray = true;
-    bitmap = "tlab/gui/assets/container_assets/ToolsTabBookColor";
+    bitmap = "tlab/gui/assets/container/GuiTabBookColor";
 
     category = "Tools";
    fontType = "Gotham Book";
@@ -155,7 +161,7 @@ singleton GuiControlProfile( ToolsRolloutProfile : ToolsDefaultProfile ) {
     border = 1;
     borderColor = "200 200 200";
     hasBitmapArray = true;
-    bitmap = "tlab/gui/assets/container_assets/GuiRolloutProfile.png";
+    bitmap = "tlab/gui/assets/container/GuiRolloutProfile.png";
     textoffset = "17 0";
     fontType = "Aileron Bold";
     fontSize = "16";
@@ -167,7 +173,7 @@ singleton GuiControlProfile( ToolsRolloutProfile : ToolsDefaultProfile ) {
 //------------------------------------------------------------------------------
 //ToolsRolloutProfile Thin Version
 singleton GuiControlProfile( ToolsRolloutProfile_Thin : ToolsRolloutProfile ) {
-    bitmap = "tlab/gui/assets/container_assets/GuiRolloutProfile_Thin.png";
+    bitmap = "tlab/gui/assets/container/GuiRolloutProfile_Thin.png";
     fontSize = "14";
 };
 //------------------------------------------------------------------------------
@@ -176,7 +182,7 @@ singleton GuiControlProfile( ToolsRolloutProfile_Light : ToolsRolloutProfile ) {
     border = 1;
     borderColor = "200 200 200";
     hasBitmapArray = true;
-    bitmap = "tlab/gui/assets/container_assets/GuiRolloutProfile_Light.png";
+    bitmap = "tlab/gui/assets/container/GuiRolloutProfile_Light.png";
     textoffset = "17 0";
     fontType = "Aileron Bold";
     fontSize = "16";
@@ -193,7 +199,7 @@ singleton GuiControlProfile( ToolsRolloutTitle : ToolsDefaultProfile ) {
     border = 1;
     borderColor = "200 200 200";
     hasBitmapArray = true;
-    bitmap = "tlab/gui/assets/container_assets/GuiRolloutTitle.png";
+    bitmap = "tlab/gui/assets/container/GuiRolloutTitle.png";
     textoffset = "17 0";
     fontType = "Aileron Bold";
     fontSize = "16";

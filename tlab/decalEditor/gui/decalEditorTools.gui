@@ -87,7 +87,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsBoxNavDark";
+         profile = "ToolsBoxTitleDark";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -695,7 +695,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsBoxNavDark";
+                  profile = "ToolsBoxTitleDark";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";

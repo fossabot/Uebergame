@@ -45,10 +45,11 @@ singleton GuiControlProfile( ToolsTextBase_ML : ToolsTextBase ) {
     border = false;    
 };
 singleton GuiControlProfile( ToolsTextBase_List : ToolsTextBase ) {
-    tab = true;
-    canKeyFocus = true;
+    tab = "0";
+    canKeyFocus = "0";
     category = "Tools";
-   mouseOverSelected = "1";
+   mouseOverSelected = "0";
+   modal = "0";
 };
 //------------------------------------------------------------------------------
 //==============================================================================
