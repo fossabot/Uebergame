@@ -21,7 +21,7 @@
    minExtent = "120 130";
    horizSizing = "windowRelative";
    vertSizing = "windowRelative";
-   profile = "ToolsWindowAltProfile";
+   profile = "ToolsWindowProfile";
    visible = "1";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
@@ -86,7 +86,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiCheckBoxProfile";
+            profile = "ToolsCheckBoxProfile_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -109,7 +109,7 @@
             minExtent = "8 8";
             horizSizing = "left";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "0";
             command = "ETransformSelection.getAbsPosition();";
@@ -166,7 +166,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiNumericTextEditProfile";
+            profile = "ToolsTextEditDark_Num";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -221,7 +221,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiNumericTextEditProfile";
+            profile = "ToolsTextEditDark_Num";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -276,7 +276,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiNumericTextEditProfile";
+            profile = "ToolsTextEditDark_Num";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -298,7 +298,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiCheckBoxProfile";
+            profile = "ToolsCheckBoxProfile_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -313,7 +313,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/separator-v.png";
+         bitmap = "tlab/gui/assets/gfx_assets/separator-v.png";
          wrap = "0";
          position = "0 111";
          extent = "123 2";
@@ -356,7 +356,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiCheckBoxProfile";
+            profile = "ToolsCheckBoxProfile_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -379,7 +379,7 @@
             minExtent = "8 8";
             horizSizing = "left";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "0";
             command = "ETransformSelection.getAbsRotation();";
@@ -436,7 +436,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiNumericTextEditProfile";
+            profile = "ToolsTextEditDark_Num";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -491,7 +491,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiNumericTextEditProfile";
+            profile = "ToolsTextEditDark_Num";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -546,7 +546,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiNumericTextEditProfile";
+            profile = "ToolsTextEditDark_Num";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -568,7 +568,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiCheckBoxProfile";
+            profile = "ToolsCheckBoxProfile_S1";
             visible = "1";
             active = "1";
             command = "ETransformSelection.RotRelativeChanged();";
@@ -592,7 +592,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiCheckBoxProfile";
+            profile = "ToolsCheckBoxProfile_S1";
             visible = "1";
             active = "1";
             command = "ETransformSelection.RotLocalChanged();";
@@ -608,7 +608,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/separator-v.png";
+         bitmap = "tlab/gui/assets/gfx_assets/separator-v.png";
          wrap = "0";
          position = "0 251";
          extent = "123 2";
@@ -671,7 +671,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "ToolsTabPageProfile";
+            profile = "ToolsPanelDarkA";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -707,7 +707,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -730,7 +730,7 @@
                   minExtent = "8 8";
                   horizSizing = "left";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiButtonProfile";
+                  profile = "ToolsButtonProfile";
                   visible = "1";
                   active = "0";
                   command = "ETransformSelection.getAbsScale();";
@@ -787,7 +787,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -842,7 +842,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -897,7 +897,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -919,7 +919,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -942,7 +942,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -965,7 +965,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -995,7 +995,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "ToolsTabPageProfile";
+            profile = "ToolsPanelDarkA";
             visible = "0";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1032,7 +1032,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1055,7 +1055,7 @@
                   minExtent = "8 8";
                   horizSizing = "left";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiButtonProfile";
+                  profile = "ToolsButtonProfile";
                   visible = "1";
                   active = "0";
                   command = "ETransformSelection.getAbsSize();";
@@ -1112,7 +1112,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -1167,7 +1167,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -1222,7 +1222,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -1244,7 +1244,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1267,7 +1267,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "0";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1290,7 +1290,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1340,7 +1340,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "0";
          command = "ETransformSelection.apply();";
@@ -1363,7 +1363,7 @@
          minExtent = "8 8";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ETransformSelection.hideDialog();";

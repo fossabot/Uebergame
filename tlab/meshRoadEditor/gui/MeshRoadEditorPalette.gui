@@ -17,7 +17,7 @@
       internalName = "MeshRoadEditorSelectMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -39,7 +39,7 @@
       internalName = "MeshRoadEditorMoveMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -60,7 +60,7 @@
       internalName = "MeshRoadEditorRotateMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -81,7 +81,7 @@
       internalName = "MeshRoadEditorScaleMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -102,7 +102,7 @@
       internalName = "MeshRoadEditorAddRoadMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -123,7 +123,7 @@
       internalName = "MeshRoadEditorInsertPointMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -144,7 +144,7 @@
       internalName = "MeshRoadEditorRemovePointMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";

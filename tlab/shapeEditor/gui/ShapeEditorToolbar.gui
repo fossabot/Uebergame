@@ -63,7 +63,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ShapeEdShapeView.renderGrid = $ThisControl.getValue();";
@@ -89,7 +89,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ShapeEdShapeView.fitToShape();";
@@ -115,7 +115,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ShapeEdShapeView.orbitNode = $ThisControl.getValue();";
@@ -128,7 +128,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
+         bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
          wrap = "0";
          position = "93 0";
          extent = "2 26";
@@ -158,7 +158,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ShapeEdShapeView.renderNodes = $ThisControl.getValue();";
@@ -184,7 +184,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ShapeEdShapeView.renderGhost = $ThisControl.getValue();";
@@ -210,7 +210,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "shapeEditorWireframeMode();";
@@ -223,7 +223,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
+         bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
          wrap = "0";
          position = "190 0";
          extent = "2 26";
@@ -253,7 +253,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ShapeEdShapeView.renderbounds = $ThisControl.getValue();";
@@ -279,7 +279,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ShapeEdShapeView.renderObjBox = $ThisControl.getValue();";
@@ -305,7 +305,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "shapeEdShapeView.renderColMeshes = $ThisControl.getValue();";
@@ -318,7 +318,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
+         bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
          wrap = "0";
          position = "287 0";
          extent = "2 26";
@@ -348,7 +348,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ShapeEdAdvancedWindow.setVisible( $ThisControl.getValue() );";
@@ -370,7 +370,7 @@
          minExtent = "8 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiCheckBoxProfile";
+         profile = "ToolsCheckBoxProfile_S1";
          visible = "1";
          active = "1";
          variable = "Lab.forceLoadDAE";

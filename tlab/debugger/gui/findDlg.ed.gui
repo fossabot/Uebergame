@@ -32,7 +32,7 @@
       minSize = "50 50";
    
       new GuiTextCtrl() {
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 28";
@@ -45,7 +45,7 @@
          text = "Search for:";
       };
       new GuiTextEditCtrl(DebuggerFindStringText) {
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 44";
@@ -61,7 +61,7 @@
             font = "14 244 Arial";
       };
       new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "56 80";
@@ -75,7 +75,7 @@
          text = "Find";
       };
       new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "104 80";

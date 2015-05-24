@@ -17,7 +17,7 @@
       internalName = "brushAdjustHeight";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "72 0";
@@ -39,7 +39,7 @@
       internalName = "raiseHeight";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "0 0";
@@ -61,7 +61,7 @@
       internalName = "lowerHeight";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "36 0";
@@ -83,7 +83,7 @@
       internalName = "smoothHeight";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "144 0";
@@ -105,7 +105,7 @@
       internalName = "smoothSlope";  
       Enabled = "1";  
       isContainer = "0";  
-      Profile = "GuiButtonProfile";  
+      Profile = "ToolsButtonProfile";  
       HorizSizing = "right";  
       VertSizing = "bottom";  
       position = "144 0";  
@@ -127,7 +127,7 @@
       internalName = "paintNoise";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "72 36";
@@ -149,7 +149,7 @@
       internalName = "flattenHeight";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "108 0";
@@ -171,7 +171,7 @@
       internalName = "setHeight";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "180 0";
@@ -193,7 +193,7 @@
       internalName = "setEmpty";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "0 36";
@@ -215,7 +215,7 @@
       internalName = "clearEmpty";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "36 36";

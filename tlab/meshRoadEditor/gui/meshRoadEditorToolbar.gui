@@ -61,7 +61,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          variable = "$MeshRoad::showSpline";
@@ -90,7 +90,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          variable = "$MeshRoad::wireframe";
@@ -119,7 +119,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonStackProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          variable = "$MeshRoad::showRoad";
@@ -292,7 +292,7 @@
          minExtent = "8 16";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          visible = "1";
          active = "1";
          command = "MeshRoadEditorGui.DefaultWidth = $ThisControl.getValue();";
@@ -387,7 +387,7 @@
          minExtent = "8 16";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          visible = "1";
          active = "1";
          command = "MeshRoadEditorGui.DefaultDepth = $ThisControl.getValue();";

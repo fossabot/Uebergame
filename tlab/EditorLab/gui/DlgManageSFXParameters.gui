@@ -98,7 +98,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "width";
             VertSizing = "bottom";
             position = "36 2";
@@ -119,7 +119,7 @@
             buttonType = "PushButton";
             useMouseEvents = "0";
             isContainer = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "left";
             VertSizing = "bottom";
             position = "266 2";
@@ -147,7 +147,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolspfDropdownMain";
+            Profile = "ToolsDropdownMain";
             HorizSizing = "left";
             VertSizing = "bottom";
             position = "325 1";

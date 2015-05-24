@@ -1,147 +1,39 @@
 //==============================================================================
-// GameLab -> Interface profiles
-// Copyright NordikLab Studio, 2014
+// Lab Editor -> Default ToolBoxes Profiles
+// Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
+//------------------------------------------------------------------------------
 //==============================================================================
 
+//==============================================================================
+// GuiContainer Profiles
+//==============================================================================
 
 //==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxMain : ToolsDefaultProfile)
-{
-	fontSize = "18";
-	textOffset = "8 1";
-	bitmap = "tlab/gui/images/container_assets/GuiBoxMain";
-   fontType = "Aeleron Bold";
-   fillColor = "233 233 233 255";
-   border = "-1";
-   hasBitmapArray = "1";
-};
+//ToolsBoxNavDark Style
 //------------------------------------------------------------------------------
-
-//==============================================================================
-// Box Fill Profiles
-//==============================================================================
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxFillBlue : GuiDefaultProfile)
-{
-	fontSize = "18";
-	textOffset = "8 1";
-	bitmap = "art/gui/tlab/container_assets/GuiBoxFillBlue";
-   fontType = "Aeleron Bold";
-   fillColor = "233 233 233 255";
-   border = "-1";
-   hasBitmapArray = "1";
-   fontColors[4] = "Fuchsia";
-   fontColorLink = "Fuchsia";
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxFillBlue_Header : ToolsGuiBoxFillBlue)
-{	
-	bitmap =  "art/gui/tlab/container_assets/GuiBoxFillBlueHead";  
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxFillDark : GuiDefaultProfile)
-{
-	fontSize = "18";
-	textOffset = "8 1";
-	bitmap = "art/gui/tlab/container_assets/GuiBoxFillDark";
-   fontType = "Aeleron Bold";
-   fillColor = "233 233 233 255";
-   border = "-1";
-   hasBitmapArray = "1";
-   fontColors[4] = "Fuchsia";
-   fontColorLink = "Fuchsia";
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxFillDark_Header : ToolsGuiBoxFillDark)
-{	
-	bitmap =  "art/gui/tlab/container_assets/GuiBoxFillDarkHead";  
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-// Box Overlay Profiles
-//==============================================================================
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxOverlay : ToolsDefaultProfile)
-{
-	fontSize = "18";
-	textOffset = "8 1";
-	bitmap = "tlab/gui/images/container_assets/GuiBoxOverlay";
-   fontType = "Aeleron Bold";
-   fillColor = "233 233 233 255";
-   border = "-1";
-   hasBitmapArray = "1";
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxOverlay_T50 : ToolsGuiBoxOverlay)
-{	
-	bitmap =  "tlab/gui/images/container_assets/GuiBoxOverlay_T50";  
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxOverlay_T75 : ToolsGuiBoxOverlay)
-{	
-	bitmap = "tlab/gui/images/container_assets/GuiBoxOverlay_T75";  
+singleton GuiControlProfile( ToolsBoxNavDark : ToolsDefaultProfile ) {
+     opaque = false;
+    border = -2;
+    category = "ToolsContainers";
+    bitmap = "tlab/gui/assets/container_assets/GuiBoxNavDark";
+    fontColors[2] = "0 0 0 255";
+    fontColorNA = "0 0 0 255";
 };
 //------------------------------------------------------------------------------
 
 //==============================================================================
-// Box Border Profiles
-//==============================================================================
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxBorder : ToolsDefaultProfile)
-{
-	fontSize = "18";
-	textOffset = "8 1";
-	bitmap = "tlab/gui/images/container_assets/GuiBoxBorder.png";
-   fontType = "Aeleron Bold";
-   fillColor = "27 27 27 255";
-   border = "-2";
-   hasBitmapArray = "1";
-   opaque = "1";
-   borderThickness = "0";
-};
+//ToolsBoxNavTitle Style
 //------------------------------------------------------------------------------
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxBorder_T50 : ToolsGuiBoxBorder)
-{	
-	bitmap =  "tlab/gui/images/container_assets/GuiBoxBorder_T50";  
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBoxBorder_T75 : ToolsGuiBoxBorder)
-{	
-	bitmap =  "tlab/gui/images/container_assets/GuiBoxBorder_T75";  
-};
-//------------------------------------------------------------------------------
-
-//==============================================================================
-// Banner Progress Profiles
-//==============================================================================
-//==============================================================================
-// UIWindow Profile - Default window
-singleton GuiControlProfile(ToolsGuiBannerProgress : ToolsDefaultProfile)
-{
-	fontSize = "18";
-	textOffset = "8 1";
-	bitmap = "tlab/gui/images/container_assets/GuiBannerProgress";
-   fontType = "Aeleron Bold";
-   fillColor = "233 233 233 255";
-   border = "-1";
-   hasBitmapArray = "1";
+singleton GuiControlProfile( ToolsBoxNavTitle : ToolsDefaultProfile ) {
+    opaque = false;
+    border = -2;
+    category = "ToolsContainers";
+    bitmap = "tlab/gui/assets/container_assets/GuiBoxNavTitle.png";
+    fontColors[2] = "0 0 0 255";
+    fontColorNA = "0 0 0 255";
+   fontType = "Gotham Black";
+   fontSize = "17";
+   fontColors[0] = "222 222 222 255";
+   fontColor = "222 222 222 255";
 };
 //------------------------------------------------------------------------------

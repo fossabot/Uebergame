@@ -63,7 +63,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase";
+         profile = "ToolsTextBase";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -91,7 +91,7 @@
          minExtent = "8 8";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -116,7 +116,7 @@
          minExtent = "8 8";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ManageBookmarksContainer.onOK();";

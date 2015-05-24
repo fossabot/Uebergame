@@ -66,7 +66,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsWindowAltProfile";
+         profile = "ToolsWindowProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -134,7 +134,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextHeaderBase_R";
+                  profile = "ToolsTextBase_H1_R";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -208,7 +208,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextHeaderBase_R";
+                  profile = "ToolsTextBase_H1_R";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -282,7 +282,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextHeaderBase_R";
+                  profile = "ToolsTextBase_H1_R";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -356,7 +356,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextHeaderBase_R";
+                  profile = "ToolsTextBase_H1_R";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -406,7 +406,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "GuiLab.addWidgetToCurrent();";
@@ -474,7 +474,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsPanelBackgroundA";
+               profile = "ToolsPanelDarkA";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -497,7 +497,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextHeaderBase_R";
+                  profile = "ToolsTextBase_H1_R";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -524,7 +524,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolspfDropdownMain";
+                  profile = "ToolsDropdownMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.selectWidgetStyle($ThisControl.getSelected());";
@@ -547,7 +547,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsPanelBackgroundA";
+               profile = "ToolsPanelDarkA";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -570,7 +570,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextHeaderBase_R";
+                  profile = "ToolsTextBase_H1_R";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -597,7 +597,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolspfDropdownMain";
+                  profile = "ToolsDropdownMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.selectWidgetType($ThisControl.getSelected());";
@@ -620,7 +620,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsPanelBackgroundA";
+               profile = "ToolsPanelDarkA";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -643,7 +643,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextHeaderBase_R";
+                  profile = "ToolsTextBase_H1_R";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -670,7 +670,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolspfDropdownMain";
+                  profile = "ToolsDropdownMain";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.selectWidget($ThisControl.getSelected());";

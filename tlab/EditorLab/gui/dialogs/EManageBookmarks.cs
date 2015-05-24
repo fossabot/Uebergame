@@ -281,7 +281,7 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 			buttonType = "PushButton";
 			useMouseEvents = "0";
 			isContainer = "0";
-			Profile = "ToolsGuiButtonProfile";
+			Profile = "ToolsButtonProfile";
 			HorizSizing = "right";
 			VertSizing = "bottom";
 			position = "2 2";
@@ -300,7 +300,7 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 		new GuiTextEditCtrl() {
 			class = "EManageBookmarksTextEdit";
 			internalName = "BookmarkName";
-			profile="ToolspfTextEditMain";
+			profile="ToolsTextEditProfile";
 			HorizSizing = "width";
 			VertSizing = "bottom";
 			position = "22 2";
@@ -317,7 +317,7 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 			buttonType = "PushButton";
 			useMouseEvents = "0";
 			isContainer = "0";
-			Profile = "ToolsGuiButtonProfile";
+			Profile = "ToolsButtonProfile";
 			HorizSizing = "left";
 			VertSizing = "bottom";
 			position = "284 3";

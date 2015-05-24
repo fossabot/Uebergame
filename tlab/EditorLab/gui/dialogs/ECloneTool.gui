@@ -47,7 +47,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextBase_R";
+      profile = "ToolsTextBase_R";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -76,7 +76,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolspfTextEditMain";
+      profile = "ToolsTextEditProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -101,7 +101,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextBaseSmall";
+      profile = "ToolsTextBase_S1";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -125,7 +125,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextBaseSmall";
+      profile = "ToolsTextBase_S1";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -145,7 +145,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "ECloneTool.doCopy();";
@@ -166,7 +166,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiCheckBoxProfile";
+      profile = "ToolsCheckBoxProfile_S1";
       visible = "1";
       active = "1";
       variable = "$Cfg_3DView_DragCloneMode";
@@ -229,7 +229,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ECloneTool.setCurrentOffset(\"x\");";
@@ -254,7 +254,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase";
+            profile = "ToolsTextBase";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -283,7 +283,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -321,7 +321,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ECloneTool.setCurrentOffset(\"y\");";
@@ -351,7 +351,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -376,7 +376,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase";
+            profile = "ToolsTextBase";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -413,7 +413,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ECloneTool.setCurrentOffset(\"z\");";
@@ -438,7 +438,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase";
+            profile = "ToolsTextBase";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -467,7 +467,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";

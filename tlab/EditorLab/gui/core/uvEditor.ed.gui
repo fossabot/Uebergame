@@ -40,7 +40,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
          AnchorLeft = "1";
          AnchorRight = "0";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "26 24";
@@ -214,7 +214,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextProfile";
+            Profile = "ToolsTextBase";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "10 7";
@@ -228,7 +228,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
          };
          new GuiPopupMenuCtrlEx(){
             internalName = "colorPopup";
-            Profile = "ToolspfDropdownMain";
+            Profile = "ToolsDropdownMain";
             Position = "80 5";
             Extent = "126 20";
             HorizSizing = "right";
@@ -260,7 +260,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextProfile";
+            Profile = "ToolsTextBase";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "10 12";
@@ -288,7 +288,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiNumericTextEditProfile";
+            Profile = "ToolsTextEditDark_Num";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "44 10";
@@ -310,7 +310,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextProfile";
+            Profile = "ToolsTextBase";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "10 32";
@@ -338,7 +338,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiNumericTextEditProfile";
+            Profile = "ToolsTextEditDark_Num";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "44 30";
@@ -360,7 +360,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextProfile";
+            Profile = "ToolsTextBase";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "10 52";
@@ -388,7 +388,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiNumericTextEditProfile";
+            Profile = "ToolsTextEditDark_Num";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "44 50";
@@ -410,7 +410,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextProfile";
+            Profile = "ToolsTextBase";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "10 72";
@@ -438,7 +438,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsGuiNumericTextEditProfile";
+            Profile = "ToolsTextEditDark_Num";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "44 70";
@@ -453,7 +453,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
          new GuiButtonCtrl(){
             HorizSizing = "right";
             VertSizing = "top";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             position = "44 94";
             extent = "64 20";
             text = "Reset";
@@ -465,7 +465,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
          internalName = "OKButton";
          HorizSizing = "left";
          VertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          position = "292 306";
          extent = "94 24";
          text = "OK";
@@ -475,7 +475,7 @@ new GuiControl(UVEditorOverlay, EditorGuiGroup) {
       new GuiButtonCtrl(){
          HorizSizing = "left";
          VertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          position = "391 306";
          extent = "52 24";
          text = "Cancel";

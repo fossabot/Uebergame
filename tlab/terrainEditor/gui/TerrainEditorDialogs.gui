@@ -79,7 +79,7 @@
             minExtent = "8 8";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBaseSmall";
+            profile = "ToolsTextBase_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -132,7 +132,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiIconButtonSmallProfile";
+               profile = "ToolsButtonDark";
                visible = "1";
                active = "1";
                command = "ETerrainEditor.toggleBrushType($ThisControl);";
@@ -163,7 +163,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiIconButtonSmallProfile";
+               profile = "ToolsButtonDark";
                visible = "1";
                active = "1";
                command = "ETerrainEditor.toggleBrushType($ThisControl);";

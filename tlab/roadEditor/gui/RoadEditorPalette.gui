@@ -17,7 +17,7 @@
       internalName = "RoadEditorSelectMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -39,7 +39,7 @@
       internalName = "RoadEditorMoveMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -61,7 +61,7 @@
       internalName = "RoadEditorScaleMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -82,7 +82,7 @@
       internalName = "RoadEditorAddRoadMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -103,7 +103,7 @@
       internalName = "RoadEditorInsertPointMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -125,7 +125,7 @@
       internalName = "RoadEditorRemovePointMode";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";

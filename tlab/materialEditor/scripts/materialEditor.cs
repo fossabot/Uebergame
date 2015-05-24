@@ -679,7 +679,7 @@ singleton Material(JumpA_baseTOJumpWoodA_mat5)
 singleton Material(baseFH_OldFarm_SkinB_mat)
 {
    mapTo = "baseFH_OldFarm_SkinB";
-   diffuseMap[0] = "art/models/FarmPack/Buildings/FarmSetA/images/OldFarmSkinB_Red_d.png";
+   diffuseMap[0] = "art/modelPacks/FarmPack/Buildings/FarmSetA/images/OldFarmSkinB_Red_d.png";
    materialTag0 = "Miscellaneous";
-   normalMap[0] = "art/models/FarmPack/Buildings/FarmSetA/images/OldFarmSkinB_n.png";
+   normalMap[0] = "art/modelPacks/FarmPack/Buildings/FarmSetA/images/OldFarmSkinB_n.png";
 };

@@ -5,47 +5,45 @@
 // Allow to manage different GUI Styles without conflict
 //==============================================================================
 
+
 function SceneInspector::onInspectorFieldModified( %this, %object, %fieldName, %arrayIndex, %oldValue, %newValue ) {
-    // The instant group will try to add our
-    // UndoAction if we don't disable it.
-    pushInstantGroup();
+	// The instant group will try to add our
+	// UndoAction if we don't disable it.
+	pushInstantGroup();
+	%nameOrClass = %object.getName();
 
-    %nameOrClass = %object.getName();
-    if ( %nameOrClass $= "" )
-        %nameOrClass = %object.getClassname();
+	if ( %nameOrClass $= "" )
+		%nameOrClass = %object.getClassname();
 
-    %action = new InspectorFieldUndoAction() {
-        actionName = %nameOrClass @ "." @ %fieldName @ " Change";
+	%action = new InspectorFieldUndoAction() {
+		actionName = %nameOrClass @ "." @ %fieldName @ " Change";
+		objectId = %object.getId();
+		fieldName = %fieldName;
+		fieldValue = %oldValue;
+		arrayIndex = %arrayIndex;
+		inspectorGui = %this;
+	};
 
-        objectId = %object.getId();
-        fieldName = %fieldName;
-        fieldValue = %oldValue;
-        arrayIndex = %arrayIndex;
+	// If it's a datablock, initiate a retransmit.  Don't do so
+	// immediately so as the actual field value will only be set
+	// by the inspector code after this method has returned.
 
-        inspectorGui = %this;
-    };
+	if( %object.isMemberOfClass( "SimDataBlock" ) )
+		%object.schedule( 1, "reloadOnLocalClient" );
 
-    // If it's a datablock, initiate a retransmit.  Don't do so
-    // immediately so as the actual field value will only be set
-    // by the inspector code after this method has returned.
+	// Restore the instant group.
+	popInstantGroup();
+	%action.addToManager( Editor.getUndoManager() );
+	EWorldEditor.isDirty = true;
 
-    if( %object.isMemberOfClass( "SimDataBlock" ) )
-        %object.schedule( 1, "reloadOnLocalClient" );
-
-    // Restore the instant group.
-    popInstantGroup();
-
-    %action.addToManager( Editor.getUndoManager() );
-    EWorldEditor.isDirty = true;
-
-    // Update the selection
-    if(EWorldEditor.getSelectionSize() > 0 && (%fieldName $= "position" || %fieldName $= "rotation" || %fieldName $= "scale")) {
-        EWorldEditor.invalidateSelectionCentroid();
-    }
+	// Update the selection
+	if(EWorldEditor.getSelectionSize() > 0 && (%fieldName $= "position" || %fieldName $= "rotation" || %fieldName $= "scale")) {
+		EWorldEditor.invalidateSelectionCentroid();
+	}
 }
 
 function SceneInspector::onFieldSelected( %this, %fieldName, %fieldTypeStr, %fieldDoc ) {
-    SceneFieldInfoControl.setText( "<font:ArialBold:14>" @ %fieldName @ "<font:ArialItalic:14> (" @ %fieldTypeStr @ ") " NL "<font:Arial:14>" @ %fieldDoc );
+	SceneFieldInfoControl.setText( "<font:ArialBold:14>" @ %fieldName @ "<font:ArialItalic:14> (" @ %fieldTypeStr @ ") " NL "<font:Arial:14>" @ %fieldDoc );
 }
 
 // The following three methods are for fields that edit field value live and thus cannot record
@@ -53,115 +51,115 @@ function SceneInspector::onFieldSelected( %this, %fieldName, %fieldTypeStr, %fie
 // then either queued or disarded when the field edit is finished.
 
 function SceneInspector::onInspectorPreFieldModification( %this, %fieldName, %arrayIndex ) {
-    pushInstantGroup();
-    %undoManager = Editor.getUndoManager();
+	pushInstantGroup();
+	%undoManager = Editor.getUndoManager();
+	%numObjects = %this.getNumInspectObjects();
 
-    %numObjects = %this.getNumInspectObjects();
-    if( %numObjects > 1 )
-        %action = %undoManager.pushCompound( "Multiple Field Edit" );
+	if( %numObjects > 1 )
+		%action = %undoManager.pushCompound( "Multiple Field Edit" );
 
-    for( %i = 0; %i < %numObjects; %i ++ ) {
-        %object = %this.getInspectObject( %i );
+	for( %i = 0; %i < %numObjects; %i ++ ) {
+		%object = %this.getInspectObject( %i );
+		%nameOrClass = %object.getName();
 
-        %nameOrClass = %object.getName();
-        if ( %nameOrClass $= "" )
-            %nameOrClass = %object.getClassname();
+		if ( %nameOrClass $= "" )
+			%nameOrClass = %object.getClassname();
 
-        %undo = new InspectorFieldUndoAction() {
-            actionName = %nameOrClass @ "." @ %fieldName @ " Change";
+		%undo = new InspectorFieldUndoAction() {
+			actionName = %nameOrClass @ "." @ %fieldName @ " Change";
+			objectId = %object.getId();
+			fieldName = %fieldName;
+			fieldValue = %object.getFieldValue( %fieldName, %arrayIndex );
+			arrayIndex = %arrayIndex;
+			inspectorGui = %this;
+		};
 
-            objectId = %object.getId();
-            fieldName = %fieldName;
-            fieldValue = %object.getFieldValue( %fieldName, %arrayIndex );
-            arrayIndex = %arrayIndex;
+		if( %numObjects > 1 )
+			%undo.addToManager( %undoManager );
+		else {
+			%action = %undo;
+			break;
+		}
+	}
 
-            inspectorGui = %this;
-        };
-
-        if( %numObjects > 1 )
-            %undo.addToManager( %undoManager );
-        else {
-            %action = %undo;
-            break;
-        }
-    }
-
-    %this.currentFieldEditAction = %action;
-    popInstantGroup();
+	%this.currentFieldEditAction = %action;
+	popInstantGroup();
 }
 
 function SceneInspector::onInspectorPostFieldModification( %this ) {
-    if( %this.currentFieldEditAction.isMemberOfClass( "CompoundUndoAction" ) ) {
-        // Finish multiple field edit.
-        Editor.getUndoManager().popCompound();
-    } else {
-        // Queue single field undo.
-        %this.currentFieldEditAction.addToManager( Editor.getUndoManager() );
-    }
+	if( %this.currentFieldEditAction.isMemberOfClass( "CompoundUndoAction" ) ) {
+		// Finish multiple field edit.
+		Editor.getUndoManager().popCompound();
+	} else {
+		// Queue single field undo.
+		%this.currentFieldEditAction.addToManager( Editor.getUndoManager() );
+	}
 
-    %this.currentFieldEditAction = "";
-    EWorldEditor.isDirty = true;
+	%this.currentFieldEditAction = "";
+	EWorldEditor.isDirty = true;
 }
 
 function SceneInspector::onInspectorDiscardFieldModification( %this ) {
-    %this.currentFieldEditAction.undo();
+	%this.currentFieldEditAction.undo();
 
-    if( %this.currentFieldEditAction.isMemberOfClass( "CompoundUndoAction" ) ) {
-        // Multiple field editor.  Pop and discard.
-        Editor.getUndoManager().popCompound( true );
-    } else {
-        // Single field edit.  Just kill undo action.
-        %this.currentFieldEditAction.delete();
-    }
+	if( %this.currentFieldEditAction.isMemberOfClass( "CompoundUndoAction" ) ) {
+		// Multiple field editor.  Pop and discard.
+		Editor.getUndoManager().popCompound( true );
+	} else {
+		// Single field edit.  Just kill undo action.
+		%this.currentFieldEditAction.delete();
+	}
 
-    %this.currentFieldEditAction = "";
+	%this.currentFieldEditAction = "";
 }
 
 function SceneInspector::inspect( %this, %obj ) {
-    //echo( "inspecting: " @ %obj );
+	//echo( "inspecting: " @ %obj );
+	%name = "";
 
-    %name = "";
-    if ( isObject( %obj ) )
-        %name = %obj.getName();
-    else
-        SceneFieldInfoControl.setText( "" );
+	if ( isObject( %obj ) )
+		%name = %obj.getName();
+	else
+		SceneFieldInfoControl.setText( "" );
 
-    //InspectorNameEdit.setValue( %name );
-    Parent::inspect( %this, %obj );
+	//InspectorNameEdit.setValue( %name );
+	Parent::inspect( %this, %obj );
 }
 
 function SceneInspector::onBeginCompoundEdit( %this ) {
-    Editor.getUndoManager().pushCompound( "Multiple Field Edit" );
+	Editor.getUndoManager().pushCompound( "Multiple Field Edit" );
 }
 
 function SceneInspector::onEndCompoundEdit( %this ) {
-    Editor.getUndoManager().popCompound();
+	Editor.getUndoManager().popCompound();
 }
 
 function SceneInspector::onCancelCompoundEdit( %this ) {
-    Editor.getUndoManager().popCompound( true );
+	Editor.getUndoManager().popCompound( true );
 }
 
 function foCollaps (%this, %tab) {
-    switch$ (%tab) {
-    case "container0":
-        %tab.visible = "0";
-        buttxon1.position = getWord(buttxon0.position, 0)+32 SPC getWord(buttxon1.position, 1);
-        buttxon2.position = getWord(buttxon1.position, 0)+32 SPC getWord(buttxon2.position, 1);
-    case "container1":
-        %tab.visible = "0";
-    case "container2":
-        %tab.visible = "0";
-    }
+	switch$ (%tab) {
+	case "container0":
+		%tab.visible = "0";
+		buttxon1.position = getWord(buttxon0.position, 0)+32 SPC getWord(buttxon1.position, 1);
+		buttxon2.position = getWord(buttxon1.position, 0)+32 SPC getWord(buttxon2.position, 1);
+
+	case "container1":
+		%tab.visible = "0";
+
+	case "container2":
+		%tab.visible = "0";
+	}
 }
 function SceneAddSimGroupButton::onClick( %this ) {
-   devLog("Clicked??");
-    EWorldEditor.addSimGroup();
+	devLog("Clicked??");
+	EWorldEditor.addSimGroup();
 }
 function SceneAddSimGroupButton::onDefaultClick( %this ) {
-    EWorldEditor.addSimGroup();
+	EWorldEditor.addSimGroup();
 }
 
 function SceneAddSimGroupButton::onCtrlClick( %this ) {
-    EWorldEditor.addSimGroup( true );
+	EWorldEditor.addSimGroup( true );
 }

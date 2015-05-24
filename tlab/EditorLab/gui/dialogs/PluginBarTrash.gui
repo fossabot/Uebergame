@@ -37,7 +37,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextBase_C";
+      profile = "ToolsTextBase_C";
       visible = "1";
       active = "1";
       tooltipProfile = "ToolsGuiToolTipProfile";
@@ -77,10 +77,10 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextBaseBig_C";
+      profile = "ToolsTextBase_L1_C";
       visible = "1";
       active = "1";
-      tooltipProfile = "ToolsGuiTextHeaderBase_C";
+      tooltipProfile = "ToolsTextBase_H1_C";
       hovertime = "1000";
       isContainer = "1";
       canSave = "1";
@@ -115,7 +115,7 @@
       canSaveDynamicFields = "0";
 
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/PluginBar_assets/MeshRoadEditorIcon";
+         bitmap = "tlab/gui/assets/plugin_assets/MeshRoadEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -128,7 +128,7 @@
          minExtent = "7 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "Lab.setEditor(MeshRoadEditorPlugin);";
@@ -142,7 +142,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/PluginBar_assets/RiverEditorIcon";
+         bitmap = "tlab/gui/assets/plugin_assets/RiverEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -155,7 +155,7 @@
          minExtent = "7 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "Lab.setEditor(RiverEditorPlugin);";
@@ -169,7 +169,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/PluginBar_assets/RoadEditorIcon";
+         bitmap = "tlab/gui/assets/plugin_assets/RoadEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -182,7 +182,7 @@
          minExtent = "7 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "Lab.setEditor(RoadEditorPlugin);";
@@ -196,7 +196,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/PluginBar_assets/DecalEditorIcon";
+         bitmap = "tlab/gui/assets/plugin_assets/DecalEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -209,7 +209,7 @@
          minExtent = "7 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "Lab.setEditor(DecalEditorPlugin);";
@@ -223,7 +223,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/PluginBar_assets/MissionAreaEditorIcon";
+         bitmap = "tlab/gui/assets/plugin_assets/MissionAreaEditorIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -236,7 +236,7 @@
          minExtent = "7 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "Lab.setEditor(MissionAreaEditorPlugin);";
@@ -250,7 +250,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/PluginBar_assets/LabPhysicIcon";
+         bitmap = "tlab/gui/assets/plugin_assets/LabPhysicIcon";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -263,7 +263,7 @@
          minExtent = "7 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "Lab.setEditor(LabPhysicPlugin);";
@@ -291,7 +291,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextBase_C";
+      profile = "ToolsTextBase_C";
       visible = "1";
       active = "1";
       tooltipProfile = "ToolsGuiToolTipProfile";
@@ -338,7 +338,7 @@
       minExtent = "8 2";
       horizSizing = "center";
       vertSizing = "bottom";
-      profile = "GuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "Lab.closeDisabledPluginsBin();";

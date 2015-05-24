@@ -54,7 +54,7 @@
          minExtent = "8 8";
          horizSizing = "center";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -73,7 +73,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsMsgCallback(ToolsMsgBoxOKCancelDlg,ToolsMsgBoxOKCancelDlg.callback);";
@@ -94,7 +94,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsMsgCallback(ToolsMsgBoxOKCancelDlg,ToolsMsgBoxOKCancelDlg.cancelCallback);";

@@ -94,7 +94,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "7 72";
@@ -121,7 +121,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "7 127";
@@ -170,7 +170,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "7 30";
@@ -208,7 +208,7 @@
             buttonType = "PushButton";
             useMouseEvents = "0";
             isContainer = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "266 72";
@@ -227,7 +227,7 @@
             buttonType = "PushButton";
             useMouseEvents = "0";
             isContainer = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "266 127";
@@ -247,7 +247,7 @@
          buttonType = "PushButton";
          useMouseEvents = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "206 196";
@@ -266,7 +266,7 @@
          buttonType = "PushButton";
          useMouseEvents = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "112 196";

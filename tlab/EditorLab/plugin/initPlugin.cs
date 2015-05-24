@@ -27,6 +27,7 @@ function Lab::createPlugin(%this,%pluginName,%displayName,%alwaysEnable) {
 	   %pluginObj = new ScriptObject( %plugName ) {
 		superClass = "EditorPlugin"; //Default to EditorPlugin class
 		editorGui = EWorldEditor; //Default to EWorldEditor
+		editorMode = "World";
 		plugin = %pluginName;
 		displayName = %displayName;
 		toolTip = %displayName;
@@ -74,6 +75,7 @@ function Lab::initPluginConfig(%this,%pluginObj) {
 //------------------------------------------------------------------------------
 //==============================================================================
 //Set a plugin as active (Selected Editor Plugin)
+/*
 function Lab::activatePlugin(%this,%pluginObj) {
    //Reset some default Plugin values
    Lab.fitCameraGui = ""; //Used by GuiShapeEdPreview to Fit camera on object
@@ -92,6 +94,7 @@ function Lab::deactivatePlugin(%this,%pluginObj) {
 	if(%pluginObj.isMethod("onDeactivated"))
 		%pluginObj.onDeactivated();
 }
+*/
 //------------------------------------------------------------------------------
 //==============================================================================
 //Allow the plugin to be selected in editor

@@ -40,7 +40,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
          helpTag = "0";
 
          new GuiTextEditCtrl() {
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "86 12";
@@ -58,7 +58,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             tooltip = "Adjust height increment.";
          };
          new GuiTextEditCtrl() {
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "86 62";
@@ -76,7 +76,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             tooltip = "Scale height increment.";
          };
          new GuiTextEditCtrl() {
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "86 87";
@@ -94,7 +94,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             tooltip = "Smoothing factor -- lower values are less agressive.";
          };
          new GuiTextCtrl() {
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "11 12";
@@ -108,7 +108,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             maxLength = "255";
          };
          new GuiTextCtrl() {
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "11 37";
@@ -122,7 +122,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             maxLength = "255";
          };
          new GuiTextCtrl() {
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "11 62";
@@ -136,7 +136,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             maxLength = "255";
          };
          new GuiTextCtrl() {
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "10 87";
@@ -151,7 +151,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
          };
       };
       new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "218 205";
@@ -187,7 +187,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             filter = "1.000000 0.833333 0.666667 0.500000 0.333333 0.166667 0.000000";
          };
          new GuiTextCtrl() {
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "6 4";
@@ -201,7 +201,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             maxLength = "255";
          };
          new GuiTextCtrl() {
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "12 189";
@@ -213,7 +213,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             maxLength = "255";
          };
          new GuiTextCtrl() {
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "12 26";
@@ -225,7 +225,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             maxLength = "255";
          };
          new GuiTextCtrl() {
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "60 190";
@@ -239,7 +239,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
             maxLength = "255";
          };
          new GuiTextEditCtrl() {
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "125 187";
@@ -258,7 +258,7 @@ new GuiControl(TerrainEditorValuesSettingsGui, EditorGuiGroup) {
          };
       };
       new GuiButtonCtrl(TESettingsApplyButton) {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "307 205";

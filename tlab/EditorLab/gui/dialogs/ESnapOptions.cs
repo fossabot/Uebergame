@@ -6,22 +6,22 @@
 $ESnapOptions_Initialized = false;
 //==============================================================================
 function ESnapOptions::ToggleVisibility(%this) {
+	EToolDecoyGroup.toggleTool("SnapOptions");
+	SnapToBar-->snappingSettingsBtn.setStateOn(%this.visible);
+	
 	if ( %this.visible  ) {
-		%this.setVisible(false);
-		SnapToBar-->snappingSettingsBtn.setStateOn(false);
-	} else {
-		%this.setVisible(true);
-		%this.selectWindow();
+		//%this.selectWindow();
 		%this.setCollapseGroup(false);
 		%this.onShow();
-		SnapToBar-->snappingSettingsBtn.setStateOn(true);
 	}
+	
+	
 }
 //------------------------------------------------------------------------------
 
 function ESnapOptions::onShow( %this ) {
 	if(!$ESnapOptions_Initialized) {
-		%this.position = %this-->snappingSettingsBtn.position;
+		//%this.position = %this-->snappingSettingsBtn.position;
 		$ESnapOptions_Initialized = true;
 	}
 	%this-->TabPage_Terrain-->NoAlignment.setStateOn(1);
@@ -36,17 +36,6 @@ function ESnapOptions::hideDialog( %this ) {
 	SnapToBar-->snappingSettingsBtn.setStateOn(false);
 }
 
-function ESnapOptions::ToggleVisibility() {
-	if ( ESnapOptions.visible  ) {
-		ESnapOptions.setVisible(false);
-		SnapToBar-->snappingSettingsBtn.setStateOn(false);
-	} else {
-		ESnapOptions.setVisible(true);
-		ESnapOptions.selectWindow();
-		ESnapOptions.setCollapseGroup(false);
-		SnapToBar-->snappingSettingsBtn.setStateOn(true);
-	}
-}
 
 function ESnapOptions::setTerrainSnapAlignment( %this, %val ) {
 	EWorldEditor.setTerrainSnapAlignment(%val);

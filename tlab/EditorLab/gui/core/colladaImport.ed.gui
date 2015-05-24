@@ -107,7 +107,7 @@
                canRenameObjects = "1";
                renameInternal = "0";
                isContainer = "1";
-               Profile = "ToolspfTreeViewMain";
+               Profile = "ToolsTreeViewProfile";
                HorizSizing = "width";
                VertSizing = "height";
                position = "1 1";
@@ -181,7 +181,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolsGuiTextProfile";
+               Profile = "ToolsTextBase";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "90 2";
@@ -226,7 +226,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolsGuiTextProfile";
+               Profile = "ToolsTextBase";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "90 22";
@@ -271,7 +271,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolsGuiTextProfile";
+               Profile = "ToolsTextBase";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "193 22";
@@ -316,7 +316,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolsGuiTextProfile";
+               Profile = "ToolsTextBase";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "193 2";
@@ -361,7 +361,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolsGuiTextProfile";
+               Profile = "ToolsTextBase";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "91 41";
@@ -406,7 +406,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolsGuiTextProfile";
+               Profile = "ToolsTextBase";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "191 41";
@@ -470,7 +470,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolspfDropdownMain";
+               Profile = "ToolsDropdownMain";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "97 6";
@@ -499,7 +499,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolspfTextEditMain";
+               Profile = "ToolsTextEditProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "196 6";
@@ -549,7 +549,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolspfTextEditMain";
+               Profile = "ToolsTextEditProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "97 32";
@@ -599,7 +599,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolspfTextEditMain";
+               Profile = "ToolsTextEditProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "97 58";
@@ -649,7 +649,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolspfTextEditMain";
+               Profile = "ToolsTextEditProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "97 82";
@@ -699,7 +699,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolspfTextEditMain";
+               Profile = "ToolsTextEditProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "97 106";
@@ -749,7 +749,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolspfTextEditMain";
+               Profile = "ToolsTextEditProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "97 130";
@@ -785,7 +785,7 @@
                buttonType = "ToggleButton";
                useMouseEvents = "0";
                isContainer = "0";
-               Profile = "ToolsGuiCheckBoxProfile";
+               Profile = "ToolsCheckBoxProfile_S1";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "11 7";
@@ -813,7 +813,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolspfDropdownMain";
+               Profile = "ToolsDropdownMain";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "151 6";
@@ -833,7 +833,7 @@
                buttonType = "ToggleButton";
                useMouseEvents = "0";
                isContainer = "0";
-               Profile = "ToolsGuiCheckBoxProfile";
+               Profile = "ToolsCheckBoxProfile_S1";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "11 27";
@@ -863,7 +863,7 @@
                AnchorLeft = "1";
                AnchorRight = "0";
                isContainer = "0";
-               Profile = "ToolspfTextEditMain";
+               Profile = "ToolsTextEditProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "151 27";
@@ -883,7 +883,7 @@
                buttonType = "ToggleButton";
                useMouseEvents = "0";
                isContainer = "0";
-               Profile = "ToolsGuiCheckBoxProfile";
+               Profile = "ToolsCheckBoxProfile_S1";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "11 48";
@@ -904,7 +904,7 @@
                buttonType = "ToggleButton";
                useMouseEvents = "0";
                isContainer = "0";
-               Profile = "ToolsGuiCheckBoxProfile";
+               Profile = "ToolsCheckBoxProfile_S1";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "11 67";
@@ -925,7 +925,7 @@
                buttonType = "ToggleButton";
                useMouseEvents = "0";
                isContainer = "0";
-               Profile = "ToolsGuiCheckBoxProfile";
+               Profile = "ToolsCheckBoxProfile_S1";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "151 67";
@@ -946,7 +946,7 @@
                buttonType = "ToggleButton";
                useMouseEvents = "0";
                isContainer = "0";
-               Profile = "ToolsGuiCheckBoxProfile";
+               Profile = "ToolsCheckBoxProfile_S1";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "11 86";
@@ -982,7 +982,7 @@
                buttonType = "ToggleButton";
                useMouseEvents = "0";
                isContainer = "0";
-               Profile = "ToolsGuiCheckBoxProfile";
+               Profile = "ToolsCheckBoxProfile_S1";
                HorizSizing = "right";
                VertSizing = "bottom";
                position = "11 5";
@@ -1003,7 +1003,7 @@
             buttonType = "PushButton";
             useMouseEvents = "0";
             isContainer = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "11 368";
@@ -1022,7 +1022,7 @@
             buttonType = "PushButton";
             useMouseEvents = "0";
             isContainer = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "11 395";
@@ -1041,7 +1041,7 @@
             buttonType = "PushButton";
             useMouseEvents = "0";
             isContainer = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "159 368";
@@ -1061,7 +1061,7 @@
             buttonType = "PushButton";
             useMouseEvents = "0";
             isContainer = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "159 395";
@@ -1156,7 +1156,7 @@ new GuiControl(ColladaImportProgress,EditorGuiGroup) {
          AnchorLeft = "1";
          AnchorRight = "0";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "width";
          VertSizing = "bottom";
          position = "10 62";

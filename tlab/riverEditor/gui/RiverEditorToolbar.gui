@@ -14,7 +14,7 @@
    hovertime = "1000";
    
    new GuiTextCtrl() {
-      profile = "ToolsGuiTextProfile";
+      profile = "ToolsTextBase";
       horizSizing = "right";
       vertSizing = "bottom";
       position = "6 6";
@@ -123,7 +123,7 @@
             canSaveDynamicFields = "0";
             Enabled = "1";
             isContainer = "0";
-            Profile = "ToolsGuiTextProfile";
+            Profile = "ToolsTextBase";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "0 6";
@@ -145,7 +145,7 @@
             canSaveDynamicFields = "0";
             internalName = "textEdit";
             isContainer = "0";
-            profile="ToolsGuiNumericDropSliderTextProfile";
+            profile="ToolsTextEditProfile_Num";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "67 2";
@@ -201,7 +201,7 @@
             canSaveDynamicFields = "0";
             Enabled = "1";
             isContainer = "0";
-            Profile = "ToolsGuiTextProfile";
+            Profile = "ToolsTextBase";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "0 6";
@@ -223,7 +223,7 @@
             canSaveDynamicFields = "0";
             internalName = "textEdit";
             isContainer = "0";
-            profile="ToolsGuiNumericDropSliderTextProfile";
+            profile="ToolsTextEditProfile_Num";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "67 2";
@@ -277,7 +277,7 @@ new GuiMouseEventCtrl(RiverDefaultWidthSliderCtrlContainer, EditorGuiGroup) {
       canSaveDynamicFields = "0";
       internalName = "slider";
       isContainer = "0";
-      Profile = "ToolsGuiSliderBoxProfile";
+      Profile = "ToolsSliderBox";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = firstWord(RiverDefaultWidthTextEditContainer.position) + firstWord(RiverEditorToolbar.position) + 10 SPC 
@@ -306,7 +306,7 @@ new GuiMouseEventCtrl(RiverDefaultDepthSliderCtrlContainer, EditorGuiGroup) {
       canSaveDynamicFields = "0";
       internalName = "slider";
       isContainer = "0";
-      Profile = "ToolsGuiSliderBoxProfile";
+      Profile = "ToolsSliderBox";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = firstWord(RiverDefaultDepthTextEditContainer.position) + firstWord(RiverEditorToolbar.position) + 10 SPC 

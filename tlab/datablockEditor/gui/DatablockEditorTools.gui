@@ -65,7 +65,7 @@
       minExtent = "8 24";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsWindowAltProfile";
+      profile = "ToolsWindowProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -121,7 +121,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "ToolsTabPageProfile";
+            profile = "ToolsPanelDarkA";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -149,7 +149,7 @@
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
-               profile = "ToolspfTextEditMain";
+               profile = "ToolsTextEditProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -238,7 +238,7 @@
                   minExtent = "8 8";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolspfTreeViewMain";
+                  profile = "ToolsTreeViewProfile";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -265,7 +265,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "ToolsTabPageProfile";
+            profile = "ToolsPanelDarkA";
             visible = "0";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -332,7 +332,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolspfTreeViewMain";
+                  profile = "ToolsTreeViewProfile";
                   visible = "1";
                   active = "1";
                   altCommand = "DatablockEditorPlugin.createDatablock();";
@@ -359,7 +359,7 @@
          minExtent = "8 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "DatablockEditorPlugin.deleteDatablock();";
@@ -385,7 +385,7 @@
          minExtent = "8 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "0";
          active = "1";
          command = "DatablockEditorPlugin.createDatablock();";
@@ -421,7 +421,7 @@
       minExtent = "8 24";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsWindowAltProfile";
+      profile = "ToolsWindowProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -471,7 +471,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "bottom";
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             visible = "1";
             active = "0";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -649,7 +649,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "top";
-            profile = "ToolsGuiTextBaseSmall";
+            profile = "ToolsTextBase_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";

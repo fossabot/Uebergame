@@ -66,7 +66,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -90,7 +90,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextHeaderBase_R";
+         profile = "ToolsTextBase_H1_R";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -109,7 +109,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiRadioMain";
+         profile = "ToolsRadioProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -129,7 +129,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiRadioMain";
+         profile = "ToolsRadioProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -153,7 +153,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextHeaderBase_R";
+         profile = "ToolsTextBase_H1_R";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -176,7 +176,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextHeaderBase_R";
+         profile = "ToolsTextBase_H1_R";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -203,7 +203,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolspfDropdownMain";
+         profile = "ToolsDropdownMain";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -231,7 +231,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolspfDropdownMain";
+         profile = "ToolsDropdownMain";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -263,7 +263,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "Canvas.popDialog( CreateNewTerrainGui );";
@@ -296,7 +296,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "CreateNewTerrainGui.create();";

@@ -52,7 +52,7 @@
          minExtent = "8 2";
          horizSizing = "left";
          vertSizing = "top";
-         profile = "ToolsGuiTextBase_R";
+         profile = "ToolsTextBase_R";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -76,7 +76,7 @@
          minExtent = "8 2";
          horizSizing = "left";
          vertSizing = "top";
-         profile = "ToolsGuiTextBase";
+         profile = "ToolsTextBase";
          visible = "1";
          active = "1";
          variable = "$ShapeEdCurrentFrame";
@@ -106,7 +106,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          visible = "1";
          active = "1";
          altCommand = "ShapeEdSequences.onEditSeqInOut(\"in\", $ThisControl.getText());";
@@ -129,7 +129,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolspfSliderMain";
+         profile = "ToolsSliderProfile";
          visible = "1";
          active = "1";
          variable = "$ShapeEdCurrentFrame";
@@ -159,7 +159,7 @@
          minExtent = "8 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          visible = "1";
          active = "1";
          altCommand = "ShapeEdSequences.onEditSeqInOut(\"out\", $ThisControl.getText());";
@@ -198,7 +198,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ShapeEdSequences.onEditSeqInOut(\"in\", ShapeEdSeqSlider.getValue());";
@@ -224,7 +224,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ShapeEdAnimWindow.setKeyframe( ShapeEdAnimWindow-->seqIn.getText() );";
@@ -250,7 +250,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ShapeEdAnimWindow.setKeyframe( mCeil(ShapeEdSeqSlider.getValue() - 1) );";
@@ -293,7 +293,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "ShapeEdAnimWindow.setNoProxySequence(); ShapeEdAnimWindow.setThreadDirection( -1 );";
@@ -320,7 +320,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "ShapeEdAnimWindow.setKeyframe( mFloor(ShapeEdSeqSlider.getValue() + 1) );";
@@ -347,7 +347,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "ShapeEdAnimWindow.setThreadDirection( 0 );";
@@ -374,7 +374,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "ShapeEdAnimWindow.setNoProxySequence(); ShapeEdAnimWindow.setThreadDirection( 1 );";
@@ -402,7 +402,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ShapeEdAnimWindow.setKeyframe( ShapeEdAnimWindow-->seqOut.getText() );";
@@ -424,7 +424,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ShapeEdSequences.onEditSeqInOut(\"out\", ShapeEdSeqSlider.getValue());";
@@ -450,7 +450,7 @@
             minExtent = "8 2";
             horizSizing = "left";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ShapeEdAnimWindow.togglePingPong();";
@@ -482,7 +482,7 @@
             minExtent = "8 2";
             horizSizing = "left";
             vertSizing = "bottom";
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             visible = "1";
             active = "1";
             altCommand = "ShapeEdShapeView.setTimeScale( $ThisControl.getText() );";

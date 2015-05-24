@@ -41,7 +41,7 @@
       minExtent = "7 2";
       horizSizing = "left";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "ToolsGuiToolTipProfile";
@@ -92,7 +92,7 @@
          minExtent = "8 16";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditDark";
+         profile = "ToolsTextEditDark";
          visible = "1";
          active = "1";
          command = "$ThisControl.syncObj(ForestToolBrush,\"pressure\");";
@@ -117,7 +117,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -136,7 +136,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolspfSliderMain";
+         profile = "ToolsSliderProfile";
          visible = "1";
          active = "1";
          command = "$ThisControl.syncObj(ForestToolBrush,\"pressure\");";
@@ -180,7 +180,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolspfSliderMain";
+         profile = "ToolsSliderProfile";
          visible = "1";
          active = "1";
          command = "$ThisControl.syncObj(ForestToolBrush,\"size\");";
@@ -205,7 +205,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -234,7 +234,7 @@
          minExtent = "8 16";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditDark";
+         profile = "ToolsTextEditDark";
          visible = "1";
          active = "1";
          command = "$ThisControl.syncObj(ForestToolBrush,\"size\");";
@@ -278,7 +278,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolspfSliderMain";
+         profile = "ToolsSliderProfile";
          visible = "1";
          active = "1";
          command = "$ThisControl.syncObj(ForestToolBrush,\"hardness\");";
@@ -308,7 +308,7 @@
          minExtent = "8 16";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditDark";
+         profile = "ToolsTextEditDark";
          visible = "1";
          active = "1";
          command = "$ThisControl.syncObj(ForestToolBrush,\"hardness\");";
@@ -333,7 +333,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";

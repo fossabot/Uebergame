@@ -51,7 +51,7 @@ singleton GuiControlProfile(ToolsPanelColorC : ToolsPanelColorA)
 // Color Panels -> Main theme colors (A-B-C)
 //==============================================================================
 //==============================================================================
-singleton GuiControlProfile(ToolsPanelBackgroundA : ToolsDefaultProfile)
+singleton GuiControlProfile(ToolsPanelDarkA : ToolsDefaultProfile)
 {
 	fillColor = "51 51 51 255";	
    opaque = "1";
@@ -67,7 +67,7 @@ singleton GuiControlProfile(ToolsPanelBackgroundA : ToolsDefaultProfile)
    fontColors[8] = "255 0 255 255";
 };
 //------------------------------------------------------------------------------
-singleton GuiControlProfile(ToolsPanelBackgroundC : ToolsPanelBackgroundA)
+singleton GuiControlProfile(ToolsPanelDarkC : ToolsPanelDarkA)
 {
    opaque = "1";
    fillColor = "101 136 166 255";

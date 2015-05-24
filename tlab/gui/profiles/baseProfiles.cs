@@ -49,6 +49,7 @@ new GuiControlProfile (ToolsDefaultProfile) {
     cursorColor = "0 0 0 255";
 
     category = "Tools";
+   borderThickness = "0";
     // sounds
     //soundButtonDown = "";
     //soundButtonOver = "";
@@ -171,50 +172,6 @@ new GuiControlProfile( ToolsGuiListBoxProfile ) {
 
 
 
-new GuiControlProfile( ToolspfTreeViewMain ) {
-    bitmap = "tlab/gui/images/element_assets/GuiTreeViewBase.png";
-    autoSizeHeight = true;
-    canKeyFocus = true;
-    fillColor = "255 255 255";
-    fillColorHL = "228 228 235";
-    fillColorSEL = "98 100 137";
-    fillColorNA = "255 255 255";
-    fontColor = "2 2 2 255";
-    fontColorHL = "0 0 0";
-    fontColorSEL= "255 255 255";
-    fontColorNA = "200 200 200";
-    borderColor = "128 000 000";
-    borderColorHL = "255 228 235";
-    fontSize = 14;
-    opaque = false;
-    border = false;
-    category = "Tools";
-    fontColors[2] = "200 200 200 255";
-   fontType = "Gotham Book";
-   fontColors[0] = "2 2 2 255";
-};
-new GuiControlProfile( ToolsGuiTreeViewDark ) {
-    bitmap = "tlab/gui/images/element_assets/GuiTreeViewBase.png";
-    autoSizeHeight = true;
-    canKeyFocus = true;
-    fillColor = "255 255 255";
-    fillColorHL = "228 228 235";
-    fillColorSEL = "98 100 137";
-    fillColorNA = "255 255 255";
-    fontColor = "238 240 211 255";
-    fontColorHL = "0 0 0";
-    fontColorSEL= "255 255 255";
-    fontColorNA = "200 200 200";
-    borderColor = "128 000 000";
-    borderColorHL = "255 228 235";
-    fontSize = "16";
-    opaque = false;
-    border = false;
-    category = "Tools";
-    fontColors[2] = "200 200 200 255";
-   fontType = "Gotham Book";
-   fontColors[0] = "238 240 211 255";
-};
 new GuiControlProfile( ToolsGuiTextPadProfile ) {
     fontType = ($platform $= "macos") ? "Monaco" : "Lucida Console";
     fontSize = ($platform $= "macos") ? 13 : 12;
@@ -232,7 +189,7 @@ new GuiControlProfile( ToolsGuiFormProfile : ToolsDefaultProfile ) {
     opaque = false;
     border = 5;
     justify = "center";
-    profileForChildren = ToolsGuiButtonProfile;
+    profileForChildren = ToolsButtonProfile;
     opaque = false;
     hasBitmapArray = true;
     bitmap = "tlab/gui/icons/default/button";

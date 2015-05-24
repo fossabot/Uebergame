@@ -55,7 +55,7 @@
          minExtent = "8 8";
          horizSizing = "center";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -93,7 +93,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase_C";
+            profile = "ToolsTextBase_C";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -139,7 +139,7 @@
          minExtent = "8 8";
          horizSizing = "width";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsTIOCallback(TIODropdownDlg,TIODropdownDlg.callback);";
@@ -160,7 +160,7 @@
          minExtent = "8 8";
          horizSizing = "left";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsTIOCallback(TIODropdownDlg,TIODropdownDlg.cancelCallback);";

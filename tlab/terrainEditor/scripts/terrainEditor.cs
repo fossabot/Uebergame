@@ -60,6 +60,8 @@ function TerrainEditor::setPaintMaterial( %this, %matIndex, %terrainMat ) {
     ETerrainMaterialSelected.selectedMatIndex = %matIndex;
     ETerrainMaterialSelected.selectedMat = %terrainMat;
     ETerrainMaterialSelected.bitmap = %terrainMat.diffuseMap;
+    ETerrainMaterialSelected_N.bitmap = %terrainMat.normalMap;
+    ETerrainMaterialSelected_S.bitmap = %terrainMat.macroMap;
     ETerrainMaterialSelectedEdit.Visible = isObject(%terrainMat);
     TerrainTextureText.text = %terrainMat.getInternalName();
     ProceduralTerrainPainterDescription.text = "Generate "@ %terrainMat.getInternalName() @" layer";
@@ -107,7 +109,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
         %ctrl = new GuiIconButtonCtrl() {
             class = "EPainterIconBtn";
             internalName = "EPainterMaterialButton" @ %i;
-            profile = "ToolsGuiIconButtonStackProfile";
+            profile = "ToolsButtonDark";
             iconLocation = "Left";
             textLocation = "Right";
             extent = %listWidth SPC "46";
@@ -122,7 +124,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
             useMouseEvents = true;
 
             new GuiIconButtonCtrl() {
-               profile = "ToolsGuiIconButtonProfile";
+               profile = "ToolsButtonProfile";
                 bitmap = "tlab/gui/icons/base_assets/trash.png";
                 buttonMargin = "1 1";
                 buttonType = "PushButton";
@@ -151,7 +153,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
 
     // Add one more layer as the 'add new' layer.
     %ctrl = new GuiIconButtonCtrl() {
-        profile = "ToolsGuiIconButtonStackProfile";
+        profile = "ToolsButtonDark";
         iconBitmap = "tlab/gui/icons/default/terrainpainter/new_layer_icon";
         iconLocation = "Left";
         textLocation = "Right";
@@ -229,10 +231,8 @@ function TerrainEditor::onGuiUpdate(%this, %text) {
     %mouseBrushInfo = " (Mouse) #: " @ getWord(%text, 0) @ "  avg: " @ %avgHeight @ " " @ ETerrainEditor.currentAction;
     %selectionInfo = "     (Selected) #: " @ getWord(%text, 4) @ "  avg: " @ getWord(%text, 5);
 
-    TEMouseBrushInfo.setValue(%mouseBrushInfo);
-    TEMouseBrushInfo1.setValue(%mouseBrushInfo);
-    TESelectionInfo.setValue(%selectionInfo);
-    TESelectionInfo1.setValue(%selectionInfo);
+    TEMouseBrushInfo.setValue(%mouseBrushInfo);  
+    TESelectionInfo.setValue(%selectionInfo);   
 
     EditorGuiStatusBar.setSelection("min: " @ %minHeight @ "  avg: " @ %avgHeight @ "  max: " @ %maxHeight);
 }

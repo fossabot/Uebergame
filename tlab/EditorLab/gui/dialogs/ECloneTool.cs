@@ -11,16 +11,15 @@
 //==============================================================================
 //FONTS -> Change the font to all profile or only those specified in the list
 function ECloneTool::toggleVisibility( %this ) {
+	EToolDecoyGroup.toggleTool("CloneTool");
+	SETB_ObjectTools-->CloneToolButton.setStateOn(%this.visible);
+	
 	if ( %this.visible  ) {
-		%this.setVisible(false);
-		//SnapToBar-->snappingSettingsBtn.setStateOn(false);
-	} else {
-		%this.setVisible(true);
-		%this.selectWindow();
+		//%this.selectWindow();
 		%this.setCollapseGroup(false);
-		//SnapToBar-->snappingSettingsBtn.setStateOn(true);
+		//%this.onShow();
 	}
-
+	
 }
 //------------------------------------------------------------------------------
 //==============================================================================

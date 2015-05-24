@@ -95,7 +95,7 @@ function Lab::syncLabPhysicInspectorParams( %this,%apply ) {
 
 
        %ctrl.setTypeValue(%value);
-        updateParamFriends(%ctrl);
+        %ctrl.updateFriends();
         if (%apply)
             %this.updateLabPhysicInspectorField(%field,%value);
     }

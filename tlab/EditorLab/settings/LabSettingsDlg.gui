@@ -38,7 +38,7 @@
       minExtent = "8 2";
       horizSizing = "center";
       vertSizing = "center";
-      profile = "ToolsWindowAltProfile";
+      profile = "ToolsWindowProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -60,7 +60,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsNavBoxDark";
+         profile = "ToolsBoxNavDark";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -83,7 +83,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextHeaderBase_C";
+            profile = "ToolsTextBase_H1_C";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -150,7 +150,7 @@
                minExtent = "8 8";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTreeViewDark";
+               profile = "ToolsTreeViewProfile_Dark";
                visible = "1";
                active = "1";
                tooltipProfile = "ToolsGuiToolTipProfile";
@@ -197,7 +197,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "0";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -222,7 +222,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -300,7 +300,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -324,7 +324,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -348,7 +348,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -479,7 +479,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/SceneEditor\",\"LabParam_Plugins_SceneEditor\"); ";
@@ -504,7 +504,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -528,7 +528,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -687,7 +687,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ConvexEditor\",\"\",\"\");";
@@ -713,7 +713,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -737,7 +737,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/ConvexEditor\",\"LabParam_Plugins_ConvexEditor\"); ";
@@ -762,7 +762,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -786,7 +786,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -945,7 +945,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_DatablockEditor\",\"\",\"\");";
@@ -971,7 +971,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -995,7 +995,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/DatablockEditor\",\"LabParam_Plugins_DatablockEditor\"); ";
@@ -1020,7 +1020,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1044,7 +1044,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -1175,7 +1175,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/DecalEditor\",\"LabParam_Plugins_DecalEditor\"); ";
@@ -1200,7 +1200,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1224,7 +1224,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -1383,7 +1383,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ForestEditor\",\"\",\"\");";
@@ -1409,7 +1409,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -1460,7 +1460,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ForestEditor\",\"\",\"\");";
@@ -1486,7 +1486,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -1537,7 +1537,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ForestEditor\",\"\",\"\");";
@@ -1563,7 +1563,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -1587,7 +1587,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/ForestEditor\",\"LabParam_Plugins_ForestEditor\"); ";
@@ -1612,7 +1612,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1636,7 +1636,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -1767,7 +1767,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/LabPhysic\",\"LabParam_Plugins_LabPhysic\"); ";
@@ -1792,7 +1792,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1816,7 +1816,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -1947,7 +1947,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/MaterialEditor\",\"LabParam_Plugins_MaterialEditor\"); ";
@@ -1972,7 +1972,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1996,7 +1996,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -2127,7 +2127,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/MeshRoadEditor\",\"LabParam_Plugins_MeshRoadEditor\"); ";
@@ -2152,7 +2152,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -2176,7 +2176,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -2307,7 +2307,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/ParticleEditor\",\"LabParam_Plugins_ParticleEditor\"); ";
@@ -2332,7 +2332,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -2356,7 +2356,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -2487,7 +2487,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/RiverEditor\",\"LabParam_Plugins_RiverEditor\"); ";
@@ -2512,7 +2512,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -2536,7 +2536,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -2695,7 +2695,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -2721,7 +2721,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -2772,7 +2772,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -2798,7 +2798,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -2849,7 +2849,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -2875,7 +2875,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -2926,7 +2926,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -2952,7 +2952,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -3056,7 +3056,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3082,7 +3082,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -3133,7 +3133,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3159,7 +3159,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -3210,7 +3210,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3236,7 +3236,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -3340,7 +3340,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3366,7 +3366,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -3417,7 +3417,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3443,7 +3443,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -3494,7 +3494,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3520,7 +3520,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -3571,7 +3571,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3597,7 +3597,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -3648,7 +3648,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_RoadEditor\",\"\",\"\");";
@@ -3674,7 +3674,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -3698,7 +3698,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/RoadEditor\",\"LabParam_Plugins_RoadEditor\"); ";
@@ -3723,7 +3723,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -3747,7 +3747,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -3878,7 +3878,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/ScriptEditor\",\"LabParam_Plugins_ScriptEditor\"); ";
@@ -3903,7 +3903,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -3927,7 +3927,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -4086,7 +4086,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4112,7 +4112,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4163,7 +4163,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4189,7 +4189,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4240,7 +4240,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4266,7 +4266,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4317,7 +4317,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4343,7 +4343,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4394,7 +4394,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4420,7 +4420,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4471,7 +4471,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4497,7 +4497,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4548,7 +4548,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4574,7 +4574,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4625,7 +4625,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4651,7 +4651,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4755,7 +4755,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4781,7 +4781,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4832,7 +4832,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4858,7 +4858,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -4909,7 +4909,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -4935,7 +4935,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5039,7 +5039,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -5065,7 +5065,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5116,7 +5116,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -5142,7 +5142,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5193,7 +5193,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -5219,7 +5219,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5270,7 +5270,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_ShapeEditor\",\"\",\"\");";
@@ -5296,7 +5296,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5320,7 +5320,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/ShapeEditor\",\"LabParam_Plugins_ShapeEditor\"); ";
@@ -5345,7 +5345,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -5369,7 +5369,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -5528,7 +5528,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5554,7 +5554,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5605,7 +5605,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5631,7 +5631,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5682,7 +5682,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5708,7 +5708,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5759,7 +5759,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5785,7 +5785,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5836,7 +5836,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5862,7 +5862,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -5966,7 +5966,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -5992,7 +5992,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6043,7 +6043,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6069,7 +6069,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6120,7 +6120,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6146,7 +6146,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6197,7 +6197,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6223,7 +6223,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6274,7 +6274,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6300,7 +6300,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6351,7 +6351,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6377,7 +6377,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6428,7 +6428,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6454,7 +6454,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6505,7 +6505,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6531,7 +6531,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6582,7 +6582,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6608,7 +6608,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6659,7 +6659,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Plugins_TerrainEditor\",\"\",\"\");";
@@ -6685,7 +6685,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -6709,7 +6709,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/TerrainEditor\",\"LabParam_Plugins_TerrainEditor\"); ";
@@ -6734,7 +6734,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -6758,7 +6758,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -6889,7 +6889,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Plugins/TerrainPainter\",\"LabParam_Plugins_TerrainPainter\"); ";
@@ -6914,7 +6914,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -6938,7 +6938,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -7107,7 +7107,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfSliderMain";
+                              profile = "ToolsSliderProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Input\",\"\",\"\");";
@@ -7133,7 +7133,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -7195,7 +7195,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfSliderMain";
+                              profile = "ToolsSliderProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Input\",\"\",\"\");";
@@ -7221,7 +7221,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -7246,7 +7246,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Common/Input\",\"LabParam_Common_Input\"); ";
@@ -7271,7 +7271,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -7295,7 +7295,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -7454,7 +7454,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7480,7 +7480,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -7531,7 +7531,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7557,7 +7557,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -7608,7 +7608,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7634,7 +7634,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -7699,7 +7699,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -7717,7 +7717,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7771,7 +7771,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7797,7 +7797,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -7848,7 +7848,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_General\",\"\",\"\");";
@@ -7874,7 +7874,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -7898,7 +7898,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Common/General\",\"LabParam_Common_General\"); ";
@@ -7923,7 +7923,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -7947,7 +7947,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -8116,7 +8116,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfSliderMain";
+                              profile = "ToolsSliderProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8142,7 +8142,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -8208,7 +8208,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -8226,7 +8226,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8280,7 +8280,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8306,7 +8306,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -8357,7 +8357,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8383,7 +8383,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -8448,7 +8448,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -8466,7 +8466,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8520,7 +8520,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8546,7 +8546,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -8597,7 +8597,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8623,7 +8623,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -8688,7 +8688,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -8706,7 +8706,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_Common_Camera\",\"\",\"\");";
@@ -8733,7 +8733,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"Common/Camera\",\"LabParam_Common_Camera\"); ";
@@ -8758,7 +8758,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -8782,7 +8782,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -8937,7 +8937,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9008,7 +9008,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9079,7 +9079,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9150,7 +9150,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9221,7 +9221,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9292,7 +9292,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9363,7 +9363,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9434,7 +9434,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9505,7 +9505,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9576,7 +9576,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9647,7 +9647,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9718,7 +9718,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9789,7 +9789,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9860,7 +9860,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -9908,7 +9908,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"WorldEditor/Colors\",\"LabParam_WorldEditor_Colors\"); ";
@@ -9933,7 +9933,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -9957,7 +9957,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -10134,7 +10134,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_GridUnit\",\"\",\"\");";
@@ -10156,7 +10156,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfSliderMain";
+                              profile = "ToolsSliderProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_GridUnit\",\"\",\"\");";
@@ -10182,7 +10182,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -10207,7 +10207,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"WorldEditor/GridUnit\",\"LabParam_WorldEditor_GridUnit\"); ";
@@ -10232,7 +10232,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -10256,7 +10256,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -10429,7 +10429,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -10447,7 +10447,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -10515,7 +10515,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -10533,7 +10533,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -10601,7 +10601,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -10619,7 +10619,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -10673,7 +10673,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -10699,7 +10699,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -10750,7 +10750,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -10776,7 +10776,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -10841,7 +10841,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -10859,7 +10859,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -10927,7 +10927,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -10945,7 +10945,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -10999,7 +10999,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11025,7 +11025,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11076,7 +11076,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11102,7 +11102,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11153,7 +11153,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11179,7 +11179,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11230,7 +11230,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11256,7 +11256,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11321,7 +11321,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11339,7 +11339,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11407,7 +11407,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11425,7 +11425,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11493,7 +11493,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11511,7 +11511,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11579,7 +11579,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11597,7 +11597,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11665,7 +11665,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11683,7 +11683,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiCheckBoxProfile";
+                              profile = "ToolsCheckBoxProfile_S1";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Objects\",\"\",\"\");";
@@ -11710,7 +11710,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"WorldEditor/Objects\",\"LabParam_WorldEditor_Objects\"); ";
@@ -11735,7 +11735,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -11759,7 +11759,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -11918,7 +11918,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -11944,7 +11944,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -11995,7 +11995,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12021,7 +12021,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12072,7 +12072,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12098,7 +12098,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12149,7 +12149,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12175,7 +12175,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12226,7 +12226,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12252,7 +12252,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12303,7 +12303,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12329,7 +12329,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12380,7 +12380,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12406,7 +12406,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12457,7 +12457,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12483,7 +12483,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12534,7 +12534,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12560,7 +12560,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12611,7 +12611,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_Misc\",\"\",\"\");";
@@ -12637,7 +12637,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12661,7 +12661,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"WorldEditor/Misc\",\"LabParam_WorldEditor_Misc\"); ";
@@ -12686,7 +12686,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsNavBoxTitle";
+            profile = "ToolsBoxNavTitle";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -12710,7 +12710,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -12869,7 +12869,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -12895,7 +12895,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -12946,7 +12946,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -12972,7 +12972,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -13023,7 +13023,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13049,7 +13049,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -13100,7 +13100,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13126,7 +13126,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -13177,7 +13177,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13203,7 +13203,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -13254,7 +13254,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13280,7 +13280,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -13331,7 +13331,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolspfTextEditMain";
+                              profile = "ToolsTextEditProfile";
                               visible = "1";
                               active = "1";
                               command = "updateParamCtrl($ThisControl,\"Lab.updateSettingsParams\",\"LabParam_WorldEditor_AxisGizmo\",\"\",\"\");";
@@ -13357,7 +13357,7 @@
                               minExtent = "8 2";
                               horizSizing = "right";
                               vertSizing = "bottom";
-                              profile = "ToolsGuiTextBase";
+                              profile = "ToolsTextBase";
                               visible = "1";
                               active = "1";
                               tooltipProfile = "GuiToolTipProfile";
@@ -13381,7 +13381,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "Lab.resetPatternSettings(\"WorldEditor/AxisGizmo\",\"LabParam_WorldEditor_AxisGizmo\"); ";
@@ -13460,7 +13460,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfTextEditMain";
+               profile = "ToolsTextEditProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13484,7 +13484,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13535,7 +13535,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfTextEditMain";
+               profile = "ToolsTextEditProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13559,7 +13559,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13610,7 +13610,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfTextEditMain";
+               profile = "ToolsTextEditProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13634,7 +13634,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13681,7 +13681,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13708,7 +13708,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfDropdownMain";
+               profile = "ToolsDropdownMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13755,7 +13755,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13782,7 +13782,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfDropdownMain";
+               profile = "ToolsDropdownMain";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13880,7 +13880,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase_C";
+               profile = "ToolsTextBase_H1_C";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13945,7 +13945,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -13965,7 +13965,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiCheckBoxProfile";
+               profile = "ToolsCheckBoxProfile_S1";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14012,7 +14012,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14103,7 +14103,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfTextEditMain";
+               profile = "ToolsTextEditProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14123,7 +14123,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfSliderMain";
+               profile = "ToolsSliderProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14147,7 +14147,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14208,7 +14208,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfSliderMain";
+               profile = "ToolsSliderProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14232,7 +14232,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14293,7 +14293,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfSliderMain";
+               profile = "ToolsSliderProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14317,7 +14317,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextBase";
+               profile = "ToolsTextBase";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -14339,7 +14339,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "LabCfg.write();";

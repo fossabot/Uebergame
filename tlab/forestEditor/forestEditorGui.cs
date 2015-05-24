@@ -52,8 +52,11 @@ function ForestEditorGui::createForest( %this ) {
     }
 
     // Allocate the Forest and make it undoable.
+    //%file = strreplace(MissionGroup.getFilename(),".mis",".forest");
+    %file = filePath(MissionGroup.getFilename())@"/data.forest";
+   
     new Forest( theForest ) {
-        dataFile = "";
+        dataFile = %file;
         parentGroup = "MissionGroup";
     };
 

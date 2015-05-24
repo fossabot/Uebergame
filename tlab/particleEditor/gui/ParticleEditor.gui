@@ -21,7 +21,7 @@
    minExtent = "210 140";
    horizSizing = "windowRelative";
    vertSizing = "windowRelative";
-   profile = "ToolsWindowAltProfile";
+   profile = "ToolsWindowProfile";
    visible = "1";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
@@ -83,7 +83,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
-         profile = "ToolsTabPageProfile";
+         profile = "ToolsPanelDarkA";
          visible = "0";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -181,7 +181,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolspfDropdownMain";
+                     profile = "ToolsDropdownMain";
                      visible = "1";
                      active = "1";
                      command = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor::onNewEmitter();";
@@ -211,7 +211,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditDark";
+                     profile = "ToolsTextEditDark";
                      visible = "1";
                      active = "1";
                      altCommand = "$ThisControl.getParent().updateFromChild($ThisControl);";
@@ -378,7 +378,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -397,7 +397,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateLifeFields( false, $ThisControl.getValue(), true, true );";
@@ -428,7 +428,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateLifeFields( false, $ThisControl.getValue() );";
@@ -470,7 +470,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -489,7 +489,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateLifeFields( true, $ThisControl.getValue(), true, true );";
@@ -520,7 +520,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateLifeFields( true, $ThisControl.getValue() );";
@@ -561,7 +561,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -580,7 +580,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiCheckBoxProfile";
+                           profile = "ToolsCheckBoxProfile_S1";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateLifeFieldsInfiniteLoop();";
@@ -608,7 +608,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -655,7 +655,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -674,7 +674,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateAmountFields( false, $ThisControl.getValue(), true, true );";
@@ -705,7 +705,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateAmountFields( false, $ThisControl.getValue() );";
@@ -747,7 +747,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -766,7 +766,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateAmountFields( true, $ThisControl.getValue(), true, true );";
@@ -797,7 +797,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateAmountFields( true, $ThisControl.getValue() );";
@@ -891,7 +891,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -910,7 +910,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateSpeedFields( false, $ThisControl.getValue(), true, true );";
@@ -941,7 +941,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateSpeedFields( false, $ThisControl.getValue() );";
@@ -983,7 +983,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1002,7 +1002,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateSpeedFields( true, $ThisControl.getValue(), true, true );";
@@ -1033,7 +1033,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateSpeedFields( true, $ThisControl.getValue() );";
@@ -1061,7 +1061,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -1107,7 +1107,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1126,7 +1126,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiCheckBoxProfile";
+                           profile = "ToolsCheckBoxProfile_S1";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"orientParticles\", $ThisControl.getValue());";
@@ -1167,7 +1167,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1186,7 +1186,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiCheckBoxProfile";
+                           profile = "ToolsCheckBoxProfile_S1";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"alignParticles\", $ThisControl.getValue());";
@@ -1227,7 +1227,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1255,7 +1255,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "PE_EmitterEditor.updateEmitter( \"alignDirection\", $ThisControl.getText());";
@@ -1336,7 +1336,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "151 0";
                            extent = "2 18";
@@ -1354,7 +1354,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "163 0";
                            extent = "2 18";
@@ -1372,7 +1372,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -1390,7 +1390,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "187 0";
                            extent = "2 18";
@@ -1408,7 +1408,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "200 0";
                            extent = "2 18";
@@ -1439,7 +1439,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1458,7 +1458,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"thetaMin\", $ThisControl.getValue(), true, true );";
@@ -1489,7 +1489,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateEmitter( \"thetaMin\", $ThisControl.getText());";
@@ -1518,7 +1518,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "151 0";
                            extent = "2 18";
@@ -1536,7 +1536,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "163 0";
                            extent = "2 18";
@@ -1554,7 +1554,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -1572,7 +1572,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "187 0";
                            extent = "2 18";
@@ -1590,7 +1590,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "200 0";
                            extent = "2 18";
@@ -1621,7 +1621,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1640,7 +1640,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"thetaMax\", $ThisControl.getValue(), true, true );";
@@ -1671,7 +1671,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateEmitter( \"thetaMax\", $ThisControl.getText());";
@@ -1699,7 +1699,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -1746,7 +1746,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1765,7 +1765,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"phiVariance\", $ThisControl.getValue(), true, true );";
@@ -1796,7 +1796,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateEmitter( \"phiVariance\", $ThisControl.getText());";
@@ -1838,7 +1838,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1857,7 +1857,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"ejectionOffset\", $ThisControl.getValue(), true, true );";
@@ -1888,7 +1888,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateEmitter( \"ejectionOffset\", $ThisControl.getText());";
@@ -1930,7 +1930,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -1949,7 +1949,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"ejectionOffsetVariance\", $ThisControl.getValue(), true, true );";
@@ -1979,7 +1979,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateEmitter( \"ejectionOffsetVariance\", $ThisControl.getText());";
@@ -2072,7 +2072,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2099,7 +2099,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfDropdownMain";
+                           profile = "ToolsDropdownMain";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateParticlesFields($ThisControl);";
@@ -2140,7 +2140,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2167,7 +2167,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfDropdownMain";
+                           profile = "ToolsDropdownMain";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateParticlesFields();";
@@ -2192,7 +2192,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiButtonProfile";
+                           profile = "ToolsButtonProfile";
                            visible = "1";
                            active = "1";
                            command = "%particleId = PEE_EmitterParticle2-->PopUpMenu.findText( \"None\" ); PEE_EmitterParticle2-->PopUpMenu.setSelected( %particleId );PE_EmitterEditor.updateParticlesFields();";
@@ -2233,7 +2233,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2260,7 +2260,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfDropdownMain";
+                           profile = "ToolsDropdownMain";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateParticlesFields();";
@@ -2285,7 +2285,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiButtonProfile";
+                           profile = "ToolsButtonProfile";
                            visible = "1";
                            active = "1";
                            command = "%particleId = PEE_EmitterParticle3-->PopUpMenu.findText( \"None\" ); PEE_EmitterParticle3-->PopUpMenu.setSelected( %particleId );PE_EmitterEditor.updateParticlesFields();";
@@ -2326,7 +2326,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2353,7 +2353,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfDropdownMain";
+                           profile = "ToolsDropdownMain";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateParticlesFields();";
@@ -2378,7 +2378,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiButtonProfile";
+                           profile = "ToolsButtonProfile";
                            visible = "1";
                            active = "1";
                            command = "%particleId = PEE_EmitterParticle4-->PopUpMenu.findText( \"None\" ); PEE_EmitterParticle4-->PopUpMenu.setSelected( %particleId );PE_EmitterEditor.updateParticlesFields();";
@@ -2471,7 +2471,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2540,7 +2540,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2559,7 +2559,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"softnessDistance\", $ThisControl.getValue(), true, true );";
@@ -2590,7 +2590,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateEmitter( \"softnessDistance\", $ThisControl.getText());";
@@ -2632,7 +2632,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2651,7 +2651,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"ambientFactor\", $ThisControl.getValue(), true, true );";
@@ -2682,7 +2682,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor.updateEmitter( \"ambientFactor\", $ThisControl.getText));";
@@ -2710,7 +2710,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -2756,7 +2756,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2775,7 +2775,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiCheckBoxProfile";
+                           profile = "ToolsCheckBoxProfile_S1";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"softParticles\", $ThisControl.getValue());";
@@ -2816,7 +2816,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2835,7 +2835,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiCheckBoxProfile";
+                           profile = "ToolsCheckBoxProfile_S1";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"reverseOrder\", $ThisControl.getValue());";
@@ -2876,7 +2876,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2895,7 +2895,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiCheckBoxProfile";
+                           profile = "ToolsCheckBoxProfile_S1";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"useEmitterSizes\", $ThisControl.getValue());";
@@ -2936,7 +2936,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -2955,7 +2955,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiCheckBoxProfile";
+                           profile = "ToolsCheckBoxProfile_S1";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateEmitter( \"useEmitterColors\", $ThisControl.getValue());";
@@ -2988,7 +2988,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
-         profile = "ToolsTabPageProfile";
+         profile = "ToolsPanelDarkA";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -3085,7 +3085,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolspfDropdownMain";
+                     profile = "ToolsDropdownMain";
                      visible = "1";
                      active = "1";
                      command = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.onNewParticle();";
@@ -3115,7 +3115,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextEditDark";
+                     profile = "ToolsTextEditDark";
                      visible = "1";
                      active = "1";
                      altCommand = "$ThisControl.getParent().updateFromChild($ThisControl);";
@@ -3303,7 +3303,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextBase";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -3372,7 +3372,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiCheckBoxProfile";
+                           profile = "ToolsCheckBoxProfile_S1";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"useInvAlpha\", $ThisControl.getValue());";
@@ -3402,7 +3402,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -3423,7 +3423,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiButtonProfile";
+                           profile = "ToolsButtonProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticleTexture(1);";
@@ -3450,7 +3450,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -3497,7 +3497,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -3516,7 +3516,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateLifeFields( false, $ThisControl.getValue(), true, true );";
@@ -3547,7 +3547,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateLifeFields( false, $ThisControl.getText() );";
@@ -3589,7 +3589,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -3608,7 +3608,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateLifeFields( true, $ThisControl.getValue(), true, true );";
@@ -3639,7 +3639,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateLifeFields( true, $ThisControl.getText() );";
@@ -3733,7 +3733,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -3752,7 +3752,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"inheritedVelFactor\", $ThisControl.getValue(), true, true );";
@@ -3783,7 +3783,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"inheritedVelFactor\", $ThisControl.getText());";
@@ -3825,7 +3825,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -3844,7 +3844,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"constantAcceleration\", $ThisControl.getValue(), true, true );";
@@ -3875,7 +3875,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"constantAcceleration\", $ThisControl.getText());";
@@ -3903,7 +3903,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -3937,7 +3937,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -3968,7 +3968,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -3987,7 +3987,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"gravityCoefficient\", $ThisControl.getValue(), true, true );";
@@ -4018,7 +4018,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"gravityCoefficient\", $ThisControl.getText());";
@@ -4060,7 +4060,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -4079,7 +4079,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"dragCoefficient\", $ThisControl.getValue(), true, true );";
@@ -4110,7 +4110,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"dragCoefficient\", $ThisControl.getText());";
@@ -4191,7 +4191,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -4222,7 +4222,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -4241,7 +4241,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateSpinFields( true, $ThisControl.getValue(), true, true );";
@@ -4272,7 +4272,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateSpinFields( true, $ThisControl.getText() );";
@@ -4301,7 +4301,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-h";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-h";
                            wrap = "0";
                            position = "175 0";
                            extent = "2 18";
@@ -4332,7 +4332,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -4351,7 +4351,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateSpinFields( false, $ThisControl.getValue(), true, true );";
@@ -4382,7 +4382,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateSpinFields( false, $ThisControl.getText() );";
@@ -4410,7 +4410,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -4457,7 +4457,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -4476,7 +4476,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"spinSpeed\", $ThisControl.getValue(), true, true );";
@@ -4507,7 +4507,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"spinSpeed\", $ThisControl.getText());";
@@ -4600,7 +4600,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -4714,7 +4714,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -4761,7 +4761,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -4780,7 +4780,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"sizes[0]\", $ThisControl.getValue(), true, true );";
@@ -4811,7 +4811,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"sizes[0]\", $ThisControl.getText());";
@@ -4853,7 +4853,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -4872,7 +4872,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"sizes[1]\", $ThisControl.getValue(), true, true );";
@@ -4903,7 +4903,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"sizes[1]\", $ThisControl.getText());";
@@ -4945,7 +4945,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -4964,7 +4964,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"sizes[2]\", $ThisControl.getValue(), true, true );";
@@ -4995,7 +4995,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"sizes[2]\", $ThisControl.getText());";
@@ -5037,7 +5037,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -5056,7 +5056,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"sizes[3]\", $ThisControl.getValue(), true, true );";
@@ -5087,7 +5087,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"sizes[3]\", $ThisControl.getText());";
@@ -5115,7 +5115,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "tlab/gui/images/gfx_assets/separator-v";
+                           bitmap = "tlab/gui/assets/gfx_assets/separator-v";
                            wrap = "0";
                            position = "0 3";
                            extent = "261 2";
@@ -5162,7 +5162,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -5181,7 +5181,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"times[0]\", $ThisControl.getValue(), true, true );";
@@ -5212,7 +5212,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.setText(mClamp( $ThisControl.getValue(), 0.0, 1.0)); $ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"times[0]\", $ThisControl.getText());";
@@ -5254,7 +5254,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -5273,7 +5273,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"times[1]\", $ThisControl.getValue(), true, true );";
@@ -5304,7 +5304,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.setText(mClamp( $ThisControl.getValue(), 0.0, 1.0)); $ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"times[1]\", $ThisControl.getText());";
@@ -5346,7 +5346,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -5365,7 +5365,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"times[2]\", $ThisControl.getValue(), true, true );";
@@ -5396,7 +5396,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.setText(mClamp( $ThisControl.getValue(), 0.0, 1.0)); $ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"times[2]\", $ThisControl.getText());";
@@ -5438,7 +5438,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextProfile";
+                           profile = "ToolsTextBase";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "GuiToolTipProfile";
@@ -5457,7 +5457,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfSliderMain";
+                           profile = "ToolsSliderProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_ParticleEditor.updateParticle( \"times[3]\", $ThisControl.getValue(), true, true );";
@@ -5488,7 +5488,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            altCommand = "$ThisControl.setText(mClamp( $ThisControl.getValue(), 0.0, 1.0)); $ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.updateParticle( \"times[3]\", $ThisControl.getText());";
@@ -5520,7 +5520,7 @@
       minExtent = "8 2";
       horizSizing = "left";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "ParticleEditor.updateEmitterNode();";
@@ -5545,7 +5545,7 @@
       minExtent = "8 2";
       horizSizing = "left";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "ParticleEditor.resetEmitterNode();";

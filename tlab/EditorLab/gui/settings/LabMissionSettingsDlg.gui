@@ -36,7 +36,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsWindowAltProfile";
+      profile = "ToolsWindowProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -105,7 +105,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase";
+               profile = "ToolsTextBase_H1";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -133,7 +133,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolspfTextEditMain";
+               profile = "ToolsTextEditProfile";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -179,7 +179,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiTextHeaderBase";
+               profile = "ToolsTextBase_H1";
                visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -227,7 +227,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolspfTextEditMain";
+                  profile = "ToolsTextEditProfile";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -276,7 +276,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "LabMissionSettingsDlg.saveAndClose();";
@@ -307,7 +307,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "show(LabMissionSettingsDlg-->customFieldsDlg);";
@@ -341,7 +341,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsWindowAltProfile";
+      profile = "ToolsWindowProfile";
       visible = "0";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -387,7 +387,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextHeaderBase_C";
+            profile = "ToolsTextBase_H1_C";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -410,7 +410,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextHeaderBase_C";
+            profile = "ToolsTextBase_H1_C";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -456,7 +456,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "hide(LabMissionSettingsDlg-->customFieldsDlg);";

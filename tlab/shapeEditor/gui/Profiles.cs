@@ -15,7 +15,7 @@ singleton GuiControlProfile(GuiShapeEdScrollProfile : ToolsScrollProfile) {
     category = "Editor";
 };
 
-singleton GuiControlProfile(GuiShapeEdTextListProfile : ToolsGuiTextListProfile) {
+singleton GuiControlProfile(GuiShapeEdTextListProfile : ToolsTextBase_List) {
     // Customise the not-active font used for the header row
     fontColorNA = "75 75 75";
     category = "Editor";

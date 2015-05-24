@@ -133,7 +133,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "GlobalGizmoProfile.setFieldValue(alignment, Object); EWorldEditor.syncGui(); EToolbarObjectTransformDropdown.toggle(); ";
@@ -203,7 +203,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "EWorldEditor.objectsUseBoxCenter = 0; EWorldEditor.syncGui(); EToolbarObjectCenterDropdown.toggle(); ";
@@ -235,7 +235,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "EWorldEditor.objectsUseBoxCenter = 1; EWorldEditor.syncGui(); EToolbarObjectCenterDropdown.toggle(); ";
@@ -332,7 +332,7 @@
             minExtent = "8 8";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiIconButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "EToolDlgCameraTypesToggle(); Lab.setCameraViewMode(\"Standard Camera\");";
@@ -364,7 +364,7 @@
             minExtent = "8 8";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiIconButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "EToolDlgCameraTypesToggle(); Lab.setCameraViewMode(\"Orbit Camera\");";
@@ -396,7 +396,7 @@
             minExtent = "8 8";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiIconButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "EToolDlgCameraTypesToggle(); Lab.setCameraViewMode(\"1st Person Camera\");";
@@ -428,7 +428,7 @@
             minExtent = "8 8";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiIconButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "EToolDlgCameraTypesToggle(); Lab.setCameraViewMode(\"3rd Person Camera\");";
@@ -460,7 +460,7 @@
             minExtent = "8 8";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiIconButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "EToolDlgCameraTypesToggle(); Lab.setCameraViewMode(\"Smooth Camera\");";
@@ -492,7 +492,7 @@
             minExtent = "8 8";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiIconButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "EToolDlgCameraTypesToggle(); Lab.setCameraViewMode(\"Smooth Rot Camera\");";

@@ -81,7 +81,7 @@
             minExtent = "8 16";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiNumericDropSliderTextProfile";
+            profile = "ToolsTextEditProfile_Num";
             visible = "1";
             active = "1";
             command = "ETerrainEditor.setBrushSize( $ThisControl.getText() );";
@@ -133,7 +133,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ETerrainEditor.toggleBrushType($ThisControl);";
@@ -160,7 +160,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "ETerrainEditor.toggleBrushType($ThisControl);";
@@ -187,7 +187,7 @@
             minExtent = "8 8";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBaseSmall";
+            profile = "ToolsTextBase_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -199,7 +199,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
+         bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
          wrap = "0";
          position = "124 0";
          extent = "2 26";
@@ -246,7 +246,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBaseSmall";
+            profile = "ToolsTextBase_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -277,7 +277,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextEditDark";
+            profile = "ToolsTextEditDark";
             visible = "1";
             active = "1";
             command = "ETerrainEditor.setSlopeLimitMinAngle( $ThisControl.getText() );";
@@ -336,7 +336,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextEditDark";
+            profile = "ToolsTextEditDark";
             visible = "1";
             active = "1";
             command = "ETerrainEditor.setSlopeLimitMaxAngle( $ThisControl.getText() );";
@@ -377,7 +377,7 @@
          };
       };
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
+         bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
          wrap = "0";
          position = "258 0";
          extent = "2 26";
@@ -424,7 +424,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -453,7 +453,7 @@
             minExtent = "8 16";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiNumericDropSliderTextProfile";
+            profile = "ToolsTextEditProfile_Num";
             visible = "1";
             active = "1";
             command = "ETerrainEditor.setBrushPressure( ($ThisControl.getValue() / 100) );";
@@ -522,7 +522,7 @@ new GuiMouseEventCtrl(PaintBrushSizeSliderCtrlContainer,EditorGuiGroup) {
       canSaveDynamicFields = "0";
       internalName = "slider";
       isContainer = "0";
-      Profile = "ToolsGuiSliderBoxProfile";
+      Profile = "ToolsSliderBox";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = firstWord(PaintBrushSizeTextEditContainer.position) + firstWord(EWTerrainPainterToolbar.position)+11 SPC 
@@ -552,7 +552,7 @@ new GuiMouseEventCtrl(PaintBrushSlopeMinContainer,EditorGuiGroup) {
       canSaveDynamicFields = "0";
       internalName = "slider";
       isContainer = "0";
-      Profile = "ToolsGuiSliderBoxProfile";
+      Profile = "ToolsSliderBox";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = firstWord(PaintBrushSlopeControl.position) + firstWord(EWTerrainPainterToolbar.position)+firstWord(PaintBrushSlopeControl->SlopeMinAngle.position) - 40 SPC
@@ -587,7 +587,7 @@ new GuiMouseEventCtrl(PaintBrushSlopeMaxContainer,EditorGuiGroup) {
       canSaveDynamicFields = "0";
       internalName = "slider";
       isContainer = "0";
-      Profile = "ToolsGuiSliderBoxProfile";
+      Profile = "ToolsSliderBox";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = firstWord(PaintBrushSlopeControl.position) + firstWord(EWTerrainPainterToolbar.position)+firstWord(PaintBrushSlopeControl->SlopeMaxAngle.position) - 40 SPC
@@ -627,7 +627,7 @@ new GuiMouseEventCtrl(PaintBrushPressureSliderCtrlContainer,EditorGuiGroup) {
       canSaveDynamicFields = "0";
       internalName = "slider";
       isContainer = "0";
-      Profile = "ToolsGuiSliderBoxProfile";
+      Profile = "ToolsSliderBox";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = firstWord(PaintBrushPressureTextEditContainer.position) + firstWord(EWTerrainPainterToolbar.position) SPC 
@@ -657,7 +657,7 @@ new GuiMouseEventCtrl(PaintBrushSoftnessSliderCtrlContainer,EditorGuiGroup) {
       canSaveDynamicFields = "0";
       internalName = "slider";
       isContainer = "0";
-      Profile = "ToolsGuiSliderBoxProfile";
+      Profile = "ToolsSliderBox";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = firstWord(PaintBrushSoftnessTextEditContainer.position) + firstWord(EWTerrainPainterToolbar.position) SPC 

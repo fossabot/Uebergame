@@ -106,7 +106,7 @@
             minExtent = "8 2";
             horizSizing = "left";
             vertSizing = "bottom";
-            profile = "GuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "TerrainImportGui.browseForHeightfield();";
@@ -442,7 +442,7 @@
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "top";
-               profile = "ToolsGuiTextListProfile";
+               profile = "ToolsTextBase_List";
                visible = "1";
                active = "1";
                altCommand = "TerrainImportGui.onOpacityListDblClick();";
@@ -513,7 +513,7 @@
             minExtent = "8 2";
             horizSizing = "left";
             vertSizing = "top";
-            profile = "GuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "TerrainImportGui.onOpacityListDblClick();";
@@ -534,7 +534,7 @@
             minExtent = "8 2";
             horizSizing = "left";
             vertSizing = "top";
-            profile = "GuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "TerrainImportGui.browseForOpacityMap();";
@@ -555,7 +555,7 @@
             minExtent = "8 2";
             horizSizing = "left";
             vertSizing = "top";
-            profile = "GuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "TerrainImportGui.removeOpacitymap();";
@@ -600,7 +600,7 @@
             minExtent = "8 2";
             horizSizing = "left";
             vertSizing = "top";
-            profile = "GuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "TIG_OpacityList.clear();";
@@ -622,7 +622,7 @@
          minExtent = "8 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "GuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "Canvas.popDialog( TerrainImportGui );";
@@ -659,7 +659,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "top";
-            profile = "GuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "TerrainImportGui.import();";
@@ -761,7 +761,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "GuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "Lab.SaveTerrainImportSettings();";
@@ -782,7 +782,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "GuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "Lab.LoadTerrainImportSettings();";

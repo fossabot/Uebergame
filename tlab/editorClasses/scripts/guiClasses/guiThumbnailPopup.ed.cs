@@ -203,7 +203,7 @@ function GuiThumbnailCreator::AddObject( %this, %object, %data, %tooltip ) {
 
     // Build Object Container
     %container = new GuiControl() {
-        profile = ToolsGuiButtonProfile;
+        profile = ToolsButtonProfile;
     };
 
     // Add to list.

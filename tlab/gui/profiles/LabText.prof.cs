@@ -9,7 +9,7 @@
 //==============================================================================
 // Standard Text Profiles
 //==============================================================================
-singleton GuiControlProfile(ToolsGuiTextBase : ToolsDefaultProfile) {
+singleton GuiControlProfile(ToolsTextBase : ToolsDefaultProfile) {
     fontColor = "254 254 254 255";
     fontType = "Gotham Bold";
     fillColor = "238 236 240 255";
@@ -26,48 +26,54 @@ singleton GuiControlProfile(ToolsGuiTextBase : ToolsDefaultProfile) {
    fontColorLink = "Magenta";
 
 };
-singleton GuiControlProfile(ToolsGuiTextBase_C : ToolsGuiTextBase) {
+singleton GuiControlProfile(ToolsTextBase_C : ToolsTextBase) {
     locked = true;
     justify = "Center";
 };
-singleton GuiControlProfile(ToolsGuiTextBase_R : ToolsGuiTextBase) {
+singleton GuiControlProfile(ToolsTextBase_R : ToolsTextBase) {
     locked = true;
     justify = "Right";
 };
-singleton GuiControlProfile (ToolsGuiTextBase_Auto : ToolsGuiTextBase) {    
+singleton GuiControlProfile (ToolsTextBase_Auto : ToolsTextBase) {    
     autoSizeWidth = true;
     autoSizeHeight = true;   
 };
 
-singleton GuiControlProfile( ToolsGuiTextBase_ML : ToolsGuiTextBase ) {   
+singleton GuiControlProfile( ToolsTextBase_ML : ToolsTextBase ) {   
     autoSizeWidth = true;
     autoSizeHeight = true;
     border = false;    
 };
+singleton GuiControlProfile( ToolsTextBase_List : ToolsTextBase ) {
+    tab = true;
+    canKeyFocus = true;
+    category = "Tools";
+   mouseOverSelected = "1";
+};
 //------------------------------------------------------------------------------
 //==============================================================================
-singleton GuiControlProfile(ToolsGuiTextBaseSmall : ToolsGuiTextBase) {
+singleton GuiControlProfile(ToolsTextBase_S1 : ToolsTextBase) {
     fontSize = "14";
     fontType = "Gotham Book";
 };
-singleton GuiControlProfile(ToolsGuiTextBaseSmall_C : ToolsGuiTextBaseSmall) {
+singleton GuiControlProfile(ToolsTextBase_S1_C : ToolsTextBase_S1) {
     locked = true;
     justify = "Center";
 };
-singleton GuiControlProfile(ToolsGuiTextBaseSmall_R : ToolsGuiTextBaseSmall) {
+singleton GuiControlProfile(ToolsTextBase_S1_R : ToolsTextBase_S1) {
     locked = true;
     justify = "Right";
 };
 //------------------------------------------------------------------------------
 //==============================================================================
-singleton GuiControlProfile(ToolsGuiTextBaseBig : ToolsGuiTextBase) {
+singleton GuiControlProfile(ToolsTextBase_L1 : ToolsTextBase) {
     fontSize = "28";
 };
-singleton GuiControlProfile(ToolsGuiTextBaseBig_C : ToolsGuiTextBaseBig) {
+singleton GuiControlProfile(ToolsTextBase_L1_C : ToolsTextBase_L1) {
     locked = true;
     justify = "Center";
 };
-singleton GuiControlProfile(ToolsGuiTextBaseBig_R : ToolsGuiTextBaseBig) {
+singleton GuiControlProfile(ToolsTextBase_L1_R : ToolsTextBase_L1) {
     locked = true;
     justify = "Right";
 };
@@ -78,7 +84,7 @@ singleton GuiControlProfile(ToolsGuiTextBaseBig_R : ToolsGuiTextBaseBig) {
 // Standard Text Header Profiles
 //==============================================================================
 //==============================================================================
-singleton GuiControlProfile(ToolsGuiTextHeaderBase : ToolsDefaultProfile) {
+singleton GuiControlProfile(ToolsTextBase_H1 : ToolsDefaultProfile) {
     fontColor = "254 254 254 255";
     fontType = "Gotham Black";
     fillColor = "238 236 240 255";
@@ -93,96 +99,11 @@ singleton GuiControlProfile(ToolsGuiTextHeaderBase : ToolsDefaultProfile) {
     fontSize = "17";
 
 };
-singleton GuiControlProfile(ToolsGuiTextHeaderBase_C : ToolsGuiTextHeaderBase) {
+singleton GuiControlProfile(ToolsTextBase_H1_C : ToolsTextBase_H1) {
     locked = true;
     justify = "Center";
 };
-singleton GuiControlProfile(ToolsGuiTextHeaderBase_R : ToolsGuiTextHeaderBase) {
-    locked = true;
-    justify = "Right";
-};
-//------------------------------------------------------------------------------
-
-//==============================================================================
-// Standard Text Profiles
-//==============================================================================
-singleton GuiControlProfile(ToolsGuiTextBase : ToolsDefaultProfile) {
-    fontColor = "254 254 254 255";
-    fontType = "Gotham Black";
-    fillColor = "238 236 240 255";
-    bevelColorHL = "Magenta";
-    justify = "Left";
-    category = "LabText";
-    fontColors[0] = "254 254 254 255";
-    fontColors[1] = "254 254 254 255";
-    fontColors[2] = "254 254 254 255";
-    fontColorHL = "254 254 254 255";
-    fontColorNA = "254 254 254 255";
-    fontSize = "15";
-
-};
-singleton GuiControlProfile(ToolsGuiTextBase_C : ToolsGuiTextBase) {
-    locked = true;
-    justify = "Center";
-};
-singleton GuiControlProfile(ToolsGuiTextBase_R : ToolsGuiTextBase) {
-    locked = true;
-    justify = "Right";
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-singleton GuiControlProfile(ToolsGuiTextBaseSmall : ToolsGuiTextBase) {
-    fontSize = "14";
-    fontType = "Gotham Book";
-};
-singleton GuiControlProfile(ToolsGuiTextBaseSmall_C : ToolsGuiTextBaseSmall) {
-    locked = true;
-    justify = "Center";
-};
-singleton GuiControlProfile(ToolsGuiTextBaseSmall_R : ToolsGuiTextBaseSmall) {
-    locked = true;
-    justify = "Right";
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-singleton GuiControlProfile(ToolsGuiTextBaseBig : ToolsGuiTextBase) {
-    fontSize = "28";
-};
-singleton GuiControlProfile(ToolsGuiTextBaseBig_C : ToolsGuiTextBaseBig) {
-    locked = true;
-    justify = "Center";
-};
-singleton GuiControlProfile(ToolsGuiTextBaseBig_R : ToolsGuiTextBaseBig) {
-    locked = true;
-    justify = "Right";
-};
-//------------------------------------------------------------------------------
-
-
-//==============================================================================
-// Standard Text Header Profiles
-//==============================================================================
-//==============================================================================
-singleton GuiControlProfile(ToolsGuiTextHeaderBase : ToolsDefaultProfile) {
-    fontColor = "254 254 254 255";
-    fontType = "Gotham Black";
-    fillColor = "238 236 240 255";
-    bevelColorHL = "Magenta";
-    justify = "Left";
-    category = "LabText";
-    fontColors[0] = "254 254 254 255";
-    fontColors[1] = "254 254 254 255";
-    fontColors[2] = "254 254 254 255";
-    fontColorHL = "254 254 254 255";
-    fontColorNA = "254 254 254 255";
-    fontSize = "16";
-
-};
-singleton GuiControlProfile(ToolsGuiTextHeaderBase_C : ToolsGuiTextHeaderBase) {
-    locked = true;
-    justify = "Center";
-};
-singleton GuiControlProfile(ToolsGuiTextHeaderBase_R : ToolsGuiTextHeaderBase) {
+singleton GuiControlProfile(ToolsTextBase_H1_R : ToolsTextBase_H1) {
     locked = true;
     justify = "Right";
 };
@@ -192,7 +113,7 @@ singleton GuiControlProfile(ToolsGuiTextHeaderBase_R : ToolsGuiTextHeaderBase) {
 // Dark text profile for Light background
 //==============================================================================
 //==============================================================================
-singleton GuiControlProfile(ToolsGuiTextAlt : ToolsDefaultProfile) {
+singleton GuiControlProfile(ToolsTextAlt : ToolsDefaultProfile) {
     fontColor = "254 224 97 255";
     fontType = "Gotham Black";
     fillColor = "238 236 240 255";
@@ -203,39 +124,39 @@ singleton GuiControlProfile(ToolsGuiTextAlt : ToolsDefaultProfile) {
    fontColors[0] = "254 224 97 255";
 
 };
-singleton GuiControlProfile(ToolsGuiTextAlt_C : ToolsGuiTextAlt) {
+singleton GuiControlProfile(ToolsTextAlt_C : ToolsTextAlt) {
     locked = true;
     justify = "Center";
 };
-singleton GuiControlProfile(ToolsGuiTextAlt_R : ToolsGuiTextAlt) {
+singleton GuiControlProfile(ToolsTextAlt_R : ToolsTextAlt) {
     locked = true;
     justify = "Right";
 };
 //------------------------------------------------------------------------------
 //==============================================================================
-singleton GuiControlProfile(ToolsGuiTextAltSmall : ToolsGuiTextAlt) {
+singleton GuiControlProfile(ToolsTextAlt_S1 : ToolsTextAlt) {
     fontSize = "18";
 };
-singleton GuiControlProfile(ToolsGuiTextAltSmall_C : ToolsGuiTextAltSmall) {
+singleton GuiControlProfile(ToolsTextAlt_S1_C : ToolsTextAlt_S1) {
     locked = true;
     justify = "Center";
 };
-singleton GuiControlProfile(ToolsGuiTextAltSmall_R : ToolsGuiTextAltSmall) {
+singleton GuiControlProfile(ToolsTextAlt_S1_R : ToolsTextAlt_S1) {
     locked = true;
     justify = "Right";
 };
 //------------------------------------------------------------------------------
 //==============================================================================
-singleton GuiControlProfile(ToolsGuiTextAltBig : ToolsGuiTextAlt) {
+singleton GuiControlProfile(ToolsTextAlt_L1 : ToolsTextAlt) {
     fontSize = "18";
    fontColors[0] = "222 175 51 255";
    fontColor = "222 175 51 255";
 };
-singleton GuiControlProfile(ToolsGuiTextAltBig_C : ToolsGuiTextAltBig) {
+singleton GuiControlProfile(ToolsTextAlt_L1_C : ToolsTextAlt_L1) {
     locked = true;
     justify = "Center";
 };
-singleton GuiControlProfile(ToolsGuiTextAltBig_R : ToolsGuiTextAltBig) {
+singleton GuiControlProfile(ToolsTextAlt_L1_R : ToolsTextAlt_L1) {
     locked = true;
     justify = "Right";
 };
@@ -245,7 +166,7 @@ singleton GuiControlProfile(ToolsGuiTextAltBig_R : ToolsGuiTextAltBig) {
 // Standard Text Header Profiles
 //==============================================================================
 //==============================================================================
-singleton GuiControlProfile(ToolsGuiTextHeaderAlt : ToolsDefaultProfile) {
+singleton GuiControlProfile(ToolsTextAlt_H1 : ToolsDefaultProfile) {
     fontColor = "0 255 231 208";
     fontType = "Gotham Black";
     fillColor = "238 236 240 255";
@@ -260,11 +181,11 @@ singleton GuiControlProfile(ToolsGuiTextHeaderAlt : ToolsDefaultProfile) {
     fontSize = "24";
 
 };
-singleton GuiControlProfile(ToolsGuiTextHeaderAlt_C : ToolsGuiTextHeaderAlt) {
+singleton GuiControlProfile(ToolsTextAlt_H1_C : ToolsTextAlt_H1) {
     locked = true;
     justify = "Center";
 };
-singleton GuiControlProfile(ToolsGuiTextHeaderAlt_R : ToolsGuiTextHeaderAlt) {
+singleton GuiControlProfile(ToolsTextAlt_H1_R : ToolsTextAlt_H1) {
     locked = true;
     justify = "Right";
 };

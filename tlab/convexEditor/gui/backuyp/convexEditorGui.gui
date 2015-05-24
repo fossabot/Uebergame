@@ -117,7 +117,7 @@
                canSaveDynamicFields = "0";
                Enabled = "1";
                isContainer = "1";
-               Profile = "ToolspfTreeViewMain";
+               Profile = "ToolsTreeViewProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
                Position = "1 1";
@@ -176,7 +176,7 @@
 
       new GuiContainer(){ //Node Properties
          isContainer = "1";
-         Profile = "ToolsNavBoxDark";
+         Profile = "ToolsBoxNavDark";
          HorizSizing = "width";
          VertSizing = "bottom";
          Position = "4 24";
@@ -203,7 +203,7 @@
          };
          new GuiTextEditCtrl(){
             internalName = "position";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "width";
             VertSizing = "bottom";
             Position = "57 21";
@@ -221,7 +221,7 @@
          };
          new GuiTextEditCtrl(){
             internalName = "rotation";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "width";
             VertSizing = "bottom";
             Position = "57 42";
@@ -239,7 +239,7 @@
          };
          new GuiTextEditCtrl(){
             internalName = "width";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             Position = "57 63";
@@ -257,7 +257,7 @@
          };
          new GuiTextEditCtrl(){
             internalName = "depth";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "left";
             VertSizing = "bottom";
             Position = "146 63";
@@ -268,7 +268,7 @@
       };
       new GuiContainer(){ //Conve Road Properties
          isContainer = "1";
-         Profile = "ToolsNavBoxDark";
+         Profile = "ToolsBoxNavDark";
          HorizSizing = "width";
          VertSizing = "bottom";
          Position = "4 112";
@@ -375,7 +375,7 @@
       AnchorLeft = "1";
       AnchorRight = "0";
       isContainer = "1";
-      Profile = "ToolsWindowAltProfile";
+      Profile = "ToolsWindowProfile";
       HorizSizing = "windowRelative";
       VertSizing = "windowRelative";
       position = "6 483";
@@ -421,7 +421,7 @@
             fitParentWidth = "1";
             clipColumnText = "0";
             isContainer = "1";
-            Profile = "ToolsGuiTextListProfile";
+            Profile = "ToolsTextBase_List";
             HorizSizing = "width";
             VertSizing = "top";
             position = "1 1";

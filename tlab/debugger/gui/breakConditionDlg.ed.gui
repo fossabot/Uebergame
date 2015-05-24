@@ -32,7 +32,7 @@
       minSize = "50 50";
    
       new GuiTextCtrl() {
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 28";
@@ -45,7 +45,7 @@
          text = "Enter the break condition:";
       };
       new GuiTextEditCtrl(BreakCondition) {
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 44";
@@ -59,7 +59,7 @@
          historySize = "0";
       };
       new GuiTextCtrl() {
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 68";
@@ -72,7 +72,7 @@
          text = "Pass Count:";
       };
       new GuiTextEditCtrl(BreakPassCount) {
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 84";
@@ -86,7 +86,7 @@
             returnTab = "true";
       };
       new GuiTextCtrl() {
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 108";
@@ -99,7 +99,7 @@
          text = "Clear:";
       };
       new GuiTextEditCtrl(BreakClear) {
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 124";
@@ -113,7 +113,7 @@
             returnTab = "true";
       };
       new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "56 156";
@@ -127,7 +127,7 @@
          text = "Set";
       };
       new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "104 156";

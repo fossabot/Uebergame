@@ -121,7 +121,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "TerrainPaintGeneratorGui.addNewLayer();";
@@ -143,7 +143,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "TerrainPaintGeneratorGui.loadLayerGroup();";
@@ -165,7 +165,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "TerrainPaintGeneratorGui.saveLayerGroup();";
@@ -187,7 +187,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsGuiButtonProfile";
+               profile = "ToolsButtonProfile";
                visible = "1";
                active = "1";
                command = "TerrainPaintGeneratorGui.deleteLayerGroup();";
@@ -238,7 +238,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBaseSmall";
+            profile = "ToolsTextBase_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -263,7 +263,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBaseSmall";
+            profile = "ToolsTextBase_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -288,7 +288,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase";
+            profile = "ToolsTextBase";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -313,7 +313,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBaseSmall";
+            profile = "ToolsTextBase_S1";
             visible = "1";
             active = "1";
             tooltipProfile = "ToolsGuiToolTipProfile";
@@ -437,7 +437,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiTextBase";
+                        profile = "ToolsTextBase";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -511,7 +511,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextAltBig";
+                           profile = "ToolsTextAlt_L1";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -541,7 +541,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -573,7 +573,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -618,7 +618,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextAltBig";
+                           profile = "ToolsTextAlt_L1";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -648,7 +648,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -680,7 +680,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -704,7 +704,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
                         command = "TerrainPaintGeneratorGui.moveUp($ThisControl);";
@@ -729,7 +729,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
                         command = "TerrainPaintGeneratorGui.moveDown($ThisControl);";
@@ -807,7 +807,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -854,7 +854,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiTextBase";
+                        profile = "ToolsTextBase";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -928,7 +928,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextAltBig";
+                           profile = "ToolsTextAlt_L1";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -958,7 +958,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -990,7 +990,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1035,7 +1035,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextAltBig";
+                           profile = "ToolsTextAlt_L1";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1065,7 +1065,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1097,7 +1097,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1121,7 +1121,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
                         command = "TerrainPaintGeneratorGui.moveUp($ThisControl);";
@@ -1146,7 +1146,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
                         command = "TerrainPaintGeneratorGui.moveDown($ThisControl);";
@@ -1224,7 +1224,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1271,7 +1271,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiTextBase";
+                        profile = "ToolsTextBase";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1345,7 +1345,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextAltBig";
+                           profile = "ToolsTextAlt_L1";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1375,7 +1375,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1407,7 +1407,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1452,7 +1452,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextAltBig";
+                           profile = "ToolsTextAlt_L1";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1482,7 +1482,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1514,7 +1514,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1538,7 +1538,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
                         command = "TerrainPaintGeneratorGui.moveUp($ThisControl);";
@@ -1563,7 +1563,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
                         command = "TerrainPaintGeneratorGui.moveDown($ThisControl);";
@@ -1641,7 +1641,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1688,7 +1688,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiTextBase";
+                        profile = "ToolsTextBase";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1762,7 +1762,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextAltBig";
+                           profile = "ToolsTextAlt_L1";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1792,7 +1792,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1824,7 +1824,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1869,7 +1869,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiTextAltBig";
+                           profile = "ToolsTextAlt_L1";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1899,7 +1899,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1931,7 +1931,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1955,7 +1955,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
                         command = "TerrainPaintGeneratorGui.moveUp($ThisControl);";
@@ -1980,7 +1980,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
                         command = "TerrainPaintGeneratorGui.moveDown($ThisControl);";
@@ -2058,7 +2058,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolspfTextEditMain";
+                           profile = "ToolsTextEditProfile";
                            visible = "1";
                            active = "1";
                            tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2108,7 +2108,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiTextBase";
+                  profile = "ToolsTextBase";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2182,7 +2182,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextAltBig";
+                     profile = "ToolsTextAlt_L1";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2211,7 +2211,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTextEditMain";
+                     profile = "ToolsTextEditProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2242,7 +2242,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTextEditMain";
+                     profile = "ToolsTextEditProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2287,7 +2287,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextAltBig";
+                     profile = "ToolsTextAlt_L1";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2316,7 +2316,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTextEditMain";
+                     profile = "ToolsTextEditProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2347,7 +2347,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTextEditMain";
+                     profile = "ToolsTextEditProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2371,7 +2371,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiButtonProfile";
+                  profile = "ToolsButtonProfile";
                   visible = "1";
                   active = "1";
                   command = "TerrainPaintGeneratorGui.moveUp($ThisControl);";
@@ -2396,7 +2396,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiButtonProfile";
+                  profile = "ToolsButtonProfile";
                   visible = "1";
                   active = "1";
                   command = "TerrainPaintGeneratorGui.moveDown($ThisControl);";
@@ -2473,7 +2473,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTextEditMain";
+                     profile = "ToolsTextEditProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2500,7 +2500,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "TerrainPaintGeneratorGui.generateLayerGroup();";
@@ -2620,7 +2620,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextBase";
+                     profile = "ToolsTextBase";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2645,7 +2645,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextBase";
+                     profile = "ToolsTextBase";
                      visible = "1";
                      active = "1";
                      variable = "$TPG_MinHeight";
@@ -2671,7 +2671,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextBase";
+                     profile = "ToolsTextBase";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2696,7 +2696,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextBase";
+                     profile = "ToolsTextBase";
                      visible = "1";
                      active = "1";
                      variable = "$TPG_MaxHeight";
@@ -2736,7 +2736,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Lab::TerrainPainter::UseTerrainHeight";
@@ -2776,7 +2776,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -2801,7 +2801,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextBase";
+                     profile = "ToolsTextBase";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2830,7 +2830,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTextEditMain";
+                     profile = "ToolsTextEditProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2857,7 +2857,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextBase";
+                     profile = "ToolsTextBase";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2886,7 +2886,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTextEditMain";
+                     profile = "ToolsTextEditProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -2971,7 +2971,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiTextBase";
+                     profile = "ToolsTextBase";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
@@ -3001,7 +3001,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTextEditMain";
+                     profile = "ToolsTextEditProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";

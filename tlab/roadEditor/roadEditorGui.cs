@@ -87,7 +87,7 @@ function RoadEditorGui::onRoadSelected( %this, %road ) {
 }
 
 function RoadEditorGui::onNodeSelected( %this, %nodeIdx ) {
-
+	
     if ( %nodeIdx == -1 ) {
         RoadEditorProperties-->position.setActive( false );
         RoadEditorProperties-->position.setValue( "" );
@@ -112,7 +112,6 @@ function RoadEditorGui::onNodeModified( %this, %nodeIdx ) {
 }
 
 function RoadEditorGui::editNodeDetails( %this ) {
-
     %this.setNodePosition( RoadEditorProperties-->position.getText() );
     %this.setNodeWidth( RoadEditorProperties-->width.getText() );
 }

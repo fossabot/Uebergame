@@ -7,34 +7,16 @@
 // -->Image array store in Global
 //==============================================================================
 
-
-singleton GuiControlProfile (ToolsGuiTextProfile) {
-    justify = "left";
-    fontColor = "238 238 238 255";
-    category = "Tools";
-    fontType = "Gotham Book";
-    fontSize = "16";
-    fontColors[0] = "238 238 238 255";
-    cursorColor = "0 0 0 255";
-    fontColors[5] = "Fuchsia";
-    fontColorLinkHL = "Fuchsia";
-};
-
-
-
-
-singleton GuiControlProfile( ToolsGuiTextListProfile : ToolsGuiTextProfile ) {
-    tab = true;
-    canKeyFocus = true;
-    category = "Tools";
-};
 //==============================================================================
 // GuiTextEditCtrl Profiles
 //==============================================================================
+
 //==============================================================================
-singleton GuiControlProfile( ToolspfTextEditMain ) {
+//ToolsTextEditProfile
+//------------------------------------------------------------------------------
+singleton GuiControlProfile( ToolsTextEditProfile : ToolsDefaultProfile ) {
     opaque = true;
-    bitmap = "tlab/gui/images/element_assets/GuiTextEditBase.png";
+    bitmap = "tlab/gui/assets/element_assets/GuiTextEditProfile.png";
 
     hasBitmapArray = true;
     border = -2; // fix to display textEdit img
@@ -60,10 +42,17 @@ singleton GuiControlProfile( ToolspfTextEditMain ) {
     fontColors[3] = "98 100 137 255";
 };
 //------------------------------------------------------------------------------
+//ToolsTextEditDark Blue border variation
+singleton GuiControlProfile( ToolsTextEditProfile_Num : ToolsTextEditProfile ) {  
+    numbersOnly = true;
+};
+//------------------------------------------------------------------------------
 //==============================================================================
-singleton GuiControlProfile( ToolsGuiTextEditDark ) {
+//ToolsTextEditDark
+//------------------------------------------------------------------------------
+singleton GuiControlProfile( ToolsTextEditDark : ToolsDefaultProfile ) {
     opaque = true;
-    bitmap = "tlab/gui/images/element_assets/GuiTextEditDark.png";
+    bitmap = "tlab/gui/assets/element_assets/GuiTextEditDark.png";
 
     hasBitmapArray = true;
     border = -2; // fix to display textEdit img
@@ -92,15 +81,14 @@ singleton GuiControlProfile( ToolsGuiTextEditDark ) {
    modal = "1";
 };
 //------------------------------------------------------------------------------
-//==============================================================================
-singleton GuiControlProfile( ToolsGuiNumericTextEditProfile : ToolspfTextEditMain ) {
+//ToolsTextEditDark Blue border variation
+singleton GuiControlProfile( ToolsTextEditDark_Blue : ToolsTextEditDark ) {  
+    bitmap = "tlab/gui/assets/element_assets/GuiTextEditDark_Blue.png";
+};
+//------------------------------------------------------------------------------
+//ToolsTextEditDark Blue border variation
+singleton GuiControlProfile( ToolsTextEditDark_Num : ToolsTextEditDark_Blue ) {  
     numbersOnly = true;
-    category = "Tools";
 };
 //------------------------------------------------------------------------------
-//==============================================================================
-singleton GuiControlProfile( ToolsGuiNumericDropSliderTextProfile : ToolspfTextEditMain ) {
-    bitmap = "tlab/gui/icons/default/textEditSliderBox";
-    category = "Tools";
-};
-//------------------------------------------------------------------------------
+

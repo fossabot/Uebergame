@@ -3,6 +3,17 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
+function SceneEditorPlugin::initToolBar( %this ) {
+	%menu = SceneEditorToolbar-->DropTypeMenu;
+	%menu.clear();
+	%selected = 0;
+	foreach$(%type in $TLab_Object_DropTypes){
+		%menu.add(%type,%id++);		
+		if (EWorldEditor.dropType $= %type)
+			%selected = %id;
+	}
+	%menu.setSelected(%selected,false);
+}
 
 //==============================================================================
 function Lab::toggleObjectCenter( %this,%updateOnly ) {

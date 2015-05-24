@@ -1,6 +1,6 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiControl(RoadEditorToolbar) {
-   position = "195 0";
+   position = "165 0";
    extent = "800 32";
    minExtent = "8 2";
    horizSizing = "right";
@@ -15,7 +15,7 @@
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "guiGroup";
-      EditorContainer = "5408";
+      EditorContainer = "4060";
       enabled = "1";
 
    new GuiStackControl() {
@@ -29,7 +29,7 @@
       changeChildSizeToFit = "1";
       changeChildPosition = "1";
       position = "0 0";
-      extent = "94 30";
+      extent = "260 30";
       minExtent = "16 16";
       horizSizing = "right";
       vertSizing = "bottom";
@@ -42,6 +42,30 @@
       canSave = "1";
       canSaveDynamicFields = "0";
 
+      new GuiBitmapButtonCtrl() {
+         bitmap = "tlab/gui/icons/toolbar_assets/DividerMain.png";
+         bitmapMode = "Stretched";
+         autoFitExtents = "0";
+         useModifiers = "0";
+         useStates = "1";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "0";
+         position = "0 0";
+         extent = "12 30";
+         minExtent = "7 2";
+         horizSizing = "left";
+         vertSizing = "bottom";
+         profile = "ToolsButtonProfile";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "ToolsGuiToolTipProfile";
+         tooltip = "Plugin toolbar divider";
+         hovertime = "750";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
       new GuiIconButtonCtrl(RoadEditorShowSplineBtn) {
          buttonMargin = "1 1";
          iconBitmap = "tlab/gui/icons/toolbar_assets/RoadSpline.png";
@@ -54,12 +78,12 @@
          groupNum = "-1";
          buttonType = "ToggleButton";
          useMouseEvents = "0";
-         position = "0 0";
+         position = "14 0";
          extent = "30 30";
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          variable = "$DecalRoad::showSpline";
@@ -83,12 +107,12 @@
          groupNum = "-1";
          buttonType = "ToggleButton";
          useMouseEvents = "0";
-         position = "32 0";
+         position = "46 0";
          extent = "30 30";
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          variable = "$DecalRoad::wireframe";
@@ -112,12 +136,12 @@
          groupNum = "-1";
          buttonType = "ToggleButton";
          useMouseEvents = "0";
-         position = "64 0";
+         position = "78 0";
          extent = "30 30";
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonStackProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          variable = "$DecalRoad::showRoad";
@@ -128,6 +152,103 @@
          internalName = "ShowRoadBtn";
          canSave = "1";
          canSaveDynamicFields = "0";
+      };
+      new GuiContainer() {
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "110 0";
+         extent = "150 30";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsPanelDarkA";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         class = "AggregateBox";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+
+         new GuiTextEditCtrl() {
+            historySize = "0";
+            tabComplete = "0";
+            sinkAllKeyEvents = "0";
+            password = "0";
+            passwordMask = "*";
+            text = "10";
+            maxLength = "3";
+            margin = "0 0 0 0";
+            padding = "0 0 0 0";
+            anchorTop = "1";
+            anchorBottom = "0";
+            anchorLeft = "1";
+            anchorRight = "0";
+            position = "109 2";
+            extent = "39 19";
+            minExtent = "8 16";
+            horizSizing = "left";
+            vertSizing = "bottom";
+            profile = "ToolsTextEditDark";
+            visible = "1";
+            active = "1";
+            command = "$ThisControl.syncObj(ForestToolBrush,\"pressure\");";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            internalName = "TextEdit";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+         new GuiTextCtrl() {
+            text = "Default Width:";
+            maxLength = "1024";
+            margin = "0 0 0 0";
+            padding = "0 0 0 0";
+            anchorTop = "1";
+            anchorBottom = "0";
+            anchorLeft = "1";
+            anchorRight = "0";
+            position = "3 6";
+            extent = "101 10";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "ToolsTextBase";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+         new GuiSliderCtrl() {
+            range = "0 1";
+            ticks = "0";
+            snap = "0";
+            value = "0.382353";
+            position = "2 21";
+            extent = "145 13";
+            minExtent = "8 2";
+            horizSizing = "width";
+            vertSizing = "bottom";
+            profile = "ToolsSliderProfile";
+            visible = "1";
+            active = "1";
+            command = "$ThisControl.syncObj(RoadEditorGui,\"DefaultWidth\");";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            internalName = "slider";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
       };
    };
 };

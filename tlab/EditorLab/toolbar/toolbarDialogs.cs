@@ -63,6 +63,13 @@ function EToolbarObjectTransformDecoy::onMouseLeave() {
 
 //==============================================================================
 function EToolDlgCameraTypesToggle() {
+	 %button = EditorGuiToolbarStack-->cameraTypes;
+	 EToolDecoyGroup.toggleTool("CameraModeDlg");
+	// Lab.toggleToolbarDialog(EToolCameraModeDlg,%button,"mouse");
+	//Lab.showCameraViewContextMenu();
+	return;
+	//Mud-H FIXME
+	
    %button = EditorGuiToolbarStack-->cameraTypes;
 	if ( EToolDlgCameraTypes.visible  ) {
 		%button.setStateOn(0);

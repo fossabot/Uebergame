@@ -22,13 +22,14 @@ function EToolDlgGroup::openSlider (%this,%button) {
 	show(EToolDialogSliderMouse);
 }
 
-function EToolDlgSliderMouse::onMouseDown (%this, %modifier, %mousePoint,%mouseClickCount) {
-	hide(EToolDialogSliderMouse);
 
-}
 function EToolDlgSlider::onMouseDragged (%this, %modifier, %mousePoint,%mouseClickCount) {
 	%value = mFloor(%this.getValue());
 	%this.targetCtrl.setValue(%value);
 	%command = strreplace(%this.updateCommand,"***",%value);
 	eval(%command);
+}
+function EToolDlgMouseArea::onMouseDown (%this, %modifier, %mousePoint,%mouseClickCount) {
+	hide(%this);
+
 }

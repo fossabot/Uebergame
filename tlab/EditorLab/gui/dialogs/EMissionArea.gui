@@ -22,7 +22,7 @@
    minExtent = "161 86";
    horizSizing = "windowRelative";
    vertSizing = "windowRelative";
-   profile = "ToolsWindowAltProfile";
+   profile = "ToolsWindowProfile";
    visible = "1";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";

@@ -46,7 +46,7 @@
 		};
 		new GuiTextEditCtrl(OBObjectName) {
 		   class = ObjectBuilderGuiTextEditCtrl;
-			profile = "ToolspfTextEditMain";
+			profile = "ToolsTextEditProfile";
 			horizSizing = "width";
 			vertSizing = "bottom";
 			position = "78 26";
@@ -71,7 +71,7 @@
 			helpTag = "0";
 		};
 		new GuiButtonCtrl(OBOKButton) {
-			profile = "ToolsGuiButtonProfile";
+			profile = "ToolsButtonProfile";
 			horizSizing = "width";
 			vertSizing = "bottom";
 			position = "7 250";
@@ -86,7 +86,7 @@
 			Accelerator = "return";
 		};
 		new GuiButtonCtrl(OBCancelButton) {
-			profile = "ToolsGuiButtonProfile";
+			profile = "ToolsButtonProfile";
 			horizSizing = "left";
 			vertSizing = "bottom";
 			position = "170 250";
@@ -181,7 +181,7 @@ function ObjectBuilderGui::createFileType(%this, %index)
    // 
    %this.controls[%this.numControls] = new GuiButtonCtrl() {
       HorizSizing = "width";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       extent = %this.fileButtonExtent;
       position = %this.curXPos + %this.columnOffset @ " " @ %this.curYPos;
       modal = "1";
@@ -265,7 +265,7 @@ function ObjectBuilderGui::createMaterialNameType(%this, %index)
       class = ObjectBuilderGuiTextEditCtrl;
       internalName = "MatText";
       HorizSizing = "width";
-      profile = "ToolspfTextEditMain";
+      profile = "ToolsTextEditProfile";
       extent = getWord(%this.textEditExtent,0) - getWord(%this.matButtonExtent,0) - 2 @ " " @ getWord(%this.textEditExtent,1);
       text = %this.field[%index, value];
       position = "0 0";
@@ -276,7 +276,7 @@ function ObjectBuilderGui::createMaterialNameType(%this, %index)
    %button = new GuiBitmapButtonCtrl() {
       internalName = "MatButton";
       HorizSizing = "left";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       extent = %this.matButtonExtent;
       position = getWord(%this.textEditExtent,0) - getWord(%this.matButtonExtent,0) @ " 0";
       modal = "1";
@@ -341,7 +341,7 @@ function ObjectBuilderGui::createDataBlockType(%this, %index)
    // 
    %this.controls[%this.numControls] = new GuiPopupMenuCtrl() {
       HorizSizing = "width";
-      profile = "ToolspfDropdownMain";
+      profile = "ToolsDropdownMain";
       extent = %this.popupMenuExtent;
       position = %this.curXPos + %this.columnOffset @ " " @ %this.curYPos;
       modal = "1";
@@ -398,7 +398,7 @@ function ObjectBuilderGui::createBoolType(%this, %index)
 
    // 
    %this.controls[%this.numControls] = new GuiCheckBoxCtrl() {
-      profile = "ToolsGuiCheckBoxProfile";
+      profile = "ToolsCheckBoxProfile_S1";
       extent = %this.checkBoxExtent;
       position = %this.curXPos + %this.columnOffset @ " " @ %this.curYPos;
       modal = "1";
@@ -442,7 +442,7 @@ function ObjectBuilderGui::createStringType(%this, %index)
    %this.controls[%this.numControls] = new GuiTextEditCtrl() {
       class = ObjectBuilderGuiTextEditCtrl;
       HorizSizing = "width";
-      profile = "ToolspfTextEditMain";
+      profile = "ToolsTextEditProfile";
       extent = %this.textEditExtent;
       text = %this.field[%index, value];
       position = %this.curXPos + %this.columnOffset @ " " @ %this.curYPos;

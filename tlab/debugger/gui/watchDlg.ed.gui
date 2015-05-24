@@ -33,7 +33,7 @@
          opaque = "true";
    
       new GuiTextCtrl() {
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 28";
@@ -46,7 +46,7 @@
          text = "Enter the Variable:";
       };
       new GuiTextEditCtrl(WatchDialogExpression) {
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 44";
@@ -60,7 +60,7 @@
          historySize = "0";
       };
       new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "56 80";
@@ -74,7 +74,7 @@
          text = "Add";
       };
       new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "104 80";

@@ -32,7 +32,7 @@
       minSize = "50 50";
    
       new GuiTextCtrl() {
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 28";
@@ -45,7 +45,7 @@
          text = "IP Address:";
       };
       new GuiTextEditCtrl(DebuggerConnectAddress) {
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 44";
@@ -60,7 +60,7 @@
             returnTab = "true";
       };
       new GuiTextCtrl() {
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 68";
@@ -73,7 +73,7 @@
          text = "Port:";
       };
       new GuiTextEditCtrl(DebuggerConnectPort) {
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 84";
@@ -88,7 +88,7 @@
             returnTab = "true";
       };
       new GuiTextCtrl() {
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 108";
@@ -101,7 +101,7 @@
          text = "Password:";
       };
       new GuiTextEditCtrl(DebuggerConnectPassword) {
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "20 124";
@@ -116,7 +116,7 @@
             returnTab = "true";
       };
       new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "56 156";
@@ -130,7 +130,7 @@
          text = "Open";
       };
       new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "104 156";

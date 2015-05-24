@@ -9,87 +9,28 @@
 //==============================================================================
 
 //==============================================================================
-singleton GuiControlProfile( ToolspfSliderMain ) {
-    bitmap = "tlab/gui/images/element_assets/GuiSliderDot.png";
-    category = "Tools";
-   fontColors[8] = "255 0 255 255";
-};
+// ToolsSliderProfile Style
 //------------------------------------------------------------------------------
-//==============================================================================
-singleton GuiControlProfile( ToolsGuiSliderBoxProfile ) {
-    bitmap = "tlab/gui/icons/default/slider-w-box";
-    category = "Tools";
+singleton GuiControlProfile(ToolsSliderProfile : ToolsDefaultProfile)
+{
+   bitmap = "tlab/gui/assets/element_assets/GuiSliderProfile.png";
 };
 //------------------------------------------------------------------------------
 
 //==============================================================================
-// GuiPopUpMenuCtrl Profiles
-//==============================================================================
+// ToolsSliderKnob Style
+//------------------------------------------------------------------------------
+singleton GuiControlProfile(ToolsSliderKnob : ToolsDefaultProfile)
+{
+   bitmap = "tlab/gui/assets/element_assets/GuiSliderKnob.png";
+};
+//------------------------------------------------------------------------------
 
 //==============================================================================
-singleton GuiControlProfile( ToolsGuiPopupMenuItemBorder : ToolsDefaultProfile ) {
-    opaque = true;
-    border = true;
-    fontColor = "0 0 0";
-    fontColorHL = "0 0 0";
-    fontColorNA = "255 255 255";
-    fixedExtent = false;
-    justify = "center";
-    canKeyFocus = false;
-    bitmap = "tlab/gui/icons/default/button";
-    category = "Tools";
-};
+// ToolsSliderBox Style
 //------------------------------------------------------------------------------
-//==============================================================================
-singleton GuiControlProfile( ToolsGuiPopUpMenuDefault : ToolsDefaultProfile ) {
-    opaque = true;
-    mouseOverSelected = true;
-    textOffset = "3 3";
-    border = 0;
-    borderThickness = 0;
-    fixedExtent = true;
-    bitmap = "tlab/gui/icons/default/scrollbar";
-    hasBitmapArray = true;
-    profileForChildren = ToolsGuiPopupMenuItemBorder;
-    fillColor = "242 241 240 ";//"255 255 255";//100
-    fillColorHL = "228 228 235 ";//"204 203 202";
-    fillColorSEL = "98 100 137 ";//"204 203 202";
-    // font color is black
-    fontColorHL = "0 0 0 ";//"0 0 0";
-    fontColorSEL = "255 255 255";//"0 0 0";
-    borderColor = "100 100 100";
-    category = "Tools";
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-singleton GuiControlProfile( ToolspfDropdownMain : ToolsGuiPopUpMenuDefault ) {
-    textOffset         = "6 4";
-    bitmap             = "tlab/gui/images/element_assets/GuiDropdownMain.png";
-    hasBitmapArray     = true;
-    border             = "1";
-    profileForChildren = ToolsGuiPopUpMenuDefault;
-    category = "Tools";
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-singleton GuiControlProfile( ToolsGuiPopUpMenuTabProfile : ToolsGuiPopUpMenuDefault ) {
-    bitmap             = "tlab/gui/icons/default/dropDown-tab";
-    textOffset         = "6 4";
-    canKeyFocus        = true;
-    hasBitmapArray     = true;
-    border             = 1;
-    profileForChildren = ToolsGuiPopUpMenuDefault;
-    category = "Tools";
-};
-//------------------------------------------------------------------------------
-//==============================================================================
-singleton GuiControlProfile( ToolsGuiPopUpMenuEditProfile : ToolsGuiPopUpMenuDefault ) {
-    textOffset         = "6 4";
-    canKeyFocus        = true;
-    bitmap             = "tlab/gui/icons/default/dropDown";
-    hasBitmapArray     = true;
-    border             = 1;
-    profileForChildren = ToolsGuiPopUpMenuDefault;
-    category = "Tools";
+singleton GuiControlProfile(ToolsSliderBox : ToolsDefaultProfile)
+{
+   bitmap = "tlab/gui/assets/element_assets/GuiSliderBox.png";
 };
 //------------------------------------------------------------------------------

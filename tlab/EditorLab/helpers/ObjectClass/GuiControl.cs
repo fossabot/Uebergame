@@ -6,8 +6,7 @@
 
 //==============================================================================
 // Clear the editors menu (for dev purpose only as now)
-function GuiControl::fitIntoParents( %this ) {
-	logc("GuiControl::fitIntoParents( %this )",%this );
+function GuiControl::fitIntoParents( %this ) {	
 
    %parent = %this.parentGroup;
 

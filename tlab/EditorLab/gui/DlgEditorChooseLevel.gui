@@ -83,7 +83,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "right";
          VertSizing = "bottom";
          Position = "10 21";
@@ -106,7 +106,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          Position = "42 360";
@@ -222,7 +222,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "right";
          VertSizing = "bottom";
          Position = "10 232";
@@ -245,7 +245,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "right";
          VertSizing = "bottom";
          Position = "10 338";

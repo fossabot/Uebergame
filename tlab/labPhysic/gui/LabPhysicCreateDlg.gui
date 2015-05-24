@@ -48,7 +48,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextProfile";
+      profile = "ToolsTextBase";
       visible = "1";
       active = "1";
       tooltipProfile = "ToolsGuiToolTipProfile";
@@ -77,7 +77,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolspfTextEditMain";
+      profile = "ToolsTextEditProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "ToolsGuiToolTipProfile";
@@ -98,7 +98,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "LabPhysicPlugin.createPromptNameCheck();";
@@ -148,7 +148,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "canvas.popDialog(LabPhysicCreatePrompt);";
@@ -174,7 +174,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextProfile";
+      profile = "ToolsTextBase";
       visible = "1";
       active = "1";
       tooltipProfile = "ToolsGuiToolTipProfile";

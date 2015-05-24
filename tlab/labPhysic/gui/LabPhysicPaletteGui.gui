@@ -34,7 +34,7 @@
       internalName = "LabPhysicSelectArrow";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "0 0";
@@ -55,7 +55,7 @@
       internalName = "LabPhysicMove";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "28 0";
@@ -77,7 +77,7 @@
       internalName = "LabPhysicRotate";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "56 0";
@@ -99,7 +99,7 @@
       internalName = "LabPhysicScale";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "84 0";

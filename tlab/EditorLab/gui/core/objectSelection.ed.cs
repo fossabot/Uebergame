@@ -296,7 +296,7 @@ function EObjectSelection::initClassList( %this ) {
 		%checkBox = new GuiCheckBoxCtrl() {
 			canSaveDynamicFields = "0";
 			isContainer = "0";
-			Profile = "ToolsGuiCheckBoxListFlipedProfile";
+			Profile = "ToolsCheckBoxProfile_Cancel";
 			HorizSizing = "right";
 			VertSizing = "bottom";
 			Position = "0 0";

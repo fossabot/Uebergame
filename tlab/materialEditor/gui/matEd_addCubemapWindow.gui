@@ -32,7 +32,7 @@
          canSaveDynamicFields = "0";
          internalName = "cubemapName";
          isContainer = "0";
-         Profile = "ToolspfTextEditMain";
+         Profile = "ToolsTextEditProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "96 35";
@@ -59,7 +59,7 @@
    new GuiTextCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "12 36";
@@ -81,7 +81,7 @@
    new GuiButtonCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "96 68";
@@ -100,7 +100,7 @@
    new GuiButtonCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "228 68";

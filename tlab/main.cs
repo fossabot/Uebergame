@@ -48,12 +48,26 @@ function GuiEditorIsActive() {
     return ( isObject(GuiEditorGui) && Canvas.getContent() == GuiEditorGui.getId() );
 }
 
-
+function loadTorqueLabProfiles( )
+{
+	//------------------------------------------------------------------------------
+	//Start by loading the Gui Profiles
+	exec("tlab/gui/initGuiProfiles.cs");
+	exec( "tlab/EditorLab/gui/core/cursors.ed.cs" );
+	exec( "tlab/editorClasses/gui/panels/navPanelProfiles.ed.cs" );
+	// Make sure we get editor profiles before any GUI's
+	// BUG: these dialogs are needed earlier in the init sequence, and should be moved to
+	// common, along with the guiProfiles they depend on.
+	exec( "tlab/EditorLab/gui/core/guiDialogs.ed.cs" );
+}
 
 package Lab {
    
     // Start-up.
     function onStart() {
+    		//Load the Editor profile before loading the game onStart
+    		loadTorqueLabProfiles();
+    		devLog("EditorProfiles LOADED");
         Parent::onStart();       
         new Settings(EditorSettings) {
             file = "tlab/settings.xml";

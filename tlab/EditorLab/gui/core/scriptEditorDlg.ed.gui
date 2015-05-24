@@ -137,7 +137,7 @@
          buttonType = "PushButton";
          useMouseEvents = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "left";
          VertSizing = "top";
          position = "460 424";
@@ -164,7 +164,7 @@
          buttonType = "PushButton";
          useMouseEvents = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "left";
          VertSizing = "top";
          position = "560 424";

@@ -55,7 +55,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolspfTextEditMain";
+      profile = "ToolsTextEditProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -79,7 +79,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextProfile";
+      profile = "ToolsTextBase";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -98,7 +98,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "ECloneDrag.doCopy();";
@@ -118,7 +118,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "ECloneDrag.toggleVisibility();";
@@ -138,7 +138,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "ECloneDrag.enableCloneDrag(false);";

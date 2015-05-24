@@ -11,24 +11,24 @@
 //==============================================================================
 //FONTS -> Change the font to all profile or only those specified in the list
 function ECloneDrag::toggleVisibility( %this ) {
+		EToolDecoyGroup.toggleTool("CloneTool");
+	SnapToBar-->snappingSettingsBtn.setStateOn(%this.visible);
+	
 	if ( %this.visible  ) {
-		%this.setVisible(false);
-		//SnapToBar-->snappingSettingsBtn.setStateOn(false);
-	} else {
-		%this.showDialog();
+		//%this.selectWindow();
+		%this.setCollapseGroup(false);
+		//%this.onShow();
 	}
+	if ( !%this.visible || !Lab.CloneDragEnabled  )
+		return;
+	
+	%this.setVisible(true);
+	//%this.selectWindow();
+	%this.setCollapseGroup(false);
 
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-//FONTS -> Change the font to all profile or only those specified in the list
-function ECloneDrag::showDialog( %this ) {
-	if (!Lab.CloneDragEnabled) return;
-	%this.setVisible(true);
-	%this.selectWindow();
-	%this.setCollapseGroup(false);
-}
-//------------------------------------------------------------------------------
+
 //==============================================================================
 //FONTS -> Change the font to all profile or only those specified in the list
 function ECloneDrag::onWake( %this ) {

@@ -15,9 +15,15 @@ function ForestEditorPlugin::clearDirty( %this ) {
 
 function ForestEditorPlugin::onSaveMission( %this, %missionFile ) {
     ForestDataManager.saveDirty();
-
-    if ( isObject( theForest ) )
-        theForest.saveDataFile();
+    
+    %file = theForest.datafile;
+    
+    if (!isFile(%file))
+    	%file = filePath(theForest.getFilename())@"/data.forest";
+    	//%file = strreplace(theForest.getFilename(),".mis",".forest");
+    	
+    if (isFile(%file))
+			theForest.saveDataFile(%file);	
 
     ForestBrushGroup.save( "art/forest/brushes.cs" );
 }

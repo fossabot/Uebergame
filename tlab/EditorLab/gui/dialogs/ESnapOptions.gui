@@ -80,7 +80,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
-         profile = "ToolsTabPageProfile";
+         profile = "ToolsPanelDarkA";
          visible = "0";
          active = "1";
          command = "toggleSnappingOptions(\"terrain\");";
@@ -242,7 +242,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiIconButtonSmallProfile";
+                     profile = "ToolsButtonDark";
                      visible = "1";
                      active = "1";
                      command = "ESnapOptions.setTerrainSnapAlignment(\"-X\");";
@@ -272,7 +272,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiIconButtonSmallProfile";
+                     profile = "ToolsButtonDark";
                      visible = "1";
                      active = "1";
                      command = "ESnapOptions.setTerrainSnapAlignment(\"+X\");";
@@ -302,7 +302,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiIconButtonSmallProfile";
+                     profile = "ToolsButtonDark";
                      visible = "1";
                      active = "1";
                      command = "ESnapOptions.setTerrainSnapAlignment(\"-Y\");";
@@ -332,7 +332,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiIconButtonSmallProfile";
+                     profile = "ToolsButtonDark";
                      visible = "1";
                      active = "1";
                      command = "ESnapOptions.setTerrainSnapAlignment(\"+Y\");";
@@ -362,7 +362,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiIconButtonSmallProfile";
+                     profile = "ToolsButtonDark";
                      visible = "1";
                      active = "1";
                      command = "ESnapOptions.setTerrainSnapAlignment(\"-Z\");";
@@ -392,7 +392,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiIconButtonSmallProfile";
+                     profile = "ToolsButtonDark";
                      visible = "1";
                      active = "1";
                      command = "ESnapOptions.setTerrainSnapAlignment(\"+Z\");";
@@ -446,7 +446,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
-         profile = "ToolsTabPageProfile";
+         profile = "ToolsPanelDarkA";
          visible = "1";
          active = "1";
          command = "toggleSnappingOptions(\"soft\");";
@@ -575,7 +575,7 @@
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiNumericTextEditProfile";
+                     profile = "ToolsTextEditDark_Num";
                      visible = "1";
                      active = "1";
                      altCommand = "ESnapOptions.setSoftSnapSize();";
@@ -696,7 +696,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setSoftSnapAlignment(\"-X\");";
@@ -726,7 +726,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setSoftSnapAlignment(\"+X\");";
@@ -756,7 +756,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setSoftSnapAlignment(\"-Y\");";
@@ -786,7 +786,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setSoftSnapAlignment(\"+Y\");";
@@ -816,7 +816,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setSoftSnapAlignment(\"-Z\");";
@@ -846,7 +846,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setSoftSnapAlignment(\"+Z\");";
@@ -870,7 +870,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   command = "ESnapOptions.toggleRenderSnapBounds();";
@@ -892,7 +892,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   command = "ESnapOptions.toggleRenderSnappedTriangle();";
@@ -963,7 +963,7 @@
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiNumericTextEditProfile";
+                     profile = "ToolsTextEditDark_Num";
                      visible = "1";
                      active = "1";
                      altCommand = "ESnapOptions.getSoftSnapBackfaceTolerance();";
@@ -1045,7 +1045,7 @@
       minExtent = "8 2";
       horizSizing = "left";
       vertSizing = "top";
-      profile = "ToolsGuiNumericTextEditProfile";
+      profile = "ToolsTextEditDark_Num";
       visible = "1";
       active = "1";
       altCommand = "ESnapOptions.setGridSnapSize();";
@@ -1067,7 +1067,7 @@
       minExtent = "8 8";
       horizSizing = "left";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       command = "toggleSnappingOptions(\"\");";

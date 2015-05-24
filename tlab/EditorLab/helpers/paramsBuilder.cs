@@ -13,7 +13,7 @@ function buildLabParams( %params ) {
 	%widgetsControl = "wLabParams_"@%params.style;
 
 	if ( %params.aggregateStyle $= "")
-		%aggregateClass = "AggregateGlobal";
+		%aggregateClass = "AggregateVar";
 	else
 		%aggregateClass = "Aggregate"@%params.aggregateStyle;
 

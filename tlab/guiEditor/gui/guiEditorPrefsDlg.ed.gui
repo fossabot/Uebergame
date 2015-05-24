@@ -42,7 +42,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "left";
          VertSizing = "top";
          position = "100 60";
@@ -59,7 +59,7 @@
       };
       new GuiButtonCtrl(GuiEditorPrefsDlgOkBtn) {
          canSaveDynamicFields = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "left";
          VertSizing = "top";
          position = "190 60";
@@ -77,7 +77,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "top";
          position = "10 60";
@@ -107,7 +107,7 @@
 
          new GuiTextCtrl() {
             canSaveDynamicFields = "0";
-            Profile = "ToolsGuiTextProfile";
+            Profile = "ToolsTextBase";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "16 10";
@@ -131,7 +131,7 @@
             Enabled = "1";
             Component = "textEdit";
             isContainer = "0";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "72 11";
@@ -161,7 +161,7 @@
             Enabled = "1";
             Component = "Slider";
             isContainer = "0";
-            Profile = "ToolspfSliderMain";
+            Profile = "ToolsSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "112 14";

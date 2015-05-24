@@ -13,7 +13,7 @@
       canSaveDynamicFields = "0";
       internalName = "slider";
       isContainer = "0";
-      Profile = "ToolsGuiSliderBoxProfile";
+      Profile = "ToolsSliderBox";
       HorizSizing = "right";
       VertSizing = "bottom";
       position = "301 23";

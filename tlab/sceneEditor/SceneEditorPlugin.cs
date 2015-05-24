@@ -32,6 +32,7 @@ function SceneEditorPlugin::onWorldEditorStartup( %this ) {
 function SceneEditorPlugin::onActivated( %this ) {
     Parent::onActivated( %this );
 
+	%this.initToolBar();
    SceneEditorTreeFilter.extent.x = SceneEditorTreeTabBook.extent.x -  56;   
    SceneEditorTreeTabBook.selectPage(0);
    SceneEditorModeTab.selectPage(0);

@@ -53,6 +53,10 @@ $LabCameraDisplayMode["3rd Person Camera"] = "PlayerThird";
 $LabCameraDisplayMode["Orbit Camera"] = "Orbit";
 $LabCameraDisplayMode["Smooth Camera"] = "Newton";
 $LabCameraDisplayMode["Smooth Rot Camera"] = "NewtonDamped";
+
+
+$LabCameraTypesIcon = "tlab/gui/icons/toolbar_assets/ToggleCamera";
+
 //------------------------------------------------------------------------------
 function Lab::setInitialCamera(%this)
 {  
@@ -240,6 +244,8 @@ function Lab::syncCameraGui( %this,%forced ) {
 		return;
 	}
    %cameraTypesButton = EditorGuiToolbar-->cameraTypes;
+   %cameraTypesButton.setBitmap($LabCameraTypesIcon); //Default Toggle Camera Icon
+   
 	// Sync camera settings.
 	%flyModeRadioItem = -1;
 	if(LocalClientConnection.getControlObject() != LocalClientConnection.player) {
@@ -250,23 +256,23 @@ function Lab::syncCameraGui( %this,%forced ) {
 		if(%mode $= "Fly" && LocalClientConnection.camera.newtonMode) {
 			if(LocalClientConnection.camera.newtonRotation == true) {
 				EditorGui-->NewtonianRotationCamera.setStateOn(true);
-				%cameraTypesButton.setBitmap("tlab/gui/icons/default/menubar/smooth-cam-rot");
+				//%cameraTypesButton.setBitmap("tlab/gui/icons/default/menubar/smooth-cam-rot");
 				%flyModeRadioItem = 4;
 				EditorGuiStatusBar.setCamera("Smooth Rot Camera");
 			} else {
 				EditorGui-->NewtonianCamera.setStateOn(true);
-				%cameraTypesButton.setBitmap("tlab/gui/icons/default/menubar/smooth-cam");
+				//%cameraTypesButton.setBitmap("tlab/gui/icons/default/menubar/smooth-cam");
 				%flyModeRadioItem = 3;
 				EditorGuiStatusBar.setCamera("Smooth Camera");
 			}
 		} else if(%mode $= "EditOrbit") {
 			EditorGui-->OrbitCamera.setStateOn(true);
-			%cameraTypesButton.setBitmap("tlab/gui/icons/default/menubar/orbit-cam");
+			//%cameraTypesButton.setBitmap("tlab/gui/icons/default/menubar/orbit-cam");
 			%flyModeRadioItem = 1;
 			EditorGuiStatusBar.setCamera("Orbit Camera");
 		} else { // default camera mode
 			//EditorGui-->StandardCamera.setStateOn(true);
-			%cameraTypesButton.setBitmap("tlab/gui/icons/default/toolbar/camera");
+			//%cameraTypesButton.setBitmap("tlab/gui/icons/default/toolbar/camera");
 			%flyModeRadioItem = 0;
 			EditorGuiStatusBar.setCamera("Standard Camera");
 		}
@@ -293,7 +299,7 @@ function Lab::syncCameraGui( %this,%forced ) {
 		if( $SkipCameraSync )
 			return;
 		EditorGui-->PlayerCamera.setStateOn(true);
-		%cameraTypesButton.setBitmap("tlab/gui/icons/default/toolbar/player");
+		//%cameraTypesButton.setBitmap("tlab/gui/icons/default/toolbar/player");
 		%flyModeRadioItem = 0;
 		//quick way select menu bar options
 		Lab.checkFindItem("Camera",0,1,1);

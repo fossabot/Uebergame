@@ -78,11 +78,11 @@ singleton GuiControlProfile (inspectorStyleRolloutListProfile : NavPanelProfile)
     category = "Editor";
 };
 singleton GuiControlProfile (inspectorStyleRolloutDarkProfile : NavPanelProfile) {
-    bitmap = "tlab/gui/images/container_assets/GuiRolloutA.png";
+    bitmap = "tlab/gui/assets/container_assets/GuiRolloutProfile_Thin.png";
     category = "Editor";
 };
 singleton GuiControlProfile (inspectorStyleRolloutInnerProfile : NavPanelProfile) {
-    bitmap = "tlab/gui/images/container_assets/GuiRolloutA.png";
+    bitmap = "tlab/gui/assets/container_assets/GuiRolloutProfile_Thin.png";
     category = "Editor";
     bevelColorLL = "255 0 255 255";
     fontColors[1] = "0 0 0 255";

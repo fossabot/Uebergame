@@ -56,7 +56,7 @@
          minExtent = "8 8";
          horizSizing = "center";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -75,7 +75,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsMsgCallback(ToolsMsgBoxOKDlg,ToolsMsgBoxOKDlg.callback);";
@@ -129,7 +129,7 @@
          minExtent = "8 8";
          horizSizing = "center";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -148,7 +148,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsMsgCallback(ToolsMsgBoxOKCancelDetailsDlg,ToolsMsgBoxOKCancelDetailsDlg.callback);";
@@ -169,7 +169,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsMsgCallback(ToolsMsgBoxOKCancelDetailsDlg,ToolsMsgBoxOKCancelDetailsDlg.cancelCallback);";
@@ -190,7 +190,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "TMBOKCancelDetailsToggleInfoFrame();";
@@ -239,7 +239,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase_C";
+            profile = "ToolsTextBase_C";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -293,7 +293,7 @@
          minExtent = "8 8";
          horizSizing = "center";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -331,7 +331,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase_C";
+            profile = "ToolsTextBase_C";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -377,7 +377,7 @@
          minExtent = "8 8";
          horizSizing = "width";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsTIOCallback(TIODropdownDlg,TIODropdownDlg.callback);";
@@ -398,7 +398,7 @@
          minExtent = "8 8";
          horizSizing = "left";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsTIOCallback(TIODropdownDlg,TIODropdownDlg.cancelCallback);";
@@ -452,7 +452,7 @@
          minExtent = "8 8";
          horizSizing = "center";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -505,7 +505,7 @@
          minExtent = "8 8";
          horizSizing = "center";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -524,7 +524,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "MessageCallback(ToolsMsgBoxYesNoCancelDlg,ToolsMsgBoxYesNoCancelDlg.yesCallback);";
@@ -545,7 +545,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "MessageCallback(ToolsMsgBoxYesNoCancelDlg,ToolsMsgBoxYesNoCancelDlg.noCallback);";
@@ -565,7 +565,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "MessageCallback(ToolsMsgBoxYesNoCancelDlg,ToolsMsgBoxYesNoCancelDlg.cancelCallback);";
@@ -619,7 +619,7 @@
          minExtent = "8 8";
          horizSizing = "center";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -638,7 +638,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsMsgCallback(ToolsMsgBoxOKCancelDlg,ToolsMsgBoxOKCancelDlg.callback);";
@@ -659,7 +659,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "ToolsMsgCallback(ToolsMsgBoxOKCancelDlg,ToolsMsgBoxOKCancelDlg.cancelCallback);";
@@ -744,7 +744,7 @@
             minExtent = "8 8";
             horizSizing = "center";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase_C";
+            profile = "ToolsTextBase_C";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -765,7 +765,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "LabMsgCallback($ThisControl);";
@@ -786,7 +786,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "0";
          active = "1";
          command = "LabMsgCallback($ThisControl);";
@@ -808,7 +808,7 @@
          minExtent = "8 8";
          horizSizing = "right";
          vertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "0";
          active = "1";
          command = "LabMsgCallback($ThisControl);";

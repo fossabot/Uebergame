@@ -40,7 +40,7 @@
       minExtent = "161 86";
       horizSizing = "windowRelative";
       vertSizing = "windowRelative";
-      profile = "ToolsWindowAltProfile";
+      profile = "ToolsWindowProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -99,7 +99,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "ToolsTabPageProfile";
+            profile = "ToolsPanelDarkA";
             visible = "0";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -178,7 +178,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$gfx::wireframe";
@@ -199,7 +199,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Zone::isRenderable";
@@ -220,7 +220,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Trigger::renderTriggers";
@@ -241,7 +241,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SFXSpace::isRenderable";
@@ -262,7 +262,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SFXEmitter::renderEmitters";
@@ -283,7 +283,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Portal::isRenderable";
@@ -304,7 +304,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PhysicalZone::renderZones";
@@ -325,7 +325,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$OcclusionVolume::isRenderable";
@@ -346,7 +346,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "EWorldEditor.renderMissionArea";
@@ -367,7 +367,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Scene::lockCull";
@@ -388,7 +388,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Scene::disableZoneCulling";
@@ -409,7 +409,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Scene::disableTerrainOcclusion";
@@ -430,7 +430,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "TerrainBlock::debugRender";
@@ -451,7 +451,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$player::renderCollision";
@@ -472,7 +472,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Light::renderLightFrustums";
@@ -493,7 +493,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Decals::debugRender";
@@ -514,7 +514,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Scene::renderBoundingBoxes";
@@ -535,7 +535,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AL_NormalsVisualizeVar";
@@ -557,7 +557,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AL_LightSpecularVisualizeVar";
@@ -579,7 +579,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AL_LightColorVisualizeVar";
@@ -601,7 +601,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Shadows::disable";
@@ -622,7 +622,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AL_DepthVisualizeVar";
@@ -653,7 +653,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "ToolsTabPageProfile";
+            profile = "ToolsPanelDarkA";
             visible = "0";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -732,7 +732,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Zone::isRenderable";
@@ -754,7 +754,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WheeledVehicle::isRenderable";
@@ -776,7 +776,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WayPoint::isRenderable";
@@ -798,7 +798,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WaterPlane::isRenderable";
@@ -820,7 +820,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WaterObject::isRenderable";
@@ -842,7 +842,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WaterBlock::isRenderable";
@@ -864,7 +864,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$VehicleBlocker::isRenderable";
@@ -886,7 +886,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Vehicle::isRenderable";
@@ -908,7 +908,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$TurretShape::isRenderable";
@@ -930,7 +930,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$TSStatic::isRenderable";
@@ -952,7 +952,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Trigger::isRenderable";
@@ -974,7 +974,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$TimeOfDay::isRenderable";
@@ -996,7 +996,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$TerrainBlock::isRenderable";
@@ -1018,7 +1018,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Sun::isRenderable";
@@ -1040,7 +1040,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$StaticShape::isRenderable";
@@ -1062,7 +1062,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SpotLight::isRenderable";
@@ -1084,7 +1084,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Splash::isRenderable";
@@ -1106,7 +1106,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SpawnSphere::isRenderable";
@@ -1128,7 +1128,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SkyBox::isRenderable";
@@ -1150,7 +1150,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ShapeBase::isRenderable";
@@ -1172,7 +1172,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SFXSpace::isRenderable";
@@ -1194,7 +1194,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SFXEmitter::isRenderable";
@@ -1216,7 +1216,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ScopeAlwaysShape::isRenderable";
@@ -1238,7 +1238,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SceneObject::isRenderable";
@@ -1260,7 +1260,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ScatterSky::isRenderable";
@@ -1282,7 +1282,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$River::isRenderable";
@@ -1304,7 +1304,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RigidShape::isRenderable";
@@ -1326,7 +1326,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RibbonNode::isRenderable";
@@ -1348,7 +1348,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Ribbon::isRenderable";
@@ -1370,7 +1370,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RenderShapeExample::isRenderable";
@@ -1392,7 +1392,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RenderObjectExample::isRenderable";
@@ -1414,7 +1414,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RenderMeshExample::isRenderable";
@@ -1436,7 +1436,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ProximityMine::isRenderable";
@@ -1458,7 +1458,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Projectile::isRenderable";
@@ -1480,7 +1480,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Prefab::isRenderable";
@@ -1502,7 +1502,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Precipitation::isRenderable";
@@ -1524,7 +1524,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Portal::isRenderable";
@@ -1546,7 +1546,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PointLight::isRenderable";
@@ -1568,7 +1568,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Player::isRenderable";
@@ -1590,7 +1590,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PhysicsShape::isRenderable";
@@ -1612,7 +1612,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PhysicsForce::isRenderable";
@@ -1634,7 +1634,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PhysicsDebris::isRenderable";
@@ -1656,7 +1656,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PhysicalZone::isRenderable";
@@ -1678,7 +1678,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PathCamera::isRenderable";
@@ -1700,7 +1700,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ParticleEmitterNode::isRenderable";
@@ -1722,7 +1722,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ParticleEmitter::isRenderable";
@@ -1744,7 +1744,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$OcclusionVolume::isRenderable";
@@ -1766,7 +1766,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$NavPath::isRenderable";
@@ -1788,7 +1788,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$NavMesh::isRenderable";
@@ -1810,7 +1810,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$MissionMarker::isRenderable";
@@ -1832,7 +1832,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$MeshRoad::isRenderable";
@@ -1854,7 +1854,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Marker::isRenderable";
@@ -1876,7 +1876,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Lightning::isRenderable";
@@ -1898,7 +1898,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$LightBase::isRenderable";
@@ -1920,7 +1920,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Item::isRenderable";
@@ -1942,7 +1942,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$HoverVehicle::isRenderable";
@@ -1964,7 +1964,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$GroundPlane::isRenderable";
@@ -1986,7 +1986,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$GroundCover::isRenderable";
@@ -2008,7 +2008,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$GameBase::isRenderable";
@@ -2030,7 +2030,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$fxShapeReplicator::isRenderable";
@@ -2052,7 +2052,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$fxShapeReplicatedStatic::isRenderable";
@@ -2074,7 +2074,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$fxFoliageReplicator::isRenderable";
@@ -2096,7 +2096,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ForestWindEmitter::isRenderable";
@@ -2118,7 +2118,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Forest::isRenderable";
@@ -2140,7 +2140,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$FlyingVehicle::isRenderable";
@@ -2162,7 +2162,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Explosion::isRenderable";
@@ -2184,7 +2184,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$DecalRoad::isRenderable";
@@ -2206,7 +2206,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$DecalManager::isRenderable";
@@ -2228,7 +2228,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Debris::isRenderable";
@@ -2250,7 +2250,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ConvexShape::isRenderable";
@@ -2272,7 +2272,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$CloudLayer::isRenderable";
@@ -2294,7 +2294,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$CameraBookmark::isRenderable";
@@ -2316,7 +2316,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Camera::isRenderable";
@@ -2338,7 +2338,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$BasicClouds::isRenderable";
@@ -2360,7 +2360,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AITurretShape::isRenderable";
@@ -2382,7 +2382,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AIPlayer::isRenderable";
@@ -2404,7 +2404,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AccumulationVolume::isRenderable";
@@ -2435,7 +2435,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "ToolsTabPageProfile";
+            profile = "ToolsPanelDarkA";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -2513,7 +2513,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Zone::isSelectable";
@@ -2535,7 +2535,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WheeledVehicle::isSelectable";
@@ -2557,7 +2557,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WayPoint::isSelectable";
@@ -2579,7 +2579,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WaterPlane::isSelectable";
@@ -2601,7 +2601,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WaterObject::isSelectable";
@@ -2623,7 +2623,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$WaterBlock::isSelectable";
@@ -2645,7 +2645,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$VehicleBlocker::isSelectable";
@@ -2667,7 +2667,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Vehicle::isSelectable";
@@ -2689,7 +2689,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$TurretShape::isSelectable";
@@ -2711,7 +2711,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$TSStatic::isSelectable";
@@ -2733,7 +2733,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Trigger::isSelectable";
@@ -2755,7 +2755,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$TimeOfDay::isSelectable";
@@ -2777,7 +2777,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$TerrainBlock::isSelectable";
@@ -2799,7 +2799,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Sun::isSelectable";
@@ -2821,7 +2821,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$StaticShape::isSelectable";
@@ -2843,7 +2843,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SpotLight::isSelectable";
@@ -2865,7 +2865,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Splash::isSelectable";
@@ -2887,7 +2887,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SpawnSphere::isSelectable";
@@ -2909,7 +2909,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SkyBox::isSelectable";
@@ -2931,7 +2931,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ShapeBase::isSelectable";
@@ -2953,7 +2953,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SFXSpace::isSelectable";
@@ -2975,7 +2975,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SFXEmitter::isSelectable";
@@ -2997,7 +2997,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ScopeAlwaysShape::isSelectable";
@@ -3019,7 +3019,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$SceneObject::isSelectable";
@@ -3041,7 +3041,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ScatterSky::isSelectable";
@@ -3063,7 +3063,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$River::isSelectable";
@@ -3085,7 +3085,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RigidShape::isSelectable";
@@ -3107,7 +3107,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RibbonNode::isSelectable";
@@ -3129,7 +3129,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Ribbon::isSelectable";
@@ -3151,7 +3151,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RenderShapeExample::isSelectable";
@@ -3173,7 +3173,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RenderObjectExample::isSelectable";
@@ -3195,7 +3195,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$RenderMeshExample::isSelectable";
@@ -3217,7 +3217,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ProximityMine::isSelectable";
@@ -3239,7 +3239,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Projectile::isSelectable";
@@ -3261,7 +3261,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Prefab::isSelectable";
@@ -3283,7 +3283,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Precipitation::isSelectable";
@@ -3305,7 +3305,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Portal::isSelectable";
@@ -3327,7 +3327,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PointLight::isSelectable";
@@ -3349,7 +3349,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Player::isSelectable";
@@ -3371,7 +3371,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PhysicsShape::isSelectable";
@@ -3393,7 +3393,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PhysicsForce::isSelectable";
@@ -3415,7 +3415,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PhysicsDebris::isSelectable";
@@ -3437,7 +3437,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PhysicalZone::isSelectable";
@@ -3459,7 +3459,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$PathCamera::isSelectable";
@@ -3481,7 +3481,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ParticleEmitterNode::isSelectable";
@@ -3503,7 +3503,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ParticleEmitter::isSelectable";
@@ -3525,7 +3525,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$OcclusionVolume::isSelectable";
@@ -3547,7 +3547,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$NavPath::isSelectable";
@@ -3569,7 +3569,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$NavMesh::isSelectable";
@@ -3591,7 +3591,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$MissionMarker::isSelectable";
@@ -3613,7 +3613,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$MeshRoad::isSelectable";
@@ -3635,7 +3635,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Marker::isSelectable";
@@ -3657,7 +3657,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Lightning::isSelectable";
@@ -3679,7 +3679,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$LightBase::isSelectable";
@@ -3701,7 +3701,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Item::isSelectable";
@@ -3723,7 +3723,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$HoverVehicle::isSelectable";
@@ -3745,7 +3745,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$GroundPlane::isSelectable";
@@ -3767,7 +3767,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$GroundCover::isSelectable";
@@ -3789,7 +3789,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$GameBase::isSelectable";
@@ -3811,7 +3811,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$fxShapeReplicator::isSelectable";
@@ -3833,7 +3833,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$fxShapeReplicatedStatic::isSelectable";
@@ -3855,7 +3855,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$fxFoliageReplicator::isSelectable";
@@ -3877,7 +3877,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ForestWindEmitter::isSelectable";
@@ -3899,7 +3899,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Forest::isSelectable";
@@ -3921,7 +3921,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$FlyingVehicle::isSelectable";
@@ -3943,7 +3943,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Explosion::isSelectable";
@@ -3965,7 +3965,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$DecalRoad::isSelectable";
@@ -3987,7 +3987,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$DecalManager::isSelectable";
@@ -4009,7 +4009,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Debris::isSelectable";
@@ -4031,7 +4031,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$ConvexShape::isSelectable";
@@ -4053,7 +4053,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$CloudLayer::isSelectable";
@@ -4075,7 +4075,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$CameraBookmark::isSelectable";
@@ -4097,7 +4097,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$Camera::isSelectable";
@@ -4119,7 +4119,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$BasicClouds::isSelectable";
@@ -4141,7 +4141,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AITurretShape::isSelectable";
@@ -4163,7 +4163,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AIPlayer::isSelectable";
@@ -4185,7 +4185,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      variable = "$AccumulationVolume::isSelectable";
@@ -4283,7 +4283,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "ToolsTabPageProfile";
+            profile = "ToolsPanelDarkA";
             visible = "0";
             active = "1";
             command = "toggleSnappingOptions(\"terrain\");";
@@ -4445,7 +4445,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setTerrainSnapAlignment(\"-X\");";
@@ -4475,7 +4475,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setTerrainSnapAlignment(\"+X\");";
@@ -4505,7 +4505,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setTerrainSnapAlignment(\"-Y\");";
@@ -4535,7 +4535,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setTerrainSnapAlignment(\"+Y\");";
@@ -4565,7 +4565,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setTerrainSnapAlignment(\"-Z\");";
@@ -4595,7 +4595,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiIconButtonSmallProfile";
+                        profile = "ToolsButtonDark";
                         visible = "1";
                         active = "1";
                         command = "ESnapOptions.setTerrainSnapAlignment(\"+Z\");";
@@ -4649,7 +4649,7 @@
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
-            profile = "ToolsTabPageProfile";
+            profile = "ToolsPanelDarkA";
             visible = "1";
             active = "1";
             command = "toggleSnappingOptions(\"soft\");";
@@ -4778,7 +4778,7 @@
                         minExtent = "8 2";
                         horizSizing = "left";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiNumericTextEditProfile";
+                        profile = "ToolsTextEditDark_Num";
                         visible = "1";
                         active = "1";
                         altCommand = "ESnapOptions.setSoftSnapSize();";
@@ -4899,7 +4899,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiIconButtonSmallProfile";
+                           profile = "ToolsButtonDark";
                            visible = "1";
                            active = "1";
                            command = "ESnapOptions.setSoftSnapAlignment(\"-X\");";
@@ -4929,7 +4929,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiIconButtonSmallProfile";
+                           profile = "ToolsButtonDark";
                            visible = "1";
                            active = "1";
                            command = "ESnapOptions.setSoftSnapAlignment(\"+X\");";
@@ -4959,7 +4959,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiIconButtonSmallProfile";
+                           profile = "ToolsButtonDark";
                            visible = "1";
                            active = "1";
                            command = "ESnapOptions.setSoftSnapAlignment(\"-Y\");";
@@ -4989,7 +4989,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiIconButtonSmallProfile";
+                           profile = "ToolsButtonDark";
                            visible = "1";
                            active = "1";
                            command = "ESnapOptions.setSoftSnapAlignment(\"+Y\");";
@@ -5019,7 +5019,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiIconButtonSmallProfile";
+                           profile = "ToolsButtonDark";
                            visible = "1";
                            active = "1";
                            command = "ESnapOptions.setSoftSnapAlignment(\"-Z\");";
@@ -5049,7 +5049,7 @@
                            minExtent = "8 2";
                            horizSizing = "right";
                            vertSizing = "bottom";
-                           profile = "ToolsGuiIconButtonSmallProfile";
+                           profile = "ToolsButtonDark";
                            visible = "1";
                            active = "1";
                            command = "ESnapOptions.setSoftSnapAlignment(\"+Z\");";
@@ -5073,7 +5073,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      command = "ESnapOptions.toggleRenderSnapBounds();";
@@ -5095,7 +5095,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiCheckBoxProfile";
+                     profile = "ToolsCheckBoxProfile_S1";
                      visible = "1";
                      active = "1";
                      command = "ESnapOptions.toggleRenderSnappedTriangle();";
@@ -5166,7 +5166,7 @@
                         minExtent = "8 2";
                         horizSizing = "left";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiNumericTextEditProfile";
+                        profile = "ToolsTextEditDark_Num";
                         visible = "1";
                         active = "1";
                         altCommand = "ESnapOptions.getSoftSnapBackfaceTolerance();";
@@ -5248,7 +5248,7 @@
          minExtent = "8 2";
          horizSizing = "left";
          vertSizing = "top";
-         profile = "ToolsGuiNumericTextEditProfile";
+         profile = "ToolsTextEditDark_Num";
          visible = "1";
          active = "1";
          altCommand = "ESnapOptions.setGridSnapSize();";
@@ -5270,7 +5270,7 @@
          minExtent = "8 8";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "toggleSnappingOptions(\"\");";
@@ -5399,7 +5399,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -5422,7 +5422,7 @@
                   minExtent = "8 8";
                   horizSizing = "left";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiButtonProfile";
+                  profile = "ToolsButtonProfile";
                   visible = "1";
                   active = "0";
                   command = "LabDlg_TransformSelection.getAbsPosition();";
@@ -5479,7 +5479,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -5534,7 +5534,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -5589,7 +5589,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -5611,7 +5611,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -5626,7 +5626,7 @@
                };
             };
             new GuiBitmapCtrl() {
-               bitmap = "tlab/gui/images/gfx_assets/separator-v.png";
+               bitmap = "tlab/gui/assets/gfx_assets/separator-v.png";
                wrap = "0";
                position = "0 111";
                extent = "114 2";
@@ -5669,7 +5669,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -5692,7 +5692,7 @@
                   minExtent = "8 8";
                   horizSizing = "left";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiButtonProfile";
+                  profile = "ToolsButtonProfile";
                   visible = "1";
                   active = "0";
                   command = "LabDlg_TransformSelection.getAbsRotation();";
@@ -5749,7 +5749,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -5804,7 +5804,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -5859,7 +5859,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiNumericTextEditProfile";
+                  profile = "ToolsTextEditDark_Num";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -5881,7 +5881,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   command = "LabDlg_TransformSelection.RotRelativeChanged();";
@@ -5905,7 +5905,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   command = "LabDlg_TransformSelection.RotLocalChanged();";
@@ -5921,7 +5921,7 @@
                };
             };
             new GuiBitmapCtrl() {
-               bitmap = "tlab/gui/images/gfx_assets/separator-v.png";
+               bitmap = "tlab/gui/assets/gfx_assets/separator-v.png";
                wrap = "0";
                position = "0 251";
                extent = "114 2";
@@ -5984,7 +5984,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "height";
-                  profile = "ToolsTabPageProfile";
+                  profile = "ToolsPanelDarkA";
                   visible = "0";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -6021,7 +6021,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiCheckBoxProfile";
+                        profile = "ToolsCheckBoxProfile_S1";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -6044,7 +6044,7 @@
                         minExtent = "8 8";
                         horizSizing = "left";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "0";
                         command = "LabDlg_TransformSelection.getAbsScale();";
@@ -6101,7 +6101,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiNumericTextEditProfile";
+                        profile = "ToolsTextEditDark_Num";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -6156,7 +6156,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiNumericTextEditProfile";
+                        profile = "ToolsTextEditDark_Num";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -6211,7 +6211,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiNumericTextEditProfile";
+                        profile = "ToolsTextEditDark_Num";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -6233,7 +6233,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiCheckBoxProfile";
+                        profile = "ToolsCheckBoxProfile_S1";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -6256,7 +6256,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiCheckBoxProfile";
+                        profile = "ToolsCheckBoxProfile_S1";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -6279,7 +6279,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiCheckBoxProfile";
+                        profile = "ToolsCheckBoxProfile_S1";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -6309,7 +6309,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "height";
-                  profile = "ToolsTabPageProfile";
+                  profile = "ToolsPanelDarkA";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -6345,7 +6345,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiCheckBoxProfile";
+                        profile = "ToolsCheckBoxProfile_S1";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -6368,7 +6368,7 @@
                         minExtent = "8 8";
                         horizSizing = "left";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiButtonProfile";
+                        profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "0";
                         command = "LabDlg_TransformSelection.getAbsSize();";
@@ -6425,7 +6425,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiNumericTextEditProfile";
+                        profile = "ToolsTextEditDark_Num";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -6480,7 +6480,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiNumericTextEditProfile";
+                        profile = "ToolsTextEditDark_Num";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -6535,7 +6535,7 @@
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiNumericTextEditProfile";
+                        profile = "ToolsTextEditDark_Num";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
@@ -6557,7 +6557,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiCheckBoxProfile";
+                        profile = "ToolsCheckBoxProfile_S1";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -6580,7 +6580,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiCheckBoxProfile";
+                        profile = "ToolsCheckBoxProfile_S1";
                         visible = "1";
                         active = "0";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -6603,7 +6603,7 @@
                         minExtent = "8 2";
                         horizSizing = "right";
                         vertSizing = "bottom";
-                        profile = "ToolsGuiCheckBoxProfile";
+                        profile = "ToolsCheckBoxProfile_S1";
                         visible = "1";
                         active = "1";
                         tooltipProfile = "ToolsGuiToolTipProfile";
@@ -6654,7 +6654,7 @@
             minExtent = "8 8";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "0";
             command = "LabDlg_TransformSelection.apply();";
@@ -6677,7 +6677,7 @@
             minExtent = "8 8";
             horizSizing = "left";
             vertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
             command = "LabDlg_TransformSelection.hideDialog();";

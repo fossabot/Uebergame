@@ -42,7 +42,7 @@
       minExtent = "7 2";
       horizSizing = "left";
       vertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "ToolsGuiToolTipProfile";
@@ -96,7 +96,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          command = "ETerrainEditor.toggleBrushType($ThisControl);";
@@ -127,7 +127,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          command = "ETerrainEditor.toggleBrushType($ThisControl);";
@@ -169,7 +169,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -198,7 +198,7 @@
          minExtent = "8 14";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditDark";
+         profile = "ToolsTextEditDark";
          visible = "1";
          active = "1";
          command = "ETerrainEditor.setBrushSize( $ThisControl.getText() );";
@@ -267,7 +267,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -295,7 +295,7 @@
          minExtent = "8 16";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditDark";
+         profile = "ToolsTextEditDark";
          visible = "1";
          active = "1";
          command = "ETerrainEditor.setBrushPressure( ($ThisControl.getValue() / 100) );";
@@ -364,7 +364,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -392,7 +392,7 @@
          minExtent = "8 16";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditDark";
+         profile = "ToolsTextEditDark";
          visible = "1";
          active = "1";
          command = "ETerrainEditor.setBrushSoftness( ($ThisControl.getValue() / 100) );";
@@ -461,7 +461,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextBase_C";
+         profile = "ToolsTextBase_C";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -489,7 +489,7 @@
          minExtent = "8 16";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiTextEditDark";
+         profile = "ToolsTextEditDark";
          visible = "1";
          active = "1";
          command = "ETerrainEditor.setHeightVal = $ThisControl.getValue();";
@@ -548,7 +548,7 @@
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiIconButtonSmallProfile";
+      profile = "ToolsButtonDark";
       visible = "1";
       active = "1";
       command = "Canvas.pushDialog( TerrainBrushSoftnessCurveDlg );";

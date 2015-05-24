@@ -27,7 +27,7 @@
       preSaveFunction = "ShapeEditorPlugin.onPreSave();";
 
    new GuiSwatchButtonCtrl() {
-      color = "0 0 0 0.39";
+      color = "0 0 0 100";
       groupNum = "-1";
       buttonType = "PushButton";
       useMouseEvents = "0";

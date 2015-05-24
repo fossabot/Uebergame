@@ -5,7 +5,7 @@
 // Define what fonts to use in the interface
 //==============================================================================
 
-//Arial= ToolsGuiToolTipProfile ToolsTabPageProfile GuiBackFillProfile GuiInspectorTextEditProfile GuiInspectorGroupProfile GuiInspectorFieldProfile
+//Arial= ToolsGuiToolTipProfile ToolsPanelDarkA GuiBackFillProfile GuiInspectorTextEditProfile GuiInspectorGroupProfile GuiInspectorFieldProfile
 //       GuiInspectorDynamicFieldProfile GuiInspectorRolloutProfile0 GuiInspectorTypeFileNameProfile GuiDirectoryTreeProfile GuiDirectoryFileListProfile GuiCreatorIconButtonProfile
 //Lab.extractProfilesWithField("bevelColorHL");
 //==============================================================================

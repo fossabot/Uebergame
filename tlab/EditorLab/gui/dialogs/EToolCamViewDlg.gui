@@ -37,7 +37,7 @@
       canSaveDynamicFields = "0";
 
       new GuiBitmapCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/ViewMode.png";
+         bitmap = "tlab/gui/assets/gfx_assets/ViewMode.png";
          wrap = "0";
          position = "23 22";
          extent = "52 35";
@@ -67,7 +67,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase_C";
+            profile = "ToolsTextBase_C";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -79,7 +79,7 @@
          };
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/view3D.png";
+         bitmap = "tlab/gui/assets/gfx_assets/view3D.png";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -103,7 +103,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/viewLeft.png";
+         bitmap = "tlab/gui/assets/gfx_assets/viewLeft.png";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -127,7 +127,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/viewRight.png";
+         bitmap = "tlab/gui/assets/gfx_assets/viewRight.png";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -151,7 +151,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/viewBack.png";
+         bitmap = "tlab/gui/assets/gfx_assets/viewBack.png";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -175,7 +175,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/viewFront.png";
+         bitmap = "tlab/gui/assets/gfx_assets/viewFront.png";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -199,7 +199,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/viewTop.png";
+         bitmap = "tlab/gui/assets/gfx_assets/viewTop.png";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -223,7 +223,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/images/gfx_assets/viewBottom.png";
+         bitmap = "tlab/gui/assets/gfx_assets/viewBottom.png";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -260,7 +260,7 @@
          minExtent = "8 8";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -286,7 +286,7 @@
          minExtent = "8 8";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "EToolCamViewDlg.setState(false);";

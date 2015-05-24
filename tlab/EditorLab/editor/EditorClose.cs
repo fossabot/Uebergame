@@ -40,7 +40,8 @@ function EditorGui::onSleep( %this ) {
 		stopFileChangeNotifications();
 		
 	if( Lab.currentEditor.isActivated )
-		Lab.deactivatePlugin(Lab.currentEditor);
+		Lab.currentEditor.onDeactivated();
+	
 
 	Lab.saveAllPluginData();
 	LabCfg.write();

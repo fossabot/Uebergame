@@ -54,7 +54,7 @@
 
          new GuiTreeViewCtrl(InspectTreeView) {
             canSaveDynamicFields = "0";
-            Profile = "ToolspfTreeViewMain";
+            Profile = "ToolsTreeViewProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "2 2";
@@ -112,7 +112,7 @@
       };
       new GuiControl() {
          canSaveDynamicFields = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "left";
          VertSizing = "bottom";
          position = "272 28";
@@ -124,7 +124,7 @@
 
          new GuiTextEditCtrl(InspectObjectName) {
             canSaveDynamicFields = "0";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "121 8";
@@ -171,7 +171,7 @@
          };
          new GuiTextEditCtrl(InspectObjectInternalName) {
             canSaveDynamicFields = "0";
-            Profile = "ToolspfTextEditMain";
+            Profile = "ToolsTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "121 35";
@@ -204,7 +204,7 @@
          };
          new GuiIconButtonCtrl() {
             canSaveDynamicFields = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "321 33";
@@ -239,7 +239,7 @@
          };
          new GuiIconButtonCtrl() {
             canSaveDynamicFields = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "321 6";

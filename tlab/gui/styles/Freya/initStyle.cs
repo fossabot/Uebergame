@@ -38,11 +38,11 @@ $LabProfilesStyleColor[2] = %list;
 %list = "ToolsPanelColorC";
 $LabProfilesStyleColor[3] = %list;
 
-%list = "ToolsPanelBackgroundA";
+%list = "ToolsPanelDarkA";
 $LabProfilesStyleBackground[1] = %list;
-%list = "ToolsPanelBackgroundB";
+%list = "ToolsPanelDarkB";
 $LabProfilesStyleBackground[2] = %list;
-%list = "ToolsPanelBackgroundC";
+%list = "ToolsPanelDarkC";
 $LabProfilesStyleBackground[3] = %list;
 
 %list = "ToolsPanelDarkA";

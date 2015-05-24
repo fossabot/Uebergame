@@ -21,7 +21,7 @@
    minExtent = "200 100";
    horizSizing = "right";
    vertSizing = "bottom";
-   profile = "ToolsWindowAltProfile";
+   profile = "ToolsWindowProfile";
    visible = "1";
    active = "1";
    tooltipProfile = "ToolsGuiToolTipProfile";
@@ -173,7 +173,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiCheckBoxProfile";
+                  profile = "ToolsCheckBoxProfile_S1";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -202,7 +202,7 @@
                   minExtent = "20 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolspfTextEditMain";
+                  profile = "ToolsTextEditProfile";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -255,7 +255,7 @@
                   minExtent = "20 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolspfDropdownMain";
+                  profile = "ToolsDropdownMain";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -383,7 +383,7 @@
                      minExtent = "8 8";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTreeViewMain";
+                     profile = "ToolsTreeViewProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -478,7 +478,7 @@
                      minExtent = "8 8";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolspfTreeViewMain";
+                     profile = "ToolsTreeViewProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -599,7 +599,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiButtonProfile";
+                     profile = "ToolsButtonProfile";
                      visible = "1";
                      active = "1";
                      command = "ESelectObjects.selectAllInClassList( true );";
@@ -644,7 +644,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsGuiButtonProfile";
+                     profile = "ToolsButtonProfile";
                      visible = "1";
                      active = "1";
                      command = "ESelectObjects.selectAllInClassList( false );";
@@ -666,7 +666,7 @@
                   minExtent = "8 2";
                   horizSizing = "left";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiButtonProfile";
+                  profile = "ToolsButtonProfile";
                   visible = "1";
                   active = "1";
                   command = "ESelectObjects.onSelectObjects(true);";
@@ -687,7 +687,7 @@
                   minExtent = "8 2";
                   horizSizing = "left";
                   vertSizing = "bottom";
-                  profile = "ToolsGuiButtonProfile";
+                  profile = "ToolsButtonProfile";
                   visible = "1";
                   active = "1";
                   command = "ESelectObjects.onSelectObjects(false);";

@@ -124,7 +124,7 @@ function Lab::initializeEditorGui( %this ) {
 	Lab.loadPluginsPalettes();
 
 	// Visibility Layer Window
-	Lab.addGui( EVisibilityLayers,"Dialog");
+	//Lab.addGui( EVisibilityLayers,"Dialog");
 	EVisibilityLayers-->TabBook.selectPage(0);
 
 	//-----------------------------------------------------
@@ -133,19 +133,20 @@ function Lab::initializeEditorGui( %this ) {
 
 	//-----------------------------------------------------
 	// Object Snap Options Window
-	Lab.addGui( ESnapOptions ,"Dialog");
+	//Lab.addGui( ESnapOptions ,"Dialog");
 	ESnapOptions-->TabBook.selectPage(0);
 
 	// Transform Selection Window
+	Lab.addGui( EToolDecoyGroup ,"Overlay");
 	Lab.addGui( ETransformSelection ,"Dialog");
-	Lab.addGui( ECloneTool ,"Dialog");
-	Lab.addGui( ECloneDrag ,"Dialog");
+	//Lab.addGui( ECloneTool ,"Dialog");
+	//Lab.addGui( ECloneDrag ,"Dialog");
 	Lab.addGui( ESceneManager ,"Dialog");
 	// Manage Bookmarks Window
 	Lab.addGui( EManageBookmarks ,"Dialog");
 	Lab.addGui( EManageSFXParameters ,"Dialog");
 	Lab.addGui( ESelectObjects ,"Dialog");
-
+	Lab.addGui( EToolCameraModeDlg ,"Dialog");
 	Lab.addGui(EToolbarObjectTransformDropdown,"Dialog");
 	Lab.addGui(EToolbarObjectCenterDropdown,"Dialog");
    Lab.addGui(EToolDlgCameraTypes,"Dialog");
@@ -161,7 +162,7 @@ Lab.addGui( EMissionArea ,"Dialog");
 
 	Lab.setMenuDefaultState();
 
-	EditorGuiToolbar-->cameraTypes.setBitmap("tlab/gui/icons/default/toolbar/player");
+	//EditorGuiToolbar-->cameraTypes.setBitmap("tlab/gui/icons/default/toolbar/player");
 
 	/*
 	EWorldEditorCameraSpeed.clear();

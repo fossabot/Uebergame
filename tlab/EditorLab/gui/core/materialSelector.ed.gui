@@ -36,7 +36,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          VertSizing = "bottom";
          Position = "4 22";
          Extent = "120 31";
-         Profile = "ToolsNavBoxDark";
+         Profile = "ToolsBoxNavDark";
       };
       new GuiTextCtrl(){
          Profile = "ToolsDefaultProfile";
@@ -105,7 +105,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          };
       };
       new GuiContainer(){
-         Profile = "ToolsNavBoxDark";
+         Profile = "ToolsBoxNavDark";
          Position = "128 22";
          Extent = "480 31";
          HorizSizing = "width";
@@ -253,7 +253,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
             };
             new GuiPopupMenuCtrlEx(){
                internalName = "materialPreviewCountPopup";
-               Profile = "ToolspfDropdownMain";
+               Profile = "ToolsDropdownMain";
                Position = "104 2";
                Extent = "40 18";
                HorizSizing = "right";
@@ -280,7 +280,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
                   canSaveDynamicFields = "0";
                   Enabled = "1";
                   isContainer = "0";
-                  Profile = "ToolsGuiButtonProfile";
+                  Profile = "ToolsButtonProfile";
                   HorizSizing = "right";
                   VertSizing = "bottom";
                   Position = "0 0";
@@ -302,7 +302,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
                   canSaveDynamicFields = "0";
                   Enabled = "1";
                   isContainer = "0";
-                  Profile = "ToolsGuiButtonProfile";
+                  Profile = "ToolsButtonProfile";
                   HorizSizing = "right";
                   VertSizing = "bottom";
                   Position = "0 0";
@@ -336,7 +336,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
                   canSaveDynamicFields = "0";
                   Enabled = "1";
                   isContainer = "0";
-                  Profile = "ToolsGuiButtonProfile";
+                  Profile = "ToolsButtonProfile";
                   HorizSizing = "right";
                   VertSizing = "bottom";
                   Position = "0 0";
@@ -358,7 +358,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
                   canSaveDynamicFields = "0";
                   Enabled = "1";
                   isContainer = "0";
-                  Profile = "ToolsGuiButtonProfile";
+                  Profile = "ToolsButtonProfile";
                   HorizSizing = "right";
                   VertSizing = "bottom";
                   Position = "0 0";
@@ -381,7 +381,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          };
       };
       new GuiContainer(){
-         Profile = "ToolsNavBoxDark";
+         Profile = "ToolsBoxNavDark";
          Position = "612 206";
          Extent = "150 31";
          HorizSizing = "left";
@@ -454,7 +454,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          };
       };
       new GuiContainer(){
-         Profile = "ToolsNavBoxDark";
+         Profile = "ToolsBoxNavDark";
          Position = "612 22";
          Extent = "150 167";
          HorizSizing = "left";
@@ -493,7 +493,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          internalName = "previewSelectionText";
          HorizSizing = "left";
          VertSizing = "bottom";
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          position = "613 189";
          extent = "149 16";
          text = "";
@@ -502,7 +502,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          internalName = "SelectButton";
          HorizSizing = "left";
          VertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          position = "612 522";
          extent = "94 24";
          text = "Select";
@@ -511,7 +511,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
       new GuiButtonCtrl(){
          HorizSizing = "left";
          VertSizing = "top";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          position = "710 522";
          extent = "52 24";
          text = "Cancel";
@@ -552,7 +552,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
          canSaveDynamicFields = "0";
          internalName = "tagName";
          isContainer = "0";
-         Profile = "ToolspfTextEditMain";
+         Profile = "ToolsTextEditProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "64 35";
@@ -578,7 +578,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
       new GuiTextCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "12 35";
@@ -600,7 +600,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
       new GuiButtonCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "64 68";
@@ -619,7 +619,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
       new GuiButtonCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "196 68";
@@ -789,7 +789,7 @@ function MaterialSelector::buildStaticFilters( %this )
          parentGroup = %filterArray;
          
          new GuiContainer(){
-            profile = "ToolsNavBoxDark";
+            profile = "ToolsBoxNavDark";
             Position = "-1 0";
             Extent = "128 32";
             HorizSizing = "right";
@@ -797,7 +797,7 @@ function MaterialSelector::buildStaticFilters( %this )
             isContainer = "1";
          };
          new GuiTextCtrl(){
-            Profile = "ToolsGuiTextBase";
+            Profile = "ToolsTextBase";
             position = "5 0";
             Extent = "118 18";
             text = "Types";
@@ -813,7 +813,7 @@ function MaterialSelector::buildStaticFilters( %this )
          parentGroup = %filterArray;
          
          new GuiCheckBoxCtrl(MaterialFilterAllArrayCheckbox){
-            Profile = "ToolsGuiCheckBoxListProfile";
+            Profile = "ToolsCheckBoxProfile_List";
             position = "5 2";
             Extent = "118 18";
             text = "All";
@@ -830,7 +830,7 @@ function MaterialSelector::buildStaticFilters( %this )
          parentGroup = %filterArray;
          
          new GuiCheckBoxCtrl(MaterialFilterMappedArrayCheckbox){
-            Profile = "ToolsGuiCheckBoxListProfile";
+            Profile = "ToolsCheckBoxProfile_List";
             position = "5 2";
             Extent = "118 18";
             text = "Mapped";
@@ -847,7 +847,7 @@ function MaterialSelector::buildStaticFilters( %this )
          parentGroup = %filterArray;
          
          new GuiCheckBoxCtrl(MaterialFilterUnmappedArrayCheckbox){
-            Profile = "ToolsGuiCheckBoxListProfile";
+            Profile = "ToolsCheckBoxProfile_List";
             position = "5 2";
             Extent = "118 18";
             text = "Unmapped";
@@ -864,7 +864,7 @@ function MaterialSelector::buildStaticFilters( %this )
          parentGroup = %filterArray;
          
          new GuiContainer(){
-            profile = "ToolsNavBoxDark";
+            profile = "ToolsBoxNavDark";
             Position = "-1 0";
             Extent = "128 32";
             HorizSizing = "right";
@@ -873,7 +873,7 @@ function MaterialSelector::buildStaticFilters( %this )
          };
          
          new GuiTextCtrl(){
-            Profile = "ToolsGuiTextBase";
+            Profile = "ToolsTextBase";
             position = "5 0";
             Extent = "118 18";
             text = "Tags";
@@ -1222,7 +1222,7 @@ function MaterialSelector::buildPreviewArray( %this, %material )
       internalName = %matName;
       HorizSizing = "right";
       VertSizing = "bottom";
-      profile = "ToolsGuiButtonProfile";
+      profile = "ToolsButtonProfile";
       position = "7 4";
       extent = "64 64";
       buttonType = "PushButton";
@@ -1234,7 +1234,7 @@ function MaterialSelector::buildPreviewArray( %this, %material )
       new GuiBitmapButtonCtrl(){
             HorizSizing = "right";
             VertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             position = "0 0";
             extent = "64 64";
             Variable = "";
@@ -1249,7 +1249,7 @@ function MaterialSelector::buildPreviewArray( %this, %material )
          internalName = %matName@"Border";
          HorizSizing = "right";
          VertSizing = "bottom";
-         profile = "ToolsGuiThumbHighlightButtonProfile";
+         profile = "ToolsButtonHighlight";
          position = "3 0";
          extent = "72 88";
          Variable = "";
@@ -1330,7 +1330,7 @@ function MaterialSelector::loadMaterialFilters( %this )
       };
       
       %checkbox = new GuiCheckBoxCtrl(){
-         Profile = "ToolsGuiCheckBoxListProfile";
+         Profile = "ToolsCheckBoxProfile_List";
          position = "5 1";
          Extent = "118 18";
          Command = "";
@@ -1390,7 +1390,7 @@ function MaterialSelector::createFilter( %this, %filter )
       isContainer = "1";
          
       new GuiCheckBoxCtrl(){
-         Profile = "ToolsGuiCheckBoxListProfile";
+         Profile = "ToolsCheckBoxProfile_List";
          position = "5 1";
          Extent = "118 18";
          Command = "";
@@ -1446,7 +1446,7 @@ function MaterialSelector::updateSelection( %this, %material, %previewImagePath 
       
       %checkbox = new GuiCheckBoxCtrl(){
          materialName = %material.name;
-         Profile = "ToolsGuiCheckBoxListProfile";
+         Profile = "ToolsCheckBoxProfile_List";
          position = "5 2";
          Extent = "118 18";
          Command = "MaterialSelector.updateMaterialTags( $ThisControl.materialName, $ThisControl.getText(), $ThisControl.getValue() );";
@@ -1645,7 +1645,7 @@ function MaterialSelector::createNewMaterial( %this )
          internalName = %material.name;
          HorizSizing = "right";
          VertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          position = "7 4";
          extent = "64 64";
          buttonType = "PushButton";
@@ -1657,7 +1657,7 @@ function MaterialSelector::createNewMaterial( %this )
          new GuiBitmapButtonCtrl(){
             HorizSizing = "right";
             VertSizing = "bottom";
-            profile = "ToolsGuiButtonProfile";
+            profile = "ToolsButtonProfile";
             position = "0 0";
             extent = "64 64";
             Variable = "";
@@ -1672,7 +1672,7 @@ function MaterialSelector::createNewMaterial( %this )
          internalName = %material.name@"Border";
          HorizSizing = "right";
          VertSizing = "bottom";
-         profile = "ToolsGuiThumbHighlightButtonProfile";
+         profile = "ToolsButtonHighlight";
          position = "3 0";
          extent = "72 88";
          Variable = "";

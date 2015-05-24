@@ -49,7 +49,7 @@
          buttonType = "PushButton";
          useMouseEvents = "0";
          isContainer = "0";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "top";
          position = "228 114";
@@ -68,7 +68,7 @@
          buttonType = "PushButton";
          useMouseEvents = "0";
          isContainer = "0";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "bottom";
          position = "101 114";
@@ -106,7 +106,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             isContainer = "0";
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "14 13";
@@ -132,7 +132,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             isContainer = "0";
-            profile = "ToolspfTextEditMain";
+            profile = "ToolsTextEditProfile";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "103 13";
@@ -155,7 +155,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             isContainer = "0";
-            profile = "ToolsGuiTextProfile";
+            profile = "ToolsTextBase";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "14 44";
@@ -180,7 +180,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             isContainer = "0";
-            profile = "ToolspfDropdownMain";
+            profile = "ToolsDropdownMain";
             horizSizing = "right";
             vertSizing = "bottom";
             position = "103 44";

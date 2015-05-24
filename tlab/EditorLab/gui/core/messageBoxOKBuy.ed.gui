@@ -43,7 +43,7 @@
          maxChars = "-1";
 		};
 		new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "top";
          position = "70 68";
@@ -57,7 +57,7 @@
          simpleStyle = "0";
 		};
 		new GuiButtonCtrl() {
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          horizSizing = "right";
          vertSizing = "top";
          position = "167 68";

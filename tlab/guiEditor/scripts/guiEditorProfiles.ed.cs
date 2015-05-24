@@ -24,8 +24,12 @@
 $GUI_EDITOR_DEFAULT_PROFILE_FILENAME = "art/gui/customProfiles.cs";
 $GUI_EDITOR_DEFAULT_PROFILE_CATEGORY = "Other";
 
-
-
+ 
+        
+function GuiEditor::checkPM( %this ) {
+	 if( !isObject( "GuiEditorProfilesPM" ) )
+        new PersistenceManager( GuiEditorProfilesPM );
+}
 //=============================================================================================
 //    GuiEditor.
 //=============================================================================================
@@ -97,8 +101,8 @@ function GuiEditor::showDeleteProfileDialog( %this, %profile ) {
 //---------------------------------------------------------------------------------------------
 
 function GuiEditor::deleteProfile( %this, %profile ) {
-    if( isObject( "GuiEditorProfilesPM" ) )
-        new PersistenceManager( GuiEditorProfilesPM );
+	%this.checkPM();
+   
 
     // Clear dirty state.
 
@@ -140,8 +144,8 @@ function GuiEditor::forceSaveProfile( %this, %profile ) {
 //---------------------------------------------------------------------------------------------
 
 function GuiEditor::saveProfile( %this, %profile, %fileName,%forced ) {
-    if( !isObject( "GuiEditorProfilesPM" ) )
-        new PersistenceManager( GuiEditorProfilesPM );
+	  devLog("GuiEditor::saveProfile",%profile.getname(),"Dirty?",GuiEditorProfilesPM.isDirty( %profile ));
+   %this.checkPM();
 
     if( !GuiEditorProfilesPM.isDirty( %profile )
             && ( %fileName $= "" || %fileName $= %profile.getFileName() ) && !%forced )
@@ -170,6 +174,7 @@ function GuiEditor::saveProfile( %this, %profile, %fileName,%forced ) {
     //Mud-H Modified to work with GUI style system and save changes to the selected style.
     //If not Style profile object found it will save as usual: GuiEditorProfilesPM.saveDirtyObject( %profile );
    // saveSingleProfileStyleChanges(%profile);
+   devLog("Save dirty profile:",%profile.getname());
    GuiEditorProfilesPM.saveDirtyObject( %profile );
 
     // Save the object.
@@ -208,10 +213,15 @@ function GuiEditor::isProfileDirty( %this, %profile ) {
 }
 
 //---------------------------------------------------------------------------------------------
-
+function fixNameId(%pid){
+	 %id = GuiEditorProfilesTree.findItemByValue(%pid );
+	%name = GuiEditorProfilesTree.getItemText( %id );
+	%fixName = strreplace(%name," *","");
+	GuiEditorProfilesTree.editItem( %id, %fixName, %pid );
+}
 function GuiEditor::setProfileDirty( %this, %profile, %value, %noCheck ) {
-    
-
+    devLog("GuiEditor::setProfileDirty",%profile.getname(),"Value?",%value);
+	%this.checkPM();
     if( %value ) {
         if( !GuiEditorProfilesPM.isDirty( %profile ) || %noCheck ) {
             // If the profile hasn't yet been associated with a file,
@@ -223,11 +233,13 @@ function GuiEditor::setProfileDirty( %this, %profile, %value, %noCheck ) {
             // Add the profile to the dirty set.
 
             GuiEditorProfilesPM.setDirty( %profile );
-
+			 devLog("GuiEditor::setProfileDirty",%profile.getname(),"Dirty?",GuiEditorProfilesPM.isDirty( %profile ));
             // Show the item as dirty in the tree.
 
             %id = GuiEditorProfilesTree.findItemByValue( %profile.getId() );
             GuiEditorProfilesTree.editItem( %id, GuiEditorProfilesTree.getItemText( %id ) SPC "*", %profile.getId() );
+            
+         
 
             // Count the number of unsaved profiles.  If this is
             // the first one, indicate in the window title that

@@ -6,6 +6,7 @@
 
 //==============================================================================
 function Lab::setEditor( %this, %newEditor, %dontActivate ) {   
+	
 	//First make sure the new editor is valid
 	if (%newEditor $= ""){
 	   %newEditor = Lab.defaultPlugin;
@@ -14,6 +15,16 @@ function Lab::setEditor( %this, %newEditor, %dontActivate ) {
 			return;
 		}
 	}
+	// If we have a special set editor function, run that instead
+	if( %newEditor.isMethod( "setEditorFunction" ) ) {
+		%pluginActivated= %newEditor.setEditorFunction();
+		if (!%pluginActivated){
+			warnLog("Plugin failed to activate, keeping the current plugin active");
+			return;
+		}
+	}	
+	
+	//Check the EditorGui of both, if different hide previous and show new
 	//If there's a editor loaded, deactivate it
 	if ( isObject( %this.currentEditor ) ) {
 		//Cancel if the current is the same as new
@@ -26,29 +37,11 @@ function Lab::setEditor( %this, %newEditor, %dontActivate ) {
 		if( isObject( %this.currentEditor.editorGui ) ) {
 			%this.orthoFOV = %this.currentEditor.editorGui.getOrthoFOV();
 		}
-	}
-
-	// If we have a special set editor function, run that instead
-	if( %newEditor.isMethod( "setEditorFunction" ) ) {
-		if( %newEditor.setEditorFunction() ) {
-			%this.syncEditor( %newEditor );
-			%this.currentEditor = %newEditor;			
-         Lab.activatePlugin(%this.currentEditor);        
-		}
-	} else {
-		%this.syncEditor( %newEditor );
-		%this.currentEditor = %newEditor;
-      Lab.activatePlugin(%this.currentEditor);
-	}
-   
-	// Sync display type.
-	%gui = %this.currentEditor.editorGui;
-	if( isObject( %gui ) ) {
-		show(%gui);
-		%gui.setDisplayType( %this.cameraDisplayType );
-		%gui.setOrthoFOV( %this.orthoFOV );
-		// Lab.syncCameraGui();
-	}
+	}	
+	%this.syncEditor( %newEditor );
+	%this.currentEditor = %newEditor;
+	%this.currentEditor.onActivated();
+	//Lab.activatePlugin(%this.currentEditor);  	
 }
 function Lab::syncEditor( %this,%newEditor ) {   
    if (%newEditor $= "")

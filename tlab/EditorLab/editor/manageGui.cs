@@ -34,6 +34,11 @@ function Lab::addGui(%this,%gui,%type) {
 
 	case "Palette":
 		LabPaletteGuiSet.add(%gui);
+	
+	case "Overlay":
+		%container = EditorGui;
+		LabDialogGuiSet.add(%gui);	
+		
 
 	}
 
@@ -57,7 +62,7 @@ function Lab::detachEditorGuis(%this) {
 		%gui.editorParent = %gui.parentGroup;
 		%parent = %gui.defaultParent;
 		if (!isObject(%parent))
-			%parent = GameGroup;
+			%parent = GuiGroup;
 
 		%parent.add(%gui);
 		show(%gui);
@@ -97,10 +102,7 @@ function Lab::attachEditorGuis(%this) {
 //==============================================================================
 // Clear the editors menu (for dev purpose only as now)
 function Lab::resizeEditorGui( %this ) {
-	logc("Lab::resizeEditorGui( %this )",%this );
-
-
-
+	
 	//-----------------------------------------------------
 	// ToolsToolbar
 	EWToolsToolbar.position = "0 0";// SPC EditorGuiToolbar.extent.y;

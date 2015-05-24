@@ -62,7 +62,7 @@
          horizSizing = "right";
          vertSizing = "bottom";
          fixedAspectRatio = "0";
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -91,7 +91,7 @@
          horizSizing = "right";
          vertSizing = "bottom";
          fixedAspectRatio = "0";
-         profile = "ToolspfTextEditMain";
+         profile = "ToolsTextEditProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -112,7 +112,7 @@
          horizSizing = "right";
          vertSizing = "bottom";
          fixedAspectRatio = "0";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "DatablockEditorPlugin.createPromptNameCheck();";
@@ -134,7 +134,7 @@
          horizSizing = "right";
          vertSizing = "bottom";
          fixedAspectRatio = "0";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          command = "canvas.popDialog(DatablockEditorCreatePrompt);";
@@ -160,7 +160,7 @@
          horizSizing = "right";
          vertSizing = "bottom";
          fixedAspectRatio = "0";
-         profile = "ToolsGuiTextProfile";
+         profile = "ToolsTextBase";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -209,7 +209,7 @@
          horizSizing = "right";
          vertSizing = "bottom";
          fixedAspectRatio = "0";
-         profile = "ToolsGuiCheckBoxProfile";
+         profile = "ToolsCheckBoxProfile_S1";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";

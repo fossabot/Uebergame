@@ -23,7 +23,7 @@
    text ="";
    
    new GuiTextCtrl() {
-      profile = "ToolsGuiTextProfile";
+      profile = "ToolsTextBase";
       horizSizing = "right";
       vertSizing = "bottom";
       position = "5 7";
@@ -40,14 +40,14 @@
       position = "86 3";
       Extent = "2 26";
       MinExtent = "1 1";
-      bitmap = "tlab/gui/images/gfx_assets/separator-h.png";
+      bitmap = "tlab/gui/assets/gfx_assets/separator-h.png";
    };
    new GuiBitmapButtonCtrl() {
       canSaveDynamicFields = "0";
       internalName = "";
       Enabled = "1";
       isContainer = "0";
-      Profile = "ToolsGuiButtonProfile";
+      Profile = "ToolsButtonProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
       Position = "91 3";

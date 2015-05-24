@@ -103,7 +103,7 @@
       new GuiTextCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "298 215";
@@ -116,7 +116,7 @@
          maxLength = "255";
       };
       new GuiTextEditCtrl(Channel_R_Val) { // Red Channal
-         Profile = "ToolsGuiNumericTextEditProfile";
+         Profile = "ToolsTextEditDark_Num";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "307 215";
@@ -128,7 +128,7 @@
       new GuiTextCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "297 238";
@@ -141,7 +141,7 @@
          maxLength = "255";
       };
       new GuiTextEditCtrl(Channel_G_Val) { // Green Channal
-         Profile = "ToolsGuiNumericTextEditProfile";
+         Profile = "ToolsTextEditDark_Num";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "307 238";
@@ -153,7 +153,7 @@
       new GuiTextCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "298 261";
@@ -166,7 +166,7 @@
          maxLength = "255";
       };
       new GuiTextEditCtrl(Channel_B_Val) { // Blue Channal
-         Profile = "ToolsGuiNumericTextEditProfile";
+         Profile = "ToolsTextEditDark_Num";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "307 261";
@@ -185,7 +185,7 @@
          new GuiTextCtrl() {
             canSaveDynamicFields = "0";
             isContainer = "0";
-            Profile = "ToolsGuiTextProfile";
+            Profile = "ToolsTextBase";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "267 0";
@@ -201,7 +201,7 @@
             internalName = "slider";
             canSaveDynamicFields = "0";
             isContainer = "0";
-            Profile = "ToolspfSliderMain";
+            Profile = "ToolsSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "5 3";
@@ -217,7 +217,7 @@
          };
          new GuiTextEditCtrl(Channel_A_Val) { // Alpha Channal
             internalName = "textEdit";
-            Profile = "ToolsGuiNumericTextEditProfile";
+            Profile = "ToolsTextEditDark_Num";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "305 0";
@@ -252,7 +252,7 @@
       new GuiButtonCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "144 316";
@@ -270,7 +270,7 @@
       new GuiButtonCtrl() {
          canSaveDynamicFields = "0";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "268 316";

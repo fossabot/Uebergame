@@ -47,13 +47,14 @@ function toggleVisible(%obj) {
 function cloneObject( %source,%name,%internalName,%parent ) {
    delObj(%name);
 	%clone = %source.deepClone();
-	%clone.setVisible(true);
+	//%clone.setVisible(true);
 	if (%internalName !$= "")
 	   %clone.internalName = %internalName;   
 	%clone.setName(%name);
 	if (isObject(%parent))
 	   %parent.add(%clone);  
-	   
+   hide(%source);
+   show(%clone);
 	return %clone;
 }
 

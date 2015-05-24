@@ -11,6 +11,20 @@ function EditorPlugin::onAdd( %this ) {
 
 }
 //------------------------------------------------------------------------------
+
+//==============================================================================
+function EditorPlugin::setEditorMode( %this,%mode ) {
+	%editorGui = "E"@%mode@"Editor";
+	if (!isObject(%editorGui)){
+		warnLog("Invalid editor mode called for plugin:",%this.displayName,"Mode attempted:",%mode);
+		return;
+	}
+	%this.editorGui = %editorGui;
+	
+
+}
+//------------------------------------------------------------------------------
+
 //==============================================================================
 function EditorPlugin::onWorldEditorStartup( %this ) {
    
@@ -46,17 +60,33 @@ function EditorPlugin::onEditorSleep( %this ) {
 function EditorPlugin::onActivated( %this ) {
 	if(isDemo())
 		startToolTime(%this.getName());
+		
+	 //Reset some default Plugin values
+   Lab.fitCameraGui = ""; //Used by GuiShapeEdPreview to Fit camera on object
+   //Call the Plugin Object onActivated method if exist
+   Lab.activatePluginGui(%this);
 
 	%this.isActivated = true;
+	
+	if( isObject( %this.editorGui ) ) {
+		show(%this.editorGui);
+		%this.editorGui.setDisplayType( Lab.cameraDisplayType );
+		%this.editorGui.setOrthoFOV( Lab.orthoFOV );
+		// Lab.syncCameraGui();
+	}
+	else{
+		warnLog("The plugin",%this.displayName,"have no editor GUI assigned. Using default World Editor GUI");
+	}
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 /// Callback when the tool is 'deactivated' / closed by the WorldEditor
 /// Pop Gui's, stuff like that
-function EditorPlugin::onDeactivated( %this ) {
-	if(isDemo())
-		endToolTime(%this.getName());
-
+function EditorPlugin::onDeactivated( %this,%newEditor ) {
+	
+	endToolTime(%this.getName());	
+				
+	hide(%this.editorGui);
 	%this.isActivated = false;
 }
 //------------------------------------------------------------------------------

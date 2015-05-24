@@ -63,7 +63,7 @@
          minExtent = "7 2";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsGuiButtonProfile";
+         profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "ToolsGuiToolTipProfile";
@@ -92,7 +92,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          command = "Lab.RestoreAllPhysicsShapeState();";
@@ -121,7 +121,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          command = "Lab.physicsRestoreState();";
@@ -150,7 +150,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          command = "Lab.physicsStoreState();";
@@ -179,7 +179,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          command = "Lab.physicsSetTimeScale(0);";
@@ -208,7 +208,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          command = "Lab.physicsStopSimulation();";
@@ -237,7 +237,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsGuiIconButtonSmallProfile";
+         profile = "ToolsButtonDark";
          visible = "1";
          active = "1";
          command = "Lab.physicsStartSimulation();";
@@ -272,7 +272,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolspfSliderMain";
+            profile = "ToolsSliderProfile";
             visible = "1";
             active = "1";
             variable = "1";
@@ -298,7 +298,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsGuiTextBase_C";
+            profile = "ToolsTextBase_C";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";

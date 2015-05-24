@@ -81,7 +81,7 @@ function GuiEditorToolbox::setViewTypeAlphabetical( %this ) {
     for( %i = 0; %i < %numClasses; %i ++ ) {
         %className = %classes.getKey( %i );
         %ctrl = new GuiIconButtonCtrl() {
-            profile = "ToolsGuiIconButtonSmallProfile";
+            profile = "ToolsButtonDark";
             extent = "128 18";
             text = %className;
             iconBitmap = EditorIconRegistry::findIconByClassName( %className );
@@ -159,7 +159,7 @@ function GuiEditorToolbox::setViewTypeCategorized( %this ) {
         for( %n = 0; %n < %numClasses; %n ++ ) {
             %className = %classes.getKey( %n );
             %ctrl = new GuiIconButtonCtrl() {
-                profile = "ToolsGuiIconButtonSmallProfile";
+                profile = "ToolsButtonDark";
                 extent = "128 18";
                 text = %className;
                 iconBitmap = EditorIconRegistry::findIconByClassName( %className );

@@ -4,9 +4,11 @@
 //------------------------------------------------------------------------------
 // Special Panels which simply set predefined fill color and appropriate text
 //==============================================================================
+
 //==============================================================================
 // Color Panels -> Main theme colors (A-B-C)
 //==============================================================================
+
 //==============================================================================
 singleton GuiControlProfile(ToolsPanelColorA : ToolsDefaultProfile) {
     fillColor = "14 151 226 255";
@@ -44,57 +46,11 @@ singleton GuiControlProfile(ToolsPanelColorC : ToolsPanelColorA) {
     fontColorHL = "0 0 0 255";
 };
 //------------------------------------------------------------------------------
-//==============================================================================
-// Color Panels -> Main theme colors (A-B-C)
-//==============================================================================
-//==============================================================================
-singleton GuiControlProfile(ToolsPanelBackgroundA : ToolsDefaultProfile) {
-    fillColor = "51 51 51 255";
-    opaque = "1";
-    bevelColorHL = "255 0 255 255";
-    fontType = "Aileron";
-    fontSize = "16";
-    fontColors[4] = "255 0 255 255";
-    fontColorLink = "255 0 255 255";
-    fontColors[0] = "88 1 192 255";
-    fontColor = "88 1 192 255";
-    category = "ToolsPanels";
-    fillColorNA = "White";
-    fontColors[8] = "255 0 255 255";
-};
-//------------------------------------------------------------------------------
-singleton GuiControlProfile(ToolsPanelBackgroundB : ToolsPanelBackgroundA) {
-    opaque = "1";
-    fillColor = "190 192 192 255";
-    fontColors[0] = "88 1 192 255";
-    fontColor = "88 1 192 255";
-    fontColors[1] = "Black";
-    fontColors[6] = "255 0 255 255";
-    fontColorHL = "Black";
-    fillColorNA = "255 255 255 255";
-    fontColors[8] = "255 0 255 255";
-    fontColors[3] = "White";
-    fontColorSEL = "White";
-};
-//------------------------------------------------------------------------------
-singleton GuiControlProfile(ToolsPanelBackgroundC : ToolsPanelBackgroundA) {
-    opaque = "1";
-    fillColor = "101 136 166 255";
-    fontColors[0] = "88 1 192 255";
-    fontColor = "88 1 192 255";
-    fontColors[1] = "Black";
-    fontColors[6] = "255 0 255 255";
-    fontColorHL = "Black";
-    fillColorNA = "255 255 255 255";
-    fontColors[8] = "255 0 255 255";
-    fontColors[3] = "White";
-    fontColorSEL = "White";
-};
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
+
 //==============================================================================
 // Dark Color Panels -> Dark theme colors (A-B-C)
 //==============================================================================
+
 //==============================================================================
 singleton GuiControlProfile(ToolsPanelDarkA : ToolsDefaultProfile) {
     opaque = "1";

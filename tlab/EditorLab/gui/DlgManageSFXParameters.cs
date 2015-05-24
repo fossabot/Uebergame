@@ -442,7 +442,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				snap = "0";
 				value = "0.5";
 				isContainer = "0";
-				Profile = "ToolspfSliderMain";
+				Profile = "ToolsSliderProfile";
 				HorizSizing = "width";
 				VertSizing = "bottom";
 				position = "65 5";
@@ -470,7 +470,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolspfTextEditMain";
+				Profile = "ToolsTextEditProfile";
 				HorizSizing = "left";
 				VertSizing = "bottom";
 				position = "336 4";
@@ -539,7 +539,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolspfDropdownMain";
+				Profile = "ToolsDropdownMain";
 				HorizSizing = "width";
 				VertSizing = "bottom";
 				position = "65 26";
@@ -567,7 +567,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolspfTextEditMain";
+				Profile = "ToolsTextEditProfile";
 				HorizSizing = "width";
 				VertSizing = "bottom";
 				position = "65 50";
@@ -595,7 +595,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolspfTextEditMain";
+				Profile = "ToolsTextEditProfile";
 				HorizSizing = "width";
 				VertSizing = "bottom";
 				position = "65 73";
@@ -623,7 +623,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolspfTextEditMain";
+				Profile = "ToolsTextEditProfile";
 				HorizSizing = "left";
 				VertSizing = "bottom";
 				position = "372 27";
@@ -651,7 +651,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolspfTextEditMain";
+				Profile = "ToolsTextEditProfile";
 				HorizSizing = "left";
 				VertSizing = "bottom";
 				position = "297 27";
@@ -679,7 +679,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolspfTextEditMain";
+				Profile = "ToolsTextEditProfile";
 				HorizSizing = "left";
 				VertSizing = "bottom";
 				position = "229 27";
@@ -700,7 +700,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				buttonType = "ToggleButton";
 				useMouseEvents = "0";
 				isContainer = "0";
-				Profile = "ToolsGuiCheckBoxProfile";
+				Profile = "ToolsCheckBoxProfile_S1";
 				HorizSizing = "left";
 				VertSizing = "bottom";
 				position = "302 73";
@@ -726,7 +726,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolspfDropdownMain";
+				Profile = "ToolsDropdownMain";
 				HorizSizing = "left";
 				VertSizing = "bottom";
 				position = "349 73";

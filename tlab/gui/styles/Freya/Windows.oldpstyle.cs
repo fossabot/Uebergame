@@ -18,15 +18,14 @@ $tmpGroup = new SimGroup() {
     canSaveDynamicFields = "1";
     myFile = "art/gui/CastleBlast/Windows.pstyle.cs";
 
-    new ScriptObject(ToolspfWindowMain_Style) {
+    new ScriptObject(ToolsWindowMain_Style) {
         internalName = "pfWindowMain";
         canSave = "1";
         canSaveDynamicFields = "1";
         autoSizeHeight = "0";
         autoSizeWidth = "0";
         bevelColorHL = "255 255 255 255";
-        bevelColorLL = "0 0 0 255";
-        bitmap = "tlab/gui/images/container_assets/GuiWindowMain.png";
+        bevelColorLL = "0 0 0 255";       
         border = "-2";
         borderColor = "100 100 100 255";
         borderColorHL = "50 50 50 50";
@@ -59,13 +58,13 @@ $tmpGroup = new SimGroup() {
         text = "untitled";
         textOffset = "40 2";
     };
-    new ScriptObject(ToolspfRolloutMain_Style) {
+    new ScriptObject(ToolsRolloutMain_Style) {
         internalName = "";
         canSave = "1";
         canSaveDynamicFields = "1";
         bevelColorHL = "255 255 255 255";
         bevelColorLL = "0 0 0 255";
-        bitmap = "tlab/gui/images/container_assets/GuiWindowMain";
+       
         border = "-1";
         category = "Game";
         fillColor = "242 241 240 255";

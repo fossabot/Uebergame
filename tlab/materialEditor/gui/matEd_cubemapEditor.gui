@@ -30,7 +30,7 @@
       text = "Cubemap Editor";
 
    new GuiTextCtrl(){
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          position = "307 40";
          Extent = "30 16";
          text = "Name";
@@ -39,7 +39,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolspfTextEditMain";
+         Profile = "ToolsTextEditProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "338 40";
@@ -59,14 +59,14 @@
          AltCommand = "MaterialEditorGui.editCubemapName($ThisControl.getText());";
    };
    new GuiButtonCtrl(){
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          position = "339 216";
          Extent = "74 24";
          text = "Select";
          command = "MaterialEditorGui.selectCubemap();"; // needs hookup use selected cubemap
    };
    new GuiButtonCtrl(){
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          position = "417 216";
          Extent = "52 24";
          text = "Cancel";
@@ -111,7 +111,7 @@
       };
    };
    new GuiTextCtrl(){
-         Profile = "ToolsGuiTextProfile";
+         Profile = "ToolsTextBase";
          position = "6 22";
          Extent = "67 16";
          text = "Cubemaps";

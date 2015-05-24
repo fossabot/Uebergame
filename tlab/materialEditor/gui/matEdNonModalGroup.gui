@@ -46,7 +46,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "8 69";
@@ -87,7 +87,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "157 69";
@@ -106,7 +106,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "245 69";
@@ -155,7 +155,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolspfDropdownMain";
+         Profile = "ToolsDropdownMain";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "10 32";
@@ -180,7 +180,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "10 97";
@@ -199,7 +199,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "159 97";
@@ -218,7 +218,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsGuiButtonProfile";
+         Profile = "ToolsButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "200 60";
@@ -237,7 +237,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolspfTextEditMain";
+         Profile = "ToolsTextEditProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "10 60";
@@ -293,7 +293,7 @@
             canSaveDynamicFields = "0";
             Enabled = "1";
             isContainer = "0";
-            Profile = "ToolsGuiButtonProfile";
+            Profile = "ToolsButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
             position = "72 81";

@@ -37,7 +37,7 @@ function Lab::initLabEditor( %this ) {
 
 	%this.initMenubar();
    
-   %this.initGameLab();
+
 }
 //------------------------------------------------------------------------------
 
