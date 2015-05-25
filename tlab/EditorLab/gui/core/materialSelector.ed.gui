@@ -253,7 +253,7 @@ new GuiControl(MaterialSelectorOverlay, EditorGuiGroup) {
             };
             new GuiPopupMenuCtrlEx(){
                internalName = "materialPreviewCountPopup";
-               Profile = "ToolsDropdownMain";
+               Profile = "ToolsDropdownProfile";
                Position = "104 2";
                Extent = "40 18";
                HorizSizing = "right";

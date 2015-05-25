@@ -76,7 +76,7 @@ singleton GuiControlProfile( ToolsScrollProfile_Dark : ToolsScrollProfile ) {
 singleton GuiControlProfile( ToolsScrollProfile_Dark_T50 : ToolsScrollProfile ) {
 	bitmap = "tlab/gui/assets/container/GuiScrollProfile.png";
    opaque = "1";
-   fillColor = "21 21 21 127";
+   fillColor = "21 21 21 128";
 };
 //------------------------------------------------------------------------------
 

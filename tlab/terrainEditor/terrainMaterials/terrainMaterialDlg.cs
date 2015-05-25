@@ -29,8 +29,12 @@ function TerrainMaterialDlg::show( %this, %matIndex, %terrMat, %onApplyCallback 
     }
 }
 //------------------------------------------------------------------------------
+
+
 //==============================================================================
+//Show terrain material information (if no ObjectId, user need to select one)
 function TerrainMaterialDlg::showByObjectId( %this, %matObjectId, %onApplyCallback ) {
+	
     Canvas.pushDialog( %this );
 
     %this.matIndex = -1;

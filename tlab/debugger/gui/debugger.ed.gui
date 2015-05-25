@@ -201,7 +201,7 @@
                text = "Open File:";
             };
             new GuiPopUpMenuCtrl(DebuggerFilePopup) {
-               profile = "ToolsDropdownMain";
+               profile = "ToolsDropdownProfile";
                horizSizing = "right";
                vertSizing = "bottom";
                position = "64 4";

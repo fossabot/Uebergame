@@ -179,7 +179,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      command = "$ThisControl.getParent().updateFromChild($ThisControl); PE_EmitterEditor::onNewEmitter();";
@@ -2089,7 +2089,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsDropdownMain";
+                           profile = "ToolsDropdownProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateParticlesFields($ThisControl);";
@@ -2157,7 +2157,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsDropdownMain";
+                           profile = "ToolsDropdownProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateParticlesFields();";
@@ -2250,7 +2250,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsDropdownMain";
+                           profile = "ToolsDropdownProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateParticlesFields();";
@@ -2343,7 +2343,7 @@
                            minExtent = "8 2";
                            horizSizing = "left";
                            vertSizing = "bottom";
-                           profile = "ToolsDropdownMain";
+                           profile = "ToolsDropdownProfile";
                            visible = "1";
                            active = "1";
                            command = "PE_EmitterEditor.updateParticlesFields();";
@@ -3073,7 +3073,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      command = "$ThisControl.getParent().updateFromChild($ThisControl); PE_ParticleEditor.onNewParticle();";

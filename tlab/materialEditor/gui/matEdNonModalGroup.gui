@@ -155,7 +155,7 @@
          canSaveDynamicFields = "0";
          Enabled = "1";
          isContainer = "0";
-         Profile = "ToolsDropdownMain";
+         Profile = "ToolsDropdownProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "10 32";

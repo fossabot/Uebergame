@@ -11,30 +11,11 @@ function initializeTerrainEditor()
 	exec("tlab/terrainEditor/terrainSettingsParams.cs");
 	exec("tlab/terrainEditor/scripts/painterBrushes.cs");
 	exec("tlab/terrainEditor/scripts/terrainEditor.cs");
-	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialDlg.cs");
+	
 	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialFilters.cs");
 	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialSetup.cs");
-	//----------------------------------------------
-	// Terrain Editor GUIs
-	exec("tlab/terrainEditor/gui/guiCreateNewTerrainGui.gui" );
-	exec("tlab/terrainEditor/gui/TerrainImportGui.gui" );
-	exec("tlab/terrainEditor/gui/TerrainImportGui.cs" );
-	exec("tlab/terrainEditor/gui/guiTerrainExportGui.gui" );
-	exec("tlab/terrainEditor/gui/TerrainEditorVSettingsGui.gui");
-	exec("tlab/terrainEditor/gui/TerrainEditorPalette.gui");
-	exec("tlab/terrainEditor/gui/TerrainEditorToolbar.gui");
-	exec("tlab/terrainEditor/gui/TerrainEditorDialogs.gui");
-	//----------------------------------------------
-	// Terrain Painter GUIs
-	exec("./gui/ProceduralTerrainPainterGui.gui" );
-	exec("tlab/terrainEditor/gui/TerrainPaintGeneratorGui.gui");
-	exec("tlab/terrainEditor/gui/TerrainPaintGeneratorGui.cs");
-	//exec("tlab/terrainEditor/gui/TerrainPainterWindow.gui");
-	exec("tlab/terrainEditor/gui/TerrainPainterTools.gui");
-	exec("tlab/terrainEditor/gui/guiTerrainMaterialDlg.gui");
-	exec("tlab/terrainEditor/gui/TerrainBrushSoftnessCurveDlg.gui");
-	exec("tlab/terrainEditor/gui/TerrainPainterToolbar.gui");
-	exec("tlab/terrainEditor/gui/TerrainPainterPalette.gui");
+	
+	execTerrainEditorGui(true);
 	Lab.createPlugin("TerrainEditor");
 	Lab.createPlugin("TerrainPainter");
 	//Add the plugin GUI elements
@@ -49,8 +30,8 @@ function initializeTerrainEditor()
 	Lab.addPluginGui("TerrainPainter",TerrainPainterTools);
 	Lab.addPluginToolbar("TerrainPainter",EWTerrainPainterToolbar);
 	Lab.addPluginPalette("TerrainPainter",TerrainPainterPalette);
-	Lab.addPluginDlg("TerrainPainter",TerrainPaintGeneratorGui);
-	Lab.addPluginDlg("TerrainPainter",TerrainImportGui);
+	//Lab.addPluginDlg("TerrainPainter",TerrainPaintGeneratorGui);
+	//Lab.addPluginDlg("TerrainPainter",TerrainImportGui);
 	// create our persistence manager
 	TerrainEditorPlugin.PM = new PersistenceManager();
 	TerrainPainterPlugin.PM = new PersistenceManager();
@@ -59,6 +40,10 @@ function initializeTerrainEditor()
 	%map = new ActionMap();
 	newSimSet("FilteredTerrainMaterialsSet");
 	TerrainMaterialDlg-->materialFilter.setText("");
+	
+	//Create scriptobject for paint generator
+	$TPG = newScriptObject("TPG");
+	
 	/*  %map.bindCmd( keyboard, "1", "LabSceneNoneModeBtn.performClick();", "" ); // Select
 	  %map.bindCmd( keyboard, "2", "LabSceneMoveModeBtn.performClick();", "" );   // Move
 	  %map.bindCmd( keyboard, "3", "LabSceneRotateModeBtn.performClick();", "" ); // Rotate
@@ -67,7 +52,7 @@ function initializeTerrainEditor()
 	  %map.bindCmd( keyboard, "delete", "LabScenePlugin.onDeleteKey();", "" );
 
 
-
+	
 
 	  LabScenePlugin.map = %map;
 	  */
@@ -75,7 +60,37 @@ function initializeTerrainEditor()
 	// TerrainPainterPlugin.initSettings();
 }
 
-
+function execTerrainEditorGui(%loadGui)
+{
+	//----------------------------------------------
+	// Terrain Editor GUIs
+	if (%loadGui){		
+		exec("tlab/terrainEditor/gui/TerrainCreatorGui.gui" );
+		exec("tlab/terrainEditor/gui/TerrainImportGui.gui" );	
+		exec("tlab/terrainEditor/gui/TerrainExportGui.gui" );
+		exec("tlab/terrainEditor/gui/TerrainEditorVSettingsGui.gui");
+		exec("tlab/terrainEditor/gui/TerrainEditorPalette.gui");
+		exec("tlab/terrainEditor/gui/TerrainEditorToolbar.gui");
+		exec("tlab/terrainEditor/gui/TerrainEditorDialogs.gui");
+	}
+	exec("tlab/terrainEditor/gui/TerrainImportGui.cs");
+	exec("tlab/terrainEditor/gui/TerrainExportGui.cs");
+	exec("tlab/terrainEditor/gui/TerrainCreatorGui.cs" );
+	//----------------------------------------------
+	// Terrain Painter GUIs
+	if (%loadGui){		
+		exec("tlab/terrainEditor/gui/ProceduralTerrainPainterGui.gui" );
+		exec("tlab/terrainEditor/gui/TerrainPaintGeneratorGui.gui");
+		exec("tlab/terrainEditor/gui/TerrainPainterTools.gui");
+		exec("tlab/terrainEditor/gui/guiTerrainMaterialDlg.gui");
+		exec("tlab/terrainEditor/gui/TerrainBrushSoftnessCurveDlg.gui");
+		exec("tlab/terrainEditor/gui/TerrainPainterToolbar.gui");
+		exec("tlab/terrainEditor/gui/TerrainPainterPalette.gui");
+	}
+	exec("tlab/terrainEditor/gui/TerrainPaintGeneratorGui.cs");
+	exec("tlab/terrainEditor/scripts/paintGenerator.cs");	
+	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialDlg.cs");
+}
 
 
 function destroyLabScene()

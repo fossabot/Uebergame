@@ -457,7 +457,7 @@
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsDropdownMain";
+               profile = "ToolsDropdownProfile";
                visible = "0";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
@@ -1582,7 +1582,7 @@
          minExtent = "8 8";
          horizSizing = "left";
          vertSizing = "bottom";
-         profile = "ToolsDropdownMain";
+         profile = "ToolsDropdownProfile";
          visible = "1";
          active = "1";
          command = "EWorldEditor.dropType = $ThisControl.getText();";

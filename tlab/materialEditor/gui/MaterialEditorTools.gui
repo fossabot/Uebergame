@@ -161,7 +161,7 @@
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsDropdownMain_Thin";
+         profile = "ToolsDropdownProfile_Thin";
          visible = "1";
          active = "1";
          command = "MaterialEditorGui.updatePreviewObject();";
@@ -765,7 +765,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsDropdownMain_Thin";
+                  profile = "ToolsDropdownProfile_Thin";
                   visible = "1";
                   active = "1";
                   command = "SubMaterialSelector.onSelect();";
@@ -920,7 +920,7 @@
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsDropdownMain_Thin";
+            profile = "ToolsDropdownProfile_Thin";
             visible = "1";
             active = "1";
             command = "MaterialEditorGui.changeLayer( $ThisControl.getText() );";
@@ -2995,7 +2995,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsDropdownMain_Thin";
+                           profile = "ToolsDropdownProfile_Thin";
                            visible = "1";
                            active = "1";
                            command = "MaterialEditorGui.updateActiveMaterial(\"translucentBlendOp\",$ThisControl.getValue());";
@@ -5463,7 +5463,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsDropdownMain";
+                           profile = "ToolsDropdownProfile";
                            visible = "1";
                            active = "1";
                            command = "MaterialEditorGui.updateReflectionType($ThisControl.getText());";
@@ -5604,7 +5604,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsDropdownMain";
+                           profile = "ToolsDropdownProfile";
                            visible = "1";
                            active = "1";
                            command = "MaterialEditorGui.updateBehaviorSound(\"Footstep\", $ThisControl.getText());";
@@ -5657,7 +5657,7 @@
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
-                           profile = "ToolsDropdownMain";
+                           profile = "ToolsDropdownProfile";
                            visible = "1";
                            active = "1";
                            command = "MaterialEditorGui.updateBehaviorSound(\"Impact\", $ThisControl.getText());";

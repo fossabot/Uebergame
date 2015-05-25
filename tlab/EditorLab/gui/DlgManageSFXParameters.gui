@@ -147,7 +147,7 @@
             AnchorLeft = "1";
             AnchorRight = "0";
             isContainer = "0";
-            Profile = "ToolsDropdownMain";
+            Profile = "ToolsDropdownProfile";
             HorizSizing = "left";
             VertSizing = "bottom";
             position = "325 1";

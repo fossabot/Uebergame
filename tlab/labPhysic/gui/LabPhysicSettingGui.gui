@@ -3900,7 +3900,7 @@
                                  minExtent = "8 2";
                                  horizSizing = "width";
                                  vertSizing = "bottom";
-                                 profile = "ToolsDropdownMain";
+                                 profile = "ToolsDropdownProfile";
                                  visible = "1";
                                  active = "1";
                                  tooltipProfile = "ToolsGuiToolTipProfile";

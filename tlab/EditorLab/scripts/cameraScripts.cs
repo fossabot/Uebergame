@@ -22,7 +22,7 @@ function Lab::CreateCameraViewContextMenu(%this) {
 		item[ 4 ] = "Smooth move" TAB "" TAB "Lab.setCameraViewMode(\"Smooth Camera\");";
 		item[ 5 ] = "Smooth rot." TAB "" TAB "Lab.setCameraViewMode(\"Smooth Rot Camera\");";	
 		object = -1;
-		profile = "ToolsDropdownMain";
+		profile = "ToolsDropdownProfile";
 	};
 }
 function Lab::showCameraViewContextMenu( %this ) {

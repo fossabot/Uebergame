@@ -341,7 +341,7 @@ function ObjectBuilderGui::createDataBlockType(%this, %index)
    // 
    %this.controls[%this.numControls] = new GuiPopupMenuCtrl() {
       HorizSizing = "width";
-      profile = "ToolsDropdownMain";
+      profile = "ToolsDropdownProfile";
       extent = %this.popupMenuExtent;
       position = %this.curXPos + %this.columnOffset @ " " @ %this.curYPos;
       modal = "1";

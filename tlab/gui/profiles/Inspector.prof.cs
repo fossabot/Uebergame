@@ -78,7 +78,7 @@ delObj(GuiPopUpMenuProfile);
 singleton GuiControlProfile (GuiPopUpMenuProfile : ToolsDefaultProfile)
 {   
   hasBitmapArray     = "1";
-  profileForChildren = "ToolsDropdownMain_List";
+  profileForChildren = "ToolsDropdownProfile_List";
  	bitmap = "tlab/gui/assets/element/GuiDropdownProfile_Thin.png";
    fontSize = "15";
    justify = "Center";

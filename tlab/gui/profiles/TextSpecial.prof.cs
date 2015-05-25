@@ -16,14 +16,14 @@
 //------------------------------------------------------------------------------
 singleton GuiControlProfile( ToolsTextEditProfile : ToolsDefaultProfile ) {
     opaque = true;
-    bitmap = "tlab/gui/assets/element/GuiTextEditProfile.png";
+    bitmap = "tlab/gui/assets/element/GuiTextEditBorder.png";
 
     hasBitmapArray = true;
     border = -2; // fix to display textEdit img
     //borderWidth = "1";  // fix to display textEdit img
     //borderColor = "100 100 100";
     fillColor = "242 241 240 0";
-    fillColorHL = "255 255 255";
+    fillColorHL = "255 255 255 255";
     fontColor = "0 0 0";
     fontColorHL = "64 50 0 255";
     fontColorSEL = "98 100 137";

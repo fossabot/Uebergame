@@ -16,21 +16,13 @@ $TerrainPaintGeneratorGui_Initialized = false;
 //==============================================================================
 // Multi material automatic terrain painter
 //==============================================================================
-//==============================================================================
-function TerrainPaintGeneratorGui::init(%this) 
-{ 
-   if ( !isObject( TPG_LayerGroup ) ) {
-		new SimGroup( TPG_LayerGroup  );	
-	}
-	$TerrainPaintGeneratorGui_Initialized = true; 
-} 
-//------------------------------------------------------------------------------
+
 //==============================================================================
 function TerrainPaintGeneratorGui::onWake(%this) 
 { 
    if (!$TerrainPaintGeneratorGui_Initialized)
-      %this.init();
-  
+      TPG.init();
+  TPG_GenerateProgressWindow.setVisible(false);
  %this-->rolloutSettings.expanded = false;
    TPG_PillSample.setVisible(false);
     %menu = %this-->MenuTerrainLayers;
@@ -58,7 +50,7 @@ function TerrainPaintGeneratorGui::onWake(%this)
    }
   
    %this.checkHeightDefaults();
-  
+  TPG.checkLayersStackGroup();
 } 
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -181,11 +173,11 @@ function TerrainPaintGeneratorGui::layerSelected(%this,%menu)
 //==============================================================================
 function TerrainPaintGeneratorGui::addLayerPill(%this,%layer,%update) { 
   
-  if (!isObject(%layer)) return; 
- 
+  if (!isObject(%layer)) return;  
 
    %srcPill = TPG_PillSample;
    %layer.pill = %srcPill.deepClone();
+   %layer.pill.setName("");
    %layer.pill.setVisible(true);    
     %layer.pill-->menuLayers.layerObj = %layer; 
    %layer.pill-->edit.layerObj = %layer;
@@ -197,6 +189,7 @@ function TerrainPaintGeneratorGui::addLayerPill(%this,%layer,%update) {
    %layer.pill-->heightMax.layerObj = %layer;
    %layer.pill-->slopeMin.layerObj = %layer;
    %layer.pill-->slopeMax.layerObj = %layer;
+    %layer.pill-->coverage.layerObj = %layer;
    TPG_StackLayers.add(%layer.pill);
    
    %this.updatePillLayerList(%layer);
@@ -209,9 +202,8 @@ function TerrainPaintGeneratorGui::updateLayerPill(%this,%layer) {
   
   if (!isObject(%layer) || !isObject(%layer.pill)) return; 
  
-   %layer.pill.layerObj = %layer;
-  
-   %layer.pill-->material.setText(%layer.matInternalName);
+   %layer.pill.layerObj = %layer;  
+   
    %layer.pill-->heightMin.setText(%layer.heightMin);
    %layer.pill-->heightMax.setText( %layer.heightMax);
    %layer.pill-->slopeMin.setText(%layer.slopeMin);
@@ -254,12 +246,8 @@ function TerrainPaintGeneratorGui::moveDown(%this, %buttonCtrl) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function TPG_PillEdit::onValidate(%this) {  
+	TPG.validateLayerSetting(%this.internalName,%this.layerObj);
   
-  %layer = %this.layerObj;
-  eval("%layer."@%this.internalName@" = %this.getText();");
-  
-  if (%this.internalName $= "heightMin" ||%this.internalName $= "heightMax")
-   TerrainPaintGeneratorGui.validateHeight(%layer);
   
  
 } 
@@ -286,89 +274,8 @@ function TerrainPaintGeneratorGui::deleteLayerGroup(%this) {
    TPG_StackLayers.clear();
 } 
 //------------------------------------------------------------------------------
-//==============================================================================
-// TerrainPaintGeneratorGui Save Layer Group
-//==============================================================================
-$TPG_FilerFilter = "Lab Painter Layers|*.painter.cs";
 
-//==============================================================================
-function TerrainPaintGeneratorGui::saveLayerGroup(%this) {   
-   getSaveFilename($TPG_FilerFilter, "TerrainPaintGeneratorGui.saveLayerGroupHandler", "tlab/TerrainEditor/painterLayers/default.painter.cs");  
-} 
-//------------------------------------------------------------------------------
-//==============================================================================
-//Callback for the saved file
-function TerrainPaintGeneratorGui::saveLayerGroupHandler( %this,%filename ) {	
-	%filename = makeRelativePath( %filename, getMainDotCsDir() );
-	if(strStr(%filename, ".") == -1)
-		%filename = %filename @ ".painter.cs";
-  
-   
-   // Create a file object for writing
-   %fileWrite = new FileObject();
-   %fileWrite.OpenForWrite(%filename);
-  %fileWrite.writeObject(TPG_LayerGroup);
 
-  %fileWrite.close();
-  %fileWrite.delete();
- 
-	info("Terrain painter layers save to file:",%filename);
-}
-//------------------------------------------------------------------------------
-//==============================================================================
-// TerrainPaintGeneratorGui Load Layer Group
-//==============================================================================
-//==============================================================================
-function TerrainPaintGeneratorGui::loadLayerGroup(%this) {    
-getLoadFilename($TPG_FilerFilter, "TerrainPaintGeneratorGui.loadLayerGroupHandler");
-  
-} 
-//------------------------------------------------------------------------------
-//==============================================================================
-function TerrainPaintGeneratorGui::loadLayerGroupHandler(%this,%filename) {   
-   if ( isScriptFile( %filename ) ) {
-      %this.deleteLayerGroup();
-      TPG_LayerGroup.delete();
-		%filename = expandFilename(%filename);		
-		exec(%filename);	
-	}
-	
-	 foreach(%layer in TPG_LayerGroup){     
-     %layer.pill = "";
-      %this.addLayerPill(%layer,true);
-   }	
-  
-   if (!isObject(TPG_LayerGroup))
-      new SimGroup( TPG_LayerGroup );	
-} 
-//------------------------------------------------------------------------------
-//==============================================================================
-// TerrainPaintGeneratorGui Generate the layers
-//==============================================================================
-//==============================================================================
-function TerrainPaintGeneratorGui::generateLayerGroup(%this) { 
-   if ($TPG_Generating) return;
-  $TPG_Generating = true;
-   %currentIndex = ETerrainEditor.paintIndex;
-   foreach(%layer in TPG_LayerGroup){  
-     ETerrainEditor.paintIndex = %layer.matIndex;
-     if (%layer.useTerrainHeight){
-     %heightMin = %layer.heightMin;
-      %heightMax = %layer.heightMax;
-     }
-     else {
-         %heightMin = %layer.heightMin + $Lab_TerrainZ;
-      %heightMax = %layer.heightMax + $Lab_TerrainZ;
-     }
-     if (%layer.coverage < 1) %layer.coverage = 1;
-     else if (%layer.coverage > 100) %layer.coverage =100;
-       ETerrainEditor.autoMaterialLayer(%heightMin, %heightMax, %layer.slopeMin, %layer.slopeMax,%layer.coverage);  
-       info("Painting terrain with Mat Index",%layer.matIndex,"Name",%layer.matInternalName,"Height and Slope",%heightMin, %heightMax, %layer.slopeMin, %layer.slopeMax,"Coverage",%layer.coverage);
-   }	
-   ETerrainEditor.paintIndex = %currentIndex;
-$TPG_Generating = false;
-} 
-//------------------------------------------------------------------------------
 //==============================================================================
 function TPG_EditTerrainHeight::onValidate(%this) {   
   theTerrain.terrainHeight = %this.getText();

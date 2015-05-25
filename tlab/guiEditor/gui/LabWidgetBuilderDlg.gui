@@ -524,7 +524,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsDropdownMain";
+                  profile = "ToolsDropdownProfile";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.selectWidgetStyle($ThisControl.getSelected());";
@@ -597,7 +597,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsDropdownMain";
+                  profile = "ToolsDropdownProfile";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.selectWidgetType($ThisControl.getSelected());";
@@ -670,7 +670,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsDropdownMain";
+                  profile = "ToolsDropdownProfile";
                   visible = "1";
                   active = "1";
                   command = "GuiLab.selectWidget($ThisControl.getSelected());";

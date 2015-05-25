@@ -539,7 +539,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolsDropdownMain";
+				Profile = "ToolsDropdownProfile";
 				HorizSizing = "width";
 				VertSizing = "bottom";
 				position = "65 26";
@@ -726,7 +726,7 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 				AnchorLeft = "1";
 				AnchorRight = "0";
 				isContainer = "0";
-				Profile = "ToolsDropdownMain";
+				Profile = "ToolsDropdownProfile";
 				HorizSizing = "left";
 				VertSizing = "bottom";
 				position = "349 73";

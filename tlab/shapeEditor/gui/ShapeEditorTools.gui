@@ -286,7 +286,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsDropdownMain";
+                  profile = "ToolsDropdownProfile";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -511,7 +511,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
-                  profile = "ToolsDropdownMain";
+                  profile = "ToolsDropdownProfile";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -1019,7 +1019,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -1273,7 +1273,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdSequences.onEditBlend();";
@@ -2024,7 +2024,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -2424,7 +2424,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdDetails.onEditBBType();";
@@ -2476,7 +2476,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdDetails.onSetObjectNode();";
@@ -2546,7 +2546,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -4274,7 +4274,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
@@ -4325,7 +4325,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdMountWindow.updateSelectedMount();";
@@ -4378,7 +4378,7 @@
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdMountWindow.updateSelectedMount();";
@@ -4408,7 +4408,7 @@
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
-                     profile = "ToolsDropdownMain";
+                     profile = "ToolsDropdownProfile";
                      visible = "1";
                      active = "1";
                      command = "ShapeEdMountWindow.setMountThreadSequence();";
@@ -4945,7 +4945,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "top";
-                  profile = "ToolsDropdownMain";
+                  profile = "ToolsDropdownProfile";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -4997,7 +4997,7 @@
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "top";
-                  profile = "ToolsDropdownMain";
+                  profile = "ToolsDropdownProfile";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
@@ -5097,7 +5097,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsDropdownMain";
+                  profile = "ToolsDropdownProfile";
                   visible = "1";
                   active = "1";
                   command = "ShapeEdColWindow.editCollision();";
@@ -5150,7 +5150,7 @@
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsDropdownMain";
+                  profile = "ToolsDropdownProfile";
                   visible = "1";
                   active = "1";
                   command = "ShapeEdColWindow.editCollision();";
