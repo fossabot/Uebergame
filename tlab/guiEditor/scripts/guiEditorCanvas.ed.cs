@@ -137,6 +137,7 @@ function GuiEditCanvas::onCreateMenu(%this) {
             item[%id++] = "-";
             item[%id++] = "Bring to Front" TAB "" TAB "GuiEditor.BringToFront();";
             item[%id++] = "Send to Back" TAB "" TAB "GuiEditor.PushToBack();";
+            
              item[%id++] = "-";
            
         };
@@ -157,6 +158,8 @@ function GuiEditCanvas::onCreateMenu(%this) {
              item[%id++] = "Set position from reference-" TAB "Shift 2" TAB "Lab.setControlReferenceField(\" position \");";
              item[%id++] = "Set extent from reference-" TAB "Shift 3" TAB "Lab.setControlReferenceField(\" extent \");";
             item[%id++] = "Set empty name tp selection-" TAB "Shift n" TAB "Lab.setControlReferenceField(\" name \");";
+            item[%id++] = "-";
+            item[%id++] = "Toggle auto load last GUI" TAB "" TAB "Lab.toggleAutoLoadLastGui();";
            
         };
 

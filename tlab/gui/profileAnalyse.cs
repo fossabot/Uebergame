@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor -> Fonts Setup
+// TorqueLab -> Fonts Setup
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 // Define what fonts to use in the interface

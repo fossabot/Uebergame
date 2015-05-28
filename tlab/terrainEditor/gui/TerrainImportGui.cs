@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor -> Procedural Terrain Painter GUI script
+// TorqueLab -> Procedural Terrain Painter GUI script
 // Copyright NordikLab Studio, 2014
 //==============================================================================
 

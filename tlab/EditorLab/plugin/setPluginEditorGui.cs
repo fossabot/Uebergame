@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -22,25 +22,24 @@ function Lab::setEditor( %this, %newEditor, %dontActivate ) {
 			warnLog("Plugin failed to activate, keeping the current plugin active");
 			return;
 		}
-	}	
+	}		
 	
-	//Check the EditorGui of both, if different hide previous and show new
-	//If there's a editor loaded, deactivate it
+	//Make sure currentEditor exist for the next checks
 	if ( isObject( %this.currentEditor ) ) {
-		//Cancel if the current is the same as new
-		if( %this.currentEditor.getId() == %newEditor.getId() )
-			return;
-
-		if( %this.currentEditor.isActivated )
-			%this.currentEditor.onDeactivated();
-
-		if( isObject( %this.currentEditor.editorGui ) ) {
+		//Desactivated current editor if activated and not same as new
+		if( %this.currentEditor.getId() != %newEditor.getId() && %this.currentEditor.isActivated)		
+				%this.currentEditor.onDeactivated();	
+		
+		//Store current OrthoFOV view to set same in new editor
+		if( isObject( %this.currentEditor.editorGui ) ) 
 			%this.orthoFOV = %this.currentEditor.editorGui.getOrthoFOV();
-		}
 	}	
+
+			
 	%this.syncEditor( %newEditor );
 	%this.currentEditor = %newEditor;
-	%this.currentEditor.onActivated();
+	if (!%this.currentEditor.isActivated)
+		%this.currentEditor.onActivated();
 	//Lab.activatePlugin(%this.currentEditor);  	
 }
 function Lab::syncEditor( %this,%newEditor ) {   

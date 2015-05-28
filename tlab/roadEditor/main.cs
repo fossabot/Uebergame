@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -15,6 +15,7 @@ function initializeRoadEditor() {
     exec( "./roadEditorGui.cs" );
     exec( "./RoadEditorPlugin.cs" );
     exec( "tlab/roadEditor/RoadEditorParams.cs" );
+    execPattern("tlab/roadEditor/scripts/*.cs");
     Lab.addPluginEditor("RoadEditor",RoadEditorGui);
     Lab.addPluginGui("RoadEditor",RoadEditorTools);
     //Lab.addPluginGui("RoadEditor",RoadEditorOptionsWindow);
@@ -22,10 +23,10 @@ function initializeRoadEditor() {
     Lab.addPluginToolbar("RoadEditor",RoadEditorToolbar);
     Lab.addPluginPalette("RoadEditor",   RoadEditorPalette);
 
-    Lab.createPlugin("RoadEditor");
+    Lab.createPlugin("RoadEditor","Road Editor");
     RoadEditorPlugin.editorGui = RoadEditorGui;
 
-
+	$REP = newScriptObject("REP");
     %map = new ActionMap();
     %map.bindCmd( keyboard, "backspace", "RoadEditorGui.onDeleteKey();", "" );
     %map.bindCmd( keyboard, "1", "RoadEditorGui.prepSelectionMode();", "" );
@@ -43,6 +44,14 @@ function initializeRoadEditor() {
 
     //RoadEditorPlugin.initSettings();
 }
+
+function execRoadEd() {
+	exec( "./roadEditor.cs" );
+	 exec( "./roadEditorGui.cs" );
+    exec( "./RoadEditorPlugin.cs" );
+    execPattern("tlab/roadEditor/scripts/*.cs");
+}
+
 
 function destroyRoadEditor() {
 }

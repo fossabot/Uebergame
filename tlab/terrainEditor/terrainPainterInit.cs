@@ -1,5 +1,5 @@
 //==============================================================================
-// Castle Blasters ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -80,26 +80,7 @@ function TerrainPainterPlugin::syncBrushInfo( %this ) {
     eval( "EWTerrainPainterToolbar-->" @ %brushType @ ".setStateOn(1);" );
 }
 
-function TerrainPainterPlugin::validateBrushSize( %this ) {
-    %minBrushSize = 1;
-    %maxBrushSize = getWord(ETerrainEditor.maxBrushSize, 0);
 
-    %val = $ThisControl.getText();
-    if(%val < %minBrushSize)
-        $ThisControl.setValue(%minBrushSize);
-    else if(%val > %maxBrushSize)
-        $ThisControl.setValue(%maxBrushSize);
-}
-
-function TerrainPainterPlugin::validateSlopeMaxAngle( %this ) {
-    %maxval = ETerrainEditor.getSlopeLimitMaxAngle();
-    PaintBrushSlopeControl-->SlopeMaxAngle.setText(%maxval);
-}
-
-function TerrainPainterPlugin::validateSlopeMinAngle( %this ) {
-    %minval = ETerrainEditor.getSlopeLimitMinAngle();
-    PaintBrushSlopeControl-->SlopeMinAngle.setText(%minval);
-}
 
 function TerrainPainterPlugin::keyboardModifyBrushSize( %this, %amt) {
     %val = PaintBrushSizeTextEditContainer-->textEdit.getText();

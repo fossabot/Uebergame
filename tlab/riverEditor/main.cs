@@ -38,7 +38,7 @@ function initializeRiverEditor() {
     Lab.addPluginToolbar("RiverEditor",RiverEditorToolbar);
     Lab.addPluginPalette("RiverEditor",   RiverEditorPalette);
 
-    Lab.createPlugin("RiverEditor");
+    Lab.createPlugin("RiverEditor","River Editor");
     RiverEditorPlugin.editorGui = RiverEditorGui;
 
 

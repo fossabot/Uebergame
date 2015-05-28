@@ -1,5 +1,5 @@
 //==============================================================================
-// Castle Blasters ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -48,28 +48,28 @@ delObj(GuiPopUpMenuProfile_List);
 singleton GuiControlProfile (GuiPopUpMenuProfile : ToolsDefaultProfile)
 {   
    hasBitmapArray     = "1";
-   fontSize = "17";
+   fontSize = "15";
    fontColors[1] = "255 160 0 255";
    fontColorHL = "255 160 0 255";
    autoSizeWidth = "0";
-   autoSizeHeight = "0";
+   autoSizeHeight = "1";
    modal = "1";
    fillColor = "242 241 241 255";
    fillColorHL = "228 228 235 255";
    fontColors[2] = "3 206 254 255";
    fontColorNA = "3 206 254 255";
-   profileForChildren = "GuiPopUpMenuProfile_List";
+   profileForChildren = "ToolsDropdownProfile_List";
    fillColorSEL = "98 100 137 255";
    fontColors[3] = "254 3 62 255";
    fontColorSEL = "254 3 62 255";
-   opaque = "1";
+   opaque = "0";
    bevelColorHL = "255 0 255 255";
    fontColors[0] = "0 0 0 255";
    fontColor = "0 0 0 255";
    fontType = "Davidan";
    justify = "Center";
    bitmap = "tlab/gui/assets/element/GuiDropdownProfile_Thin.png";
-   category = "GameList";
+   category = "Tools";
   
 };
 //------------------------------------------------------------------------------

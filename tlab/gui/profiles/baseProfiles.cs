@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor -> Core Profiles
+// TorqueLab -> Core Profiles
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 // Those profiles are defined in the code directly

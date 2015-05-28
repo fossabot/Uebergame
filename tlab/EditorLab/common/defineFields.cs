@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 // Allow to manage different GUI Styles without conflict

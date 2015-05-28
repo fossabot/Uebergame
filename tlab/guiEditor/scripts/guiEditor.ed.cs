@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -29,7 +29,10 @@ function GuiEdit( %val ) {
             info("Editing the world EditorGui");
             %initialContent = GuiEditor.forceContent;
          }
-        GuiEditor.initialContent =%initialContent;
+          GuiEditor.initialContent =%initialContent;
+         if ($pref::Editor::AutoLoadLastGui && isObject(GuiEditor.lastContent))
+         	%initialContent = GuiEditor.lastContent;
+       
         GuiEditContent(%initialContent);
 
         //Temp fix to disable MLAA when in GUI editor
@@ -38,11 +41,19 @@ function GuiEdit( %val ) {
             $MLAAFxGuiEditorTemp = true;
         }
     } else {
+    		Lab.lastGuiEditSource = GuiEditor.lastContent;
         GuiEditCanvas.quit();
     }
 
 }
 //------------------------------------------------------------------------------
+//==============================================================================
+function Lab::toggleAutoLoadLastGui( %content ) {
+	$pref::Editor::AutoLoadLastGui = !$pref::Editor::AutoLoadLastGui;
+  	info("Auto load last gui is set to:",$pref::Editor::AutoLoadLastGui);
+}
+//------------------------------------------------------------------------------
+
 //==============================================================================
 function GuiEditContent( %content ) {
     if( !isObject( GuiEditCanvas ) )

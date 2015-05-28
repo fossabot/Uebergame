@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -66,7 +66,7 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 
 	%itemId = -1;
 	$LabMenu[%id++] = "View";
-	$LabMenuItem[%id,%itemId++] = "Visibility Layers" TAB "Alt V" TAB "VisibilityDropdownToggle();";
+	$LabMenuItem[%id,%itemId++] = "Visibility Layers" TAB "Alt V" TAB "EVisibilityLayers.toggleVisibility();";
 	$LabMenuItem[%id,%itemId++] = "Show Grid in Ortho Views" TAB %cmdCtrl @ "-Shift-Alt G" TAB "EWorldEditor.renderOrthoGrid = !EWorldEditor.renderOrthoGrid;";
 
 	%itemId = -1;
@@ -164,6 +164,7 @@ function Lab::initLabMenuData(%this,%buildAfter) {
    $LabMenuItem[%id,%itemId++] = "Editors";
    $LabMenuEditorSubMenu = %id SPC %itemId;
    $LabMenuEditorNextId = -1;
+   $LabMenuItem[%id,%itemId++] = "Capture current view as level preview" TAB "" TAB "Lab.setCurrentViewAsPreview();";
    $LabMenuItem[%id,%itemId++] = "Set next screenshot as preview" TAB "" TAB "Lab.setNextScreenShotPreview();";
    
 	%itemId = -1;

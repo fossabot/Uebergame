@@ -23,20 +23,7 @@
 function initializeForestEditor() {
     echo(" % - Initializing Forest Editor");
 
-    exec( "./forestEditor.cs" );
-    exec( "./gui/forestEditorGui.gui" );
-    exec( "./gui/ForestEditorTools.gui" );
-    exec( "./gui/forestEditToolbar.gui" );
-    exec( "./gui/forestEditorPalette.gui" );
-    exec( "tlab/ForestEditor/forestEditorGui.cs" );
-    exec( "./tools.cs" );
-    exec( "tlab/ForestEditor/ForestEditorParams.cs" );
-
-    exec( "tlab/ForestEditor/ForestEditorMain.cs" );
-    exec( "tlab/ForestEditor/ForestEditorSave.cs" );
-    exec( "tlab/ForestEditor/ForestEditorScript.cs" );
-   exec( "tlab/ForestEditor/ForestEditBrushTree.cs" );
-exec( "tlab/ForestEditor/ForestEditMeshTree.cs" );
+   execFEP(true);
 
     //Add the different editor GUIs to the LabEditor
     Lab.addPluginEditor("ForestEditor",ForestEditorGui);
@@ -77,7 +64,27 @@ exec( "tlab/ForestEditor/ForestEditMeshTree.cs" );
     ForestEditorPlugin.map = %map;
   
 }
+function execFEP(%loadGui) {
+    exec( "./forestEditor.cs" );
+  
+   
+   if (%loadGui){
+      exec( "./gui/forestEditorGui.gui" );
+    exec( "./gui/ForestEditorTools.gui" );
+    exec( "./gui/forestEditToolbar.gui" );
+    exec( "./gui/forestEditorPalette.gui" );
+   }
+    // Load Client Scripts.
+    exec( "tlab/ForestEditor/forestEditorGui.cs" );
+    exec( "./tools.cs" );
+    exec( "tlab/ForestEditor/ForestEditorParams.cs" );
 
+    exec( "tlab/ForestEditor/ForestEditorMain.cs" );
+    exec( "tlab/ForestEditor/ForestEditorSave.cs" );
+    exec( "tlab/ForestEditor/ForestEditorScript.cs" );
+
+	 execPattern("tlab/ForestEditor/scripts/*.cs");
+}
 function destroyForestEditor() {
 }
 

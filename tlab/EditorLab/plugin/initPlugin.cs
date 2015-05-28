@@ -1,15 +1,16 @@
 //==============================================================================
-// Lab Editor -> Initialize editor plugins
+// TorqueLab -> Initialize editor plugins
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
 
+
 //==============================================================================
 // Create the Plugin object with initial data
 function Lab::createPlugin(%this,%pluginName,%displayName,%alwaysEnable) {
-
 	//Set plugin object name and verify if already existing
 	%plugName = %pluginName@"Plugin";
+
 	if (isObject( %plugName)) {
 		warnLog("Plugin already created:",%pluginName);
 		return %plugName;
@@ -22,9 +23,9 @@ function Lab::createPlugin(%this,%pluginName,%displayName,%alwaysEnable) {
 
 	if ($LabData_PluginOrder[%pluginName] !$= "")
 		%pluginOrder = $LabData_PluginOrder[%pluginName];
-		
-	   //Create the ScriptObject for the Plugin
-	   %pluginObj = new ScriptObject( %plugName ) {
+
+	//Create the ScriptObject for the Plugin
+	%pluginObj = new ScriptObject( %plugName ) {
 		superClass = "EditorPlugin"; //Default to EditorPlugin class
 		editorGui = EWorldEditor; //Default to EWorldEditor
 		editorMode = "World";
@@ -33,14 +34,13 @@ function Lab::createPlugin(%this,%pluginName,%displayName,%alwaysEnable) {
 		toolTip = %displayName;
 		alwaysOn = %alwaysEnable;
 		pluginOrder = %pluginOrder;
+		shortPlugin = %shortObjName;
 	};
-	
 	LabPluginGroup.add(%pluginObj);
-	
+
 	if (%alwaysEnable)
 		$PluginAlwaysOn[%pluginName] = true;
 
-	
 	//Lab.initPluginData(%pluginObj);
 	return %pluginObj;
 }
@@ -56,19 +56,18 @@ function Lab::initAllPluginConfig(%this) {
 //Initialize plugin data
 function Lab::initPluginConfig(%this,%pluginObj) {
 	%pluginName = %pluginObj.plugin;
-	
-   %array = newArrayObject("ar"@%pluginName@"Cfg",LabConfigArrayGroup);
-   %array.pluginObj =%pluginObj;
-   %array.groupLink = "Plugins_"@%pluginName;
-   %array.groupLinkName = %pluginName SPC "Settings";
-   %array.internalName = %pluginName;
-   if (%pluginObj.isMethod("initDefaultCfg")) 
-		   %pluginObj.initDefaultCfg(%array);
-   %array.setVal("pluginOrder",      "99" TAB "pluginOrder" TAB "" TAB "" TAB %pluginObj.getName());  
-   %array.setVal("isEnabled",      "1" TAB "isEnabled" TAB "" TAB "" TAB %pluginObj.getName());  
-		//%this.initConfigArray( %array,true);
-		
-	
+	%array = newArrayObject("ar"@%pluginName@"Cfg",LabConfigArrayGroup);
+	%array.pluginObj =%pluginObj;
+	%array.groupLink = "Plugins_"@%pluginName;
+	%array.groupLinkName = %pluginName SPC "Settings";
+	%array.internalName = %pluginName;
+
+	if (%pluginObj.isMethod("initDefaultCfg"))
+		%pluginObj.initDefaultCfg(%array);
+
+	%array.setVal("pluginOrder",      "99" TAB "pluginOrder" TAB "" TAB "" TAB %pluginObj.getName());
+	%array.setVal("isEnabled",      "1" TAB "isEnabled" TAB "" TAB "" TAB %pluginObj.getName());
+	//%this.initConfigArray( %array,true);
 	//%pluginObj.isEnabled =  %pluginObj.checkCfg("Enabled","1");
 	//%pluginObj.pluginOrder =  %pluginObj.checkCfg("pluginOrder","99");
 }
@@ -81,7 +80,7 @@ function Lab::activatePlugin(%this,%pluginObj) {
    Lab.fitCameraGui = ""; //Used by GuiShapeEdPreview to Fit camera on object
    //Call the Plugin Object onActivated method if exist
 	if(%pluginObj.isMethod("onActivated"))
-		%pluginObj.onActivated();	
+		%pluginObj.onActivated();
 
    %this.activatePluginGui(%pluginObj);
 }
@@ -103,8 +102,11 @@ function Lab::enablePlugin(%this,%pluginObj,%enabled,%showLog) {
 		warnLog("Trying to enable invalid plugin:",%pluginObj);
 		return;
 	}
+
 	if (%pluginObj.alwaysOn) %enabled = "1";
+
 	%name = %pluginObj.plugin;
+
 	if (%name $= "")
 		%name = %pluginObj.getName()@"_fromObj";
 
@@ -113,21 +115,20 @@ function Lab::enablePlugin(%this,%pluginObj,%enabled,%showLog) {
 
 	if (%enabled) {
 		if (!isObject(%toolArray))
-
-
 			%this.AddToEditorsMenu(%pluginObj);
+
 		%pluginObj.isEnabled = true;
+
 		if (%showLog)
 			info(%name,"enabled");
 	} else {
 		hide(%toolArrayObj);
-
 		%this.removeFromEditorsMenu(%pluginObj);
 		%pluginObj.isEnabled = false;
+
 		if (%showLog)
 			info(%name,"disabled");
 	}
-
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -143,6 +144,7 @@ function Lab::updateActivePlugins(%this) {
 function Lab::saveAllPluginData(%this) {
 	//Update the PluginBar data (PluginOrder for now)
 	Lab.updatePluginBarData();
+
 	foreach(%pluginObj in LabPluginGroup) {
 		%pluginObj.setCfg("pluginOrder",%pluginObj.pluginOrder);
 	}

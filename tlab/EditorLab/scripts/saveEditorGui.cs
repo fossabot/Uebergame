@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor -> EditorGui Save function (Can't save with all added controls)
+// TorqueLab -> EditorGui Save function (Can't save with all added controls)
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================

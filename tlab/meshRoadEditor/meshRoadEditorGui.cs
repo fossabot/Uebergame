@@ -47,6 +47,14 @@ function MeshRoadEditorGui::onSleep( %this ) {
     $MeshRoad::EditorOpen = false;
 }
 
+function MeshRoadEditorGui::showDefaultMaterialSaveDialog( %this, %toMaterial,%extra ) {
+	devLog("showDefaultMaterialSaveDialog",%toMaterial,"Extra",%extra);
+    %fromMaterial = MeshRoadEditorGui.topMaterialName;
+	MeshRoadEditorGui.topMaterialName = %toMaterial.getName();
+	Lab.syncConfigParamField(arMeshRoadEditorCfg.paramObj,"topMaterialName",%toMaterial.getName());
+	devLog("MeshRoadEditorGui Default material changed from:",%fromMaterial,"To:",%toMaterial);
+ 
+}
 function MeshRoadEditorGui::paletteSync( %this, %mode ) {
     %evalShortcut = "EWToolsPaletteArray-->" @ %mode @ ".setStateOn(1);";
     eval(%evalShortcut);

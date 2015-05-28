@@ -1,12 +1,12 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 /*
 %cfgArray.setVal("FIELD",       "DEFAULT" TAB "TEXT" TAB "TextEdit" TAB "" TAB "");
 */
 //==============================================================================
-
+$Lab_REP_DefaultNodeWidthRange = "0 50";
 function RoadEditorPlugin::initDefaultCfg( %this,%cfgArray )
 {  
    %cfgArray.group[1] = "General settings";

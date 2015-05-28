@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -70,7 +70,7 @@ function MaterialEditorPlugin::onActivated( %this ) {
     MaterialEditorGui.initGui();
     
     WEditorPlugin.onActivated();
- 
+ MaterialEditorGui-->propertiesOptions.expanded = 0;
     EditorGui-->SceneEditorToolbar.setVisible( true );
 
     MaterialEditorGui.currentObject = $Lab::materialEditorList;

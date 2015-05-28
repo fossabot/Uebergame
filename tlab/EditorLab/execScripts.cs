@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -174,7 +174,7 @@ function tlabExecDialogs(%loadGui )
 tlabExecDialogs($LabExecGui);
 
 //------------------------------------------------------------------------------
-// Lab Editor Settings scripts
+// TorqueLab Settings scripts
 function tlabExecSettings(%loadGui )
 {
 	if (%loadGui)
@@ -190,7 +190,7 @@ tlabExecSettings($LabExecGui);
 
 
 //------------------------------------------------------------------------------
-// Lab Editor common scrits
+// TorqueLab common scrits
 function tlabExecCommon(%loadGui )
 {
 	exec("tlab/EditorLab/common/physicSystem.cs");
@@ -199,12 +199,13 @@ function tlabExecCommon(%loadGui )
 	exec("tlab/EditorLab/common/areaEditor.cs");
 	exec("tlab/EditorLab/common/specialRender.cs");
 	exec("tlab/EditorLab/common/undoManager.cs");
+	exec("tlab/EditorLab/common/missionHelpers.cs");
 }
 tlabExecCommon($LabExecGui);
 
 
 //------------------------------------------------------------------------------
-// Lab Editor Plugins Scripts
+// TorqueLab Plugins Scripts
 function tlabExecPlugin(%loadGui )
 {
 	exec("tlab/EditorLab/plugin/setPluginEditorGui.cs");

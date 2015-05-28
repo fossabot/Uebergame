@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -8,12 +8,12 @@ function initializeMeshRoadEditor() {
     echo(" % - Initializing Mesh Road Editor");
 
     exec( "./meshRoadEditor.cs" );
-    exec( "./gui/meshRoadEditorGui.gui" );
+    exec( "tlab/meshRoadEditor/gui/meshRoadEditorGui.gui" );
     exec( "./gui/MeshRoadEditorTools.gui" );
     exec( "./gui/meshRoadEditorToolbar.gui");
     exec( "./gui/meshRoadEditorPalette.gui");
 
-    exec( "./meshRoadEditorGui.cs" );
+    exec( "tlab/meshRoadEditor/meshRoadEditorGui.cs" );
     exec( "tlab/meshRoadEditor/MeshRoadEditorPlugin.cs" );
     exec( "tlab/meshRoadEditor/MeshRoadEditorParams.cs" );
 
@@ -22,7 +22,7 @@ function initializeMeshRoadEditor() {
     Lab.addPluginToolbar("MeshRoadEditor",MeshRoadEditorToolbar);
     Lab.addPluginPalette("MeshRoadEditor",   MeshRoadEditorPalette);
 
-    Lab.createPlugin("MeshRoadEditor");
+    Lab.createPlugin("MeshRoadEditor","Mesh Road Editor");
     MeshRoadEditorPlugin.editorGui = MeshRoadEditorGui;
 
 

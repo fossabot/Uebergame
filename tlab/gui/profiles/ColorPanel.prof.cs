@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor -> Panels Profiles
+// TorqueLab -> Panels Profiles
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 // Special Panels which simply set predefined fill color and appropriate text

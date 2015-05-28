@@ -35,6 +35,15 @@ function RoadEditorGui::onWake( %this ) {
     %this.onNodeSelected(-1);
 }
 
+
+function RoadEditorGui::showDefaultMaterialSaveDialog( %this, %toMaterial ) {
+    %fromMaterial = RoadEditorGui.materialName;
+	RoadEditorGui.materialName = %toMaterial.getName();
+	Lab.syncConfigParamField(arRoadEditorCfg.paramObj,"materialName",%toMaterial.getName());
+	devLog("RoadEditorGui Default material changed from:",%fromMaterial,"To:",%toMaterial);
+ 
+}
+
 function RoadEditorGui::onSleep( %this ) {
     $DecalRoad::EditorOpen = false;
 }
@@ -44,19 +53,7 @@ function RoadEditorGui::paletteSync( %this, %mode ) {
     eval(%evalShortcut);
 }
 
-function RoadEditorGui::onDeleteKey( %this ) {
-    %road = %this.getSelectedRoad();
-    %node = %this.getSelectedNode();
 
-    if ( !isObject( %road ) )
-        return;
-
-    if ( %node != -1 ) {
-        %this.deleteNode();
-    } else {
-        LabMsgOkCancel( "Notice", "Delete selected DecalRoad?", "RoadEditorGui.deleteRoad();", "" );
-    }
-}
 
 function RoadEditorGui::onEscapePressed( %this ) {
     if( %this.getMode() $= "RoadEditorAddNodeMode" ) {
@@ -68,52 +65,6 @@ function RoadEditorGui::onEscapePressed( %this ) {
 
 //just in case we need it later
 function RoadEditorGui::onRoadCreation( %this ) {
-}
-
-function RoadEditorGui::onRoadSelected( %this, %road ) {
-    %this.road = %road;
-
-    // Update the materialEditorList
-    if(isObject( %road ))
-        $Lab::materialEditorList = %road.getId();
-
-    RoadInspector.inspect( %road );
-    RoadTreeView.buildVisibleTree(true);
-    if( RoadTreeView.getSelectedObject() != %road ) {
-        RoadTreeView.clearSelection();
-        %treeId = RoadTreeView.findItemByObjectId( %road );
-        RoadTreeView.selectItem( %treeId );
-    }
-}
-
-function RoadEditorGui::onNodeSelected( %this, %nodeIdx ) {
-	
-    if ( %nodeIdx == -1 ) {
-        RoadEditorProperties-->position.setActive( false );
-        RoadEditorProperties-->position.setValue( "" );
-
-        RoadEditorProperties-->width.setActive( false );
-        RoadEditorProperties-->width.setValue( "" );
-    } else {
-        RoadEditorProperties-->position.setActive( true );
-        RoadEditorProperties-->position.setValue( %this.getNodePosition() );
-
-        RoadEditorProperties-->width.setActive( true );
-        RoadEditorProperties-->width.setValue( %this.getNodeWidth() );
-    }
-
-}
-
-function RoadEditorGui::onNodeModified( %this, %nodeIdx ) {
-
-    RoadEditorProperties-->position.setValue( %this.getNodePosition() );
-    RoadEditorProperties-->width.setValue( %this.getNodeWidth() );
-
-}
-
-function RoadEditorGui::editNodeDetails( %this ) {
-    %this.setNodePosition( RoadEditorProperties-->position.getText() );
-    %this.setNodeWidth( RoadEditorProperties-->width.getText() );
 }
 
 function RoadEditorGui::onBrowseClicked( %this ) {

@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -26,7 +26,7 @@ function initializeShapeEditor() {
 	Lab.addPluginEditor("ShapeEditor",ShapeEdAnimWindow,true);
 	Lab.addPluginToolbar("ShapeEditor",ShapeEditorToolbar);
 	Lab.addPluginPalette("ShapeEditor",   ShapeEditorPalette);
-	Lab.createPlugin("ShapeEditor");
+	Lab.createPlugin("ShapeEditor","Shape Editor");
 	ShapeEditorPlugin.editorGui = ShapeEdShapeView;
 	// Add windows to editor gui
 	%map = new ActionMap();

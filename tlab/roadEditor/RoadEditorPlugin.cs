@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -14,6 +14,8 @@ function RoadEditorPlugin::onWorldEditorStartup( %this ) {
 function RoadEditorPlugin::onActivated( %this ) {
     %this.readSettings();
 
+	RoadEd_TabBook.selectPage(0);
+	RoadEditorGui.clearRoadNodesData();
     EWToolsPaletteArray->RoadEditorAddRoadMode.performClick();
     EditorGui.bringToFront( RoadEditorGui );
 

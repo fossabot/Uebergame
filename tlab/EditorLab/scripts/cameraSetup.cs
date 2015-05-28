@@ -1,5 +1,5 @@
 //==============================================================================
-// Lab Editor -> Manage the Editor Camera
+// TorqueLab -> Manage the Editor Camera
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 /* Con::setIntVariable( "$EditTsCtrl::DisplayTypeTop", DisplayTypeTop);                = 0

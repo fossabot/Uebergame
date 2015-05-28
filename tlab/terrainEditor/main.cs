@@ -1,23 +1,16 @@
 //==============================================================================
-// Castle Blasters ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
-function initializeTerrainEditor()
-{
+function initializeTerrainEditor() {
 	echo( " - Initializing Terrain Editor" );
 	exec("tlab/terrainEditor/terrainEditorInit.cs");
 	exec("tlab/terrainEditor/terrainPainterInit.cs");
 	exec("tlab/terrainEditor/terrainSettingsParams.cs");
-	exec("tlab/terrainEditor/scripts/painterBrushes.cs");
-	exec("tlab/terrainEditor/scripts/terrainEditor.cs");
-	
-	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialFilters.cs");
-	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialSetup.cs");
-	
-	execTerrainEditorGui(true);
-	Lab.createPlugin("TerrainEditor");
-	Lab.createPlugin("TerrainPainter");
+	execTerrainEd(true);
+	Lab.createPlugin("TerrainEditor","Terrain Editor");
+	Lab.createPlugin("TerrainPainter","Terrain Painter");
 	//Add the plugin GUI elements
 	//----------------------------------------------
 	// Terrain Editor GUIs
@@ -40,10 +33,8 @@ function initializeTerrainEditor()
 	%map = new ActionMap();
 	newSimSet("FilteredTerrainMaterialsSet");
 	TerrainMaterialDlg-->materialFilter.setText("");
-	
 	//Create scriptobject for paint generator
 	$TPG = newScriptObject("TPG");
-	
 	/*  %map.bindCmd( keyboard, "1", "LabSceneNoneModeBtn.performClick();", "" ); // Select
 	  %map.bindCmd( keyboard, "2", "LabSceneMoveModeBtn.performClick();", "" );   // Move
 	  %map.bindCmd( keyboard, "3", "LabSceneRotateModeBtn.performClick();", "" ); // Rotate
@@ -52,7 +43,7 @@ function initializeTerrainEditor()
 	  %map.bindCmd( keyboard, "delete", "LabScenePlugin.onDeleteKey();", "" );
 
 
-	
+
 
 	  LabScenePlugin.map = %map;
 	  */
@@ -60,25 +51,26 @@ function initializeTerrainEditor()
 	// TerrainPainterPlugin.initSettings();
 }
 
-function execTerrainEditorGui(%loadGui)
-{
+function execTerrainEd(%loadGui) {
 	//----------------------------------------------
 	// Terrain Editor GUIs
-	if (%loadGui){		
+	if (%loadGui) {
 		exec("tlab/terrainEditor/gui/TerrainCreatorGui.gui" );
-		exec("tlab/terrainEditor/gui/TerrainImportGui.gui" );	
+		exec("tlab/terrainEditor/gui/TerrainImportGui.gui" );
 		exec("tlab/terrainEditor/gui/TerrainExportGui.gui" );
 		exec("tlab/terrainEditor/gui/TerrainEditorVSettingsGui.gui");
 		exec("tlab/terrainEditor/gui/TerrainEditorPalette.gui");
 		exec("tlab/terrainEditor/gui/TerrainEditorToolbar.gui");
 		exec("tlab/terrainEditor/gui/TerrainEditorDialogs.gui");
 	}
+
 	exec("tlab/terrainEditor/gui/TerrainImportGui.cs");
 	exec("tlab/terrainEditor/gui/TerrainExportGui.cs");
 	exec("tlab/terrainEditor/gui/TerrainCreatorGui.cs" );
+
 	//----------------------------------------------
 	// Terrain Painter GUIs
-	if (%loadGui){		
+	if (%loadGui) {
 		exec("tlab/terrainEditor/gui/ProceduralTerrainPainterGui.gui" );
 		exec("tlab/terrainEditor/gui/TerrainPaintGeneratorGui.gui");
 		exec("tlab/terrainEditor/gui/TerrainPainterTools.gui");
@@ -87,12 +79,17 @@ function execTerrainEditorGui(%loadGui)
 		exec("tlab/terrainEditor/gui/TerrainPainterToolbar.gui");
 		exec("tlab/terrainEditor/gui/TerrainPainterPalette.gui");
 	}
+
 	exec("tlab/terrainEditor/gui/TerrainPaintGeneratorGui.cs");
-	exec("tlab/terrainEditor/scripts/paintGenerator.cs");	
+//	exec("tlab/terrainEditor/scripts/paintGenerator.cs");
+	//	exec("tlab/terrainEditor/scripts/painterBrushes.cs");
+	//exec("tlab/terrainEditor/scripts/terrainEditor.cs");
+	execPattern("tlab/terrainEditor/scripts/*.cs");
 	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialDlg.cs");
+	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialFilters.cs");
+	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialSetup.cs");
 }
 
 
-function destroyLabScene()
-{
+function destroyLabScene() {
 }

@@ -52,8 +52,8 @@ function ForestEditorGui::createForest( %this ) {
     }
 
     // Allocate the Forest and make it undoable.
-    //%file = strreplace(MissionGroup.getFilename(),".mis",".forest");
-    %file = filePath(MissionGroup.getFilename())@"/data.forest";
+    %file = strreplace(MissionGroup.getFilename(),".mis",".forest");
+    //%file = filePath(MissionGroup.getFilename())@"/data.forest";
    
     new Forest( theForest ) {
         dataFile = %file;
@@ -73,17 +73,6 @@ function ForestEditorGui::deleteBrushOrElement( %this ) {
     ForestEditorPlugin.dirty = true;
 }
 
-
-function ForestEditorGui::validateBrushSize( %this ) {
-    %minBrushSize = 1;
-    %maxBrushSize = getWord(ETerrainEditor.maxBrushSize, 0);
-
-    %val = $ThisControl.getText();
-    if(%val < %minBrushSize)
-        $ThisControl.setValue(%minBrushSize);
-    else if(%val > %maxBrushSize)
-        $ThisControl.setValue(%maxBrushSize);
-}
 
 
 
