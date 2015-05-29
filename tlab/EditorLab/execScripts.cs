@@ -143,7 +143,7 @@ function tlabExecDialogs(%loadGui )
 {
 	if (%loadGui)
 	{
-		exec("tlab/EditorLab/gui/dialogs/ETransformSelection.gui");
+		//exec("tlab/EditorLab/gui/dialogs/ETransformSelection.gui");
 		//exec("tlab/EditorLab/gui/dialogs/ESnapOptions.gui");
 		//exec("tlab/EditorLab/gui/dialogs/EVisibilityLayers.gui");
 		//exec("tlab/EditorLab/gui/dialogs/ECloneTool.gui");
@@ -154,14 +154,16 @@ function tlabExecDialogs(%loadGui )
 		exec("tlab/EditorLab/gui/dialogs/EToolDlgGroup.gui");
 		exec("tlab/EditorLab/gui/dialogs/EToolCamViewDlg.gui");
 		exec("tlab/EditorLab/gui/dialogs/EMissionArea.gui");
-		exec("tlab/EditorLab/gui/dialogs/EToolDecoyGroup.gui");
+		//exec("tlab/EditorLab/gui/dialogs/EToolDecoyGroup.gui");
+		exec("tlab/EditorLab/gui/dialogs/MaterialSelectorDlg.gui");
+		execPattern("tlab/EditorLab/gui/tools/*.gui");
+		
 	}
 
 	exec("tlab/EditorLab/gui/dialogs/ESnapOptions.cs");
 	exec("tlab/EditorLab/gui/dialogs/EVisibilityLayers.cs");
-	exec("tlab/EditorLab/gui/dialogs/ETransformSelection.cs");
-	exec("tlab/EditorLab/gui/dialogs/ECloneTool.cs");
-	exec("tlab/EditorLab/gui/dialogs/ECloneDrag.cs");
+	//exec("tlab/EditorLab/gui/dialogs/ETransformSelection.cs");
+
 	exec("tlab/EditorLab/gui/dialogs/ESelectObjects.cs");
 	exec("tlab/EditorLab/gui/dialogs/EManageBookmarks.cs");
 	exec("tlab/EditorLab/gui/dialogs/ESceneManager.cs");
@@ -169,10 +171,15 @@ function tlabExecDialogs(%loadGui )
 	exec("tlab/EditorLab/gui/dialogs/EToolCamViewDlg.cs");
 	exec("tlab/EditorLab/gui/dialogs/EMissionArea.cs");
 	exec("tlab/EditorLab/gui/commonDialogs.cs");
-	exec("tlab/EditorLab/gui/dialogs/EToolDecoyGroup.cs");
+	exec("tlab/EditorLab/gui/dialogs/MaterialSelectorDlg.cs");
+	execPattern("tlab/EditorLab/gui/tools/*.cs");
+	
 }
 tlabExecDialogs($LabExecGui);
 
+function execTools( ){
+	execPattern("tlab/EditorLab/gui/tools/*.cs");
+}
 //------------------------------------------------------------------------------
 // TorqueLab Settings scripts
 function tlabExecSettings(%loadGui )

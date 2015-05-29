@@ -5,11 +5,22 @@
 //==============================================================================
 
 //==============================================================================
+function Lab::initEditorCamera() {
+	EWorldEditorStatusBarCamera.clear();
+	%i=0;	
+	while($LabCameraDisplayName[%i] !$= ""){
+		EWorldEditorStatusBarCamera.add($LabCameraDisplayName[%i],%i);
+		%i++;
+	}
+}
+//------------------------------------------------------------------------------
+//==============================================================================
 function Lab::SyncEditorGui() {
 	if (isObject(EditorGui))
 		Lab.syncCameraGui();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function Lab::CreateCameraViewContextMenu(%this) {
 	if( !isObject( LGM.contextMenuField ) )
 		Lab.contextMenuCamView = new PopupMenu() {

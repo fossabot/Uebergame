@@ -38,7 +38,10 @@ function Lab::addGui(%this,%gui,%type) {
 	case "Overlay":
 		%container = EditorGui;
 		LabDialogGuiSet.add(%gui);	
-		
+	
+	case "":
+		%container = $LabSettingContainer;
+		LabSettingGuiSet.add(%gui);	
 
 	}
 

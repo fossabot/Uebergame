@@ -23,7 +23,8 @@ function Editor::open(%this) {
       Lab.currentEditor = Lab.defaultPlugin;
 	
 	Lab.setEditor( Lab.currentEditor, true );
-
+	
+	EditorGui.previousGui = Canvas.getContent();
 	//Lab.SyncEditor();
 	Canvas.setContent(EditorGui);
 	//The default menu seem to be create somewhere between setCOntent and here
@@ -37,12 +38,13 @@ function Editor::open(%this) {
 	ToolsToolbarArray.refresh();
 	Lab.syncCameraGui();	
 
+	
 
 	Lab.updateActivePlugins();
 
    //Callbacks used by plugins
 	Lab.OnEditorOpen();
-	
+	EditorFrameWorld.pushToBack(EditorFrameTools);
 
 
 
@@ -82,8 +84,7 @@ function EditorGui::onWake( %this ) {
 	if( %levelName !$= Lab.levelName )
 		%this.onNewLevelLoaded( %levelName );
 
-	if (isObject(DemoEditorAlert) && DemoEditorAlert.helpTag<2)
-		Canvas.pushDialog(DemoEditorAlert);
+	
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -138,7 +139,8 @@ function Lab::initializeEditorGui( %this ) {
 
 	// Transform Selection Window
 	Lab.addGui( EToolDecoyGroup ,"Overlay");
-	Lab.addGui( ETransformSelection ,"Dialog");
+	Lab.addGui( ETools ,"Dialog");
+	//Lab.addGui( ETransformSelection ,"Dialog");
 	//Lab.addGui( ECloneTool ,"Dialog");
 	//Lab.addGui( ECloneDrag ,"Dialog");
 	Lab.addGui( ESceneManager ,"Dialog");
@@ -181,7 +183,7 @@ Lab.addGui( EMissionArea ,"Dialog");
 	EWorldEditorAlignPopup.add("Object",1);
 	EWorldEditorAlignPopup.setSelected(0);
 
-
+	Lab.initEditorCamera();
 	// sync camera gui
 	Lab.syncCameraGui();
 	

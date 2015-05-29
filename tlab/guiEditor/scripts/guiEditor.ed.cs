@@ -12,14 +12,14 @@
 $InGuiEditor = false;
 $MLAAFxGuiEditorTemp = false;
 //==============================================================================
-function GuiEdit( %val ) {
+function GuiEdit( %loadLast ) {
     if (Canvas.isFullscreen()) {
         LabMsgOK("Windowed Mode Required", "Please switch to windowed mode to access the GUI Editor.");
         return;
     }
 
-    if(%val != 0)
-        return;
+ //   if(%val != 0)
+   //     return;
 
     if (!$InGuiEditor) {
         //Store current Content to return to it
@@ -30,7 +30,7 @@ function GuiEdit( %val ) {
             %initialContent = GuiEditor.forceContent;
          }
           GuiEditor.initialContent =%initialContent;
-         if ($pref::Editor::AutoLoadLastGui && isObject(GuiEditor.lastContent))
+         if (($pref::Editor::AutoLoadLastGui || %loadLast)&& isObject(GuiEditor.lastContent))
          	%initialContent = GuiEditor.lastContent;
        
         GuiEditContent(%initialContent);
@@ -81,8 +81,26 @@ function toggleGuiEditor( %make ) {
         cancel($Game::Schedule);
     }
 }
+function toggleLastGuiEditor( %make ) {
+	if( %make ) {
+       GuiEditor.forceContent = "";
+        if( EditorIsActive() && !GuiEditor.toggleIntoEditorGui ){
+            if (EditorGui.isAwake()){
+               GuiEditor.forceContent = EditorGui;
+            }          
+            toggleEditor( true );           
+        }
 
+        GuiEdit(true);
+
+        // Cancel the scheduled event to prevent
+        // the level from cycling after it's duration
+        // has elapsed.
+        cancel($Game::Schedule);
+    }
+}
 GlobalActionMap.bind( keyboard, "f10", toggleGuiEditor );
+GlobalActionMap.bind( keyboard, "ctrl f10", toggleLastGuiEditor );
 //------------------------------------------------------------------------------
 //==============================================================================
 //==============================================================================

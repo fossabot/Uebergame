@@ -21,13 +21,13 @@
       defaultParent = "guiGroup";
       EditorContainer = "4064";
       isDlg = "1";
-      lastLayerId = "100";
+      lastLayerId = "101";
       selectedMaterial = "1860";
       showError = "1";
       tooltipWidth = "500";
       Tree = "ProceduralPainterLayers";
 
-   new GuiWindowCtrl() {
+   new GuiWindowCtrl(TPG_Window) {
       text = "Multi layers automated procedural terrain painter";
       resizeWidth = "0";
       resizeHeight = "0";
@@ -709,7 +709,7 @@
 
                      new GuiIconButtonCtrl() {
                         buttonMargin = "4 4";
-                        iconBitmap = "tlab/gui/icons/light24/Arrow_Down.png";
+                        iconBitmap = "tlab/gui/icons/ui24_light/arrow_triangle_down.png";
                         iconLocation = "Left";
                         sizeIconToButton = "1";
                         makeIconSquare = "0";
@@ -737,7 +737,7 @@
                      };
                      new GuiIconButtonCtrl() {
                         buttonMargin = "4 4";
-                        iconBitmap = "tlab/gui/icons/light24/Arrow_Up.png";
+                        iconBitmap = "tlab/gui/icons/ui24_light/arrow_triangle_up.png";
                         iconLocation = "Left";
                         sizeIconToButton = "1";
                         makeIconSquare = "0";
@@ -765,7 +765,7 @@
                      };
                      new GuiIconButtonCtrl() {
                         buttonMargin = "4 4";
-                        iconBitmap = "tlab/gui/icons/light24/DeleteX.png";
+                        iconBitmap = "tlab/gui/icons/ui24_light/delete_x.png";
                         iconLocation = "Left";
                         sizeIconToButton = "1";
                         makeIconSquare = "0";
@@ -859,7 +859,7 @@
                         sbUsesNAColor = "0";
                         reverseTextList = "0";
                         bitmapBounds = "16 16";
-                        text = "fvRock_BaseA";
+                        text = "fvGrass_MeadowA";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -977,8 +977,7 @@
                               internalName = "heightMin";
                               superClass = "TPG_PillEdit";
                               canSave = "1";
-                              canSaveDynamicFields = "1";
-                                 layerObj = "37196";
+                              canSaveDynamicFields = "0";
                            };
                            new GuiTextEditCtrl() {
                               historySize = "0";
@@ -1009,8 +1008,7 @@
                               internalName = "heightMax";
                               superClass = "TPG_PillEdit";
                               canSave = "1";
-                              canSaveDynamicFields = "1";
-                                 layerObj = "37196";
+                              canSaveDynamicFields = "0";
                            };
                         };
                         new GuiControl() {
@@ -1227,7 +1225,7 @@
 
                         new GuiIconButtonCtrl() {
                            buttonMargin = "4 4";
-                           iconBitmap = "tlab/gui/icons/light24/Arrow_Down.png";
+                           iconBitmap = "tlab/gui/icons/ui24_light/arrow_triangle_down.png";
                            iconLocation = "Left";
                            sizeIconToButton = "1";
                            makeIconSquare = "0";
@@ -1255,7 +1253,7 @@
                         };
                         new GuiIconButtonCtrl() {
                            buttonMargin = "4 4";
-                           iconBitmap = "tlab/gui/icons/light24/Arrow_Up.png";
+                           iconBitmap = "tlab/gui/icons/ui24_light/arrow_triangle_up.png";
                            iconLocation = "Left";
                            sizeIconToButton = "1";
                            makeIconSquare = "0";
@@ -1283,7 +1281,7 @@
                         };
                         new GuiIconButtonCtrl() {
                            buttonMargin = "4 4";
-                           iconBitmap = "tlab/gui/icons/light24/DeleteX.png";
+                           iconBitmap = "tlab/gui/icons/ui24_light/delete_x.png";
                            iconLocation = "Left";
                            sizeIconToButton = "1";
                            makeIconSquare = "0";

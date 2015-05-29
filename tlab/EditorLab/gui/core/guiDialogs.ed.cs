@@ -26,7 +26,7 @@ exec("./saveFileDialog.ed.cs");
 exec("./saveChangesMBDlg.ed.gui");
 exec("./simViewDlg.ed.gui");
 exec("./colorPicker.ed.gui");
-exec("./materialSelector.ed.gui");
+//exec("./materialSelector.ed.gui");
 exec("./scriptEditorDlg.ed.gui");
 exec("./colladaImport.ed.gui");
 exec("./EditorLoadingGui.gui");

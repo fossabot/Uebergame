@@ -11,9 +11,10 @@ function EditorGui::handleEscape( %this ) {
 	//Check if the current Plugin accept the request
 	if ( isObject( Lab.currentEditor ) )
 		%result = Lab.currentEditor.handleEscape();
-
+	
 	if ( !%result ) {
-		Editor.close($HudCtrl);
+		MessageBoxYesNoCancel( "Leaving the game?", "Are you sure you want to exit the level and go back to main menu? If you want to leave editor and test your level press NO? If you don't know what you are doing, hit CANCEL...", "disconnect();", "Editor.close();","" );
+		//Editor.close($HudCtrl);
 	}
 }
 //------------------------------------------------------------------------------
@@ -22,6 +23,10 @@ function EditorGui::handleEscape( %this ) {
 function Editor::close(%this, %gui) {
 
 	%this.editorDisabled();
+	if (!isObject(%gui))
+		%gui = EditorGui.previousGui;
+		
+	
 	Canvas.setContent(%gui);
 	if(isObject(HudChatEdit))
 		HudChatEdit.close();

@@ -15,5 +15,5 @@ function MaterialEditorPlugin::initDefaultCfg( %this,%cfgArray )
    %cfgArray.setVal("PropShowGroup_animation", "10" TAB "PropShowGroup_animation" TAB "Checkbox" TAB "" TAB "" TAB %groupId);
    %cfgArray.setVal("PropShowMap_advanced",   "255 0 0 255" TAB "PropShowMap_advanced" TAB "Checkbox" TAB "" TAB "" TAB %groupId);
    %cfgArray.setVal("PropShowMap_rendering","0 255 0 255" TAB "PropShowMap_rendering" TAB "Checkbox" TAB "" TAB "" TAB %groupId);
-  
+   %cfgArray.setVal("ThumbnailCountIndex","1" TAB "ThumbnailCountIndex" TAB "TextEdit" TAB "" TAB "$Pref::MaterialSelector::ThumbnailCountIndex" TAB %groupId);
 }

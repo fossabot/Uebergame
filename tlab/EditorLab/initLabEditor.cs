@@ -64,7 +64,7 @@ function Lab::initEditorGui( %this ) {
 	$LabWorldContainer = EditorGui-->WorldContainer;
 	$LabSettingContainer = EditorGui-->SettingContainer;
 	$LabToolbarContainer = EditorGui-->ToolbarContainer;
-	$LabDialogContainer = EditorGui-->WorldContainer;
+	$LabDialogContainer = EditorGui-->ToolsContainer;
 	$LabEditorContainer = EditorGui-->EditorContainer;
 	$LabExtraContainer = EditorGui-->ExtraContainer;
 

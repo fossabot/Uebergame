@@ -4,6 +4,8 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 
+//==============================================================================
+// Called when TorqueLab is launched for first time
 function SceneEditorPlugin::onWorldEditorStartup( %this ) {
 
     Parent::onWorldEditorStartup( %this );
@@ -27,8 +29,12 @@ function SceneEditorPlugin::onWorldEditorStartup( %this ) {
     %map.bindCmd( keyboard, "l", "EToolbarObjectTransformDropdown->worldTransformBtn.performClick(); EToolbarObjectTransformDropdown.toggle();", "" );// World Transform
 
     SceneEditorPlugin.map = %map;
+    
+    
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
+// Called when the Plugin is activated (Active TorqueLab plugin)
 function SceneEditorPlugin::onActivated( %this ) {
     Parent::onActivated( %this );
 
@@ -41,13 +47,17 @@ function SceneEditorPlugin::onActivated( %this ) {
 
    SceneGroupsTree.initContent();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
+// Called when the Plugin is deactivated (active to inactive transition)
 function SceneEditorPlugin::onDeactivated( %this ) {
     Parent::onDeactivated( %this );
   
     %this.map.pop();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
+//Called when editor is selected from menu
 function SceneEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
     %canCutCopy = EWorldEditor.getSelectionSize() > 0;
     %editMenu.enableItem( 3, %canCutCopy ); // Cut
@@ -61,7 +71,9 @@ function SceneEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
 
     %editMenu.enableItem( 8, %canCutCopy ); // Deselect
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
+// 
 function SceneEditorPlugin::handleDelete( %this ) {
     // The tree handles deletion and notifies the
     // world editor to clear its selection.
@@ -74,22 +86,28 @@ function SceneEditorPlugin::handleDelete( %this ) {
     if( %selSize > 0 )
         SceneEditorTree.deleteSelection();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneEditorPlugin::handleDeselect() {
     EWorldEditor.clearSelection();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneEditorPlugin::handleCut() {
     EWorldEditor.cutSelection();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneEditorPlugin::handleCopy() {
     EWorldEditor.copySelection();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneEditorPlugin::handlePaste() {
     EWorldEditor.pasteSelection();
 }
+//------------------------------------------------------------------------------
+//==============================================================================
 $SceneEditorPluginToolModes = "Inspector Builder";
 //SceneEditorPlugin.toggleToolMode();
 function SceneEditorPlugin::toggleToolMode( %this ) {
@@ -98,6 +116,8 @@ function SceneEditorPlugin::toggleToolMode( %this ) {
    SceneEditorTools.reorderChild(%lastTool,%currentTool);  
     SceneEditorTools.updateSizes();
 }
+//------------------------------------------------------------------------------
+//==============================================================================
 //SceneEditorPlugin.setToolMode("Builder");
 function SceneEditorPlugin::setToolMode( %this,%mode ) { 
    %toolCtrl = "SceneEditor"@%mode@"Gui";
@@ -105,3 +125,4 @@ function SceneEditorPlugin::setToolMode( %this,%mode ) {
    SceneEditorTools.reorderChild(%toolCtrl,%currentTool); 
    SceneEditorTools.updateSizes();  
 }
+//------------------------------------------------------------------------------

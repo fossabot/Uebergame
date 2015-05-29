@@ -3,10 +3,13 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
+
+//==============================================================================
+//Initialize the Scene Editor Plugin
 function initializeSceneEditor()
 {
 	echo( " - Initializing Scene Editor" );
-	execSceneEditor(true);
+	execSceneEd(true);
 	Lab.addPluginGui("SceneEditor",SceneEditorTools);
 	Lab.addPluginToolbar("SceneEditor",SceneEditorToolbar);
 	Lab.addPluginPalette("SceneEditor",SceneEditorPalette);
@@ -15,7 +18,10 @@ function initializeSceneEditor()
 	SceneEditorPlugin.superClass = "WEditorPlugin";
 	$SEPtools = newScriptObject("SEPtools");
 }
-function execSceneEditor(%loadGui)
+//------------------------------------------------------------------------------
+//==============================================================================
+// Load the Scene Editor Plugin scripts, load Guis if %loadgui = true
+function execSceneEd(%loadGui)
 {
 	if (%loadGui)
 	{
@@ -23,13 +29,13 @@ function execSceneEditor(%loadGui)
 		exec("./gui/SceneEditorToolbar.gui" );
 		exec("./gui/SceneEditorPalette.gui" );
 	}
-
-	exec("tlab/sceneEditor/objectCreator.cs");
+	
 	exec("tlab/sceneEditor/sceneEditor.cs");
-	exec("tlab/sceneEditor/sceneEditorTree.cs");
-	exec("tlab/sceneEditor/sceneGroupsTree.cs");
 	exec("tlab/sceneEditor/SceneEditorPlugin.cs");
 	exec("tlab/sceneEditor/SceneEditorParams.cs");
 	exec("tlab/sceneEditor/SceneEditorToolbar.cs");
-	exec("tlab/sceneEditor/SE_BuilderTools.cs");
+	execPattern("tlab/sceneEditor/creator/*.cs");
+	execPattern("tlab/sceneEditor/scene/*.cs");
+	execPattern("tlab/sceneEditor/tools/*.cs");
 }
+//------------------------------------------------------------------------------

@@ -79,7 +79,7 @@ function execFEP(%loadGui) {
     exec( "./tools.cs" );
     exec( "tlab/ForestEditor/ForestEditorParams.cs" );
 
-    exec( "tlab/ForestEditor/ForestEditorMain.cs" );
+    exec( "tlab/ForestEditor/ForestEditorPlugin.cs" );
     exec( "tlab/ForestEditor/ForestEditorSave.cs" );
     exec( "tlab/ForestEditor/ForestEditorScript.cs" );
 

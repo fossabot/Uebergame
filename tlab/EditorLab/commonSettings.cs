@@ -9,7 +9,7 @@
 //==============================================================================
 $TLab_Object_DropTypes = "atOrigin atCamera atCameraRot belowCamera screenCenter atCentroid toTerrain belowSelection";
 
-	
+
 //==============================================================================
 // Add default setting (Must set beginGroup and endGroup from caller)
 function Lab::initCommonSettings( %this ) { 

@@ -1,6 +1,6 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiControl(SceneEditorToolbar,EditorGuiGroup) {
-   position = "165 0";
+   position = "162 0";
    extent = "1280 32";
    minExtent = "8 2";
    horizSizing = "right";
@@ -14,8 +14,8 @@
    internalName = "SceneEditorToolbar";
    canSave = "1";
    canSaveDynamicFields = "1";
-      defaultParent = "3861";
-      EditorContainer = "4063";
+      defaultParent = "1782";
+      EditorContainer = "4017";
       editorParent = "EditorGuiToolbarStack";
       enabled = "1";
       tooltipWidth = "500";
@@ -31,7 +31,7 @@
       changeChildSizeToFit = "0";
       changeChildPosition = "1";
       position = "0 0";
-      extent = "822 33";
+      extent = "823 33";
       minExtent = "16 16";
       horizSizing = "width";
       vertSizing = "bottom";
@@ -55,7 +55,7 @@
          changeChildSizeToFit = "1";
          changeChildPosition = "1";
          position = "0 0";
-         extent = "166 30";
+         extent = "167 30";
          minExtent = "16 16";
          horizSizing = "right";
          vertSizing = "bottom";
@@ -68,7 +68,7 @@
          canSave = "1";
          canSaveDynamicFields = "0";
 
-         new GuiIconButtonCtrl() {
+         new GuiIconButtonCtrl(ESnapToolbarButton) {
             buttonMargin = "1 1";
             iconBitmap = "tlab/gui/icons/toolbar_assets/DlgSnap.png";
             iconLocation = "Left";
@@ -88,7 +88,7 @@
             profile = "ToolsButtonDark";
             visible = "1";
             active = "1";
-            command = "ESnapOptions.ToggleVisibility();";
+            command = "ETools.toggleTool(\"SnapOptions\");";
             tooltipProfile = "GuiToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
@@ -182,7 +182,7 @@
          };
          new GuiControl() {
             position = "128 0";
-            extent = "38 30";
+            extent = "39 30";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -202,7 +202,7 @@
                sinkAllKeyEvents = "0";
                password = "0";
                passwordMask = "*";
-               text = "2";
+               text = "2.91471";
                maxLength = "6";
                margin = "0 0 0 0";
                padding = "0 0 0 0";
@@ -210,12 +210,12 @@
                anchorBottom = "0";
                anchorLeft = "1";
                anchorRight = "0";
-               position = "0 2";
-               extent = "22 19";
+               position = "0 13";
+               extent = "24 18";
                minExtent = "8 16";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsTextEditProfile_Num";
+               profile = "ToolsTextEditDark_Blue_S1";
                visible = "1";
                active = "1";
                altCommand = "EWorldEditor.setSoftSnapSize( $ThisControl.getText() ); EWorldEditor.syncGui();";
@@ -228,7 +228,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiBitmapButtonCtrl() {
-               bitmap = "tlab/gui/icons/default/dropslider";
+               bitmap = "tlab/gui/assets/gfx/DropSliderButton";
                bitmapMode = "Stretched";
                autoFitExtents = "0";
                useModifiers = "0";
@@ -236,18 +236,41 @@
                groupNum = "-1";
                buttonType = "PushButton";
                useMouseEvents = "0";
-               position = "18 3";
-               extent = "18 18";
+               position = "21 12";
+               extent = "19 19";
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
                profile = "ToolsDefaultProfile";
                visible = "1";
                active = "1";
-               command = "Canvas.pushDialog(softSnapSizeSliderCtrlContainer);";
+               command = "SceneEditorPlugin.toggleSnapSlider($ThisControl);";
                tooltipProfile = "ToolsGuiToolTipProfile";
                tooltip = "Changes size of the soft snap region";
                hovertime = "750";
+               isContainer = "0";
+               canSave = "1";
+               canSaveDynamicFields = "0";
+            };
+            new GuiTextCtrl() {
+               text = "Snap";
+               maxLength = "255";
+               margin = "0 0 0 0";
+               padding = "0 0 0 0";
+               anchorTop = "1";
+               anchorBottom = "0";
+               anchorLeft = "1";
+               anchorRight = "0";
+               position = "2 1";
+               extent = "32 8";
+               minExtent = "8 8";
+               horizSizing = "width";
+               vertSizing = "bottom";
+               profile = "ToolsTextBase_S1";
+               visible = "1";
+               active = "1";
+               tooltipProfile = "GuiToolTipProfile";
+               hovertime = "1000";
                isContainer = "0";
                canSave = "1";
                canSaveDynamicFields = "0";
@@ -264,7 +287,7 @@
          dynamicPos = "0";
          changeChildSizeToFit = "1";
          changeChildPosition = "1";
-         position = "168 0";
+         position = "169 0";
          extent = "190 30";
          minExtent = "16 16";
          horizSizing = "right";
@@ -306,7 +329,7 @@
             canSave = "1";
             canSaveDynamicFields = "0";
          };
-         new GuiIconButtonCtrl() {
+         new GuiIconButtonCtrl(ECloneToolbarButton) {
             buttonMargin = "1 1";
             iconBitmap = "tlab/gui/icons/toolbar_assets/DlgCopy.png";
             iconLocation = "Left";
@@ -326,7 +349,7 @@
             profile = "ToolsButtonDark";
             visible = "1";
             active = "1";
-            command = "ECloneTool.toggleVisibility();";
+            command = "ETools.toggleTool(\"CloneTool\");";
             tooltipProfile = "GuiToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
@@ -334,7 +357,7 @@
             canSave = "1";
             canSaveDynamicFields = "0";
          };
-         new GuiIconButtonCtrl() {
+         new GuiIconButtonCtrl(ETransformToolbarButton) {
             buttonMargin = "1 1";
             iconBitmap = "tlab/gui/icons/toolbar_assets/DlgTransform.png";
             iconLocation = "Left";
@@ -354,7 +377,7 @@
             profile = "ToolsButtonDark";
             visible = "1";
             active = "1";
-            command = "ETransformSelection.toggleVisibility();";
+            command = "ETools.toggleTool(\"TransformTool\");";
             tooltipProfile = "GuiToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
@@ -449,7 +472,7 @@
       new GuiBitmapCtrl() {
          bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
-         position = "360 0";
+         position = "361 0";
          extent = "3 28";
          minExtent = "1 1";
          horizSizing = "right";
@@ -475,7 +498,7 @@
          groupNum = "-1";
          buttonType = "ToggleButton";
          useMouseEvents = "0";
-         position = "365 0";
+         position = "366 0";
          extent = "30 30";
          minExtent = "8 2";
          horizSizing = "right";
@@ -496,7 +519,7 @@
       new GuiBitmapCtrl() {
          bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
-         position = "397 0";
+         position = "398 0";
          extent = "3 28";
          minExtent = "1 1";
          horizSizing = "right";
@@ -520,7 +543,7 @@
          dynamicPos = "0";
          changeChildSizeToFit = "1";
          changeChildPosition = "1";
-         position = "402 0";
+         position = "403 0";
          extent = "62 30";
          minExtent = "16 16";
          horizSizing = "right";
@@ -595,7 +618,7 @@
       new GuiBitmapCtrl() {
          bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
-         position = "466 0";
+         position = "467 0";
          extent = "3 28";
          minExtent = "1 1";
          horizSizing = "right";
@@ -619,7 +642,7 @@
          dynamicPos = "0";
          changeChildSizeToFit = "1";
          changeChildPosition = "1";
-         position = "471 0";
+         position = "472 0";
          extent = "62 30";
          minExtent = "16 16";
          horizSizing = "right";
@@ -695,7 +718,7 @@
       new GuiBitmapCtrl() {
          bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
-         position = "535 0";
+         position = "536 0";
          extent = "3 30";
          minExtent = "1 1";
          horizSizing = "right";
@@ -719,7 +742,7 @@
          dynamicPos = "0";
          changeChildSizeToFit = "1";
          changeChildPosition = "1";
-         position = "540 0";
+         position = "541 0";
          extent = "62 30";
          minExtent = "16 16";
          horizSizing = "right";
@@ -793,7 +816,7 @@
       new GuiBitmapCtrl() {
          bitmap = "tlab/gui/assets/gfx/Divider-v.png";
          wrap = "0";
-         position = "604 0";
+         position = "605 0";
          extent = "3 30";
          minExtent = "1 1";
          horizSizing = "right";
@@ -819,7 +842,7 @@
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
-         position = "609 0";
+         position = "610 0";
          extent = "30 30";
          minExtent = "8 2";
          horizSizing = "right";
@@ -847,7 +870,7 @@
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
-         position = "641 0";
+         position = "642 0";
          extent = "30 30";
          minExtent = "8 2";
          horizSizing = "right";
@@ -875,7 +898,7 @@
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
-         position = "673 0";
+         position = "674 0";
          extent = "30 30";
          minExtent = "8 2";
          horizSizing = "right";
@@ -903,7 +926,7 @@
          groupNum = "-1";
          buttonType = "PushButton";
          useMouseEvents = "0";
-         position = "705 0";
+         position = "706 0";
          extent = "30 30";
          minExtent = "8 2";
          horizSizing = "right";
@@ -926,7 +949,7 @@
          anchorBottom = "0";
          anchorLeft = "1";
          anchorRight = "0";
-         position = "737 0";
+         position = "738 0";
          extent = "85 33";
          minExtent = "8 2";
          horizSizing = "right";
@@ -954,7 +977,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 15";
-            extent = "85 16";
+            extent = "85 19";
             minExtent = "8 8";
             horizSizing = "width";
             vertSizing = "top";

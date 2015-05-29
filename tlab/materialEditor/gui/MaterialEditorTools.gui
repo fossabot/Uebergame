@@ -1,7 +1,7 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiFrameSetCtrl(MaterialEditorGui) {
    columns = "0";
-   rows = "0 114";
+   rows = "0 102";
    borderWidth = "4";
    borderColor = "0 0 0 0";
    borderEnable = "alwaysOn";
@@ -16,7 +16,7 @@
    anchorLeft = "1";
    anchorRight = "0";
    position = "0 0";
-   extent = "280 814";
+   extent = "315 818";
    minExtent = "280 2";
    horizSizing = "right";
    vertSizing = "bottom";
@@ -29,18 +29,20 @@
    canSave = "1";
    canSaveDynamicFields = "1";
       currentLayer = "0";
-      currentMaterial = "3854";
+      currentMaterial = "3851";
       currentMeshMode = "Model";
       currentMode = "Mesh";
-      currentObject = "8630";
+      currentObject = "31242";
       defaultParent = "guiGroup";
-      EditorContainer = "4112";
+      EditorContainer = "4140";
       fileSpec = "Torque Material Files (materials.cs)|materials.cs|All Files (*.*)|*.*|";
-      lastMaterial = "3854";
+      lastMaterial = "3851";
+      lastTextureFile = "F:/T3DProjects/ContentLabT3D/My Projects/ContentLab/game/art/textures/FarmPack/Vegetation/Flowers/PoppyA_Flower.png";
+      lastTexturePath = "F:/T3DProjects/ContentLabT3D/My Projects/ContentLab/game/art/textures/FarmPack/Vegetation/Flowers";
       livePreview = "1";
       materialDirty = "0";
       modelFormats = "DTS Files (*.dts)|*.dts";
-      originalName = "owfSample_baseFP_OldWoodFence";
+      originalName = "Poppy01A_1_baseFHPoppyA42";
       preventUndo = "0";
       textureFormats = "Image Files (*.png, *.jpg, *.dds, *.bmp, *.gif, *.jng. *.tga)|*.png;*.jpg;*.dds;*.bmp;*.gif;*.jng;*.tga|All Files (*.*)|*.*|";
 
@@ -62,7 +64,7 @@
       anchorLeft = "1";
       anchorRight = "0";
       position = "0 0";
-      extent = "280 110";
+      extent = "315 98";
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
@@ -84,7 +86,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "9 48";
-         extent = "262 55";
+         extent = "297 43";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
@@ -104,7 +106,7 @@
             buttonType = "PushButton";
             useMouseEvents = "0";
             position = "-1 -1";
-            extent = "264 57";
+            extent = "299 45";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -129,7 +131,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 1";
-            extent = "262 72";
+            extent = "297 60";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -180,7 +182,7 @@
          clickCollapse = "1";
          hideHeader = "0";
          autoCollapseSiblings = "0";
-         position = "107 29";
+         position = "142 29";
          extent = "160 15";
          minExtent = "8 2";
          horizSizing = "left";
@@ -443,8 +445,8 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "0 114";
-      extent = "280 700";
+      position = "0 102";
+      extent = "315 716";
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
@@ -579,7 +581,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "6 97";
-         extent = "268 597";
+         extent = "303 613";
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
@@ -639,7 +641,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 26";
-            extent = "268 571";
+            extent = "303 587";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -663,7 +665,7 @@
                changeChildSizeToFit = "1";
                changeChildPosition = "1";
                position = "3 3";
-               extent = "262 358";
+               extent = "297 482";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -680,12 +682,12 @@
                   caption = "Texture Maps";
                   margin = "4 4 4 0";
                   defaultHeight = "40";
-                  expanded = "0";
+                  expanded = "1";
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 0";
-                  extent = "262 21";
+                  extent = "297 187";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -711,17 +713,16 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "254 492";
+                     extent = "289 162";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
                      profile = "ToolsDefaultProfile";
-                     visible = "0";
+                     visible = "1";
                      active = "1";
                      tooltipProfile = "ToolsGuiToolTipProfile";
                      hovertime = "1000";
                      isContainer = "1";
-                     hidden = "1";
                      canSave = "1";
                      canSaveDynamicFields = "0";
 
@@ -733,7 +734,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 0";
-                        extent = "254 52";
+                        extent = "289 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -748,7 +749,7 @@
                         canSaveDynamicFields = "0";
 
                         new GuiBitmapCtrl() {
-                           bitmap = "art/modelPacks/FarmPack/Fences/OldWoodFence/images/0_fpOldWoodFence_skin";
+                           bitmap = "PoppyA_Leaf.png";
                            wrap = "0";
                            position = "1 1";
                            extent = "48 48";
@@ -814,7 +815,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiTextCtrl() {
-                           text = "art/modelPacks/FarmPack/Fences/OldWoodFence/images/0_fpOldWoodFence_skin";
+                           text = "PoppyA_Leaf.png";
                            maxLength = "1024";
                            margin = "0 0 0 0";
                            padding = "0 0 0 0";
@@ -823,7 +824,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "56 16";
-                           extent = "500 17";
+                           extent = "535 17";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -947,7 +948,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 55";
-                        extent = "254 52";
+                        extent = "289 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1037,7 +1038,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "56 16";
-                           extent = "384 17";
+                           extent = "419 17";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1056,7 +1057,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "191 34";
+                           position = "226 34";
                            extent = "40 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1080,7 +1081,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "235 34";
+                           position = "270 34";
                            extent = "16 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1104,7 +1105,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 110";
-                        extent = "254 52";
+                        extent = "289 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1194,7 +1195,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "56 16";
-                           extent = "384 17";
+                           extent = "419 17";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1213,7 +1214,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "191 34";
+                           position = "226 34";
                            extent = "40 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1237,7 +1238,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "235 34";
+                           position = "270 34";
                            extent = "16 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1260,18 +1261,19 @@
                         anchorBottom = "0";
                         anchorLeft = "1";
                         anchorRight = "0";
-                        position = "0 165";
-                        extent = "254 52";
+                        position = "0 55";
+                        extent = "289 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
                         profile = "ToolsPanelDarkA";
-                        visible = "1";
+                        visible = "0";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
                         hovertime = "1000";
                         isContainer = "1";
                         internalName = "Detail";
+                        hidden = "1";
                         canSave = "1";
                         canSaveDynamicFields = "0";
 
@@ -1404,7 +1406,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "56 16";
-                           extent = "384 17";
+                           extent = "419 17";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1423,7 +1425,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "190 34";
+                           position = "225 34";
                            extent = "40 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1447,7 +1449,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "234 34";
+                           position = "269 34";
                            extent = "16 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1470,18 +1472,19 @@
                         anchorBottom = "0";
                         anchorLeft = "1";
                         anchorRight = "0";
-                        position = "0 220";
-                        extent = "254 52";
+                        position = "0 55";
+                        extent = "289 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
                         profile = "ToolsPanelDarkA";
-                        visible = "1";
+                        visible = "0";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
                         hovertime = "1000";
                         isContainer = "1";
                         internalName = "detailNormal";
+                        hidden = "1";
                         canSave = "1";
                         canSaveDynamicFields = "0";
 
@@ -1614,7 +1617,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "56 16";
-                           extent = "274 17";
+                           extent = "309 17";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1633,7 +1636,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "190 34";
+                           position = "225 34";
                            extent = "40 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1657,7 +1660,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "234 34";
+                           position = "269 34";
                            extent = "16 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1680,18 +1683,19 @@
                         anchorBottom = "0";
                         anchorLeft = "1";
                         anchorRight = "0";
-                        position = "0 275";
-                        extent = "254 52";
+                        position = "0 55";
+                        extent = "289 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
                         profile = "ToolsPanelDarkA";
-                        visible = "1";
+                        visible = "0";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
                         hovertime = "1000";
                         isContainer = "1";
                         internalName = "Overlay";
+                        hidden = "1";
                         canSave = "1";
                         canSaveDynamicFields = "0";
 
@@ -1771,7 +1775,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "56 16";
-                           extent = "274 17";
+                           extent = "309 17";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1790,7 +1794,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "190 34";
+                           position = "225 34";
                            extent = "40 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1814,7 +1818,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "234 34";
+                           position = "269 34";
                            extent = "16 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1837,18 +1841,19 @@
                         anchorBottom = "0";
                         anchorLeft = "1";
                         anchorRight = "0";
-                        position = "0 330";
-                        extent = "254 52";
+                        position = "0 55";
+                        extent = "289 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
                         profile = "ToolsPanelDarkA";
-                        visible = "1";
+                        visible = "0";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
                         hovertime = "1000";
                         isContainer = "1";
                         internalName = "Light";
+                        hidden = "1";
                         canSave = "1";
                         canSaveDynamicFields = "0";
 
@@ -1928,7 +1933,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "56 16";
-                           extent = "274 17";
+                           extent = "309 17";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1947,7 +1952,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "190 34";
+                           position = "225 34";
                            extent = "40 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1971,7 +1976,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "234 34";
+                           position = "269 34";
                            extent = "16 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1994,18 +1999,19 @@
                         anchorBottom = "0";
                         anchorLeft = "1";
                         anchorRight = "0";
-                        position = "0 385";
-                        extent = "254 52";
+                        position = "0 55";
+                        extent = "289 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
                         profile = "ToolsPanelDarkA";
-                        visible = "1";
+                        visible = "0";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
                         hovertime = "1000";
                         isContainer = "1";
                         internalName = "tone";
+                        hidden = "1";
                         canSave = "1";
                         canSaveDynamicFields = "0";
 
@@ -2085,7 +2091,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "56 16";
-                           extent = "274 17";
+                           extent = "309 17";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2108,7 +2114,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "234 34";
+                           position = "269 34";
                            extent = "16 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2128,7 +2134,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "190 34";
+                           position = "225 34";
                            extent = "40 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2151,18 +2157,19 @@
                         anchorBottom = "0";
                         anchorLeft = "1";
                         anchorRight = "0";
-                        position = "0 440";
-                        extent = "254 52";
+                        position = "0 55";
+                        extent = "289 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
                         profile = "ToolsPanelDarkA";
-                        visible = "1";
+                        visible = "0";
                         active = "1";
                         tooltipProfile = "GuiToolTipProfile";
                         hovertime = "1000";
                         isContainer = "1";
                         internalName = "environment";
+                        hidden = "1";
                         canSave = "1";
                         canSaveDynamicFields = "0";
 
@@ -2242,7 +2249,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "56 16";
-                           extent = "274 17";
+                           extent = "309 17";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2261,7 +2268,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "190 34";
+                           position = "225 34";
                            extent = "40 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2285,7 +2292,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "234 34";
+                           position = "269 34";
                            extent = "16 16";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2311,8 +2318,8 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  position = "0 21";
-                  extent = "262 108";
+                  position = "0 187";
+                  extent = "297 108";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -2339,7 +2346,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "254 83";
+                     extent = "289 83";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -2361,7 +2368,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 0";
-                        extent = "254 83";
+                        extent = "289 83";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2518,8 +2525,8 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "155 2";
-                           extent = "155 79";
+                           position = "176 2";
+                           extent = "176 79";
                            minExtent = "8 2";
                            horizSizing = "relative";
                            vertSizing = "bottom";
@@ -2560,7 +2567,7 @@
                               sbUsesNAColor = "0";
                               reverseTextList = "0";
                               bitmapBounds = "16 16";
-                              text = "None";
+                              text = "LerpAlpha";
                               maxLength = "1024";
                               margin = "0 0 0 0";
                               padding = "0 0 0 0";
@@ -2569,7 +2576,7 @@
                               anchorLeft = "1";
                               anchorRight = "0";
                               position = "4 14";
-                              extent = "336 19";
+                              extent = "357 19";
                               minExtent = "8 2";
                               horizSizing = "width";
                               vertSizing = "bottom";
@@ -2587,7 +2594,7 @@
                            };
                            new GuiControl() {
                               position = "0 38";
-                              extent = "155 36";
+                              extent = "176 36";
                               minExtent = "8 2";
                               horizSizing = "width";
                               vertSizing = "bottom";
@@ -2605,9 +2612,9 @@
                                  range = "0 255";
                                  ticks = "0";
                                  snap = "0";
-                                 value = "1";
+                                 value = "53";
                                  position = "0 23";
-                                 extent = "155 14";
+                                 extent = "176 14";
                                  minExtent = "8 2";
                                  horizSizing = "width";
                                  vertSizing = "bottom";
@@ -2630,7 +2637,7 @@
                                  sinkAllKeyEvents = "0";
                                  password = "0";
                                  passwordMask = "*";
-                                 text = "1";
+                                 text = "53";
                                  maxLength = "1024";
                                  margin = "0 0 0 0";
                                  padding = "0 0 0 0";
@@ -2638,7 +2645,7 @@
                                  anchorBottom = "0";
                                  anchorLeft = "1";
                                  anchorRight = "0";
-                                 position = "330 17";
+                                 position = "351 17";
                                  extent = "27 19";
                                  minExtent = "8 2";
                                  horizSizing = "left";
@@ -2689,8 +2696,8 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  position = "0 129";
-                  extent = "262 187";
+                  position = "0 295";
+                  extent = "297 187";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -2716,7 +2723,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "-1 21";
-                     extent = "263 166";
+                     extent = "298 166";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -2738,7 +2745,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 0";
-                        extent = "263 166";
+                        extent = "298 166";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2760,7 +2767,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "3 3";
-                           extent = "257 20";
+                           extent = "292 20";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2803,8 +2810,8 @@
                               anchorBottom = "0";
                               anchorLeft = "1";
                               anchorRight = "0";
-                              position = "4167 0";
-                              extent = "4167 20";
+                              position = "4734 0";
+                              extent = "4734 20";
                               minExtent = "8 2";
                               horizSizing = "relative";
                               vertSizing = "bottom";
@@ -2818,7 +2825,7 @@
                               canSaveDynamicFields = "0";
 
                               new GuiSwatchButtonCtrl() {
-                                 color = "1 1 1 1";
+                                 color = "0.5 0.5 0.5 1";
                                  gridBitmap = "tools/gui/images/transp_grid";
                                  groupNum = "-1";
                                  buttonType = "PushButton";
@@ -2843,9 +2850,9 @@
                                  range = "1 128";
                                  ticks = "0";
                                  snap = "0";
-                                 value = "1";
+                                 value = "50";
                                  position = "24 5";
-                                 extent = "4298 14";
+                                 extent = "4865 14";
                                  minExtent = "8 2";
                                  horizSizing = "width";
                                  vertSizing = "bottom";
@@ -2868,7 +2875,7 @@
                                  sinkAllKeyEvents = "0";
                                  password = "0";
                                  passwordMask = "*";
-                                 text = "1";
+                                 text = "50";
                                  maxLength = "3";
                                  margin = "0 0 0 0";
                                  padding = "0 0 0 0";
@@ -2876,7 +2883,7 @@
                                  anchorBottom = "0";
                                  anchorLeft = "1";
                                  anchorRight = "0";
-                                 position = "4138 0";
+                                 position = "4705 0";
                                  extent = "29 19";
                                  minExtent = "8 2";
                                  horizSizing = "left";
@@ -2903,7 +2910,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "3 29";
-                           extent = "257 20";
+                           extent = "292 20";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2947,8 +2954,8 @@
                               anchorBottom = "0";
                               anchorLeft = "1";
                               anchorRight = "0";
-                              position = "4167 0";
-                              extent = "4167 20";
+                              position = "4734 0";
+                              extent = "4734 20";
                               minExtent = "8 2";
                               horizSizing = "relative";
                               vertSizing = "bottom";
@@ -2967,7 +2974,7 @@
                                  snap = "0";
                                  value = "1";
                                  position = "0 5";
-                                 extent = "4318 14";
+                                 extent = "4885 14";
                                  minExtent = "8 2";
                                  horizSizing = "width";
                                  vertSizing = "bottom";
@@ -2998,7 +3005,7 @@
                                  anchorBottom = "0";
                                  anchorLeft = "1";
                                  anchorRight = "0";
-                                 position = "4138 0";
+                                 position = "4705 0";
                                  extent = "29 19";
                                  minExtent = "8 2";
                                  horizSizing = "left";
@@ -3025,7 +3032,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "0 54";
-                           extent = "263 49";
+                           extent = "298 49";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3051,7 +3058,7 @@
                               dynamicSize = "1";
                               padding = "0 0 0 0";
                               position = "0 0";
-                              extent = "263 48";
+                              extent = "298 48";
                               minExtent = "8 2";
                               horizSizing = "width";
                               vertSizing = "bottom";
@@ -3185,7 +3192,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "0 103";
-                           extent = "263 37";
+                           extent = "298 37";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3211,7 +3218,7 @@
                               dynamicSize = "1";
                               padding = "0 0 0 0";
                               position = "0 0";
-                              extent = "263 34";
+                              extent = "298 34";
                               minExtent = "8 2";
                               horizSizing = "width";
                               vertSizing = "bottom";
@@ -3455,7 +3462,7 @@
                               anchorLeft = "1";
                               anchorRight = "0";
                               position = "0 0";
-                              extent = "244 59";
+                              extent = "276 59";
                               minExtent = "8 2";
                               horizSizing = "relative";
                               vertSizing = "bottom";
@@ -3479,7 +3486,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "0 140";
-                           extent = "263 20";
+                           extent = "298 20";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3506,7 +3513,7 @@
                               anchorBottom = "0";
                               anchorLeft = "1";
                               anchorRight = "0";
-                              position = "230 0";
+                              position = "265 0";
                               extent = "29 19";
                               minExtent = "8 2";
                               horizSizing = "left";
@@ -3528,7 +3535,7 @@
                               snap = "0";
                               value = "0";
                               position = "98 5";
-                              extent = "497 15";
+                              extent = "532 15";
                               minExtent = "8 2";
                               horizSizing = "width";
                               vertSizing = "bottom";
@@ -3580,19 +3587,20 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  position = "0 316";
-                  extent = "262 21";
+                  position = "0 482";
+                  extent = "297 21";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
                   profile = "ToolsRolloutProfile";
-                  visible = "1";
+                  visible = "0";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
                   hovertime = "1000";
                   isContainer = "1";
                   class = "BehaviorQuickEditRollout";
                   superClass = "LBQuickEditRollout";
+                  hidden = "1";
                   canSave = "1";
                   canSaveDynamicFields = "0";
 
@@ -3607,7 +3615,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "-1 21";
-                     extent = "263 339";
+                     extent = "298 339";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -3629,7 +3637,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 0";
-                        extent = "263 94";
+                        extent = "298 94";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4026,7 +4034,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 94";
-                        extent = "263 94";
+                        extent = "298 94";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4440,7 +4448,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 188";
-                        extent = "263 85";
+                        extent = "298 85";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4811,7 +4819,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 273";
-                        extent = "263 66";
+                        extent = "298 66";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -5042,19 +5050,20 @@
                   clickCollapse = "1";
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
-                  position = "0 337";
-                  extent = "262 21";
+                  position = "0 482";
+                  extent = "297 21";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
                   profile = "ToolsRolloutProfile";
-                  visible = "1";
+                  visible = "0";
                   active = "1";
                   tooltipProfile = "GuiToolTipProfile";
                   hovertime = "1000";
                   isContainer = "1";
                   class = "BehaviorQuickEditRollout";
                   superClass = "LBQuickEditRollout";
+                  hidden = "1";
                   canSave = "1";
                   canSaveDynamicFields = "0";
 
@@ -5069,7 +5078,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "254 127";
+                     extent = "289 127";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -5091,7 +5100,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 0";
-                        extent = "254 25";
+                        extent = "289 25";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -5164,7 +5173,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "339 4";
+                           position = "390 4";
                            extent = "39 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5190,7 +5199,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 27";
-                        extent = "254 100";
+                        extent = "289 100";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -5284,7 +5293,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "119 42";
-                           extent = "571 23";
+                           extent = "622 23";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -5337,7 +5346,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "116 70";
-                           extent = "574 23";
+                           extent = "625 23";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -5354,7 +5363,7 @@
                            canSaveDynamicFields = "0";
                         };
                         new GuiControl() {
-                           position = "290 6";
+                           position = "341 6";
                            extent = "93 32";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5495,7 +5504,7 @@
             clickCollapse = "1";
             hideHeader = "0";
             autoCollapseSiblings = "0";
-            position = "72 6";
+            position = "107 6";
             extent = "194 15";
             minExtent = "8 2";
             horizSizing = "left";
@@ -5858,7 +5867,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "6 24";
-         extent = "268 73";
+         extent = "303 73";
          minExtent = "8 73";
          horizSizing = "width";
          vertSizing = "bottom";
@@ -5880,7 +5889,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "269 73";
+            extent = "408 73";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "bottom";
@@ -5903,7 +5912,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "3 27";
-               extent = "263 20";
+               extent = "402 20";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -5954,7 +5963,7 @@
                   anchorLeft = "1";
                   anchorRight = "0";
                   position = "76 0";
-                  extent = "543 19";
+                  extent = "682 21";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -5979,7 +5988,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "3 53";
-               extent = "263 17";
+               extent = "402 17";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -6025,7 +6034,7 @@
                   anchorLeft = "1";
                   anchorRight = "0";
                   position = "56 0";
-                  extent = "556 17";
+                  extent = "695 17";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -6074,7 +6083,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "268 73";
+            extent = "303 73";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "bottom";
@@ -6087,6 +6096,31 @@
             canSave = "1";
             canSaveDynamicFields = "0";
 
+            new GuiTextCtrl() {
+               text = "Poppy01A_1.dae";
+               maxLength = "1024";
+               margin = "0 0 0 0";
+               padding = "0 0 0 0";
+               anchorTop = "1";
+               anchorBottom = "0";
+               anchorLeft = "1";
+               anchorRight = "0";
+               position = "1 0";
+               extent = "164 17";
+               minExtent = "8 2";
+               horizSizing = "right";
+               vertSizing = "bottom";
+               profile = "ToolsTextBase_S1";
+               visible = "1";
+               active = "1";
+               tooltipProfile = "GuiToolTipProfile";
+               tooltip = "art/models/boostEnv/Flowers/Poppy/Poppy01A_1.dae";
+               hovertime = "1000";
+               isContainer = "1";
+               internalName = "selMaterialMapTo";
+               canSave = "1";
+               canSaveDynamicFields = "0";
+            };
             new GuiContainer() {
                docking = "Top";
                margin = "4 1 3 3";
@@ -6096,7 +6130,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "3 22";
-               extent = "262 17";
+               extent = "297 17";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -6109,31 +6143,6 @@
                canSave = "1";
                canSaveDynamicFields = "0";
 
-               new GuiTextCtrl() {
-                  text = "owfLong_Left.DAE";
-                  maxLength = "1024";
-                  margin = "0 0 0 0";
-                  padding = "0 0 0 0";
-                  anchorTop = "1";
-                  anchorBottom = "0";
-                  anchorLeft = "1";
-                  anchorRight = "0";
-                  position = "1 0";
-                  extent = "164 17";
-                  minExtent = "8 2";
-                  horizSizing = "right";
-                  vertSizing = "bottom";
-                  profile = "ToolsTextBase_S1";
-                  visible = "1";
-                  active = "1";
-                  tooltipProfile = "GuiToolTipProfile";
-                  tooltip = "art/modelPacks/FarmPack/Fences/OldWoodFence/owfLong_Left.DAE";
-                  hovertime = "1000";
-                  isContainer = "1";
-                  internalName = "selMaterialMapTo";
-                  canSave = "1";
-                  canSaveDynamicFields = "0";
-               };
                new GuiPopUpMenuCtrlEx(SubMaterialSelector) {
                   maxPopupHeight = "200";
                   sbUsesNAColor = "0";
@@ -6148,10 +6157,10 @@
                   anchorBottom = "0";
                   anchorLeft = "1";
                   anchorRight = "0";
-                  position = "130 0";
-                  extent = "355 19";
+                  position = "0 0";
+                  extent = "262 19";
                   minExtent = "8 2";
-                  horizSizing = "width";
+                  horizSizing = "relative";
                   vertSizing = "bottom";
                   profile = "ToolsDropdownProfile_Thin";
                   visible = "1";
@@ -6173,7 +6182,7 @@
                   groupNum = "-1";
                   buttonType = "PushButton";
                   useMouseEvents = "0";
-                  position = "240 0";
+                  position = "275 0";
                   extent = "16 16";
                   minExtent = "8 2";
                   horizSizing = "left";
@@ -6199,7 +6208,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "3 44";
-               extent = "262 22";
+               extent = "297 22";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -6241,7 +6250,7 @@
                   sinkAllKeyEvents = "0";
                   password = "0";
                   passwordMask = "*";
-                  text = "owfSample_baseFP_OldWoodFence";
+                  text = "Poppy01A_1_baseFHPoppyA42";
                   maxLength = "1024";
                   margin = "0 0 0 0";
                   padding = "0 0 0 0";
@@ -6250,7 +6259,7 @@
                   anchorLeft = "1";
                   anchorRight = "0";
                   position = "60 0";
-                  extent = "453 19";
+                  extent = "488 21";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -6266,30 +6275,6 @@
                   canSaveDynamicFields = "0";
                };
             };
-            new GuiTextCtrl() {
-               text = "Object Material";
-               maxLength = "1024";
-               margin = "0 0 0 0";
-               padding = "0 0 0 0";
-               anchorTop = "1";
-               anchorBottom = "0";
-               anchorLeft = "1";
-               anchorRight = "0";
-               position = "4 2";
-               extent = "153 18";
-               minExtent = "8 2";
-               horizSizing = "right";
-               vertSizing = "bottom";
-               profile = "ToolsTextBase_H1";
-               visible = "1";
-               active = "1";
-               tooltipProfile = "GuiToolTipProfile";
-               tooltip = "art/shapes/actors/Soldier/soldier_rigged.DAE";
-               hovertime = "1000";
-               isContainer = "1";
-               canSave = "1";
-               canSaveDynamicFields = "0";
-            };
          };
       };
       new GuiDynamicCtrlArrayControl() {
@@ -6304,7 +6289,7 @@
          fillRowFirst = "0";
          dynamicSize = "1";
          padding = "0 0 0 0";
-         position = "151 25";
+         position = "186 25";
          extent = "120 20";
          minExtent = "8 2";
          horizSizing = "left";

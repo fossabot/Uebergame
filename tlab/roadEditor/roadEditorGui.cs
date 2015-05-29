@@ -26,6 +26,10 @@ function RoadEditorGui::onWake( %this ) {
     %count = EWorldEditor.getSelectionSize();
     for ( %i = 0; %i < %count; %i++ ) {
         %obj = EWorldEditor.getSelectedObject(%i);
+        if (!isObject(%obj)){
+        	warnLog("EWorldEditor contain an invalid object in selection index:",%i,"Obj:",%obj);
+        	continue;
+        }
         if ( %obj.getClassName() !$= "DecalRoad" )
             EWorldEditor.unselectObject(%obj);
         else

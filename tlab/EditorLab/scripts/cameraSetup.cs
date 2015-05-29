@@ -120,6 +120,7 @@ function MenuCameraStatus::onWake( %this ) {
 	%this.add( "Isometric View" );
 	%this.add( "Smooth Camera" );
 	%this.add( "Smooth Rot Camera" );
+	
 }
 
 function MenuCameraStatus::onSelect( %this, %id, %text ) {
@@ -165,6 +166,63 @@ function Lab::setCameraViewMode( %this, %mode,%skipType ) {
 	Lab.currentCameraMode = %mode;
 
 }
+
+//==============================================================================
+function Lab::SetEditorCameraView(%this,%type) {
+   %client = LocalClientConnection;
+	switch$(%type) {
+	case "Standard":
+		// Switch to Fly Mode
+		%client.camera.setFlyMode();
+		%client.camera.newtonMode = "0";
+		%client.camera.newtonRotation = "0";
+		%client.setControlObject(%client.camera);
+
+	case "Newton":
+		// Switch to Newton Fly Mode without rotation damping
+		%client.camera.setFlyMode();
+		%client.camera.newtonMode = "1";
+		%client.camera.newtonRotation = "0";
+		%client.camera.setVelocity("0 0 0");
+		%client.setControlObject(%client.camera);
+
+	case "NewtonDamped":
+		// Switch to Newton Fly Mode with damped rotation
+		%client.camera.setFlyMode();
+		%client.camera.newtonMode = "1";
+		%client.camera.newtonRotation = "1";
+		%client.camera.setAngularVelocity("0 0 0");
+		%client.setControlObject(%client.camera);
+
+	case "Orbit":
+		LocalClientConnection.camera.setEditOrbitMode();
+		%client.setControlObject(%client.camera);
+   devLog("Orbit mode activated");
+
+	case "FlyCamera":
+		%client.camera.setFlyMode();
+		%client.setControlObject(%client.camera);
+
+
+	case "Player":
+		%client.player.setVelocity("0 0 0");
+		%client.setControlObject(%client.player);
+		ServerConnection.setFirstPerson(1);
+		$isFirstPersonVar = 1;
+
+
+	case "PlayerThird":
+		%client.player.setVelocity("0 0 0");
+		%client.setControlObject(%client.player);
+		ServerConnection.setFirstPerson(0);
+		$isFirstPersonVar = 0;
+	}
+	Lab.syncCameraGui();
+}
+
+//------------------------------------------------------------------------------
+//==============================================================================
+// Set the current camera type info in different editor areas
 function Lab::setCameraViewType( %this, %type ) { 
 	%gui = %this.currentEditor.editorGui;
 	if( !isObject( %gui ) )
@@ -174,7 +232,7 @@ function Lab::setCameraViewType( %this, %type ) {
 
    Lab.checkMenuItem("viewTypeMenu",0, 7, %type );
 
-
+	EWorldEditorStatusBarCamera.setText(%type);
 	// Store the current camera rotation so we can restore it correctly when
 	// switching back to perspective view
 	if ( %gui.getDisplayType() == $EditTSCtrl::DisplayTypePerspective )
@@ -190,9 +248,9 @@ function Lab::setCameraViewType( %this, %type ) {
 	EToolCamViewDlg.updateCurrentView();
 	
 }
-
-
-$SkipCameraSync = false;
+//------------------------------------------------------------------------------
+//==============================================================================
+// Sync the camera information on the editor guis
 function Lab::syncCameraGui( %this,%forced ) {
 	if( !EditorIsActive())
 		return;
@@ -237,8 +295,7 @@ function Lab::syncCameraGui( %this,%forced ) {
 		LocalClientConnection.camera.controlMode = "Fly";
 		LocalClientConnection.camera.setRotation( %camRot );
 
-		if( $SkipCameraSync )
-			return;
+		
 		EditorGuiStatusBar.setCamera( %name );
 
 		return;
@@ -250,8 +307,7 @@ function Lab::syncCameraGui( %this,%forced ) {
 	%flyModeRadioItem = -1;
 	if(LocalClientConnection.getControlObject() != LocalClientConnection.player) {
 		%mode = LocalClientConnection.camera.getMode();
-		if( $SkipCameraSync )
-			return;
+		
 
 		if(%mode $= "Fly" && LocalClientConnection.camera.newtonMode) {
 			if(LocalClientConnection.camera.newtonRotation == true) {
@@ -284,8 +340,7 @@ function Lab::syncCameraGui( %this,%forced ) {
 		
 	} else if (!$isFirstPersonVar) { // if 3rd person
 
-		if( $SkipCameraSync )
-			return;
+		
 		//EditorGui-->trdPersonCamera.setStateOn(true);
 		//%cameraTypesButton.setBitmap("tlab/gui/icons/default/toolbar/3rd-person-camera");
 		%flyModeRadioItem = 1;
@@ -296,8 +351,7 @@ function Lab::syncCameraGui( %this,%forced ) {
 		EditorGuiStatusBar.setCamera("3rd Person Camera");
 	} else if ($isFirstPersonVar) { // if 1st Person
 
-		if( $SkipCameraSync )
-			return;
+		
 		EditorGui-->PlayerCamera.setStateOn(true);
 		//%cameraTypesButton.setBitmap("tlab/gui/icons/default/toolbar/player");
 		%flyModeRadioItem = 0;

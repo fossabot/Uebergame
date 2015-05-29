@@ -43,8 +43,9 @@ function TerrainImportGui::importTerrain( %this ) {
 		foreach(%pill in %fileStack) {
 			if (isObject(%pill-->MapFile))
 				continue;
-			%opacityNames = strAddRecord(%opacityNames,%pill.file);
+			%opacityNames = strAddRecord(%opacityNames,%pill.file TAB %pill.channel);
 			devLog("Mat name = ",%pill.matId.internalName);
+			%materialNamesA = strAddRecord(%materialNamesA,%pill.matId.internalName);
 			if (%materialNames $= "")
 				%materialNames = %pill.matId.internalName;
 			else
@@ -56,12 +57,15 @@ function TerrainImportGui::importTerrain( %this ) {
 	%updated = nameToID( %terrainName );
 	// This will update an existing terrain with the name %terrainName,
 	// or create a new one if %terrainName isn't a TerrainBlock
+	devLog("Importing   opacity:",%opacityNames);
+	devLog("Importing  material:",%materialNames);
+	devLog("Importing materialA:",%materialNamesA);
 	%obj = TerrainBlock::import(   %terrainName,
 											 %heightMapPng,
 											 %metersPerPixel,
 											 %heightScale,
 											 %opacityNames,
-											 %materialNames,
+											 %materialNamesA,
 											 %flipYAxis );
 	%obj.terrainHeight = %heightScale;
 
@@ -186,6 +190,7 @@ function TerrainImportGui::addMapToStack( %this,%file,%channel,%matId ) {
 
 	%pill = cloneObject(TIG_TextureMapPill,"",%channel,%chanStack);
 	%pill.file = %file;
+	%pill.channel = %channel;
 	//%pill-->MapFile.text = %file;
 	%pill-->MapMaterial.text = "Material:\c3 NoMaterial";
 	%pill-->MapChannel.text = "Channel:\c3 "@%channel;

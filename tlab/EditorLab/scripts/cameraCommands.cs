@@ -5,59 +5,7 @@
 //==============================================================================
 
 
-//==============================================================================
-function Lab::SetEditorCameraView(%this,%type) {
-   %client = LocalClientConnection;
-	switch$(%type) {
-	case "Standard":
-		// Switch to Fly Mode
-		%client.camera.setFlyMode();
-		%client.camera.newtonMode = "0";
-		%client.camera.newtonRotation = "0";
-		%client.setControlObject(%client.camera);
 
-	case "Newton":
-		// Switch to Newton Fly Mode without rotation damping
-		%client.camera.setFlyMode();
-		%client.camera.newtonMode = "1";
-		%client.camera.newtonRotation = "0";
-		%client.camera.setVelocity("0 0 0");
-		%client.setControlObject(%client.camera);
-
-	case "NewtonDamped":
-		// Switch to Newton Fly Mode with damped rotation
-		%client.camera.setFlyMode();
-		%client.camera.newtonMode = "1";
-		%client.camera.newtonRotation = "1";
-		%client.camera.setAngularVelocity("0 0 0");
-		%client.setControlObject(%client.camera);
-
-	case "Orbit":
-		LocalClientConnection.camera.setEditOrbitMode();
-		%client.setControlObject(%client.camera);
-   devLog("Orbit mode activated");
-
-	case "FlyCamera":
-		%client.camera.setFlyMode();
-		%client.setControlObject(%client.camera);
-
-
-	case "Player":
-		%client.player.setVelocity("0 0 0");
-		%client.setControlObject(%client.player);
-		ServerConnection.setFirstPerson(1);
-		$isFirstPersonVar = 1;
-
-
-	case "PlayerThird":
-		%client.player.setVelocity("0 0 0");
-		%client.setControlObject(%client.player);
-		ServerConnection.setFirstPerson(0);
-		$isFirstPersonVar = 0;
-	}
-	Lab.syncCameraGui();
-}
-//------------------------------------------------------------------------------
 
 //==============================================================================
 

@@ -96,7 +96,7 @@ singleton GuiControlProfile( ToolsCheckBoxProfile_L1 : ToolsCheckBoxProfile ) {
 //ToolsCheckBoxProfile_S1 Variation for list
 singleton GuiControlProfile( ToolsCheckBoxProfile_List : ToolsCheckBoxProfile ) {
 	bitmap = "tlab/gui/assets/button/GuiCheckboxProfile_List.png";
-   fontSize = "22";
+   fontSize = "16";
    
 };
 //------------------------------------------------------------------------------

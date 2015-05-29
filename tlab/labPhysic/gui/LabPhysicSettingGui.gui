@@ -725,7 +725,7 @@
          sinkAllKeyEvents = "0";
          password = "0";
          passwordMask = "*";
-         text = "art/physicModels/ProtoWall/pwBlocA.phys.cs";
+         text = "art/models/physicModels/BlockTest/BlockTest.phys.cs";
          maxLength = "1024";
          margin = "0 0 0 0";
          padding = "0 0 0 0";
