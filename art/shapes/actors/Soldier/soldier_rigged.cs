@@ -358,4 +358,9 @@ function SoldierDAE::onLoad(%this)
    %this.addTrigger("Turret_Side", "14", "1");
    %this.addTrigger("Turret_Side", "9", "2");
    // end keyframes
+   
+   // additional mount points for items
+   %this.addNode("mount2", "Bip01_Pelvis", "-0.209562 -0.211259 0.91492 0.433399 0.765786 0.475118 1.70495", "1");
+   %this.addNode("mount1", "Bip01_L_Hand", "0.210643 0.749801 1.19961 -0.892092 -0.228668 -0.389722 1.83964", "1");
+   %this.addNode("mount3", "Bip01_L_Thigh", "-0.221859 0.00370909 0.951232 -0.445423 -0.845296 -0.295081 1.63457", "1");
 }

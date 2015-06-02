@@ -1,0 +1,172 @@
+//--- OBJECT WRITE BEGIN ---
+new GuiControl(ScoreScreen) {
+   canSaveDynamicFields = "0";
+   Profile = "GuiModelessDialogProfile";
+   HorizSizing = "width";
+   VertSizing = "height";
+   position = "0 0";
+   Extent = "640 480";
+   MinExtent = "8 8";
+   canSave = "1";
+   Visible = "1";
+   hovertime = "1000";
+
+   new GuiBitmapBorderCtrl(ScoreParent) {
+      canSaveDynamicFields = "0";
+      Profile = "HudBorderProfile";
+      HorizSizing = "center";
+      VertSizing = "center";
+      position = "0 0";
+      Extent = "640 480";
+      MinExtent = "48 92";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
+
+      new GuiBitmapCtrl(ScoreHeaderField) {
+         canSaveDynamicFields = "0";
+         Profile = "GuiDefaultProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "23 32";
+         Extent = "594 36";
+         MinExtent = "16 18";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         bitmap = "~/data/textures/ui/hudfill";
+         wrap = "0";
+
+         new GuiMLTextCtrl(ScoreHeaderText) {
+            canSaveDynamicFields = "0";
+            Profile = "ScoreHeaderTextProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            position = "4 4";
+            Extent = "586 24";
+            MinExtent = "8 8";
+            canSave = "1";
+            Visible = "1";
+            hovertime = "1000";
+            lineSpacing = "2";
+            allowColorChars = "0";
+            maxChars = "-1";
+         };
+      };
+      new GuiBitmapCtrl(ScoreField) {
+         canSaveDynamicFields = "0";
+         Profile = "GuiDefaultProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "23 72";
+         Extent = "594 386";
+         MinExtent = "16 18";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         bitmap = "~/data/textures/ui/hudfill";
+         wrap = "0";
+
+         new GuiMLTextCtrl(ScoreSubheaderText) {
+            canSaveDynamicFields = "0";
+            Profile = "TeamScoreTextLProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            position = "4 4";
+            Extent = "586 18";
+            MinExtent = "8 8";
+            canSave = "1";
+            Visible = "1";
+            hovertime = "1000";
+            lineSpacing = "2";
+            allowColorChars = "0";
+            maxChars = "-1";
+         };
+         new GuiScrollCtrl(ScoreScroll) {
+            canSaveDynamicFields = "0";
+            Profile = "GuiDefaultProfile";
+            HorizSizing = "right";
+            VertSizing = "height";
+            position = "1 26";
+            Extent = "592 358";
+            MinExtent = "24 24";
+            canSave = "1";
+            Visible = "1";
+            hovertime = "1000";
+            willFirstRespond = "1";
+            hScrollBar = "alwaysOff";
+            vScrollBar = "dynamic";
+            constantThumbHeight = "0";
+            childMargin = "3 3";
+
+            new GuiControl(ScoreContent) {
+               canSaveDynamicFields = "0";
+               Profile = "GuiBevelLoweredProfile";
+               HorizSizing = "width";
+               VertSizing = "height";
+               position = "1 5";
+               Extent = "586 8";
+               MinExtent = "8 8";
+               canSave = "1";
+               Visible = "1";
+               hovertime = "1000";
+            };
+         };
+      };
+   };
+};
+//--- OBJECT WRITE END ---
+
+function ScoreScreen::addLine(%this, %tag, %lineNum, %name)
+{
+   %yOffset = (%lineNum * 20) + 5;
+   %this.count++;
+   ScoreContent.resize( 3, 3, 586, %yOffset + 25 );
+   %this.data[%lineNum,0] = new GuiMLTextCtrl() 
+   {
+      profile = "ScoreTextProfile";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      position = "0 " @ %yOffset;
+      extent = "566 22";
+      minExtent = "8 8";
+      visible = "1";
+      setFirstResponder = "0";
+      modal = "1";
+      helpTag = "0";
+      text = "";
+   };
+   return 1;
+}
+
+function toggleScoreScreen( %val )
+{
+   if ( %val )
+      toggleCursorHuds('scoreScreen');
+}
+moveMap.bind( keyboard, F2, toggleScoreScreen );
+
+//------------------------------------------------------------------------------
+addMessageCallback( 'SetScoreHudHeader', setScoreHudHeader );
+addMessageCallback( 'SetScoreHudSubheader', setScoreHudSubheader );
+
+function setScoreHudHeader( %msgType, %msgString, %a0 )
+{
+   %text = detag( %a0 );
+   ScoreHeaderText.setValue( %text );  
+   if ( %text $= "" )
+   {
+      ScoreHeaderField.setVisible( false );
+      ScoreField.resize( 23, 32, 594, 426 );
+   }
+   else
+   {
+      ScoreHeaderField.setVisible( true );
+      ScoreField.resize( 23, 72, 594, 386 );
+   }
+}
+
+function setScoreHudSubheader( %msgType, %msgString, %a0 )
+{
+   ScoreSubheaderText.setValue( detag( %a0 ) );   
+}

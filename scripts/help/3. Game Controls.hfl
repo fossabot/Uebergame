@@ -1,0 +1,55 @@
+<lmargin%:5><rmargin%:95><font:Arial Bold:20>Default Game Control Setup...<font:Arial:16>
+<tab:105,200>
+<font:Arial:16>To re map a control simply double click the control name. A dialog will pop up waiting for you to press the key you wish to map. Pressing backspace when the dialog is open will clear the current key map for that control. Pressing escape will return you to the control menu without changing anything.
+
+<font:Arial Bold:16>Movement<font:Arial:16>
+W			Move Forward
+S			Move Backward
+A			Strafe Left
+D			Strafe Right
+Space			Jump / Exit Vehicle
+Mouse Button 0		Fire
+Mouse Button 1		Alt Fire
+Mouse Button 2		Thrust / Throw Flag
+M			Enter vehicle
+
+<font:Arial Bold:16>Weapon Control<font:Arial:16>
+Q			Next weapon
+Shift Q			Previous weapon
+1 - 8			Select weapon slot #
+Shift W			Toss weapon
+shift a			Toss ammo
+
+<font:Arial Bold:16>View Control<font:Arial:16>
+E			Zoom
+Z			Set zoom FOV
+TAB			First / Third person camera
+F			Freelook
+
+<font:Arial Bold:16>Chat<font:Arial:16>
+U			Send public chat message
+Y			Send team chat message
+P			Resize message hud
+Page Up			Scroll message hud up
+Page Down		Scroll message hud down
+
+<font:Arial Bold:16>Misc Functions<font:Arial:16>
+Ctrl-O			Open in-game options dialog
+F1			Show Help
+F2			Show Player list / Admin
+F3			Show Scores
+T			Show Join Team Dialog
+V			Quick Chat Menu
+N			Toggle Network Graph
+insert			Vote yes
+Delete			Vote no
+Print			Take screenshot
+Alt P			Take hudless screenshot
+Alt Enter		Fullscreen toggle
+Tilde			Open console
+F10			Open GUI editor
+F11			Open World editor
+Ctrl K			Commit suicide
+Ctrl W			Animation - Wave
+Ctrl S			Animation - Salute
+			

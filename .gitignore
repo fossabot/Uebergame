@@ -4,6 +4,7 @@
 shaders/procedural/*
 
 #fonts cache
+art/fonts/*
 core/fonts/*
 
 #screenshots

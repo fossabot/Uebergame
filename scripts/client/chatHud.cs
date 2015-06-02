@@ -1,23 +1,6 @@
 //-----------------------------------------------------------------------------
-// Copyright (c) 2012 GarageGames, LLC
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to
-// deal in the Software without restriction, including without limitation the
-// rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-// sell copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-// IN THE SOFTWARE.
+// Torque Game Engine 
+// Copyright (C) GarageGames.com, Inc.
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
@@ -25,9 +8,9 @@
 //-----------------------------------------------------------------------------
 
 // chat hud sizes in lines
-$outerChatLenY[1] = 4;
-$outerChatLenY[2] = 9;
-$outerChatLenY[3] = 13;
+$outerChatLenY[1] = 80; // 72
+$outerChatLenY[2] = 140;
+$outerChatLenY[3] = 200;
 
 // Only play sound files that are <= 5000ms in length.
 $MaxMessageWavLength = 5000;
@@ -94,8 +77,8 @@ function playMessageSound(%message, %voice, %pitch)
 // MainChatHud only displays the contents of this vector.
 
 new MessageVector(HudMessageVector);
+GuiGroup.add(HudMessageVector);
 $LastHudTarget = 0;
-
 
 //-----------------------------------------------------------------------------
 function onChatMessage(%message, %voice, %pitch)
@@ -136,8 +119,6 @@ function onServerMessage(%message)
    }
 }
 
-
-
 //-----------------------------------------------------------------------------
 // MainChatHud methods
 //-----------------------------------------------------------------------------
@@ -147,23 +128,29 @@ function MainChatHud::onWake( %this )
    // set the chat hud to the users pref
    %this.setChatHudLength( $Pref::ChatHudLength );
 }
-
-
 //------------------------------------------------------------------------------
 
 function MainChatHud::setChatHudLength( %this, %length )
 {
+/*
    %textHeight = ChatHud.Profile.fontSize + ChatHud.lineSpacing;
    if (%textHeight <= 0)
       %textHeight = 12;
+
    %lengthInPixels = $outerChatLenY[%length] * %textHeight;
    %chatMargin = getWord(OuterChatHud.extent, 1) - getWord(ChatScrollHud.Extent, 1)
                   + 2 * ChatScrollHud.profile.borderThickness;
    OuterChatHud.setExtent(firstWord(OuterChatHud.extent), %lengthInPixels + %chatMargin);
+*/
+   OuterChatHud.resize(firstWord(OuterChatHud.position), getWord(OuterChatHud.position, 1),
+                       firstWord(OuterChatHud.extent), $outerChatLenY[%length]);
+
+   ChatScrollHud.resize(firstWord(ChatScrollHud.position), getWord(ChatScrollHud.position, 1),
+                       firstWord(ChatScrollHud.extent), $outerChatLenY[%length]-10);
+
    ChatScrollHud.scrollToBottom();
    ChatPageDown.setVisible(false);
 }
-
 
 //------------------------------------------------------------------------------
 
@@ -172,9 +159,9 @@ function MainChatHud::nextChatHudLen( %this )
    %len = $pref::ChatHudLength++;
    if ($pref::ChatHudLength == 4)
       $pref::ChatHudLength = 1;
+
    %this.setChatHudLength($pref::ChatHudLength);
 }
-
 
 //-----------------------------------------------------------------------------
 // ChatHud methods
@@ -182,23 +169,20 @@ function MainChatHud::nextChatHudLen( %this )
 // the MainChatHud dialog
 //-----------------------------------------------------------------------------
 
-//-----------------------------------------------------------------------------
-
 function ChatHud::addLine(%this,%text)
 {
    //first, see if we're "scrolled up"...
-   %textHeight = %this.profile.fontSize + %this.lineSpacing;
+   %textHeight = %this.profile.fontSize;
    if (%textHeight <= 0)
       %textHeight = 12;
-      
-   %scrollBox = %this.getGroup();
-   %chatScrollHeight = getWord(%scrollBox.extent, 1) - 2 * %scrollBox.profile.borderThickness;
-   %chatPosition = getWord(%this.extent, 1) - %chatScrollHeight + getWord(%this.position, 1) - %scrollBox.profile.borderThickness;
+
+   %chatScrollHeight = getWord(%this.getGroup().getGroup().extent, 1);
+   %chatPosition = getWord(%this.extent, 1) - %chatScrollHeight + getWord(%this.position, 1);
    %linesToScroll = mFloor((%chatPosition / %textHeight) + 0.5);
    if (%linesToScroll > 0)
       %origPosition = %this.position;
-
-   //remove old messages from the top only if scrolled down all the way
+      
+   //add the message...
    while( !chatPageDown.isVisible() && HudMessageVector.getNumLines() && (HudMessageVector.getNumLines() >= $pref::HudMessageLogSize))
    {
       %tag = HudMessageVector.getLineTag(0);
@@ -206,8 +190,6 @@ function ChatHud::addLine(%this,%text)
          %tag.delete();
       HudMessageVector.popFrontLine();
    }
-
-   //add the message...
    HudMessageVector.pushBackLine(%text, $LastHudTarget);
    $LastHudTarget = 0;
 
@@ -221,29 +203,26 @@ function ChatHud::addLine(%this,%text)
       chatPageDown.setVisible(false);
 }
 
-
 //-----------------------------------------------------------------------------
 
 function ChatHud::pageUp(%this)
 {
    // Find out the text line height
-   %textHeight = %this.profile.fontSize + %this.lineSpacing;
+   %textHeight = %this.profile.fontSize;
    if (%textHeight <= 0)
       %textHeight = 12;
 
-   %scrollBox = %this.getGroup();
-
    // Find out how many lines per page are visible
-   %chatScrollHeight = getWord(%scrollBox.extent, 1) - 2 * %scrollBox.profile.borderThickness;
+   %chatScrollHeight = getWord(%this.getGroup().getGroup().extent, 1);
    if (%chatScrollHeight <= 0)
       return;
 
-   %pageLines = mFloor(%chatScrollHeight / %textHeight) - 1; // have a 1 line overlap on pages
+   %pageLines = mFloor(%chatScrollHeight / %textHeight) - 1;
    if (%pageLines <= 0)
       %pageLines = 1;
 
    // See how many lines we actually can scroll up:
-   %chatPosition = -1 * (getWord(%this.position, 1) - %scrollBox.profile.borderThickness);
+   %chatPosition = -1 * getWord(%this.position, 1);
    %linesToScroll = mFloor((%chatPosition / %textHeight) + 0.5);
    if (%linesToScroll <= 0)
       return;
@@ -260,20 +239,17 @@ function ChatHud::pageUp(%this)
    chatPageDown.setVisible(true);
 }
 
-
 //-----------------------------------------------------------------------------
 
 function ChatHud::pageDown(%this)
 {
    // Find out the text line height
-   %textHeight = %this.profile.fontSize + %this.lineSpacing;
+   %textHeight = %this.profile.fontSize;
    if (%textHeight <= 0)
       %textHeight = 12;
 
-   %scrollBox = %this.getGroup();
-
    // Find out how many lines per page are visible
-   %chatScrollHeight = getWord(%scrollBox.extent, 1) - 2 * %scrollBox.profile.borderThickness;
+   %chatScrollHeight = getWord(%this.getGroup().getGroup().extent, 1);
    if (%chatScrollHeight <= 0)
       return;
 
@@ -282,7 +258,7 @@ function ChatHud::pageDown(%this)
       %pageLines = 1;
 
    // See how many lines we actually can scroll down:
-   %chatPosition = getWord(%this.extent, 1) - %chatScrollHeight + getWord(%this.position, 1) - %scrollBox.profile.borderThickness;
+   %chatPosition = getWord(%this.extent, 1) - %chatScrollHeight + getWord(%this.position, 1);
    %linesToScroll = mFloor((%chatPosition / %textHeight) + 0.5);
    if (%linesToScroll <= 0)
       return;
@@ -302,7 +278,6 @@ function ChatHud::pageDown(%this)
       chatPageDown.setVisible(false);
 }
 
-
 //-----------------------------------------------------------------------------
 // Support functions
 //-----------------------------------------------------------------------------
@@ -321,3 +296,4 @@ function cycleMessageHudSize()
 {
    MainChatHud.nextChatHudLen();
 }
+

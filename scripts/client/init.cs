@@ -23,7 +23,7 @@
 //-----------------------------------------------------------------------------
 // Variables used by client scripts & code.  The ones marked with (c)
 // are accessed from code.  Variables preceeded by Pref:: are client
-// preferences and stored automatically in the ~/client/prefs.cs file
+// preferences and stored automatically in the prefs/prefs.cs file
 // in between sessions.
 //
 //    (c) Client::MissionFile             Mission file name
@@ -49,68 +49,115 @@
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
-function initClient()
+function Torque::initClient(%this)
 {
    echo("\n--------- Initializing " @ $appName @ ": Client Scripts ---------");
 
+   // Set a background image for the main guis
+   if ( $pref::MainGui::LastBackground $= "" || $pref::MainGui::LastBackground >= 2 )
+      $pref::MainGui::LastBackground = 0;
+
+   switch( $pref::MainGui::LastBackground )
+   {
+      case 0:
+         $MainGuiBackground = "art/gui/space_background_big.dds";
+      case 1:
+         $MainGuiBackground = "art/gui/space_background_big.dds";
+      default:
+         $MainGuiBackground = "art/gui/space_background_big.dds";
+   }
+   $pref::MainGui::LastBackground++;
+
    // Make sure this variable reflects the correct state.
-   $Server::Dedicated = false;
+   // Obviously the gui is loading/loaded, so no way should we be dedicated.
+   $Server::Dedicated = $pref::Server::Dedicated = false;
 
    // Game information used to query the master server
    $Client::GameTypeQuery = $appName;
    $Client::MissionTypeQuery = "Any";
+   $Client::GameType = "";
 
    // These should be game specific GuiProfiles.  Custom profiles are saved out
    // from the Gui Editor.  Either of these may override any that already exist.
-   exec("art/gui/defaultGameProfiles.cs");
-   exec("art/gui/customProfiles.cs"); 
-   
-   // The common module provides basic client functionality
-   initBaseClient();
-
-   // Use our prefs to configure our Canvas/Window
-   configureCanvas();
-
-   // Load up the Game GUIs
-   exec("art/gui/defaultGameProfiles.cs");
-   exec("art/gui/playGui.gui");
-   exec("art/gui/chatHud.gui");
-   exec("art/gui/playerList.gui");
-   exec("art/gui/hudlessGui.gui");
-
-   // Load up the shell GUIs
-   exec("art/gui/mainMenuGui.gui");
-   exec("art/gui/joinServerDlg.gui");
-   exec("art/gui/endGameGui.gui");
-   exec("art/gui/exitGameGui.gui");
-   exec("art/gui/chooseLevelDlg.gui");
-   exec("art/gui/loadingGui.gui");
-   exec("art/gui/optionsDlg.gui");
-   exec("art/gui/remapDlg.gui");
-   
-   // Gui scripts
-   exec("./playerList.cs");
-   exec("./chatHud.cs");
-   exec("./messageHud.cs");
-   exec("scripts/gui/playGui.cs");
-   exec("scripts/gui/chooseLevelDlg.cs");
-   exec("scripts/gui/loadingGui.cs");
-   exec("scripts/gui/optionsDlg.cs");
-
-   // Client scripts
-   exec("./client.cs");
-   exec("./game.cs");
-   exec("./missionDownload.cs");
-   exec("./serverConnection.cs");
-
-   // Load useful Materials
-   exec("./shaders.cs");
+   exec("~/gui/defaultGameProfiles.cs"); 
 
    // Default player key bindings
    exec("./default.bind.cs");
 
-   if (isFile("./config.cs"))
-      exec("./config.cs");
+   if (isFile("prefs/config.cs"))
+      exec("prefs/config.cs");
+
+   // Base client functionality
+   exec( "./message.cs" );
+   exec( "./mission.cs" );
+   exec( "./missionDownload.cs" );
+   exec( "./onMissionDownload.cs" );
+   exec( "./renderManager.cs" );
+   exec( "./lighting.cs" );
+   exec( "./keyRemaps.cs" );
+
+   // Client scripts
+   exec("./serverConnection.cs");
+   exec("./callbacks.cs");
+   exec("./playerList.cs");
+   exec("./chatHud.cs");
+   exec("./messageHud.cs");
+
+   initRenderManager();
+   initLightingSystems();
+
+   // Use our prefs to configure our Canvas/Window
+   configureCanvas();
+
+   // Load up the shell GUIs
+   exec("~/gui/StartupGui.gui");
+   exec("~/gui/mainMenuGui.gui");
+   exec("~/gui/exitGameGui.gui");
+   exec("~/gui/chooseLevelDlg.gui");
+   exec("~/gui/serverOptionsDlg.gui");
+   exec("~/gui/joinServerDlg.gui");
+   exec("~/gui/ipJoinDlg.gui");
+   exec("~/gui/optionsDlg.gui");
+   exec("~/gui/loadingGui.gui");
+   exec("~/gui/remapDlg.gui");
+   exec("~/gui/endGameGui.gui");
+   exec("~/gui/helpDlg.gui");
+
+   // Load up the Game GUI
+   exec("~/gui/playGui.gui");
+   exec("~/gui/hudlessGui.gui"); // For screen shots
+   exec("~/gui/ChatHud.gui");
+   exec("~/gui/scoreHud.gui");
+   exec("~/gui/voteHudDlg.gui");
+   exec("~/gui/clusterHud.gui");
+   exec("~/gui/quickChatHud.gui");
+   exec("~/gui/adminDlg.gui");
+   exec("~/gui/armoryHud.gui");
+   exec("~/gui/vehicleHud.gui");
+   exec("~/gui/bombTimerDlg.gui");
+   exec("~/gui/fireTeamHud.gui");
+   exec("~/gui/guiMusicPlayer.gui");
+   exec("~/gui/RecordingsDlg.gui");
+
+   // Gui scripts
+   //exec("~/gui/startupGui.cs");
+   exec("~/gui/mainMenuGui.cs");
+   exec("~/gui/recordings.cs");
+   exec("~/gui/chooseLevelDlg.cs");
+   exec("~/gui/serverOptionsDlg.cs");
+   exec("~/gui/joinServerDlg.cs");
+   exec("~/gui/optionsDlg.cs");
+   exec("~/gui/loadingGui.cs");
+   exec("~/gui/playGui.cs");
+   exec("~/gui/adminDlg.cs");
+   exec("~/gui/clusterHud.cs");
+   exec("~/gui/quickChatHud.cs");
+   exec("~/gui/objectiveHud.cs");
+   exec("~/gui/scoreHud.cs");
+   exec("~/gui/armoryHud.cs");
+   exec("~/gui/vehicleHud.cs");
+   exec("~/gui/fireTeamHud.cs");
+   exec("~/gui/guiMusicPlayer.cs");
 
    loadMaterials();
 
@@ -136,23 +183,25 @@ function initClient()
    }
 
    // Connect to server if requested.
-   if ($JoinGameAddress !$= "") {
+   if ($JoinGameAddress !$= "")
+   {
       // If we are instantly connecting to an address, load the
       // loading GUI then attempt the connect.
-      loadLoadingGui();
-      connect($JoinGameAddress, "", $Pref::Player::Name);
+      tge.loadLoadingGui();
+      connect($JoinGameAddress, $Client::Password, getField($pref::Player, 0), getField($pref::Player, 1));
    }
-   else {
+   else
+   {
       // Otherwise go to the splash screen.
       Canvas.setCursor("DefaultCursor");
-      loadMainMenu();
+      tge.loadMainMenu();
+      //loadStartup();
    }   
 }
 
-
 //-----------------------------------------------------------------------------
 
-function loadMainMenu()
+function Torque::loadMainMenu(%this)
 {
    // Startup the client with the Main menu...
    if (isObject( MainMenuGui ))
@@ -178,23 +227,16 @@ function loadMainMenu()
       %file = findFirstFile(%levelFile);
 
       if(%file !$= "")
-         createAndConnectToLocalServer( "SinglePlayer", %file );
+         createAndConnectToLocalServer("SinglePlayer", %file, $pref::Server::MissionType);
    }
 }
 
-function loadLoadingGui(%displayText)
+function Torque::loadLoadingGui(%this)
 {
    Canvas.setContent("LoadingGui");
    LoadingProgress.setValue(1);
 
-   if (%displayText !$= "")
-   {
-      LoadingProgressTxt.setValue(%displayText);
-   }
-   else
-   {
-      LoadingProgressTxt.setValue("WAITING FOR SERVER");
-   }
+   LoadingProgressTxt.setValue("WAITING FOR SERVER");
 
    Canvas.repaint();
 }

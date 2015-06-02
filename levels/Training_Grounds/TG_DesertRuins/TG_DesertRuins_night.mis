@@ -21,9 +21,19 @@ new SimGroup(MissionGroup) {
       soundDistanceModel = "Linear";
       canSave = "1";
       canSaveDynamicFields = "1";
-         desc0 = "Training Level in the desert ruins at night";
+         desc0 = "Level design by Duion.";
+         desc1 = "Training Level in the desert ruins at night";
          enabled = "1";
-         levelName = "TG_DesertRuins_night";
+         levelName = "Desert Ruins night";
+         MissionTypes = "DM TDM RtF MfD";
+   };
+   new MissionArea(PlayArea) {
+      area = "-246 -231 488 478";
+      flightCeiling = "1000";
+      flightCeilingRange = "50";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         Bouncy = "1";
    };
    new ScatterSky(Sky) {
       skyBrightness = "15";
@@ -982,7 +992,7 @@ new SimGroup(MissionGroup) {
          outdoorWeight = "1";
          isAIControlled = "0";
          dataBlock = "SpawnSphereMarker";
-         position = "19.3258 -51.925 0.75";
+         position = "19.461 -51.925 0.75";
          rotation = "1 0 0 0";
          scale = "1 1 1";
          canSave = "1";

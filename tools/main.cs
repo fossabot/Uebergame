@@ -36,7 +36,7 @@ $Tools::materialEditorList = "";
 //---------------------------------------------------------------------------------------------
 // Tools Package.
 //---------------------------------------------------------------------------------------------
-package Tools
+package tools
 {
    function loadKeybindings()
    {
@@ -46,9 +46,9 @@ package Tools
    }
    
    // Start-up.
-   function onStart()
+   function Torque::onStart(%this)
    {
-      Parent::onStart();            
+      Parent::onStart(%this);      
       
       new Settings(EditorSettings) { file = "tools/settings.xml"; };
       EditorSettings.read();

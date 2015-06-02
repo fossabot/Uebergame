@@ -38,7 +38,6 @@ function handleConnectionErrorMessage(%msgType, %msgString, %msgError)
    $ServerConnectionErrorMessage = %msgError;
 }
 
-
 //----------------------------------------------------------------------------
 // GameConnection client callbacks
 //----------------------------------------------------------------------------
@@ -54,9 +53,7 @@ function GameConnection::initialControlSet(%this)
    if (!isToolBuild() || !Editor::checkActiveLoadDone())
    {
       if (Canvas.getContent() != PlayGui.getId())
-      {
          Canvas.setContent(PlayGui);
-      }
    }
 }
 
@@ -74,47 +71,16 @@ function GameConnection::setLagIcon(%this, %state)
 {
    if (%this.getAddress() $= "local")
       return;
-   LagIcon.setVisible(%state $= "true");
-}
 
-function GameConnection::onFlash(%this, %state)
-{
-   if (isObject(FlashFx))
-   {
-      if (%state)
-      {
-         FlashFx.enable();
-      }
-      else
-      {
-         FlashFx.disable();
-      }
-   }
+   LagIcon.setVisible(%state $= "true");
 }
 
 // Called on the new connection object after connect() succeeds.
 function GameConnection::onConnectionAccepted(%this)
 {
-   // Called on the new connection object after connect() succeeds.
-   LagIcon.setVisible(false);
-   
-   // Startup the physics world on the client before any
+   // Startup the physX world on the client before any
    // datablocks and objects are ghosted over.
    physicsInitWorld( "client" );   
-}
-
-function GameConnection::onConnectionTimedOut(%this)
-{
-   // Called when an established connection times out
-   disconnectedCleanup();
-   MessageBoxOK( "TIMED OUT", "The server connection has timed out.");
-}
-
-function GameConnection::onConnectionDropped(%this, %msg)
-{
-   // Established connection was dropped by the server
-   disconnectedCleanup();
-   MessageBoxOK( "DISCONNECT", "The server has dropped the connection: " @ %msg);
 }
 
 function GameConnection::onConnectionError(%this, %msg)
@@ -122,10 +88,23 @@ function GameConnection::onConnectionError(%this, %msg)
    // General connection error, usually raised by ghosted objects
    // initialization problems, such as missing files.  We'll display
    // the server's connection error message.
-   disconnectedCleanup();
+   tge.disconnectedCleanup();
    MessageBoxOK( "DISCONNECT", $ServerConnectionErrorMessage @ " (" @ %msg @ ")" );
 }
 
+function GameConnection::onConnectionTimedOut(%this)
+{
+   // Called when an established connection times out
+   tge.disconnectedCleanup();
+   MessageBoxOK( "TIMED OUT", "The server connection has timed out.");
+}
+
+function GameConnection::onConnectionDropped(%this, %msg)
+{
+   // Established connection was dropped by the server
+   tge.disconnectedCleanup();
+   MessageBoxOK( "DISCONNECT", "The server has dropped the connection: " @ %msg);
+}
 
 //----------------------------------------------------------------------------
 // Connection Failed Events
@@ -161,16 +140,15 @@ function GameConnection::onConnectRequestRejected( %this, %msg )
       default:
          %error = "Connection error.  Please try another server.  Error code: (" @ %msg @ ")";
    }
-   disconnectedCleanup();
+   tge.disconnectedCleanup();
    MessageBoxOK( "REJECTED", %error);
 }
 
 function GameConnection::onConnectRequestTimedOut(%this)
 {
-   disconnectedCleanup();
+   tge.disconnectedCleanup();
    MessageBoxOK( "TIMED OUT", "Your connection to the server timed out." );
 }
-
 
 //-----------------------------------------------------------------------------
 // Disconnect
@@ -186,16 +164,18 @@ function disconnect()
    if (isObject(ServerConnection))
       ServerConnection.delete();
       
-   disconnectedCleanup();
+   tge.disconnectedCleanup();
 
    // Call destroyServer in case we're hosting
-   destroyServer();
+   tge.destroyServer();
 }
 
-function disconnectedCleanup()
+function Torque::disconnectedCleanup(%this)
 {
+   // Clear misc script stuff
+   HudMessageVector.clear();
+
    // End mission, if it's running.
-   
    if( $Client::missionRunning )
       clientEndMission();
       
@@ -204,14 +184,13 @@ function disconnectedCleanup()
    
    $lightingMission = false;
    $sceneLighting::terminateLighting = true;
-   
-   // Clear misc script stuff
-   HudMessageVector.clear();
-   
-   //
-   LagIcon.setVisible(false);
+
    PlayerListGui.clear();
-   
+
+   // ZOD: Delete the player list group
+   if ( isObject( PlayerListGroup ) )
+      PlayerListGroup.delete();
+
    // Clear all print messages
    clientCmdclearBottomPrint();
    clientCmdClearCenterPrint();
