@@ -7,6 +7,7 @@
 //==============================================================================
 function Lab::initLabEditor( %this ) {
    
+   execPattern("tlab/EditorLab/settings/prefs/*.cs");
 
 	new SimGroup(ToolLabGuiGroup);
 
@@ -37,7 +38,7 @@ function Lab::initLabEditor( %this ) {
 
 	%this.initMenubar();
    
-
+	%this.initParamsSystem();
 }
 //------------------------------------------------------------------------------
 
@@ -83,7 +84,8 @@ function Lab::pluginInitCompleted( %this ) {
 //==============================================================================
 function Lab::reloadAllSettings( %this ) {
 	exec("tlab/EditorLab/commonSettings.cs");
-	%this.initCommonSettings();
+	%this.initCommonParams(); 
+	%this.initCommonSettings(); //FIXME Old param system
 }
 //------------------------------------------------------------------------------
 //==============================================================================

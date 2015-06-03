@@ -7,6 +7,7 @@ function SceneEditorPlugin::initToolBar( %this ) {
 	%menu = SceneEditorToolbar-->DropTypeMenu;
 	%menu.clear();
 	%selected = 0;
+	
 	foreach$(%type in $TLab_Object_DropTypes){
 		%menu.add(%type,%id++);		
 		if (EWorldEditor.dropType $= %type)

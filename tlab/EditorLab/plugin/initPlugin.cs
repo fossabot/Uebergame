@@ -58,6 +58,10 @@ function Lab::initPluginConfig(%this,%pluginObj) {
 	%pluginName = %pluginObj.plugin;
 	%array = newArrayObject("ar"@%pluginName@"Cfg",LabConfigArrayGroup);
 	%array.pluginObj =%pluginObj;
+	%pluginObj.arrayCfg = %array;
+
+	
+	
 	%array.groupLink = "Plugins_"@%pluginName;
 	%array.groupLinkName = %pluginName SPC "Settings";
 	%array.internalName = %pluginName;
@@ -67,6 +71,13 @@ function Lab::initPluginConfig(%this,%pluginObj) {
 
 	%array.setVal("pluginOrder",      "99" TAB "pluginOrder" TAB "" TAB "" TAB %pluginObj.getName());
 	%array.setVal("isEnabled",      "1" TAB "isEnabled" TAB "" TAB "" TAB %pluginObj.getName());
+	
+	//Moving toward new params array system
+	%newArray = Lab.newParamsArray(%pluginName,"Plugin",%pluginObj);
+	%pluginObj.paramArray = %newArray;
+	
+	if (%pluginObj.isMethod("initParamsArray"))
+		%pluginObj.initParamsArray(%newArray);
 	//%this.initConfigArray( %array,true);
 	//%pluginObj.isEnabled =  %pluginObj.checkCfg("Enabled","1");
 	//%pluginObj.pluginOrder =  %pluginObj.checkCfg("pluginOrder","99");

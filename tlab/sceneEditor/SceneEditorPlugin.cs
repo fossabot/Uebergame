@@ -29,8 +29,8 @@ function SceneEditorPlugin::onWorldEditorStartup( %this ) {
     %map.bindCmd( keyboard, "l", "EToolbarObjectTransformDropdown->worldTransformBtn.performClick(); EToolbarObjectTransformDropdown.toggle();", "" );// World Transform
 
     SceneEditorPlugin.map = %map;
-    
-    
+    if (SceneEditorPlugin.getCfg("DropType") !$= "")
+   	 EWorldEditor.dropType = %this.getCfg("DropType");
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -46,6 +46,9 @@ function SceneEditorPlugin::onActivated( %this ) {
     %this.map.push();   
 
    SceneGroupsTree.initContent();
+   
+   if (SceneEditorPlugin.getCfg("DropType") !$= "")
+   	 EWorldEditor.dropType = %this.getCfg("DropType");
 }
 //------------------------------------------------------------------------------
 //==============================================================================

@@ -4,10 +4,10 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 
-
 //==============================================================================
 function TerrainMaterialDlg::show( %this, %matIndex, %terrMat, %onApplyCallback ) {
 	Canvas.pushDialog( %this );
+
 	%this.matIndex = %matIndex;
 	%this.onApplyCallback = %onApplyCallback;
 	%matLibTree = %this-->matLibTree;
@@ -70,7 +70,7 @@ function TerrainMaterialDlg::onWake( %this ) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function TerrainMaterialDlg::refreshMaterialTree( %this ) {
+function TerrainMaterialDlg::refreshMaterialTree( %this,%selected ) {
 	// Refresh the material list.
 	%matLibTree = %this-->matLibTree;
 	%matLibTree.clear();
@@ -155,6 +155,7 @@ function TerrainMaterialDlg::dialogCancel( %this ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function TerrainMaterialTreeCtrl::onSelect( %this, %item ) {
+	devLog("TerrainMaterialTreeCtrl::onSelect",%item);
 	TerrainMaterialDlg.setActiveMaterial( %item );
 }
 //------------------------------------------------------------------------------
@@ -167,7 +168,12 @@ function TerrainMaterialTreeCtrl::onUnSelect( %this, %item ) {
 //==============================================================================
 function TerrainMaterialDlg::_selectTextureFileDialog( %this, %defaultFileName ) {
 	if( $Pref::TerrainEditor::LastPath $= "" )
-		$Pref::TerrainEditor::LastPath = "art/terrains";
+		$Pref::TerrainEditor::LastPath = "art/terrains/";
+		
+	if (TerrainPainterTools.defaultTexturesFolder !$= "")
+		%defaultPath = TerrainPainterTools.defaultTexturesFolder;
+	else
+		%defaultPath = $Pref::TerrainEditor::LastPath;
 
 	%dlg = new OpenFileDialog() {
 		Filters        = $TerrainEditor::TextureFileSpec;

@@ -35,10 +35,7 @@ function Editor::open(%this) {
 	show(EWToolsPaletteContainer);
 
 	ToolsToolbarArray.reorderChild( ToolsToolbarArray-->SceneEditorPlugin,ToolsToolbarArray.getObject(0));
-	ToolsToolbarArray.refresh();
-	Lab.syncCameraGui();	
-
-	
+	ToolsToolbarArray.refresh();	
 
 	Lab.updateActivePlugins();
 

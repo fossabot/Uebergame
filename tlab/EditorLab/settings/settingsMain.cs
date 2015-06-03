@@ -10,7 +10,8 @@ function Lab::initConfigSystem( %this ) {
    //Start by building all the ConfigArray Params
    $LabConfigArrayGroup = newSimGroup("LabConfigArrayGroup");
    
-   %this.initCommonSettings();	
+   %this.initCommonParams(); 
+	%this.initCommonSettings(); //FIXME Old param system
    %this.initAllPluginConfig();
    Lab.buildAllConfigParams();
 	 LabCfg.read();	

@@ -4,6 +4,25 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 
+function MenuCameraStatus::onWake( %this ) {
+	%this.add( "Standard Camera" );
+	%this.add( "1st Person Camera" );
+	%this.add( "3rd Person Camera" );
+	%this.add( "Orbit Camera" );
+	%this.add( "Top View" );
+	%this.add( "Bottom View" );
+	%this.add( "Left View" );
+	%this.add( "Right View" );
+	%this.add( "Front View" );
+	%this.add( "Back View" );
+	%this.add( "Isometric View" );
+	%this.add( "Smooth Camera" );
+	%this.add( "Smooth Rot Camera" );	
+}
+function MenuCameraStatus::onSelect( %this, %id, %text ) {
+	Lab.setCameraViewMode(%text);
+}
+
 //==============================================================================
 function Lab::initEditorCamera() {
 	EWorldEditorStatusBarCamera.clear();

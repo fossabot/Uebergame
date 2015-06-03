@@ -58,32 +58,39 @@ $LabCameraDisplayMode["Smooth Rot Camera"] = "NewtonDamped";
 $LabCameraTypesIcon = "tlab/gui/icons/toolbar_assets/ToggleCamera";
 
 //------------------------------------------------------------------------------
+//==============================================================================
+// Set the initial editor camera and store the game camera settings
 function Lab::setInitialCamera(%this)
 {  
-   %this.gameControlObject = LocalClientConnection.getControlObject();
-   if (!isObject(LocalClientConnection.camera)){
-      %this.gameCam = LocalClientConnection.getCameraObject();
-      LocalClientConnection.camera = spawnObject("Camera", "Observer");
+	%client = LocalClientConnection;
+   %this.gameControlObject = %client.getControlObject();
+   if (!isObject(%client.camera)){
+      %this.gameCam = %client.getCameraObject();
+      %client.camera = spawnObject("Camera", "Observer");
      
    }
-    LocalClientConnection.camera.scopeToClient(LocalClientConnection);
-   LocalClientConnection.setCameraObject(LocalClientConnection.camera);
+	%client.camera.scopeToClient(%client);
+   %client.setCameraObject(%client.camera);
       
-   Lab.clientWasControlling = LocalClientConnection.getControlObject();
-   if (%this.LaunchInFreeview || !isObject(LocalClientConnection.player)){
-      
-      %pos = LocalClientConnection.player.getPosition();
-      %pos.z += 5;    
-      %this.setCameraFreeMode(%pos);
-      %this.setCameraViewType(%this.cameraDisplayMode);
-        
-      return;
-   }
-   if (LocalClientConnection.getControlObject() != LocalClientConnection.player)
+   Lab.clientWasControlling = %client.getControlObject();
+   
+   %freeViewMode = %this.LaunchInFreeview || !isObject(%client.player);
+   if (%client.getControlObject() != %client.player && !%freeViewMode){
       %this.setCameraPlayerMode();
-             
-  
+       return;   
+   }
+      
+	%pos = %client.player.getPosition();    
+	if (%pos !$= ""){
+		%pos.z += 5;
+		%client.camera.position = %pos;
+	}
+      
+	//Set back the current camera or set default
+	Lab.setCameraViewMode(Lab.currentCameraMode);  
 }
+//==============================================================================
+// Reset the game camera like it was when editor open 
 function Lab::setGameCamera(%this)
 {  
    if (isObject(%this.gameCam)){
@@ -91,7 +98,8 @@ function Lab::setGameCamera(%this)
       LocalClientConnection.setCameraObject(%this.gameCam);    
    }  
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function Lab::toggleControlObject(%this)
 {  
    if (!isObject(%this.gameControlObject)){
@@ -104,30 +112,8 @@ function Lab::toggleControlObject(%this)
    else
       LocalClientConnection.setCOntrolObject(%this.gameControlObject);  
 }
-
+//------------------------------------------------------------------------------
 //==============================================================================
-function MenuCameraStatus::onWake( %this ) {
-	%this.add( "Standard Camera" );
-	%this.add( "1st Person Camera" );
-	%this.add( "3rd Person Camera" );
-	%this.add( "Orbit Camera" );
-	%this.add( "Top View" );
-	%this.add( "Bottom View" );
-	%this.add( "Left View" );
-	%this.add( "Right View" );
-	%this.add( "Front View" );
-	%this.add( "Back View" );
-	%this.add( "Isometric View" );
-	%this.add( "Smooth Camera" );
-	%this.add( "Smooth Rot Camera" );
-	
-}
-
-function MenuCameraStatus::onSelect( %this, %id, %text ) {
-	Lab.setCameraViewMode(%text);
-}
-
-
 function Lab::setCameraPlayerMode(%this)
 {   
    if (!isObject( LocalClientConnection.player)){
@@ -141,19 +127,11 @@ function Lab::setCameraPlayerMode(%this)
    
    %this.syncCameraGui();
 }
-function Lab::setCameraFreeMode(%this,%pos)
-{      
-   %camera = LocalClientConnection.camera;
-   %camera.setVelocity("0 0 0");  
-   if (%pos !$= "")
-      %camera.position = %pos;
-   LocalClientConnection.setControlObject(%camera);   
-   %this.syncCameraGui();
-}
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function Lab::setCameraViewMode( %this, %mode,%skipType ) {
 
-	if(%mode $= "Top View") {
+	if(%mode $= "Top View" || %mode $="") {
 		%mode = "Standard Camera";
 	}
 
@@ -164,9 +142,8 @@ function Lab::setCameraViewMode( %this, %mode,%skipType ) {
 	  
 	Lab.setCameraViewType( $LabCameraDisplayType[%mode] );
 	Lab.currentCameraMode = %mode;
-
 }
-
+//------------------------------------------------------------------------------
 //==============================================================================
 function Lab::SetEditorCameraView(%this,%type) {
    %client = LocalClientConnection;
@@ -219,7 +196,6 @@ function Lab::SetEditorCameraView(%this,%type) {
 	}
 	Lab.syncCameraGui();
 }
-
 //------------------------------------------------------------------------------
 //==============================================================================
 // Set the current camera type info in different editor areas
@@ -255,14 +231,12 @@ function Lab::syncCameraGui( %this,%forced ) {
 	if( !EditorIsActive())
 		return;
 
-
 	// Sync projection type
 	%displayType = Lab.currentEditor.editorGui.getDisplayType();
 
 	if (!%displayType) %displayType = 6;
 
-   Lab.checkMenuItem("viewTypeMenu",0,7,%displayType);
-	
+   Lab.checkMenuItem("viewTypeMenu",0,7,%displayType);	
 
 	// Set the camera object's mode and rotation so that it moves correctly
 	// based on the current editor mode
@@ -363,9 +337,8 @@ function Lab::syncCameraGui( %this,%forced ) {
 		EditorGuiStatusBar.setCamera("1st Person Camera");
 	}
 }
-
-
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function Lab::fitCameraToSelection( %this,%orbit ) {
    if (%orbit){
       Lab.setCameraViewMode("Orbit Camera",false);
@@ -381,5 +354,4 @@ function Lab::fitCameraToSelection( %this,%orbit ) {
   %this.syncCameraGui();
    
 }
-
-
+//------------------------------------------------------------------------------

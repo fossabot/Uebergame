@@ -132,14 +132,20 @@ function TerrainMaterialDlg::applyMaterialFilters( %this ) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function TerrainMaterialDlg::setFilteredMaterialsSet( %this ) {
+function TerrainMaterialDlg::setFilteredMaterialsSet( %this,%reset ) {
 	FilteredTerrainMaterialsSet.clear();
-
+	if (%reset){
+		%this.folderFilter = "All";
+		%this.surfaceFilter = "All";
+	}
+	%folderFilter = %this.folderFilter;
+	%surfaceFilter = %this.surfaceFilter;
+	
 	foreach(%mat in TerrainMaterialSet) {
 		%hideMe = false;
 
 		if (%this.folderFilter !$= "All") {
-			%folderFound = strstr(%mat.getFilename(),%this.folderFilter);
+			%folderFound = strstr(%mat.getFilename(),%folderFilter);
 
 			if (%folderFound $= "-1") {
 				//Hide this material
@@ -148,9 +154,9 @@ function TerrainMaterialDlg::setFilteredMaterialsSet( %this ) {
 		}
 
 		if (%this.surfaceFilter !$= "All") {
-			%folderFound = strstr(%mat.getFilename(),%this.surfaceFilter);
-			%nameFound = strstr(%mat.getName(),%this.surfaceFilter);
-			%intnameFound = strstr(%mat.internalName,%this.surfaceFilter);
+			%folderFound = strstr(%mat.getFilename(),%surfaceFilter);
+			%nameFound = strstr(%mat.getName(),%surfaceFilter);
+			%intnameFound = strstr(%mat.internalName,%surfaceFilter);
 
 			if (%folderFound $= "-1" && %nameFound $= "-1" && %intnameFound $= "-1") {
 				//Hide this material

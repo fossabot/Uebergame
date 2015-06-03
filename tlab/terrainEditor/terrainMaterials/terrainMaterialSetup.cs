@@ -112,6 +112,16 @@ function TerrainMaterialDlg::changeNormal( %this ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function TerrainMaterialDlg::newMat( %this ) {
+	if (isObject(%this.activeMat)){
+		LabMsgYesNo("New terrain material","Do you want to clone the current terrain material:" SPC %this.activeMat.internalName SPC " or you prefer to create a blank one?" SPC 
+				"Cloned material will be stored in same file as clone, new material will be saved in art/terrains/materials.cs.","TerrainMaterialDlg.cloneMat();","TerrainMaterialDlg.createMat();");
+	}
+	else
+		%this.createMat();
+}
+function TerrainMaterialDlg::createMat( %this ) {
+	devLog("TerrainMaterialDlg::newMat");
+	show(TMD_NewMaterialContainer);
 	// Create a unique material name.
 	%matName = getUniqueInternalName( "newMaterial", TerrainMaterialSet, true );
 	// Create the new material.
@@ -122,12 +132,59 @@ function TerrainMaterialDlg::newMat( %this ) {
 	%newMat.setFileName( "art/terrains/materials.cs" );
 	// Mark it as dirty and to be saved in the default location.
 	ETerrainMaterialPersistMan.setDirty( %newMat, "art/terrains/materials.cs" );
+	
+	%this.setFilteredMaterialsSet(true);
 	%matLibTree = %this-->matLibTree;
 	%matLibTree.buildVisibleTree( true );
 	%item = %matLibTree.findItemByObjectId( %newMat );
 	%matLibTree.selectItem( %item );
+	
 }
 //------------------------------------------------------------------------------
+//==============================================================================
+function TerrainMaterialDlg::cloneMat( %this ) {
+	devLog("TerrainMaterialDlg::cloneMat");
+	
+	%src = %this.activeMat;
+	if (!isObject(%src)){
+		warnLog("Invalid TerrainMaterial to clone from:",%src,"Creating a new material instead.");
+		%this.newMat();
+		return;
+	}	
+
+	// Create a unique material name.
+	%matName = getUniqueInternalName( %src.internalName, TerrainMaterialSet, true );
+	// Create the new material.
+	%newMat = new TerrainMaterial() {
+		internalName = %matName;
+		parentGroup = TerrainMaterialDlgNewGroup;
+	};
+	%newMat.assignFieldsFrom(%src);
+	%newMat.internalName = %matName;
+	%file = %src.getFileName();
+	%newMat.setFileName( %file );
+	// Mark it as dirty and to be saved in the default location.
+	ETerrainMaterialPersistMan.setDirty( %newMat,%file );
+	
+	devLog("New mat id:",%newMat.getId());
+		FilteredTerrainMaterialsSet.add(%newMat);
+		%this.refreshMaterialTree(%newMat);
+	%matLibTree = %this-->matLibTree;
+	//%matLibTree.buildVisibleTree( true );
+	
+	
+	%matLibTree.schedule(200,"selectItem",%newMat.getId());
+	
+	%matLibTree.selectItem(%newMat.getId());
+
+	
+	
+}
+//------------------------------------------------------------------------------
+function TerrainMaterialDlg::selectMatId( %this,%matId ) {
+	%item = %matLibTree.findItemByObjectId( %matId );
+	%matLibTree.selectItem( %item );
+}
 //==============================================================================
 function TerrainMaterialDlg::deleteMat( %this ) {
 	if( !isObject( %this.activeMat ) )
@@ -159,9 +216,16 @@ function TerrainMaterialDlg::activateMaterialCtrls( %this, %active ) {
 //------------------------------------------------------------------------------
 
 //==============================================================================
+
 function TerrainMaterialDlg::setActiveMaterial( %this, %mat ) {
+	devLog("TerrainMaterialDlg::setActiveMaterial",%mat);
 	if (  isObject( %mat ) &&
 			%mat.isMemberOfClass( TerrainMaterial ) ) {
+			if(  isObject( %mat.matSource ) &&
+			%mat.matSource.isMemberOfClass( TerrainMaterial ) ) {
+				warnLog("The material loaded is linked to another material:",%mat.matSource.getName());				
+			}
+			
 		%this.activeMat = %mat;
 		%this-->matNameCtrl.setText( %mat.internalName );
 
@@ -216,6 +280,10 @@ function TerrainMaterialDlg::saveDirtyMaterial( %this, %mat ) {
 			!%mat.isMemberOfClass( TerrainMaterial ) )
 		return;
 
+	if(  isObject( %mat.matSource ) || %mat.matSource.isMemberOfClass( TerrainMaterial ) )	{
+		LabMsgOk("Can't save linked material","The current material is linked to:" SPC %mat.matSource.getName() SPC ". To avoid linkage issues, it's not possible to save the current material. Please apply the changes you want to the source material!");
+		return;
+	}
 	// Read out properties from the dialog.
 	%newName = %this-->matNameCtrl.getText();
 

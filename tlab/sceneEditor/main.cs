@@ -10,10 +10,12 @@ function initializeSceneEditor()
 {
 	echo( " - Initializing Scene Editor" );
 	execSceneEd(true);
+
 	Lab.addPluginGui("SceneEditor",SceneEditorTools);
 	Lab.addPluginToolbar("SceneEditor",SceneEditorToolbar);
 	Lab.addPluginPalette("SceneEditor",SceneEditorPalette);
 	Lab.createPlugin("SceneEditor","Scene Editor",true);
+		EWorldEditor.dropType = SceneEditorPlugin.getCfg("DropType");
 	SceneEditorPlugin.isDefaultPlugin = true;
 	SceneEditorPlugin.superClass = "WEditorPlugin";
 	$SEPtools = newScriptObject("SEPtools");
@@ -34,6 +36,7 @@ function execSceneEd(%loadGui)
 	exec("tlab/sceneEditor/SceneEditorPlugin.cs");
 	exec("tlab/sceneEditor/SceneEditorParams.cs");
 	exec("tlab/sceneEditor/SceneEditorToolbar.cs");
+	exec("tlab/sceneEditor/SceneEditorTools.cs");
 	execPattern("tlab/sceneEditor/creator/*.cs");
 	execPattern("tlab/sceneEditor/scene/*.cs");
 	execPattern("tlab/sceneEditor/tools/*.cs");

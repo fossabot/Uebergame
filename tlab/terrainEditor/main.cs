@@ -85,6 +85,7 @@ function execTerrainEd(%loadGui) {
 	//	exec("tlab/terrainEditor/scripts/painterBrushes.cs");
 	//exec("tlab/terrainEditor/scripts/terrainEditor.cs");
 	execPattern("tlab/terrainEditor/scripts/*.cs");
+	execPattern("tlab/terrainEditor/painter/*.cs");
 	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialDlg.cs");
 	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialFilters.cs");
 	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialSetup.cs");

@@ -10,17 +10,10 @@
 
 function initializeShapeEditor() {
 	echo(" % - Initializing Shape Editor");
-	exec("./gui/Profiles.cs");
-	exec("tlab/shapeEditor/gui/shapeEdPreviewWindow.gui");
-	exec("./gui/shapeEdAnimWindow.gui");
-	exec("./gui/shapeEditorToolbar.gui");
-	exec("./gui/shapeEditorPalette.gui");
-	exec("./gui/ShapeEditorTools.gui");
-	exec("./scripts/shapeEditor.cs");
-	exec("./scripts/shapeEditorHints.cs");
-	exec("./scripts/shapeEditorActions.cs");
-	exec("tlab/shapeEditor/ShapeEditorPlugin.cs");
-	exec("tlab/shapeEditor/ShapeEditorParams.cs");
+	
+	execShapeEd(true);
+	
+	
 	Lab.addPluginGui("ShapeEditor",ShapeEditorTools);
 	Lab.addPluginEditor("ShapeEditor",ShapeEdPreviewGui);
 	Lab.addPluginEditor("ShapeEditor",ShapeEdAnimWindow,true);
@@ -52,6 +45,32 @@ function initializeShapeEditor() {
 	%map.bindCmd( keyboard, "-", "ShapeEdAnimWindow-->stepBkwdBtn.performClick();", "" );
 	ShapeEditorPlugin.map = %map;
 	//ShapeEditorPlugin.initSettings();
+}
+//==============================================================================
+// Load the Scene Editor Plugin scripts, load Guis if %loadgui = true
+function execShapeEd(%loadGui)
+{
+	
+	if (%loadGui)
+	{
+		exec("./gui/Profiles.cs");
+		exec("tlab/shapeEditor/gui/shapeEdPreviewWindow.gui");
+		exec("./gui/shapeEdAnimWindow.gui");
+		exec("./gui/shapeEditorToolbar.gui");
+		exec("./gui/shapeEditorPalette.gui");
+		exec("./gui/ShapeEditorTools.gui");
+	}
+	
+	exec("./scripts/shapeEditor.cs");
+	exec("./scripts/shapeEditorHints.cs");
+	exec("./scripts/shapeEditorActions.cs");
+	exec("tlab/shapeEditor/ShapeEditorPlugin.cs");
+	exec("tlab/shapeEditor/ShapeEditorParams.cs");
+	exec("tlab/shapeEditor/ShapeEditorTools.cs");
+	execPattern("tlab/shapeEditor/propPanel/*.cs");
+}
+//------------------------------------------------------------------------------
+function execShapeEd(%loadGui) {
 }
 
 function destroyShapeEditor() {

@@ -110,7 +110,7 @@ function Lab::buildArrayCfgParams( %this,%array,%rebuild ) {
 
 	//Validate the ParamsObject
 	%params = Lab.validateLabSettingsParams(%params);
-
+	%array.pluginObj.paramObj = %array.paramObj;
 	%this.addParamToTree(%params);
 	%this.prepareLabParams(%params);
   

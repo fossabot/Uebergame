@@ -57,9 +57,13 @@ function MaterialEditorPlugin::onWorldEditorStartup( %this ) {
     new PersistenceManager(matEd_PersistMan);
 
     MaterialEditorGui.establishMaterials();
+    	MaterialEditorGui.rows = "0 230";
+	MaterialEditorGui.updateSizes();
 }
 
 function MaterialEditorPlugin::onActivated( %this ) {
+	MaterialEditorGui.rows = "0 230";
+	MaterialEditorGui.updateSizes();
     if($gfx::wireframe) {
         $wasInWireFrameMode = true;
         $gfx::wireframe = false;
