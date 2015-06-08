@@ -3,6 +3,23 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
+function Lab::loadPluginsPalettes() {
+	newSimSet("LabPaletteItemSet");
+	foreach(%paletteId in LabPaletteGuiSet) {
+		%paletteGroup = 0;
+		%i = %paletteId.getCount();
+		for( ; %i != 0; %i--) {
+			%paletteId.getObject(0).defaultParent = %paletteId;
+			%paletteId.getObject(0).visible = 0;
+			%paletteId.getObject(0).groupNum = %paletteGroup;
+			%paletteId.getObject(0).paletteName = %paletteId.getName();
+			LabPaletteItemSet.add(%paletteId.getObject(0));
+			EWToolsPaletteArray.addGuiControl(%paletteId.getObject(0));
+
+		}
+		%paletteGroup++;
+	}
+}
 
 //==============================================================================
 // Toggle the palette bar tools to activate those used by plugin
@@ -27,6 +44,7 @@ function Lab::togglePluginPalette(%this, %paletteName) {
 		}
 	}
 
+	%buttonSizeFull = EWToolsPaletteArray.rowSize+EWToolsPaletteArray.rowSpacing;
 	// auto adjust the palette window extent according to how many
 	// children controls we found; if none found, the palette window becomes invisible
 	if( %windowMultiplier == 0 || %paletteName $= "")
@@ -34,6 +52,7 @@ function Lab::togglePluginPalette(%this, %paletteName) {
 	else {
 		EWToolsPaletteContainer.visible = 1;
 		EWToolsPaletteContainer.extent = getWord(EWToolsPaletteContainer.extent, 0) SPC (4 + 26 * %windowMultiplier);
+		EWToolsPaletteContainer.extent = EWToolsPaletteContainer.extent.x SPC EWToolsPaletteArray.extent.y + 10;
 	}
 }
 //------------------------------------------------------------------------------

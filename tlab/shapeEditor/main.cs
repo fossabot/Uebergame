@@ -50,15 +50,16 @@ function initializeShapeEditor() {
 // Load the Scene Editor Plugin scripts, load Guis if %loadgui = true
 function execShapeEd(%loadGui)
 {
-	
+	devLog("Exec ShapeEd",%loadGui);
 	if (%loadGui)
 	{
+		devLog("Exec ShapeEd GUIS");
 		exec("./gui/Profiles.cs");
 		exec("tlab/shapeEditor/gui/shapeEdPreviewWindow.gui");
-		exec("./gui/shapeEdAnimWindow.gui");
-		exec("./gui/shapeEditorToolbar.gui");
-		exec("./gui/shapeEditorPalette.gui");
-		exec("./gui/ShapeEditorTools.gui");
+		exec("tlab/shapeEditor/gui/shapeEdAnimWindow.gui");
+		exec("tlab/shapeEditor/gui/shapeEditorToolbar.gui");
+		exec("tlab/shapeEditor/gui/shapeEditorPalette.gui");
+		exec("tlab/shapeEditor/gui/ShapeEditorTools.gui");
 	}
 	
 	exec("./scripts/shapeEditor.cs");
@@ -70,8 +71,6 @@ function execShapeEd(%loadGui)
 	execPattern("tlab/shapeEditor/propPanel/*.cs");
 }
 //------------------------------------------------------------------------------
-function execShapeEd(%loadGui) {
-}
 
 function destroyShapeEditor() {
 }

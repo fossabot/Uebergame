@@ -8,7 +8,11 @@
 function Lab::initLabEditor( %this ) {
    
    execPattern("tlab/EditorLab/settings/prefs/*.cs");
-
+	
+	
+		
+	if( !isObject( "Lab_PM" ) )
+      new PersistenceManager( Lab_PM ); 	
 	new SimGroup(ToolLabGuiGroup);
 
 	$LabPluginGroup = newSimSet("LabPluginGroup");

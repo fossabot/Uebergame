@@ -31,13 +31,18 @@ function SceneEditorPlugin::onWorldEditorStartup( %this ) {
     SceneEditorPlugin.map = %map;
     if (SceneEditorPlugin.getCfg("DropType") !$= "")
    	 EWorldEditor.dropType = %this.getCfg("DropType");
+   	 
+	%this.initAssets();
+	
+	SEP_GroundCover.buildLayerSettingGui();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 // Called when the Plugin is activated (Active TorqueLab plugin)
 function SceneEditorPlugin::onActivated( %this ) {
     Parent::onActivated( %this );
-
+	
+	SceneEditorToolbar-->groundCoverToolbar.visible = 0;
 	%this.initToolBar();
    SceneEditorTreeFilter.extent.x = SceneEditorTreeTabBook.extent.x -  56;   
    SceneEditorTreeTabBook.selectPage(0);
@@ -59,6 +64,11 @@ function SceneEditorPlugin::onDeactivated( %this ) {
     %this.map.pop();
 }
 //------------------------------------------------------------------------------
+function SceneEditorPlugin::onSaveMission( %this, %file ) {   
+    
+    SEP_GroundCover.setNotDirty();
+}
+
 //==============================================================================
 //Called when editor is selected from menu
 function SceneEditorPlugin::onEditMenuSelect( %this, %editMenu ) {

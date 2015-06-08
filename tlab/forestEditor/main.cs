@@ -30,7 +30,8 @@ function initializeForestEditor() {
     Lab.addPluginGui("ForestEditor",   ForestEditorTools);
     Lab.addPluginToolbar("ForestEditor",ForestEditToolbar);
     Lab.addPluginPalette("ForestEditor",   ForestEditorPalette);
-
+	 Lab.addPluginDlg("ForestEditor",   ForestEditorDialogs);
+	 
     Lab.createPlugin("ForestEditor");
     ForestEditorPlugin.editorGui = ForestEditorGui;
 
@@ -73,6 +74,7 @@ function execFEP(%loadGui) {
     exec( "./gui/ForestEditorTools.gui" );
     exec( "./gui/forestEditToolbar.gui" );
     exec( "./gui/forestEditorPalette.gui" );
+    exec( "tlab/ForestEditor/gui/forestEditorDialogs.gui" );
    }
     // Load Client Scripts.
     exec( "tlab/ForestEditor/forestEditorGui.cs" );
@@ -82,8 +84,9 @@ function execFEP(%loadGui) {
     exec( "tlab/ForestEditor/ForestEditorPlugin.cs" );
     exec( "tlab/ForestEditor/ForestEditorSave.cs" );
     exec( "tlab/ForestEditor/ForestEditorScript.cs" );
-
+ exec( "tlab/ForestEditor/forestEditorDialogs.cs" );
 	 execPattern("tlab/ForestEditor/scripts/*.cs");
+	 execPattern("tlab/ForestEditor/dialogs/*.cs");
 }
 function destroyForestEditor() {
 }

@@ -20,7 +20,7 @@
    langTableMod = "Default";
    canSave = "1";
    canSaveDynamicFields = "1";
-      previousGui = "2065";
+      previousGui = "2014";
       saveAs = "0";
       tooltipWidth = "500";
 
@@ -563,12 +563,12 @@
             canSaveDynamicFields = "0";
 
             new WorldEditor(EWorldEditor) {
-               gridSnap = "1";
+               gridSnap = "0";
                dropAtBounds = "1";
                dropBelowCameraOffset = "15";
                dropAtScreenCenterScalar = "1";
                dropAtScreenCenterMax = "100";
-               dropType = "atOrigin";
+               dropType = "toTerrain";
                popupBackgroundColor = "100 100 100 255";
                popupTextColor = "255 255 0 255";
                objectTextColor = "255 255 255 255";
@@ -632,12 +632,11 @@
                horizSizing = "width";
                vertSizing = "height";
                profile = "WorldEditorProfile";
-               visible = "0";
+               visible = "1";
                active = "1";
                tooltipProfile = "GuiToolTipProfile";
                hovertime = "1000";
                isContainer = "0";
-               hidden = "1";
                canSave = "1";
                canSaveDynamicFields = "0";
             };
@@ -709,9 +708,11 @@
                hidden = "1";
                canSave = "1";
                canSaveDynamicFields = "1";
-                  currentAction = "paintMaterial";
-                  currentActionDesc = "Paint material on terrain";
+                  currentAction = "brushAdjustHeight";
+                  currentActionDesc = "Adjust terrain height up or down.";
                   currentMode = "paint";
+                  savedAction = "brushAdjustHeight";
+                  savedActionDesc = "Adjust terrain height up or down.";
 
                new GuiContainer() {
                   docking = "Bottom";
@@ -759,7 +760,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiTextCtrl(TEMouseBrushInfo) {
-                     text = " (Mouse) #: 0  avg: 0 paintMaterial";
+                     text = " (Mouse) #: 0  avg: 0 brushAdjustHeight";
                      maxLength = "255";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -814,7 +815,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "495 40";
+            extent = "532 40";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -836,7 +837,7 @@
                groupNum = "1";
                buttonType = "RadioButton";
                useMouseEvents = "0";
-               position = "123769 0";
+               position = "124258 0";
                extent = "36 40";
                minExtent = "7 2";
                horizSizing = "left";
@@ -854,7 +855,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiDynamicCtrlArrayControl(ToolsToolbarArray) {
-               colCount = "3490";
+               colCount = "3503";
                colSize = "36";
                rowCount = "1";
                rowSize = "40";
@@ -866,7 +867,7 @@
                dynamicSize = "0";
                padding = "0 0 0 0";
                position = "4 0";
-               extent = "129144 40";
+               extent = "129633 40";
                minExtent = "1024 32";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -890,7 +891,7 @@
                groupNum = "-1";
                buttonType = "PushButton";
                useMouseEvents = "0";
-               position = "488 0";
+               position = "525 0";
                extent = "10 40";
                minExtent = "7 2";
                horizSizing = "left";
@@ -910,7 +911,7 @@
             new GuiDecoyCtrl(EWToolsToolbarDecoy) {
                isDecoy = "1";
                position = "1 1";
-               extent = "554 31";
+               extent = "594 31";
                minExtent = "8 8";
                horizSizing = "right";
                vertSizing = "bottom";
@@ -1110,7 +1111,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 40";
-            extent = "36 186";
+            extent = "36 524";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -1129,18 +1130,18 @@
             new GuiDynamicCtrlArrayControl(EWToolsPaletteArray) {
                colCount = "1";
                colSize = "26";
-               rowCount = "7";
+               rowCount = "4";
                rowSize = "22";
                rowSpacing = "3";
                colSpacing = "0";
                frozen = "0";
                autoCellSize = "0";
                fillRowFirst = "1";
-               dynamicSize = "0";
+               dynamicSize = "1";
                padding = "0 0 0 0";
                position = "5 5";
                extent = "35 514";
-               minExtent = "35 514";
+               minExtent = "34 2";
                horizSizing = "width";
                vertSizing = "bottom";
                profile = "ToolsDefaultProfile";
@@ -1223,7 +1224,7 @@
       canSaveDynamicFields = "1";
 
       new GuiTextCtrl(EWorldEditorStatusBarSelection) {
-         text = "0 elements selected";
+         text = "0 objects selected";
          maxLength = "255";
          margin = "0 0 0 0";
          padding = "0 0 0 0";
@@ -1246,7 +1247,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiTextCtrl(EWorldEditorStatusBarInfo) {
-         text = "Forest Editor ( Paint Tool ) - This brush creates Items based on the Elements you have selected.";
+         text = "Move selection.  SHIFT while dragging duplicates objects.  CTRL to toggle soft snap.  ALT to toggle grid snap.";
          maxLength = "255";
          margin = "0 0 0 0";
          padding = "0 0 0 0";
@@ -1307,6 +1308,7 @@
          sbUsesNAColor = "0";
          reverseTextList = "0";
          bitmapBounds = "16 16";
+         text = "6";
          maxLength = "1024";
          margin = "0 0 0 0";
          padding = "0 0 0 0";

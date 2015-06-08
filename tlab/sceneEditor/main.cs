@@ -14,6 +14,7 @@ function initializeSceneEditor()
 	Lab.addPluginGui("SceneEditor",SceneEditorTools);
 	Lab.addPluginToolbar("SceneEditor",SceneEditorToolbar);
 	Lab.addPluginPalette("SceneEditor",SceneEditorPalette);
+	Lab.addPluginDlg("SceneEditor",SceneEditorDialogs);
 	Lab.createPlugin("SceneEditor","Scene Editor",true);
 		EWorldEditor.dropType = SceneEditorPlugin.getCfg("DropType");
 	SceneEditorPlugin.isDefaultPlugin = true;
@@ -29,7 +30,8 @@ function execSceneEd(%loadGui)
 	{
 		exec("tlab/sceneEditor/gui/SceneEditorTools.gui");
 		exec("./gui/SceneEditorToolbar.gui" );
-		exec("./gui/SceneEditorPalette.gui" );
+		exec("tlab/sceneEditor/gui/SceneEditorPalette.gui" );
+		exec("tlab/sceneEditor/gui/SceneEditorDialogs.gui");
 	}
 	
 	exec("tlab/sceneEditor/sceneEditor.cs");
@@ -37,8 +39,10 @@ function execSceneEd(%loadGui)
 	exec("tlab/sceneEditor/SceneEditorParams.cs");
 	exec("tlab/sceneEditor/SceneEditorToolbar.cs");
 	exec("tlab/sceneEditor/SceneEditorTools.cs");
+	exec("tlab/sceneEditor/SceneEditorDialogs.cs");
 	execPattern("tlab/sceneEditor/creator/*.cs");
 	execPattern("tlab/sceneEditor/scene/*.cs");
 	execPattern("tlab/sceneEditor/tools/*.cs");
+	execPattern("tlab/sceneEditor/asset/*.cs");
 }
 //------------------------------------------------------------------------------

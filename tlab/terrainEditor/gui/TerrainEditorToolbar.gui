@@ -24,7 +24,7 @@
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "guiGroup";
-      EditorContainer = "4056";
+      EditorContainer = "3918";
       editorParent = "EditorGuiToolbarStack";
       preventReordering = "0";
 
@@ -279,7 +279,7 @@
          sinkAllKeyEvents = "0";
          password = "0";
          passwordMask = "*";
-         text = "100";
+         text = "9.89011";
          maxLength = "3";
          margin = "0 0 0 0";
          padding = "0 0 0 0";
@@ -377,7 +377,7 @@
          sinkAllKeyEvents = "0";
          password = "0";
          passwordMask = "*";
-         text = "100";
+         text = "81.0989";
          maxLength = "3";
          margin = "0 0 0 0";
          padding = "0 0 0 0";
@@ -475,7 +475,7 @@
          sinkAllKeyEvents = "0";
          password = "0";
          passwordMask = "*";
-         text = "74.1758";
+         text = "123";
          maxLength = "7";
          margin = "0 0 0 0";
          padding = "0 0 0 0";
@@ -590,7 +590,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "3 6";
-         extent = "101 10";
+         extent = "51 10";
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
@@ -607,7 +607,7 @@
          range = "0 500";
          ticks = "0";
          snap = "0";
-         value = "74.1758";
+         value = "123";
          position = "2 21";
          extent = "101 13";
          minExtent = "8 2";
@@ -701,10 +701,10 @@
          canSaveDynamicFields = "0";
       };
       new GuiSliderCtrl() {
-         range = "0 90";
+         range = "1 200";
          ticks = "0";
          snap = "0";
-         value = "0.373626";
+         value = "9";
          position = "2 21";
          extent = "101 13";
          minExtent = "8 2";
@@ -801,7 +801,7 @@
          range = "0 90";
          ticks = "0";
          snap = "0";
-         value = "0.373626";
+         value = "9.9";
          position = "2 21";
          extent = "101 13";
          minExtent = "8 2";
@@ -898,7 +898,7 @@
          range = "0 90";
          ticks = "0";
          snap = "0";
-         value = "0.373626";
+         value = "81.1";
          position = "2 21";
          extent = "101 13";
          minExtent = "8 2";

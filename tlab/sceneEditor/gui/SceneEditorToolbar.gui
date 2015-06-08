@@ -14,8 +14,8 @@
    internalName = "SceneEditorToolbar";
    canSave = "1";
    canSaveDynamicFields = "1";
-      defaultParent = "1782";
-      EditorContainer = "4017";
+      defaultParent = "1786";
+      EditorContainer = "3926";
       editorParent = "EditorGuiToolbarStack";
       enabled = "1";
       tooltipWidth = "500";
@@ -31,7 +31,7 @@
       changeChildSizeToFit = "0";
       changeChildPosition = "1";
       position = "0 0";
-      extent = "823 33";
+      extent = "989 33";
       minExtent = "16 16";
       horizSizing = "width";
       vertSizing = "bottom";
@@ -202,7 +202,7 @@
                sinkAllKeyEvents = "0";
                password = "0";
                passwordMask = "*";
-               text = "2.91471";
+               text = "2";
                maxLength = "6";
                margin = "0 0 0 0";
                padding = "0 0 0 0";
@@ -968,7 +968,7 @@
             sbUsesNAColor = "0";
             reverseTextList = "0";
             bitmapBounds = "16 16";
-            text = "atOrigin";
+            text = "toTerrain";
             maxLength = "1024";
             margin = "0 0 0 0";
             padding = "0 0 0 0";
@@ -1010,6 +1010,49 @@
             profile = "ToolsTextBase_S1";
             visible = "1";
             active = "1";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+      };
+      new GuiContainer() {
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "825 0";
+         extent = "164 33";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsPanelDarkB";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         internalName = "groundCoverToolbar";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+
+         new GuiButtonCtrl() {
+            text = "GroundCover Manager";
+            groupNum = "-1";
+            buttonType = "PushButton";
+            useMouseEvents = "0";
+            position = "4 5";
+            extent = "153 24";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "GuiButtonProfile";
+            visible = "1";
+            active = "1";
+            command = "SceneEditorDialogs.toggleDlg(\"GroundCover\");";
             tooltipProfile = "GuiToolTipProfile";
             hovertime = "1000";
             isContainer = "0";

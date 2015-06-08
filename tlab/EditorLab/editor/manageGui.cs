@@ -76,7 +76,19 @@ function Lab::detachEditorGuis(%this) {
 			%defaultParent.add(%item);
 		}
 	}
+	
+	foreach(%obj in EWToolsPaletteArray) {
+		%paletteList = strAddWord(%paletteList,%obj.getId());	
+	}
+	foreach$(%id in %paletteList) {		
+		%defaultParent = %id.defaultParent;
+		if( isObject(%defaultParent)) {			
+			%defaultParent.add(%id);
+		}
+	}
 	%this.resetPluginsBar();
+	
+	
 
 }
 //------------------------------------------------------------------------------

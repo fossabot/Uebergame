@@ -166,6 +166,8 @@ function Lab::initLabMenuData(%this,%buildAfter) {
    $LabMenuEditorNextId = -1;
    $LabMenuItem[%id,%itemId++] = "Capture current view as level preview" TAB "" TAB "Lab.setCurrentViewAsPreview();";
    $LabMenuItem[%id,%itemId++] = "Set next screenshot as preview" TAB "" TAB "Lab.setNextScreenShotPreview();";
+	$LabMenuItem[%id,%itemId++] = "----------------------";   
+   $LabMenuItem[%id,%itemId++] = "Toggle GroundCover Manager" TAB "" TAB "SceneEditorDialogs.toggleDlg(\"GroundCover\");";
    
 	%itemId = -1;
 	$LabMenu[%id++] = "Help";
