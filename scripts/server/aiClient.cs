@@ -122,7 +122,7 @@ function AIConnection::onConnect(%client, %name)
 
    // Save client preferences on the connection object for later use.
    %client.armor = "Soldier";
-   %client.skin = addTaggedString("Base");
+   %client.skin = addTaggedString("base");
    %client.setPlayerName(%name);
    %client.team = 0;
    %client.lastTeam = 0;
@@ -407,9 +407,9 @@ function AIClient::clearTasks(%this)
    //%this.stop();
    //%this.clearAim();
 
-   if ( isObject( %this.player ) )
+   %player = %this.player;
+   if ( isObject( %player ) )
    {
-      %player = %this.player;
       %player.setMoveSpeed( %player.getDataBlock().MoveSpeed );
       %player.clearAim();
       %player.stop();

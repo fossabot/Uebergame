@@ -23,31 +23,31 @@
 datablock MissionMarkerData(WayPointMarker)
 {
    category = "Misc";
-   shapeFile = "art/shapes/octahedron.dts";
+   shapeFile = "art/shapes/editor/octahedron.dts";
 };
 
 datablock MissionMarkerData(SpawnSphereMarker)
 {
    category = "Misc";
-   shapeFile = "art/shapes/octahedron.dts";
+   shapeFile = "art/shapes/editor/octahedron.dts";
 };
 
 datablock MissionMarkerData(CameraBookmarkMarker)
 {
    category = "Misc";
-   shapeFile = "art/shapes/camera.dts";
+   shapeFile = "art/shapes/editor/camera.dts";
 };
 
 datablock MissionMarkerData(FlagMarker)
 {
    category = "Objectives";
-   shapeFile = "art/shapes/octahedron.dts";
+   shapeFile = "art/shapes/editor/octahedron.dts";
 };
 
 datablock MissionMarkerData(VehicleMarker)
 {
    category = "Misc";
-   shapeFile = "art/shapes/octahedron.dts";
+   shapeFile = "art/shapes/editor/octahedron.dts";
 };
 
 //------------------------------------------------------------------------------

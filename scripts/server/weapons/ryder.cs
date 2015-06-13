@@ -141,8 +141,8 @@ datablock ProjectileData( RyderProjectile )
    playerExplosion     = BloodSpillEmitter;
    decal               = BulletHoleDecal;
 
-   particleEmitter     = "BulletTrailEmitter";
-   particleWaterEmitter = "UWBulletTrailEmitter";
+   //particleEmitter     = "BulletTrailEmitter";
+   //particleWaterEmitter = "UWBulletTrailEmitter";
 
    Splash              = BulletSplash;
    muzzleVelocity      = 500;

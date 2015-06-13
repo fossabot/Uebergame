@@ -54,7 +54,7 @@ datablock ItemData(FirstAidPack)
 
 datablock ShapeBaseImageData(FirstAidPackImage)
 {
-   shapeFile = "art/shapes/invisible.dts";
+   shapeFile = "art/shapes/editor/invisible.dts";
    computeCRC = false;
    cloakable = true;
    item = FirstAidPack;

@@ -71,7 +71,7 @@ datablock ShapeBaseImageData(FragGrenadeImage)
    class = "GrenadeImage";
    className = GrenadeImage;
 
-   //shapeFile = "art/shapes/invisible.dts";
+   //shapeFile = "art/shapes/editor/invisible.dts";
    shapeFile = "art/shapes/weapons/grenade/grenade.dae";
    shapeFileFP = "art/shapes/weapons/grenade/grenade.dae";
    emap = true;
@@ -84,7 +84,7 @@ datablock ShapeBaseImageData(FragGrenadeImage)
    mountPoint = 3;
    //offset = "0 +0.3 +1.25"; // L/R - F/B - T/B
    rotation = "1 0 0 22";
-   firstPerson = true;
+   firstPerson = false;
    useEyeNode = true;
    animateOnServer = true;
    mass = 2;

@@ -49,7 +49,7 @@ singleton Material(DECAL_RocketEXP)
 
 singleton Material(DECAL_bulletHole)
 {
-   baseTex[0] = "art/decals/Bullet Holes/BulletHole_Walls.dds";
+   baseTex[0] = "art/decals/Bullet_Holes/BulletHole_Walls.dds";
 
    vertColor[0] = true;
    translucent = true;

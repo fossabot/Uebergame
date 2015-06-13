@@ -30,7 +30,7 @@
 
 datablock ProjectileData( TurretBulletProjectile )
 {
-   projectileShapeName = "art/shapes/weapons/bolt.dts";
+   projectileShapeName = "art/shapes/weapons/shared/bolt.dts";
 
    directDamage        = 5;
    radiusDamage        = 0;
@@ -45,8 +45,8 @@ datablock ProjectileData( TurretBulletProjectile )
    playerExplosion     = BloodSpillEmitter;
    decal               = BulletHoleDecal;
 
-   particleEmitter     = "BulletTrailEmitter";
-   particleWaterEmitter = "UWBulletTrailEmitter";
+   //particleEmitter     = "BulletTrailEmitter";
+   //particleWaterEmitter = "UWBulletTrailEmitter";
 
    Splash              = BulletSplash;
    muzzleVelocity      = 500;

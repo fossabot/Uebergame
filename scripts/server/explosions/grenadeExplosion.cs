@@ -789,7 +789,7 @@ datablock ParticleEmitterData(FragDebrisTrailEmitter)
 
 datablock DebrisData(FragDebris)
 {
-   shapeFile = "art/shapes/invisible.dts";
+   shapeFile = "art/shapes/editor/invisible.dts";
    render2D = "0";
    emitters[0] = "FragDebrisTrailEmitter";
    elasticity = "0.6";

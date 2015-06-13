@@ -167,7 +167,7 @@ datablock ShapeBaseImageData(SmokeGrenadeImage)
    mountPoint = 3;
    //offset = "0 +0.3 +1.25"; // L/R - F/B - T/B
    rotation = "1 0 0 22";
-   firstPerson = true;
+   firstPerson = false;
    useEyeNode = true;
    animateOnServer = true;
    mass = 2;

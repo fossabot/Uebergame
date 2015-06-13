@@ -28,7 +28,7 @@
 $Gui::DefaultFont = "Arial";
 $Gui::DefaultFontBold = "Arial Bold";
 $Gui::DefaultFontSize = "14";
-$Gui::CustomFont = "CRYSTAL";
+$Gui::CustomFont = "Arial";
 $Gui::CustomFontSize = "18"; // 12, 18, 24, 36, 48, 60, 72
 $Gui::ColorAlly = ( getWord( $pref::Player::FriendlyColor, 0 ) * 255 ) SPC
                   ( getWord( $pref::Player::FriendlyColor, 1 ) * 255 ) SPC

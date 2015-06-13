@@ -113,7 +113,7 @@ datablock ShapeBaseImageData(ProxMineImage)
    imageAnimPrefixFP = "ProxMine";
 
    mountPoint = 3;
-   firstPerson = true;
+   firstPerson = false;
    useEyeNode = true;
    animateOnServer = true;
    cloakable = true;

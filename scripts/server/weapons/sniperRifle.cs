@@ -122,7 +122,7 @@ datablock DebrisData(SniperBulletShell)
 
 datablock ProjectileData( SniperProjectile )
 {
-   projectileShapeName = "art/shapes/weapons/bolt.dts";
+   projectileShapeName = "art/shapes/weapons/shared/bolt.dts";
    //sound               = "";
    directDamage        = 50;
    radiusDamage        = 0;

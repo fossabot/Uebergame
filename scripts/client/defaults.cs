@@ -20,12 +20,12 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
-$pref::TSShapeConstructor::CapsuleShapePath = "art/shapes/unit_capsule.dts";
-$pref::TSShapeConstructor::CubeShapePath = "art/shapes/unit_cube.dts";
-$pref::TSShapeConstructor::SphereShapePath = "art/shapes/unit_sphere.dts";
-$pref::Video::missingTexturePath = "art/missingTexture";
-$pref::Video::unavailableTexturePath = "art/unavailable";
-$pref::Video::warningTexturePath = "art/warnmat";
+$pref::TSShapeConstructor::CapsuleShapePath = "art/shapes/editor/unit_capsule.dts";
+$pref::TSShapeConstructor::CubeShapePath = "art/shapes/editor/unit_cube.dts";
+$pref::TSShapeConstructor::SphereShapePath = "art/shapes/editor/unit_sphere.dts";
+$pref::Video::missingTexturePath = "art/editor/missingTexture";
+$pref::Video::unavailableTexturePath = "art/editor/unavailable";
+$pref::Video::warningTexturePath = "art/editor/warnmat";
 
 // Here is where we will do the video device stuff, so it overwrites the defaults
 // First set the PCI device variables (yes AGP/PCI-E works too)

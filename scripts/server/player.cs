@@ -20,8 +20,8 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 // Timeouts for corpse deletion.
-$CorpseTimeoutValue = 45 * 1000;
-$InvincibleTime = 5;
+$CorpseTimeoutValue = 10 * 1000;
+$InvincibleTime = 2;
 
 // Damage Rate for entering Liquid
 $DamageLava       = 0.01;
@@ -506,6 +506,53 @@ datablock ParticleEmitterData(LiftoffDustEmitter)
 };
 
 //----------------------------------------------------------------------------
+// Jump Jets
+
+datablock ParticleData(JumpJetParticle)
+{
+   textureName = "art/particles/flameExplosion.png";
+   animTexName = "art/particles/flameExplosion.png";
+
+   dragCoefficient      = 0;
+   gravityCoefficient   = "0.998779";
+   inheritedVelFactor   = "0.199609";
+   constantAcceleration = 0;
+   lifetimeMS           = "150";
+   lifetimeVarianceMS   = 0;
+   useInvAlpha          = false;
+
+   colors[0] = "1 1 1 1";
+   colors[1] = "1 1 1 0.5";
+   colors[2] = "0 1 1 0";
+   colors[3] = "1 1 1 0";
+
+   sizes[0] = "0.5";
+   sizes[1] = "0.75";
+
+   times[0] = "0";
+   times[1] = "0.8";
+   times[2] = "1";
+   times[3] = "1";
+};
+
+datablock ParticleEmitterData(JumpJetEmitter)
+{
+   ejectionPeriodMS = "10";
+   periodVarianceMS = "2";
+   ejectionVelocity = "4";
+   velocityVariance = "0";
+   ejectionOffset   = 0.0;
+   thetaMin         = 0;
+   thetaMax         = 5;
+   phiReferenceVel  = 0;
+   phiVariance      = 90;
+   overrideAdvances = 0;
+   particles        = "JumpJetParticle";
+   blendStyle = "ADDITIVE";
+   softParticles = "1";
+};
+
+//----------------------------------------------------------------------------
 // Player explosion            
 
 datablock DebrisData( PlayerDebris )
@@ -876,7 +923,8 @@ datablock PlayerData(DefaultSoldier : ArmorDamageScale)
    minJumpEnergy = "15";
    jumpDelay = "4";
    airControl = "0.3";
-
+/* since we are doing a realistic game, jetpack should be disabled by default
+it can be reintroduced when there is proper item data and a model for it
    jetJumpForce = 140;
    jetJumpEnergyDrain = 0.8;    //< Energy per jump
    jetMinJumpEnergy = 3;
@@ -887,8 +935,8 @@ datablock PlayerData(DefaultSoldier : ArmorDamageScale)
    //jetEmitter = JumpJetEmitter;
    //jetEmitterNumParts = 2;
    //jetEmitterRadius = 0.25;
-
-   fallingSpeedThreshold = "-4"; //< Downward speed at which we consider the player falling
+*/
+   fallingSpeedThreshold = "-2"; //< Downward speed at which we consider the player falling
 
    landSequenceTime = 0.33; //< Time of land sequence play back when using new recover system.
    transitionToLand = true; //< When going from a fall to a land, should we transition between the two.
@@ -897,7 +945,7 @@ datablock PlayerData(DefaultSoldier : ArmorDamageScale)
 
    minImpactSpeed = 10; //< Minimum impact speed to apply falling damage.
    minLateralImpactSpeed = 20; //< Minimum impact speed to apply non-falling damage.
-   speedDamageScale = 3;
+   speedDamageScale = 5;
 
    boundingBox = "0.65 0.75 1.85";
    crouchBoundingBox = "0.65 0.75 1.25";
@@ -998,7 +1046,7 @@ datablock PlayerData(DefaultSoldier : ArmorDamageScale)
    canImpulse = true;
 
    // Used by AI
-   MoveSpeed = 0.5;          // You could call this the AI's throttle 1 = 100% throttle.
+   MoveSpeed = 1;          // You could call this the AI's throttle 1 = 100% throttle.
    MoveTolerance = 1;        // Distance from target position that is accepted as "reached"
    
    // rest
@@ -1126,6 +1174,8 @@ function Armor::onAdd(%this, %obj)
          $Bot::Set.add( %obj );
       else
          error( "Failed to add new AiPlayer object to Bot Set!" );
+      if ( !%obj.getNavMesh() )
+         error( "No Nav Mesh found for" SPC deTag(%obj.getShapeName()) );
    }
 }
 
@@ -1395,7 +1445,7 @@ function Armor::damage(%this, %obj, %source, %position, %amount, %damageType)
       position = %position;  
       rotation = "1 0 0 0";  
       scale = "1 1 1";  
-      dataBlock = "SmokeEmitterNode";  
+      dataBlock = "DefaultEmitterNodeData";  
       emitter = "bloodBulletDirtSprayEmitter";  
       velocity = "1";  
    };  

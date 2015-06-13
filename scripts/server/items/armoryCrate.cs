@@ -23,8 +23,8 @@
 datablock ItemData(ArmoryCrate)
 {
    category = "Stations";
-   shapeFile = "art/shapes/storage/weapons/weaponcrate_old_01.dae";;
-   scale = "0.2 0.2 0.2";
+   shapeFile = "art/shapes/storage/weapons/weaponcrate_old_01.dae";
+   scale = "1 1 1";
    computeCRC = true;
    emap = 1;
    mass = 20;

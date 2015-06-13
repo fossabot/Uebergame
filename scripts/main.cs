@@ -52,11 +52,15 @@ function Torque::onStart(%this)
    exec( "./client/defaults.cs" );
    exec( "./server/defaults.cs" );
 
-    // Load up our saved prefs
+   // Load up our saved prefs
    if (isFile("prefs/prefs.cs"))
       exec( "prefs/prefs.cs" );
 
    $ScriptGroup = new SimGroup(ScriptClassGroup);
+
+   // Build the mission listing for server and client
+   echo("----- Adding missions to list -----");
+   %this.buildMissionList();
 
    // Initialise stuff.
    exec("./client/core.cs");
@@ -429,10 +433,6 @@ function Torque::getLevelInfo( %this, %missionFile )
    // Didn't find our LevelInfo
    return 0; 
 }
-
-// Build the mission listing for server and client
-echo("----- Adding missions to list -----");
-tge.buildMissionList();
 
 function Torque::getMissionCount(%this, %type)
 {

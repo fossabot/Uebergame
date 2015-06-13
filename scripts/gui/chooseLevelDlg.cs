@@ -172,7 +172,7 @@ function CL_LevelList::onSelect(%this, %row)
    }
 /*
    // Set the preview bitmap which is the mission name.jpg
-   %image = filePath(%mission) @ "/load_" @ fileBase(%mission) @ ".jpg";
+   %image = filePath(%mission) @ "/" @ fileBase(%mission) @ "_preview";
    if ( isFile( %image ) )
       CL_Preview.setBitmap( %image );
    else

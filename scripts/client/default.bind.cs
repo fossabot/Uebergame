@@ -23,13 +23,13 @@
 //-----------------------------------------------------------------------------
 // Global Non-remapable binds
 //-----------------------------------------------------------------------------
-GlobalActionMap.bindCmd(keyboard, "escape", "", "handleEscape();");
+//GlobalActionMap.bindCmd(keyboard, "escape", "", "handleEscape();");
 GlobalActionMap.bind(keyboard, "F12", toggleConsole);
 GlobalActionMap.bindCmd(keyboard, "alt k", "cls();","");
 GlobalActionMap.bindCmd(keyboard, "alt enter", "", "Canvas.attemptFullscreenToggle();");
 
 //GlobalActionMap.bind(keyboard, "F5", doProfile); // Debug mode only
-//GlobalActionMap.bind(keyboard, "F3", showMetrics);
+GlobalActionMap.bind(keyboard, "F3", showMetrics);
 
 GlobalActionMap.bind( keyboard, "F5", startRecordingDemo );
 GlobalActionMap.bind( keyboard, "F6", stopRecordingDemo );

@@ -55,7 +55,7 @@ $HostGameRules["Core", 2] = "player with most kills at timelimit.";
 //-----------------------------------------------------------------------------
 
 // Pause while looking over the end game screen (in secs)
-$Game::EndGamePause = 30 * 1000;
+$Game::EndGamePause = 10 * 1000;
 
 function CoreGame::activatePackages(%game)
 {
@@ -410,8 +410,8 @@ function CoreGame::startGame(%game)
       {
          //Bot start task time, incremented per bot so we dont get a pileup..
          %cl.setUpTasks();
-         if ( isObject( %cl.player ) )
-            %cl.setControlObject(%cl.player);
+         //if ( isObject( %cl.player ) )
+         //   %cl.setControlObject(%cl.player);
       }
 
       // set all clients control to their player and anything else needed
@@ -859,7 +859,7 @@ function CoreGame::createPlayer(%game, %client, %spawnPoint, %respawn)
 
    %player.setRechargeRate(%player.getDataBlock().rechargeRate);
    %player.setEnergyLevel(%player.getDataBlock().maxEnergy);
-   %player.setRepairRate(0);
+   %player.setRepairRate(%player.getDataBlock().repairRate);
 
    // Setup inventory - We could tie this into some object that has to be enabled in order to get your selection
    // Perhaps deployables would require their own object you get them from. So they would not be part of your loadout

@@ -1235,6 +1235,11 @@ function OptPlayerNameInput::setField(%this)
 
 function OptPlayerSkinMenu::init(%this)
 {
+    /* disabled because broken
+   PlayerPreview.setSkin( getField($pref::Player, 1) );
+   PlayerPreview.setMountSkin( "Lurker_Base" );
+   */
+
    %this.clear();
    %list = "base\tOlive\tUrban\tDesert\tSwamp\tWater";
 
@@ -1246,6 +1251,7 @@ function OptPlayerSkinMenu::init(%this)
    }
 
    %selId = %this.findText( getField( $pref::Player, 1) );
+
    if( %selId != -1 )
    {
       %this.setSelected( %selId );
@@ -1262,7 +1268,14 @@ function OptPlayerSkinMenu::onSelect(%this, %id, %text)
    OptPlayerNameInput.setField();
    %playerName = OptPlayerNameInput.getValue();
    $pref::Player = %playerName TAB %text;
+
+   /* disabled because broken
+   PlayerPreview.setSkin( %text );
+   PlayerPreview.setMountSkin( "Lurker_D" );
+   PlayerPreview.setSeq( "Root" );
+   */
 }
+
 /*
 function updateFieldOfView()
 {

@@ -226,8 +226,8 @@ datablock ProjectileData( LurkerProjectile )
    playerExplosion     = BloodSpillEmitter;
    decal               = BulletHoleDecal;
 
-   particleEmitter     = "BulletTrailEmitter";
-   particleWaterEmitter = "UWBulletTrailEmitter";
+   //particleEmitter     = "BulletTrailEmitter";
+   //particleWaterEmitter = "UWBulletTrailEmitter";
 
    Splash              = BulletSplash;
    muzzleVelocity      = 500;
@@ -579,7 +579,7 @@ datablock ShapeBaseImageData( LurkerIronSightImage : LurkerWeaponImage )
    animateOnServer = false;
    useEyeOffset = false;
    //eyeOffset = "-0.147 -0.225 0.025";
-   eyeOffset = "-0.16 -0.26 0.06";
+   eyeOffset = "-0.16 -0.295 0.06"; //almost correct the muzzle vector is still a bit on the
    eyeRotation = "0.574892 0.0910342 0.813149 4.72198";
 
    parentImage = "LurkerWeaponImage";

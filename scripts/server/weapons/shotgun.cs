@@ -44,7 +44,7 @@ datablock SFXProfile(ShotgunSwitchinSound)
 
 datablock ProjectileData( ShotgunProjectile )
 {
-   projectileShapeName = "art/shapes/weapons/bolt.dts";
+   projectileShapeName = "";
    //sound               = "";
    directDamage        = 10;
    radiusDamage        = 0;
@@ -58,7 +58,7 @@ datablock ProjectileData( ShotgunProjectile )
    playerExplosion     = BloodSpillEmitter;
    decal               = BulletHoleDecal;
 
-   particleEmitter     = "BulletTrailEmitter";
+   //particleEmitter     = "BulletTrailEmitter";
    //particleWaterEmitter = "";
 
    Splash              = BulletSplash;
@@ -369,7 +369,7 @@ datablock ShapeBaseImageData( ShotgunIronSightImage : ShotgunWeaponImage )
    animateOnServer = false;
    useEyeOffset = false;
    //eyeOffset = "-0.147 -0.225 0.025";
-   eyeOffset = "-0.16 -0.26 0.06";
+   eyeOffset = "-0.16 -0.295 0.06"; //almost correct the muzzle vector is still a bit on the
    eyeRotation = "0.574892 0.0910342 0.813149 4.72198";
 
    parentImage = "LurkerWeaponImage";

@@ -38,7 +38,7 @@ datablock ParticleEmitterNodeData(DoubleTimeEmitterNode)
 datablock ParticleData(DefaultParticle)
 {
    //The texture file  less extension to be used by the particle.
-   textureName = "art/defaultParticle";
+   textureName = "art/editor/defaultParticle";
 
    //The amount of initial velocity to be substracted from the velocity per second.
    dragCoeffiecient = 0;
@@ -74,7 +74,7 @@ datablock ParticleData(DefaultParticle)
 
    animateTexture = 0;
    framesPerSec = 1;
-   animTexName = "art/defaultParticle";
+   animTexName = "art/editor/defaultParticle";
    animTexTiling = "0 0";
 
    //Each particle has 4 key frames.

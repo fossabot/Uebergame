@@ -280,7 +280,7 @@
                sbUsesNAColor = "0";
                reverseTextList = "0";
                bitmapBounds = "16 16";
-               text = "Urban";
+               text = "Olive";
                maxLength = "255";
                margin = "0 0 0 0";
                padding = "0 0 0 0";
@@ -307,7 +307,7 @@
                groupNum = "-1";
                buttonType = "PushButton";
                useMouseEvents = "0";
-               position = "134 328";
+               position = "134 330";
                extent = "100 25";
                minExtent = "8 8";
                horizSizing = "relative";
@@ -346,6 +346,65 @@
                canSave = "1";
                canSaveDynamicFields = "0";
             };
+			/* PlayerPreview breaks loading of skins in general
+            new GuiObjectView(PlayerPreview) {
+               shapeFile = "art/shapes/actors/Soldier/soldier_rigged.DAE";
+               skin = "Olive";
+               animSequence = "Root";
+               mountedShapeFile = "art/shapes/weapons/Lurker/TP_Lurker.DAE";
+               mountedSkin = "Lurker_D";
+               mountedNode = "mount0";
+               lightColor = "1 1 1 1";
+               lightAmbient = "0.5 0.5 0.5 1";
+               lightDirection = "0 1 -1";
+               orbitDiststance = "2.4";
+               minOrbitDiststance = "1";
+               maxOrbitDiststance = "5";
+               cameraSpeed = "0.01";
+               cameraRotation = "0 0 22";
+               cameraZRot = "0";
+               forceFOV = "0";
+               reflectPriority = "0";
+               renderStyle = "standard";
+               docking = "None";
+               margin = "0 0 0 0";
+               padding = "0 0 0 0";
+               anchorTop = "0";
+               anchorBottom = "0";
+               anchorLeft = "1";
+               anchorRight = "0";
+               position = "289 21";
+               extent = "298 300";
+               minExtent = "8 2";
+               horizSizing = "right";
+               vertSizing = "bottom";
+               profile = "GuiDefaultProfile";
+               visible = "1";
+               active = "1";
+               tooltipProfile = "GuiToolTipProfile";
+               hovertime = "1000";
+               isContainer = "0";
+               canSave = "1";
+               canSaveDynamicFields = "0";
+            };
+			new GuiBitmapCtrl() {
+               bitmap = "art/gui/dialog_frame_01.png";
+               wrap = "0";
+               position = "278 11";
+               extent = "320 320";
+               minExtent = "8 2";
+               horizSizing = "right";
+               vertSizing = "bottom";
+               profile = "GuiDefaultProfile";
+               visible = "1";
+               active = "1";
+               tooltipProfile = "GuiToolTipProfile";
+               hovertime = "1000";
+               isContainer = "0";
+               canSave = "1";
+               canSaveDynamicFields = "0";
+            };
+			*/
          };
          new GuiTabPageCtrl(OptGraphicsPane) {
             fitBook = "0";
@@ -1681,7 +1740,7 @@
                   range = "0 1";
                   ticks = "0";
                   snap = "0";
-                  value = "0.8";
+                  value = "0.769565";
                   position = "85 1";
                   extent = "240 14";
                   minExtent = "8 8";
@@ -1964,7 +2023,7 @@
                range = "0 1";
                ticks = "1000";
                snap = "0";
-               value = "0";
+               value = "1";
                position = "435 63";
                extent = "125 32";
                minExtent = "8 8";
@@ -2008,7 +2067,7 @@
                range = "0 1";
                ticks = "1000";
                snap = "0";
-               value = "0";
+               value = "1";
                position = "435 114";
                extent = "125 32";
                minExtent = "8 8";

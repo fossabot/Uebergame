@@ -305,7 +305,7 @@ function AIPlayer::doWanderTask(%player)
    // Find a target. If one is found our mode will change to attack
    //%player.choosePlayerTarget();
 
-   echo("\c5AIPlayer::doWanderTask(" SPC %player.getShapeName() @", "@ %ranPos SPC ")");
+   echo("\c5AIPlayer::doWanderTask(" SPC deTag(%player.getShapeName()) @", "@ %ranPos SPC ")");
 }
 
 function AIPlayer::moveRandom(%player)
@@ -323,7 +323,7 @@ function AIPlayer::moveRandom(%player)
    %player.pathSet = 1;
    %player.setMoveDestination( %newX SPC %newY SPC getTerrainHeight( %newX SPC %newY ), false );
 
-   echo("\c5AIPlayer::moveRandom(" SPC %player.getShapeName() @", "@ %player.getMoveDestination() SPC ")");
+   echo("\c5AIPlayer::moveRandom(" SPC deTag(%player.getShapeName()) @", "@ %player.getMoveDestination() SPC ")");
 }
 
 // Look around in all directions, needs to be looped
@@ -335,7 +335,7 @@ function AIPlayer::scanArea(%player)
    %player.scanCheck++;
    %player.scanSchedule = %player.schedule(1000, "scanArea");
 
-   echo("\c5AIPlayer::scanArea(" SPC %player.getShapeName() @", "@ %player.scanCheck SPC ")");
+   echo("\c5AIPlayer::scanArea(" SPC deTag(%player.getShapeName()) @", "@ %player.scanCheck SPC ")");
 
    switch( %player.scanCheck )
    {
@@ -528,11 +528,11 @@ function AIPlayer::testBot()
    MissionCleanup.add(%player);
    %player.setTeamId(%player.team);
    %player.setShapeName(getRandomBotName());
-   %player.setSkinName("Base");
+   %player.setSkinName("base");
    %player.setTransform(Game.pickSpawnPoint(%player.team));
    %player.setRechargeRate(%player.getDataBlock().rechargeRate);
    %player.setEnergyLevel(%player.getDataBlock().maxEnergy);
-   %player.setRepairRate(0);
+   %player.setRepairRate(%player.getDataBlock().repairRate);
    %player.setMoveSpeed( %player.getDataBlock().MoveSpeed );
    %player.setInventory( HealthKit, 1 );
    %player.setInventory( Ryder, 1, 1 );

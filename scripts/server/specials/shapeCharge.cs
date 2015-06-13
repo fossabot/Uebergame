@@ -122,7 +122,7 @@ datablock ItemData(ShapeCharge)
 
 datablock ShapeBaseImageData(ShapeChargeImage)
 {
-   shapeFile = "art/shapes/invisible.dts";
+   shapeFile = "art/shapes/editor/invisible.dts";
 
    item = ShapeCharge;
    mountPoint = 2;

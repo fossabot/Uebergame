@@ -1001,7 +1001,7 @@ if(!isObject(GuiBigTxtCenterYelProfile)) new GuiControlProfile(GuiBigTxtCenterYe
 if( !isObject( GuiHEaderTextProfile ) )
 new GuiControlProfile (GuiHeaderTextProfile)
 {
-   fontType = "CRYSTAL";
+   fontType = "Arial";
    fontSize = 36;
    fontColor = "255 255 255";
    justify = "center";
