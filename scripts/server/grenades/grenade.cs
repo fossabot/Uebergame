@@ -22,7 +22,7 @@
 
 datablock ItemData(GrenadeThrown : DefaultAmmo)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    //scale = "0.5 0.5 0.5";
    mass = 0.8;
    density = 20;
@@ -48,7 +48,7 @@ datablock ItemData(Grenade : DefaultWeapon)
 {
    category = "Handheld";
    className = "HandInventory";
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    computeCRC = true;
    lightColor = "0.5 0 0 1";
 
@@ -62,7 +62,7 @@ datablock ItemData(Grenade : DefaultWeapon)
 
 datablock ItemData(GrenadeAmmo : DefaultAmmo)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    pickUpName = 'grenade';
 };
 
@@ -71,9 +71,9 @@ datablock ShapeBaseImageData(FragGrenadeImage)
    class = "GrenadeImage";
    className = GrenadeImage;
 
-   //shapeFile = "art/shapes/editor/invisible.dts";
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
-   shapeFileFP = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/editor/invisible.dts";
+   //shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
+   //shapeFileFP = "art/shapes/weapons/Grenade/grenade.dae";
    emap = true;
    computeCRC = false;
    cloakable = true;

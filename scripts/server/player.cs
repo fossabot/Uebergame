@@ -762,7 +762,7 @@ datablock ParticleData(bloodBulletDirtSpray)
    gravityCoefficient = "0.5";
    constantAcceleration = "-1";
    lifetimeMS = "300";
-   lifetimeVarianceMS = "300";
+   lifetimeVarianceMS = "200";
    spinRandomMin = "-120";
    spinRandomMax = "120";
    useInvAlpha = "1";

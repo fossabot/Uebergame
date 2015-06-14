@@ -20,13 +20,14 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
+/*
 datablock SFXProfile(SmokeGrenadeExplosionSound)
 {
-   filename = "art/sound/cheetah/cheetah_engine";
-   description = AudioDefaultLooping3d;
+   filename = "";
+   description = AudioClose3D;
    preload = true;
 };
-
+*/
 //--------------------------------------------------------------------------
 // Projectile Explosion
 
@@ -110,7 +111,7 @@ datablock ExplosionData(SmokeGrenadeExplosion)
 
 datablock ItemData(SmokeGrenadeThrown : DefaultAmmo)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    mass = 0.8;
    density = 20;
    elasticity = 0.2;
@@ -132,7 +133,7 @@ datablock ItemData(SmokeGrenade : DefaultWeapon)
 {
    category = "Handheld";
    className = "HandInventory";
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    computeCRC = true;
    lightColor = "1 1 1 1";
 
@@ -146,7 +147,7 @@ datablock ItemData(SmokeGrenade : DefaultWeapon)
 
 datablock ItemData(SmokeGrenadeAmmo : DefaultAmmo)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    pickUpName = 'smoke grenade';
 };
 
@@ -155,8 +156,9 @@ datablock ShapeBaseImageData(SmokeGrenadeImage)
    class = "GrenadeImage";
    className = GrenadeImage;
 
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
-   shapeFileFP = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/editor/invisible.dts";
+   //shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
+   //shapeFileFP = "art/shapes/weapons/Grenade/grenade.dae";
    emap = true;
    computeCRC = false;
    cloakable = true;

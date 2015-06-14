@@ -126,6 +126,7 @@ function Torque::initClient(%this)
    // Load up the Game GUI
    exec("~/gui/playGui.gui");
    exec("~/gui/hudlessGui.gui"); // For screen shots
+   exec("~/gui/messageHud.gui");
    exec("~/gui/ChatHud.gui");
    exec("~/gui/scoreHud.gui");
    exec("~/gui/voteHudDlg.gui");

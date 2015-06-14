@@ -22,7 +22,7 @@
 
 datablock ItemData(AmmoBox : DefaultAmmo)
 {
-   shapeFile = "art/shapes/storage/weapons/weaponcrate_old_01.dae";
+   shapeFile = "art/shapes/storage/crates/weapons/weaponcrate_old_01.dae";
    scale = "1 1 1";
    computeCRC = true;
    mass = 5;

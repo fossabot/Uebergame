@@ -112,7 +112,7 @@ datablock RigidShapeData(CrateA : StaticShapeDamageScale)
 
 datablock RigidShapeData(CrateB : CrateA)
 {
-   shapeFile = "art/shapes/storage/weapons/weaponcrate_old_01.dae";
+   shapeFile = "art/shapes/storage/crates/weapons/weaponcrate_old_01.dae";
 };
 
 function Crate::onDestroyed(%data, %obj, %prevState)

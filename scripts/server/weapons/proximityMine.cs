@@ -91,8 +91,9 @@ datablock ShapeBaseImageData( ProxMineImage )
    className = "WeaponImage";
 
    // Basic Item properties
-   shapeFile = "art/shapes/weapons/ProxMine/TP_ProxMine.DAE";
-   shapeFileFP = "art/shapes/weapons/ProxMine/FP_ProxMine.DAE";
+   shapeFile = "art/shapes/editor/invisible.dts";
+   //shapeFile = "art/shapes/weapons/ProxMine/TP_ProxMine.DAE";
+   //shapeFileFP = "art/shapes/weapons/ProxMine/FP_ProxMine.DAE";
    emap = true;
    computeCRC = false;
 

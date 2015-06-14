@@ -52,8 +52,10 @@ datablock ShapeBaseImageData(TurretDeployableImage)
    className = "WeaponImage";
 
    // Basic Item properties
-   shapeFile = "art/shapes/weapons/Turret/TP_Turret.DAE";
-   shapeFileFP = "art/shapes/weapons/Turret/FP_Turret.DAE";
+   shapeFile = "art/shapes/editor/invisible.dts";
+   //invisible because they look stupid, needs to be mounted on the back to look good or so
+   //shapeFile = "art/shapes/weapons/Turret/TP_Turret.DAE";
+   //shapeFileFP = "art/shapes/weapons/Turret/FP_Turret.DAE";
    emap = true;
    computeCRC = false;
    cloakable = true;

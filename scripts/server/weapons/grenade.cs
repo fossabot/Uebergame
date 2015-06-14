@@ -36,7 +36,7 @@ datablock LightDescription(GrenadeLightDesc)
 
 datablock ProjectileData( ThrownGrenade )
 {
-   projectileShapeName = "art/shapes/weapons/grenade/grenade.dae";
+   projectileShapeName = "art/shapes/weapons/Grenade/grenade.dae";
    //sound               = "";
    directDamage        = 0;
    radiusDamage        = 75;
@@ -75,13 +75,13 @@ datablock ProjectileData( ThrownGrenade )
 //-----------------------------------------------------------------------------
 datablock ItemData(GrenadeMag : DefaultClip)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    pickUpName = 'Grenade Magazine';
 };
 
 datablock ItemData(GrenadeWeaponAmmo : DefaultAmmo)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    pickUpName = 'Grenades';
 };
 
@@ -92,7 +92,7 @@ datablock ItemData(GrenadeWeaponAmmo : DefaultAmmo)
 //-----------------------------------------------------------------------------
 datablock ItemData(GrenadeWeapon : DefaultWeapon)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    pickUpName = 'Frag Grenade';
    image = GrenadeWeaponImage;
 };
@@ -105,8 +105,8 @@ datablock ShapeBaseImageData(GrenadeWeaponImage)
    className = "WeaponImage";
 
    // Basic Item properties
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
-   shapeFileFP = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
+   shapeFileFP = "art/shapes/weapons/Grenade/grenade.dae";
    emap = true;
    computeCRC = false;
 
@@ -116,7 +116,7 @@ datablock ShapeBaseImageData(GrenadeWeaponImage)
    // Specify mount point & offset for 3rd person, and eye offset
    // for first person rendering.
    mountPoint = 0;
-   firstPerson = true;
+   firstPerson = false;
    useEyeNode = true;
    animateOnServer = true;
    cloakable = true;

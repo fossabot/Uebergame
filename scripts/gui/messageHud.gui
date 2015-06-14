@@ -1,0 +1,109 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(MessageHud) {
+   position = "0 0";
+   extent = "1024 768";
+   minExtent = "8 8";
+   horizSizing = "width";
+   vertSizing = "height";
+   profile = "GuiDefaultProfile";
+   visible = "0";
+   active = "1";
+   tooltipProfile = "GuiToolTipProfile";
+   hovertime = "1000";
+   isContainer = "1";
+   hidden = "1";
+   canSave = "1";
+   canSaveDynamicFields = "1";
+      isFireTeamMsg = "0";
+      isTeamMsg = "0";
+      noCursor = "1";
+
+   new GuiBitmapBorderCtrl(messageHud_Frame) {
+      position = "1 85";
+      extent = "360 45";
+      minExtent = "8 8";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      profile = "HudBorderProfile";
+      visible = "1";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "0";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+
+      new GuiBitmapCtrl(MessageHud_Fill) {
+         bitmap = "art/gui/hudfill.png";
+         wrap = "0";
+         position = "0 0";
+         extent = "360 35";
+         minExtent = "8 8";
+         horizSizing = "center";
+         vertSizing = "center";
+         profile = "GuiDefaultProfile";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiTextCtrl(MessageHud_Text) {
+         text = "GLOBAL CHAT:";
+         maxLength = "1024";
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "16 15";
+         extent = "100 18";
+         minExtent = "8 8";
+         horizSizing = "relative";
+         vertSizing = "bottom";
+         profile = "GuiTxtWhtProfile";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiTextEditCtrl(MessageHud_Edit) {
+         escapeCommand = "MessageHud_Edit.onEscape();";
+         historySize = "5";
+         tabComplete = "0";
+         sinkAllKeyEvents = "0";
+         password = "0";
+         passwordMask = "*";
+         maxLength = "120";
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "96 15";
+         extent = "252 18";
+         minExtent = "8 8";
+         horizSizing = "relative";
+         vertSizing = "bottom";
+         profile = "GuiTextEditProfile";
+         visible = "1";
+         active = "1";
+         altCommand = "$ThisControl.eval();";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+   };
+};
+//--- OBJECT WRITE END ---
+
+

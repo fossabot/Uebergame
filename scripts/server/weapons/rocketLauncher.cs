@@ -166,13 +166,13 @@ datablock ProjectileData( RocketProjectile )
 //-----------------------------------------------------------------------------
 datablock ItemData(RocketLauncherClip : DefaultClip)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    pickUpName = 'Rocket clip';
 };
 
 datablock ItemData(RocketLauncherAmmo : DefaultAmmo)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    pickUpName = 'Rockets';
    //clip = RocketLauncherClip;
 };

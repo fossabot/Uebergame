@@ -39,7 +39,7 @@ datablock ItemData(Medpack_medium)
    category = "Specials";
 
    // Basic Item properties
-   shapeFile = "art/shapes/items/patch/medpack_01.dae";
+   shapeFile = "art/shapes/items/health/medpack_01.dae";
    computeCRC = true;
    emap = 1;
    mass = 5;

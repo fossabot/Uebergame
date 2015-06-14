@@ -196,13 +196,13 @@ datablock ProjectileData( GrenadeProjectile )
 //-----------------------------------------------------------------------------
 datablock ItemData(GrenadeLauncherClip : DefaultClip)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    pickUpName = 'Grenade clip';
 };
 
 datablock ItemData(GrenadeLauncherAmmo : DefaultAmmo)
 {
-   shapeFile = "art/shapes/weapons/grenade/grenade.dae";
+   shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    pickUpName = 'Grenades';
    //clip = GrenadeLauncherClip;
 };

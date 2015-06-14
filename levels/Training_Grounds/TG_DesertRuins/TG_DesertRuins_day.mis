@@ -9468,12 +9468,12 @@ new SimGroup(MissionGroup) {
       };
    };
    new NavMesh(Nav) {
-      fileName = "levels/testnav";
+      fileName = "levels/Training_Grounds/TG_DesertRuins/TG_DesertRuins.nav";
       waterMethod = "Ignore";
-      cellSize = "0.1";
-      cellHeight = "0.1";
-      tileSize = "10";
-      actorHeight = "1.5";
+      cellSize = "0.2";
+      cellHeight = "0.5";
+      tileSize = "5";
+      actorHeight = "1";
       actorClimb = "0.3";
       actorRadius = "0.1";
       walkableSlope = "40";
