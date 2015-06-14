@@ -112,3 +112,27 @@ singleton Material(Mat_water_Soldier_Main : Mat_Soldier_Main)
    diffuseMap[0] = "Soldier_water_D.dds";
 };
 
+singleton Material(Mat_blue_Soldier_Main : Mat_Soldier_Main)
+{
+   mapTo = "blue_Soldier_Main";
+   diffuseMap[0] = "Soldier_blue_D.dds";
+};
+
+singleton Material(Mat_red_Soldier_Main : Mat_Soldier_Main)
+{
+   mapTo = "red_Soldier_Main";
+   diffuseMap[0] = "Soldier_red_D.dds";
+};
+
+singleton Material(Mat_green_Soldier_Main : Mat_Soldier_Main)
+{
+   mapTo = "green_Soldier_Main";
+   diffuseMap[0] = "Soldier_green_D.dds";
+};
+
+singleton Material(Mat_yellow_Soldier_Main : Mat_Soldier_Main)
+{
+   mapTo = "yellow_Soldier_Main";
+   diffuseMap[0] = "Soldier_yellow_D.dds";
+};
+

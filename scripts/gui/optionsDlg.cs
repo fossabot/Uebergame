@@ -1241,7 +1241,7 @@ function OptPlayerSkinMenu::init(%this)
    */
 
    %this.clear();
-   %list = "base\tOlive\tUrban\tDesert\tSwamp\tWater";
+   %list = "base\tOlive\tUrban\tDesert\tSwamp\tWater\tBlue\tRed\tGreen\tYellow";
 
    %count = getFieldCount( %list );
    for( %i=0; %i < %count; %i++ )

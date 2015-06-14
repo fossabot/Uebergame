@@ -843,7 +843,7 @@ datablock PlayerData(DefaultSoldier : ArmorDamageScale)
    shapeNameFP[0] = "art/shapes/actors/Soldier/FP/FP_SoldierArms.DAE";
 
    // available skins (see materials.cs in model folder)
-   availableSkins =  "base\olive\urban\desert\swamp\water";
+   availableSkins =  "base\olive\urban\desert\swamp\water\blue\red\green\yellow";
 
    computeCRC = true;
    emap = true;

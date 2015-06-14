@@ -112,7 +112,7 @@ datablock ExplosionData(SmokeGrenadeExplosion)
 datablock ItemData(SmokeGrenadeThrown : DefaultAmmo)
 {
    shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
-   mass = 0.8;
+   mass = 0.5;
    density = 20;
    elasticity = 0.2;
    friction = 1;
@@ -172,7 +172,7 @@ datablock ShapeBaseImageData(SmokeGrenadeImage)
    firstPerson = false;
    useEyeNode = true;
    animateOnServer = true;
-   mass = 2;
+   mass = 1;
 
    // When firing from a point offset from the eye, muzzle correction
    // will adjust the muzzle vector to point to the eye LOS point.

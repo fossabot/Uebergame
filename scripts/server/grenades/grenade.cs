@@ -24,7 +24,7 @@ datablock ItemData(GrenadeThrown : DefaultAmmo)
 {
    shapeFile = "art/shapes/weapons/Grenade/grenade.dae";
    //scale = "0.5 0.5 0.5";
-   mass = 0.8;
+   mass = 0.5;
    density = 20;
    elasticity = 0.2;
    friction = 1;
@@ -87,7 +87,7 @@ datablock ShapeBaseImageData(FragGrenadeImage)
    firstPerson = false;
    useEyeNode = true;
    animateOnServer = true;
-   mass = 2;
+   mass = 1;
 
    // When firing from a point offset from the eye, muzzle correction
    // will adjust the muzzle vector to point to the eye LOS point.
