@@ -43,7 +43,8 @@ function EPainter_TerrainMaterialUpdateCallback( %mat, %matIndex ) {
 
     // Update the material and the UI.
     ETerrainEditor.updateMaterial( %matIndex, %mat.getInternalName() );
-    EPainter.setup( %matIndex );
+    //EPainter.setup( %matIndex );
+     EPainter.updateLayers();
 }
 
 function EPainter_TerrainMaterialAddCallback( %mat, %matIndex ) {
@@ -53,7 +54,8 @@ function EPainter_TerrainMaterialAddCallback( %mat, %matIndex ) {
 
     // Add it and update the UI.
     ETerrainEditor.addMaterial( %mat.getInternalName() );
-    EPainter.setup( %matIndex );
+    //EPainter.setup( %matIndex );
+    EPainter.updateLayers();
 }
 
 function TerrainEditor::setPaintMaterial( %this, %matIndex, %terrainMat ) {
@@ -80,146 +82,6 @@ function TerrainEditor::setup( %this ) {
     %this.switchAction( %action );
 }
 
-function EPainter::updateLayers( %this, %matIndex ) {
-    // Default to whatever was selected before.
-    if ( %matIndex $= "" )
-        %matIndex = ETerrainEditor.paintIndex;
-
-    // The material string is a newline seperated string of
-    // TerrainMaterial internal names which we can use to find
-    // the actual material data in TerrainMaterialSet.
-
-    %mats = ETerrainEditor.getMaterials();
-
-    %matList = %this-->theMaterialList;
-    %matList.deleteAllObjects();
-    %listWidth = getWord( %matList.getExtent(), 0 );
-
-    for( %i = 0; %i < getRecordCount( %mats ); %i++ ) {
-        %matInternalName = getRecord( %mats, %i );
-        %mat = TerrainMaterialSet.findObjectByInternalName( %matInternalName );
-
-        // Is there no material info for this slot?
-        if ( !isObject( %mat ) )
-            continue;
-
-      
-    
-        %index = %matList.getCount();
-        %command = "ETerrainEditor.setPaintMaterial( " @ %index @ ", " @ %mat @ " );";
-        %altCommand = "TerrainMaterialDlg.show( " @ %index @ ", " @ %mat @ ", EPainter_TerrainMaterialUpdateCallback );";
-
-        %ctrl = new GuiIconButtonCtrl() {
-            class = "EPainterIconBtn";
-            internalName = "EPainterMaterialButton" @ %i;
-            profile = "ToolsButtonDark";
-            iconLocation = "Left";
-            textLocation = "Right";
-            extent = %listWidth SPC "46";
-            textMargin = 5;
-            buttonMargin = "4 4";
-            buttonType = "RadioButton";
-            sizeIconToButton = true;
-            makeIconSquare = true;
-            tooltipprofile = "ToolsGuiToolTipProfile";
-            command = %command;
-            altCommand = %altCommand;
-            useMouseEvents = true;
-
-            new GuiIconButtonCtrl() {
-               profile = "ToolsButtonProfile";
-                bitmap = "tlab/gui/icons/base_assets/trash.png";
-                buttonMargin = "1 1";
-                buttonType = "PushButton";
-                HorizSizing = "left";
-                VertSizing = "bottom";
-                position = ( %listwidth - 20 ) SPC "26";
-                Extent = "18 18";
-                command = "EPainter.showMaterialDeleteDlg( " @ %matInternalName @ " );";
-            };
-        };
-
-        %ctrl.setText( %matInternalName );
-        %ctrl.setBitmap( %mat.diffuseMap );
-
-        %tooltip = %matInternalName;
-        if(%i < 9)
-            %tooltip = %tooltip @ " (" @ (%i+1) @ ")";
-        else if(%i == 9)
-            %tooltip = %tooltip @ " (0)";
-        %ctrl.tooltip = %tooltip;
-
-        %matList.add( %ctrl );
-    }
-
-    %matCount = %matList.getCount();
-
-    // Add one more layer as the 'add new' layer.
-    %ctrl = new GuiIconButtonCtrl() {
-        profile = "ToolsButtonDark";
-        iconBitmap = "tlab/gui/icons/default/terrainpainter/new_layer_icon";
-        iconLocation = "Left";
-        textLocation = "Right";
-        extent = %listWidth SPC "46";
-        textMargin = 5;
-        buttonMargin = "4 4";
-        buttonType = "PushButton";
-        sizeIconToButton = true;
-        makeIconSquare = true;
-        tooltipprofile = "ToolsGuiToolTipProfile";
-        text = "New Layer";
-        tooltip = "New Layer";
-        command = "TerrainMaterialDlg.show( " @ %matCount @ ", 0, EPainter_TerrainMaterialAddCallback );";
-    };
-    %matList.add( %ctrl );
-
-    // Make sure our selection is valid and that we're
-    // not selecting the 'New Layer' button.
-
-    if( %matIndex < 0 )
-        return;
-    if( %matIndex >= %matCount )
-        %matIndex = 0;
-
-    // To make things simple... click the paint material button to
-    // active it and initialize other state.
-    %ctrl = %matList.getObject( %matIndex );
-    %ctrl.performClick();
-}
-
-function EPainter::showMaterialDeleteDlg( %this, %matInternalName ) {
-    LabMsgYesNo( "Confirmation",
-                      "Really remove material '" @ %matInternalName @ "' from the terrain?",
-                      %this @ ".removeMaterial( " @ %matInternalName @ " );", "" );
-}
-
-function EPainter::removeMaterial( %this, %matInternalName ) {
-    %selIndex = ETerrainEditor.paintIndex - 1;
-
-    // Remove the material from the terrain.
-
-    %index = ETerrainEditor.getMaterialIndex( %matInternalName );
-    if( %index != -1 )
-        ETerrainEditor.removeMaterial( %index );
-
-    // Update the material list.
-
-    %this.updateLayers( %selIndex );
-}
-
-function EPainter::setup( %this, %matIndex ) {
-    // Update the layer listing.
-    %this.updateLayers( %matIndex );
-
-    // Automagically put us into material paint mode.
-    ETerrainEditor.currentMode = "paint";
-    ETerrainEditor.selectionHidden = true;
-    ETerrainEditor.currentAction = paintMaterial;
-    ETerrainEditor.currentActionDesc = "Paint material on terrain";
-    ETerrainEditor.setAction( ETerrainEditor.currentAction );
-    EditorGuiStatusBar.setInfo(ETerrainEditor.currentActionDesc);
-    ETerrainEditor.renderVertexSelection = true;
-}
 
 function onNeedRelight() {
     if( RelightMessage.visible == false )

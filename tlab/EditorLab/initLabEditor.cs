@@ -5,11 +5,7 @@
 //==============================================================================
 
 //==============================================================================
-function Lab::initLabEditor( %this ) {
-   
-   execPattern("tlab/EditorLab/settings/prefs/*.cs");
-	
-	
+function Lab::initLabEditor( %this ) {	
 		
 	if( !isObject( "Lab_PM" ) )
       new PersistenceManager( Lab_PM ); 	
@@ -22,30 +18,26 @@ function Lab::initLabEditor( %this ) {
 
 	//Create a group to keep track of all objects set
 	newSimGroup( LabSceneObjectGroups );
-
+	
 	//Create the ScriptObject for the Plugin
 	new ScriptObject( WEditorPlugin ) {
 		superClass = "EditorPlugin"; //Default to EditorPlugin class
 		editorGui = EWorldEditor; //Default to EWorldEditor
 		isHidden = true;
 	};
-
-	//Load the scripts packages
-	//Lab.loadSettingsScripts(true);
-	//Lab.loadPluginsScripts();
-	//Lab.loadCommonScripts();
-	
   
 	//Prepare the Settings
 	%this.initEditorGui();
-	//%this.initSettings();
 
 	%this.initMenubar();
    
 	%this.initParamsSystem();
 }
 //------------------------------------------------------------------------------
-
+//==============================================================================
+function Lab::initDefaultSettings( %this ) {
+	Lab.defaultPlugin = CommonGeneral_Param.getCfg("DefaultPlugin");
+}
 //==============================================================================
 function Lab::initEditorGui( %this ) {
    
@@ -82,22 +74,9 @@ function Lab::initEditorGui( %this ) {
 // All the plugins scripts have been loaded
 function Lab::pluginInitCompleted( %this ) {
 	//Prepare the Settings	
-	%this.initConfigSystem();
+	%this.initConfigSystem();	
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-function Lab::reloadAllSettings( %this ) {
-	exec("tlab/EditorLab/commonSettings.cs");
-	%this.initCommonParams(); 
-	%this.initCommonSettings(); //FIXME Old param system
-}
-//------------------------------------------------------------------------------
-//==============================================================================
-function Lab::loadEditorData( %this ) {
-	exec("tlab/EditorLab/settings/labData.cs");
-}
-//------------------------------------------------------------------------------
-
 
 //==============================================================================
 // Rexec all EditorLab scripts (Skip .gui files if loadGui false)

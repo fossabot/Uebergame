@@ -24,8 +24,8 @@ function MeshRoadEditorPlugin::onActivated( %this ) {
     %this.prevGizmoAlignment = GlobalGizmoProfile.alignment;
 
     // The DecalEditor always uses Object alignment.
-    GlobalGizmoProfile.alignment = "Object";
-
+    //GlobalGizmoProfile.alignment = "Object";
+	Lab.setGizmoAlignment("Object");
     // Set the status bar here until all tool have been hooked up
     EditorGuiStatusBar.setInfo("Mesh road editor.");
     EditorGuiStatusBar.setSelection("");
@@ -38,7 +38,8 @@ function MeshRoadEditorPlugin::onDeactivated( %this ) {
 
     // Restore the previous Gizmo
     // alignment settings.
-    GlobalGizmoProfile.alignment = %this.prevGizmoAlignment;
+    Lab.setGizmoAlignment(%this.prevGizmoAlignment);
+    //GlobalGizmoProfile.alignment = %this.prevGizmoAlignment;
 
     Parent::onDeactivated(%this);
 }

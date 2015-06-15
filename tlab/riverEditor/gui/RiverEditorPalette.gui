@@ -1,4 +1,5 @@
-%paletteId = new GuiControl(RiverEditorPalette,EditorGuiGroup) {
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(RiverEditorPalette,EditorGuiGroup) {
    canSaveDynamicFields = "0";
    Enabled = "1";
    isContainer = "1";
@@ -161,3 +162,4 @@
       useMouseEvents = "0";
    };
 };
+//--- OBJECT WRITE END ---

@@ -103,8 +103,8 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "to Terrain" TAB "" TAB "EWorldEditor.droptype = \"toTerrain\"";
 	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Below Selection" TAB "" TAB "EWorldEditor.droptype = \"belowSelection\"";
 	$LabMenuItem[%id,%itemId++] = "-";
-	$LabMenuItem[%id,%itemId++] = "Make Selection Prefab" TAB "" TAB "EditorMakePrefab();";
-	$LabMenuItem[%id,%itemId++] = "Explode Selected Prefab" TAB "" TAB "EditorExplodePrefab();";
+	$LabMenuItem[%id,%itemId++] = "Make Selection Prefab" TAB "" TAB "Lab.CreatePrefab();";
+	$LabMenuItem[%id,%itemId++] = "Explode Selected Prefab" TAB "" TAB "Lab.ExplodePrefab();";
 	$LabMenuItem[%id,%itemId++] = "-";
 	$LabMenuItem[%id,%itemId++] = "Mount Selection A to B" TAB "" TAB "EditorMount();";
 	$LabMenuItem[%id,%itemId++] = "Unmount Selected Object" TAB "" TAB "EditorUnmount();";
@@ -168,7 +168,7 @@ function Lab::initLabMenuData(%this,%buildAfter) {
    $LabMenuItem[%id,%itemId++] = "Set next screenshot as preview" TAB "" TAB "Lab.setNextScreenShotPreview();";
 	$LabMenuItem[%id,%itemId++] = "----------------------";   
    $LabMenuItem[%id,%itemId++] = "Toggle GroundCover Manager" TAB "" TAB "SceneEditorDialogs.toggleDlg(\"GroundCover\");";
-   
+   $LabMenuItem[%id,%itemId++] = "Toggle Ambient Manager" TAB "" TAB "SceneEditorDialogs.toggleDlg(\"AmbientManager\");";
 	%itemId = -1;
 	$LabMenu[%id++] = "Help";
 	$LabMenuItem[%id,%itemId++] = "Online Documentation..." TAB "Alt F1" TAB "gotoWebPage(EWorldEditor.documentationURL);";

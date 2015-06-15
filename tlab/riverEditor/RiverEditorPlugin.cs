@@ -4,8 +4,30 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 
+//==============================================================================
+// Road Editor Params - Used set default settings and build plugins options GUI
+//==============================================================================
 
+//==============================================================================
+// Prepare the default config array for the Scene Editor Plugin
+function RiverEditorPlugin::initParamsArray( %this,%cfgArray )
+{  	
+	%cfgArray.group[%gId++] = "General settings";
+	%cfgArray.setVal("DefaultWidth",       "10" TAB "DefaultWidth" TAB "TextEdit" TAB "" TAB "RiverEditorGui" TAB %gId);
+   %cfgArray.setVal("DefaultDepth",   "5" TAB "DefaultDepth" TAB "TextEdit" TAB "" TAB "RiverEditorGui" TAB %gId);
+   %cfgArray.setVal("DefaultNormal","0 0 1" TAB "DefaultNormal" TAB "TextEdit" TAB "" TAB "RiverEditorGui" TAB %gId);  
+   
+  %cfgArray.group[%gId++] = "Color settings";
+   %cfgArray.setVal("HoverSplineColor",       "255 0 0 255" TAB "HoverSplineColor" TAB "ColorInt" TAB "" TAB "RiverEditorGui" TAB %gId);
+   %cfgArray.setVal("SelectedSplineColor",       "0 255 0 255" TAB "SelectedSplineColor" TAB "ColorInt" TAB "" TAB "RiverEditorGui" TAB %gId);
+   %cfgArray.setVal("HoverNodeColor",       "255 255 255 255" TAB "HoverNodeColor" TAB "ColorInt" TAB "" TAB "RiverEditorGui" TAB %gId);
+  
+}
+//------------------------------------------------------------------------------
 
+//==============================================================================
+// Plugin Object Callbacks - Called from TLab plugin management scripts
+//==============================================================================
 function RiverEditorPlugin::onWorldEditorStartup( %this ) {
     Parent::onWorldEditorStartup( %this );
 
@@ -50,7 +72,7 @@ function RiverEditorPlugin::onActivated( %this ) {
 }
 
 function RiverEditorPlugin::onDeactivated( %this ) {
-    %this.writeSettings();
+  
 
     $River::EditorOpen = false;
 

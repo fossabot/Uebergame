@@ -20,7 +20,7 @@
    langTableMod = "Default";
    canSave = "1";
    canSaveDynamicFields = "1";
-      previousGui = "2014";
+      previousGui = "2015";
       saveAs = "0";
       tooltipWidth = "500";
 
@@ -152,7 +152,7 @@
                profile = "ToolsButtonDark";
                visible = "1";
                active = "1";
-               command = "toggleDlg(LabSettingsDlg);";
+               command = "toggleDlg(LabParamsDlg);";
                tooltipProfile = "GuiToolTipProfile";
                hovertime = "1000";
                isContainer = "0";
@@ -663,7 +663,7 @@
                softSelectFilter = "1.000000 0.833333 0.666667 0.500000 0.333333 0.166667 0.000000";
                softSelectDefaultFilter = "1.000000 0.833333 0.666667 0.500000 0.333333 0.166667 0.000000";
                adjustHeightMouseScale = "0.1";
-               paintIndex = "5";
+               paintIndex = "4";
                gridSize = "1";
                gridColor = "102 102 102 100";
                gridOriginColor = "255 255 255 100";
@@ -708,8 +708,8 @@
                hidden = "1";
                canSave = "1";
                canSaveDynamicFields = "1";
-                  currentAction = "brushAdjustHeight";
-                  currentActionDesc = "Adjust terrain height up or down.";
+                  currentAction = "paintMaterial";
+                  currentActionDesc = "Paint material on terrain";
                   currentMode = "paint";
                   savedAction = "brushAdjustHeight";
                   savedActionDesc = "Adjust terrain height up or down.";
@@ -760,7 +760,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiTextCtrl(TEMouseBrushInfo) {
-                     text = " (Mouse) #: 0  avg: 0 brushAdjustHeight";
+                     text = " (Mouse) #: 69  avg: 93.8483 paintMaterial";
                      maxLength = "255";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -837,7 +837,7 @@
                groupNum = "1";
                buttonType = "RadioButton";
                useMouseEvents = "0";
-               position = "124258 0";
+               position = "125688 0";
                extent = "36 40";
                minExtent = "7 2";
                horizSizing = "left";
@@ -855,7 +855,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiDynamicCtrlArrayControl(ToolsToolbarArray) {
-               colCount = "3503";
+               colCount = "3542";
                colSize = "36";
                rowCount = "1";
                rowSize = "40";
@@ -867,7 +867,7 @@
                dynamicSize = "0";
                padding = "0 0 0 0";
                position = "4 0";
-               extent = "129633 40";
+               extent = "131063 40";
                minExtent = "1024 32";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -1111,11 +1111,11 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 40";
-            extent = "36 524";
+            extent = "36 131";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
-            profile = "ToolsPanelLightA";
+            profile = "ToolsBoxDarkC";
             visible = "1";
             active = "1";
             tooltipProfile = "GuiToolTipProfile";
@@ -1129,9 +1129,9 @@
 
             new GuiDynamicCtrlArrayControl(EWToolsPaletteArray) {
                colCount = "1";
-               colSize = "26";
+               colSize = "32";
                rowCount = "4";
-               rowSize = "22";
+               rowSize = "28";
                rowSpacing = "3";
                colSpacing = "0";
                frozen = "0";
@@ -1139,8 +1139,8 @@
                fillRowFirst = "1";
                dynamicSize = "1";
                padding = "0 0 0 0";
-               position = "5 5";
-               extent = "35 514";
+               position = "2 5";
+               extent = "34 121";
                minExtent = "34 2";
                horizSizing = "width";
                vertSizing = "bottom";

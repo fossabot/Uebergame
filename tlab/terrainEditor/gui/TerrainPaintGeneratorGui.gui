@@ -709,7 +709,7 @@
 
                      new GuiIconButtonCtrl() {
                         buttonMargin = "4 4";
-                        iconBitmap = "tlab/gui/icons/ui24_light/arrow_triangle_down.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/arrow_triangle_down.png";
                         iconLocation = "Left";
                         sizeIconToButton = "1";
                         makeIconSquare = "0";
@@ -737,7 +737,7 @@
                      };
                      new GuiIconButtonCtrl() {
                         buttonMargin = "4 4";
-                        iconBitmap = "tlab/gui/icons/ui24_light/arrow_triangle_up.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/arrow_triangle_up.png";
                         iconLocation = "Left";
                         sizeIconToButton = "1";
                         makeIconSquare = "0";
@@ -765,7 +765,7 @@
                      };
                      new GuiIconButtonCtrl() {
                         buttonMargin = "4 4";
-                        iconBitmap = "tlab/gui/icons/ui24_light/delete_x.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/delete_x.png";
                         iconLocation = "Left";
                         sizeIconToButton = "1";
                         makeIconSquare = "0";

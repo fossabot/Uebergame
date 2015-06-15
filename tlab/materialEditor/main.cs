@@ -54,7 +54,6 @@ function execMEP(%loadGui) {
     exec("./scripts/materialEditor.cs");
     exec("./scripts/materialEditorUndo.cs");
     exec("./MaterialEditorPlugin.cs");
-    exec("./MaterialEditorParams.cs");
     exec("./base/ME_MaterialCore.cs");
    exec("./base/ME_MaterialActive.cs");
     exec("./base/ME_MaterialGui.cs");

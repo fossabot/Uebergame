@@ -355,7 +355,7 @@
                         maxPopupHeight = "400";
                         sbUsesNAColor = "0";
                         reverseTextList = "0";
-                        bitmap = "tlab/gui/icons/base_assets/edit.png";
+                        bitmap = "tlab/gui/icons/24-assets/edit.png";
                         bitmapBounds = "16 16";
                         text = "All";
                         maxLength = "1024";
@@ -536,7 +536,7 @@
                   canRenameObjects = "1";
                   renameInternal = "0";
                   position = "3 3";
-                  extent = "202 315";
+                  extent = "212 462";
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
@@ -669,7 +669,7 @@
 
                new GuiIconButtonCtrl() {
                   buttonMargin = "1 1";
-                  iconBitmap = "tlab/gui/icons/ui24_light/file_new.png";
+                  iconBitmap = "tlab/gui/icons/24-assets/file_new.png";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "0";
@@ -697,7 +697,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "1 1";
-                  iconBitmap = "tlab/gui/icons/base_assets/new.png";
+                  iconBitmap = "tlab/gui/icons/tools-assets/file_new.png";
                   iconLocation = "Left";
                   sizeIconToButton = "0";
                   makeIconSquare = "0";
@@ -724,7 +724,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "1 1";
-                  iconBitmap = "tlab/gui/icons/base_assets/trash.png";
+                  iconBitmap = "tlab/gui/icons/24-assets/trash.png";
                   iconLocation = "Left";
                   sizeIconToButton = "0";
                   makeIconSquare = "0";
@@ -1039,7 +1039,7 @@
 
                      new GuiIconButtonCtrl() {
                         buttonMargin = "1 1";
-                        iconBitmap = "tlab/gui/icons/base_assets/edit.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/edit.png";
                         iconLocation = "Left";
                         sizeIconToButton = "0";
                         makeIconSquare = "0";
@@ -1066,7 +1066,7 @@
                      };
                      new GuiIconButtonCtrl() {
                         buttonMargin = "1 1";
-                        iconBitmap = "tlab/gui/icons/base_assets/trash.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/trash.png";
                         iconLocation = "Left";
                         sizeIconToButton = "0";
                         makeIconSquare = "0";
@@ -1433,7 +1433,7 @@
 
                      new GuiIconButtonCtrl() {
                         buttonMargin = "1 1";
-                        iconBitmap = "tlab/gui/icons/base_assets/edit.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/edit.png";
                         iconLocation = "Left";
                         sizeIconToButton = "0";
                         makeIconSquare = "0";
@@ -1460,7 +1460,7 @@
                      };
                      new GuiIconButtonCtrl() {
                         buttonMargin = "1 1";
-                        iconBitmap = "tlab/gui/icons/base_assets/trash.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/trash.png";
                         iconLocation = "Left";
                         sizeIconToButton = "0";
                         makeIconSquare = "0";
@@ -1534,7 +1534,7 @@
 
                      new GuiIconButtonCtrl() {
                         buttonMargin = "1 1";
-                        iconBitmap = "tlab/gui/icons/base_assets/edit.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/edit.png";
                         iconLocation = "Left";
                         sizeIconToButton = "0";
                         makeIconSquare = "0";
@@ -1561,7 +1561,7 @@
                      };
                      new GuiIconButtonCtrl() {
                         buttonMargin = "1 1";
-                        iconBitmap = "tlab/gui/icons/base_assets/trash.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/trash.png";
                         iconLocation = "Left";
                         sizeIconToButton = "0";
                         makeIconSquare = "0";
@@ -1982,7 +1982,7 @@
 
                      new GuiIconButtonCtrl() {
                         buttonMargin = "1 1";
-                        iconBitmap = "tlab/gui/icons/base_assets/edit.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/edit.png";
                         iconLocation = "Left";
                         sizeIconToButton = "0";
                         makeIconSquare = "0";
@@ -2009,7 +2009,7 @@
                      };
                      new GuiIconButtonCtrl() {
                         buttonMargin = "1 1";
-                        iconBitmap = "tlab/gui/icons/base_assets/trash.png";
+                        iconBitmap = "tlab/gui/icons/24-assets/trash.png";
                         iconLocation = "Left";
                         sizeIconToButton = "0";
                         makeIconSquare = "0";

@@ -3,7 +3,29 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
+//==============================================================================
+// Plugin Object Params - Used set default settings and build plugins options GUI
+//==============================================================================
 
+//==============================================================================
+// Prepare the default config array for the Scene Editor Plugin
+function MaterialEditorPlugin::initParamsArray( %this,%array )
+{  
+	$MaterialEdCfg = newScriptObject("MaterialEditorCfg");
+   %array.group[%groupId++] = "General settings";
+ 
+   %array.setVal("DefaultMaterialFile",       "10" TAB "Default Width" TAB "SliderEdit"  TAB "range>>0 100;;tickAt>>1" TAB "SceneEditorCfg" TAB %groupId);
+    %array.setVal("DiffuseSuffix",       "_n" TAB "Default Normal suffix" TAB "TextEdit"  TAB "" TAB "SceneEditorCfg" TAB %groupId);
+   %array.setVal("AutoAddNormal",       "1" TAB "Auto add normal if found" TAB "checkbox"  TAB "" TAB "SceneEditorCfg" TAB %groupId);
+   %array.setVal("NormalSuffix",       "_n" TAB "Default Normal suffix" TAB "TextEdit"  TAB "" TAB "SceneEditorCfg" TAB %groupId);
+   %array.setVal("AutoAddSpecular",       "1" TAB "Auto add normal if found" TAB "checkbox"  TAB "" TAB "SceneEditorCfg" TAB %groupId);
+   %array.setVal("SpecularSuffix",       "_s" TAB "Default Normal suffix" TAB "TextEdit"  TAB "" TAB "SceneEditorCfg" TAB %groupId);
+}
+
+//==============================================================================
+// Plugin Object Callbacks - Called from TLab plugin management scripts
+//==============================================================================
+//------------------------------------------------------------------------------
 // Material Editor
 function MaterialEditorPlugin::onWorldEditorStartup( %this ) {
     Parent::onWorldEditorStartup( %this );

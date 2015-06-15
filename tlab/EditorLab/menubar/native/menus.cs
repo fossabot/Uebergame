@@ -339,8 +339,8 @@ function Lab::buildMenus(%this) {
 		//item[15] = "-";
 		%objectMenu.appendItem("Drop Location" TAB %this.dropTypeMenu);
 		%objectMenu.appendItem("-");
-		%objectMenu.appendItem("Make Selection Prefab" TAB "" TAB "EditorMakePrefab();");
-		%objectMenu.appendItem("Explode Selected Prefab" TAB "" TAB "EditorExplodePrefab();");
+		%objectMenu.appendItem("Make Selection Prefab" TAB "" TAB "Lab.CreatePrefab();");
+		%objectMenu.appendItem("Explode Selected Prefab" TAB "" TAB "Lab.ExplodePrefab();");
 		%objectMenu.appendItem("-");
 		%objectMenu.appendItem("Mount Selection A to B" TAB "" TAB "EditorMount();");
 		%objectMenu.appendItem("Unmount Selected Object" TAB "" TAB "EditorUnmount();");

@@ -31,6 +31,7 @@ function Lab::addGui(%this,%gui,%type) {
 	case "Dialog":
 		%container = $LabDialogContainer;
 		LabDialogGuiSet.add(%gui);
+		
 
 	case "Palette":
 		LabPaletteGuiSet.add(%gui);
@@ -156,4 +157,3 @@ function Lab::resizeEditorGui( %this ) {
 
 }
 //------------------------------------------------------------------------------
-

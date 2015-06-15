@@ -106,10 +106,3 @@ singleton GuiControlProfile( EPainterDragDropProfile ) {
     category = "Editor";
 };
 
-singleton GizmoProfile( GlobalGizmoProfile ) {
-    // This isnt a GuiControlProfile but fits in well here.
-    // Don't really have to initialize this now because that will be done later
-    // based on the saved editor prefs.
-    screenLength = 100;
-    category = "Editor";
-};

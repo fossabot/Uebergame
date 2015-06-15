@@ -280,10 +280,12 @@ function TerrainMaterialDlg::saveDirtyMaterial( %this, %mat ) {
 			!%mat.isMemberOfClass( TerrainMaterial ) )
 		return;
 
-	if(  isObject( %mat.matSource ) || %mat.matSource.isMemberOfClass( TerrainMaterial ) )	{
+	/*if(  isObject( %mat.matSource ) )	{
+		if (%mat.matSource.isMemberOfClass( TerrainMaterial )){
 		LabMsgOk("Can't save linked material","The current material is linked to:" SPC %mat.matSource.getName() SPC ". To avoid linkage issues, it's not possible to save the current material. Please apply the changes you want to the source material!");
 		return;
-	}
+		}
+	}*/
 	// Read out properties from the dialog.
 	%newName = %this-->matNameCtrl.getText();
 
@@ -367,15 +369,11 @@ function TerrainMaterialDlg::saveDirtyMaterial( %this, %mat ) {
 	%mat.macroDistance = %macroDistance;
 	%mat.useSideProjection = %useSideProjection;
 	%mat.parallaxScale = %parallaxScale;
-	// Mark the material as dirty and needing saving.
-	%fileName = %mat.getFileName();
 
-	if( %fileName $= "" )
-		%fileName = "art/terrains/materials.cs";
-
-	ETerrainMaterialPersistMan.setDirty( %mat, %fileName );
+	EPainter.setMaterialDirty(%mat);
 }
 //------------------------------------------------------------------------------
+
 //==============================================================================
 function TerrainMaterialDlg::snapshotMaterials( %this ) {
 	if( !isObject( TerrainMaterialDlgSnapshot ) )

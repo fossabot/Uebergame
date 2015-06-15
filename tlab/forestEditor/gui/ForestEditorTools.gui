@@ -1,7 +1,7 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiFrameSetCtrl(ForestEditorTools) {
    columns = "0";
-   rows = "0 304";
+   rows = "0 297";
    borderWidth = "4";
    borderColor = "0 0 0 0";
    borderEnable = "alwaysOn";
@@ -16,7 +16,7 @@
    anchorLeft = "1";
    anchorRight = "0";
    position = "0 0";
-   extent = "315 818";
+   extent = "303 818";
    minExtent = "8 2";
    horizSizing = "right";
    vertSizing = "bottom";
@@ -33,7 +33,8 @@
       currentMeshMode = "EditorShape";
       currentMode = "Material";
       defaultParent = "guiGroup";
-      EditorContainer = "4092";
+      EditorContainer = "4027";
+      editorParent = "4027";
       fileSpec = "Torque Material Files (materials.cs)|materials.cs|All Files (*.*)|*.*|";
       lastMaterial = "1357";
       livePreview = "1";
@@ -50,7 +51,7 @@
       canMove = "0";
       canClose = "0";
       canMinimize = "0";
-      canMaximize = "1";
+      canMaximize = "0";
       canCollapse = "0";
       edgeSnap = "0";
       docking = "None";
@@ -61,11 +62,11 @@
       anchorLeft = "1";
       anchorRight = "0";
       position = "0 0";
-      extent = "315 300";
+      extent = "303 293";
       minExtent = "8 24";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsWindowProfile";
+      profile = "ToolsWindowProfile_Dark";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -74,20 +75,72 @@
       canSave = "1";
       canSaveDynamicFields = "0";
 
+      new GuiStackControl() {
+         stackingType = "Horizontal";
+         horizStacking = "Left to Right";
+         vertStacking = "Top to Bottom";
+         padding = "3";
+         dynamicSize = "1";
+         dynamicNonStackExtent = "0";
+         dynamicPos = "1";
+         changeChildSizeToFit = "1";
+         changeChildPosition = "1";
+         position = "274 2";
+         extent = "20 20";
+         minExtent = "16 16";
+         horizSizing = "left";
+         vertSizing = "bottom";
+         profile = "ToolsDefaultProfile";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "ToolsGuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+
+         new GuiIconButtonCtrl() {
+            buttonMargin = "2 2";
+            iconBitmap = "tlab/gui/icons/toolbar_assets/Settings.png";
+            iconLocation = "Left";
+            sizeIconToButton = "1";
+            makeIconSquare = "0";
+            textLocation = "Left";
+            textMargin = "4";
+            autoSize = "0";
+            groupNum = "-1";
+            buttonType = "PushButton";
+            useMouseEvents = "0";
+            position = "0 0";
+            extent = "20 20";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "ToolsDefaultProfile";
+            visible = "1";
+            active = "1";
+            command = "ForestEditorDialogs.toggleDlg(\"ForestManager\");";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+      };
       new GuiContainer() {
          docking = "Client";
-         margin = "0 0 0 0";
+         margin = "4 4 4 4";
          padding = "0 0 4 4";
          anchorTop = "1";
          anchorBottom = "0";
          anchorLeft = "1";
          anchorRight = "0";
-         position = "5 27";
-         extent = "305 266";
+         position = "10 28";
+         extent = "283 255";
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
-         profile = "ToolsBoxTitleDark";
+         profile = "ToolsBoxDarkA";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -113,7 +166,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "6 8";
-            extent = "292 257";
+            extent = "270 246";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -127,7 +180,7 @@
             canSaveDynamicFields = "0";
 
             new GuiTabPageCtrl() {
-               fitBook = "0";
+               fitBook = "1";
                text = "Brushes";
                maxLength = "1024";
                docking = "Client";
@@ -138,11 +191,11 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "0 16";
-               extent = "292 241";
+               extent = "270 230";
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsPanelDarkA";
+               profile = "ToolsBoxDarkC";
                visible = "1";
                active = "1";
                tooltipProfile = "ToolsGuiToolTipProfile";
@@ -185,18 +238,18 @@
                   childMargin = "0 0";
                   mouseWheelScrollSpeed = "-1";
                   docking = "Client";
-                  margin = "0 0 0 0";
+                  margin = "4 4 4 4";
                   padding = "0 0 0 0";
                   anchorTop = "1";
                   anchorBottom = "0";
                   anchorLeft = "1";
                   anchorRight = "0";
-                  position = "0 0";
-                  extent = "292 241";
+                  position = "4 4";
+                  extent = "262 222";
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsScrollProfile";
+                  profile = "ToolsScrollProfile_Dark_T50";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -228,7 +281,7 @@
                      canRenameObjects = "1";
                      renameInternal = "1";
                      position = "3 3";
-                     extent = "286 105";
+                     extent = "256 63";
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
@@ -244,7 +297,7 @@
                };
             };
             new GuiTabPageCtrl() {
-               fitBook = "0";
+               fitBook = "1";
                text = "Meshes";
                maxLength = "1024";
                docking = "Client";
@@ -254,12 +307,12 @@
                anchorBottom = "0";
                anchorLeft = "1";
                anchorRight = "0";
-               position = "0 16";
-               extent = "397 303";
+               position = "0 17";
+               extent = "270 229";
                minExtent = "8 2";
                horizSizing = "right";
                vertSizing = "bottom";
-               profile = "ToolsPanelDarkA";
+               profile = "ToolsBoxDarkC";
                visible = "0";
                active = "1";
                tooltipProfile = "ToolsGuiToolTipProfile";
@@ -280,18 +333,18 @@
                   childMargin = "0 0";
                   mouseWheelScrollSpeed = "-1";
                   docking = "Client";
-                  margin = "0 0 0 0";
+                  margin = "4 4 4 4";
                   padding = "0 0 0 0";
                   anchorTop = "1";
                   anchorBottom = "0";
                   anchorLeft = "1";
                   anchorRight = "0";
-                  position = "0 0";
-                  extent = "397 303";
+                  position = "4 4";
+                  extent = "262 221";
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
-                  profile = "ToolsScrollProfile";
+                  profile = "ToolsScrollProfile_Dark_T50";
                   visible = "1";
                   active = "1";
                   tooltipProfile = "ToolsGuiToolTipProfile";
@@ -323,7 +376,7 @@
                      canRenameObjects = "1";
                      renameInternal = "1";
                      position = "3 3";
-                     extent = "381 3969";
+                     extent = "246 6174";
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
@@ -351,7 +404,7 @@
          dynamicPos = "0";
          changeChildSizeToFit = "0";
          changeChildPosition = "0";
-         position = "215 26";
+         position = "203 26";
          extent = "89 22";
          minExtent = "16 16";
          horizSizing = "left";
@@ -369,7 +422,7 @@
 
          new GuiIconButtonCtrl() {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/newfolder.png";
+            iconBitmap = "tlab/gui/icons/tools-assets/folder_add.png";
             iconLocation = "Left";
             sizeIconToButton = "0";
             makeIconSquare = "0";
@@ -397,7 +450,7 @@
          };
          new GuiIconButtonCtrl() {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/forestelement.png";
+            iconBitmap = "tlab/gui/icons/tools-assets/forest_element.png";
             iconLocation = "Left";
             sizeIconToButton = "0";
             makeIconSquare = "0";
@@ -425,7 +478,7 @@
          };
          new GuiIconButtonCtrl() {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/trash.png";
+            iconBitmap = "tlab/gui/icons/24-assets/trash.png";
             iconLocation = "Left";
             sizeIconToButton = "0";
             makeIconSquare = "0";
@@ -489,8 +542,8 @@
          dynamicPos = "1";
          changeChildSizeToFit = "1";
          changeChildPosition = "1";
-         position = "193 28";
-         extent = "112 20";
+         position = "201 27";
+         extent = "89 20";
          minExtent = "16 16";
          horizSizing = "left";
          vertSizing = "bottom";
@@ -506,9 +559,9 @@
 
          new GuiIconButtonCtrl() {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/newfolder.png";
+            iconBitmap = "tlab/gui/icons/24-assets/folder_add.png";
             iconLocation = "Left";
-            sizeIconToButton = "0";
+            sizeIconToButton = "1";
             makeIconSquare = "0";
             textLocation = "Left";
             textMargin = "4";
@@ -534,9 +587,9 @@
          };
          new GuiIconButtonCtrl() {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/forestgroup.png";
+            iconBitmap = "tlab/gui/icons/tools-assets/forest_group.png";
             iconLocation = "Left";
-            sizeIconToButton = "0";
+            sizeIconToButton = "1";
             makeIconSquare = "0";
             textLocation = "Left";
             textMargin = "4";
@@ -562,9 +615,9 @@
          };
          new GuiIconButtonCtrl() {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/forestbrush.png";
+            iconBitmap = "tlab/gui/icons/tools-assets/forest_brush.png";
             iconLocation = "Left";
-            sizeIconToButton = "0";
+            sizeIconToButton = "1";
             makeIconSquare = "0";
             textLocation = "Left";
             textMargin = "4";
@@ -590,9 +643,9 @@
          };
          new GuiIconButtonCtrl() {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/trash.png";
+            iconBitmap = "tlab/gui/icons/24-assets/trash.png";
             iconLocation = "Left";
-            sizeIconToButton = "0";
+            sizeIconToButton = "1";
             makeIconSquare = "0";
             textLocation = "Left";
             textMargin = "4";
@@ -616,33 +669,6 @@
             canSave = "1";
             canSaveDynamicFields = "0";
          };
-         new GuiIconButtonCtrl() {
-            buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/toolbar_assets/Settings.png";
-            iconLocation = "Left";
-            sizeIconToButton = "1";
-            makeIconSquare = "0";
-            textLocation = "Left";
-            textMargin = "4";
-            autoSize = "0";
-            groupNum = "-1";
-            buttonType = "PushButton";
-            useMouseEvents = "0";
-            position = "92 0";
-            extent = "20 20";
-            minExtent = "8 2";
-            horizSizing = "right";
-            vertSizing = "bottom";
-            profile = "ToolsButtonDark";
-            visible = "1";
-            active = "1";
-            command = "ForestEditorDialogs.toggleDlg(\"ForestManager\");";
-            tooltipProfile = "GuiToolTipProfile";
-            hovertime = "1000";
-            isContainer = "0";
-            canSave = "1";
-            canSaveDynamicFields = "0";
-         };
       };
    };
    new GuiWindowCtrl(ForestEditorPropertiesWindow) {
@@ -652,7 +678,7 @@
       canMove = "0";
       canClose = "0";
       canMinimize = "0";
-      canMaximize = "1";
+      canMaximize = "0";
       canCollapse = "0";
       edgeSnap = "1";
       docking = "None";
@@ -662,8 +688,8 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "0 304";
-      extent = "315 514";
+      position = "0 297";
+      extent = "303 521";
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
@@ -685,7 +711,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "5 27";
-         extent = "305 480";
+         extent = "293 487";
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
@@ -738,7 +764,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "7 26";
-            extent = "291 453";
+            extent = "279 460";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -764,7 +790,7 @@
                changeChildSizeToFit = "1";
                changeChildPosition = "1";
                position = "3 3";
-               extent = "285 296";
+               extent = "273 296";
                minExtent = "16 16";
                horizSizing = "width";
                vertSizing = "height";

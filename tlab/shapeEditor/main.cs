@@ -50,10 +50,9 @@ function initializeShapeEditor() {
 // Load the Scene Editor Plugin scripts, load Guis if %loadgui = true
 function execShapeEd(%loadGui)
 {
-	devLog("Exec ShapeEd",%loadGui);
 	if (%loadGui)
 	{
-		devLog("Exec ShapeEd GUIS");
+		
 		exec("./gui/Profiles.cs");
 		exec("tlab/shapeEditor/gui/shapeEdPreviewWindow.gui");
 		exec("tlab/shapeEditor/gui/shapeEdAnimWindow.gui");

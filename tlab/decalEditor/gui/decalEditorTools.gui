@@ -325,7 +325,7 @@
 
          new GuiIconButtonCtrl(SaveDecalsButton) {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/save.png";
+            iconBitmap = "tlab/gui/icons/24-assets/file_save.png";
             iconLocation = "Left";
             sizeIconToButton = "0";
             makeIconSquare = "0";
@@ -353,7 +353,7 @@
          };
          new GuiIconButtonCtrl(RetargetDecalButton) {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/moveWindow.png";
+            iconBitmap = "tlab/gui/icons/24-assets/move.png";
             iconLocation = "Left";
             sizeIconToButton = "0";
             makeIconSquare = "0";
@@ -380,7 +380,7 @@
          };
          new GuiIconButtonCtrl(NewDecalButton) {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/new.png";
+            iconBitmap = "tlab/gui/icons/tools-assets/file_new.png";
             iconLocation = "Left";
             sizeIconToButton = "0";
             makeIconSquare = "0";
@@ -407,7 +407,7 @@
          };
          new GuiIconButtonCtrl(DeleteDecalButton) {
             buttonMargin = "2 2";
-            iconBitmap = "tlab/gui/icons/base_assets/trash.png";
+            iconBitmap = "tlab/gui/icons/24-assets/trash.png";
             iconLocation = "Left";
             sizeIconToButton = "0";
             makeIconSquare = "0";

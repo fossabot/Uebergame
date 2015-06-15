@@ -56,7 +56,7 @@
          profile = "GuiDefaultProfile";
          visible = "1";
          active = "1";
-         command = "GlobalGizmoProfile.setFieldValue(alignment, World);  EWorldEditor.syncGui(); EToolbarObjectTransformDropdown.toggle(); ";
+         command = "Lab.setGizmoAlignment(\"World\"); EToolbarObjectTransformDropdown.toggle(); ";
          tooltipProfile = "ToolsGuiToolTipProfile";
          tooltip = "Use world normal for transformations (L)";
          hovertime = "1000";
@@ -86,7 +86,7 @@
          profile = "ToolsButtonProfile";
          visible = "1";
          active = "1";
-         command = "GlobalGizmoProfile.setFieldValue(alignment, Object); EWorldEditor.syncGui(); EToolbarObjectTransformDropdown.toggle(); ";
+         command = "Lab.setGizmoAlignment(\"Object\"); EToolbarObjectTransformDropdown.toggle(); ";
          tooltipProfile = "ToolsGuiToolTipProfile";
          tooltip = "Use object normal for transformations (K)";
          hovertime = "1000";

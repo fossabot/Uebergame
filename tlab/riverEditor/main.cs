@@ -23,25 +23,18 @@
 function initializeRiverEditor() {
     echo(" % - Initializing River Editor");
 
-    exec( "./riverEditor.cs" );
-    exec( "./gui/riverEditorGui.gui" );
-    exec( "./gui/RiverEditorTools.gui" );
-    exec( "./gui/riverEditorToolbar.gui" );
-    exec( "./gui/riverEditorPalette.gui" );
-    exec( "tlab/riverEditor/riverEditorGui.cs" );
-    exec( "tlab/riverEditor/RiverEditorParams.cs" );
-    exec( "tlab/riverEditor/RiverEditorPlugin.cs" );
-
+   
+	execRiverEd(true);
     // Add ourselves to EditorGui, where all the other tools reside
     Lab.addPluginEditor("RiverEditor",RiverEditorGui);
     Lab.addPluginGui("RiverEditor",RiverEditorTools);
     Lab.addPluginToolbar("RiverEditor",RiverEditorToolbar);
     Lab.addPluginPalette("RiverEditor",   RiverEditorPalette);
-
+ 	Lab.addPluginDlg("RiverEditor",RiverEditorDialogs);
     Lab.createPlugin("RiverEditor","River Editor");
     RiverEditorPlugin.editorGui = RiverEditorGui;
 
-
+$RiverEd = newScriptObject("RiverEd");
     %map = new ActionMap();
     %map.bindCmd( keyboard, "backspace", "RiverEditorGui.deleteNode();", "" );
     %map.bindCmd( keyboard, "1", "RiverEditorGui.prepSelectionMode();", "" );
@@ -59,6 +52,21 @@ function initializeRiverEditor() {
     RiverEditorPlugin.map = %map;
 
     // RiverEditorPlugin.initSettings();
+}
+function execRiverEd(%loadGui) {
+		
+		if (%loadGui){
+			 exec( "tlab/riverEditor/riverEditorProfiles.cs" ); 
+     exec( "tlab/riverEditor/gui/riverEditorGui.gui" );
+    exec( "tlab/riverEditor/gui/RiverEditorTools.gui" );
+    exec( "tlab/riverEditor/gui/riverEditorToolbar.gui" );
+    exec( "tlab/riverEditor/gui/riverEditorPalette.gui" );
+    exec( "tlab/riverEditor/gui/riverEditorDialogs.gui" );
+	}
+  
+    exec( "tlab/riverEditor/riverEditorGui.cs" );
+    exec( "tlab/riverEditor/RiverEditorPlugin.cs" );
+    execPattern("tlab/riverEditor/manager/*.cs");
 }
 
 function destroyRiverEditor() {

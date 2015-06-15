@@ -97,8 +97,13 @@ function Lab::addPluginToolbar(%this,%plugin,%gui) {
 function Lab::addPluginDlg(%this,%plugin,%gui) {
 	%this.addGuiToPluginSet(%plugin,%gui);
 
+	
+	%gui.pluginObj = %plugin@"Plugin";
+	%gui.superClass = "PluginDlg";
 	%this.addGui(%gui,"Dialog");
 	%gui.isDlg = true;
+	
+	%gui.initDialogs();
 
 }
 
@@ -179,3 +184,4 @@ function Lab::resetEditorsMenu( %this ) {
 		%windowMenu.removeItem(%i-1);
 }
 //------------------------------------------------------------------------------
+

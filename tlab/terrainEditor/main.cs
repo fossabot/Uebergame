@@ -5,9 +5,6 @@
 //==============================================================================
 function initializeTerrainEditor() {
 	echo( " - Initializing Terrain Editor" );
-	exec("tlab/terrainEditor/terrainEditorInit.cs");
-	exec("tlab/terrainEditor/terrainPainterInit.cs");
-	exec("tlab/terrainEditor/terrainSettingsParams.cs");
 	execTerrainEd(true);
 	Lab.createPlugin("TerrainEditor","Terrain Editor");
 	Lab.createPlugin("TerrainPainter","Terrain Painter");
@@ -16,13 +13,15 @@ function initializeTerrainEditor() {
 	// Terrain Editor GUIs
 	Lab.addPluginToolbar("TerrainEditor",EWTerrainEditToolbar);
 	Lab.addPluginPalette("TerrainEditor",TerrainEditorPalette);
-	Lab.addPluginDlg("TerrainEditor",TerrainEditorBrushDlg);
+	//Lab.addPluginDlg("TerrainEditor",TerrainEditorBrushDlg);
+	Lab.addPluginDlg("TerrainEditor",TerrainEditorDialogs);
 	//----------------------------------------------
 	// Terrain Painter GUIs
 	//Lab.addPluginEditor("TerrainPainter",EPainter);
 	Lab.addPluginGui("TerrainPainter",TerrainPainterTools);
 	Lab.addPluginToolbar("TerrainPainter",EWTerrainPainterToolbar);
 	Lab.addPluginPalette("TerrainPainter",TerrainPainterPalette);
+	Lab.addPluginDlg("TerrainPainter",TerrainPainterDialogs);
 	//Lab.addPluginDlg("TerrainPainter",TerrainPaintGeneratorGui);
 	//Lab.addPluginDlg("TerrainPainter",TerrainImportGui);
 	// create our persistence manager
@@ -67,6 +66,7 @@ function execTerrainEd(%loadGui) {
 	exec("tlab/terrainEditor/gui/TerrainImportGui.cs");
 	exec("tlab/terrainEditor/gui/TerrainExportGui.cs");
 	exec("tlab/terrainEditor/gui/TerrainCreatorGui.cs" );
+	exec("tlab/terrainEditor/TerrainEditorDialogs.cs" );
 
 	//----------------------------------------------
 	// Terrain Painter GUIs
@@ -78,14 +78,19 @@ function execTerrainEd(%loadGui) {
 		exec("tlab/terrainEditor/gui/TerrainBrushSoftnessCurveDlg.gui");
 		exec("tlab/terrainEditor/gui/TerrainPainterToolbar.gui");
 		exec("tlab/terrainEditor/gui/TerrainPainterPalette.gui");
+		exec("tlab/terrainEditor/gui/TerrainPainterDialogs.gui");
 	}
 
+	exec("tlab/terrainEditor/terrainPainterPlugin.cs");
+	exec("tlab/terrainEditor/terrainEditorPlugin.cs");
+	exec("tlab/terrainEditor/TerrainPainterDialogs.cs" );
 	exec("tlab/terrainEditor/gui/TerrainPaintGeneratorGui.cs");
 //	exec("tlab/terrainEditor/scripts/paintGenerator.cs");
 	//	exec("tlab/terrainEditor/scripts/painterBrushes.cs");
 	//exec("tlab/terrainEditor/scripts/terrainEditor.cs");
 	execPattern("tlab/terrainEditor/scripts/*.cs");
 	execPattern("tlab/terrainEditor/painter/*.cs");
+	execPattern("tlab/terrainEditor/editor/*.cs");
 	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialDlg.cs");
 	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialFilters.cs");
 	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialSetup.cs");

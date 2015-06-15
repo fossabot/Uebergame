@@ -201,3 +201,12 @@ function EditorPlugin::handleEscape( %this ) {
 	return false;
 }
 //------------------------------------------------------------------------------
+
+function EditorPlugin::setParam( %this,%field,%value ) {
+    LabParams.updateParamSyncData(%field,%value,%this.paramArray);
+    LabParams.setParamPillValue(%field,%value,%this.paramArray);
+}
+function EditorPlugin::setCtrlParam( %this,%field,%ctrl ) {
+	%value = %ctrl.getTypeValue();
+    LabParams.updateParamFromCtrl(%ctrl,%field,%value,%this.paramArray);
+}

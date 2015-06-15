@@ -19,7 +19,10 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
-
+singleton GuiControlProfile (ForestEditorProfile) {
+    canKeyFocus = true;
+    category = "Editor";
+};
 function initializeForestEditor() {
     echo(" % - Initializing Forest Editor");
 
@@ -65,9 +68,7 @@ function initializeForestEditor() {
     ForestEditorPlugin.map = %map;
   
 }
-function execFEP(%loadGui) {
-    exec( "./forestEditor.cs" );
-  
+function execFEP(%loadGui) {  
    
    if (%loadGui){
       exec( "./gui/forestEditorGui.gui" );
@@ -79,7 +80,7 @@ function execFEP(%loadGui) {
     // Load Client Scripts.
     exec( "tlab/ForestEditor/forestEditorGui.cs" );
     exec( "./tools.cs" );
-    exec( "tlab/ForestEditor/ForestEditorParams.cs" );
+
 
     exec( "tlab/ForestEditor/ForestEditorPlugin.cs" );
     exec( "tlab/ForestEditor/ForestEditorSave.cs" );

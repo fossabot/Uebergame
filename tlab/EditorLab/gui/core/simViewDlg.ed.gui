@@ -252,7 +252,7 @@
             text = "Delete";
             groupNum = "-1";
             buttonType = "PushButton";
-            iconBitmap = "tlab/gui/icons/base_assets/trash.png";
+            iconBitmap = "tlab/gui/icons/24-assets/trash.png";
             sizeIconToButton = "0";
             textLocation = "Right";
             textMargin = "4";

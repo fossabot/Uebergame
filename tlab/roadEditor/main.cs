@@ -5,51 +5,46 @@
 //==============================================================================
 
 function initializeRoadEditor() {
-    echo( " - Initializing Road and Path Editor" );
-
-    exec( "./roadEditor.cs" );
-    exec( "./gui/roadEditorGui.gui" );
-    exec( "./gui/RoadEditorTools.gui" );
-    exec( "./gui/roadEditorToolbar.gui");
-    exec( "./gui/roadEditorPalette.gui");
-    exec( "./roadEditorGui.cs" );
-    exec( "./RoadEditorPlugin.cs" );
-    exec( "tlab/roadEditor/RoadEditorParams.cs" );
-    execPattern("tlab/roadEditor/scripts/*.cs");
-    Lab.addPluginEditor("RoadEditor",RoadEditorGui);
-    Lab.addPluginGui("RoadEditor",RoadEditorTools);
-    //Lab.addPluginGui("RoadEditor",RoadEditorOptionsWindow);
-    //Lab.addPluginGui("RoadEditor",RoadEditorTreeWindow);
-    Lab.addPluginToolbar("RoadEditor",RoadEditorToolbar);
-    Lab.addPluginPalette("RoadEditor",   RoadEditorPalette);
-
-    Lab.createPlugin("RoadEditor","Road Editor");
-    RoadEditorPlugin.editorGui = RoadEditorGui;
-
+	echo( " - Initializing Road and Path Editor" );
+	execRoadEd(true);
+	Lab.addPluginEditor("RoadEditor",RoadEditorGui);
+	Lab.addPluginGui("RoadEditor",RoadEditorTools);
+	//Lab.addPluginGui("RoadEditor",RoadEditorOptionsWindow);
+	//Lab.addPluginGui("RoadEditor",RoadEditorTreeWindow);
+	Lab.addPluginToolbar("RoadEditor",RoadEditorToolbar);
+	Lab.addPluginPalette("RoadEditor",   RoadEditorPalette);
+	Lab.createPlugin("RoadEditor","Road Editor");
+	RoadEditorPlugin.editorGui = RoadEditorGui;
 	$REP = newScriptObject("REP");
-    %map = new ActionMap();
-    %map.bindCmd( keyboard, "backspace", "RoadEditorGui.onDeleteKey();", "" );
-    %map.bindCmd( keyboard, "1", "RoadEditorGui.prepSelectionMode();", "" );
-    %map.bindCmd( keyboard, "2", "EWToolsPaletteArray->RoadEditorMoveMode.performClick();", "" );
-    %map.bindCmd( keyboard, "4", "EWToolsPaletteArray->RoadEditorScaleMode.performClick();", "" );
-    %map.bindCmd( keyboard, "5", "EWToolsPaletteArray->RoadEditorAddRoadMode.performClick();", "" );
-    %map.bindCmd( keyboard, "=", "EWToolsPaletteArray->RoadEditorInsertPointMode.performClick();", "" );
-    %map.bindCmd( keyboard, "numpadadd", "EWToolsPaletteArray->RoadEditorInsertPointMode.performClick();", "" );
-    %map.bindCmd( keyboard, "-", "EWToolsPaletteArray->RoadEditorRemovePointMode.performClick();", "" );
-    %map.bindCmd( keyboard, "numpadminus", "EWToolsPaletteArray->RoadEditorRemovePointMode.performClick();", "" );
-    %map.bindCmd( keyboard, "z", "RoadEditorShowSplineBtn.performClick();", "" );
-    %map.bindCmd( keyboard, "x", "RoadEditorWireframeBtn.performClick();", "" );
-    %map.bindCmd( keyboard, "v", "RoadEditorShowRoadBtn.performClick();", "" );
-    RoadEditorPlugin.map = %map;
-
-    //RoadEditorPlugin.initSettings();
+	%map = new ActionMap();
+	%map.bindCmd( keyboard, "backspace", "RoadEditorGui.onDeleteKey();", "" );
+	%map.bindCmd( keyboard, "1", "RoadEditorGui.prepSelectionMode();", "" );
+	%map.bindCmd( keyboard, "2", "EWToolsPaletteArray->RoadEditorMoveMode.performClick();", "" );
+	%map.bindCmd( keyboard, "4", "EWToolsPaletteArray->RoadEditorScaleMode.performClick();", "" );
+	%map.bindCmd( keyboard, "5", "EWToolsPaletteArray->RoadEditorAddRoadMode.performClick();", "" );
+	%map.bindCmd( keyboard, "=", "EWToolsPaletteArray->RoadEditorInsertPointMode.performClick();", "" );
+	%map.bindCmd( keyboard, "numpadadd", "EWToolsPaletteArray->RoadEditorInsertPointMode.performClick();", "" );
+	%map.bindCmd( keyboard, "-", "EWToolsPaletteArray->RoadEditorRemovePointMode.performClick();", "" );
+	%map.bindCmd( keyboard, "numpadminus", "EWToolsPaletteArray->RoadEditorRemovePointMode.performClick();", "" );
+	%map.bindCmd( keyboard, "z", "RoadEditorShowSplineBtn.performClick();", "" );
+	%map.bindCmd( keyboard, "x", "RoadEditorWireframeBtn.performClick();", "" );
+	%map.bindCmd( keyboard, "v", "RoadEditorShowRoadBtn.performClick();", "" );
+	RoadEditorPlugin.map = %map;
+	//RoadEditorPlugin.initSettings();
 }
 
-function execRoadEd() {
-	exec( "./roadEditor.cs" );
-	 exec( "./roadEditorGui.cs" );
-    exec( "./RoadEditorPlugin.cs" );
-    execPattern("tlab/roadEditor/scripts/*.cs");
+function execRoadEd(%loadGui) {
+	if (%loadGui) {
+		exec( "tlab/roadEditor/roadEditorProfiles.cs" );
+		exec( "tlab/roadEditor/gui/roadEditorGui.gui" );
+		exec( "tlab/roadEditor/gui/RoadEditorTools.gui" );
+		exec( "tlab/roadEditor/gui/roadEditorToolbar.gui");
+		exec( "tlab/roadEditor/gui/roadEditorPalette.gui");
+	}
+
+	exec( "tlab/roadEditor/roadEditorGui.cs" );
+	exec( "tlab/roadEditor/RoadEditorPlugin.cs" );
+	execPattern("tlab/roadEditor/scripts/*.cs");
 }
 
 

@@ -1,5 +1,5 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiControl(SceneEditorPalette,EditorGuiGroup) {
+%guiContent = new GuiControl(SceneEditorPalette,ToolLabGuiGroup) {
    position = "0 0";
    extent = "1440 900";
    minExtent = "8 2";

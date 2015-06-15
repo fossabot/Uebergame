@@ -13,11 +13,11 @@ new GuiControlProfile (ToolsDefaultProfile) {
     mouseOverSelected = false;
 
     // fill color
-    opaque = false;
-    fillColor = "242 241 240";
-    fillColorHL ="228 228 235";
-    fillColorSEL = "98 100 137";
-    fillColorNA = "255 255 255 ";
+    opaque = "1";
+    fillColor = "243 241 241 0";
+    fillColorHL ="229 229 236 0";
+    fillColorSEL = "99 101 138 156";
+    fillColorNA = "255 255 255 0";
 
     // border color
     border = 0;

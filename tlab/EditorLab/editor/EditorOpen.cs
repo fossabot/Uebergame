@@ -217,7 +217,7 @@ Lab.addGui( EMissionArea ,"Dialog");
 	LabEditor.isInitialized = true;
 	Lab.resizeEditorGui();
 	
-	Lab.initObjectConfigArray(EWorldEditor,"WorldEditor","General");
+	//Lab.initObjectConfigArray(EWorldEditor,"WorldEditor","General");
 	
 	EToolCamViewDlg.addCamViewToCtrl(EditorFrameWorld);	
 }

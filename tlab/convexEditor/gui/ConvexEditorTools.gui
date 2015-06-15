@@ -1,7 +1,7 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiFrameSetCtrl(ConvexEditorTools) {
    columns = "0";
-   rows = "0 346";
+   rows = "0 347";
    borderWidth = "4";
    borderColor = "0 0 0 0";
    borderEnable = "alwaysOn";
@@ -16,7 +16,7 @@
    anchorLeft = "1";
    anchorRight = "0";
    position = "0 0";
-   extent = "315 814";
+   extent = "282 818";
    minExtent = "8 2";
    horizSizing = "right";
    vertSizing = "bottom";
@@ -33,7 +33,7 @@
       currentMeshMode = "EditorShape";
       currentMode = "Material";
       defaultParent = "guiGroup";
-      EditorContainer = "4098";
+      EditorContainer = "4010";
       fileSpec = "Torque Material Files (materials.cs)|materials.cs|All Files (*.*)|*.*|";
       lastMaterial = "1357";
       livePreview = "1";
@@ -60,8 +60,8 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "0 -1";
-      extent = "315 342";
+      position = "0 0";
+      extent = "282 343";
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
@@ -82,8 +82,8 @@
          anchorBottom = "0";
          anchorLeft = "1";
          anchorRight = "0";
-         position = "8 30";
-         extent = "299 304";
+         position = "9 27";
+         extent = "264 309";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
@@ -96,6 +96,29 @@
          canSave = "1";
          canSaveDynamicFields = "0";
 
+         new GuiTextCtrl() {
+            text = "Convex Editor is not adapted yet!";
+            maxLength = "1024";
+            margin = "0 0 0 0";
+            padding = "0 0 0 0";
+            anchorTop = "1";
+            anchorBottom = "0";
+            anchorLeft = "1";
+            anchorRight = "0";
+            position = "0 0";
+            extent = "264 20";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "ToolsTextBase_H1";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "1";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
          new GuiScrollCtrl() {
             willFirstRespond = "1";
             hScrollBar = "alwaysOff";
@@ -106,14 +129,14 @@
             childMargin = "0 0";
             mouseWheelScrollSpeed = "-1";
             docking = "Client";
-            margin = "0 0 0 0";
+            margin = "24 0 0 0";
             padding = "0 0 0 0";
             anchorTop = "1";
             anchorBottom = "0";
             anchorLeft = "1";
             anchorRight = "0";
-            position = "0 0";
-            extent = "299 304";
+            position = "0 24";
+            extent = "264 285";
             minExtent = "8 8";
             horizSizing = "width";
             vertSizing = "height";
@@ -126,7 +149,7 @@
             canSave = "1";
             canSaveDynamicFields = "0";
 
-            new GuiTreeViewCtrl(ConvexTreeView1) {
+            new GuiTreeViewCtrl(ConvexTreeView) {
                tabSize = "16";
                textOffset = "2";
                fullRowSelect = "0";
@@ -149,7 +172,7 @@
                canRenameObjects = "1";
                renameInternal = "0";
                position = "3 3";
-               extent = "293 21";
+               extent = "258 21";
                minExtent = "8 8";
                horizSizing = "right";
                vertSizing = "bottom";
@@ -182,8 +205,8 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "0 346";
-      extent = "315 468";
+      position = "0 347";
+      extent = "282 471";
       minExtent = "8 2";
       horizSizing = "right";
       vertSizing = "bottom";
@@ -205,7 +228,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "8 30";
-         extent = "299 102";
+         extent = "266 102";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
@@ -448,7 +471,7 @@
                   anchorBottom = "0";
                   anchorLeft = "1";
                   anchorRight = "0";
-                  position = "7 1";
+                  position = "7 0";
                   extent = "57 20";
                   minExtent = "8 2";
                   horizSizing = "right";
@@ -532,7 +555,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "8 135";
-         extent = "299 144";
+         extent = "266 144";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
@@ -585,7 +608,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "3 24";
-            extent = "293 79";
+            extent = "260 79";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -611,7 +634,7 @@
                changeChildSizeToFit = "1";
                changeChildPosition = "1";
                position = "3 3";
-               extent = "287 16";
+               extent = "254 16";
                minExtent = "16 16";
                horizSizing = "right";
                vertSizing = "bottom";
@@ -631,7 +654,7 @@
             maxChars = "-1";
             useURLMouseCursor = "0";
             position = "1 106";
-            extent = "298 15";
+            extent = "265 15";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "top";

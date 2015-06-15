@@ -218,6 +218,8 @@ singleton GuiControlProfile( GuiInspectorTextEditProfile ) {
     fontColorSEL = "16 108 87 255";
     fontColors[0] = "231 224 178 255";
     fontColor = "231 224 178 255";
+   bitmap = "tlab/gui/assets/element/GuiTextEditDark.png";
+   hasBitmapArray = "1";
 };
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -310,7 +312,7 @@ singleton GuiControlProfile( GuiInspectorMultiFieldProfile : GuiInspectorFieldPr
 //==============================================================================
 // Used in SourceCode
 singleton GuiControlProfile( GuiInspectorDynamicFieldProfile : GuiInspectorFieldProfile ) {
-    border = true;
+    border = "0";
     borderColor = "190 190 190 255";
     opaque = "1";
     fillColor = "51 51 51 255";
@@ -323,6 +325,7 @@ singleton GuiControlProfile( GuiInspectorDynamicFieldProfile : GuiInspectorField
     fontColorHL = "231 224 178 255";
     fontColorNA = "100 100 100 255";
     fontColorSEL = "43 107 206 255";
+   dynamicField = "defaultValue";
 };
 //------------------------------------------------------------------------------
 
@@ -333,7 +336,7 @@ singleton GuiControlProfile( GuiInspectorRolloutProfile0 ) {
     fontType = "Gotham Book";
     fontSize = 14;
 
-    fontColor = "32 32 32";
+    fontColor = "254 229 115 255";
     fontColorHL = "32 100 100";
     fontColorNA = "0 0 0";
 
@@ -345,11 +348,11 @@ singleton GuiControlProfile( GuiInspectorRolloutProfile0 ) {
     borderColorHL = "156 156 156";
     borderColorNA = "64 64 64";
 
-    bitmap = "tlab/editorclasses/gui/images/rollout_plusminus_header";
+    bitmap = "tlab/gui/assets/container/GuiRolloutProfile_Thin.png";
 
-    textOffset = "20 0";
+    textOffset = "20 -1";
     category = "Editor";
-    fontColors[0] = "32 32 32 255";
+    fontColors[0] = "254 229 115 255";
     fontColors[1] = "32 100 100 255";
     fontColors[9] = "255 0 255 255";
 };
@@ -373,7 +376,7 @@ singleton GuiControlProfile( GuiInspectorStackProfile ) {
 //==============================================================================
 // Used in SourceCode
 singleton GuiControlProfile( InspectorTypeCheckboxProfile : GuiInspectorFieldProfile ) {
-    bitmap = "tlab/gui/icons/default/checkBox";
+    bitmap = "tlab/gui/assets/button/GuiCheckboxProfile_S1.png";
     hasBitmapArray = true;
     opaque=false;
     border=false;

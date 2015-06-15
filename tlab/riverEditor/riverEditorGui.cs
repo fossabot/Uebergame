@@ -104,30 +104,43 @@ function RiverEditorGui::onRiverSelected( %this, %river ) {
 }
 
 function RiverEditorGui::onNodeSelected( %this, %nodeIdx ) {
+	RiverEditorGui.selectedNode = %nodeIdx;
     if ( %nodeIdx == -1 ) {
+    	RiverEditorGui.selectedNode = %nodeIdx;
         RiverEditorOptionsWindow-->position.setActive( false );
         RiverEditorOptionsWindow-->position.setValue( "" );
 
         RiverEditorOptionsWindow-->rotation.setActive( false );
         RiverEditorOptionsWindow-->rotation.setValue( "" );
+        
+			RiverEditorOptionsWindow-->CurrentWidth.setActive( false );
+        RiverEditorOptionsWindow-->CurrentWidth.setValue( "" );
+        RiverEditorOptionsWindow-->CurrentWidthSlider.setActive( false );
+        RiverEditorOptionsWindow-->CurrentWidthSlider.setValue( "" );
 
-        RiverEditorOptionsWindow-->width.setActive( false );
-        RiverEditorOptionsWindow-->width.setValue( "" );
-
-        RiverEditorOptionsWindow-->depth.setActive( false );
-        RiverEditorOptionsWindow-->depth.setValue( "" );
+        RiverEditorOptionsWindow-->CurrentDepth.setActive( false );
+        RiverEditorOptionsWindow-->CurrentDepth.setValue( "" );
+        RiverEditorOptionsWindow-->CurrentDepthSlider.setActive( false );
+        RiverEditorOptionsWindow-->CurrentDepthSlider.setValue( "" );
+        
+ 
     } else {
+    	
         RiverEditorOptionsWindow-->position.setActive( true );
         RiverEditorOptionsWindow-->position.setValue( %this.getNodePosition() );
 
         RiverEditorOptionsWindow-->rotation.setActive( true );
         RiverEditorOptionsWindow-->rotation.setValue( %this.getNodeNormal() );
 
-        RiverEditorOptionsWindow-->width.setActive( true );
-        RiverEditorOptionsWindow-->width.setValue( %this.getNodeWidth() );
+        RiverEditorOptionsWindow-->CurrentWidth.setActive( true );
+        RiverEditorOptionsWindow-->CurrentWidth.setValue( %this.getNodeWidth() );
+        RiverEditorOptionsWindow-->CurrentWidthSlider.setActive( true );
+        RiverEditorOptionsWindow-->CurrentWidthSlider.setValue( %this.getNodeWidth() );
 
-        RiverEditorOptionsWindow-->depth.setActive( true );
-        RiverEditorOptionsWindow-->depth.setValue( %this.getNodeDepth() );
+        RiverEditorOptionsWindow-->CurrentDepth.setActive( true );
+        RiverEditorOptionsWindow-->CurrentDepth.setValue( %this.getNodeDepth() );
+        RiverEditorOptionsWindow-->CurrentDepthSlider.setActive( true );
+        RiverEditorOptionsWindow-->CurrentDepthSlider.setValue( %this.getNodeDepth() );
     }
 }
 

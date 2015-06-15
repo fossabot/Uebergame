@@ -158,7 +158,7 @@ singleton GuiControlProfile( ToolsTabBookColor : ToolsDefaultProfile ) {
 //ToolsRolloutProfile Style
 //------------------------------------------------------------------------------
 singleton GuiControlProfile( ToolsRolloutProfile : ToolsDefaultProfile ) {
-    border = 1;
+    border = "0";
     borderColor = "200 200 200";
     hasBitmapArray = true;
     bitmap = "tlab/gui/assets/container/GuiRolloutProfile.png";
@@ -168,6 +168,11 @@ singleton GuiControlProfile( ToolsRolloutProfile : ToolsDefaultProfile ) {
     fontColors[0] = "253 253 253 255";
     fontColor = "253 253 253 255";
    fontColors[7] = "255 0 255 255";
+   opaque = "0";
+   fillColor = "242 241 240 255";
+   fillColorHL = "228 228 235 255";
+   fillColorNA = "255 255 255 255";
+   fillColorSEL = "98 100 137 255";
 
 };
 //------------------------------------------------------------------------------
@@ -178,17 +183,22 @@ singleton GuiControlProfile( ToolsRolloutProfile_Thin : ToolsRolloutProfile ) {
 };
 //------------------------------------------------------------------------------
 //ToolsRolloutProfile Light Version
-singleton GuiControlProfile( ToolsRolloutProfile_Light : ToolsRolloutProfile ) {
-    border = 1;
+singleton GuiControlProfile( ToolsRolloutTitle : ToolsRolloutProfile ) {
+    border = "0";
     borderColor = "200 200 200";
     hasBitmapArray = true;
-    bitmap = "tlab/gui/assets/container/GuiRolloutProfile_Light.png";
+    bitmap = "tlab/gui/assets/container/GuiRolloutTitle.png";
     textoffset = "17 0";
     fontType = "Aileron Bold";
     fontSize = "16";
     fontColors[0] = "253 253 253 255";
     fontColor = "253 253 253 255";
    fontColors[7] = "255 0 255 255";
+   opaque = "0";
+   fillColor = "242 241 240 255";
+   fillColorHL = "228 228 235 255";
+   fillColorNA = "255 255 255 255";
+   fillColorSEL = "98 100 137 255";
 
 };
 //------------------------------------------------------------------------------
@@ -222,3 +232,8 @@ singleton GuiControlProfile (ToolsGuiFrameSetProfile) {
     category = "Tools";
 };
 //------------------------------------------------------------------------------
+
+singleton GuiControlProfile(ToolsRolloutProfile_Light : ToolsRolloutProfile)
+{
+   bitmap = "tlab/gui/assets/container/GuiRolloutProfile_Light.png";
+};

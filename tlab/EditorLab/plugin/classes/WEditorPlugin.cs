@@ -37,7 +37,7 @@ function WEditorPlugin::onActivated( %this ) {
 
 function WEditorPlugin::onDeactivated( %this ) {
 	// Hide the Transform Selection window from other editors
-	ETransformSelection.setVisible(false);
+	//ETransformSelection.setVisible(false);
 
 	EWorldEditor.setVisible( false );
 	Lab.removeDynamicMenu(Lab.worldMenu);

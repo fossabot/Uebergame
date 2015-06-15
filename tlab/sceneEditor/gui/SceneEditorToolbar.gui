@@ -14,8 +14,8 @@
    internalName = "SceneEditorToolbar";
    canSave = "1";
    canSaveDynamicFields = "1";
-      defaultParent = "1786";
-      EditorContainer = "3926";
+      defaultParent = "1784";
+      EditorContainer = "3982";
       editorParent = "EditorGuiToolbarStack";
       enabled = "1";
       tooltipWidth = "500";
@@ -31,7 +31,7 @@
       changeChildSizeToFit = "0";
       changeChildPosition = "1";
       position = "0 0";
-      extent = "989 33";
+      extent = "823 33";
       minExtent = "16 16";
       horizSizing = "width";
       vertSizing = "bottom";
@@ -776,7 +776,7 @@
             profile = "ToolsButtonDark";
             visible = "1";
             active = "1";
-            command = "EditorMakePrefab();";
+            command = "Lab.CreatePrefab();";
             tooltipProfile = "GuiToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
@@ -804,7 +804,7 @@
             profile = "ToolsButtonDark";
             visible = "1";
             active = "1";
-            command = "EditorExplodePrefab();";
+            command = "Lab.ExplodePrefab();";
             tooltipProfile = "GuiToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
@@ -993,7 +993,7 @@
             canSave = "1";
             canSaveDynamicFields = "0";
          };
-         new GuiTextCtrl(EWorldEditorStatusBarInfo1) {
+         new GuiTextCtrl() {
             text = "Drop location";
             maxLength = "255";
             margin = "0 0 0 0";
@@ -1030,12 +1030,13 @@
          horizSizing = "right";
          vertSizing = "bottom";
          profile = "ToolsPanelDarkB";
-         visible = "1";
+         visible = "0";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
          isContainer = "1";
          internalName = "groundCoverToolbar";
+         hidden = "1";
          canSave = "1";
          canSaveDynamicFields = "0";
 

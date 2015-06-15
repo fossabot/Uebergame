@@ -247,7 +247,7 @@
          canSaveDynamicFields = "0";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/icons/base_assets/moveWindow.png";
+         bitmap = "tlab/gui/icons/24-assets/move.png";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";
@@ -273,7 +273,7 @@
          canSaveDynamicFields = "1";
       };
       new GuiBitmapButtonCtrl() {
-         bitmap = "tlab/gui/icons/base_assets/cancel.png";
+         bitmap = "tlab/gui/icons/24-assets/cancel.png";
          bitmapMode = "Stretched";
          autoFitExtents = "0";
          useModifiers = "0";

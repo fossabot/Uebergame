@@ -41,17 +41,3 @@ function Editor::lightScene(%this, %callback, %forceAlways) {
 	updateEditorLightingProgress();
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-function EditTSCtrl::updateGizmoMode( %this, %mode ) {
-	// Called when the gizmo mode is changed from C++
-
-	if ( %mode $= "None" )
-		EditorGuiToolbar->NoneModeBtn.performClick();
-	else if ( %mode $= "Move" )
-		EditorGuiToolbar->MoveModeBtn.performClick();
-	else if ( %mode $= "Rotate" )
-		EditorGuiToolbar->RotateModeBtn.performClick();
-	else if ( %mode $= "Scale" )
-		EditorGuiToolbar->ScaleModeBtn.performClick();
-}
-//------------------------------------------------------------------------------

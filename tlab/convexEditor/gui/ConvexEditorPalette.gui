@@ -1,4 +1,5 @@
-%paletteId = new GuiControl(ConvexEditorPalette, EditorGuiGroup) {
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(ConvexEditorPalette, EditorGuiGroup) {
    canSaveDynamicFields = "0";
    Enabled = "1";
    isContainer = "1";
@@ -100,3 +101,4 @@
       Command = "GlobalGizmoProfile.mode = \"Scale\";";
    };
 };
+//--- OBJECT WRITE END ---
