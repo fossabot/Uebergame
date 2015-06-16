@@ -55,8 +55,8 @@ function ESelectObjects::getFilterSet( %this ) {
 /// class should be included in the class list.
 function ESelectObjects::includeClass( %this, %className ) {
 	if(    isMemberOfClass( %className, "SceneObject" )
-	        || %className $= "SimGroup"
-	                         || %className $= "LevelInfo" ) // Derived directly from NetObject.
+			 || %className $= "SimGroup"
+									|| %className $= "LevelInfo" ) // Derived directly from NetObject.
 		return true;
 
 	return false;
@@ -102,7 +102,6 @@ function ESelectObjects::onWake( %this ) {
 	}
 
 	// Re-initialize the group list on each wake.
-
 	%this.initGroupList();
 }
 
@@ -110,7 +109,8 @@ function ESelectObjects::onWake( %this ) {
 
 function ESelectObjects::onSelectObjects( %this, %val, %reuseExistingSet ) {
 	// See if we should create an independent selection set.
-devLog("ESelectObjects::onSelectObjects( %this, %val, %reuseExistingSet )",%val, %reuseExistingSet);
+	devLog("ESelectObjects::onSelectObjects( %this, %val, %reuseExistingSet )",%val, %reuseExistingSet);
+
 	if( %this-->createSelectionSet.isStateOn() ) {
 		%name = %this-->selectionSetName.getText();
 
@@ -119,14 +119,14 @@ devLog("ESelectObjects::onSelectObjects( %this, %val, %reuseExistingSet )",%val,
 		if( isObject( %name ) ) {
 			if( !%name.isMemberOfClass( "WorldEditorSelection" ) ) {
 				LabMsgOK( "Error",
-				               "An object called '" @ %name @ "' already exists and is not a selection." NL
-				               "" NL
-				               "Please choose a different name." );
+							 "An object called '" @ %name @ "' already exists and is not a selection." NL
+							 "" NL
+							 "Please choose a different name." );
 				return;
 			} else if( !%reuseExistingSet ) {
 				LabMsgYesNo( "Question",
-				                  "A selection called '" @ %name @ "' already exists. Modify the existing selection?",
-				                  %this @ ".onSelectObjects( " @ %val @ ", true );" );
+								 "A selection called '" @ %name @ "' already exists. Modify the existing selection?",
+								 %this @ ".onSelectObjects( " @ %val @ ", true );" );
 				return;
 			} else
 				%sel = %name;
@@ -137,9 +137,10 @@ devLog("ESelectObjects::onSelectObjects( %this, %val, %reuseExistingSet )",%val,
 
 			// Create a new selection set.
 			eval( "%sel = new WorldEditorSelection( " @ %name @ " ) { parentGroup = Selections; canSave = true; };" );
+
 			if( !isObject( %sel ) ) {
 				LabMsgOK( "Error",
-				               "Could not create the selection set.  Please look at the console.log for details." );
+							 "Could not create the selection set.  Please look at the console.log for details." );
 				return;
 			}
 		}
@@ -149,8 +150,6 @@ devLog("ESelectObjects::onSelectObjects( %this, %val, %reuseExistingSet )",%val,
 		%this.selectionSet = "";
 
 	Parent::onSelectObjects( %this, %val );
-
 	// Refresh editor tree just in case.
-
 	SceneEditorTree.buildVisibleTree();
 }

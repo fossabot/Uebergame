@@ -21,36 +21,34 @@
 //-----------------------------------------------------------------------------
 
 function ForestBrushTool::onActivated( %this ) {
-    ForestEditToolbar.setVisible( true );
-    %this.syncBrushToolbar();
+	ForestEditToolbar.setVisible( true );
+	%this.syncBrushToolbar();
 }
 
 function ForestBrushTool::onDeactivated( %this ) {
-    ForestEditToolbar.setVisible( false );
+	ForestEditToolbar.setVisible( false );
 }
 
 function ForestBrushTool::syncBrushToolbar( %this ) {
-   return; //This have changed and need to be adapted
-    %size = %this.size;
-    ForestBrushSizeSliderCtrlContainer->slider.setValue( %size );
-    ForestBrushSizeTextEditContainer-->textEdit.setValue( %size );
-
-    %pres = %this.pressure;
-    ForestBrushPressureSliderCtrlContainer->slider.setValue( %pres );
-    ForestBrushPressureTextEditContainer-->textEdit.setValue( mCeil(100 * %pres) @ "%" );
-
-    %hard = %this.hardness;
-    ForestBrushHardnessSliderCtrlContainer->slider.setValue( %hard );
-    ForestBrushHardnessTextEditContainer-->textEdit.setValue( mCeil(100 * %hard) @ "%");
+	return; //This have changed and need to be adapted
+	%size = %this.size;
+	ForestBrushSizeSliderCtrlContainer->slider.setValue( %size );
+	ForestBrushSizeTextEditContainer-->textEdit.setValue( %size );
+	%pres = %this.pressure;
+	ForestBrushPressureSliderCtrlContainer->slider.setValue( %pres );
+	ForestBrushPressureTextEditContainer-->textEdit.setValue( mCeil(100 * %pres) @ "%" );
+	%hard = %this.hardness;
+	ForestBrushHardnessSliderCtrlContainer->slider.setValue( %hard );
+	ForestBrushHardnessTextEditContainer-->textEdit.setValue( mCeil(100 * %hard) @ "%");
 }
 
 function ForestBrushTool::onMouseDown( %this ) {
-    ForestEditTabBook.selectPage( 0 );
+	ForestEditTabBook.selectPage( 0 );
 }
 
 function ForestSelectionTool::onActivated( %this ) {
 }
 
 function ForestSelectionTool::onDeactivated( %this ) {
-    %this.clearSelection();
+	%this.clearSelection();
 }

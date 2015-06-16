@@ -11,80 +11,74 @@
 //---------------------------------------------------------------------------------------------
 
 function DatablockEditorPlugin::init( %this ) {
-    %this.update();
-    if( !DatablockEditorTree.getItemCount() )
-        %this.populateTrees();
+	%this.update();
+
+	if( !DatablockEditorTree.getItemCount() )
+		%this.populateTrees();
 }
 function DatablockEditorPlugin::update( %this ) {
-   // DatablockEditorInspectorWindow.position = getWord($pref::Video::mode, 0) - 209 SPC getWord(EditorGuiToolbar.extent, 1) + getWord(LabPhysicTreeWindow.extent, 1) - 2;
-    //DatablockEditorTreeWindow.position = getWord($pref::Video::mode, 0) - 209 SPC getWord(EditorGuiToolbar.extent, 1) - 1;
+	// DatablockEditorInspectorWindow.position = getWord($pref::Video::mode, 0) - 209 SPC getWord(EditorGuiToolbar.extent, 1) + getWord(LabPhysicTreeWindow.extent, 1) - 2;
+	//DatablockEditorTreeWindow.position = getWord($pref::Video::mode, 0) - 209 SPC getWord(EditorGuiToolbar.extent, 1) - 1;
 }
 
 //---------------------------------------------------------------------------------------------
 
 function DatablockEditorPlugin::onWorldEditorStartup( %this ) {
-    Parent::onWorldEditorStartup( %this );
-
+	Parent::onWorldEditorStartup( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function DatablockEditorPlugin::onActivated( %this ) {
-    EditorGui-->SceneEditorToolbar.setVisible(false);
-    EditorGui.bringToFront( DatablockEditorPlugin );
+	EditorGui-->SceneEditorToolbar.setVisible(false);
+	EditorGui.bringToFront( DatablockEditorPlugin );
+	DatablockEditorTreeWindow.setVisible( true );
+	DatablockEditorInspectorWindow.setVisible( true );
+	DatablockEditorInspectorWindow.makeFirstResponder( true );
+	%this.map.push();
+	// Set the status bar here until all tool have been hooked up
+	EditorGuiStatusBar.setInfo( "Datablock editor." );
+	%numSelected = %this.getNumSelectedDatablocks();
 
-    DatablockEditorTreeWindow.setVisible( true );
-    DatablockEditorInspectorWindow.setVisible( true );
-    DatablockEditorInspectorWindow.makeFirstResponder( true );
+	if( !%numSelected )
+		EditorGuiStatusBar.setSelection( "" );
+	else
+		EditorGuiStatusBar.setSelection( %numSelected @ " datablocks selected" );
 
-    %this.map.push();
+	%this.init();
+	// DatablockEditorPlugin.readSettings();
 
-    // Set the status bar here until all tool have been hooked up
-    EditorGuiStatusBar.setInfo( "Datablock editor." );
+	if( EWorldEditor.getSelectionSize() == 1 )
+		%this.onObjectSelected( EWorldEditor.getSelectedObject( 0 ) );
 
-    %numSelected = %this.getNumSelectedDatablocks();
-    if( !%numSelected )
-        EditorGuiStatusBar.setSelection( "" );
-    else
-        EditorGuiStatusBar.setSelection( %numSelected @ " datablocks selected" );
-
-    %this.init();
-    // DatablockEditorPlugin.readSettings();
-
-    if( EWorldEditor.getSelectionSize() == 1 )
-        %this.onObjectSelected( EWorldEditor.getSelectedObject( 0 ) );
-
-    Parent::onActivated( %this );
+	Parent::onActivated( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function DatablockEditorPlugin::onDeactivated( %this ) {
-    //DatablockEditorPlugin.writeSettings();
-
-
-    %this.map.pop();
-
-    Parent::onDeactivated(%this);
+	//DatablockEditorPlugin.writeSettings();
+	%this.map.pop();
+	Parent::onDeactivated(%this);
 }
 
 //---------------------------------------------------------------------------------------------
 
 function DatablockEditorPlugin::onExitMission( %this ) {
-    DatablockEditorTree.clear();
-    DatablockEditorInspector.inspect( "" );
+	DatablockEditorTree.clear();
+	DatablockEditorInspector.inspect( "" );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function DatablockEditorPlugin::openDatablock( %this, %datablock ) {
-   // EditorGui.setEditor( DatablockEditorPlugin );
-    %this.selectDatablock( %datablock );
-    DatablockEditorTreeTabBook.selectedPage = 0;
+	// EditorGui.setEditor( DatablockEditorPlugin );
+	%this.selectDatablock( %datablock );
+	DatablockEditorTreeTabBook.selectedPage = 0;
 }
 
 //---------------------------------------------------------------------------------------------
 
 function DatablockEditorPlugin::setEditorFunction( %this ) {
-    return true;
+	return true;
 }

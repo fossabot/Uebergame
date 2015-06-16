@@ -66,149 +66,144 @@
 //                   .base = %this
 //
 function GuiThumbnailPopup::CreateThumbPopup( %this, %parent, %thumbType, %label ) {
-    %base = new GuiWindowCtrl() {
-        profile = "ToolsWindowProfile";
-        horizSizing = "right";
-        vertSizing = "bottom";
-        position = "0 0";
-        extent = "260 200";
-        minExtent = "140 200";
-        visible = "1";
-        text = %label;
-        maxLength = "255";
-        resizeWidth = "1";
-        resizeHeight = "1";
-        canMove = "1";
-        canClose = "0";
-        canMinimize = "0";
-        canMaximize = "0";
-    };
-    %scroll = new GuiScrollCtrl() {
-        canSaveDynamicFields = "0";
-        Profile = "ToolsScrollProfile";
-        class = "GuiThumbnailArray";
-        internalName = "thumbnailScroll";
-        HorizSizing = "width";
-        VertSizing = "height";
-        Position = "5 13";
-        Extent = "250 178";
-        MinExtent = "8 2";
-        canSave = "1";
-        Visible = "1";
-        hovertime = "1000";
-        hScrollBar = "alwaysOff";
-        vScrollBar = "alwaysOn";
-        lockHorizScroll = "true";
-        lockVertScroll = "false";
-        constantThumbHeight = "1";
-        Margin = "6 2";
-        thumbType = %thumbType; // Special Tag - Class of thumbObject
-    };
-    %base.add(%scroll);
-    %objectList = new GuiDynamicCtrlArrayControl() {
-        canSaveDynamicFields = "0";
-        Profile = "ToolsScrollProfile";
-        class = %this.listType;
-        superClass = "GuiThumbnailCreator";
-        HorizSizing = "width";
-        VertSizing = "height";
-        Position = "0 0";
-        Extent = "250 178";
-        MinExtent = "64 64";
-        canSave = "1";
-        Visible = "1";
-        internalName = "objectList";
-        hovertime = "1000";
-        colCount = "0";
-        colSize = %this.thumbSizeX;
-        rowSize = %this.thumbSizeY;
-        rowSpacing = "2";
-        colSpacing = "2";
-        thumbType = %thumbType; // Special Tag - Class of thumbObject
-        base = %this; // Special Tag - Link to base class for hiding of dlg
-    };
-    %scroll.add(%objectList);
-    %parent.add(%base);
-
-    return %base;
-
+	%base = new GuiWindowCtrl() {
+		profile = "ToolsWindowProfile";
+		horizSizing = "right";
+		vertSizing = "bottom";
+		position = "0 0";
+		extent = "260 200";
+		minExtent = "140 200";
+		visible = "1";
+		text = %label;
+		maxLength = "255";
+		resizeWidth = "1";
+		resizeHeight = "1";
+		canMove = "1";
+		canClose = "0";
+		canMinimize = "0";
+		canMaximize = "0";
+	};
+	%scroll = new GuiScrollCtrl() {
+		canSaveDynamicFields = "0";
+		Profile = "ToolsScrollProfile";
+		class = "GuiThumbnailArray";
+		internalName = "thumbnailScroll";
+		HorizSizing = "width";
+		VertSizing = "height";
+		Position = "5 13";
+		Extent = "250 178";
+		MinExtent = "8 2";
+		canSave = "1";
+		Visible = "1";
+		hovertime = "1000";
+		hScrollBar = "alwaysOff";
+		vScrollBar = "alwaysOn";
+		lockHorizScroll = "true";
+		lockVertScroll = "false";
+		constantThumbHeight = "1";
+		Margin = "6 2";
+		thumbType = %thumbType; // Special Tag - Class of thumbObject
+	};
+	%base.add(%scroll);
+	%objectList = new GuiDynamicCtrlArrayControl() {
+		canSaveDynamicFields = "0";
+		Profile = "ToolsScrollProfile";
+		class = %this.listType;
+		superClass = "GuiThumbnailCreator";
+		HorizSizing = "width";
+		VertSizing = "height";
+		Position = "0 0";
+		Extent = "250 178";
+		MinExtent = "64 64";
+		canSave = "1";
+		Visible = "1";
+		internalName = "objectList";
+		hovertime = "1000";
+		colCount = "0";
+		colSize = %this.thumbSizeX;
+		rowSize = %this.thumbSizeY;
+		rowSpacing = "2";
+		colSpacing = "2";
+		thumbType = %thumbType; // Special Tag - Class of thumbObject
+		base = %this; // Special Tag - Link to base class for hiding of dlg
+	};
+	%scroll.add(%objectList);
+	%parent.add(%base);
+	return %base;
 }
 
 function GuiThumbnailPopup::onAdd(%this) {
-    // Call parent.
-    if( !Parent::onAdd( %this ) )
-        return false;
+	// Call parent.
+	if( !Parent::onAdd( %this ) )
+		return false;
 
-    if( %this.thumbType $= "" )
-        %this.thumbType = "GuiDefaultThumbnail";
+	if( %this.thumbType $= "" )
+		%this.thumbType = "GuiDefaultThumbnail";
 
-    %this.Dialog = %this.createThumbPopup( %this.base, %this.thumbType, %this.label );
+	%this.Dialog = %this.createThumbPopup( %this.base, %this.thumbType, %this.label );
 
-    if( !isObject( %this.Dialog ) ) {
-        warn("GuiThumbnailPopup::onAdd - Invalid Context Dialog Specified!");
-        return false;
-    }
+	if( !isObject( %this.Dialog ) ) {
+		warn("GuiThumbnailPopup::onAdd - Invalid Context Dialog Specified!");
+		return false;
+	}
 }
 
 
 
 function GuiThumbnailArray::onRemove(%this) {
-    %this.destroy();
+	%this.destroy();
 }
 
 function GuiThumbnailArray::onWake( %this ) {
-    // Find objectList
-    %objectList = %this.findObjectByInternalName("ObjectList");
+	// Find objectList
+	%objectList = %this.findObjectByInternalName("ObjectList");
 
-    if( !isObject( %objectList ) )
-        return;
+	if( !isObject( %objectList ) )
+		return;
 
-    %objectList.refreshList();
+	%objectList.refreshList();
 }
 
 function GuiThumbnailArray::refreshList(%this) {
-    // Find objectList
-    %objectList = %this.findObjectByInternalName("ObjectList");
+	// Find objectList
+	%objectList = %this.findObjectByInternalName("ObjectList");
 
-    if( !isObject( %objectList ) )
-        return;
+	if( !isObject( %objectList ) )
+		return;
 
-    // Parent will clear
-    %objectList.destroy();
-
+	// Parent will clear
+	%objectList.destroy();
 }
 
 function GuiThumbnailArray::destroy(%this) {
-    // Find objectList
-    %objectList = %this.findObjectByInternalName("ObjectList");
+	// Find objectList
+	%objectList = %this.findObjectByInternalName("ObjectList");
 
-    if( !isObject( %objectList ) )
-        return;
+	if( !isObject( %objectList ) )
+		return;
 
-    while( %objectList.getCount() > 0 ) {
-        %object = %objectList.getObject( 0 );
-        if( isObject( %object ) )
-            %object.delete();
-        else
-            %objectList.remove( %object );
-    }
+	while( %objectList.getCount() > 0 ) {
+		%object = %objectList.getObject( 0 );
+
+		if( isObject( %object ) )
+			%object.delete();
+		else
+			%objectList.remove( %object );
+	}
 }
 
 //-----------------------------------------------------------------------------
 // Add a T2D Object to the Object List
 //-----------------------------------------------------------------------------
 function GuiThumbnailCreator::AddObject( %this, %object, %data, %tooltip ) {
-    // Add to group
-    $LB::ObjectLibraryGroup.add( %object );
-
-    // Build Object Container
-    %container = new GuiControl() {
-        profile = ToolsButtonProfile;
-    };
-
-    // Add to list.
-    %this.add( %container );
-
-    // Return Container
-    return %container;
+	// Add to group
+	$LB::ObjectLibraryGroup.add( %object );
+	// Build Object Container
+	%container = new GuiControl() {
+		profile = ToolsButtonProfile;
+	};
+	// Add to list.
+	%this.add( %container );
+	// Return Container
+	return %container;
 }

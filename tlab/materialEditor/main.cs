@@ -23,43 +23,36 @@
 // Material Editor Written by Dave Calabrese and Travis Vroman of Gaslight Studios
 
 function initializeMaterialEditor() {
-    echo(" % - Initializing Material Editor");
-
-   execMEP(true);
-  
-    //exec("./gui/profiles.ed.cs");
-
-    Lab.createPlugin("MaterialEditor","Material Editor");
-    MaterialEditorPlugin.superClass = "WEditorPlugin";
-
-    Lab.addPluginGui("MaterialEditor",MaterialEditorGui); //Tools renamed to Gui to store stuff
-
-    Lab.addPluginDlg("MaterialEditor",matEd_cubemapEditor);
-    Lab.addPluginDlg("MaterialEditor",matEd_addCubemapWindow);
-Lab.addPluginToolbar("MaterialEditor",MaterialEditorToolbar);
-
+	echo(" % - Initializing Material Editor");
+	execMEP(true);
+	//exec("./gui/profiles.ed.cs");
+	Lab.createPlugin("MaterialEditor","Material Editor");
+	MaterialEditorPlugin.superClass = "WEditorPlugin";
+	Lab.addPluginGui("MaterialEditor",MaterialEditorGui); //Tools renamed to Gui to store stuff
+	Lab.addPluginDlg("MaterialEditor",matEd_cubemapEditor);
+	Lab.addPluginDlg("MaterialEditor",matEd_addCubemapWindow);
+	Lab.addPluginToolbar("MaterialEditor",MaterialEditorToolbar);
 }
 function execMEP(%loadGui) {
-   
-   if (%loadGui){
-     // Load MaterialEditor Guis 
-      exec("tlab/materialEditor/gui/matEd_cubemapEditor.gui");
-      exec("tlab/materialEditor/gui/matEd_addCubemapWindow.gui");  
-      exec("tlab/materialEditor/gui/matEdNonModalGroup.gui");   
-      
-      exec("tlab/materialEditor/gui/MaterialEditorToolbar.gui");   
-      exec("tlab/materialEditor/gui/MaterialEditorTools.gui");
-   }
-    // Load Client Scripts.
-    exec("./scripts/materialEditor.cs");
-    exec("./scripts/materialEditorUndo.cs");
-    exec("./MaterialEditorPlugin.cs");
-    exec("./base/ME_MaterialCore.cs");
-   exec("./base/ME_MaterialActive.cs");
-    exec("./base/ME_MaterialGui.cs");
-     exec("./base/ME_MaterialUpdate.cs");
-      exec("./base/ME_MaterialCubemap.cs");
-	 execPattern("tlab/materialEditor/guiScripts/*.cs");
+	if (%loadGui) {
+		// Load MaterialEditor Guis
+		exec("tlab/materialEditor/gui/matEd_cubemapEditor.gui");
+		exec("tlab/materialEditor/gui/matEd_addCubemapWindow.gui");
+		exec("tlab/materialEditor/gui/matEdNonModalGroup.gui");
+		exec("tlab/materialEditor/gui/MaterialEditorToolbar.gui");
+		exec("tlab/materialEditor/gui/MaterialEditorTools.gui");
+	}
+
+	// Load Client Scripts.
+	exec("./scripts/materialEditor.cs");
+	exec("./scripts/materialEditorUndo.cs");
+	exec("./MaterialEditorPlugin.cs");
+	exec("./base/ME_MaterialCore.cs");
+	exec("./base/ME_MaterialActive.cs");
+	exec("./base/ME_MaterialGui.cs");
+	exec("./base/ME_MaterialUpdate.cs");
+	exec("./base/ME_MaterialCubemap.cs");
+	execPattern("tlab/materialEditor/guiScripts/*.cs");
 }
 function destroyMaterialEditor() {
 }

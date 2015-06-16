@@ -34,11 +34,10 @@ function EManageBookmarks::addCameraBookmark( %this, %name ) {
 		%grp = new SimGroup(CameraBookmarks);
 		MissionGroup.add(%grp);
 	}
-	CameraBookmarks.add( %obj );
 
+	CameraBookmarks.add( %obj );
 	%cam = LocalClientConnection.camera.getTransform();
 	%obj.setTransform( %cam );
-
 	EWorldEditor.isDirty = true;
 	SceneEditorTree.buildVisibleTree(true);
 }
@@ -48,6 +47,7 @@ function EManageBookmarks::removeCameraBookmark( %this, %name ) {
 		return;
 
 	%mark = CameraBookmarks.findObjectByInternalName( %name, true );
+
 	if( %mark == 0 )
 		return;
 
@@ -74,6 +74,7 @@ function EManageBookmarks::jumpToBookmark( %this, %name ) {
 		return;
 
 	%mark = CameraBookmarks.findObjectByInternalName( %name, true );
+
 	if( %mark == 0 )
 		return;
 
@@ -96,10 +97,12 @@ function EManageBookmarks::addCameraBookmarkByGui( %this ) {
 	// look for a NewCamera name to grab
 	for(%i = 0; ; %i++) {
 		%name = "NewCamera_" @ %i;
+
 		if( !CameraBookmarks.findObjectByInternalName(%name) ) {
 			break;
 		}
 	}
+
 	%this.addCameraBookmark( %name );
 }
 //-----------------------------------------------------------------------------
@@ -112,6 +115,7 @@ function CameraBookmark::onAdd( %this ) {
 function CameraBookmark::onRemove( %this ) {
 	if( isObject(EditorCameraBookmarks) ) {
 		%pos = CameraBookmarks.getObjectIndex( %this );
+
 		if( %pos != -1 ) {
 			EditorCameraBookmarks.deleteItem( %pos );
 			EManageBookmarks.deleteBookmark( %this, %pos );
@@ -124,6 +128,7 @@ function CameraBookmark::onGroupAdd( %this ) {
 	// to the menu and Manage Bookmarks window.
 	if( isObject(CameraBookmarks) ) {
 		%pos = CameraBookmarks.getObjectIndex( %this );
+
 		if( %pos != -1 ) {
 			EditorCameraBookmarks.addItem( %pos, %this.internalName );
 			EManageBookmarks.addBookmark( %this, %pos );
@@ -136,6 +141,7 @@ function CameraBookmark::onGroupRemove( %this ) {
 	// the menu and Manage Bookmarks window.
 	if( isObject(CameraBookmarks) ) {
 		%pos = CameraBookmarks.getObjectIndex( %this );
+
 		if( %pos != -1 ) {
 			EditorCameraBookmarks.deleteItem( %pos );
 			EManageBookmarks.deleteBookmark( %this, %pos );
@@ -169,6 +175,7 @@ function EditorCameraBookmarksMenu::addItem( %this, %pos, %name ) {
 
 function EditorCameraBookmarksMenu::deleteItem( %this, %pos ) {
 	%this.removeItem( %pos );
+
 	if( %this.getItemCount() == 0 && %this.NoneItem != true ) {
 		%this.addItem( 0, "None" );
 		%this.enableItem( 0, false );
@@ -198,6 +205,7 @@ function EditorCameraBookmarksMenu::rebuildBookmarks( %this ) {
 			%mark = CameraBookmarks.getObject( %i );
 			%this.addItem( %i, %mark.internalName );
 		}
+
 		%this.NoneItem = false;
 	} else {
 		%this.addItem( 0, "None" );
@@ -216,6 +224,7 @@ function ManageBookmarksContainer::onOK( %this ) {
 		// look for a NewCamera name to grab
 		for(%i = 0; ; %i++) {
 			%name = "NewCamera_" @ %i;
+
 			if( !CameraBookmarks.findObjectByInternalName(%name) ) {
 				break;
 			}
@@ -225,8 +234,10 @@ function ManageBookmarksContainer::onOK( %this ) {
 	// Check if the new bookmark name already exists
 	if( isObject(CameraBookmarks) && CameraBookmarks.findObjectByInternalName(%name) ) {
 		%userName = %name;
+
 		for(%i = 0; ; %i++) {
 			%name = %userName @ "_" @ %i;
+
 			if( !CameraBookmarks.findObjectByInternalName(%name) ) {
 				break;
 			}
@@ -273,7 +284,6 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 		MinExtent = "78 20";
 		Visible = "1";
 		Bookmark = %mark;
-
 		new GuiBitmapButtonCtrl() {
 			class = "EManageBookmarksGoToButton";
 			bitmap = "tlab/gui/icons/default/camera-btn";
@@ -296,7 +306,6 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 			internalName = "goToBookmark";
 			canSaveDynamicFields = "0";
 		};
-
 		new GuiTextEditCtrl() {
 			class = "EManageBookmarksTextEdit";
 			internalName = "BookmarkName";
@@ -309,7 +318,6 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 			maxLength = "1024";
 			AltCommand = "";
 		};
-
 		new GuiBitmapButtonCtrl() {
 			class = "EManageBookmarksDeleteButton";
 			bitmap = "tlab/gui/icons/default/delete";
@@ -333,12 +341,12 @@ function EManageBookmarks::addBookmark( %this, %mark, %index ) {
 			canSaveDynamicFields = "0";
 		};
 	};
-
 	EManageBookmarks-->ManageBookmarksWindowStack.addGuiControl( %gui );
 }
 
 function EManageBookmarks::deleteBookmark( %this, %mark, %index ) {
 	%gui = EManageBookmarks-->ManageBookmarksWindowStack.findObjectByInternalName( %mark.getInternalName() );
+
 	if( %gui != 0 )
 		%gui.delete();
 	else
@@ -385,6 +393,7 @@ function EManageBookmarksTextEdit::onValidate( %this ) {
 	// Rename the bookmark and update
 	%this.getParent().setInternalName( %newname );
 	%mark.setInternalName( %newname );
+
 	if( Inspector.getInspectObject() == %mark.getId() ) {
 		Inspector.inspect( %mark );
 		Inspector.apply();
@@ -393,5 +402,4 @@ function EManageBookmarksTextEdit::onValidate( %this ) {
 		// update the menu.
 		%mark.onInspectPostApply();
 	}
-
 }

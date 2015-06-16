@@ -12,8 +12,8 @@
 
 //==============================================================================
 function Lab::setCurrentViewAsPreview(%this) {
-  setGui(HudlessPlayGui);
-  %name = expandFileName( filePath(MissionGroup.getFilename())@"/"@fileBase(MissionGroup.getFilename()));	
+	setGui(HudlessPlayGui);
+	%name = expandFileName( filePath(MissionGroup.getFilename())@"/"@fileBase(MissionGroup.getFilename()));
 	takeLevelScreenShot(%name);
 	schedule(500,0,"setGui",EditorGui);
 }
@@ -21,15 +21,14 @@ function Lab::setCurrentViewAsPreview(%this) {
 
 //==============================================================================
 function Lab::setNextScreenShotPreview(%this) {
-   $LabNextScreenshotIsPreview = true;
+	$LabNextScreenshotIsPreview = true;
 }
 //------------------------------------------------------------------------------
 
 
 //==============================================================================
 // SEP_GroundCover.getMissionGroundCover();
-function Lab::getMissionObjectClassList( %this,%class )
-{ 
+function Lab::getMissionObjectClassList( %this,%class ) {
 	%this.missionObjectClassList = "";
 	%this.checkMissionSimGroupForClass(MissionGroup,%class);
 	%list = %this.missionObjectClassList;
@@ -39,52 +38,51 @@ function Lab::getMissionObjectClassList( %this,%class )
 //------------------------------------------------------------------------------
 //==============================================================================
 // Prepare the default config array for the Scene Editor Plugin
-function Lab::checkMissionSimGroupForClass( %this,%group,%class )
-{ 
-	
-	foreach(%obj in %group){
-		if (%obj.getClassname() $= %class){
+function Lab::checkMissionSimGroupForClass( %this,%group,%class ) {
+	foreach(%obj in %group) {
+		if (%obj.getClassname() $= %class) {
 			%this.missionObjectClassList = strAddWord(%this.missionObjectClassList,%obj.getId());
-		}
-		else if (%obj.getClassname() $= "SimGroup"){
+		} else if (%obj.getClassname() $= "SimGroup") {
 			%this.checkMissionSimGroupForClass(%obj,%class);
-		}		
+		}
 	}
- 
 }
 //------------------------------------------------------------------------------
 
 //==============================================================================
 // SEP_GroundCover.getMissionGroundCover();
-function Lab::getDatablockClassList( %this,%class,%fieldValidators )
-{ 
+function Lab::getDatablockClassList( %this,%class,%fieldValidators ) {
 	%dataList = "";
-	foreach(%obj in DataBlockSet){
+
+	foreach(%obj in DataBlockSet) {
 		if (%obj.getClassname() !$= %class)
 			continue;
-		if (%fieldValidators !$= ""){
+
+		if (%fieldValidators !$= "") {
 			%skipThis = false;
-			%records = strReplace(%fieldValidators,";;","\n");			
+			%records = strReplace(%fieldValidators,";;","\n");
 			%count = getRecordCount(%records);
-			for (%i = 0; %i<%count;%i++){
-				%fieldsData = getRecord(%fieldValidators,%i);				
-				%fields = strReplace(%fieldsData,">>","\t");	
+
+			for (%i = 0; %i<%count; %i++) {
+				%fieldsData = getRecord(%fieldValidators,%i);
+				%fields = strReplace(%fieldsData,">>","\t");
 				%field = getField(%fields,0);
-				%value = getField(%fields,1);	
+				%value = getField(%fields,1);
 				%thisValue = %obj.getFieldValue(%field);
-		
-				if (%thisValue !$= %value){
+
+				if (%thisValue !$= %value) {
 					%skipThis = true;
 					continue;
 				}
 			}
 		}
+
 		if (%skipThis)
 			continue;
-			
-			%dataList = strAddWord(%dataList,%obj.getId());
+
+		%dataList = strAddWord(%dataList,%obj.getId());
 	}
-	
+
 	return %dataList;
 }
 //------------------------------------------------------------------------------

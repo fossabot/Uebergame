@@ -26,9 +26,7 @@ function genericCreateObject( %class ) {
 	}
 
 	%cmd = "return new " @ %class @ "();";
-
 	%obj = SceneCreatorWindow.createObject( %cmd );
-
 	// In case the caller wants it.
 	return %obj;
 }

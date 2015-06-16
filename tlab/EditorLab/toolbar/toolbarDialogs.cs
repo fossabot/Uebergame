@@ -5,17 +5,17 @@
 //==============================================================================
 //==============================================================================
 function EToolbarObjectCenterDropdown::toggle(%this,%caller) {
-   %button = EditorGuiToolbarStack-->centerObject;
+	%button = EditorGuiToolbarStack-->centerObject;
+
 	if ( EToolbarObjectCenterDropdown.visible  ) {
 		%button.setStateOn(false);
 		EToolbarObjectCenterDecoy.setVisible(false);
 		EToolbarObjectCenterDecoy.setActive(false);
 		EToolbarObjectCenterDropdown.setVisible(false);
 	} else {
-	   %pos = %button.getRealPosition();
-	   EToolbarObjectCenterDropdown.position.x = %pos.x - EToolbarObjectCenterDropdown.extent.x/2;
-	   EToolbarObjectCenterDropdown.position.y =0;
-	   
+		%pos = %button.getRealPosition();
+		EToolbarObjectCenterDropdown.position.x = %pos.x - EToolbarObjectCenterDropdown.extent.x/2;
+		EToolbarObjectCenterDropdown.position.y =0;
 		%button.setStateOn(true);
 		EToolbarObjectCenterDropdown.setVisible(true);
 		EToolbarObjectCenterDecoy.setActive(true);
@@ -26,36 +26,34 @@ function EToolbarObjectCenterDropdown::toggle(%this,%caller) {
 
 //==============================================================================
 function EToolbarObjectTransformDropdown::toggle() {
-    %button = EditorGuiToolbarStack-->objectTransform;
+	%button = EditorGuiToolbarStack-->objectTransform;
+
 	if ( EToolbarObjectTransformDropdown.visible  ) {
 		%button.setStateOn(false);
 		EToolbarObjectTransformDecoy.setVisible(false);
 		EToolbarObjectTransformDecoy.setActive(false);
 		EToolbarObjectTransformDropdown.setVisible(false);
-		
 	} else {
-	  %pos = %button.getRealPosition();
-	   EToolbarObjectTransformDropdown.position.x = %pos.x - EToolbarObjectCenterDropdown.extent.x/2;
-	   EToolbarObjectTransformDropdown.position.y =0;
-      
+		%pos = %button.getRealPosition();
+		EToolbarObjectTransformDropdown.position.x = %pos.x - EToolbarObjectCenterDropdown.extent.x/2;
+		EToolbarObjectTransformDropdown.position.y =0;
 		%button.setStateOn(true);
 		EToolbarObjectTransformDropdown.setVisible(true);
 		EToolbarObjectTransformDecoy.setActive(true);
 		EToolbarObjectTransformDecoy.setVisible(true);
-	
 	}
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function EToolbarObjectCenterDecoy::onMouseLeave() {
-   if (EToolbarObjectCenterDecoy.visible)
-	   EToolbarObjectCenterDropdown.toggle();
+	if (EToolbarObjectCenterDecoy.visible)
+		EToolbarObjectCenterDropdown.toggle();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function EToolbarObjectTransformDecoy::onMouseLeave() {
-   if (EToolbarObjectTransformDecoy.visible)
-	   EToolbarObjectTransformDropdown.toggle();
+	if (EToolbarObjectTransformDecoy.visible)
+		EToolbarObjectTransformDropdown.toggle();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -63,22 +61,22 @@ function EToolbarObjectTransformDecoy::onMouseLeave() {
 
 //==============================================================================
 function EToolDlgCameraTypesToggle() {
-	 %button = EditorGuiToolbarStack-->cameraTypes;
-	 EToolDecoyGroup.toggleTool("CameraModeDlg");
+	%button = EditorGuiToolbarStack-->cameraTypes;
+	EToolDecoyGroup.toggleTool("CameraModeDlg");
 	// Lab.toggleToolbarDialog(EToolCameraModeDlg,%button,"mouse");
 	//Lab.showCameraViewContextMenu();
 	return;
 	//Mud-H FIXME
-	
-   %button = EditorGuiToolbarStack-->cameraTypes;
+	%button = EditorGuiToolbarStack-->cameraTypes;
+
 	if ( EToolDlgCameraTypes.visible  ) {
 		%button.setStateOn(0);
 		EToolDlgCameraTypesDecoy.setVisible(false);
 		EToolDlgCameraTypesDecoy.setActive(false);
 		EToolDlgCameraTypes.setVisible(false);
 	} else {
-	     EToolDlgCameraTypes.position = %button.position;
-	   EToolDlgCameraTypes.position.y += %button.extent.y + 4;
+		EToolDlgCameraTypes.position = %button.position;
+		EToolDlgCameraTypes.position.y += %button.extent.y + 4;
 		EToolDlgCameraTypes.setVisible(true);
 		EToolDlgCameraTypesDecoy.setVisible(true);
 		EToolDlgCameraTypesDecoy.setActive(true);
@@ -87,7 +85,7 @@ function EToolDlgCameraTypesToggle() {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function EToolDlgCameraTypesDecoy::onMouseLeave() { 
+function EToolDlgCameraTypesDecoy::onMouseLeave() {
 	EToolDlgCameraTypesToggle();
 }
 //------------------------------------------------------------------------------
@@ -113,7 +111,6 @@ function toggleSnappingOptions( %var ) {
 		ESnapOptionsTabBook.selectPage(0);
 		SnapToBar->objectSnapDownBtn.setStateOn(1);
 		SnapToBar->objectSnapBtn.setStateOn(0);
-
 	} else if( %var $= "soft" && EWorldEditor.getSoftSnap() == false ) {
 		// Object Snapping
 		EWorldEditor.stickToGround = 0;
@@ -121,16 +118,13 @@ function toggleSnappingOptions( %var ) {
 		ESnapOptionsTabBook.selectPage(1);
 		SnapToBar->objectSnapBtn.setStateOn(1);
 		SnapToBar->objectSnapDownBtn.setStateOn(0);
-
 	} else if( %var $= "grid" ) {
 		EWorldEditor.setGridSnap( !EWorldEditor.getGridSnap() );
 	} else {
 		// No snapping.
-
 		EWorldEditor.stickToGround = false;
 		EWorldEditor.setGridSnap( false );
 		EWorldEditor.setSoftSnap( false );
-
 		SnapToBar->objectSnapDownBtn.setStateOn(0);
 		SnapToBar->objectSnapBtn.setStateOn(0);
 	}

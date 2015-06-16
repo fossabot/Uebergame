@@ -28,19 +28,20 @@ $GuiEditor::minGridSize = 3;
 //-----------------------------------------------------------------------------------------
 
 function GuiEditorPrefsDlgOkBtn::onAction(%this) {
-    GuiEditor.snap2gridsize = GuiEditorPrefsDlgGridEdit.getValue();
-    if( GuiEditor.snap2grid )
-        GuiEditor.setSnapToGrid( GuiEditor.snap2gridsize );
+	GuiEditor.snap2gridsize = GuiEditorPrefsDlgGridEdit.getValue();
 
-    Canvas.popDialog( GuiEditorPrefsDlg );
+	if( GuiEditor.snap2grid )
+		GuiEditor.setSnapToGrid( GuiEditor.snap2gridsize );
+
+	Canvas.popDialog( GuiEditorPrefsDlg );
 }
 
 function GuiEditorPrefsDlgCancelBtn::onAction(%this) {
-    Canvas.popDialog( GuiEditorPrefsDlg );
+	Canvas.popDialog( GuiEditorPrefsDlg );
 }
 
 function GuiEditorPrefsDlgDefaultsBtn::onAction(%this) {
-    GuiEditorPrefsDlgGridSlider.setValue( $GuiEditor::defaultGridSize );
+	GuiEditorPrefsDlgGridSlider.setValue( $GuiEditor::defaultGridSize );
 }
 
 //-----------------------------------------------------------------------------------------
@@ -48,29 +49,31 @@ function GuiEditorPrefsDlgDefaultsBtn::onAction(%this) {
 //-----------------------------------------------------------------------------------------
 
 function GuiEditorPrefsDlgGridEdit::onWake(%this) {
-    %this.setValue( GuiEditor.snap2gridsize );
+	%this.setValue( GuiEditor.snap2gridsize );
 }
 
 function GuiEditorPrefsDlgGridEdit::onAction( %this ) {
-    %value = %this.getValue();
-    if( %value < $GuiEditor::minGridSize ) {
-        %value = $GuiEditor::minGridSize;
-        %this.setValue( %value );
-    }
+	%value = %this.getValue();
 
-    GuiEditorPrefsDlgGridSlider.setValue( %value );
+	if( %value < $GuiEditor::minGridSize ) {
+		%value = $GuiEditor::minGridSize;
+		%this.setValue( %value );
+	}
+
+	GuiEditorPrefsDlgGridSlider.setValue( %value );
 }
 
 function GuiEditorPrefsDlgGridSlider::onWake(%this) {
-    %this.setValue( GuiEditor.snap2gridsize );
+	%this.setValue( GuiEditor.snap2gridsize );
 }
 
 function GuiEditorPrefsDlgGridSlider::onAction(%this) {
-    %value = %this.value;
-    if( %value < $GuiEditor::minGridSize ) {
-        %value = $GuiEditor::minGridSize;
-        %this.setValue( %value );
-    }
+	%value = %this.value;
 
-    GuiEditorPrefsDlgGridEdit.setvalue( mCeil( %value ) );
+	if( %value < $GuiEditor::minGridSize ) {
+		%value = $GuiEditor::minGridSize;
+		%this.setValue( %value );
+	}
+
+	GuiEditorPrefsDlgGridEdit.setvalue( mCeil( %value ) );
 }

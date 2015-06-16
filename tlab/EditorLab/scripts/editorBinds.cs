@@ -36,9 +36,9 @@ function getEditorMouseScrollAdjustAmount(%val) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function mouseWheelScroll( %val ) {   
-	%rollAdj = getEditorMouseScrollAdjustAmount(%val);	
-	%rollAdj = mClamp(%rollAdj, -mPi()+0.01, mPi()-0.01);	
+function mouseWheelScroll( %val ) {
+	%rollAdj = getEditorMouseScrollAdjustAmount(%val);
+	%rollAdj = mClamp(%rollAdj, -mPi()+0.01, mPi()-0.01);
 	$mvRoll += %rollAdj; //Maxed at pi in code
 }
 //------------------------------------------------------------------------------
@@ -77,6 +77,7 @@ function editorPitch(%val) {
 //==============================================================================
 function editorWheelFadeScroll( %val ) {
 	EWorldEditor.fadeIconsDist += %val * 0.1;
+
 	if( EWorldEditor.fadeIconsDist < 0 )
 		EWorldEditor.fadeIconsDist = 0;
 }

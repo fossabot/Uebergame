@@ -6,44 +6,49 @@
 
 //==============================================================================
 function Lab::initMenubar(%this) {
-	if (!$Cfg_UseCoreMenubar){	 
-	   exec("tlab/EditorLab/menubar/labstyle/menubarScript.cs");
-	   exec("tlab/EditorLab/menubar/labstyle/buildWorldMenu.cs");  
+	if (!$Cfg_UseCoreMenubar) {
+		exec("tlab/EditorLab/menubar/labstyle/menubarScript.cs");
+		exec("tlab/EditorLab/menubar/labstyle/buildWorldMenu.cs");
 		Lab.initLabMenuData(true);
+
 		if (isObject(Lab.menuBar))
-		   Lab.menuBar.removeFromCanvas();
-      return;
+			Lab.menuBar.removeFromCanvas();
+
+		return;
 	}
+
 	Lab.clearMenus();
-	if(!isObject(%this.menuBar)) 
-      %this.buildMenus();	   
-	   
-   %this.attachMenus();
+
+	if(!isObject(%this.menuBar))
+		%this.buildMenus();
+
+	%this.attachMenus();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function Lab::setNativeMenuSystem(%this,%useNative) {  
-   if ($Cfg_UseCoreMenubar == %useNative)
-      return;
-   $Cfg_UseCoreMenubar = %useNative;
-   %this.initMenubar();	
+function Lab::setNativeMenuSystem(%this,%useNative) {
+	if ($Cfg_UseCoreMenubar == %useNative)
+		return;
+
+	$Cfg_UseCoreMenubar = %useNative;
+	%this.initMenubar();
 }
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 function Lab::checkMenuItem(%this,%menu,%firstPos,%lastPos,%checkPos) {
-   if ($Cfg_UseCoreMenubar)
-	   eval("Lab."@%menu@"Menu.checkRadioItem( "@%firstpos@", "@%lastPos@", "@%checkPos@" );");
+	if ($Cfg_UseCoreMenubar)
+		eval("Lab."@%menu@"Menu.checkRadioItem( "@%firstpos@", "@%lastPos@", "@%checkPos@" );");
 }
 function Lab::checkFindItem(%this,%findMenu,%firstPos,%lastPos,%checkPos) {
-   if ($Cfg_UseCoreMenubar){
-      %menu = Lab.findMenu( %findMenu );
-	   eval("Lab."@%menu@"Menu.checkRadioItem( "@%firstpos@", "@%lastPos@", "@%checkPos@" );");
-   }
+	if ($Cfg_UseCoreMenubar) {
+		%menu = Lab.findMenu( %findMenu );
+		eval("Lab."@%menu@"Menu.checkRadioItem( "@%firstpos@", "@%lastPos@", "@%checkPos@" );");
+	}
 }
 function Lab::setMenuDefaultState(%this,%menu) {
-   if ($Cfg_UseCoreMenubar){
-      %menu.setupDefaultState();
-   }
+	if ($Cfg_UseCoreMenubar) {
+		%menu.setupDefaultState();
+	}
 }
 
 //==============================================================================
@@ -51,27 +56,25 @@ function Lab::setMenuDefaultState(%this,%menu) {
 //==============================================================================
 //==============================================================================
 function Lab::insertDynamicMenu(%this,%menu) {
-
 	if ($Cfg_UseCoreMenubar)
 		Lab.menuBar.insert( %menu, EditorGui.menuBar.dynamicItemInsertPos );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::removeDynamicMenu(%this,%menu) {
-
 	if ($Cfg_UseCoreMenubar)
 		Lab.menuBar.remove( %menu );
 }
 //------------------------------------------------------------------------------
 function Lab::attachMenus(%this) {
-   if ($Cfg_UseCoreMenubar)
-	   %this.menuBar.attachToCanvas(Canvas, 0);
+	if ($Cfg_UseCoreMenubar)
+		%this.menuBar.attachToCanvas(Canvas, 0);
 }
 
 
 function Lab::detachMenus(%this) {
-   if ($Cfg_UseCoreMenubar)
-	   %this.menuBar.removeFromCanvas();
+	if ($Cfg_UseCoreMenubar)
+		%this.menuBar.removeFromCanvas();
 }
 
 function Lab::setMenuDefaultState(%this) {
@@ -87,16 +90,14 @@ function Lab::setMenuDefaultState(%this) {
 }
 
 function Lab::updateUndoMenu(%this) {
-   if ($Cfg_UseCoreMenubar){
-      %editMenu =  Lab.menuBar-->EditMenu;
-  %undoName = %this.getNextUndoName();
-	%redoName = %this.getNextRedoName();
-
-	%editMenu.setItemName( 0, "Undo " @ %undoName );
-	%editMenu.setItemName( 1, "Redo " @ %redoName );
-
-	%editMenu.enableItem( 0, %undoName !$= "" );
-	%editMenu.enableItem( 1, %redoName !$= "" );
-   }
+	if ($Cfg_UseCoreMenubar) {
+		%editMenu =  Lab.menuBar-->EditMenu;
+		%undoName = %this.getNextUndoName();
+		%redoName = %this.getNextRedoName();
+		%editMenu.setItemName( 0, "Undo " @ %undoName );
+		%editMenu.setItemName( 1, "Redo " @ %redoName );
+		%editMenu.enableItem( 0, %undoName !$= "" );
+		%editMenu.enableItem( 1, %redoName !$= "" );
+	}
 }
 

@@ -10,13 +10,17 @@ function initializeSceneEditor() {
 	info( "TorqueLab ->","Initializing Scene Editor plugin" );
 	//Load the guis and scripts
 	execSceneEd(true);
+	
+		//Create the TorqueLab Plugin instance
+	Lab.createPlugin("SceneEditor","Scene Editor",true);
+	
 	//Add the Plugin related GUIs to TorqueLab
 	Lab.addPluginGui("SceneEditor",SceneEditorTools);
 	Lab.addPluginToolbar("SceneEditor",SceneEditorToolbar);
 	Lab.addPluginPalette("SceneEditor",SceneEditorPalette);
+	
+
 	Lab.addPluginDlg("SceneEditor",SceneEditorDialogs);
-	//Create the TorqueLab Plugin instance
-	Lab.createPlugin("SceneEditor","Scene Editor",true);
 	SceneEditorPlugin.superClass = "WEditorPlugin";
 	$SEPtools = newScriptObject("SEPtools");
 	$SceneObjectGroupSet = newSimSet(SceneObjectGroupSet);

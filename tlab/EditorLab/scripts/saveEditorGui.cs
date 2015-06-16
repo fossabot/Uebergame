@@ -16,6 +16,7 @@ function Lab::saveEditorGui(%this,%filename) {
 		Lab.detachEditorGuis();
 		%reattach = true;
 	}
+
 	if( isWriteableFileName( %filename ) ) {
 		//
 		// Extract any existent TorqueScript before writing out to disk
@@ -29,8 +30,10 @@ function Lab::saveEditorGui(%this,%filename) {
 		%lines = -1;
 		%beforeLines = -1;
 		%skipLines = false;
+
 		while( !%fileObject.isEOF() ) {
 			%line = %fileObject.readLine();
+
 			if( %line $= "//--- OBJECT WRITE BEGIN ---" )
 				%skipLines = true;
 			else if( %line $= "//--- OBJECT WRITE END ---" ) {
@@ -43,9 +46,9 @@ function Lab::saveEditorGui(%this,%filename) {
 					%newFileLines[ %lines++ ] = %line;
 			}
 		}
+
 		%fileObject.close();
 		%fileObject.delete();
-
 		%fo = new FileObject();
 		%fo.openForWrite(%filename);
 
@@ -63,9 +66,7 @@ function Lab::saveEditorGui(%this,%filename) {
 
 		%fo.close();
 		%fo.delete();
-
 		EditorGui.setFileName( makeRelativePath( %filename, getMainDotCsDir() ) );
-
 		GuiEditorStatusBar.print( "Saved file '" @ EditorGui.getFileName() @ "'" );
 	} else
 		ToolsMsgBox( "Error writing to file", "There was an error writing to file '" @ %filename @ "'. The file may be read-only.", "Ok", "Error" );

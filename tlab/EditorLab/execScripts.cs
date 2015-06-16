@@ -18,8 +18,7 @@ exec("tlab/EditorLab/commonSettings.cs");
 //------------------------------------------------------------------------------
 //Load the Editor Menubar Scripts
 
-function tlabExecMenubar( %loadGui )
-{
+function tlabExecMenubar( %loadGui ) {
 	exec("tlab/EditorLab/menubar/manageMenu.cs");
 	exec("tlab/EditorLab/menubar/labstyle/menubarScript.cs");
 	exec("tlab/EditorLab/menubar/labstyle/buildWorldMenu.cs");
@@ -31,16 +30,14 @@ tlabExecMenubar($LabExecGui);
 %execAll = strAddWord(%execAll,"tlabExecMenubar");
 //------------------------------------------------------------------------------
 //Load the Editor Main Scripts
-function tlabExecScripts( %loadGui )
-{
+function tlabExecScripts( %loadGui ) {
 	execPattern("tlab/EditorLab/scripts/*.cs");
 }
 tlabExecScripts($LabExecGui);
 %execAll = strAddWord(%execAll,"tlabExecScripts");
 //------------------------------------------------------------------------------
 //Load the Editor Main Gui
-function tlabExecHelpers(%loadGui  )
-{
+function tlabExecHelpers(%loadGui  ) {
 	execPattern("tlab/EditorLab/helpers/*.cs");
 }
 tlabExecHelpers($LabExecGui);
@@ -48,8 +45,7 @@ tlabExecHelpers($LabExecGui);
 //------------------------------------------------------------------------------
 //Load the Editor Main Gui
 
-function tlabExecFunctions(%loadGui )
-{
+function tlabExecFunctions(%loadGui ) {
 	exec("tlab/EditorLab/functions/objectsGroup.cs");
 	exec("tlab/EditorLab/functions/objectsSelect.cs");
 	exec("tlab/EditorLab/functions/objectsCopy.cs");
@@ -58,10 +54,8 @@ tlabExecFunctions($LabExecGui);
 %execAll = strAddWord(%execAll,"tlabExecFunctions");
 //------------------------------------------------------------------------------
 //Load the LabGui (Cleaned EditorGui files)
-function tlabExecEditor(%loadGui )
-{
-	if (%loadGui)
-	{
+function tlabExecEditor(%loadGui ) {
+	if (%loadGui) {
 		exec("tlab/EditorLab/editor/gui/EditorGui.gui");
 		exec("tlab/EditorLab/gui/cursors.cs");
 	}
@@ -78,8 +72,7 @@ tlabExecEditor($LabExecGui);
 %execAll = strAddWord(%execAll,"tlabExecEditor");
 //------------------------------------------------------------------------------
 //Load the Tools scripts (Toolbar and special functions)
-function tlabExecToolbar(%loadGui )
-{
+function tlabExecToolbar(%loadGui ) {
 	exec("tlab/EditorLab/toolbar/toolbarInit.cs");
 	exec("tlab/EditorLab/toolbar/toolbarDragDrop.cs");
 	exec("tlab/EditorLab/toolbar/toolbarDialogs.cs");
@@ -91,10 +84,8 @@ tlabExecToolbar($LabExecGui);
 
 //------------------------------------------------------------------------------
 //Load the LabGui Ctrl (Cleaned EditorGui files)
-function tlabExecGui(%loadGui )
-{
-	if (%loadGui)
-	{
+function tlabExecGui(%loadGui ) {
+	if (%loadGui) {
 		exec("tlab/EditorLab/gui/CtrlCameraSpeedDropdown.gui");
 		exec("tlab/EditorLab/gui/CtrlSnapSizeSlider.gui");
 		exec("tlab/EditorLab/gui/messageBoxes/LabMsgBoxesGui.gui");
@@ -106,7 +97,6 @@ function tlabExecGui(%loadGui )
 		exec("tlab/EditorLab/gui/DlgObjectBuilder.gui");
 		exec("tlab/EditorLab/gui/DlgTimeAdjust.gui");
 		exec( "tlab/EditorLab/gui/Settings/LabMissionSettingsDlg.gui" );
-		
 		exec("tlab/EditorLab/gui/MaterialSelector/MaterialSelectorDlg.gui");
 	}
 
@@ -116,29 +106,25 @@ function tlabExecGui(%loadGui )
 	exec("tlab/EditorLab/gui/DlgAddFMODProject.cs");
 	exec("tlab/EditorLab/gui/DlgEditorChooseLevel.cs");
 	exec( "tlab/EditorLab/gui/Settings/LabMissionSettingsDlg.cs" );
-	
 	execPattern("tlab/EditorLab/gui/MaterialSelector/*.cs");
 }
 tlabExecGui($LabExecGui);
 %execAll = strAddWord(%execAll,"tlabExecGui");
 //------------------------------------------------------------------------------
 //Old Settings Dialog for temporary references
-function tlabExecDialogs(%loadGui )
-{
-	if (%loadGui)
-	{
+function tlabExecDialogs(%loadGui ) {
+	if (%loadGui) {
 		exec("tlab/EditorLab/gui/dialogs/ESelectObjects.gui");
 		exec("tlab/EditorLab/gui/dialogs/EManageBookmarks.gui");
 		exec("tlab/EditorLab/gui/dialogs/ESceneManager.gui");
 		exec("tlab/EditorLab/gui/dialogs/EToolDlgGroup.gui");
 		exec("tlab/EditorLab/gui/dialogs/EToolCamViewDlg.gui");
 		exec("tlab/EditorLab/gui/dialogs/EMissionArea.gui");
-		
 		exec("tlab/EditorLab/gui/dialogs/ColladaImportDlg.gui");
 		exec("tlab/EditorLab/gui/dialogs/ColladaImportProgress.gui");
 		execPattern("tlab/EditorLab/gui/tools/*.gui");
-		
 	}
+
 	exec("tlab/EditorLab/gui/dialogs/ESelectObjects.cs");
 	exec("tlab/EditorLab/gui/dialogs/EManageBookmarks.cs");
 	exec("tlab/EditorLab/gui/dialogs/ESceneManager.cs");
@@ -146,21 +132,18 @@ function tlabExecDialogs(%loadGui )
 	exec("tlab/EditorLab/gui/dialogs/EToolCamViewDlg.cs");
 	exec("tlab/EditorLab/gui/dialogs/EMissionArea.cs");
 	exec("tlab/EditorLab/gui/commonDialogs.cs");
-
 	exec("tlab/EditorLab/gui/dialogs/ColladaImportDlg.cs");
 	execPattern("tlab/EditorLab/gui/tools/*.cs");
-	
 }
 tlabExecDialogs($LabExecGui);
 %execAll = strAddWord(%execAll,"tlabExecDialogs");
-function execTools( ){
+function execTools( ) {
 	execPattern("tlab/EditorLab/gui/tools/*.cs");
 }
 
 //------------------------------------------------------------------------------
 // TorqueLab Params scripts
-function tlabExecParams(%loadGui )
-{
+function tlabExecParams(%loadGui ) {
 	if (%loadGui)
 		exec("tlab/EditorLab/params/LabParamsDlg.gui");
 
@@ -169,15 +152,13 @@ function tlabExecParams(%loadGui )
 	exec("tlab/EditorLab/params/paramsSystem.cs");
 	exec("tlab/EditorLab/params/configObject.cs");
 	exec("tlab/EditorLab/params/configSystem.cs");
-	
 }
 tlabExecParams($LabExecGui);
 %execAll = strAddWord(%execAll,"tlabExecParams");
 
 //------------------------------------------------------------------------------
 // TorqueLab common scrits
-function tlabExecCommon(%loadGui )
-{
+function tlabExecCommon(%loadGui ) {
 	exec("tlab/EditorLab/common/physicSystem.cs");
 	exec("tlab/EditorLab/common/creatorHelpers.cs");
 	exec("tlab/EditorLab/common/defineFields.cs");
@@ -191,18 +172,15 @@ tlabExecCommon($LabExecGui);
 
 //------------------------------------------------------------------------------
 // TorqueLab Plugins Scripts
-function tlabExecPlugin(%loadGui )
-{
+function tlabExecPlugin(%loadGui ) {
 	execPattern("tlab/EditorLab/plugin/*.cs");
-
 }
 tlabExecPlugin($LabExecGui);
 %execAll = strAddWord(%execAll,"tlabExecPlugin");
 $TLabExecAllList = %execAll;
-function tlabExec( )
-{
-	foreach$(%func in $TLabExecAllList){
-		devLog("Calling exec function:",%func); 
-		eval(%func@"();");	
+function tlabExec( ) {
+	foreach$(%func in $TLabExecAllList) {
+		devLog("Calling exec function:",%func);
+		eval(%func@"();");
 	}
 }

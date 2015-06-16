@@ -31,12 +31,12 @@ function serverCmdDropPlayerAtCamera(%client) {
 	// If the player is mounted to something (like a vehicle) drop that at the
 	// camera instead. The player will remain mounted.
 	%obj = %client.player.getObjectMount();
+
 	if (!isObject(%obj))
 		%obj = %client.player;
 
 	%obj.setTransform(%client.camera.getTransform());
 	%obj.setVelocity("0 0 0");
-
 	%client.setControlObject(%client.player);
 	Lab.syncCameraGui();
 }
@@ -67,6 +67,7 @@ function Lab::CycleCameraFlyType(%this,%client) {
 			%client.camera.newtonMode = "0";
 			%client.camera.newtonRotation = "0";
 		}
+
 		%client.setControlObject(%client.camera);
 		Lab.syncCameraGui();
 	}

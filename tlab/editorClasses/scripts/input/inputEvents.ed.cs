@@ -24,10 +24,10 @@
 //- Returns Projects API's EventManager Singleton
 //-
 function Input::GetEventManager() {
-    if( !isObject( $_Lab::InputEventManager ) )
-        $_Lab::InputEventManager = new EventManager() {
-        queue = "InputEventManager";
-    };
+	if( !isObject( $_Lab::InputEventManager ) )
+		$_Lab::InputEventManager = new EventManager() {
+		queue = "InputEventManager";
+	};
 
-    return $_Lab::InputEventManager;
+	return $_Lab::InputEventManager;
 }

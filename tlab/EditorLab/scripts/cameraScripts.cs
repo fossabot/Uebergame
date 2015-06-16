@@ -17,7 +17,7 @@ function MenuCameraStatus::onWake( %this ) {
 	%this.add( "Back View" );
 	%this.add( "Isometric View" );
 	%this.add( "Smooth Camera" );
-	%this.add( "Smooth Rot Camera" );	
+	%this.add( "Smooth Rot Camera" );
 }
 function MenuCameraStatus::onSelect( %this, %id, %text ) {
 	Lab.setCameraViewMode(%text);
@@ -26,8 +26,9 @@ function MenuCameraStatus::onSelect( %this, %id, %text ) {
 //==============================================================================
 function Lab::initEditorCamera() {
 	EWorldEditorStatusBarCamera.clear();
-	%i=0;	
-	while($LabCameraDisplayName[%i] !$= ""){
+	%i=0;
+
+	while($LabCameraDisplayName[%i] !$= "") {
 		EWorldEditorStatusBarCamera.add($LabCameraDisplayName[%i],%i);
 		%i++;
 	}
@@ -50,7 +51,7 @@ function Lab::CreateCameraViewContextMenu(%this) {
 		item[ 2 ] = "1st Person" TAB "" TAB "Lab.setCameraViewMode(\"1st Person Camera\");";
 		item[ 3 ] = "3rd Person" TAB "" TAB "Lab.setCameraViewMode(\"3rd Person Camera\");";
 		item[ 4 ] = "Smooth move" TAB "" TAB "Lab.setCameraViewMode(\"Smooth Camera\");";
-		item[ 5 ] = "Smooth rot." TAB "" TAB "Lab.setCameraViewMode(\"Smooth Rot Camera\");";	
+		item[ 5 ] = "Smooth rot." TAB "" TAB "Lab.setCameraViewMode(\"Smooth Rot Camera\");";
 		object = -1;
 		profile = "ToolsDropdownProfile";
 	};

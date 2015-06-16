@@ -29,37 +29,32 @@
 //---------------------------------------------------------------------------------------------
 
 function initializeDebugger() {
-    echo(" % - Initializing Debugger");
-
-    // Load the scripts.
-    exec("./Scripts/debugger.ed.cs");
-
-    // And the guis.
-    exec("./Gui/breakConditionDlg.ed.gui");
-    exec("./Gui/connectDlg.ed.gui");
-    exec("./Gui/editWatchDlg.ed.gui");
-    exec("./Gui/findDlg.ed.gui");
-    exec("./Gui/debugger.ed.gui");
-    exec("./Gui/watchDlg.ed.gui");
+	echo(" % - Initializing Debugger");
+	// Load the scripts.
+	exec("./Scripts/debugger.ed.cs");
+	// And the guis.
+	exec("./Gui/breakConditionDlg.ed.gui");
+	exec("./Gui/connectDlg.ed.gui");
+	exec("./Gui/editWatchDlg.ed.gui");
+	exec("./Gui/findDlg.ed.gui");
+	exec("./Gui/debugger.ed.gui");
+	exec("./Gui/watchDlg.ed.gui");
 }
 
 function destroyDebugger() {
-    if (isObject(TCPDebugger))
-        TCPDebugger.delete();
+	if (isObject(TCPDebugger))
+		TCPDebugger.delete();
 }
 
 function startDebugger() {
-    // Clean up first.
-    destroyDebugger();
-
-    // Create a TCP object named TCPDebugger.
-    new TCPObject(TCPDebugger);
-
-    // Used to get unique IDs for breakpoints and watch expressions.
-    $DbgBreakId = 0;
-    $DbgWatchSeq = 1;
-
-    // Set up the GUI.
-    DebuggerConsoleView.setActive(false);
-    Canvas.pushDialog(DebuggerGui);
+	// Clean up first.
+	destroyDebugger();
+	// Create a TCP object named TCPDebugger.
+	new TCPObject(TCPDebugger);
+	// Used to get unique IDs for breakpoints and watch expressions.
+	$DbgBreakId = 0;
+	$DbgWatchSeq = 1;
+	// Set up the GUI.
+	DebuggerConsoleView.setActive(false);
+	Canvas.pushDialog(DebuggerGui);
 }

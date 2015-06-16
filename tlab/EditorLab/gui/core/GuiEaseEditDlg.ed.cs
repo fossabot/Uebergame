@@ -41,8 +41,8 @@ function GetEaseF( %currentEase, %callback, %root ) {
 
 function GuiEaseEditDlg::init( %this, %ease, %callback ) {
 	// Initialize direction popup.
-
 	%directionList = %this-->directionList;
+
 	if( !%directionList.size() ) {
 		%directionList.add( "InOut", $Ease::InOut );
 		%directionList.add( "In", $Ease::In );
@@ -50,8 +50,8 @@ function GuiEaseEditDlg::init( %this, %ease, %callback ) {
 	}
 
 	// Initialize type popup.
-
 	%typeList = %this-->typeList;
+
 	if( !%typeList.size() ) {
 		%typeList.add( "Linear", $Ease::Linear );
 		%typeList.add( "Quadratic", $Ease::Quadratic );
@@ -67,12 +67,9 @@ function GuiEaseEditDlg::init( %this, %ease, %callback ) {
 	}
 
 	// Set the initial easing curve.
-
 	%this.oldEase = %ease;
 	%this.setEase( %ease );
-
 	// Remember callback.
-
 	%this.callback = %callback;
 }
 
@@ -84,7 +81,6 @@ function GuiEaseEditDlg::setEase( %this, %ease ) {
 	%this-->typeList.setSelected( getWord( %ease, 1 ), false );
 	%this-->param1Value.setValue( getWord( %ease, 2 ) );
 	%this-->param2Value.setValue( getWord( %ease, 3 ) );
-
 	%this.onEaseTypeSet();
 }
 
@@ -123,7 +119,6 @@ function GuiEaseEditDlg::onCancel( %this ) {
 
 function GuiEaseEditDlg::onSetParam1( %this, %value ) {
 	%easeView = %this-->easeView;
-
 	%ease = %easeView.ease;
 	%ease = setWord( %ease, 2, %value );
 	%easeView.ease = %ease;
@@ -133,7 +128,6 @@ function GuiEaseEditDlg::onSetParam1( %this, %value ) {
 
 function GuiEaseEditDlg::onSetParam2( %this, %value ) {
 	%easeView = %this-->easeView;
-
 	%ease = %easeView.ease;
 	%ease = setWord( %ease, 3, %value );
 	%easeView.ease = %ease;
@@ -147,7 +141,6 @@ function GuiEaseEditDlg::onSetParam2( %this, %value ) {
 
 function GuiEaseEditDirectionList::onSelect( %this, %id, %text ) {
 	%easeView = GuiEaseEditDlg-->easeView;
-
 	%ease = %easeView.ease;
 	%ease = setWord( %ease, 0, %id );
 	%easeview.ease = %ease;
@@ -161,10 +154,8 @@ function GuiEaseEditDirectionList::onSelect( %this, %id, %text ) {
 
 function GuiEaseEditTypeList::onSelect( %this, %id, %text ) {
 	%easeView = GuiEaseEditDlg-->easeView;
-
 	%ease = %easeView.ease;
 	%ease = setWord( %ease, 1, %id );
 	%easeview.ease = %ease;
-
 	GuiEaseEditDlg.onEaseTypeSet();
 }

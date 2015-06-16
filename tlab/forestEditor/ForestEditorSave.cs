@@ -5,26 +5,26 @@
 //==============================================================================
 
 function ForestEditorPlugin::isDirty( %this ) {
-    %dirty = %this.dirty || ForestEditorGui.isDirty();
-    return %dirty;
+	%dirty = %this.dirty || ForestEditorGui.isDirty();
+	return %dirty;
 }
 
 function ForestEditorPlugin::clearDirty( %this ) {
-    %this.dirty = false;
+	%this.dirty = false;
 }
 
 function ForestEditorPlugin::onSaveMission( %this, %missionFile ) {
-    ForestDataManager.saveDirty();
-    
-    %file = theForest.datafile;
-    
-    if (!isFile(%file))
-    	%file = filePath(theForest.getFilename())@"/data.forest";
-    	//%file = strreplace(theForest.getFilename(),".mis",".forest");
-    	
-    if (isFile(%file))
-			theForest.saveDataFile(%file);	
+	ForestDataManager.saveDirty();
+	%file = theForest.datafile;
 
-    ForestBrushGroup.save( "art/forest/brushes.cs" );
+	if (!isFile(%file))
+		%file = filePath(theForest.getFilename())@"/data.forest";
+
+	//%file = strreplace(theForest.getFilename(),".mis",".forest");
+
+	if (isFile(%file))
+		theForest.saveDataFile(%file);
+
+	ForestBrushGroup.save( "art/forest/brushes.cs" );
 }
 

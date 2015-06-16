@@ -14,7 +14,6 @@ function ESceneManager::toggleVisibility( %this ) {
 		%this.selectWindow();
 		%this.setCollapseGroup(false);
 		%this.onWake();
-
 	}
 }
 
@@ -30,29 +29,23 @@ function ESceneManager::onWake( %this ) {
 function ESceneManager::initGroupTree( %this,%reset ) {
 	//if ( ESceneManager.groupTreeBuilt && !%reset)
 	// return;
-
 	// if(%reset)
 	SceneManagerGroupsTree.clear();
-
 	SceneManagerGroupsTree.open(LabSceneObjectGroups,true);
-
-
 	ESceneManager.groupTreeBuilt = true;
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function SceneManagerGroupsTree::onSelect( %this,%itemId ) {
-
 	if (%itemId.getClassName() $= "SimSet" && %itemId.isObjectGroup) {
 		Lab.selectObjectGroup(%itemId);
 		return;
-	}
-
-	else if (isObject(%itemId)) {
+	} else if (isObject(%itemId)) {
 		if (%itemId.internalName $= "") {
 			%itemId.internalName = "searchforme";
 			%tmpIntName = true;
 		}
+
 		%missionObj = MissionGroup.findObjectByInternalName(%itemId.internalName,true);
 
 		if (isObject(%missionObj)) {
@@ -63,20 +56,17 @@ function SceneManagerGroupsTree::onSelect( %this,%itemId ) {
 		if (%itemId.internalName $= "searchforme")
 			%itemId.internalName = "";
 	}
-	//Unselect all and select this group
 
+	//Unselect all and select this group
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function SceneManagerGroupsTree::handleRenameObject( %this,%newName,%itemId ) {
-
 	if (%itemId.getClassName() !$= "SimSet" || !%itemId.isObjectGroup)
 		return;
 
 	foreach(%obj in %itemId) {
 		%obj.partOfSet = %newName;
 	}
-
-
 }
 //------------------------------------------------------------------------------

@@ -27,28 +27,28 @@
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorNewGuiDialog::init( %this, %guiName, %guiClass ) {
-    %this-->nameField.setValue( %guiName );
+	%this-->nameField.setValue( %guiName );
+	// Initialize the class dropdown if we haven't already.
+	%classDropdown = %this-->classDropdown;
 
-    // Initialize the class dropdown if we haven't already.
+	if( !%classDropdown.size() ) {
+		%classes = enumerateConsoleClassesByCategory( "Gui" );
+		%count = getFieldCount( %classes );
 
-    %classDropdown = %this-->classDropdown;
-    if( !%classDropdown.size() ) {
-        %classes = enumerateConsoleClassesByCategory( "Gui" );
-        %count = getFieldCount( %classes );
+		for( %i = 0; %i < %count; %i ++ ) {
+			%className = getField( %classes, %i );
 
-        for( %i = 0; %i < %count; %i ++ ) {
-            %className = getField( %classes, %i );
-            if( GuiEditor.isFilteredClass( %className )
-                    || !isMemberOfClass( %className, "GuiControl" ) )
-                continue;
+			if( GuiEditor.isFilteredClass( %className )
+					|| !isMemberOfClass( %className, "GuiControl" ) )
+				continue;
 
-            %classDropdown.add( %className, 0 );
-        }
+			%classDropdown.add( %className, 0 );
+		}
 
-        %classDropdown.sort();
-    }
+		%classDropdown.sort();
+	}
 
-    %classDropdown.setText( "GuiControl" );
+	%classDropdown.setText( "GuiControl" );
 }
 
 //=============================================================================================
@@ -58,42 +58,39 @@ function GuiEditorNewGuiDialog::init( %this, %guiName, %guiClass ) {
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorNewGuiDialog::onWake( %this ) {
-    // Center the dialog.
-
-    %root = %this.getRoot();
-    %this.setPosition( %root.extent.x / 2 - %this.extent.x / 2, %root.extent.y / 2 - %this.extent.y / 2 );
+	// Center the dialog.
+	%root = %this.getRoot();
+	%this.setPosition( %root.extent.x / 2 - %this.extent.x / 2, %root.extent.y / 2 - %this.extent.y / 2 );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorNewGuiDialog::onOK( %this ) {
-    %name = %this-->nameField.getValue();
-    %class = %this-->classDropdown.getText();
+	%name = %this-->nameField.getValue();
+	%class = %this-->classDropdown.getText();
 
-    // Make sure we don't clash with an existing object.
-    // If there's an existing GUIControl with the name, ask to replace.
-    // If there's an existing non-GUIControl with the name, or the name is invalid, refuse to create.
+	// Make sure we don't clash with an existing object.
+	// If there's an existing GUIControl with the name, ask to replace.
+	// If there's an existing non-GUIControl with the name, or the name is invalid, refuse to create.
 
-    if( isObject( %name ) && %name.isMemberOfClass( "GuiControl" ) ) {
-        if( ToolsMsgBox( "Warning", "Replace the existing control '" @ %name @ "'?", "OkCancel", "Question" ) == $MROk )
-            %name.delete();
-        else
-            return;
-    }
+	if( isObject( %name ) && %name.isMemberOfClass( "GuiControl" ) ) {
+		if( ToolsMsgBox( "Warning", "Replace the existing control '" @ %name @ "'?", "OkCancel", "Question" ) == $MROk )
+			%name.delete();
+		else
+			return;
+	}
 
-    if( Editor::validateObjectName( %name, false ) ) {
-        %this.getRoot().popDialog( %this );
-        %obj = eval("return new " @ %class @ "(" @ %name @ ");");
-
-        // Make sure we have no association with a filename.
-        %obj.setFileName( "" );
-
-        GuiEditContent(%obj);
-    }
+	if( Editor::validateObjectName( %name, false ) ) {
+		%this.getRoot().popDialog( %this );
+		%obj = eval("return new " @ %class @ "(" @ %name @ ");");
+		// Make sure we have no association with a filename.
+		%obj.setFileName( "" );
+		GuiEditContent(%obj);
+	}
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorNewGuiDialog::onCancel( %this ) {
-    %this.getRoot().popDialog( %this );
+	%this.getRoot().popDialog( %this );
 }

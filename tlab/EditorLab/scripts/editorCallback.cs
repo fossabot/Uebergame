@@ -16,11 +16,8 @@
 //------------------------------------------------------------------------------
 // TorqueLab Settings scripts
 function Lab::OnEditorOpen( %this ) {
-
-	
 	//Prepare the Settings
 	//%this.initSettings();
-
 }
 
 

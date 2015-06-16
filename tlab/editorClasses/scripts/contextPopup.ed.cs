@@ -76,31 +76,26 @@
 /// @field GuiControl Dialog The GuiControl dialog to be shown when the context dialog is activated
 
 function ContextDialogContainer::onAdd(%this) {
-    // Add to our cleanup group.
-    $EditorClassesGroup.add( %this );
-
-    %this.base = new GuiButtonBaseCtrl() {
-        profile = ToolsGuiTransparentProfile;
-        class = ContextDialogWatcher;
-        parent = %this;
-        modal = true;
-    };
-
-    // Flag not active.
-    %this.isPushed = false;
-
-    // Add to our cleanup group.
-    $EditorClassesGroup.add( %this.base );
-
-    return true;
-
+	// Add to our cleanup group.
+	$EditorClassesGroup.add( %this );
+	%this.base = new GuiButtonBaseCtrl() {
+		profile = ToolsGuiTransparentProfile;
+		class = ContextDialogWatcher;
+		parent = %this;
+		modal = true;
+	};
+	// Flag not active.
+	%this.isPushed = false;
+	// Add to our cleanup group.
+	$EditorClassesGroup.add( %this.base );
+	return true;
 }
 
 function ContextDialogContainer::onRemove(%this) {
-    %this.Hide();
+	%this.Hide();
 
-    if( isObject( %this.base ) )
-        %this.base.delete();
+	if( isObject( %this.base ) )
+		%this.base.delete();
 }
 
 
@@ -118,31 +113,30 @@ function ContextDialogContainer::onRemove(%this) {
 ///
 //-----------------------------------------------------------------------------
 function ContextDialogContainer::Show( %this, %positionX, %positionY, %delay ) {
-    if( %this.isPushed == true )
-        return true;
+	if( %this.isPushed == true )
+		return true;
 
-    if( !isObject( %this.Dialog ) )
-        return false;
+	if( !isObject( %this.Dialog ) )
+		return false;
 
-    // Store old parent.
-    %this.oldParent = %this.dialog.getParent();
+	// Store old parent.
+	%this.oldParent = %this.dialog.getParent();
+	// Set new parent.
+	%this.base.add( %this.Dialog );
 
-    // Set new parent.
-    %this.base.add( %this.Dialog );
+	if( %positionX !$= "" && %positionY !$= "" )
+		%this.Dialog.setPositionGlobal( %positionX, %positionY );
 
-    if( %positionX !$= "" && %positionY !$= "" )
-        %this.Dialog.setPositionGlobal( %positionX, %positionY );
+	Canvas.pushDialog( %this.base, 99 );
 
-    Canvas.pushDialog( %this.base, 99 );
+	// Setup Delay Schedule
+	if( isEventPending( %this.popSchedule ) )
+		cancel( %this.popSchedule );
 
-    // Setup Delay Schedule
-    if( isEventPending( %this.popSchedule ) )
-        cancel( %this.popSchedule );
-    if( %delay !$= "" )
-        %this.popSchedule = %this.schedule( %delay, hide );
-    else if( %this.Delay !$= "" )
-        %this.popSchedule = %this.schedule( %this.Delay, hide );
-
+	if( %delay !$= "" )
+		%this.popSchedule = %this.schedule( %delay, hide );
+	else if( %this.Delay !$= "" )
+		%this.popSchedule = %this.schedule( %this.Delay, hide );
 }
 
 //-----------------------------------------------------------------------------
@@ -156,12 +150,12 @@ function ContextDialogContainer::Show( %this, %positionX, %positionY, %delay ) {
 ///
 //-----------------------------------------------------------------------------
 function ContextDialogContainer::Hide( %this ) {
-    if( %this.isPushed == true )
-        Canvas.popDialog( %this.base );
+	if( %this.isPushed == true )
+		Canvas.popDialog( %this.base );
 
-    // Restore Old Parent;
-    if( isObject( %this.Dialog ) && isObject( %this.oldParent ) )
-        %this.oldParent.add( %this.Dialog );
+	// Restore Old Parent;
+	if( isObject( %this.Dialog ) && isObject( %this.oldParent ) )
+		%this.oldParent.add( %this.Dialog );
 }
 
 
@@ -174,27 +168,26 @@ function ContextDialogContainer::Hide( %this ) {
 // onDialogPop it will cleanup and notify user of deactivation
 // onDialogPush it will initialize state information and notify user of activation
 function ContextDialogWatcher::onClick( %this ) {
-    if( isObject( %this.parent ) )
-        %this.parent.hide();
+	if( isObject( %this.parent ) )
+		%this.parent.hide();
 }
 
 function ContextDialogWatcher::onDialogPop( %this ) {
-    if( !isObject( %this.parent ) )
-        return;
+	if( !isObject( %this.parent ) )
+		return;
 
-    %this.parent.isPushed = false;
+	%this.parent.isPushed = false;
 
-    if( %this.parent.isMethod( "onContextDeactivate" ) )
-        %this.parent.onContextDeactivate();
+	if( %this.parent.isMethod( "onContextDeactivate" ) )
+		%this.parent.onContextDeactivate();
 }
 
 function ContextDialogWatcher::onDialogPush( %this ) {
-    if( !isObject( %this.parent ) )
-        return;
+	if( !isObject( %this.parent ) )
+		return;
 
-    %this.parent.isPushed = true;
+	%this.parent.isPushed = true;
 
-    if( %this.parent.isMethod( "onContextActivate" ) )
-        %this.parent.onContextActivate();
-
+	if( %this.parent.isMethod( "onContextActivate" ) )
+		%this.parent.onContextActivate();
 }

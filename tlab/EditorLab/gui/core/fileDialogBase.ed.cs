@@ -29,13 +29,10 @@ function FileDialogBase::onAdd( %this ) {
 	%this.SuccessCallback = 0;
 	// Callback function Cancel
 	%this.CancelCallback = 0;
-
 	// Multiple Select Flag
 	%this.MultipleSelect = false;
-
 	// File Extensions Group
 	%this.FileExtensions = new SimGroup();
-
 	%this.AddFilter("*.*","All Files");
 }
 
@@ -44,7 +41,6 @@ function FileDialogBase::onAdd( %this ) {
 // Purpose : Destroy Resources.
 //-----------------------------------------------------------------------------
 function FileDialogBase::onRemove( %this ) {
-
 	// Remove FileExtensions Group
 	if ( isObject( %this.FileExtensions ) )
 		%this.FileExtensions.delete();
@@ -65,7 +61,6 @@ function FileDialogBase::onWake( %this ) {
 	%filterList   =  %this.findObjectByInternalName("FilterList", true);
 	%cancelButton =  %this.findObjectByInternalName("CancelButton", true);
 	%okButton     =  %this.findObjectByInternalName("OkButton", true);
-
 	// Optional
 	%fileName     =  %this.findObjectByInternalName("FileName", true);
 
@@ -104,7 +99,6 @@ function FileDialogBase::onWake( %this ) {
 		%this.addfilter("*.*","All Files");
 
 	%this.PopulateFilters();
-
 }
 
 //-----------------------------------------------------------------------------
@@ -120,10 +114,8 @@ function FileDialogBase::AddFilter( %this, %extension, %caption ) {
 		extension = %extension;
 		caption   = %caption;
 	};
-
 	// Add to filter list
 	%this.FileExtensions.add( %filter );
-
 	return %filter;
 }
 
@@ -147,7 +139,6 @@ function FileDialogBase::GetFilterCount( %this ) {
 
 	// Return Count
 	return %this.FileExtensions.getCount();
-
 }
 
 //-----------------------------------------------------------------------------
@@ -155,12 +146,14 @@ function FileDialogBase::GetFilterCount( %this ) {
 //-----------------------------------------------------------------------------
 function FileDialogBase::PopulateFilters( %this ) {
 	%fileExtensions = %this.FileExtensions;
+
 	if( !isObject( %fileExtensions ) ) {
 		error("OpenFileDialog::PopulateFilters - FileExtensions Group does not exist!");
 		return false;
 	}
 
 	%filterList   =  %this.findObjectByInternalName("FilterList", true);
+
 	if( !isObject( %filterList ) ) {
 		error("FileDialogBase::PopulateFilters - Filter List Dropdown not found!");
 		return false;
@@ -173,15 +166,12 @@ function FileDialogBase::PopulateFilters( %this ) {
 	for( %i = 0; %i < %fileExtensions.getCount(); %i++ ) {
 		// Fetch Filter Script Object
 		%filter = %fileExtensions.getObject( %i );
-
 		// Add item to list
 		%filterList.add( %filter.Caption SPC "(" SPC %filter.Extension SPC ")", %filter.getID() );
 	}
 
 	// Set First Item to Selected.
 	%filterList.setFirstSelected();
-
-
 }
 
 function FileDialogOkButton::onClick( %this ) {
@@ -204,7 +194,6 @@ function FileDialogOkButton::onClick( %this ) {
 	// Fetch Path
 	//
 	%path = %dirTree.getSelectedPath();
-
 	//
 	// Compose File Name
 	//
@@ -214,7 +203,6 @@ function FileDialogOkButton::onClick( %this ) {
 	if( isObject( %fileNameCtrl ) ) {
 		// Get FileName from TextEdit
 		%fileName     = %fileNameCtrl.getText();
-
 		// Get Filter Object from dropdown list
 		%filterObj    = %filterList.getSelected();
 
@@ -230,75 +218,67 @@ function FileDialogOkButton::onClick( %this ) {
 	// Build Full Path
 	//
 	%fullPath = %path @ "/" @ %fileName;
-
 	Canvas.popDialog( %this.parent );
-
 	// Callback
 	eval( %this.parent.SuccessCallback @ "(\"" @ %fullPath @"\"); " );
-
 	%parent.SuccessCallback = 0;
-
 	//error("	Ok");
-
 }
 
-	function FileDialogCancelButton::onClick( %this ) {
+function FileDialogCancelButton::onClick( %this ) {
 	Canvas.popDialog( %this.parent );
 	//error("Cancel");
 }
 
 
-	function FileDialogDirectoryTree::onSelectPath( %this, %path ) {
+function FileDialogDirectoryTree::onSelectPath( %this, %path ) {
 	%fileList     =  %this.parent.findObjectByInternalName("FileList", true);
 	%filterList   =  %this.parent.findObjectByInternalName("FilterList", true);
-
-
 	%filterObj    = %filterList.getSelected();
+
 	if( !isObject( %filterObj ) )
-	%filter = "*.*";
+		%filter = "*.*";
 	else
-	%filter = %filterObj.Extension;
+		%filter = %filterObj.Extension;
 
 	%fileList.setPath( %path, %filter );
 }
 
 
-	function FileDialogFilterList::onSelect( %this, %id, %text ) {
+function FileDialogFilterList::onSelect( %this, %id, %text ) {
 	if( !isObject( %id ) ) {
-	error("FileDialogFilterList::onSelect - Invalid Filter Object!");
-	return;
-}
+		error("FileDialogFilterList::onSelect - Invalid Filter Object!");
+		return;
+	}
 
 	%fileList = %this.parent.findObjectByInternalName("FileList", true);
-
 	%fileList.setFilter( %id.Extension );
-
 }
 
 
-	function FileDialogFileList::onDoubleClick( %this ) {
+function FileDialogFileList::onDoubleClick( %this ) {
 	//error("DoubleClick");
 	%okButton = %this.parent.findObjectByInternalName("OkButton", true);
 
 	if( isObject( %okButton ) )
-	%okButton.performClick();
+		%okButton.performClick();
 }
 
-	function FileDialogFileList::onSelect( %this, %listid, %file ) {
+function FileDialogFileList::onSelect( %this, %listid, %file ) {
 	%fileNameCtrl =  %this.parent.findObjectByInternalName("FileName", true);
 
 	// FileName TextEdit?
 	if( !isObject( %fileNameCtrl ) )
-	return;
+		return;
 
 	// Update our file name to the one selected
 	%fileNameCtrl.setText( %file );
 }
 
-	function FileDialogFileName::onReturn( %this ) {
+function FileDialogFileName::onReturn( %this ) {
 	//error("onReturn");
 	%okButton = %this.parent.findObjectByInternalName("OkButton", true);
 
 	if( isObject( %okButton ) )
-	%okButton.performClick();
+		%okButton.performClick();
 }

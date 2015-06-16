@@ -6,41 +6,36 @@
 //==============================================================================
 //==============================================================================
 function EditorPlugin::onAdd( %this ) {
-
 	EditorPluginSet.add( %this );
-
 }
 //------------------------------------------------------------------------------
 
 //==============================================================================
 function EditorPlugin::setEditorMode( %this,%mode ) {
 	%editorGui = "E"@%mode@"Editor";
-	if (!isObject(%editorGui)){
+
+	if (!isObject(%editorGui)) {
 		warnLog("Invalid editor mode called for plugin:",%this.displayName,"Mode attempted:",%mode);
 		return;
 	}
-	%this.editorGui = %editorGui;
-	
 
+	%this.editorGui = %editorGui;
 }
 //------------------------------------------------------------------------------
 
 //==============================================================================
 function EditorPlugin::onWorldEditorStartup( %this ) {
-   
 	// Add ourselves to the window menu.
 	%accel = Lab.addToEditorsMenu( %this.getName() );
-	
 	// Add ourselves to the ToolsToolbarè
 	%tooltip = %this.toolTip;
+
 	if (!%this.isHidden)
 		Lab.addPluginToBar( %this );
-
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function EditorPlugin::onWorldEditorShutdown( %this ) {
-
 }
 //------------------------------------------------------------------------------
 
@@ -60,21 +55,22 @@ function EditorPlugin::onEditorSleep( %this ) {
 function EditorPlugin::onActivated( %this ) {
 	if(isDemo())
 		startToolTime(%this.getName());
-		
-	 //Reset some default Plugin values
-   Lab.fitCameraGui = ""; //Used by GuiShapeEdPreview to Fit camera on object
-   //Call the Plugin Object onActivated method if exist
-   Lab.activatePluginGui(%this);
-
-	%this.isActivated = true;
 	
+	if (isObject(%this.dialogs))		
+		%this.dialogs.onActivatedDialogs();
+
+	//Reset some default Plugin values
+	Lab.fitCameraGui = ""; //Used by GuiShapeEdPreview to Fit camera on object
+	//Call the Plugin Object onActivated method if exist
+	Lab.activatePluginGui(%this);
+	%this.isActivated = true;
+
 	if( isObject( %this.editorGui ) ) {
 		show(%this.editorGui);
 		%this.editorGui.setDisplayType( Lab.cameraDisplayType );
 		%this.editorGui.setOrthoFOV( Lab.orthoFOV );
 		// Lab.syncCameraGui();
-	}
-	else{
+	} else {
 		warnLog("The plugin",%this.displayName,"have no editor GUI assigned. Using default World Editor GUI");
 	}
 }
@@ -83,9 +79,7 @@ function EditorPlugin::onActivated( %this ) {
 /// Callback when the tool is 'deactivated' / closed by the WorldEditor
 /// Pop Gui's, stuff like that
 function EditorPlugin::onDeactivated( %this,%newEditor ) {
-	
-	endToolTime(%this.getName());	
-				
+	endToolTime(%this.getName());
 	hide(%this.editorGui);
 	%this.isActivated = false;
 }
@@ -157,7 +151,7 @@ function EditorPlugin::onSelectionCleared( %this ) {
 /// accelerator is pressed.
 function EditorPlugin::handleDelete( %this ) {
 	warn( "EditorPlugin::handleDelete( " @ %this.getName() @ " )" NL
-	      "Was not implemented in child namespace, yet menu item was enabled." );
+			"Was not implemented in child namespace, yet menu item was enabled." );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -165,7 +159,7 @@ function EditorPlugin::handleDelete( %this ) {
 /// accelerator is pressed.
 function EditorPlugin::handleDeselect( %this ) {
 	warn( "EditorPlugin::handleDeselect( " @ %this.getName() @ " )" NL
-	      "Was not implemented in child namespace, yet menu item was enabled." );
+			"Was not implemented in child namespace, yet menu item was enabled." );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -173,7 +167,7 @@ function EditorPlugin::handleDeselect( %this ) {
 /// accelerator is pressed.
 function EditorPlugin::handleCut( %this ) {
 	warn( "EditorPlugin::handleCut( " @ %this.getName() @ " )" NL
-	      "Was not implemented in child namespace, yet menu item was enabled." );
+			"Was not implemented in child namespace, yet menu item was enabled." );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -181,7 +175,7 @@ function EditorPlugin::handleCut( %this ) {
 /// accelerator is pressed.
 function EditorPlugin::handleCopy( %this ) {
 	warn( "EditorPlugin::handleCopy( " @ %this.getName() @ " )" NL
-	      "Was not implemented in child namespace, yet menu item was enabled." );
+			"Was not implemented in child namespace, yet menu item was enabled." );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -189,7 +183,7 @@ function EditorPlugin::handleCopy( %this ) {
 /// accelerator is pressed.
 function EditorPlugin::handlePaste( %this ) {
 	warn( "EditorPlugin::handlePaste( " @ %this.getName() @ " )" NL
-	      "Was not implemented in child namespace, yet menu item was enabled." );
+			"Was not implemented in child namespace, yet menu item was enabled." );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -203,10 +197,10 @@ function EditorPlugin::handleEscape( %this ) {
 //------------------------------------------------------------------------------
 
 function EditorPlugin::setParam( %this,%field,%value ) {
-    LabParams.updateParamSyncData(%field,%value,%this.paramArray);
-    LabParams.setParamPillValue(%field,%value,%this.paramArray);
+	LabParams.updateParamSyncData(%field,%value,%this.paramArray);
+	LabParams.setParamPillValue(%field,%value,%this.paramArray);
 }
 function EditorPlugin::setCtrlParam( %this,%field,%ctrl ) {
 	%value = %ctrl.getTypeValue();
-    LabParams.updateParamFromCtrl(%ctrl,%field,%value,%this.paramArray);
+	LabParams.updateParamFromCtrl(%ctrl,%field,%value,%this.paramArray);
 }

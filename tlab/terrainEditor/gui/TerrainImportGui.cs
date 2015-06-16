@@ -18,7 +18,6 @@ function TerrainImportGui::toggle(%this) {
 function TerrainImportGui::onWake( %this ) {
 	hide(TIG_TextureFilePill);
 	hide(TIG_TextureMapPill);
-	
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -43,14 +42,15 @@ function TerrainImportGui::importTerrain( %this ) {
 		foreach(%pill in %fileStack) {
 			if (isObject(%pill-->MapFile))
 				continue;
+
 			%opacityNames = strAddRecord(%opacityNames,%pill.file TAB %pill.channel);
 			devLog("Mat name = ",%pill.matId.internalName);
 			%materialNamesA = strAddRecord(%materialNamesA,%pill.matId.internalName);
+
 			if (%materialNames $= "")
 				%materialNames = %pill.matId.internalName;
 			else
 				%materialNames = %materialNames TAB %pill.matId.internalName;
-			
 		}
 	}
 
@@ -161,14 +161,15 @@ function TerrainImportGui::browseForOpacityMap( %this ) {
 //------------------------------------------------------------------------------
 
 //==============================================================================
-function TerrainImportGuiAddOpacityMap( %name,%red,%green,%blue ) {	
-	%txt = makeRelativePath( %name, getWorkingDirectory() );	
+function TerrainImportGuiAddOpacityMap( %name,%red,%green,%blue ) {
+	%txt = makeRelativePath( %name, getWorkingDirectory() );
 	%channelsTxt = "R" TAB "G" TAB "B" TAB "A";
 	%bitmapInfo = getBitmapinfo( %name );
 	%channelCount = getWord( %bitmapInfo, 2 );
+
 	for ( %i = 0; %i < %channelCount; %i++ ) {
 		%channel = getWord( %channelsTxt, %i );
-		TerrainImportGui.addMapToStack(%txt,%channel);		
+		TerrainImportGui.addMapToStack(%txt,%channel);
 	}
 }
 //------------------------------------------------------------------------------
@@ -261,7 +262,7 @@ function TIG_TerrainMaterialEditCallback( %mat, %matIndex, %activeIdx ) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function TerrainImportGui::removeOpacitymap( %this ) {	
-	delObj(TerrainImportGui.SelectedMapPill);		
+function TerrainImportGui::removeOpacitymap( %this ) {
+	delObj(TerrainImportGui.SelectedMapPill);
 }
 //------------------------------------------------------------------------------

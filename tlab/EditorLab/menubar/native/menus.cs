@@ -7,7 +7,6 @@
 function Lab::buildMenus(%this) {
 	if(isObject(%this.menuBar)) {
 		warnLog("Menu is already created, skipping rest");
-		
 		return;
 	}
 
@@ -38,11 +37,9 @@ function Lab::buildMenus(%this) {
 	%this.menuCameraSpeed.appendItem("Faster" TAB %cmdCtrl @ "-Shift 5" TAB "130");
 	%this.menuCameraSpeed.appendItem("Fast" TAB %cmdCtrl @ "-Shift 6" TAB "165");
 	%this.menuCameraSpeed.appendItem("Fastest" TAB %cmdCtrl @ "-Shift 7" TAB "200");
-
 	%this.freeCameraTypeMenu = new PopupMenu(EditorFreeCameraTypeOptions) {
 		superClass = "MenuBuilder";
 		class = "EditorFreeCameraTypeMenu";
-
 		item[0] = "Standard" TAB "Ctrl 1" TAB "EditorGuiStatusBar.setCamera(\"Standard Camera\");";
 		item[1] = "Orbit Camera" TAB "Ctrl 2" TAB "EditorGuiStatusBar.setCamera(\"Orbit Camera\");";
 		Item[2] = "-";
@@ -52,19 +49,16 @@ function Lab::buildMenus(%this) {
 	%this.playerCameraTypeMenu = new PopupMenu(EditorPlayerCameraTypeOptions) {
 		superClass = "MenuBuilder";
 		class = "EditorPlayerCameraTypeMenu";
-
 		Item[0] = "First Person" TAB "" TAB "EditorGuiStatusBar.setCamera(\"1st Person Camera\");";
 		Item[1] = "Third Person" TAB "" TAB "EditorGuiStatusBar.setCamera(\"3rd Person Camera\");";
 	};
 	%this.cameraBookmarksMenu = new PopupMenu(EditorCameraBookmarks) {
 		superClass = "MenuBuilder";
 		class = "EditorCameraBookmarksMenu";
-
 		//item[0] = "None";
 	};
 	%this.viewTypeMenu = new PopupMenu() {
 		superClass = "MenuBuilder";
-
 		item[ 0 ] = "Top" TAB "Alt 2" TAB "EditorGuiStatusBar.setCamera(\"Top View\");";
 		item[ 1 ] = "Bottom" TAB "Alt 5" TAB "EditorGuiStatusBar.setCamera(\"Bottom View\");";
 		item[ 2 ] = "Front" TAB "Alt 3" TAB "EditorGuiStatusBar.setCamera(\"Front View\");";
@@ -74,7 +68,6 @@ function Lab::buildMenus(%this) {
 		item[ 6 ] = "Perspective" TAB "Alt 1" TAB "EditorGuiStatusBar.setCamera(\"Standard Camera\");";
 		item[ 7 ] = "Isometric" TAB "Alt 8" TAB "EditorGuiStatusBar.setCamera(\"Isometric View\");";
 	};
-
 	// Menu bar
 	%this.menuBar = new MenuBar() {
 		dynamicItemInsertPos = 3;
@@ -85,7 +78,6 @@ function Lab::buildMenus(%this) {
 	%fileMenu = new PopupMenu() {
 		superClass = "MenuBuilder";
 		class = "EditorFileMenu";
-
 		barTitle = "File";
 	};
 
@@ -114,7 +106,6 @@ function Lab::buildMenus(%this) {
 
 	%fileMenu.appendItem( "-" );
 	%fileMenu.appendItem( "Add FMOD Designer Audio..." TAB "" TAB "AddFMODProjectDlg.show();" );
-
 	%fileMenu.appendItem("-");
 	%fileMenu.appendItem("Play Level" TAB "F11" TAB "Editor.close($HudCtrl);");
 
@@ -122,20 +113,16 @@ function Lab::buildMenus(%this) {
 		%fileMenu.appendItem("Exit Level" TAB "" TAB "EditorExitMission();");
 		%fileMenu.appendItem("Quit" TAB %quitShortcut TAB "EditorQuitGame();");
 	}
-	%this.menuBar.insert(%fileMenu, %this.menuBar.getCount());
 
+	%this.menuBar.insert(%fileMenu, %this.menuBar.getCount());
 //-----------------------------------------------------
 //=====================================================
 // MainMenu -> Edit Menu
-
 	%editMenu = new PopupMenu() {
 		superClass = "MenuBuilder";
 		class = "EditorEditMenu";
 		internalName = "EditMenu";
-
 		barTitle = "Edit";
-
-
 	};
 	%editMenu.appendItem("Undo" TAB %cmdCtrl SPC "Z" TAB "Editor.getUndoManager().undo();");
 	%editMenu.appendItem("Redo" TAB %redoShortcut TAB "Editor.getUndoManager().redo();");
@@ -148,7 +135,7 @@ function Lab::buildMenus(%this) {
 	%editMenu.appendItem("Deselect" TAB "X" TAB "EditorMenuEditDeselect();");
 	%editMenu.appendItem("Select..." TAB "" TAB "ESelectObjects.toggleVisibility();");
 	%editMenu.appendItem("-");
-	%editMenu.appendItem("Audio Parameters..." TAB "" TAB "EManageSFXParameters.ToggleVisibility();");	
+	%editMenu.appendItem("Audio Parameters..." TAB "" TAB "EManageSFXParameters.ToggleVisibility();");
 	%editMenu.appendItem("LabEditor Settings..." TAB "" TAB "toggleDlg(LabSettingsDlg);");
 	%editMenu.appendItem("Snap Options..." TAB "" TAB "ESnapOptions.ToggleVisibility();");
 	%editMenu.appendItem("-");
@@ -156,7 +143,6 @@ function Lab::buildMenus(%this) {
 	%editMenu.appendItem("PostEffect Manager" TAB "" TAB "Canvas.pushDialog(PostFXManager);");
 	%editMenu.appendItem("Copy Tool" TAB "" TAB "toggleDlg(ToolObjectCopyDlg);");
 	%this.menuBar.insert(%editMenu, %this.menuBar.getCount());
-
 //-----------------------------------------------------
 //=====================================================
 // MainMenu -> View Menu
@@ -168,9 +154,7 @@ function Lab::buildMenus(%this) {
 	};
 	%viewMenu.appendItem("Visibility Layers" TAB "Alt V" TAB "VisibilityDropdownToggle();");
 	%viewMenu.appendItem("Show Grid in Ortho Views" TAB %cmdCtrl @ "-Shift-Alt G" TAB "EWorldEditor.renderOrthoGrid = !EWorldEditor.renderOrthoGrid;");
-
 	%this.menuBar.insert(%viewMenu, %this.menuBar.getCount());
-
 //-----------------------------------------------------
 //=====================================================
 // MainMenu -> View Menu
@@ -181,18 +165,14 @@ function Lab::buildMenus(%this) {
 		barTitle = "Utility";
 	};
 	%utilityMenu.appendItem("Resize Guis" TAB "" TAB "Lab.resizeEditorGui();");
-
 	%this.menuBar.insert(%utilityMenu, %this.menuBar.getCount());
-
 //-----------------------------------------------------
 //=====================================================
 // MainMenu -> Camera Menu
 	%cameraMenu = new PopupMenu() {
 		superClass = "MenuBuilder";
 		class = "EditorCameraMenu";
-
 		barTitle = "Camera";
-
 	};
 	%cameraMenu.appendItem("World Camera" TAB %this.freeCameraTypeMenu);
 	%cameraMenu.appendItem("Player Camera" TAB %this.playerCameraTypeMenu);
@@ -212,46 +192,36 @@ function Lab::buildMenus(%this) {
 	%cameraMenu.appendItem("Manage Bookmarks..." TAB "Ctrl-Shift B" TAB "EManageBookmarks.ToggleVisibility();");
 	%cameraMenu.appendItem("Jump to Bookmark" TAB %this.cameraBookmarksMenu);
 	%this.menuBar.insert(%cameraMenu, %this.menuBar.getCount());
-
 //-----------------------------------------------------
 //=====================================================
 // MainMenu -> Editors Menu
 	%editorsMenu = new PopupMenu() {
 		superClass = "MenuBuilder";
 		class = "EditorToolsMenu";
-
 		barTitle = "Editors";
 	};
-
 	%this.menuBar.insert(%editorsMenu, %this.menuBar.getCount());
-
 //-----------------------------------------------------
 //=====================================================
 // MainMenu -> Lighting Menu
 	%lightingMenu = new PopupMenu() {
 		superClass = "MenuBuilder";
 		class = "EditorLightingMenu";
-
 		barTitle = "Lighting";
-
 		item[0] = "Full Relight" TAB "Alt L" TAB "Editor.lightScene(\"\", forceAlways);";
 		item[1] = "Toggle ShadowViz" TAB "" TAB "toggleShadowViz();";
 		item[2] = "-";
-
 		// NOTE: The light managers will be inserted as the
 		// last menu items in EditorLightingMenu::onAdd().
 	};
 	%this.menuBar.insert(%lightingMenu, %this.menuBar.getCount());
-
 //-----------------------------------------------------
 //=====================================================
 // MainMenu -> Help Menu
 	%helpMenu = new PopupMenu() {
 		superClass = "MenuBuilder";
 		class = "EditorHelpMenu";
-
 		barTitle = "Help";
-
 		item[0] = "Online Documentation..." TAB "Alt F1" TAB "gotoWebPage(EWorldEditor.documentationURL);";
 		item[1] = "Offline User Guide..." TAB "" TAB "gotoWebPage(EWorldEditor.documentationLocal);";
 		item[2] = "Offline Reference Guide..." TAB "" TAB "shellexecute(EWorldEditor.documentationReference);";
@@ -268,7 +238,6 @@ function Lab::buildMenus(%this) {
 		%this.dropTypeMenu = new PopupMenu() {
 			superClass = "MenuBuilder";
 			class = "EditorDropTypeMenu";
-
 			// The onSelectItem() callback for this menu re-purposes the command field
 			// as the MenuBuilder version is not used.
 			item[0] = "at Origin" TAB "" TAB "atOrigin";
@@ -280,11 +249,9 @@ function Lab::buildMenus(%this) {
 			item[6] = "to Terrain" TAB "" TAB "toTerrain";
 			item[7] = "Below Selection" TAB "" TAB "belowSelection";
 		};
-
 		%this.alignBoundsMenu = new PopupMenu() {
 			superClass = "MenuBuilder";
 			class = "EditorAlignBoundsMenu";
-
 			// The onSelectItem() callback for this menu re-purposes the command field
 			// as the MenuBuilder version is not used.
 			item[0] = "+X Axis" TAB "" TAB "0";
@@ -294,11 +261,9 @@ function Lab::buildMenus(%this) {
 			item[4] = "-Y Axis" TAB "" TAB "4";
 			item[5] = "-Z Axis" TAB "" TAB "5";
 		};
-
 		%this.alignCenterMenu = new PopupMenu() {
 			superClass = "MenuBuilder";
 			class = "EditorAlignCenterMenu";
-
 			// The onSelectItem() callback for this menu re-purposes the command field
 			// as the MenuBuilder version is not used.
 			item[0] = "X Axis" TAB "" TAB "0";
@@ -311,10 +276,7 @@ function Lab::buildMenus(%this) {
 		%objectMenu = new PopupMenu() {
 			superClass = "MenuBuilder";
 			class = "EditorWorldMenu";
-
 			barTitle = "Object";
-
-
 		};
 		%objectMenu.appendItem("Lock Selection" TAB %cmdCtrl @ " L" TAB "EWorldEditor.lockSelection(true); EWorldEditor.syncGui();");
 		%objectMenu.appendItem("Unlock Selection" TAB %cmdCtrl @ "-Shift L" TAB "EWorldEditor.lockSelection(false); EWorldEditor.syncGui();");
@@ -346,7 +308,6 @@ function Lab::buildMenus(%this) {
 		%objectMenu.appendItem("Unmount Selected Object" TAB "" TAB "EditorUnmount();");
 		%objectMenu.appendItem("-");
 		%objectMenu.appendItem("Objects Manager" TAB  %cmdCtrl @ " M" TAB "ESelectObjects.toggleVisibility();");
-
 		%this.worldMenu = %objectMenu;
 	}
 }

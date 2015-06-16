@@ -30,22 +30,24 @@
 //---------------------------------------------------------------------------------------------
 
 function GuiTreeViewFilterText::onWake( %this ) {
-    //Mud-H add validation to prevent random crashes (to be removed)
-    if (!isObject(%this.treeView)) {
-        warnLog("Invalid treeview object for GuiTreeViewFilterText::onWake",%this.getName());
-        return;
-    }
-    %filter = %this.treeView.getFilterText();
-    if( %filter $= "" )
-        %this.setText( "\c2Filter..." );
-    else
-        %this.setText( %filter );
+	//Mud-H add validation to prevent random crashes (to be removed)
+	if (!isObject(%this.treeView)) {
+		warnLog("Invalid treeview object for GuiTreeViewFilterText::onWake",%this.getName());
+		return;
+	}
+
+	%filter = %this.treeView.getFilterText();
+
+	if( %filter $= "" )
+		%this.setText( "\c2Filter..." );
+	else
+		%this.setText( %filter );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiTreeViewFilterText::onGainFirstResponder( %this ) {
-    %this.selectAllText();
+	%this.selectAllText();
 }
 
 //---------------------------------------------------------------------------------------------
@@ -53,22 +55,23 @@ function GuiTreeViewFilterText::onGainFirstResponder( %this ) {
 // When Enter is pressed in the filter text control, pass along the text of the control
 // as the treeview's filter.
 function GuiTreeViewFilterText::onReturn( %this ) {
-    %text = %this.getText();
-    if( %text $= "" )
-        %this.reset();
-    else
-        %this.treeView.setFilterText( %text );
+	%text = %this.getText();
+
+	if( %text $= "" )
+		%this.reset();
+	else
+		%this.treeView.setFilterText( %text );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiTreeViewFilterText::reset( %this ) {
-    %this.setText( "\c2Filter..." );
-    %this.treeView.clearFilterText();
+	%this.setText( "\c2Filter..." );
+	%this.treeView.clearFilterText();
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiTreeViewFilterClearButton::onClick( %this ) {
-    %this.textCtrl.reset();
+	%this.textCtrl.reset();
 }

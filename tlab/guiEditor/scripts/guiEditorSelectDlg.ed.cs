@@ -25,38 +25,38 @@
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorSelectDlg::toggleVisibility( %this ) {
-    if( %this.isVisible() )
-        %this.setVisible( false );
-    else
-        %this.setVisible( true );
+	if( %this.isVisible() )
+		%this.setVisible( false );
+	else
+		%this.setVisible( true );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorSelectDlg::getRootGroup( %this ) {
-    return GuiEditor.getContentControl();
+	return GuiEditor.getContentControl();
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorSelectDlg::includeClass( %this, %className ) {
-    return (    isMemberOfClass( %className, "GuiControl" )
-                && !GuiEditor.isFilteredClass( %className ) );
+	return (    isMemberOfClass( %className, "GuiControl" )
+					&& !GuiEditor.isFilteredClass( %className ) );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorSelectDlg::selectObject( %this, %object, %val ) {
-    if( %val )
-        GuiEditor.addSelection( %object );
-    else
-        GuiEditor.removeSelection( %object );
+	if( %val )
+		GuiEditor.addSelection( %object );
+	else
+		GuiEditor.removeSelection( %object );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorSelectDlg::clearSelection( %this ) {
-    GuiEditor.clearSelection();
+	GuiEditor.clearSelection();
 }
 
 //=============================================================================================
@@ -66,15 +66,14 @@ function GuiEditorSelectDlg::clearSelection( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorSelectDlg::onVisible( %this, %visible ) {
-    if( !%visible )
-        return;
+	if( !%visible )
+		return;
 
-    if( !%this.isInitialized ) {
-        %this.init();
-        %this.isInitialized = true;
-    }
+	if( !%this.isInitialized ) {
+		%this.init();
+		%this.isInitialized = true;
+	}
 
-    // Re-initialize the group list on each wake.
-
-    %this.initGroupList();
+	// Re-initialize the group list on each wake.
+	%this.initGroupList();
 }

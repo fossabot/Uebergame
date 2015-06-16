@@ -6,46 +6,43 @@
 //==============================================================================
 
 function initializeGuiEditor() {
-    echo( " % - Initializing Gui Editor" );
-   
-   if (!isObject(GuiLab))
-    $GuiLab = new scriptObject("GuiLab");
+	echo( " % - Initializing Gui Editor" );
 
-    // GUIs.
-   execGuiEdit(true);
+	if (!isObject(GuiLab))
+		$GuiLab = new scriptObject("GuiLab");
 
+	// GUIs.
+	execGuiEdit(true);
 }
 function execGuiEdit(%execGui) {
-   if (%execGui){
-         exec( "./gui/guiEditor.ed.gui" );
-       exec( "./gui/guiEditorNewGuiDialog.ed.gui" );
-       exec( "./gui/guiEditorPrefsDlg.ed.gui" );
-       exec( "./gui/guiEditorSelectDlg.ed.gui" );
-       exec( "./gui/EditorChooseGUI.ed.gui" );
-        exec( "./gui/LabWidgetBuilderDlg.gui" );
-   }
-    // Scripts.
+	if (%execGui) {
+		exec( "./gui/guiEditor.ed.gui" );
+		exec( "./gui/guiEditorNewGuiDialog.ed.gui" );
+		exec( "./gui/guiEditorPrefsDlg.ed.gui" );
+		exec( "./gui/guiEditorSelectDlg.ed.gui" );
+		exec( "./gui/EditorChooseGUI.ed.gui" );
+		exec( "./gui/LabWidgetBuilderDlg.gui" );
+	}
 
-    exec( "tlab/guiEditor/scripts/guiEditor.ed.cs" );
-    exec( "tlab/guiEditor/scripts/guiEditorTreeView.ed.cs" );
-    exec( "./scripts/guiEditorInspector.ed.cs" );
-    exec( "tlab/guiEditor/scripts/guiEditorProfiles.ed.cs" );
-    exec( "./scripts/guiEditorGroup.ed.cs" );
-    exec( "./scripts/guiEditorUndo.ed.cs" );
-    exec( "tlab/guiEditor/scripts/guiEditorCanvas.ed.cs" );
-    exec( "./scripts/guiEditorContentList.ed.cs" );
-    exec( "./scripts/guiEditorStatusBar.ed.cs" );
-    exec( "./scripts/guiEditorToolbox.ed.cs" );
-    exec( "./scripts/guiEditorSelectDlg.ed.cs" );
-
-    exec( "./scripts/guiEditorNewGuiDialog.ed.cs" );
-    exec( "./scripts/fileDialogs.ed.cs" );
-    exec( "./scripts/guiEditorPrefsDlg.ed.cs" );
-    exec( "./scripts/EditorChooseGUI.ed.cs" );
-    exec( "./gui/LabWidgetBuilderDlg.cs" );
-    exec( "tlab/guiEditor/scripts/functionControls.cs" );
-    
-    exec( "tlab/guiEditor/lab/widgetBuilder.cs" );
+	// Scripts.
+	exec( "tlab/guiEditor/scripts/guiEditor.ed.cs" );
+	exec( "tlab/guiEditor/scripts/guiEditorTreeView.ed.cs" );
+	exec( "./scripts/guiEditorInspector.ed.cs" );
+	exec( "tlab/guiEditor/scripts/guiEditorProfiles.ed.cs" );
+	exec( "./scripts/guiEditorGroup.ed.cs" );
+	exec( "./scripts/guiEditorUndo.ed.cs" );
+	exec( "tlab/guiEditor/scripts/guiEditorCanvas.ed.cs" );
+	exec( "./scripts/guiEditorContentList.ed.cs" );
+	exec( "./scripts/guiEditorStatusBar.ed.cs" );
+	exec( "./scripts/guiEditorToolbox.ed.cs" );
+	exec( "./scripts/guiEditorSelectDlg.ed.cs" );
+	exec( "./scripts/guiEditorNewGuiDialog.ed.cs" );
+	exec( "./scripts/fileDialogs.ed.cs" );
+	exec( "./scripts/guiEditorPrefsDlg.ed.cs" );
+	exec( "./scripts/EditorChooseGUI.ed.cs" );
+	exec( "./gui/LabWidgetBuilderDlg.cs" );
+	exec( "tlab/guiEditor/scripts/functionControls.cs" );
+	exec( "tlab/guiEditor/lab/widgetBuilder.cs" );
 }
 
 function destroyGuiEditor() {

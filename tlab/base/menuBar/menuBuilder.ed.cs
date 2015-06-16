@@ -110,72 +110,75 @@
 // if %item is skipped or "", we will use %item[#], which was set when the menu was created.
 // if %item is provided, then we update %item[#].
 function MenuBuilder::addItem(%this, %pos, %item) {
-    if(%item $= "")
-        %item = %this.item[%pos];
+	if(%item $= "")
+		%item = %this.item[%pos];
 
-    if(%item !$= %this.item[%pos])
-        %this.item[%pos] = %item;
+	if(%item !$= %this.item[%pos])
+		%this.item[%pos] = %item;
 
-    %name = getField(%item, 0);
-    %accel = getField(%item, 1);
-    %cmd = getField(%item, 2);
+	%name = getField(%item, 0);
+	%accel = getField(%item, 1);
+	%cmd = getField(%item, 2);
+	// We replace the [this] token with our object ID
+	%cmd = strreplace( %cmd, "[this]", %this );
+	%this.item[%pos] = setField( %item, 2, %cmd );
 
-    // We replace the [this] token with our object ID
-    %cmd = strreplace( %cmd, "[this]", %this );
-    %this.item[%pos] = setField( %item, 2, %cmd );
-
-    if(isObject(%accel)) {
-        // If %accel is an object, we want to add a sub menu
-        %this.insertSubmenu(%pos, %name, %accel);
-    } else {
-        %this.insertItem(%pos, %name !$= "-" ? %name : "", %accel);
-    }
+	if(isObject(%accel)) {
+		// If %accel is an object, we want to add a sub menu
+		%this.insertSubmenu(%pos, %name, %accel);
+	} else {
+		%this.insertItem(%pos, %name !$= "-" ? %name : "", %accel);
+	}
 }
 
 function MenuBuilder::appendItem(%this, %item) {
-    %this.addItem(%this.getItemCount(), %item);
+	%this.addItem(%this.getItemCount(), %item);
 }
 
 function MenuBuilder::onAdd(%this) {
-    if(! isObject(%this.canvas))
-        %this.canvas = Canvas;
+	if(! isObject(%this.canvas))
+		%this.canvas = Canvas;
 
-    for(%i = 0; %this.item[%i] !$= ""; %i++) {
-        %this.addItem(%i);
-    }
+	for(%i = 0; %this.item[%i] !$= ""; %i++) {
+		%this.addItem(%i);
+	}
 }
 
 function MenuBuilder::onRemove(%this) {
-   if (!$Cfg_UseCoreMenubar && !$InGuiEditor) 
-      return;
-   if (!isObject(%this)){
-      warnLog("Trying to remove a menu which is not a menu:",%this);
-      return;
-   }
-    %this.removeFromMenuBar();
+	if (!$Cfg_UseCoreMenubar && !$InGuiEditor)
+		return;
+
+	if (!isObject(%this)) {
+		warnLog("Trying to remove a menu which is not a menu:",%this);
+		return;
+	}
+
+	%this.removeFromMenuBar();
 }
 
 //-///-///-///-///-///-///-///-///-///-///-///-///-///-///-///-///-///-///
 
 function MenuBuilder::onSelectItem(%this, %id, %text) {
-    %cmd = getField(%this.item[%id], 2);
-    if(%cmd !$= "") {
-        eval( %cmd );
-        return true;
-    }
-    return false;
+	%cmd = getField(%this.item[%id], 2);
+
+	if(%cmd !$= "") {
+		eval( %cmd );
+		return true;
+	}
+
+	return false;
 }
 
 //- Sets a new name on an existing menu item.
 function MenuBuilder::setItemName( %this, %id, %name ) {
-    %item = %this.item[%id];
-    %accel = getField(%item, 1);
-    %this.setItem( %id, %name, %accel );
+	%item = %this.item[%id];
+	%accel = getField(%item, 1);
+	%this.setItem( %id, %name, %accel );
 }
 
 //- Sets a new command on an existing menu item.
 function MenuBuilder::setItemCommand( %this, %id, %command ) {
-    %this.item[%id] = setField( %this.item[%id], 2, %command );
+	%this.item[%id] = setField( %this.item[%id], 2, %command );
 }
 
 //- (SimID this)
@@ -184,17 +187,17 @@ function MenuBuilder::setItemCommand( %this, %id, %command ) {
 //- MenuBuilder items very easy to add and remove dynamically from a bar.
 //-
 function MenuBuilder::attachToMenuBar( %this ) {
-    if( %this.barName $= "" ) {
-        error("MenuBuilder::attachToMenuBar - Menu property 'barName' not specified.");
-        return false;
-    }
+	if( %this.barName $= "" ) {
+		error("MenuBuilder::attachToMenuBar - Menu property 'barName' not specified.");
+		return false;
+	}
 
-    if( %this.barPosition < 0 ) {
-        error("MenuBuilder::attachToMenuBar - Menu " SPC %this.barName SPC "property 'barPosition' is invalid, must be zero or greater.");
-        return false;
-    }
+	if( %this.barPosition < 0 ) {
+		error("MenuBuilder::attachToMenuBar - Menu " SPC %this.barName SPC "property 'barPosition' is invalid, must be zero or greater.");
+		return false;
+	}
 
-    Parent::attachToMenuBar( %this, %this.canvas, %this.barPosition, %this.barName );
+	Parent::attachToMenuBar( %this, %this.canvas, %this.barPosition, %this.barName );
 }
 
 //-///-///-///-///-///-///-///-///-///-///-///-///-///-///-///-///-///-///
@@ -214,20 +217,20 @@ function MenuBuilder::onRemoveFromMenuBar(%this, %canvas) {
 //- Method called to setup default state for the menu. Expected to be overriden
 //- on an individual menu basis. See the mission editor for an example.
 function MenuBuilder::setupDefaultState(%this) {
-    for(%i = 0; %this.item[%i] !$= ""; %i++) {
-        %name = getField(%this.item[%i], 0);
-        %accel = getField(%this.item[%i], 1);
-        %cmd = getField(%this.item[%i], 2);
+	for(%i = 0; %this.item[%i] !$= ""; %i++) {
+		%name = getField(%this.item[%i], 0);
+		%accel = getField(%this.item[%i], 1);
+		%cmd = getField(%this.item[%i], 2);
 
-        // Pass on to sub menus
-        if(isObject(%accel))
-            %accel.setupDefaultState();
-    }
+		// Pass on to sub menus
+		if(isObject(%accel))
+			%accel.setupDefaultState();
+	}
 }
 
 //- Method called to easily enable or disable all items in a menu.
 function MenuBuilder::enableAllItems(%this, %enable) {
-    for(%i = 0; %this.item[%i] !$= ""; %i++) {
-        %this.enableItem(%i, %enable);
-    }
+	for(%i = 0; %this.item[%i] !$= ""; %i++) {
+		%this.enableItem(%i, %enable);
+	}
 }

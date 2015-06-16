@@ -26,16 +26,22 @@ function Lab::setGuisToEditor() {
 function Lab::savePluginGui(%this,%plugin) {
 	//Assemble the GUI
 	%groupCtrl  = %plugin@"_GuiSet";
+
 	foreach(%gui in %groupCtrl) {
 		%parent = %gui.defaultParent;
+
 		if (!isObject(%parent)) continue;
+
 		%parent.add(%gui);
 	}
+
 	if (!isObject(%parent)) {
 		warnLog("Invalid Parent GUI to save:",%parent);
 		return;
 	}
+
 	%currentFile = %parent.getFileName();
+
 	if( isWriteableFileName( %filename ) ) {
 		//
 		// Extract any existent TorqueScript before writing out to disk
@@ -49,8 +55,10 @@ function Lab::savePluginGui(%this,%plugin) {
 		%lines = -1;
 		%beforeLines = -1;
 		%skipLines = false;
+
 		while( !%fileObject.isEOF() ) {
 			%line = %fileObject.readLine();
+
 			if( %line $= "//--- OBJECT WRITE BEGIN ---" )
 				%skipLines = true;
 			else if( %line $= "//--- OBJECT WRITE END ---" ) {
@@ -63,9 +71,9 @@ function Lab::savePluginGui(%this,%plugin) {
 					%newFileLines[ %lines++ ] = %line;
 			}
 		}
+
 		%fileObject.close();
 		%fileObject.delete();
-
 		%fo = new FileObject();
 		%fo.openForWrite(%filename);
 
@@ -83,9 +91,7 @@ function Lab::savePluginGui(%this,%plugin) {
 
 		%fo.close();
 		%fo.delete();
-
 		%currentObject.setFileName( makeRelativePath( %filename, getMainDotCsDir() ) );
-
 		GuiEditorStatusBar.print( "Saved file '" @ %parent.getFileName() @ "'" );
 	} else
 		ToolsMsgBoxOk( "Error writing to file", "There was an error writing to file '" @ %currentFile @ "'. The file may be read-only." );

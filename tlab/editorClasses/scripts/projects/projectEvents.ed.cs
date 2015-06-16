@@ -24,24 +24,24 @@
 //- Returns Projects API's EventManager Singleton
 //-
 function Projects::GetEventManager() {
-    if( !isObject( $_Lab::ProjectEventManager ) )
-        $_Lab::ProjectEventManager = new EventManager() {
-        queue = "ProjectEventManager";
-    };
+	if( !isObject( $_Lab::ProjectEventManager ) )
+		$_Lab::ProjectEventManager = new EventManager() {
+		queue = "ProjectEventManager";
+	};
 
-    return $_Lab::ProjectEventManager;
+	return $_Lab::ProjectEventManager;
 }
 
 
 function Projects::DeclareProjectTarget( %projectTargetNamespace, %objectGlobalName ) {
-    // At some point it would be nice to have a console method
-    // on SimObject that supported validating that another object
-    // implemented all the methods provided by a given namespace.
-    // .validateInterface("myNamespace") or some such.
-    %projectObject = new ScriptMsgListener( %objectGlobalName ) {
-        class = %projectTargetNamespace;
-        superclass = ProjectBase;
-    };
+	// At some point it would be nice to have a console method
+	// on SimObject that supported validating that another object
+	// implemented all the methods provided by a given namespace.
+	// .validateInterface("myNamespace") or some such.
+	%projectObject = new ScriptMsgListener( %objectGlobalName ) {
+		class = %projectTargetNamespace;
+		superclass = ProjectBase;
+	};
 }
 
 //-
@@ -85,26 +85,26 @@ Projects::GetEventManager().registerEvent( "ProjectFileRemoved" );
 //- ProjectOpen Event Handler
 //- - %data is the project object to be opened
 function ProjectBase::onProjectOpen( %this, %data ) {
-    error("onProjectOpen Handler not implemented for class -" SPC %this.class );
+	error("onProjectOpen Handler not implemented for class -" SPC %this.class );
 }
 
 //-
 //- ProjectClose Event Handler
 //-
 function ProjectBase::onProjectClose( %this, %data ) {
-    error("onProjectClose Handler not implemented for class -" SPC %this.class );
+	error("onProjectClose Handler not implemented for class -" SPC %this.class );
 }
 
 //-
 //- ProjectAddFile Event Handler
 //-
 function ProjectBase::onProjectAddFile( %this, %data ) {
-    error("onProjectAddFile Handler not implemented for class -" SPC %this.class );
+	error("onProjectAddFile Handler not implemented for class -" SPC %this.class );
 }
 
 //-
 //- ProjectRemoveFile Event Handler
 //-
 function ProjectBase::onProjectRemoveFile( %this, %data ) {
-    error("onProjectRemoveFile Handler not implemented for class -" SPC %this.class );
+	error("onProjectRemoveFile Handler not implemented for class -" SPC %this.class );
 }

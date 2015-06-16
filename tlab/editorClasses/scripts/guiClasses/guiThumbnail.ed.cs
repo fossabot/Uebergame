@@ -43,28 +43,28 @@
 // Object Browser Item Default Behaviors
 //-----------------------------------------------------------------------------
 function GuiDefaultThumbnail::onClick( %this ) {
-    // Store data and hide the dialog.
-    if( isObject( %this.base ) ) {
-        %this.base.item = %this;
-        %this.base.Hide();
-    }
+	// Store data and hide the dialog.
+	if( isObject( %this.base ) ) {
+		%this.base.item = %this;
+		%this.base.Hide();
+	}
 }
 
 function GuiDefaultThumbnail::onRightClick( %this ) {
-    // Nothing Here.
+	// Nothing Here.
 }
 
 function GuiDefaultThumbnail::onMouseLeave( %this ) {
-    // Nothing Here.
+	// Nothing Here.
 }
 
 function ObjectBrowserItem::onMouseEnter( %this ) {
-    // Nothing Here.
+	// Nothing Here.
 }
 
 function GuiDefaultThumbnail::onDoubleClick( %this ) {
-    // By Default if the base funcitonality is called
-    // in onClick, we will never get here.  However, if
-    // you want to override this functionality, simply
-    // override onClick and don't call the parent.
+	// By Default if the base funcitonality is called
+	// in onClick, we will never get here.  However, if
+	// you want to override this functionality, simply
+	// override onClick and don't call the parent.
 }

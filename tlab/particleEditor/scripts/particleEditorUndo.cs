@@ -28,20 +28,20 @@
 //---------------------------------------------------------------------------------------------
 
 function ParticleEditor::createUndo( %this, %class, %desc ) {
-    pushInstantGroup();
-    %action = new UndoScriptAction() {
-        class = %class;
-        superClass = BaseParticleEdAction;
-        actionName = %desc;
-    };
-    popInstantGroup();
-    return %action;
+	pushInstantGroup();
+	%action = new UndoScriptAction() {
+		class = %class;
+		superClass = BaseParticleEdAction;
+		actionName = %desc;
+	};
+	popInstantGroup();
+	return %action;
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ParticleEditor::submitUndo( %this, %action ) {
-    %action.addToManager( Editor.getUndoManager() );
+	%action.addToManager( Editor.getUndoManager() );
 }
 
 //=============================================================================================
@@ -51,38 +51,36 @@ function ParticleEditor::submitUndo( %this, %action ) {
 //---------------------------------------------------------------------------------------------
 
 function BaseParticleEdAction::sync( %this ) {
-    // Sync particle state.
+	// Sync particle state.
+	if( isObject( %this.particle ) ) {
+		%this.particle.reload();
+		PE_ParticleEditor.guiSync();
 
-    if( isObject( %this.particle ) ) {
-        %this.particle.reload();
-        PE_ParticleEditor.guiSync();
+		if( %this.particle.getId() == PE_ParticleEditor.currParticle.getId() )
+			PE_ParticleEditor.setParticleDirty();
+	}
 
-        if( %this.particle.getId() == PE_ParticleEditor.currParticle.getId() )
-            PE_ParticleEditor.setParticleDirty();
-    }
+	// Sync emitter state.
 
-    // Sync emitter state.
+	if( isObject( %this.emitter ) ) {
+		%this.emitter.reload();
+		PE_EmitterEditor.guiSync();
 
-    if( isObject( %this.emitter ) ) {
-        %this.emitter.reload();
-
-        PE_EmitterEditor.guiSync();
-
-        if( %this.emitter.getId() == PE_EmitterEditor.currEmitter.getId() )
-            PE_EmitterEditor.setEmitterDirty();
-    }
+		if( %this.emitter.getId() == PE_EmitterEditor.currEmitter.getId() )
+			PE_EmitterEditor.setEmitterDirty();
+	}
 }
 
 //---------------------------------------------------------------------------------------------
 
 function BaseParticleEdAction::redo( %this ) {
-    %this.sync();
+	%this.sync();
 }
 
 //---------------------------------------------------------------------------------------------
 
 function BaseParticleEdAction::undo( %this ) {
-    %this.sync();
+	%this.sync();
 }
 
 //=============================================================================================
@@ -100,62 +98,46 @@ function BaseParticleEdAction::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionCreateNewEmitter::redo( %this ) {
-    %emitter = %this.emitter;
-
-    // Assign name.
-
-    %emitter.name = %this.emitterName;
-
-    // Remove from unlisted.
-
-    PE_UnlistedEmitters.remove( %emitter );
-
-    // Drop it in the dropdown and select it.
-
-    %popup = PEE_EmitterSelector;
-
-    %popup.add( %emitter.getName(), %emitter.getId() );
-    %popup.sort();
-    %popup.setSelected( %emitter.getId() );
-
-    // Sync up.
-
-    Parent::redo( %this );
+	%emitter = %this.emitter;
+	// Assign name.
+	%emitter.name = %this.emitterName;
+	// Remove from unlisted.
+	PE_UnlistedEmitters.remove( %emitter );
+	// Drop it in the dropdown and select it.
+	%popup = PEE_EmitterSelector;
+	%popup.add( %emitter.getName(), %emitter.getId() );
+	%popup.sort();
+	%popup.setSelected( %emitter.getId() );
+	// Sync up.
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionCreateNewEmitter::undo( %this ) {
-    %emitter = %this.emitter;
+	%emitter = %this.emitter;
 
-    // Prevent a save dialog coming up on the emitter.
+	// Prevent a save dialog coming up on the emitter.
 
-    if( %emitter == PE_EmitterEditor.currEmitter )
-        PE_EmitterEditor.setEmitterNotDirty();
+	if( %emitter == PE_EmitterEditor.currEmitter )
+		PE_EmitterEditor.setEmitterNotDirty();
 
-    // Add to unlisted.
+	// Add to unlisted.
+	PE_UnlistedEmitters.add( %emitter );
+	// Remove it from in the dropdown and select prev emitter.
+	%popup = PEE_EmitterSelector;
 
-    PE_UnlistedEmitters.add( %emitter );
+	if( isObject( %this.prevEmitter ) )
+		%popup.setSelected( %this.prevEmitter.getId() );
+	else
+		%popup.setFirstSelected();
 
-    // Remove it from in the dropdown and select prev emitter.
-
-    %popup = PEE_EmitterSelector;
-
-    if( isObject( %this.prevEmitter ) )
-        %popup.setSelected( %this.prevEmitter.getId() );
-    else
-        %popup.setFirstSelected();
-
-    %popup.clearEntry( %emitter.getId() );
-
-    // Unassign name.
-
-    %this.emitterName = %emitter.name;
-    %emitter.name = "";
-
-    // Sync up.
-
-    Parent::undo( %this );
+	%popup.clearEntry( %emitter.getId() );
+	// Unassign name.
+	%this.emitterName = %emitter.name;
+	%emitter.name = "";
+	// Sync up.
+	Parent::undo( %this );
 }
 
 //=============================================================================================
@@ -165,69 +147,52 @@ function ActionCreateNewEmitter::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionDeleteEmitter::redo( %this ) {
-    %emitter = %this.emitter;
+	%emitter = %this.emitter;
+	// Unassign name.
+	%this.emitterName = %emitter.name;
+	%emitter.name = "";
+	// Add to unlisted.
+	PE_UnlistedEmitters.add( %emitter );
 
-    // Unassign name.
+	// Remove from file.
 
-    %this.emitterName = %emitter.name;
-    %emitter.name = "";
+	if(    %emitter.getFileName() !$= ""
+												 && %emitter.getFilename() !$= "tlab/particleEditor/particleEmitterEditor.ed.cs" )
+		PE_EmitterSaver.removeObjectFromFile( %emitter );
 
-    // Add to unlisted.
-
-    PE_UnlistedEmitters.add( %emitter );
-
-    // Remove from file.
-
-    if(    %emitter.getFileName() !$= ""
-                                      && %emitter.getFilename() !$= "tlab/particleEditor/particleEmitterEditor.ed.cs" )
-        PE_EmitterSaver.removeObjectFromFile( %emitter );
-
-    // Select DefaultEmitter or first in list.
-
-    %popup = PEE_EmitterSelector_Control-->PopUpMenu;
-
-    %popup.setFirstSelected();
-
-    // Remove from dropdown.
-
-    %popup.clearEntry( %emitter );
-
-    // Sync up.
-
-    Parent::redo( %this );
+	// Select DefaultEmitter or first in list.
+	%popup = PEE_EmitterSelector_Control-->PopUpMenu;
+	%popup.setFirstSelected();
+	// Remove from dropdown.
+	%popup.clearEntry( %emitter );
+	// Sync up.
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionDeleteEmitter::undo( %this ) {
-    %emitter = %this.emitter;
+	%emitter = %this.emitter;
+	// Re-assign name.
+	%emitter.name = %this.emitterName;
+	// Remove from unlisted.
+	PE_UnlistedEmitters.remove( %emitter );
 
-    // Re-assign name.
+	// Resave to file.
 
-    %emitter.name = %this.emitterName;
+	if(    %this.emitterFname !$= ""
+											&& %this.emitterFname !$= "tlab/particleEditor/particleEmitterEditor.ed.gui" ) {
+		PE_EmitterSaver.setDirty( %emitter, %this.emitterFname );
+		PE_EmitterSaver.saveDirty();
+	}
 
-    // Remove from unlisted.
-
-    PE_UnlistedEmitters.remove( %emitter );
-
-    // Resave to file.
-
-    if(    %this.emitterFname !$= ""
-                                  && %this.emitterFname !$= "tlab/particleEditor/particleEmitterEditor.ed.gui" ) {
-        PE_EmitterSaver.setDirty( %emitter, %this.emitterFname );
-        PE_EmitterSaver.saveDirty();
-    }
-
-    // Add it to the dropdown and selet it.
-
-    %popup = PEE_EmitterSelector_Control-->PopUpMenu;
-    %popup.add( %emitter.getName(), %emitter.getId() );
-    %popup.sort();
-    %popup.setSelected( %emitter.getId() );
-
-    // Sync up.
-
-    Parent::undo( %this );
+	// Add it to the dropdown and selet it.
+	%popup = PEE_EmitterSelector_Control-->PopUpMenu;
+	%popup.add( %emitter.getName(), %emitter.getId() );
+	%popup.sort();
+	%popup.setSelected( %emitter.getId() );
+	// Sync up.
+	Parent::undo( %this );
 }
 
 //=============================================================================================
@@ -237,19 +202,17 @@ function ActionDeleteEmitter::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveEmitter::redo( %this ) {
-    %emitter = %this.emitter;
-    %emitter.setFieldValue( %this.field, %this.newValue );
-
-    Parent::redo( %this );
+	%emitter = %this.emitter;
+	%emitter.setFieldValue( %this.field, %this.newValue );
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveEmitter::undo( %this ) {
-    %emitter = %this.emitter;
-    %emitter.setFieldValue( %this.field, %this.oldValue );
-
-    Parent::undo( %this );
+	%emitter = %this.emitter;
+	%emitter.setFieldValue( %this.field, %this.oldValue );
+	Parent::undo( %this );
 }
 
 //=============================================================================================
@@ -259,23 +222,19 @@ function ActionUpdateActiveEmitter::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveEmitterLifeFields::redo( %this ) {
-    %emitter = %this.emitter;
-
-    %emitter.lifetimeMS = %this.newValueLifetimeMS;
-    %emitter.lifetimeVarianceMS = %this.newValueLifetimeVarianceMS;
-
-    Parent::redo( %this );
+	%emitter = %this.emitter;
+	%emitter.lifetimeMS = %this.newValueLifetimeMS;
+	%emitter.lifetimeVarianceMS = %this.newValueLifetimeVarianceMS;
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveEmitterLifeFields::undo( %this ) {
-    %emitter = %this.emitter;
-
-    %emitter.lifetimeMS = %this.oldValueLifetimeMS;
-    %emitter.lifetimeVarianceMS = %this.oldValueLifetimeVarianceMS;
-
-    Parent::undo( %this );
+	%emitter = %this.emitter;
+	%emitter.lifetimeMS = %this.oldValueLifetimeMS;
+	%emitter.lifetimeVarianceMS = %this.oldValueLifetimeVarianceMS;
+	Parent::undo( %this );
 }
 
 //=============================================================================================
@@ -285,23 +244,19 @@ function ActionUpdateActiveEmitterLifeFields::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveEmitterAmountFields::redo( %this ) {
-    %emitter = %this.emitter;
-
-    %emitter.ejectionPeriodMS = %this.newValueEjectionPeriodMS;
-    %emitter.periodVarianceMS = %this.newValuePeriodVarianceMS;
-
-    Parent::redo( %this );
+	%emitter = %this.emitter;
+	%emitter.ejectionPeriodMS = %this.newValueEjectionPeriodMS;
+	%emitter.periodVarianceMS = %this.newValuePeriodVarianceMS;
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveEmitterAmountFields::undo( %this ) {
-    %emitter = %this.emitter;
-
-    %emitter.ejectionPeriodMS = %this.oldValueEjectionPeriodMS;
-    %emitter.periodVarianceMS = %this.oldValuePeriodVarianceMS;
-
-    Parent::undo( %this );
+	%emitter = %this.emitter;
+	%emitter.ejectionPeriodMS = %this.oldValueEjectionPeriodMS;
+	%emitter.periodVarianceMS = %this.oldValuePeriodVarianceMS;
+	Parent::undo( %this );
 }
 
 //=============================================================================================
@@ -311,23 +266,19 @@ function ActionUpdateActiveEmitterAmountFields::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveEmitterSpeedFields::redo( %this ) {
-    %emitter = %this.emitter;
-
-    %emitter.ejectionVelocity = %this.newValueEjectionVelocity;
-    %emitter.velocityVariance = %this.newValueVelocityVariance;
-
-    Parent::redo( %this );
+	%emitter = %this.emitter;
+	%emitter.ejectionVelocity = %this.newValueEjectionVelocity;
+	%emitter.velocityVariance = %this.newValueVelocityVariance;
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveEmitterSpeedFields::undo( %this ) {
-    %emitter = %this.emitter;
-
-    %emitter.ejectionVelocity = %this.oldValueEjectionVelocity;
-    %emitter.velocityVariance = %this.oldValueVelocityVariance;
-
-    Parent::undo( %this );
+	%emitter = %this.emitter;
+	%emitter.ejectionVelocity = %this.oldValueEjectionVelocity;
+	%emitter.velocityVariance = %this.oldValueVelocityVariance;
+	Parent::undo( %this );
 }
 
 //=============================================================================================
@@ -337,72 +288,61 @@ function ActionUpdateActiveEmitterSpeedFields::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionCreateNewParticle::redo( %this ) {
-    %particle = %this.particle.getName();
-    %particleId = %this.particle.getId();
-    %particleIndex = %this.particleIndex;
-    %emitter = %this.emitter;
+	%particle = %this.particle.getName();
+	%particleId = %this.particle.getId();
+	%particleIndex = %this.particleIndex;
+	%emitter = %this.emitter;
+	// Remove from unlisted.
+	PE_UnlistedParticles.remove( %particleId );
+	// Add it to the dropdown.
+	PEP_ParticleSelector.add( %particle, %particleId );
+	PEP_ParticleSelector.sort();
+	PEP_ParticleSelector.setSelected( %particleId, false );
 
-    // Remove from unlisted.
+	// Add particle to dropdowns in the emitter editor.
 
-    PE_UnlistedParticles.remove( %particleId );
+	for( %i = 1; %i < 5; %i ++ ) {
+		%emitterParticle = "PEE_EmitterParticle" @ %i;
+		%popup = %emitterParticle-->PopupMenu;
+		%popup.add( %particle, %particleId );
+		%popup.sort();
 
-    // Add it to the dropdown.
+		if( %i == %particleIndex + 1 )
+			%popup.setSelected( %particleId );
+	}
 
-    PEP_ParticleSelector.add( %particle, %particleId );
-    PEP_ParticleSelector.sort();
-    PEP_ParticleSelector.setSelected( %particleId, false );
-
-    // Add particle to dropdowns in the emitter editor.
-
-    for( %i = 1; %i < 5; %i ++ ) {
-        %emitterParticle = "PEE_EmitterParticle" @ %i;
-        %popup = %emitterParticle-->PopupMenu;
-
-        %popup.add( %particle, %particleId );
-        %popup.sort();
-
-        if( %i == %particleIndex + 1 )
-            %popup.setSelected( %particleId );
-    }
-
-    // Sync up.
-
-    PE_ParticleEditor.loadNewParticle();
-    Parent::redo( %this );
+	// Sync up.
+	PE_ParticleEditor.loadNewParticle();
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionCreateNewParticle::undo( %this ) {
-    %particle = %this.particle.getName();
-    %particleId = %this.particle.getId();
-    %emitter = %this.emitter;
+	%particle = %this.particle.getName();
+	%particleId = %this.particle.getId();
+	%emitter = %this.emitter;
+	// Add to unlisted.
+	PE_UnlistedParticles.add( %particleId );
+	// Remove from dropdown.
+	PEP_ParticleSelector.clearEntry( %particleId );
+	PEP_ParticleSelector.setFirstSelected( false );
 
-    // Add to unlisted.
+	// Remove from particle dropdowns in emitter editor.
 
-    PE_UnlistedParticles.add( %particleId );
+	for( %i = 1; %i < 5; %i ++ ) {
+		%emitterParticle = "PEE_EmitterParticle" @ %i;
+		%popup = %emitterParticle-->PopUpMenu;
 
-    // Remove from dropdown.
+		if( %popup.getSelected() == %particleId )
+			%popup.setSelected( %this.prevParticle );
 
-    PEP_ParticleSelector.clearEntry( %particleId );
-    PEP_ParticleSelector.setFirstSelected( false );
+		%popup.clearEntry( %particleId );
+	}
 
-    // Remove from particle dropdowns in emitter editor.
-
-    for( %i = 1; %i < 5; %i ++ ) {
-        %emitterParticle = "PEE_EmitterParticle" @ %i;
-        %popup = %emitterParticle-->PopUpMenu;
-
-        if( %popup.getSelected() == %particleId )
-            %popup.setSelected( %this.prevParticle );
-
-        %popup.clearEntry( %particleId );
-    }
-
-    // Sync up.
-
-    PE_ParticleEditor.loadNewParticle();
-    Parent::undo( %this );
+	// Sync up.
+	PE_ParticleEditor.loadNewParticle();
+	Parent::undo( %this );
 }
 
 //=============================================================================================
@@ -412,88 +352,79 @@ function ActionCreateNewParticle::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionDeleteParticle::redo( %this ) {
-    %particle = %this.particle.getName();
-    %particleId = %this.particle.getId();
-    %emitter = %this.emitter;
+	%particle = %this.particle.getName();
+	%particleId = %this.particle.getId();
+	%emitter = %this.emitter;
+	// Add to unlisted.
+	PE_UnlistedParticles.add( %particleId );
 
-    // Add to unlisted.
+	// Remove from file.
 
-    PE_UnlistedParticles.add( %particleId );
+	if(    %particle.getFileName() !$= ""
+												  && %particle.getFilename() !$= "tlab/particleEditor/particleParticleEditor.ed.cs" )
+		PE_ParticleSaver.removeObjectFromFile( %particleId );
 
-    // Remove from file.
+	// Remove from dropdown.
+	PEP_ParticleSelector.clearEntry( %particleId );
+	PEP_ParticleSelector.setFirstSelected();
 
-    if(    %particle.getFileName() !$= ""
-                                       && %particle.getFilename() !$= "tlab/particleEditor/particleParticleEditor.ed.cs" )
-        PE_ParticleSaver.removeObjectFromFile( %particleId );
+	// Remove from particle selectors in emitter.
 
-    // Remove from dropdown.
+	for( %i = 1; %i < 5; %i ++ ) {
+		%emitterParticle = "PEE_EmitterParticle" @ %i;
+		%popup = %emitterParticle-->PopUpMenu;
 
-    PEP_ParticleSelector.clearEntry( %particleId );
-    PEP_ParticleSelector.setFirstSelected();
+		if( %popup.getSelected() == %particleId ) {
+			%this.particleIndex = %i - 1;
+			%popup.setSelected( 0 ); // Select "None".
+		}
 
-    // Remove from particle selectors in emitter.
+		%popup.clearEntry( %particleId );
+	}
 
-    for( %i = 1; %i < 5; %i ++ ) {
-        %emitterParticle = "PEE_EmitterParticle" @ %i;
-        %popup = %emitterParticle-->PopUpMenu;
-
-        if( %popup.getSelected() == %particleId ) {
-            %this.particleIndex = %i - 1;
-            %popup.setSelected( 0 ); // Select "None".
-        }
-
-        %popup.clearEntry( %particleId );
-    }
-
-    // Sync up.
-
-    PE_ParticleEditor.loadNewParticle();
-    Parent::redo( %this );
+	// Sync up.
+	PE_ParticleEditor.loadNewParticle();
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionDeleteParticle::undo( %this ) {
-    %particle = %this.particle.getName();
-    %particleId = %this.particle.getId();
-    %particleIndex = %this.particleIndex;
-    %emitter = %this.emitter;
+	%particle = %this.particle.getName();
+	%particleId = %this.particle.getId();
+	%particleIndex = %this.particleIndex;
+	%emitter = %this.emitter;
+	// Remove from unlisted.
+	PE_UnlistedParticles.remove( %particleId );
 
-    // Remove from unlisted.
+	// Resave to file.
 
-    PE_UnlistedParticles.remove( %particleId );
+	if(    %particle.getFilename() !$= ""
+												  && %particle.getFilename() !$= "tlab/particleEditor/particleParticleEditor.ed.gui" ) {
+		PE_ParticleSaver.setDirty( %particle );
+		PE_ParticleSaver.saveDirty();
+	}
 
-    // Resave to file.
+	// Add to dropdown.
+	PEP_ParticleSelector.add( %particle, %particleId );
+	PEP_ParticleSelector.sort();
+	PEP_ParticleSelector.setSelected( %particleId );
 
-    if(    %particle.getFilename() !$= ""
-                                       && %particle.getFilename() !$= "tlab/particleEditor/particleParticleEditor.ed.gui" ) {
-        PE_ParticleSaver.setDirty( %particle );
-        PE_ParticleSaver.saveDirty();
-    }
+	// Add particle to dropdowns in the emitter editor.
 
-    // Add to dropdown.
+	for( %i = 1; %i < 5; %i ++ ) {
+		%emitterParticle = "PEE_EmitterParticle" @ %i;
+		%popup = %emitterParticle-->PopUpMenu;
+		%popup.add( %particle, %particleId );
+		%popup.sort();
 
-    PEP_ParticleSelector.add( %particle, %particleId );
-    PEP_ParticleSelector.sort();
-    PEP_ParticleSelector.setSelected( %particleId );
+		if( %i == %particleIndex + 1 )
+			%popup.setSelected( %particleId );
+	}
 
-    // Add particle to dropdowns in the emitter editor.
-
-    for( %i = 1; %i < 5; %i ++ ) {
-        %emitterParticle = "PEE_EmitterParticle" @ %i;
-        %popup = %emitterParticle-->PopUpMenu;
-
-        %popup.add( %particle, %particleId );
-        %popup.sort();
-
-        if( %i == %particleIndex + 1 )
-            %popup.setSelected( %particleId );
-    }
-
-    // Sync up.
-
-    PE_ParticleEditor.loadNewParticle();
-    Parent::undo( %This );
+	// Sync up.
+	PE_ParticleEditor.loadNewParticle();
+	Parent::undo( %This );
 }
 
 //=============================================================================================
@@ -503,17 +434,15 @@ function ActionDeleteParticle::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveParticle::redo( %this ) {
-    %particle = %this.particle;
-    %particle.setFieldValue( %this.field, %this.newValue );
-
-    Parent::redo( %this );
+	%particle = %this.particle;
+	%particle.setFieldValue( %this.field, %this.newValue );
+	Parent::redo( %this );
 }
 
 function ActionUpdateActiveParticle::undo( %this ) {
-    %particle = %this.particle;
-    %particle.setFieldValue( %this.field, %this.oldValue );
-
-    Parent::undo( %this );
+	%particle = %this.particle;
+	%particle.setFieldValue( %this.field, %this.oldValue );
+	Parent::undo( %this );
 }
 
 //=============================================================================================
@@ -523,23 +452,19 @@ function ActionUpdateActiveParticle::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveParticleLifeFields::redo( %this ) {
-    %particle = %this.particle;
-
-    %particle.lifetimeMS = %this.newValueLifetimeMS;
-    %particle.lifetimeVarianceMS = %this.newValueLifetimeVarianceMS;
-
-    Parent::redo( %this );
+	%particle = %this.particle;
+	%particle.lifetimeMS = %this.newValueLifetimeMS;
+	%particle.lifetimeVarianceMS = %this.newValueLifetimeVarianceMS;
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveParticleLifeFields::undo( %this ) {
-    %particle = %this.particle;
-
-    %particle.lifetimeMS = %this.oldValueLifetimeMS;
-    %particle.lifetimeVarianceMS = %this.oldValueLifetimeVarianceMS;
-
-    Parent::undo( %this );
+	%particle = %this.particle;
+	%particle.lifetimeMS = %this.oldValueLifetimeMS;
+	%particle.lifetimeVarianceMS = %this.oldValueLifetimeVarianceMS;
+	Parent::undo( %this );
 }
 
 //=============================================================================================
@@ -549,21 +474,17 @@ function ActionUpdateActiveParticleLifeFields::undo( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveParticleSpinFields::redo( %this ) {
-    %particle = %this.particle;
-
-    %particle.spinRandomMax = %this.newValueSpinRandomMax;
-    %particle.spinRandomMin = %this.newValueSpinRandomMin;
-
-    Parent::redo( %this );
+	%particle = %this.particle;
+	%particle.spinRandomMax = %this.newValueSpinRandomMax;
+	%particle.spinRandomMin = %this.newValueSpinRandomMin;
+	Parent::redo( %this );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function ActionUpdateActiveParticleSpinFields::undo( %this ) {
-    %particle = %this.particle;
-
-    %particle.spinRandomMax = %this.oldValueSpinRandomMax;
-    %particle.spinRandomMin = %this.oldValueSpinRandomMin;
-
-    Parent::undo( %this );
+	%particle = %this.particle;
+	%particle.spinRandomMax = %this.oldValueSpinRandomMax;
+	%particle.spinRandomMin = %this.oldValueSpinRandomMin;
+	Parent::undo( %this );
 }

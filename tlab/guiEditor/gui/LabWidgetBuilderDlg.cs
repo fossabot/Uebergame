@@ -7,6 +7,6 @@
 
 //==============================================================================
 function LabWidgetBuilderDlg::onWake( %this ) {
-   GuiLab.initWidgetBuilder();
+	GuiLab.initWidgetBuilder();
 }
 //------------------------------------------------------------------------------

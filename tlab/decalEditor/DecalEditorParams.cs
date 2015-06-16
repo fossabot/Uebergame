@@ -7,7 +7,7 @@
 //==============================================================================
 // Initialize default plugin settings
 function DecalEditorPlugin::initDefaultSettings( %this ) {
-    Lab.addDefaultSetting(  "DefaultScale",         "1" );
+	Lab.addDefaultSetting(  "DefaultScale",         "1" );
 }
 //------------------------------------------------------------------------------
 
@@ -16,10 +16,10 @@ function DecalEditorPlugin::initDefaultSettings( %this ) {
 function DecalEditorPlugin::buildParams(%this,%params ) {
 //-------------------------------------------------
 // Group 1 Configuration
-    %gid++;
-    %pid = 0;
-    %params.groupData[%gid] = "General settings" TAB "Params_Stack" TAB "Rollout";
-    %params.groupParam[%gid,%pid++] = "DefaultScale"  TAB "" TAB "SliderEdit" TAB "range::0 10;;precision::2";
-    return %params;
+	%gid++;
+	%pid = 0;
+	%params.groupData[%gid] = "General settings" TAB "Params_Stack" TAB "Rollout";
+	%params.groupParam[%gid,%pid++] = "DefaultScale"  TAB "" TAB "SliderEdit" TAB "range::0 10;;precision::2";
+	return %params;
 }
 //------------------------------------------------------------------------------

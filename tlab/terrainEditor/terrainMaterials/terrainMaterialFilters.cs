@@ -134,13 +134,15 @@ function TerrainMaterialDlg::applyMaterialFilters( %this ) {
 //==============================================================================
 function TerrainMaterialDlg::setFilteredMaterialsSet( %this,%reset ) {
 	FilteredTerrainMaterialsSet.clear();
-	if (%reset){
+
+	if (%reset) {
 		%this.folderFilter = "All";
 		%this.surfaceFilter = "All";
 	}
+
 	%folderFilter = %this.folderFilter;
 	%surfaceFilter = %this.surfaceFilter;
-	
+
 	foreach(%mat in TerrainMaterialSet) {
 		%hideMe = false;
 

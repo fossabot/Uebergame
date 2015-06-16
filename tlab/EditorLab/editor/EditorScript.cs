@@ -17,46 +17,42 @@ function toggleEditor(%make) {
 		if( $InGuiEditor )
 			GuiEdit();
 
-      //Check if a mission have been loaded
+		//Check if a mission have been loaded
 		if( !$missionRunning ) {
 			// Flag saying, when level is chosen, launch it with the editor open.
 			ChooseLevelDlg.launchInEditor = true;
 			Canvas.pushDialog( ChooseLevelDlg );
 			return;
 		}
-		
-		//We have a running mission, check if looking to launch or close		
-      pushInstantGroup();
-      
-      //If Launched for first time, create the EditorManager
-      if ( !isObject( Editor ) ) {
-         Editor::create();
-         MissionCleanup.add( Editor );
-         MissionCleanup.add( Editor.getUndoManager() );
-      }
 
-      //If the Editor is currently active, we should close it
-      if( EditorIsActive() ) {        
-         Editor.close($HudCtrl); //Close will set content to specified GUI    
-         popInstantGroup();   
-         return;        
-      }   
-      
-      //There's no Editor active and there's a running mission, launch Editor    
-      // Cancel any Game Schedule 
-      cancel($Game::Schedule);
-      
-      //Show the loading editor progress dialog
-      canvas.pushDialog( EditorLoadingGui );
-      canvas.repaint();
-      
-      //Editor Open function will deal with the Editor Loading     
-      Editor.open();
-      
-      //Everything Loaded, close Loading Dialog
-      canvas.popDialog(EditorLoadingGui);		
-      popInstantGroup();	
+		//We have a running mission, check if looking to launch or close
+		pushInstantGroup();
 
+		//If Launched for first time, create the EditorManager
+		if ( !isObject( Editor ) ) {
+			Editor::create();
+			MissionCleanup.add( Editor );
+			MissionCleanup.add( Editor.getUndoManager() );
+		}
+
+		//If the Editor is currently active, we should close it
+		if( EditorIsActive() ) {
+			Editor.close($HudCtrl); //Close will set content to specified GUI
+			popInstantGroup();
+			return;
+		}
+
+		//There's no Editor active and there's a running mission, launch Editor
+		// Cancel any Game Schedule
+		cancel($Game::Schedule);
+		//Show the loading editor progress dialog
+		canvas.pushDialog( EditorLoadingGui );
+		canvas.repaint();
+		//Editor Open function will deal with the Editor Loading
+		Editor.open();
+		//Everything Loaded, close Loading Dialog
+		canvas.popDialog(EditorLoadingGui);
+		popInstantGroup();
 		%elapsed = stopPrecisionTimer( %timerId );
 		info( "Time spent in toggleEditor() : " @ %elapsed / 1000.0 @ " s" );
 	}
@@ -98,6 +94,7 @@ function Editor::getUndoManager(%this) {
 			numLevels = 200;
 		};
 	}
+
 	return %this.undoManager;
 }
 
@@ -116,6 +113,7 @@ function Editor::checkActiveLoadDone() {
 		EditorGui.loadingMission = false;
 		return true;
 	}
+
 	return false;
 }
 
@@ -154,11 +152,9 @@ package EditorDisconnectOverride {
 activatePackage( EditorDisconnectOverride );
 //==============================================================================
 function EditorGui::onNewLevelLoaded( %this, %levelName ) {
-	Lab.levelName = %levelName;	
-	
+	Lab.levelName = %levelName;
 	Lab.setMenuDefaultState("EditorCameraSpeedOptions");
 	//EditorCameraSpeedOptions.setupDefaultState();
-
 	new ScriptObject( EditorMissionCleanup ) {
 		parentGroup = "MissionCleanup";
 	};

@@ -7,7 +7,6 @@
 //==============================================================================
 function TerrainMaterialDlg::show( %this, %matIndex, %terrMat, %onApplyCallback ) {
 	Canvas.pushDialog( %this );
-
 	%this.matIndex = %matIndex;
 	%this.onApplyCallback = %onApplyCallback;
 	%matLibTree = %this-->matLibTree;
@@ -169,7 +168,7 @@ function TerrainMaterialTreeCtrl::onUnSelect( %this, %item ) {
 function TerrainMaterialDlg::_selectTextureFileDialog( %this, %defaultFileName ) {
 	if( $Pref::TerrainEditor::LastPath $= "" )
 		$Pref::TerrainEditor::LastPath = "art/terrains/";
-		
+
 	if (TerrainPainterTools.defaultTexturesFolder !$= "")
 		%defaultPath = TerrainPainterTools.defaultTexturesFolder;
 	else

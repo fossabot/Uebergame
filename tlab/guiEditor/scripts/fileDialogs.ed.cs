@@ -26,63 +26,64 @@ $GUI::FileSpec = "Torque Gui Files (*.gui)|*.gui|All Files (*.*)|*.*|";
 ///  location to save the current document.
 /// @arg defaultFileName   The FileName to default in the field and to be selected when a path is opened
 function GuiBuilder::getSaveName( %defaultFileName ) {
-    %defaultPath = GuiEditor.LastPath;
+	%defaultPath = GuiEditor.LastPath;
 
-    if( %defaultFileName $= "" ) {
-        %prefix = "";
-        if( isFunction( "isScriptPathExpando" ) ) {
-            // if we're editing a game, we want to default to the games dir.
-            // if we're not, then we default to the tools directory or the base.
-            if( isScriptPathExpando( "^game") )
-                %prefix = "^game/";
-            else if( isScriptPathExpando( "^tools" ) )
-                %prefix = "^tlab/";
-        }
+	if( %defaultFileName $= "" ) {
+		%prefix = "";
 
-        %defaultFileName = expandFilename( %prefix @ "gui/untitled.gui" );
-    } else
-        %defaultPath = filePath( %defaultFileName );
+		if( isFunction( "isScriptPathExpando" ) ) {
+			// if we're editing a game, we want to default to the games dir.
+			// if we're not, then we default to the tools directory or the base.
+			if( isScriptPathExpando( "^game") )
+				%prefix = "^game/";
+			else if( isScriptPathExpando( "^tools" ) )
+				%prefix = "^tlab/";
+		}
 
-    %dlg = new SaveFileDialog() {
-        Filters           = $GUI::FileSpec;
-        DefaultPath       = makeFullPath( %defaultPath );
-        DefaultFile       = %defaultFileName;
-        ChangePath        = false;
-        OverwritePrompt   = true;
-    };
+		%defaultFileName = expandFilename( %prefix @ "gui/untitled.gui" );
+	} else
+		%defaultPath = filePath( %defaultFileName );
 
-    if( %dlg.Execute() ) {
-        GuiEditor.LastPath = filePath( %dlg.FileName );
-        %filename = %dlg.FileName;
-        if( fileExt( %filename ) !$= ".gui" )
-            %filename = %filename @ ".gui";
-    } else
-        %filename = "";
+	%dlg = new SaveFileDialog() {
+		Filters           = $GUI::FileSpec;
+		DefaultPath       = makeFullPath( %defaultPath );
+		DefaultFile       = %defaultFileName;
+		ChangePath        = false;
+		OverwritePrompt   = true;
+	};
 
-    %dlg.delete();
+	if( %dlg.Execute() ) {
+		GuiEditor.LastPath = filePath( %dlg.FileName );
+		%filename = %dlg.FileName;
 
-    return %filename;
+		if( fileExt( %filename ) !$= ".gui" )
+			%filename = %filename @ ".gui";
+	} else
+		%filename = "";
+
+	%dlg.delete();
+	return %filename;
 }
 
 function GuiBuilder::getOpenName( %defaultFileName ) {
-    if( %defaultFileName $= "" )
-        %defaultFileName = expandFilename("^game/gui/untitled.gui");
+	if( %defaultFileName $= "" )
+		%defaultFileName = expandFilename("^game/gui/untitled.gui");
 
-    %dlg = new OpenFileDialog() {
-        Filters        = $GUI::FileSpec;
-        DefaultPath    = GuiEditor.LastPath;
-        DefaultFile    = %defaultFileName;
-        ChangePath     = false;
-        MustExist      = true;
-    };
+	%dlg = new OpenFileDialog() {
+		Filters        = $GUI::FileSpec;
+		DefaultPath    = GuiEditor.LastPath;
+		DefaultFile    = %defaultFileName;
+		ChangePath     = false;
+		MustExist      = true;
+	};
 
-    if(%dlg.Execute()) {
-        GuiEditor.LastPath = filePath( %dlg.FileName );
-        %filename = %dlg.FileName;
-        %dlg.delete();
-        return %filename;
-    }
+	if(%dlg.Execute()) {
+		GuiEditor.LastPath = filePath( %dlg.FileName );
+		%filename = %dlg.FileName;
+		%dlg.delete();
+		return %filename;
+	}
 
-    %dlg.delete();
-    return "";
+	%dlg.delete();
+	return "";
 }

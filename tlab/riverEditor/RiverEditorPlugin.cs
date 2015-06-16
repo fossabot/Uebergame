@@ -10,18 +10,15 @@
 
 //==============================================================================
 // Prepare the default config array for the Scene Editor Plugin
-function RiverEditorPlugin::initParamsArray( %this,%cfgArray )
-{  	
+function RiverEditorPlugin::initParamsArray( %this,%cfgArray ) {
 	%cfgArray.group[%gId++] = "General settings";
 	%cfgArray.setVal("DefaultWidth",       "10" TAB "DefaultWidth" TAB "TextEdit" TAB "" TAB "RiverEditorGui" TAB %gId);
-   %cfgArray.setVal("DefaultDepth",   "5" TAB "DefaultDepth" TAB "TextEdit" TAB "" TAB "RiverEditorGui" TAB %gId);
-   %cfgArray.setVal("DefaultNormal","0 0 1" TAB "DefaultNormal" TAB "TextEdit" TAB "" TAB "RiverEditorGui" TAB %gId);  
-   
-  %cfgArray.group[%gId++] = "Color settings";
-   %cfgArray.setVal("HoverSplineColor",       "255 0 0 255" TAB "HoverSplineColor" TAB "ColorInt" TAB "" TAB "RiverEditorGui" TAB %gId);
-   %cfgArray.setVal("SelectedSplineColor",       "0 255 0 255" TAB "SelectedSplineColor" TAB "ColorInt" TAB "" TAB "RiverEditorGui" TAB %gId);
-   %cfgArray.setVal("HoverNodeColor",       "255 255 255 255" TAB "HoverNodeColor" TAB "ColorInt" TAB "" TAB "RiverEditorGui" TAB %gId);
-  
+	%cfgArray.setVal("DefaultDepth",   "5" TAB "DefaultDepth" TAB "TextEdit" TAB "" TAB "RiverEditorGui" TAB %gId);
+	%cfgArray.setVal("DefaultNormal","0 0 1" TAB "DefaultNormal" TAB "TextEdit" TAB "" TAB "RiverEditorGui" TAB %gId);
+	%cfgArray.group[%gId++] = "Color settings";
+	%cfgArray.setVal("HoverSplineColor",       "255 0 0 255" TAB "HoverSplineColor" TAB "ColorInt" TAB "" TAB "RiverEditorGui" TAB %gId);
+	%cfgArray.setVal("SelectedSplineColor",       "0 255 0 255" TAB "SelectedSplineColor" TAB "ColorInt" TAB "" TAB "RiverEditorGui" TAB %gId);
+	%cfgArray.setVal("HoverNodeColor",       "255 255 255 255" TAB "HoverNodeColor" TAB "ColorInt" TAB "" TAB "RiverEditorGui" TAB %gId);
 }
 //------------------------------------------------------------------------------
 
@@ -29,99 +26,80 @@ function RiverEditorPlugin::initParamsArray( %this,%cfgArray )
 // Plugin Object Callbacks - Called from TLab plugin management scripts
 //==============================================================================
 function RiverEditorPlugin::onWorldEditorStartup( %this ) {
-    Parent::onWorldEditorStartup( %this );
-
-
-    // Add ourselves to the Editor Settings window
-   
+	Parent::onWorldEditorStartup( %this );
+	// Add ourselves to the Editor Settings window
 }
 
 function RiverEditorPlugin::onActivated( %this ) {
-
-    $River::EditorOpen = true;
-
-    EWToolsPaletteArray->RiverEditorAddRiverMode.performClick();
-    EditorGui.bringToFront( RiverEditorGui );
-
-    RiverEditorGui.setVisible(true);
-    RiverEditorGui.makeFirstResponder( true );
-    RiverEditorToolbar.setVisible(true);
-
-    RiverEditorOptionsWindow.setVisible( true );
-    RiverEditorTreeWindow.setVisible( true );
-
-    RiverTreeView.open(ServerRiverSet,true);
-    %this.map.push();
-
-    // Store this on a dynamic field
-    // in order to restore whatever setting
-    // the user had before.
-    %this.prevGizmoAlignment = GlobalGizmoProfile.alignment;
-
-    // The DecalEditor always uses Object alignment.
-    GlobalGizmoProfile.alignment = "Object";
-
-    // Set the status bar here until all tool have been hooked up
-    EditorGuiStatusBar.setInfo("River editor.");
-    EditorGuiStatusBar.setSelection("");
-
-    // Allow the Gui to setup.
-    //RiverEditorGui.onEditorActivated();
-
-    Parent::onActivated(%this);
+	$River::EditorOpen = true;
+	EWToolsPaletteArray->RiverEditorAddRiverMode.performClick();
+	EditorGui.bringToFront( RiverEditorGui );
+	RiverEditorGui.setVisible(true);
+	RiverEditorGui.makeFirstResponder( true );
+	RiverEditorToolbar.setVisible(true);
+	RiverEditorOptionsWindow.setVisible( true );
+	RiverEditorTreeWindow.setVisible( true );
+	RiverTreeView.open(ServerRiverSet,true);
+	%this.map.push();
+	// Store this on a dynamic field
+	// in order to restore whatever setting
+	// the user had before.
+	%this.prevGizmoAlignment = GlobalGizmoProfile.alignment;
+	// The DecalEditor always uses Object alignment.
+	GlobalGizmoProfile.alignment = "Object";
+	// Set the status bar here until all tool have been hooked up
+	EditorGuiStatusBar.setInfo("River editor.");
+	EditorGuiStatusBar.setSelection("");
+	// Allow the Gui to setup.
+	//RiverEditorGui.onEditorActivated();
+	Parent::onActivated(%this);
 }
 
 function RiverEditorPlugin::onDeactivated( %this ) {
-  
-
-    $River::EditorOpen = false;
-
-    RiverEditorGui.setVisible(false);
-    RiverEditorToolbar.setVisible(false);
-    RiverEditorOptionsWindow.setVisible( false );
-    RiverEditorTreeWindow.setVisible( false );
-    %this.map.pop();
-
-    // Restore the previous Gizmo
-    // alignment settings.
-    GlobalGizmoProfile.alignment = %this.prevGizmoAlignment;
-
-    // Allow the Gui to cleanup.
-    RiverEditorGui.onEditorDeactivated();
-
-    Parent::onDeactivated(%this);
+	$River::EditorOpen = false;
+	RiverEditorGui.setVisible(false);
+	RiverEditorToolbar.setVisible(false);
+	RiverEditorOptionsWindow.setVisible( false );
+	RiverEditorTreeWindow.setVisible( false );
+	%this.map.pop();
+	// Restore the previous Gizmo
+	// alignment settings.
+	GlobalGizmoProfile.alignment = %this.prevGizmoAlignment;
+	// Allow the Gui to cleanup.
+	RiverEditorGui.onEditorDeactivated();
+	Parent::onDeactivated(%this);
 }
 
 
 
 function RiverEditorPlugin::isDirty( %this ) {
-    return RiverEditorGui.isDirty;
+	return RiverEditorGui.isDirty;
 }
 
 function RiverEditorPlugin::onSaveMission( %this, %missionFile ) {
-    if( RiverEditorGui.isDirty ) {
-        MissionGroup.save( %missionFile );
-        RiverEditorGui.isDirty = false;
-    }
+	if( RiverEditorGui.isDirty ) {
+		MissionGroup.save( %missionFile );
+		RiverEditorGui.isDirty = false;
+	}
 }
 
 function RiverEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
-    %hasSelection = false;
+	%hasSelection = false;
 
-    if( isObject( RiverEditorGui.river ) )
-        %hasSelection = true;
+	if( isObject( RiverEditorGui.river ) )
+		%hasSelection = true;
 
-    %editMenu.enableItem( 3, false ); // Cut
-    %editMenu.enableItem( 4, false ); // Copy
-    %editMenu.enableItem( 5, false ); // Paste
-    %editMenu.enableItem( 6, %hasSelection ); // Delete
-    %editMenu.enableItem( 8, false ); // Deselect
+	%editMenu.enableItem( 3, false ); // Cut
+	%editMenu.enableItem( 4, false ); // Copy
+	%editMenu.enableItem( 5, false ); // Paste
+	%editMenu.enableItem( 6, %hasSelection ); // Delete
+	%editMenu.enableItem( 8, false ); // Deselect
 }
 
 function RiverEditorPlugin::handleDelete( %this ) {
-    RiverEditorGui.deleteNode();
+	RiverEditorGui.deleteNode();
 }
 
 function RiverEditorPlugin::handleEscape( %this ) {
-    return RiverEditorGui.onEscapePressed();
+	return RiverEditorGui.onEscapePressed();
 }

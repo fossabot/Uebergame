@@ -34,6 +34,7 @@ function EditorGuiStatusBar::setSelection( %this, %text ) {
 
 function EditorGuiStatusBar::setSelectionObjectsByCount( %this, %count ) {
 	%text = " objects selected";
+
 	if(%count == 1)
 		%text = " object selected";
 
@@ -50,6 +51,7 @@ function EditorGuiStatusBar::getCamera( %this ) {
 
 function EditorGuiStatusBar::setCamera( %this, %text ) {
 	%id = EWorldEditorStatusBarCamera.findText( %text );
+
 	if( %id != -1 ) {
 		if ( EWorldEditorStatusBarCamera.getSelected() != %id )
 			EWorldEditorStatusBarCamera.setSelected( %id, true );

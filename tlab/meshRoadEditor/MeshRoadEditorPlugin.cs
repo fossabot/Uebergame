@@ -4,74 +4,66 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 function MeshRoadEditorPlugin::onWorldEditorStartup( %this ) {
-    Parent::onWorldEditorStartup( %this );
-
-    // Add ourselves to the Editor Settings window
-
+	Parent::onWorldEditorStartup( %this );
+	// Add ourselves to the Editor Settings window
 }
 
 function MeshRoadEditorPlugin::onActivated( %this ) {
-
-    EWToolsPaletteArray->MeshRoadEditorAddRoadMode.performClick();
-    EditorGui.bringToFront( MeshRoadEditorGui );  
-    MeshRoadEditorGui.makeFirstResponder( true );  
-    MeshRoadTreeView.open(ServerMeshRoadSet,true);
-    %this.map.push();
-
-    // Store this on a dynamic field
-    // in order to restore whatever setting
-    // the user had before.
-    %this.prevGizmoAlignment = GlobalGizmoProfile.alignment;
-
-    // The DecalEditor always uses Object alignment.
-    //GlobalGizmoProfile.alignment = "Object";
+	EWToolsPaletteArray->MeshRoadEditorAddRoadMode.performClick();
+	EditorGui.bringToFront( MeshRoadEditorGui );
+	MeshRoadEditorGui.makeFirstResponder( true );
+	MeshRoadTreeView.open(ServerMeshRoadSet,true);
+	%this.map.push();
+	// Store this on a dynamic field
+	// in order to restore whatever setting
+	// the user had before.
+	%this.prevGizmoAlignment = GlobalGizmoProfile.alignment;
+	// The DecalEditor always uses Object alignment.
+	//GlobalGizmoProfile.alignment = "Object";
 	Lab.setGizmoAlignment("Object");
-    // Set the status bar here until all tool have been hooked up
-    EditorGuiStatusBar.setInfo("Mesh road editor.");
-    EditorGuiStatusBar.setSelection("");
-
-    Parent::onActivated(%this);
+	// Set the status bar here until all tool have been hooked up
+	EditorGuiStatusBar.setInfo("Mesh road editor.");
+	EditorGuiStatusBar.setSelection("");
+	Parent::onActivated(%this);
 }
 
-function MeshRoadEditorPlugin::onDeactivated( %this ) {   
-    %this.map.pop();
-
-    // Restore the previous Gizmo
-    // alignment settings.
-    Lab.setGizmoAlignment(%this.prevGizmoAlignment);
-    //GlobalGizmoProfile.alignment = %this.prevGizmoAlignment;
-
-    Parent::onDeactivated(%this);
+function MeshRoadEditorPlugin::onDeactivated( %this ) {
+	%this.map.pop();
+	// Restore the previous Gizmo
+	// alignment settings.
+	Lab.setGizmoAlignment(%this.prevGizmoAlignment);
+	//GlobalGizmoProfile.alignment = %this.prevGizmoAlignment;
+	Parent::onDeactivated(%this);
 }
 
 function MeshRoadEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
-    %hasSelection = false;
+	%hasSelection = false;
 
-    if( isObject( MeshRoadEditorGui.road ) )
-        %hasSelection = true;
+	if( isObject( MeshRoadEditorGui.road ) )
+		%hasSelection = true;
 
-    %editMenu.enableItem( 3, false ); // Cut
-    %editMenu.enableItem( 4, false ); // Copy
-    %editMenu.enableItem( 5, false ); // Paste
-    %editMenu.enableItem( 6, %hasSelection ); // Delete
-    %editMenu.enableItem( 8, false ); // Deselect
+	%editMenu.enableItem( 3, false ); // Cut
+	%editMenu.enableItem( 4, false ); // Copy
+	%editMenu.enableItem( 5, false ); // Paste
+	%editMenu.enableItem( 6, %hasSelection ); // Delete
+	%editMenu.enableItem( 8, false ); // Deselect
 }
 
 function MeshRoadEditorPlugin::handleDelete( %this ) {
-    MeshRoadEditorGui.deleteNode();
+	MeshRoadEditorGui.deleteNode();
 }
 
 function MeshRoadEditorPlugin::handleEscape( %this ) {
-    return MeshRoadEditorGui.onEscapePressed();
+	return MeshRoadEditorGui.onEscapePressed();
 }
 
 function MeshRoadEditorPlugin::isDirty( %this ) {
-    return MeshRoadEditorGui.isDirty;
+	return MeshRoadEditorGui.isDirty;
 }
 
 function MeshRoadEditorPlugin::onSaveMission( %this, %missionFile ) {
-    if( MeshRoadEditorGui.isDirty ) {
-        MissionGroup.save( %missionFile );
-        MeshRoadEditorGui.isDirty = false;
-    }
+	if( MeshRoadEditorGui.isDirty ) {
+		MissionGroup.save( %missionFile );
+		MeshRoadEditorGui.isDirty = false;
+	}
 }

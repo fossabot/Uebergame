@@ -14,11 +14,10 @@ function LabMissionSettingsDlg::onWake( %this ) {
 
 //==============================================================================
 function LabMissionSettingsDlg::saveAndClose( %this ) {
-
 	theLevelInfo.levelName = %this-->LevelName.getValue();
 	theLevelInfo.levelDescription = %this-->LevelDescription.getText();
-
 	%inspect = SceneInspector.getInspectObject();
+
 	if(%inspect.getClassName() $= "LevelInfo")
 		SceneInspector.inspect(%inspect);
 
@@ -28,6 +27,5 @@ function LabMissionSettingsDlg::saveAndClose( %this ) {
 
 //==============================================================================
 function LabMissionSettingsDlg::cancelChanges( %this ) {
-
 }
 //------------------------------------------------------------------------------

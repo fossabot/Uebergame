@@ -30,57 +30,56 @@
 //---------------------------------------------------------------------------------------------
 
 function UndoActionReparentObjects::create( %treeView ) {
-    pushInstantGroup();
-    %action = new UndoScriptAction() {
-        class = "UndoActionReparentObjects";
-        numObjects = 0;
-        treeView = %treeView;
-    };
-    popInstantGroup();
-
-    return %action;
+	pushInstantGroup();
+	%action = new UndoScriptAction() {
+		class = "UndoActionReparentObjects";
+		numObjects = 0;
+		treeView = %treeView;
+	};
+	popInstantGroup();
+	return %action;
 }
 
 //---------------------------------------------------------------------------------------------
 
 function UndoActionReparentObjects::add( %this, %object, %oldParent, %newParent ) {
-    %index = %this.numObjects;
-
-    %this.objects[ %index ] = %object;
-    %this.oldParents[ %index ] = %oldParent;
-    %this.newParents[ %index ] = %newParent;
-
-    %this.numObjects = %this.numObjects + 1;
+	%index = %this.numObjects;
+	%this.objects[ %index ] = %object;
+	%this.oldParents[ %index ] = %oldParent;
+	%this.newParents[ %index ] = %newParent;
+	%this.numObjects = %this.numObjects + 1;
 }
 
 //---------------------------------------------------------------------------------------------
 
 function UndoActionReparentObjects::undo( %this ) {
-    %numObjects = %this.numObjects;
-    for( %i = 0; %i < %numObjects; %i ++ ) {
-        %obj = %this.objects[ %i ];
-        %group = %this.oldParents[ %i ];
+	%numObjects = %this.numObjects;
 
-        if( isObject( %obj ) && isObject( %group ) )
-            %obj.parentGroup = %group;
-    }
+	for( %i = 0; %i < %numObjects; %i ++ ) {
+		%obj = %this.objects[ %i ];
+		%group = %this.oldParents[ %i ];
 
-    if( isObject( %this.treeView ) )
-        %this.treeView.update();
+		if( isObject( %obj ) && isObject( %group ) )
+			%obj.parentGroup = %group;
+	}
+
+	if( isObject( %this.treeView ) )
+		%this.treeView.update();
 }
 
 //---------------------------------------------------------------------------------------------
 
 function UndoActionReparentObjects::redo( %this ) {
-    %numObjects = %this.numObjects;
-    for( %i = 0; %i < %numObjects; %i ++ ) {
-        %obj = %this.objects[ %i ];
-        %group = %this.newParents[ %i ];
+	%numObjects = %this.numObjects;
 
-        if( isObject( %obj ) && isObject( %group ) )
-            %obj.parentGroup = %group;
-    }
+	for( %i = 0; %i < %numObjects; %i ++ ) {
+		%obj = %this.objects[ %i ];
+		%group = %this.newParents[ %i ];
 
-    if( isObject( %this.treeView ) )
-        %this.treeView.update();
+		if( isObject( %obj ) && isObject( %group ) )
+			%obj.parentGroup = %group;
+	}
+
+	if( isObject( %this.treeView ) )
+		%this.treeView.update();
 }

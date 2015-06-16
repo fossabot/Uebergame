@@ -6,7 +6,6 @@
 
 //==============================================================================
 function Lab::initLabMenuData(%this,%buildAfter) {
-
 	//set up %cmdctrl variable so that it matches OS standards
 	if( $platform $= "macos" ) {
 		%cmdCtrl = "Cmd";
@@ -41,7 +40,6 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 	$LabMenuItem[%id,%itemId++] = "Play Level" TAB "F11" TAB "Editor.close($HudCtrl);";
 	$LabMenuItem[%id,%itemId++] = "Exit Level" TAB "" TAB "EditorExitMission();";
 	$LabMenuItem[%id,%itemId++] = "Quit" TAB %quitShortcut TAB "EditorQuitGame();";
-
 	%itemId = -1;
 	$LabMenu[%id++] = "Edit";
 	$LabMenuItem[%id,%itemId++] = "Undo" TAB %cmdCtrl SPC "Z" TAB "Editor.getUndoManager().undo();";
@@ -58,17 +56,14 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 	$LabMenuItem[%id,%itemId++] = "Audio Parameters..." TAB "" TAB "EManageSFXParameters.ToggleVisibility();";
 	$LabMenuItem[%id,%itemId++] = "LabEditor Settings..." TAB "" TAB "toggleDlg(LabSettingsDlg);";
 	$LabMenuItem[%id,%itemId++] = "Snap Options..." TAB "" TAB "ESnapOptions.ToggleVisibility();";
-		
 	$LabMenuItem[%id,%itemId++] = "-";
 	$LabMenuItem[%id,%itemId++] = "Game Options..." TAB "" TAB "Canvas.pushDialog(DlgOptions);";
 	$LabMenuItem[%id,%itemId++] = "PostEffect Manager" TAB "" TAB "Canvas.pushDialog(PostFXManager);";
 	$LabMenuItem[%id,%itemId++] = "Copy Tool" TAB "" TAB "toggleDlg(ToolObjectCopyDlg);";
-
 	%itemId = -1;
 	$LabMenu[%id++] = "View";
 	$LabMenuItem[%id,%itemId++] = "Visibility Layers" TAB "Alt V" TAB "EVisibilityLayers.toggleVisibility();";
 	$LabMenuItem[%id,%itemId++] = "Show Grid in Ortho Views" TAB %cmdCtrl @ "-Shift-Alt G" TAB "EWorldEditor.renderOrthoGrid = !EWorldEditor.renderOrthoGrid;";
-
 	%itemId = -1;
 	$LabMenu[%id++] = "Object";
 	$LabMenuItem[%id,%itemId++] = "Lock Selection" TAB %cmdCtrl @ " L" TAB "EWorldEditor.lockSelection(true); EWorldEditor.syncGui();";
@@ -116,13 +111,11 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 	$LabMenuItem[%id,%itemId++] = "Toggle ShadowViz" TAB "" TAB "toggleShadowViz();";
 	$LabMenuItem[%id,%itemId++] = "-------------";
 	$LabMenuItem[%id,%itemId++] = "Open disabled plugins bin" TAB "" TAB "Lab.openDisabledPluginsBin();";
-
-
 	%itemId = -1;
 	$LabMenu[%id++] = "Camera";
 	$LabMenuItem[%id,%itemId++] = "World Camera";
 	$LabMenuItem[%id,%itemId++] = "Player Camera";
-	$LabMenuItem[%id,%itemId++] = "-";	
+	$LabMenuItem[%id,%itemId++] = "-";
 	$LabMenuItem[%id,%itemId++] = "Toggle Control Object" TAB %menuCmdCtrl SPC "M" TAB "cmdServer(\"Lab.toggleControlObject\");";
 	$LabMenuItem[%id,%itemId++] = "Toggle Camera" TAB %menuCmdCtrl SPC "C" TAB "cmdServer(\"Game.ToggleClientCamera\");";
 	$LabMenuItem[%id,%itemId++] = "Place Camera at Selection" TAB "Ctrl Q" TAB "EWorldEditor.dropCameraToSelection();";
@@ -133,8 +126,8 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 	$LabMenuItem[%id,%itemId++] = "Fit View To Selection and Orbit" TAB "Alt F" TAB "EditorGuiStatusBar.setCamera(\"Orbit Camera\"; commandToServer('EditorCameraAutoFit', EWorldEditor.getSelectionRadius()+1);";
 	$LabMenuItem[%id,%itemId++] = "-";
 	$LabMenuItem[%id,%itemId++] = "Speed";
-	%subId=-1;	
-   $LabMenuSubMenuItem[%id,%itemId,%subId++] = "Slowest" TAB %cmdCtrl @ "-Shift 1" TAB "5";
+	%subId=-1;
+	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Slowest" TAB %cmdCtrl @ "-Shift 1" TAB "5";
 	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Slow" TAB %cmdCtrl @ "-Shift 2" TAB "35";
 	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Slower" TAB %cmdCtrl @ "-Shift 3" TAB "70";
 	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Normal" TAB %cmdCtrl @ "-Shift 4" TAB "100";
@@ -143,32 +136,32 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Fastest" TAB %cmdCtrl @ "-Shift 7" TAB "200";
 	$LabMenuItem[%id,%itemId++] = "View";
 	%subId=-1;
-		$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Top" TAB "Alt 2" TAB "Lab.setCameraViewType(\"Top View\");";
-		$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Bottom" TAB "Alt 5" TAB "Lab.setCameraViewType(\"Bottom View\");";
-		$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Front" TAB "Alt 3" TAB "Lab.setCameraViewType(\"Front View\");";
-		$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Back" TAB "Alt 6" TAB "Lab.setCameraViewType(\"Back View\");";
-		$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Left" TAB "Alt 4" TAB "Lab.setCameraViewType(\"Left View\");";
-		$LabMenuSubMenuItem[%id,%itemId,%subId++]= "Right" TAB "Alt 7" TAB "Lab.setCameraViewType(\"Right View\");";
-		$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Perspective" TAB "Alt 1" TAB "Lab.setCameraViewType(\"Standard Camera\");";
-		$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Isometric" TAB "Alt 8" TAB "Lab.setCameraViewType(\"Isometric View\");";
+	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Top" TAB "Alt 2" TAB "Lab.setCameraViewType(\"Top View\");";
+	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Bottom" TAB "Alt 5" TAB "Lab.setCameraViewType(\"Bottom View\");";
+	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Front" TAB "Alt 3" TAB "Lab.setCameraViewType(\"Front View\");";
+	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Back" TAB "Alt 6" TAB "Lab.setCameraViewType(\"Back View\");";
+	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Left" TAB "Alt 4" TAB "Lab.setCameraViewType(\"Left View\");";
+	$LabMenuSubMenuItem[%id,%itemId,%subId++]= "Right" TAB "Alt 7" TAB "Lab.setCameraViewType(\"Right View\");";
+	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Perspective" TAB "Alt 1" TAB "Lab.setCameraViewType(\"Standard Camera\");";
+	$LabMenuSubMenuItem[%id,%itemId,%subId++] = "Isometric" TAB "Alt 8" TAB "Lab.setCameraViewType(\"Isometric View\");";
 	$LabMenuItem[%id,%itemId++] = "-";
 	$LabMenuItem[%id,%itemId++] = "Add Bookmark..." TAB "Ctrl B" TAB "EManageBookmarks.addCameraBookmarkByGui();";
 	$LabMenuItem[%id,%itemId++] = "Manage Bookmarks..." TAB "Ctrl-Shift B" TAB "EManageBookmarks.ToggleVisibility();";
 	$LabMenuItem[%id,%itemId++] = "Jump to Bookmark";
 	%itemId = -1;
 	$LabMenu[%id++] = "Mission";
-   $LabMenuItem[%id,%itemId++] = "Mission settings" TAB "" TAB "toggleDlg(LabMissionSettingsDlg);";
-   $LabMenuItem[%id,%itemId++] = "Set next screenshot as preview" TAB "" TAB "Lab.setNextScreenShotPreview();";
-   %itemId = -1;
+	$LabMenuItem[%id,%itemId++] = "Mission settings" TAB "" TAB "toggleDlg(LabMissionSettingsDlg);";
+	$LabMenuItem[%id,%itemId++] = "Set next screenshot as preview" TAB "" TAB "Lab.setNextScreenShotPreview();";
+	%itemId = -1;
 	$LabMenu[%id++] = "Tool";
-   $LabMenuItem[%id,%itemId++] = "Editors";
-   $LabMenuEditorSubMenu = %id SPC %itemId;
-   $LabMenuEditorNextId = -1;
-   $LabMenuItem[%id,%itemId++] = "Capture current view as level preview" TAB "" TAB "Lab.setCurrentViewAsPreview();";
-   $LabMenuItem[%id,%itemId++] = "Set next screenshot as preview" TAB "" TAB "Lab.setNextScreenShotPreview();";
-	$LabMenuItem[%id,%itemId++] = "----------------------";   
-   $LabMenuItem[%id,%itemId++] = "Toggle GroundCover Manager" TAB "" TAB "SceneEditorDialogs.toggleDlg(\"GroundCover\");";
-   $LabMenuItem[%id,%itemId++] = "Toggle Ambient Manager" TAB "" TAB "SceneEditorDialogs.toggleDlg(\"AmbientManager\");";
+	$LabMenuItem[%id,%itemId++] = "Editors";
+	$LabMenuEditorSubMenu = %id SPC %itemId;
+	$LabMenuEditorNextId = -1;
+	$LabMenuItem[%id,%itemId++] = "Capture current view as level preview" TAB "" TAB "Lab.setCurrentViewAsPreview();";
+	$LabMenuItem[%id,%itemId++] = "Set next screenshot as preview" TAB "" TAB "Lab.setNextScreenShotPreview();";
+	$LabMenuItem[%id,%itemId++] = "----------------------";
+	$LabMenuItem[%id,%itemId++] = "Toggle GroundCover Manager" TAB "" TAB "SceneEditorDialogs.toggleDlg(\"GroundCover\");";
+	$LabMenuItem[%id,%itemId++] = "Toggle Ambient Manager" TAB "" TAB "SceneEditorDialogs.toggleDlg(\"AmbientManager\");";
 	%itemId = -1;
 	$LabMenu[%id++] = "Help";
 	$LabMenuItem[%id,%itemId++] = "Online Documentation..." TAB "Alt F1" TAB "gotoWebPage(EWorldEditor.documentationURL);";
@@ -185,22 +178,25 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 function Lab::buildMenu(%this) {
 	Lab.clearMenus();
 	%menuId = 0;
+
 	while($LabMenu[%menuId] !$= "") {
 		Lab.addMenu( $LabMenu[%menuId],%menuId);
 		%menuItemId = 0;
+
 		while($LabMenuItem[%menuId,%menuItemId] !$= "") {
 			%item = $LabMenuItem[%menuId,%menuItemId];
-
 			Lab.addMenuItem( %menuId, getField(%item,0),%menuItemId,getField(%item,1),-1);
 			%subMenuItemId = 0;
+
 			while($LabMenuSubMenuItem[%menuId,%menuItemId,%subMenuItemId] !$= "") {
 				%subitem = $LabMenuSubMenuItem[%menuId,%menuItemId,%subMenuItemId] ;
 				Lab.addSubmenuItem(%menuId,%menuItemId,getField(%subitem,0),%subMenuItemId,getField(%subitem,1),-1);
-
 				%subMenuItemId++;
 			}
+
 			%menuItemId++;
 		}
+
 		%menuId++;
 	}
 }

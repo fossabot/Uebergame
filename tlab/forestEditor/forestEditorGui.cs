@@ -24,53 +24,50 @@
 // ForestEditorGui Script Methods
 
 function ForestEditorGui::setActiveTool( %this, %tool ) {
-    if ( %tool == ForestTools->BrushTool )
-        ForestEditTabBook.selectPage(0);
+	if ( %tool == ForestTools->BrushTool )
+		ForestEditTabBook.selectPage(0);
 
-    Parent::setActiveTool( %this, %tool );
+	Parent::setActiveTool( %this, %tool );
 }
 
 /// This is called by the editor when the active forest has
 /// changed giving us a chance to update the GUI.
 function ForestEditorGui::onActiveForestUpdated( %this, %forest, %createNew ) {
-    %gotForest = isObject( %forest );
+	%gotForest = isObject( %forest );
 
-    // Give the user a chance to add a forest.
-    if ( !%gotForest && %createNew ) {
-        LabMsgYesNo(  "Forest",
-                           "There is not a Forest in this mission.  Do you want to add one?",
-                           %this @ ".createForest();", "" );
-        return;
-    }
+	// Give the user a chance to add a forest.
+	if ( !%gotForest && %createNew ) {
+		LabMsgYesNo(  "Forest",
+						  "There is not a Forest in this mission.  Do you want to add one?",
+						  %this @ ".createForest();", "" );
+		return;
+	}
 }
 
 /// Called from a message box when a forest is not found.
 function ForestEditorGui::createForest( %this ) {
-    if ( isObject( theForest ) ) {
-        error( "Cannot create a second 'theForest' Forest!" );
-        return;
-    }
+	if ( isObject( theForest ) ) {
+		error( "Cannot create a second 'theForest' Forest!" );
+		return;
+	}
 
-    // Allocate the Forest and make it undoable.
-    %file = strreplace(MissionGroup.getFilename(),".mis",".forest");
-    //%file = filePath(MissionGroup.getFilename())@"/data.forest";
-   %file = strreplace(MissionGroup.getFilename(),".mis","a.forest");
-    new Forest( theForest ) {  
-    	//dataFile = %file;      
-        parentGroup = "MissionGroup";
-    };
-	
-    MECreateUndoAction::submit( theForest );
-
-    ForestEditorInspector.inspect( theForest );
-
-    EWorldEditor.isDirty = true;
+	// Allocate the Forest and make it undoable.
+	%file = strreplace(MissionGroup.getFilename(),".mis",".forest");
+	//%file = filePath(MissionGroup.getFilename())@"/data.forest";
+	%file = strreplace(MissionGroup.getFilename(),".mis","a.forest");
+	new Forest( theForest ) {
+		//dataFile = %file;
+		parentGroup = "MissionGroup";
+	};
+	MECreateUndoAction::submit( theForest );
+	ForestEditorInspector.inspect( theForest );
+	EWorldEditor.isDirty = true;
 }
 
 
 function ForestEditorGui::deleteBrushOrElement( %this ) {
-    ForestEditBrushTree.deleteSelection();
-    ForestEditorPlugin.dirty = true;
+	ForestEditBrushTree.deleteSelection();
+	ForestEditorPlugin.dirty = true;
 }
 
 
@@ -80,90 +77,85 @@ function ForestEditorGui::deleteBrushOrElement( %this ) {
 
 
 function ForestEditMeshTree::onSelect( %this, %obj ) {
-    ForestEditorInspector.inspect( %obj );
+	ForestEditorInspector.inspect( %obj );
 }
 
 
 function ForestEditTabBook::onTabSelected( %this, %text, %idx ) {
-    %bbg = ForestEditorPalleteWindow.findObjectByInternalName("BrushButtonGroup");
-    %mbg = ForestEditorPalleteWindow.findObjectByInternalName("MeshButtonGroup");
+	%bbg = ForestEditorPalleteWindow.findObjectByInternalName("BrushButtonGroup");
+	%mbg = ForestEditorPalleteWindow.findObjectByInternalName("MeshButtonGroup");
+	%bbg.setVisible( false );
+	%mbg.setVisible( false );
 
-    %bbg.setVisible( false );
-    %mbg.setVisible( false );
-
-    if ( %text $= "Brushes" ) {
-        %bbg.setVisible( true );
-        %obj = ForestEditBrushTree.getSelectedObject();
-        ForestEditorInspector.inspect( %obj );
-    } else if ( %text $= "Meshes" ) {
-        %mbg.setVisible( true );
-        %obj = ForestEditMeshTree.getSelectedObject();
-        ForestEditorInspector.inspect( %obj );
-    }
+	if ( %text $= "Brushes" ) {
+		%bbg.setVisible( true );
+		%obj = ForestEditBrushTree.getSelectedObject();
+		ForestEditorInspector.inspect( %obj );
+	} else if ( %text $= "Meshes" ) {
+		%mbg.setVisible( true );
+		%obj = ForestEditMeshTree.getSelectedObject();
+		ForestEditorInspector.inspect( %obj );
+	}
 }
 
 
 
 function ForestEditorInspector::inspect( %this, %obj ) {
-    if ( isObject( %obj ) )
-        %class = %obj.getClassName();
+	if ( isObject( %obj ) )
+		%class = %obj.getClassName();
 
-    %this.showObjectName = false;
-    %this.showCustomFields = false;
+	%this.showObjectName = false;
+	%this.showCustomFields = false;
 
-    switch$ ( %class ) {
-    case "ForestBrush":
-        %this.groupFilters = "+NOTHING,-Ungrouped";
+	switch$ ( %class ) {
+	case "ForestBrush":
+		%this.groupFilters = "+NOTHING,-Ungrouped";
 
-    case "ForestBrushElement":
-        %this.groupFilters = "+ForestBrushElement,-Ungrouped";
+	case "ForestBrushElement":
+		%this.groupFilters = "+ForestBrushElement,-Ungrouped";
 
-    case "TSForestItemData":
-        %this.groupFilters = "+Media,+Wind";
+	case "TSForestItemData":
+		%this.groupFilters = "+Media,+Wind";
 
-    default:
-        %this.groupFilters = "";
-    }
+	default:
+		%this.groupFilters = "";
+	}
 
-    Parent::inspect( %this, %obj );
+	Parent::inspect( %this, %obj );
 }
 
 function ForestEditorInspector::onInspectorFieldModified( %this, %object, %fieldName, %oldValue, %newValue ) {
-    // The instant group will try to add our
-    // UndoAction if we don't disable it.
-    %instantGroup = $InstantGroup;
-    $InstantGroup = 0;
+	// The instant group will try to add our
+	// UndoAction if we don't disable it.
+	%instantGroup = $InstantGroup;
+	$InstantGroup = 0;
+	%nameOrClass = %object.getName();
 
-    %nameOrClass = %object.getName();
-    if ( %nameOrClass $= "" )
-        %nameOrClass = %object.getClassname();
+	if ( %nameOrClass $= "" )
+		%nameOrClass = %object.getClassname();
 
-    %action = new InspectorFieldUndoAction() {
-        actionName = %nameOrClass @ "." @ %fieldName @ " Change";
+	%action = new InspectorFieldUndoAction() {
+		actionName = %nameOrClass @ "." @ %fieldName @ " Change";
+		objectId = %object.getId();
+		fieldName = %fieldName;
+		fieldValue = %oldValue;
+		inspectorGui = %this;
+	};
+	// Restore the instant group.
+	$InstantGroup = %instantGroup;
+	%action.addToManager( Editor.getUndoManager() );
 
-        objectId = %object.getId();
-        fieldName = %fieldName;
-        fieldValue = %oldValue;
+	if ( %object.getClassName() $= "TSForestItemData" )
+		ForestDataManager.setDirty( %object );
 
-        inspectorGui = %this;
-    };
-
-    // Restore the instant group.
-    $InstantGroup = %instantGroup;
-
-    %action.addToManager( Editor.getUndoManager() );
-
-    if ( %object.getClassName() $= "TSForestItemData" )
-        ForestDataManager.setDirty( %object );
-
-    ForestEditorPlugin.dirty = true;
+	ForestEditorPlugin.dirty = true;
 }
 
 function ForestEditorInspector::onFieldSelected( %this, %fieldName, %fieldTypeStr, %fieldDoc ) {
-    //FieldInfoControl.setText( "<font:ArialBold:14>" @ %fieldName @ "<font:ArialItalic:14> (" @ %fieldTypeStr @ ") " NL "<font:Arial:14>" @ %fieldDoc );
+	//FieldInfoControl.setText( "<font:ArialBold:14>" @ %fieldName @ "<font:ArialItalic:14> (" @ %fieldTypeStr @ ") " NL "<font:Arial:14>" @ %fieldDoc );
 }
 
 function ForestBrushSizeSliderCtrlContainer::onWake(%this) {
-    %this-->slider.range = "1" SPC getWord(ETerrainEditor.maxBrushSize, 0);
-    %this-->slider.setValue(ForestBrushSizeTextEditContainer-->textEdit.getValue());
+	%this-->slider.range = "1" SPC getWord(ETerrainEditor.maxBrushSize, 0);
+	%this-->slider.setValue(ForestBrushSizeTextEditContainer-->textEdit.getValue());
 }

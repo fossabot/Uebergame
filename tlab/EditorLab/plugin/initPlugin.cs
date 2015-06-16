@@ -37,13 +37,13 @@ function Lab::createPlugin(%this,%pluginName,%displayName,%alwaysEnable) {
 		shortPlugin = %shortObjName;
 	};
 	LabPluginGroup.add(%pluginObj);
-	
+
 	if (strFind($TLab::DefaultPlugins,%pluginName))
 		%pluginObj.isDefaultPlugin = true;
 
 	if (%alwaysEnable)
 		$PluginAlwaysOn[%pluginName] = true;
-	
+
 	if (%pluginObj.isMethod("onPluginCreated"))
 		%pluginObj.onPluginCreated();
 
@@ -65,29 +65,25 @@ function Lab::initPluginConfig(%this,%pluginObj) {
 //	%array = newArrayObject("ar"@%pluginName@"Cfg",LabConfigArrayGroup);
 //	%array.pluginObj =%pluginObj;
 //	%pluginObj.arrayCfg = %array;
-
-	
-	
 //	%array.groupLink = "Plugins_"@%pluginName;
 //	%array.groupLinkName = %pluginName SPC "Settings";
 //	%array.internalName = %pluginName;
-
 	//if (%pluginObj.isMethod("initDefaultCfg"))
 //		%pluginObj.initDefaultCfg(%array);
-
 	//%array.setVal("pluginOrder",      "99" TAB "pluginOrder" TAB "" TAB "" TAB %pluginObj.getName());
 	//%array.setVal("isEnabled",      "1" TAB "isEnabled" TAB "" TAB "" TAB %pluginObj.getName());
-	
 	//Moving toward new params array system
 	%newArray = Lab.newParamsArray(%pluginName,"Plugins",%pluginObj);
 	%newArray.displayName = %pluginObj.displayName;
 	%pluginObj.paramArray = %newArray;
 	%newArray.pluginObj = %pluginObj;
-	 %newArray.paramCallback = "Lab.onParamPluginBuild";
-		%newArray.setVal("pluginOrder",      "99" TAB "pluginOrder" TAB "" TAB "" TAB %pluginObj.getName());
+	%newArray.paramCallback = "Lab.onParamPluginBuild";
+	%newArray.setVal("pluginOrder",      "99" TAB "pluginOrder" TAB "" TAB "" TAB %pluginObj.getName());
 	%newArray.setVal("isEnabled",      "1" TAB "isEnabled" TAB "" TAB "" TAB %pluginObj.getName());
+
 	if (%pluginObj.isMethod("initParamsArray"))
 		%pluginObj.initParamsArray(%newArray);
+
 	//%this.initConfigArray( %array,true);
 	//%pluginObj.isEnabled =  %pluginObj.checkCfg("Enabled","1");
 	//%pluginObj.pluginOrder =  %pluginObj.checkCfg("pluginOrder","99");

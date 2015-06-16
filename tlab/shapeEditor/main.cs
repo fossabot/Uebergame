@@ -10,10 +10,7 @@
 
 function initializeShapeEditor() {
 	echo(" % - Initializing Shape Editor");
-	
 	execShapeEd(true);
-	
-	
 	Lab.addPluginGui("ShapeEditor",ShapeEditorTools);
 	Lab.addPluginEditor("ShapeEditor",ShapeEdPreviewGui);
 	Lab.addPluginEditor("ShapeEditor",ShapeEdAnimWindow,true);
@@ -48,11 +45,8 @@ function initializeShapeEditor() {
 }
 //==============================================================================
 // Load the Scene Editor Plugin scripts, load Guis if %loadgui = true
-function execShapeEd(%loadGui)
-{
-	if (%loadGui)
-	{
-		
+function execShapeEd(%loadGui) {
+	if (%loadGui) {
 		exec("./gui/Profiles.cs");
 		exec("tlab/shapeEditor/gui/shapeEdPreviewWindow.gui");
 		exec("tlab/shapeEditor/gui/shapeEdAnimWindow.gui");
@@ -60,7 +54,7 @@ function execShapeEd(%loadGui)
 		exec("tlab/shapeEditor/gui/shapeEditorPalette.gui");
 		exec("tlab/shapeEditor/gui/ShapeEditorTools.gui");
 	}
-	
+
 	exec("./scripts/shapeEditor.cs");
 	exec("./scripts/shapeEditorHints.cs");
 	exec("./scripts/shapeEditorActions.cs");

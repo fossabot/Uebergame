@@ -24,16 +24,22 @@
 // Cleanup Dialog created by 'core'
 if( isObject( ToolsMsgPopupDlg ) )
 	ToolsMsgPopupDlg.delete();
+
 if( isObject( ToolsMsgBoxYesNoDlg ) )
 	ToolsMsgBoxYesNoDlg.delete();
+
 if( isObject( ToolsMsgBoxYesNoCancelDlg ) )
 	ToolsMsgBoxYesNoCancelDlg.delete();
+
 if( isObject( ToolsMsgBoxOKCancelDetailsDlg ) )
 	ToolsMsgBoxOKCancelDetailsDlg.delete();
+
 if( isObject( ToolsMsgBoxOKCancelDlg ) )
 	ToolsMsgBoxOKCancelDlg.delete();
+
 if( isObject( ToolsMsgBoxOKDlg ) )
 	ToolsMsgBoxOKDlg.delete();
+
 if( isObject( ToolsDropdownDlg ) )
 	ToolsDropdownDlg.delete();
 
@@ -86,7 +92,6 @@ function ToolsIOCallback(%dlg, %callback) {
 	%text = TIODropdownMenu.getTextById(%id);
 	%callback = strreplace(%callback, "#", %text);
 	eval(%callback);
-
 	Canvas.popDialog(%dlg);
 }
 
@@ -103,23 +108,19 @@ function TMBSetText(%text, %frame, %msg) {
 	%text.forceReflow();
 	// Grab the new extent of the text box.
 	%newExtent = %text.getExtent();
-
 	// Get the vertical change in extent.
 	%deltaY = getWord(%newExtent, 1) - getWord(%ext, 1);
-
 	// Resize the window housing the text box.
 	%windowPos = %frame.getPosition();
 	%windowExt = %frame.getExtent();
 	%frame.resize(getWord(%windowPos, 0), getWord(%windowPos, 1) - (%deltaY / 2),
-	              getWord(%windowExt, 0), getWord(%windowExt, 1) + %deltaY);
-
+					  getWord(%windowExt, 0), getWord(%windowExt, 1) + %deltaY);
 	%frame.canMove = "0";
 	//%frame.canClose = "0";
 	%frame.resizeWidth = "0";
 	%frame.resizeHeight = "0";
 	%frame.canMinimize = "0";
 	%frame.canMaximize = "0";
-
 	//sfxPlayOnce( ToolsMsgBoxBeep );
 }
 

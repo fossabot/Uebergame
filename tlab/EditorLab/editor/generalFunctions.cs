@@ -23,6 +23,7 @@ function EditorLightingComplete() {
 //==============================================================================
 function updateEditorLightingProgress() {
 	RelightProgress.setValue(($SceneLighting::lightingProgress));
+
 	if ($lightingMission)
 		$lightingProgressThread = schedule(1, 0, "updateEditorLightingProgress");
 }

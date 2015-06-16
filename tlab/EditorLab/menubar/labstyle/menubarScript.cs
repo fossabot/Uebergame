@@ -11,20 +11,15 @@
 
 //==============================================================================
 function Lab::addMenuBind(%this,%bind,%command) {
-
-
 	EditorMap.bindCmd(keyboard, %bind, %command, "");
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::addMenu(%this,%group,%id) {
-
 	if (%id $= "") %id = 1;
+
 	LabMenu.addMenu(%group,%id);
-
 	LabMenu.menuList = trim(LabMenu.menuList SPC %group);
-
-
 }
 //------------------------------------------------------------------------------
 
@@ -38,22 +33,20 @@ function Lab::addMenuItem(%this,%menu,%menuItemText,%menuItemId,%accelerator,%ch
 	%menuItemId 	Id for the new menu item.
 	%accelerator 	Accelerator key for the new menu item.
 	%checkGroup 	Check group to include this menu item in.*/
+	$LabMenuCallback[%menu,%menuItemId,%menuItemText] = getField($LabMenuItem[%menu,%menuItemId],2);
 
-$LabMenuCallback[%menu,%menuItemId,%menuItemText] = getField($LabMenuItem[%menu,%menuItemId],2);
 	if (%accelerator !$="") {
 		%callBack =  getField($LabMenuItem[%menu,%menuItemId],2);
 		%this.addMenuBind(%accelerator,%callBack);
 	}
+
 	LabMenu.addMenuItem(%menu,%menuItemText,%menuItemId,%accelerator,%checkGroup);
-
 	LabMenu.menuItemList[%menu] = trim(LabMenu.menuItemList[%menu] SPC %menuItemText);
-
 }
 //------------------------------------------------------------------------------
 
 //==============================================================================
 function Lab::addSubmenuItem(%this,%menuTarget,%menuItem,%submenuItemText,%submenuItemId,%accelerator,%checkGroup) {
-
 	/*Adds a menu item to the specified menu. The menu argument can be either the text of a menu or its id.
 
 	   Parameters:
@@ -67,50 +60,45 @@ function Lab::addSubmenuItem(%this,%menuTarget,%menuItem,%submenuItemText,%subme
 	    LabMenu.addSubmenuItem(1,1,"Sub",0,"",-1);
 	*/
 	$LabMenuCallback[%menuTarget,%submenuItemId,%submenuItemText] = getField($LabMenuSubMenuItem[%menuTarget,%menuItem,%submenuItemId],2);
+
 	if (%accelerator !$="") {
 		%callBack =  getField( $LabMenuSubMenuItem[%menuTarget,%menuItem,%submenuItemId],2);
 		%this.addMenuBind(%accelerator,%callBack);
 	}
-	
-	LabMenu.addSubmenuItem(%menuTarget,%menuItem,%submenuItemText,%submenuItemId,%accelerator,%checkGroup);   
+
+	LabMenu.addSubmenuItem(%menuTarget,%menuItem,%submenuItemText,%submenuItemId,%accelerator,%checkGroup);
 }
 //------------------------------------------------------------------------------
 
 //==============================================================================
 function Lab::ClearMenus(%this) {
-
 	LabMenu.clearMenus("","");
 }
 //------------------------------------------------------------------------------
 
 //==============================================================================
 function Lab::ClearMenusItems(%this,%menu) {
-
 	LabMenu.ClearMenusItems(%menu);
 }
 //------------------------------------------------------------------------------
 
 //==============================================================================
 function Lab::removeMenu(%this,%menu) {
-
 	LabMenu.removeMenu(%menu);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::removeMenuItem(%this,%menu,%item) {
-
 	LabMenu.removeMenuItem(%menu,%item);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::setCheckmarkBitmapIndex(%this,%index) {
-
 	LabMenu.setCheckmarkBitmapIndex(%index);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::setMenuBitmapIndex(%this,%menuTarget,%bitmapindex,%bitmaponly,%drawborder) {
-
 	/* Sets the bitmap index for the menu and toggles rendering only the bitmap.
 
 	Parameters:
@@ -123,7 +111,6 @@ function Lab::setMenuBitmapIndex(%this,%menuTarget,%bitmapindex,%bitmaponly,%dra
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::setMenuItemBitmap(%this,%menuTarget,%menuItem,%bitmapIndex) {
-
 	/* Sets the specified menu item bitmap index in the bitmap array. Setting the item's index to -1 will remove any bitmap.
 
 	Parameters:
@@ -137,7 +124,6 @@ function Lab::setMenuItemBitmap(%this,%menuTarget,%menuItem,%bitmapIndex) {
 
 //==============================================================================
 function Lab::setMenuItemChecked(%this,%menuTarget,%menuItem,%checked) {
-
 	/* Sets the menu item bitmap to a check mark, which by default is the first element in the bitmap array (although this may be changed with setCheckmarkBitmapIndex()). Any other menu items in the menu with the same check group become unchecked if they are checked.
 
 	Parameters:
@@ -152,7 +138,6 @@ function Lab::setMenuItemChecked(%this,%menuTarget,%menuItem,%checked) {
 
 //==============================================================================
 function Lab::setMenuItemChecked(%this,%menuTarget,%menuItemTarget,%enabled) {
-
 	/* sets the menu item to enabled or disabled based on the enable parameter. The specified menu and menu item can either be text or ids.
 
 	Detailed description
@@ -168,7 +153,6 @@ function Lab::setMenuItemChecked(%this,%menuTarget,%menuItemTarget,%enabled) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::setMenuItemSubmenuState(%this,%menuTarget,%menuItem,%isSubmenu) {
-
 	/* Sets the given menu item to be a submenu.
 
 	Parameters:
@@ -182,7 +166,6 @@ function Lab::setMenuItemSubmenuState(%this,%menuTarget,%menuItem,%isSubmenu) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::setMenuItemText(%this,%menuTarget,%menuItem,%newMenuItemText) {
-
 	/* Sets the text of the specified menu item to the new string.
 
 	Parameters:
@@ -196,7 +179,6 @@ function Lab::setMenuItemText(%this,%menuTarget,%menuItem,%newMenuItemText) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::setMenuItemVisible(%this,%menuTarget,%menuItem,%isVisible) {
-
 	/* Brief Description.
 
 	Detailed description
@@ -214,7 +196,6 @@ function Lab::setMenuItemVisible(%this,%menuTarget,%menuItem,%isVisible) {
 
 //==============================================================================
 function Lab::setMenuMargins(%this,%horizontalMargin,%verticalMargin,%bitmapToTextSpacing) {
-
 	/*
 	Sets the menu rendering margins: horizontal, vertical, bitmap spacing.
 
@@ -232,7 +213,6 @@ function Lab::setMenuMargins(%this,%horizontalMargin,%verticalMargin,%bitmapToTe
 
 //==============================================================================
 function Lab::setMenuText(%this,%menuTarget,%newMenuText) {
-
 	/* Sets the text of the specified menu to the new string.
 
 	Parameters:
@@ -246,7 +226,6 @@ function Lab::setMenuText(%this,%menuTarget,%newMenuText) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::setMenuVisible(%this,%menuTarget,%visible) {
-
 	/* Sets the whether or not to display the specified menu.
 
 	Parameters:
@@ -261,7 +240,6 @@ function Lab::setMenuVisible(%this,%menuTarget,%visible) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::setSubmenuItemChecked(%this,%menuTarget,%menuItem,%submenuItemText,%checked) {
-
 	/* Sets the menu item bitmap to a check mark, which by default is the first element in the bitmap array (although this may be changed with setCheckmarkBitmapIndex()). Any other menu items in the menu with the same check group become unchecked if they are checked.
 
 	Parameters:
@@ -284,7 +262,7 @@ function Lab::setSubmenuItemChecked(%this,%menuTarget,%menuItem,%submenuItemText
 //==============================================================================
 
 //==============================================================================
-function LabMenu::onMenuItemSelect(%this,%menuId,%menuText,%menuItemId,%menuItemText) {   
+function LabMenu::onMenuItemSelect(%this,%menuId,%menuText,%menuItemId,%menuItemText) {
 	/* Called whenever an item in a menu is selected.
 
 	Parameters:
@@ -301,7 +279,6 @@ function LabMenu::onMenuItemSelect(%this,%menuId,%menuText,%menuItemId,%menuItem
 
 //==============================================================================
 function LabMenu::onMenuSelect(%this,%menuId,%menuText) {
-
 	/* Called whenever a menu is selected.
 
 	Parameters:
@@ -309,12 +286,10 @@ function LabMenu::onMenuSelect(%this,%menuId,%menuText) {
 	menuText 	Text of the clicked menu
 
 	*/
-
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function LabMenu::onMouseInMenu(%this,%isInMenu) {
-
 	/* Called whenever the mouse enters, or persists is in the menu.
 
 	Parameters:
@@ -323,12 +298,10 @@ function LabMenu::onMouseInMenu(%this,%isInMenu) {
 	To receive this callback, call setProcessTicks(true) on the menu bar.
 
 	*/
-
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function LabMenu::onSubmenuSelect(%this,%submenuId,%submenuText) {
-
 	/* Called whenever a submenu is selected.
 
 	Parameters:
@@ -337,6 +310,5 @@ function LabMenu::onSubmenuSelect(%this,%submenuId,%submenuText) {
 
 
 	*/
-
 }
 //------------------------------------------------------------------------------

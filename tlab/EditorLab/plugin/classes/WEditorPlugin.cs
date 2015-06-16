@@ -8,7 +8,6 @@
 // WEditorPlugin
 //------------------------------------------------------------------------------
 function WEditorPlugin::onWorldEditorStartup( %this ) {
-
 	Parent::onWorldEditorStartup( %this );
 }
 
@@ -18,13 +17,10 @@ function WEditorPlugin::onActivated( %this ) {
 	EditorGui.bringToFront( EWorldEditor );
 	EWorldEditor.setVisible(true);
 	Lab.insertDynamicMenu(Lab.worldMenu);
-
 	EWorldEditor.makeFirstResponder(true);
 	SceneEditorTree.open(MissionGroup,true);
 	SceneCreatorWindow.setNewObjectGroup(MissionGroup);
-
 	EWorldEditor.syncGui();
-
 	EditorGuiStatusBar.setSelectionObjectsByCount(EWorldEditor.getSelectionSize());
 
 	// Should the Transform Selection window open?
@@ -38,10 +34,8 @@ function WEditorPlugin::onActivated( %this ) {
 function WEditorPlugin::onDeactivated( %this ) {
 	// Hide the Transform Selection window from other editors
 	//ETransformSelection.setVisible(false);
-
 	EWorldEditor.setVisible( false );
 	Lab.removeDynamicMenu(Lab.worldMenu);
-
 	Parent::onDeactivated(%this);
 }
 

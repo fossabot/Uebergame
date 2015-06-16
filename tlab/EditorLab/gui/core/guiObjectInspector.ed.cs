@@ -41,9 +41,7 @@ function inspectObject( %object ) {
 	}
 
 	// Initialize the inspector.
-
 	%guiContent.init( %object );
-
 	Canvas.getContent().add( %guiContent );
 }
 
@@ -57,7 +55,6 @@ function GuiObjectInspector::init( %this, %object ) {
 	if( !%object.isMemberOfClass( "SimSet" ) ) {
 		// Complete deletely the splitter and the left-side part of the inspector
 		// leaving only the field inspector.
-
 		%this.add( %this-->panel2 );
 		%this-->splitter.delete();
 		%this-->inspector.inspect( %object );
@@ -66,15 +63,13 @@ function GuiObjectInspector::init( %this, %object ) {
 		%treeView = %this-->treeView;
 		%treeView.inspectorCtrl = %this-->inspector;
 		%treeView.methodList = %this-->methodList;
-
 		%treeView.open( %object );
 	}
 
 	// Set window caption.
-
 	%caption = "Object Inspector - " @ %object.getId() @ " : " @ %object.getClassName();
-
 	%name = %object.getName();
+
 	if( %name !$= "" )
 		%caption = %caption @ " - " @ %name;
 
@@ -108,13 +103,12 @@ function GuiObjectInspectorTree::onRightMouseUp( %this, %itemId, %mousePos, %obj
 		new PopupMenu( GuiObjectInspectorTreePopup ) {
 		superClass = "MenuBuilder";
 		isPopup = true;
-
 		item[ 0 ] = "Jump to Definition in Torsion" TAB "" TAB "EditorOpenDeclarationInTorsion( %this.object );";
-
 		object = "";
 	};
 
 	GuiObjectInspectorTreePopup.object = %object;
+
 	GuiObjectInspectorTreePopup.showPopup( Canvas );
 }
 
@@ -126,7 +120,6 @@ function GuiObjectInspectorTree::onRightMouseUp( %this, %itemId, %mousePos, %obj
 
 function GuiObjectInspectorMethodList::init( %this, %object ) {
 	%this.clear();
-
 	%methods = %object.dumpMethods();
 	%count = %methods.count();
 	%methodsGroup = %this.insertItem( 0, "Methods" );
@@ -140,8 +133,8 @@ function GuiObjectInspectorMethodList::init( %this, %object ) {
 		%fileName = getRecord( %value, 3 );
 		%lineNumber = getRecord( %value, 4 );
 		%usage = getRecords( %value, 5 );
-
 		%tooltip = %prototype;
+
 		if( isFile( %fileName ) ) {
 			%parent = %parentScripted;
 			%tooltip = %tooltip NL "Declared in: " @ %fileName @ ":" @ %lineNumber;
@@ -149,7 +142,6 @@ function GuiObjectInspectorMethodList::init( %this, %object ) {
 			%parent = %parentNative;
 
 		%tooltip = %tooltip @ "\n\n" @ %usage;
-
 		%id = %this.insertItem( %parent, %prototype, %fileName NL %lineNumber );
 		%this.setItemTooltip( %id, %tooltip );
 	}
@@ -174,6 +166,7 @@ function GuiObjectInspectorMethodList::init( %this, %object ) {
 
 function GuiObjectInspectorMethodList::onRightMouseUp( %this, %item, %mousePos ) {
 	%value = %this.getItemValue( %item );
+
 	if( %value $= "" )
 		return;
 
@@ -185,14 +178,13 @@ function GuiObjectInspectorMethodList::onRightMouseUp( %this, %item, %mousePos )
 			new PopupMenu( GuiInspectorMethodListPopup ) {
 			superClass = "MenuBuilder";
 			isPopup = true;
-
 			item[ 0 ] = "Jump to Definition in Torsion" TAB "" TAB "EditorOpenFileInTorsion( %this.jumpFileName, %this.jumpLineNumber );";
-
 			jumpFileName = "";
 			jumpLineNumber = "";
 		};
 
 		GuiInspectorMethodListPopup.jumpFileName = %fileName;
+
 		GuiInspectorMethodListPopup.jumpLineNumber = %lineNumber;
 
 		GuiInspectorMethodListPopup.showPopup( Canvas );
@@ -207,6 +199,7 @@ function GuiObjectInspectorMethodList::onRightMouseUp( %this, %item, %mousePos )
 
 function GuiObjectInspectorTreeFilter::onWake( %this ) {
 	%treeView = %this.getParent()-->TreeView;
+
 	if( isObject( %treeView ) )
 		%this.treeView = %treeView;
 
@@ -221,6 +214,7 @@ function GuiObjectInspectorTreeFilter::onWake( %this ) {
 
 function GuiObjectInspectorTreeFilterClearButton::onWake( %this ) {
 	%filterText = %this.getParent()-->FilterText;
+
 	if( isObject( %filterText ) )
 		%this.textCtrl = %filterText;
 }

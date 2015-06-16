@@ -27,7 +27,7 @@
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorInspectFields::update( %this, %inspectTarget ) {
-    %this.inspect( %inspectTarget );
+	%this.inspect( %inspectTarget );
 }
 
 //=============================================================================================
@@ -37,118 +37,111 @@ function GuiEditorInspectFields::update( %this, %inspectTarget ) {
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorInspectFields::onInspectorFieldModified( %this, %object, %fieldName, %arrayIndex, %oldValue, %newValue ) {
-    // The instant group will try to add our
-    // UndoAction if we don't disable it.
-    pushInstantGroup();
+	// The instant group will try to add our
+	// UndoAction if we don't disable it.
+	pushInstantGroup();
+	%nameOrClass = %object.getName();
 
-    %nameOrClass = %object.getName();
-    if ( %nameOrClass $= "" )
-        %nameOrClass = %object.getClassname();
+	if ( %nameOrClass $= "" )
+		%nameOrClass = %object.getClassname();
 
-    %action = new InspectorFieldUndoAction() {
-        actionName = %nameOrClass @ "." @ %fieldName @ " Change";
-
-        objectId = %object.getId();
-        fieldName = %fieldName;
-        fieldValue = %oldValue;
-        arrayIndex = %arrayIndex;
-
-        inspectorGui = %this;
-    };
-
-    // Restore the instant group.
-    popInstantGroup();
-
-    %action.addToManager( GuiEditor.getUndoManager() );
-
-    GuiEditor.updateUndoMenu();
+	%action = new InspectorFieldUndoAction() {
+		actionName = %nameOrClass @ "." @ %fieldName @ " Change";
+		objectId = %object.getId();
+		fieldName = %fieldName;
+		fieldValue = %oldValue;
+		arrayIndex = %arrayIndex;
+		inspectorGui = %this;
+	};
+	// Restore the instant group.
+	popInstantGroup();
+	%action.addToManager( GuiEditor.getUndoManager() );
+	GuiEditor.updateUndoMenu();
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorInspectFields::onInspectorPreFieldModification( %this, %fieldName, %arrayIndex ) {
-    pushInstantGroup();
-    %undoManager = GuiEditor.getUndoManager();
+	pushInstantGroup();
+	%undoManager = GuiEditor.getUndoManager();
+	%numObjects = %this.getNumInspectObjects();
 
-    %numObjects = %this.getNumInspectObjects();
-    if( %numObjects > 1 )
-        %action = %undoManager.pushCompound( "Multiple Field Edit" );
+	if( %numObjects > 1 )
+		%action = %undoManager.pushCompound( "Multiple Field Edit" );
 
-    for( %i = 0; %i < %numObjects; %i ++ ) {
-        %object = %this.getInspectObject( %i );
+	for( %i = 0; %i < %numObjects; %i ++ ) {
+		%object = %this.getInspectObject( %i );
+		%nameOrClass = %object.getName();
 
-        %nameOrClass = %object.getName();
-        if( %nameOrClass $= "" )
-            %nameOrClass = %object.getClassname();
+		if( %nameOrClass $= "" )
+			%nameOrClass = %object.getClassname();
 
-        %undo = new InspectorFieldUndoAction() {
-            actionName = %nameOrClass @ "." @ %fieldName @ " Change";
+		%undo = new InspectorFieldUndoAction() {
+			actionName = %nameOrClass @ "." @ %fieldName @ " Change";
+			objectId = %object.getId();
+			fieldName = %fieldName;
+			fieldValue = %object.getFieldValue( %fieldName, %arrayIndex );
+			arrayIndex = %arrayIndex;
+			inspectorGui = %this;
+		};
 
-            objectId = %object.getId();
-            fieldName = %fieldName;
-            fieldValue = %object.getFieldValue( %fieldName, %arrayIndex );
-            arrayIndex = %arrayIndex;
+		if( %numObjects > 1 )
+			%undo.addToManager( %undoManager );
+		else {
+			%action = %undo;
+			break;
+		}
+	}
 
-            inspectorGui = %this;
-        };
-
-        if( %numObjects > 1 )
-            %undo.addToManager( %undoManager );
-        else {
-            %action = %undo;
-            break;
-        }
-    }
-
-    %this.currentFieldEditAction = %action;
-    popInstantGroup();
+	%this.currentFieldEditAction = %action;
+	popInstantGroup();
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorInspectFields::onInspectorPostFieldModification( %this ) {
-    if( %this.currentFieldEditAction.isMemberOfClass( "CompoundUndoAction" ) ) {
-        // Finish multiple field edit.
-        GuiEditor.getUndoManager().popCompound();
-    } else {
-        // Queue single field undo.
-        %this.currentFieldEditAction.addToManager( GuiEditor.getUndoManager() );
-    }
+	if( %this.currentFieldEditAction.isMemberOfClass( "CompoundUndoAction" ) ) {
+		// Finish multiple field edit.
+		GuiEditor.getUndoManager().popCompound();
+	} else {
+		// Queue single field undo.
+		%this.currentFieldEditAction.addToManager( GuiEditor.getUndoManager() );
+	}
 
-    %this.currentFieldEditAction = "";
-    GuiEditor.updateUndoMenu();
+	%this.currentFieldEditAction = "";
+	GuiEditor.updateUndoMenu();
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorInspectFields::onInspectorDiscardFieldModification( %this ) {
-    %this.currentFieldEditAction.undo();
+	%this.currentFieldEditAction.undo();
 
-    if( %this.currentFieldEditAction.isMemberOfClass( "CompoundUndoAction" ) ) {
-        // Multiple field editor.  Pop and discard.
-        GuiEditor.getUndoManager().popCompound( true );
-    } else {
-        // Single field edit.  Just kill undo action.
-        %this.currentFieldEditAction.delete();
-    }
+	if( %this.currentFieldEditAction.isMemberOfClass( "CompoundUndoAction" ) ) {
+		// Multiple field editor.  Pop and discard.
+		GuiEditor.getUndoManager().popCompound( true );
+	} else {
+		// Single field edit.  Just kill undo action.
+		%this.currentFieldEditAction.delete();
+	}
 
-    %this.currentFieldEditAction = "";
+	%this.currentFieldEditAction = "";
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorInspectFields::onFieldSelected( %this, %fieldName, %fieldTypeStr, %fieldDoc ) {
-    GuiEditorFieldInfo.setText( "<font:ArialBold:14>" @ %fieldName @ "<font:ArialItalic:14> (" @ %fieldTypeStr @ ") " NL "<font:Arial:14>" @ %fieldDoc );
+	GuiEditorFieldInfo.setText( "<font:ArialBold:14>" @ %fieldName @ "<font:ArialItalic:14> (" @ %fieldTypeStr @ ") " NL "<font:Arial:14>" @ %fieldDoc );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorInspectFields::onBeginCompoundEdit( %this ) {
-    GuiEditor.getUndoManager().pushCompound( "Multiple Field Edits" );
+	GuiEditor.getUndoManager().pushCompound( "Multiple Field Edits" );
 }
 
 //---------------------------------------------------------------------------------------------
 
 function GuiEditorInspectFields::onEndCompoundEdit( %this ) {
-    GuiEditor.getUndoManager().popCompound();
+	GuiEditor.getUndoManager().popCompound();
 }

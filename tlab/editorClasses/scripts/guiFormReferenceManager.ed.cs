@@ -27,28 +27,26 @@
 // Returns : True or False.
 //-----------------------------------------------------------------------------
 function GuiFormManager::AddContentReference( %library, %contentName, %control ) {
-    // Fetch Content Object.
-    %contentObj = GuiFormManager::FindFormContent( %library, %contentName );
+	// Fetch Content Object.
+	%contentObj = GuiFormManager::FindFormContent( %library, %contentName );
 
-    // See if we Found the Library.
-    if( %contentObj == 0 || !isObject( %contentObj ) ) {
-        error( "GuiFormManager::AddContentReference - Unable to Find Library by Name or ID!" );
-        return false;
-    }
+	// See if we Found the Library.
+	if( %contentObj == 0 || !isObject( %contentObj ) ) {
+		error( "GuiFormManager::AddContentReference - Unable to Find Library by Name or ID!" );
+		return false;
+	}
 
-    // Validate Ref List.
-    if( !isObject( %contentObj.RefList ) ) {
-        error( "GuiFormManager::AddContentReference - Unable to find content RefList!" );
-        return false;
-    }
+	// Validate Ref List.
+	if( !isObject( %contentObj.RefList ) ) {
+		error( "GuiFormManager::AddContentReference - Unable to find content RefList!" );
+		return false;
+	}
 
-    //error("adding ref for object" SPC %control );
-
-    // Add Control Reference.
-    %contentObj.RefList.add( %control );
-
-    // Return Success.
-    return true;
+	//error("adding ref for object" SPC %control );
+	// Add Control Reference.
+	%contentObj.RefList.add( %control );
+	// Return Success.
+	return true;
 }
 
 //-----------------------------------------------------------------------------
@@ -57,31 +55,30 @@ function GuiFormManager::AddContentReference( %library, %contentName, %control )
 // Returns : True or False.
 //-----------------------------------------------------------------------------
 function GuiFormManager::RemoveContentReference( %library, %contentName, %control ) {
-    // Fetch Content Object.
-    %contentObj = GuiFormManager::FindFormContent( %library, %contentName );
+	// Fetch Content Object.
+	%contentObj = GuiFormManager::FindFormContent( %library, %contentName );
 
-    // See if we Found the Library.
-    if( %contentObj == 0 || !isObject( %contentObj ) ) {
-        error( "GuiFormManager::AddContentReference - Unable to Find Library by Name or ID!" );
-        return false;
-    }
+	// See if we Found the Library.
+	if( %contentObj == 0 || !isObject( %contentObj ) ) {
+		error( "GuiFormManager::AddContentReference - Unable to Find Library by Name or ID!" );
+		return false;
+	}
 
-    // Validate Ref List.
-    if( !isObject( %contentObj.RefList ) ) {
-        error( "GuiFormManager::AddContentReference - Unable to find content RefList!" );
-        return false;
-    }
+	// Validate Ref List.
+	if( !isObject( %contentObj.RefList ) ) {
+		error( "GuiFormManager::AddContentReference - Unable to find content RefList!" );
+		return false;
+	}
 
-    //error("removing ref for object" SPC %control );
+	//error("removing ref for object" SPC %control );
+	// Add Control Reference.
+	%contentObj.RefList.remove( %control );
 
-    // Add Control Reference.
-    %contentObj.RefList.remove( %control );
+	if( %control.isMethod("onFormRemove") )
+		%control.onFormRemove();
 
-    if( %control.isMethod("onFormRemove") )
-        %control.onFormRemove();
-
-    // Return Success.
-    return true;
+	// Return Success.
+	return true;
 }
 
 //-----------------------------------------------------------------------------
@@ -90,21 +87,21 @@ function GuiFormManager::RemoveContentReference( %library, %contentName, %contro
 // Returns : Number of instances or 0.
 //-----------------------------------------------------------------------------
 function GuiFormManager::GetContentCount( %library, %contentName ) {
-    // Fetch Content Object.
-    %contentObj = GuiFormManager::FindFormContent( %library, %contentName );
+	// Fetch Content Object.
+	%contentObj = GuiFormManager::FindFormContent( %library, %contentName );
 
-    // See if we Found the Library.
-    if( %contentObj == 0 || !isObject( %contentObj ) ) {
-        error( "GuiFormManager::GetContentCount - Unable to Find Library by Name or ID!" );
-        return 0;
-    }
+	// See if we Found the Library.
+	if( %contentObj == 0 || !isObject( %contentObj ) ) {
+		error( "GuiFormManager::GetContentCount - Unable to Find Library by Name or ID!" );
+		return 0;
+	}
 
-    // Validate Ref List.
-    if( !isObject( %contentObj.RefList ) ) {
-        error( "GuiFormManager::GetContentCount - Unable to find content RefList!" );
-        return 0;
-    }
+	// Validate Ref List.
+	if( !isObject( %contentObj.RefList ) ) {
+		error( "GuiFormManager::GetContentCount - Unable to find content RefList!" );
+		return 0;
+	}
 
-    // Return Count.
-    return %contentObj.RefList.getCount();
+	// Return Count.
+	return %contentObj.RefList.getCount();
 }

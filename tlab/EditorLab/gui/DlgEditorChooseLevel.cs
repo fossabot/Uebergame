@@ -25,9 +25,11 @@ function EditorChooseLevelGui::onWake() {
 	if ($levelToLoad !$= "") {
 		// First try using the file path raw... it may already be good.
 		%file = findFirstFile( $levelToLoad );
+
 		if ( %file $= "" ) {
 			%levelFile = "levels/";
 			%ext = getSubStr($levelToLoad, strlen($levelToLoad) - 3, 3);
+
 			if(%ext !$= "mis")
 				%levelFile = %levelFile @ $levelToLoad @ ".mis";
 			else
@@ -55,12 +57,13 @@ function EditorChooseLevelContainer::onWake(%this) {
 	// Build the text lists
 	WE_LevelList.clear();
 	WE_TemplateList.clear();
-
 	%leveltext = "<linkcolor:0000FF><linkcolorhl:FF0000>";
 	%templatetext = "<linkcolor:0000FF><linkcolorhl:FF0000>";
+
 	for(%file = findFirstFile($Server::MissionFileSpec); %file !$= ""; %file = findNextFile($Server::MissionFileSpec)) {
 		%name = getLevelDisplayName(%file);
 		%n = strlwr(%name);
+
 		if(strstr(%n, "template") == -1) {
 			%leveltext = %leveltext @ "<a:gamelink:" @ %file @ ">" @ %name @ "</a><br>";
 		} else {
@@ -71,7 +74,6 @@ function EditorChooseLevelContainer::onWake(%this) {
 	WE_LevelList.setText(%leveltext);
 	WE_LevelList.forceReflow();
 	WE_LevelList.scrollToTop();
-
 	WE_TemplateList.setText(%templatetext);
 	WE_TemplateList.forceReflow();
 	WE_TemplateList.scrollToTop();
@@ -100,7 +102,6 @@ function WE_TemplateList::onURL(%this, %url) {
 
 function getLevelDisplayName( %levelFile ) {
 	%file = new FileObject();
-
 	%MissionInfoObject = "";
 
 	if ( %file.openForRead( %levelFile ) ) {
@@ -126,16 +127,16 @@ function getLevelDisplayName( %levelFile ) {
 
 		%file.close();
 	}
+
 	%MissionInfoObject = "%MissionInfoObject = " @ %MissionInfoObject;
 	eval( %MissionInfoObject );
-
 	%file.delete();
+
 	if( %MissionInfoObject.levelName !$= "" )
 		%name = %MissionInfoObject.levelName;
 	else
 		%name = fileBase(%levelFile);
 
 	%MissionInfoObject.delete();
-
 	return %name;
 }

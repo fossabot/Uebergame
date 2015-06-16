@@ -24,7 +24,6 @@ package BootEditor {
 
 	function GameConnection::initialControlSet( %this ) {
 		Parent::initialControlSet( %this );
-
 		toggleEditor( true );
 		deactivatePackage( "BootEditor" );
 	}
@@ -39,8 +38,8 @@ function EditorIsDirty() {
 	// We kept a hard coded test here, but we could break these
 	// into the registered tools if we wanted to.
 	%isDirty =  ( isObject( "ETerrainEditor" ) && ( ETerrainEditor.isMissionDirty || ETerrainEditor.isDirty ) )
-	            || ( isObject( "EWorldEditor" ) && EWorldEditor.isDirty )
-	            || ( isObject( "ETerrainPersistMan" ) && ETerrainPersistMan.hasDirty() );
+					|| ( isObject( "EWorldEditor" ) && EWorldEditor.isDirty )
+					|| ( isObject( "ETerrainPersistMan" ) && ETerrainPersistMan.hasDirty() );
 
 	// Give the editor plugins a chance to set the dirty flag.
 	for ( %i = 0; %i < EditorPluginSet.getCount(); %i++ ) {
@@ -93,12 +92,12 @@ function EditorDoExitMission(%saveFirst) {
 
 function EditorOpenTorsionProject( %projectFile ) {
 	// Make sure we have a valid path to the Torsion installation.
-
 	%torsionPath = $Cfg_TorsionPath;
+
 	if( !isFile( %torsionPath ) ) {
 		LabMsgOK(
-		    "Torsion Not Found",
-		    "Torsion not found at '" @ %torsionPath @ "'.  Please set the correct path in the preferences."
+			"Torsion Not Found",
+			"Torsion not found at '" @ %torsionPath @ "'.  Please set the correct path in the preferences."
 		);
 		return;
 	}
@@ -108,12 +107,14 @@ function EditorOpenTorsionProject( %projectFile ) {
 	if( %projectFile $= "" ) {
 		%projectName = fileBase( getExecutableName() );
 		%projectFile = makeFullPath( %projectName @ ".torsion" );
+
 		if( !isFile( %projectFile ) ) {
 			%projectFile = findFirstFile( "*.torsion", false );
+
 			if( !isFile( %projectFile ) ) {
 				LabMsgOK(
-				    "Project File Not Found",
-				    "Cannot find .torsion project file in '" @ getMainDotCsDir() @ "'."
+					"Project File Not Found",
+					"Cannot find .torsion project file in '" @ getMainDotCsDir() @ "'."
 				);
 				return;
 			}
@@ -121,18 +122,17 @@ function EditorOpenTorsionProject( %projectFile ) {
 	}
 
 	// Open the project in Torsion.
-
 	shellExecute( %torsionPath, "\"" @ %projectFile @ "\"" );
 }
 
 function EditorOpenFileInTorsion( %file, %line ) {
 	// Make sure we have a valid path to the Torsion installation.
-
 	%torsionPath = $Cfg_TorsionPath;
+
 	if( !isFile( %torsionPath ) ) {
 		LabMsgOK(
-		    "Torsion Not Found",
-		    "Torsion not found at '" @ %torsionPath @ "'.  Please set the correct path in the preferences."
+			"Torsion Not Found",
+			"Torsion not found at '" @ %torsionPath @ "'.  Please set the correct path in the preferences."
 		);
 		return;
 	}
@@ -143,17 +143,18 @@ function EditorOpenFileInTorsion( %file, %line ) {
 		%file = makeFullPath( $Server::MissionFile );
 
 	// Open the file in Torsion.
-
 	%args = "\"" @ %file;
+
 	if( %line !$= "" )
 		%args = %args @ ":" @ %line;
-	%args = %args @ "\"";
 
+	%args = %args @ "\"";
 	shellExecute( %torsionPath, %args );
 }
 
 function EditorOpenDeclarationInTorsion( %object ) {
 	%fileName = %object.getFileName();
+
 	if( %fileName $= "" )
 		return;
 
@@ -163,22 +164,22 @@ function EditorOpenDeclarationInTorsion( %object ) {
 function EditorNewLevel( %file,%forceSave ) {
 	if(isWebDemo())
 		return;
-   
-   %saveFirst = false;
-   if (!%forceSave && %forceSave !$= ""){
-      %saveFirst = false;
-      %noConfirm =  true;
-   } else if (%forceSave){
-       %saveFirst = true;
-      %noConfirm =  true;
-   }
 
-	
+	%saveFirst = false;
+
+	if (!%forceSave && %forceSave !$= "") {
+		%saveFirst = false;
+		%noConfirm =  true;
+	} else if (%forceSave) {
+		%saveFirst = true;
+		%noConfirm =  true;
+	}
+
 	if ( EditorIsDirty() && !%noConfirm) {
 		error(knob);
 		ToolsMsgBoxYesNoCancel("Mission Modified", "Would you like to save changes to the current mission \"" @
-		                         $Server::MissionFile @ "\" before creating a new mission?", "EditorNewLevel("@%file@",true);","EditorNewLevel("@%file@",false);");
-      return;
+									  $Server::MissionFile @ "\" before creating a new mission?", "EditorNewLevel("@%file@",true);","EditorNewLevel("@%file@",false);");
+		return;
 	}
 
 	if(%saveFirst)
@@ -286,9 +287,7 @@ function EditorMenuEditPaste() {
 
 function EditorToolsMenu::onSelectItem(%this, %id) {
 	%toolName = getField( %this.item[%id], 2 );
-
 	EditorGui.setEditor(%toolName, %paletteName  );
-
 	%this.checkRadioItem(0, %this.getItemCount(), %id);
 	return true;
 }
@@ -319,7 +318,6 @@ function EditorCameraMenu::setupDefaultState(%this) {
 function EditorFreeCameraTypeMenu::onSelectItem(%this, %id, %text) {
 	// Handle the camera type radio
 	%this.checkRadioItem(0, 2, %id);
-
 	return Parent::onSelectItem(%this, %id, %text);
 }
 
@@ -333,36 +331,30 @@ function EditorCameraSpeedMenu::onSelectItem(%this, %id, %text) {
 	// Grab and set speed
 	%speed = getField( %this.item[%id], 2 );
 	$Camera::movementSpeed = %speed;
-
 	// Update Editor
 	%this.checkRadioItem(0, 6, %id);
-
 	// Update Toolbar TextEdit
 	EWorldEditorCameraSpeed.setText( $Camera::movementSpeed );
-
 	// Update Toolbar Slider
 	CameraSpeedDropdownCtrlContainer-->Slider.setValue( $Camera::movementSpeed );
-
 	return true;
 }
 function EditorCameraSpeedMenu::setupDefaultState(%this) {
 	// Setup camera speed gui's. Both menu and editorgui
 	%this.setupGuiControls();
-
 	//Grab and set speed
 	%defaultSpeed =  Lab.levelsDirectory @ Lab.levelName @ "/cameraSpeed";
+
 	if( %defaultSpeed $= "" ) {
 		// Update Editor with default speed
 		%defaultSpeed = 25;
 	}
-	$Camera::movementSpeed = %defaultSpeed;
 
+	$Camera::movementSpeed = %defaultSpeed;
 	// Update Toolbar TextEdit
 	EWorldEditorCameraSpeed.setText( %defaultSpeed );
-
 	// Update Toolbar Slider
 	CameraSpeedDropdownCtrlContainer-->Slider.setValue( %defaultSpeed );
-
 	Parent::setupDefaultState(%this);
 }
 
@@ -370,9 +362,9 @@ function EditorCameraSpeedMenu::setupGuiControls(%this) {
 	// Default levelInfo params
 	%minSpeed = 5;
 	%maxSpeed = 200;
-
 	%speedA =  Lab.levelsDirectory @ Lab.levelName @ "/cameraSpeedMin";
 	%speedB =  Lab.levelsDirectory @ Lab.levelName @ "/cameraSpeedMax";
+
 	if( %speedA < %speedB ) {
 		if( %speedA == 0 ) {
 			if( %speedB > 1 )
@@ -388,6 +380,7 @@ function EditorCameraSpeedMenu::setupGuiControls(%this) {
 
 	// Set up the camera speed items
 	%inc = ( (%maxSpeed - %minSpeed) / (%this.getItemCount() - 1) );
+
 	for( %i = 0; %i < %this.getItemCount(); %i++)
 		%this.item[%i] = setField( %this.item[%i], 2, (%minSpeed + (%inc * %i)));
 
@@ -402,7 +395,6 @@ function EditorWorldMenu::onMenuSelect(%this) {
 	%selSize = EWorldEditor.getSelectionSize();
 	%lockCount = EWorldEditor.getSelectionLockCount();
 	%hideCount = EWorldEditor.getSelectionHiddenCount();
-
 	%this.enableItem(0, %lockCount < %selSize);  // Lock Selection
 	%this.enableItem(1, %lockCount > 0);  // Unlock Selection
 	%this.enableItem(3, %hideCount < %selSize);  // Hide Selection
@@ -414,10 +406,8 @@ function EditorWorldMenu::onMenuSelect(%this) {
 	%this.enableItem(11, %selSize > 0 && %lockCount == 0);  // Reset Selected Scale
 	%this.enableItem(12, %selSize > 0 && %lockCount == 0);  // Transform Selection
 	%this.enableItem(14, %selSize > 0 && %lockCount == 0);  // Drop Selection
-
 	%this.enableItem(17, %selSize > 0); // Make Prefab
 	%this.enableItem(18, %selSize > 0); // Explode Prefab
-
 	%this.enableItem(20, %selSize > 1); // Mount
 	%this.enableItem(21, %selSize > 0); // Unmount
 }
@@ -428,18 +418,15 @@ function EditorDropTypeMenu::onSelectItem(%this, %id, %text) {
 	// This sets up which drop script function to use when
 	// a drop type is selected in the menu.
 	EWorldEditor.dropType = getField(%this.item[%id], 2);
-
 	%this.checkRadioItem(0, (%this.getItemCount() - 1), %id);
-
 	return true;
 }
 
 function EditorDropTypeMenu::setupDefaultState(%this) {
 	// Check the radio item for the currently set drop type.
-
 	%numItems = %this.getItemCount();
-
 	%dropTypeIndex = 0;
+
 	for( ; %dropTypeIndex < %numItems; %dropTypeIndex ++ )
 		if( getField( %this.item[ %dropTypeIndex ], 2 ) $= EWorldEditor.dropType )
 			break;
@@ -449,7 +436,6 @@ function EditorDropTypeMenu::setupDefaultState(%this) {
 		%dropTypeIndex = 4;
 
 	%this.checkRadioItem( 0, (%numItems - 1), %dropTypeIndex );
-
 	Parent::setupDefaultState(%this);
 }
 
@@ -458,7 +444,6 @@ function EditorDropTypeMenu::setupDefaultState(%this) {
 function EditorAlignBoundsMenu::onSelectItem(%this, %id, %text) {
 	// Have the editor align all selected objects by the selected bounds.
 	EWorldEditor.alignByBounds(getField(%this.item[%id], 2));
-
 	return true;
 }
 
@@ -472,7 +457,6 @@ function EditorAlignBoundsMenu::setupDefaultState(%this) {
 function EditorAlignCenterMenu::onSelectItem(%this, %id, %text) {
 	// Have the editor align all selected objects by the selected axis.
 	EWorldEditor.alignByAxis(getField(%this.item[%id], 2));
-
 	return true;
 }
 

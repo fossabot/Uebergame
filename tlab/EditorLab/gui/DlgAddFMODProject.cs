@@ -41,33 +41,31 @@ function AddFMODProjectDlg::show( %this ) {
 
 	if( getField( sfxGetDeviceInfo(), $SFX::DEVICE_INFO_PROVIDER ) !$= "FMOD" ) {
 		LabMsgOK( "Error",
-		               "You do not currently have FMOD selected as your sound system." NL
-		               "" NL
-		               "To install FMOD, place the FMOD DLLs (" @ %fmodex @ " and " @ %fmodevent @ ")" SPC
-		               "in your game/ folder alongside your game executable" SPC
-		               "and restart Torque." NL
-		               "" NL
-		               "To select FMOD as your sound system, choose it as the sound provider in" SPC
-		               "the audio tab of the Game Options dialog."
-		             );
-
+					 "You do not currently have FMOD selected as your sound system." NL
+					 "" NL
+					 "To install FMOD, place the FMOD DLLs (" @ %fmodex @ " and " @ %fmodevent @ ")" SPC
+					 "in your game/ folder alongside your game executable" SPC
+					 "and restart Torque." NL
+					 "" NL
+					 "To select FMOD as your sound system, choose it as the sound provider in" SPC
+					 "the audio tab of the Game Options dialog."
+				  );
 		return;
 	}
 
 	// Make sure we have the FMOD Event DLL loaded.
-
 	%deviceCaps = getField( sfxGetDeviceInfo(), $SFX::DEVICE_INFO_CAPS );
+
 	if( !( %deviceCaps & $SFX::DEVICE_CAPS_FMODDESIGNER ) ) {
 		LabMsgOK( "Error",
-		               "You do not have the requisite FMOD Event DLL in place." NL
-		               "" NL
-		               "Please copy " @ %fmodevent @ " into your game/ folder and restart Torque."
-		             );
+					 "You do not have the requisite FMOD Event DLL in place." NL
+					 "" NL
+					 "Please copy " @ %fmodevent @ " into your game/ folder and restart Torque."
+				  );
 		return;
 	}
 
 	// Show it.
-
 	Canvas.pushDialog( %this, 0, true );
 }
 
@@ -104,14 +102,15 @@ function AddFMODProjectDlg::onOK( %this ) {
 
 	if( %fileName $= "" ) {
 		LabMsgOK( "Error",
-		               "Please enter a project file name."
-		             );
+					 "Please enter a project file name."
+				  );
 		return;
 	}
+
 	if( !isFile( %fileName ) ) {
 		LabMsgOK( "Error",
-		               "'" @ %fileName @ "' is not a valid file."
-		             );
+					 "'" @ %fileName @ "' is not a valid file."
+				  );
 		return;
 	}
 
@@ -119,35 +118,33 @@ function AddFMODProjectDlg::onOK( %this ) {
 
 	if( !isDirectory( %mediaPath ) ) {
 		LabMsgOK( "Error",
-		               "'" @ %mediaPath @ "' is not a valid directory."
-		             );
+					 "'" @ %mediaPath @ "' is not a valid directory."
+				  );
 		return;
 	}
 
 	// If an event script exists from a previous instantiation,
 	// delete it first.
-
 	%eventFileName = %fileName @ ".cs";
+
 	if( isFile( %eventFileName ) )
 		fileDelete( %eventFileName );
 
 	// Create the FMOD project object.
-
 	pushInstantGroup();
 	eval( "new SFXFMODProject( " @ %objName @ ") {" NL
-	      "fileName = \"" @ %fileName @ "\";" NL
-	      "mediaPath = \"" @ %mediaPath @ "\";" NL
-	      "};" );
+			"fileName = \"" @ %fileName @ "\";" NL
+			"mediaPath = \"" @ %mediaPath @ "\";" NL
+			"};" );
 	popInstantGroup();
 
 	if( !isObject( %objName ) ) {
 		LabMsgOK( "Error",
-		               "Failed to create the object.  Please take a look at the log for details."
-		             );
+					 "Failed to create the object.  Please take a look at the log for details."
+				  );
 		return;
 	} else {
 		// Save the object.
-
 		%objName.setFileName( "scripts/client/audioData.cs" );
 		%this.persistenceMgr.setDirty( %objName );
 		%this.persistenceMgr.saveDirty();
@@ -175,8 +172,8 @@ function AddFMODProjectDlg::onSelectFile( %this ) {
 		MustExit    = true;
 		ChangePath  = false;
 	};
-
 	%ret = %dlg.execute();
+
 	if( %ret ) {
 		%file = %dlg.fileName;
 		$pref::WorldEditor::AddFMODProjectDlg::lastPath = filePath( %file );
@@ -192,6 +189,7 @@ function AddFMODProjectDlg::onSelectFile( %this ) {
 
 	if( %this-->projectNameField.getText() $= "" ) {
 		%projectName = "fmod" @ fileBase( %file );
+
 		if( isValidObjectName( %projectName ) )
 			%this-->projectNameField.setText( %projectName );
 	}
@@ -201,8 +199,10 @@ function AddFMODProjectDlg::onSelectFile( %this ) {
 
 function AddFMODProjectDlg::onSelectMediaPath( %this ) {
 	%defaultPath = %this-->mediaPathField.getText();
+
 	if( %defaultPath $= "" ) {
 		%defaultPath = filePath( %this-->fileNameField.getText() );
+
 		if( %defaultPath $= "" )
 			%defaultPath = getMainDotCsDir();
 		else
@@ -215,8 +215,8 @@ function AddFMODProjectDlg::onSelectMediaPath( %this ) {
 		MustExit    = true;
 		ChangePath  = false;
 	};
-
 	%ret = %dlg.execute();
+
 	if( %ret )
 		%file = %dlg.fileName;
 

@@ -78,7 +78,6 @@ function EManageSFXParameters::createNewParameter( %this, %name ) {
 	%parameter.setFilename( $SFX_PARAMETER_FILE );
 	%this.persistenceMgr.setDirty( %parameter );
 	%this.persistenceMgr.saveDirty();
-
 	%this.addParameter( %parameter );
 }
 
@@ -86,17 +85,18 @@ function EManageSFXParameters::createNewParameter( %this, %name ) {
 
 function EManageSFXParameters::showDeleteParameterDlg( %this, %parameter ) {
 	LabMsgOkCancel( "Confirmation",
-	                     "Really delete '" @ %parameter.getInternalName() @ "'?" NL
-	                     "" NL
-	                     "The parameter will be removed from the file '" @ %parameter.getFileName() @ "'.",
-	                     %this @ ".deleteParameter( " @ %parameter @ " );"
-	                   );
+						 "Really delete '" @ %parameter.getInternalName() @ "'?" NL
+						 "" NL
+						 "The parameter will be removed from the file '" @ %parameter.getFileName() @ "'.",
+						 %this @ ".deleteParameter( " @ %parameter @ " );"
+					  );
 }
 
 //-----------------------------------------------------------------------------
 
 function EManageSFXParameters::deleteParameter( %this, %parameter ) {
 	%this.removeParameter( %parameter );
+
 	if( %parameter.getFilename() !$= "" )
 		%this.persistenceMgr.removeObjectFromFile( %parameter );
 
@@ -119,7 +119,6 @@ function EManageSFXParameters::saveParameter( %this, %parameter ) {
 function EManageSFXParameters::onWake( %this ) {
 	// If the parameter list is empty, add all SFXParameters in the
 	// SFXParameterGroup to the list.
-
 	if( %this-->SFXParametersStack.getCount() == 0 )
 		%this.initList();
 
@@ -132,7 +131,6 @@ function EManageSFXParameters::onWake( %this ) {
 function EManageSFXParameters::onVisible( %this, %value ) {
 	if( %value ) {
 		// Schedule an update.
-
 		%this.schedule( %SFX_PARAMETERS_UPDATE_INTERVAL, "update" );
 	}
 }
@@ -142,7 +140,6 @@ function EManageSFXParameters::onVisible( %this, %value ) {
 /// Populate the parameter list with the currently defined SFXParameters.
 function EManageSFXParameters::initList( %this, %filter ) {
 	// Clear the current lists.
-
 	%this-->SFXParametersStack.clear();
 
 	// Add each SFXParameter in SFXParameterGroup.
@@ -153,8 +150,8 @@ function EManageSFXParameters::initList( %this, %filter ) {
 
 		// If we have a filter, search for it in the parameter's
 		// categories.
-
 		%matchesFilter = true;
+
 		if( %filter !$= "" ) {
 			%matchesFilter = false;
 
@@ -171,7 +168,6 @@ function EManageSFXParameters::initList( %this, %filter ) {
 	}
 
 	// Init the filters.
-
 	%this.initFilterList( %filter );
 }
 
@@ -188,13 +184,13 @@ function EManageSFXParameters::initFilterList( %this, %selectFilter ) {
 
 		for( %idx = 0; %obj.categories[ %idx ] !$= ""; %idx ++ ) {
 			%category = %obj.categories[ %idx ];
+
 			if( %filterList.findText( %category ) == -1 )
 				%filterList.add( %category, %filterList.size() );
 		}
 	}
 
 	// Sort the filters.
-
 	%filterList.sort();
 	%filterList.setSelected( %filterList.findText( %selectFilter ), false );
 }
@@ -204,16 +200,15 @@ function EManageSFXParameters::initFilterList( %this, %selectFilter ) {
 /// Parse the categories for the parameter from the given comma-separated list.
 function EManageSFXParameters::updateParameterCategories( %this, %parameter, %list ) {
 	%this.persistenceMgr.setDirty( %parameter );
-
 	// Parse the list.
-
 	%len = strlen( %list );
 	%pos = 0;
-
 	%idx = 0;
+
 	while( %pos < %len ) {
 		%startPos = %pos;
 		%pos = strchrpos( %list, ",", %pos );
+
 		if( %pos == -1 )
 			%pos = %len;
 
@@ -236,11 +231,8 @@ function EManageSFXParameters::updateParameterCategories( %this, %parameter, %li
 	}
 
 	// Save the parameter.
-
 	%this.saveParameter( %parameter );
-
 	// Re-initialize the filter list.
-
 	%this.initFilterList( %this-->SFXParameterFilter.getText() );
 }
 
@@ -267,7 +259,6 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 		hovertime = "1000";
 		canSaveDynamicFields = "0";
 		caption = %parameter.getInternalName();
-
 		new GuiControl() {
 			isContainer = "1";
 			Profile = "ToolsDefaultProfile";
@@ -281,7 +272,6 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 			tooltipprofile = "ToolsGuiToolTipProfile";
 			hovertime = "1000";
 			canSaveDynamicFields = "0";
-
 			new GuiTextCtrl() {
 				text = "Value";
 				maxLength = "1024";
@@ -741,46 +731,37 @@ function EManageSFXParameters::addParameter( %this, %parameter ) {
 			};
 		};
 	};
-
 	%ctrl.sfxParameter = %parameter;
-
 	// Deactivate the per-source controls for now as these are not
 	// yet implemented in SFX.
-
 	%ctrl-->localCheckbox.setActive( false );
 	%ctrl-->sourceDropdown.setActive( false );
-
 	// Set the fields to reflect the parameter's current settings.
-
 	%ctrl-->valueField.setValue( %paramter.value );
 	%ctrl-->rangeMinField.setText( %parameter.range.x );
 	%ctrl-->rangeMaxField.setText( %parameter.range.y );
 	%ctrl-->defaultField.setValue( %parameter.defaultValue );
 	%ctrl-->descriptionField.setText( %parameter.description );
-
 	%ctrl-->valueSlider.range = %parameter.range;
 	%ctrl-->valueSlider.setValue( %parameter.value );
-
 	// Set up the channels dropdown.
-
 	%list = %ctrl-->channelDropdown;
+
 	for( %i = 0; %i < $SFX_PARAMETER_CHANNELS_COUNT; %i ++ )
 		%list.add( $SFX_PARAMETER_CHANNELS[ %i ], %i );
+
 	%list.sort();
 	%list.setSelected( %list.findText( %parameter.channel ) );
-
 	%this-->SFXParametersStack.addGuiControl( %ctrl );
-
 	// Fill tagging field.
-
 	%tags = "";
 	%isFirst = true;
+
 	for( %i = 0; %parameter.categories[ %i ] !$= ""; %i ++ ) {
 		if( !%isFirst )
 			%tags = %tags @ ", ";
 
 		%tags = %tags @ %parameter.categories[ %i ];
-
 		%isFirst = false;
 	}
 
@@ -805,12 +786,10 @@ function EManageSFXParameters::update( %this ) {
 		// If either the value field or the slider are currently being
 		// edited, don't update the value in order to not interfere with
 		// user editing.
-
 		if( %ctrl-->valueField.isFirstResponder() || %ctrl-->valueSlider.isThumbBeingDragged() )
 			continue;
 
 		%parameter = %ctrl.sfxParameter;
-
 		%ctrl-->valueField.setValue( %parameter.value );
 		%ctrl-->valueSlider.setValue( %parameter.value );
 	}
