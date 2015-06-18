@@ -50,10 +50,10 @@ datablock StaticShapeData(ShapeChargeDeployed : StaticShapeDamageScale)
    rechargeRate = 0;
 
    isInvincible = false;
-   maxDamage = 0.6; // Must be higher then destroyed level
+   maxDamage = 30; // Must be higher then destroyed level
    destroyedLevel = 0.5;
    directDamage = 0;
-   radiusDamage = 50.0;
+   radiusDamage = 150.0;
    damageRadius = 15;
    damageType = $DamageType::ShapeCharge;
 
@@ -66,7 +66,7 @@ datablock StaticShapeData(ShapeChargeDeployed : StaticShapeDamageScale)
    underwaterExplosion = LargeWaterExplosion;
 
    armDelay = 2500;
-   detonateRange = 75;
+   detonateRange = 100;
 };
 
 datablock ItemData(ShapeChargeTossed)
@@ -75,12 +75,12 @@ datablock ItemData(ShapeChargeTossed)
    computeCRC = false;
    mass = 1;
    density = 10;
-   elasticity = 0.1;
-   friction = 0.9;
+   elasticity = 0.4;
+   friction = 0.8;
    maxVelocity = 100;
    sticky = true;
 
-   lightType = PulsingLight; // NoLight, ConstantLight, PulsingLight
+   lightType = NoLight; // NoLight, ConstantLight, PulsingLight
    lightRadius = 5;
    lightColor = "1 0 0 1";
    lightTime = 1000;
@@ -113,7 +113,7 @@ datablock ItemData(ShapeCharge)
    throwSound = WeaponThrowSound;
 
    hasLight = true;
-   lightType = PulsingLight; // NoLight, ConstantLight, PulsingLight
+   lightType = NoLight; // NoLight, ConstantLight, PulsingLight
    lightRadius = 2;
    lightColor = "0.6 0.6 0.0 1";
    lightTime = 1000;
