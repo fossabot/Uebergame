@@ -142,3 +142,8 @@ singleton GuiControlProfile(ToolsPanelLightC : ToolsPanelLightA) {
 
 
 
+
+singleton GuiControlProfile(ToolsPanelDarkA_T50 : ToolsPanelDarkA)
+{
+   fillColor = "1 1 1 131";
+};

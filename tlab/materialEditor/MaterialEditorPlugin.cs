@@ -87,7 +87,7 @@ function MaterialEditorPlugin::onActivated( %this ) {
 	MaterialEditorGui.initGui();
 	WEditorPlugin.onActivated();
 	MaterialEditorGui-->propertiesOptions.expanded = 0;
-	EditorGui-->SceneEditorToolbar.setVisible( true );
+	SceneEditorToolbar.setVisible( true );
 	MaterialEditorGui.currentObject = $Lab::materialEditorList;
 	// Execute the back end scripts that actually do the work.
 	MaterialEditorGui.open();
@@ -105,7 +105,7 @@ function MaterialEditorPlugin::onDeactivated( %this ) {
 
 	WEditorPlugin.onDeactivated();
 	MaterialEditorGui.quit();
-	EditorGui-->SceneEditorToolbar.setVisible( false );
+	SceneEditorToolbar.setVisible( false );
 	%this.map.pop();
 	Parent::onDeactivated(%this);
 }

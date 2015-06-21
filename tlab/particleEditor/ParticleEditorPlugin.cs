@@ -21,7 +21,7 @@ function ParticleEditorPlugin::onActivated( %this ) {
 		%this.isInitialized = true;
 	}
 
-	EditorGui-->SceneEditorToolbar.setVisible( true );
+	SceneEditorToolbar.setVisible( true );
 	EditorGui.bringToFront( PE_Window);
 	PE_Window.setVisible( true );
 	PE_Window.makeFirstResponder( true );
@@ -36,7 +36,7 @@ function ParticleEditorPlugin::onActivated( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function ParticleEditorPlugin::onDeactivated( %this ) {
-	EditorGui-->SceneEditorToolbar.setVisible( false );
+	SceneEditorToolbar.setVisible( false );
 	PE_Window.setVisible( false );
 
 	if( isObject( $ParticleEditor::emitterNode) )

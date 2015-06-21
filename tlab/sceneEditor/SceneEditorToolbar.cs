@@ -65,12 +65,29 @@ function SceneEditorPlugin::toggleSnapSlider( %this,%sourceObj ) {
 //Canvas.pushDialog(softSnapSizeSliderCtrlContainer);
 	%srcPos = %sourceObj.getRealPosition();
 	%srcPos.y += %sourceObj.extent.y;
-	EToolDlg.toggleSlider("2",%srcPos,"range \t 0.1 10 \n altCommand \t SceneEditorPlugin.onSnapSizeSliderChanged($ThisControl);");
+	EOverlay.toggleSlider("2",%srcPos,"range \t 0.1 10 \n altCommand \t SceneEditorPlugin.onSnapSizeSliderChanged($ThisControl);");
 }
 //------------------------------------------------------------------------------
 function SceneEditorPlugin::onSnapSizeSliderChanged(%this,%slider) {
 	%value = mFloatLength(%slider.value,1);
 	EWorldEditor.setSoftSnapSize(%value );
+	EWorldEditor.syncGui();
+}
+//------------------------------------------------------------------------------------
+//==============================================================================
+function SceneEditorPlugin::toggleGridSizeSlider( %this,%sourceObj ) {
+//Canvas.pushDialog(softSnapSizeSliderCtrlContainer);
+	%srcPos = %sourceObj.getRealPosition();
+	%srcPos.y += %sourceObj.extent.y;
+	%range = "0.1 10";
+	%ticks = getTicksFromRange(%range,"0.1");
+	EOverlay.toggleSlider("2",%srcPos,"range \t "@%range@" \n ticks \t "@%ticks@"\n altCommand \t SceneEditorPlugin.onGridSizeSliderChanged($ThisControl);");
+}
+//------------------------------------------------------------------------------
+function SceneEditorPlugin::onGridSizeSliderChanged(%this,%slider) {
+	%value = mFloatLength(%slider.value,1);
+	EditorGuiToolbarStack-->WorldEditorGridSizeEdit.setText(%value);
+	EWorldEditor.setGridSize(%value );
 	EWorldEditor.syncGui();
 }
 //------------------------------------------------------------------------------------

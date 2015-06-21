@@ -30,7 +30,7 @@ function DatablockEditorPlugin::onWorldEditorStartup( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function DatablockEditorPlugin::onActivated( %this ) {
-	EditorGui-->SceneEditorToolbar.setVisible(false);
+	SceneEditorToolbar.setVisible(false);
 	EditorGui.bringToFront( DatablockEditorPlugin );
 	DatablockEditorTreeWindow.setVisible( true );
 	DatablockEditorInspectorWindow.setVisible( true );

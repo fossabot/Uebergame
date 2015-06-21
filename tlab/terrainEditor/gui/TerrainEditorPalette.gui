@@ -14,8 +14,8 @@
    internalName = "TerrainEditor";
    canSave = "1";
    canSaveDynamicFields = "1";
-      defaultParent = "6913";
-      editorParent = "6913";
+      defaultParent = "7173";
+      editorParent = "7173";
       enabled = "1";
 
    new GuiBitmapButtonCtrl() {
@@ -100,7 +100,7 @@
       canSaveDynamicFields = "0";
    };
    new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/gui/icons/default/smoothHeight";
+      bitmap = "tlab/gui/buttons/palette-assets/SmoothTerrain";
       bitmapMode = "Stretched";
       autoFitExtents = "0";
       useModifiers = "0";
@@ -127,7 +127,7 @@
       canSaveDynamicFields = "0";
    };
    new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/gui/icons/default/softCurve";
+      bitmap = "tlab/gui/buttons/palette-assets/TerrainSmoothSlope";
       bitmapMode = "Stretched";
       autoFitExtents = "0";
       useModifiers = "0";
@@ -154,7 +154,7 @@
       canSaveDynamicFields = "0";
    };
    new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/gui/icons/default/brushPaintNoise";
+      bitmap = "tlab/gui/buttons/palette-assets/TerrainNoise";
       bitmapMode = "Stretched";
       autoFitExtents = "0";
       useModifiers = "0";
@@ -181,7 +181,7 @@
       canSaveDynamicFields = "0";
    };
    new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/gui/icons/default/flattenHeight";
+      bitmap = "tlab/gui/buttons/palette-assets/TerrainFlatten";
       bitmapMode = "Stretched";
       autoFitExtents = "0";
       useModifiers = "0";
@@ -208,7 +208,7 @@
       canSaveDynamicFields = "0";
    };
    new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/gui/icons/default/setHeight";
+      bitmap = "tlab/gui/buttons/palette-assets/TerrainSetHeight";
       bitmapMode = "Stretched";
       autoFitExtents = "0";
       useModifiers = "0";
@@ -235,7 +235,7 @@
       canSaveDynamicFields = "0";
    };
    new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/gui/icons/default/setEmpty";
+      bitmap = "tlab/gui/buttons/palette-assets/TerrainHole";
       bitmapMode = "Stretched";
       autoFitExtents = "0";
       useModifiers = "0";
@@ -262,7 +262,7 @@
       canSaveDynamicFields = "0";
    };
    new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/gui/icons/default/clearEmpty";
+      bitmap = "tlab/gui/buttons/palette-assets/TerrainHoleFill";
       bitmapMode = "Stretched";
       autoFitExtents = "0";
       useModifiers = "0";

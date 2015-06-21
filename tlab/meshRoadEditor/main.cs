@@ -10,15 +10,15 @@ function initializeMeshRoadEditor() {
 	exec( "tlab/meshRoadEditor/gui/meshRoadEditorGui.gui" );
 	exec( "./gui/MeshRoadEditorTools.gui" );
 	exec( "./gui/meshRoadEditorToolbar.gui");
-	exec( "./gui/meshRoadEditorPalette.gui");
+	exec( "tlab/meshRoadEditor/gui/meshRoadEditorPaletteGui.gui");
 	exec( "tlab/meshRoadEditor/meshRoadEditorGui.cs" );
 	exec( "tlab/meshRoadEditor/MeshRoadEditorPlugin.cs" );
 	exec( "tlab/meshRoadEditor/MeshRoadEditorParams.cs" );
+	Lab.createPlugin("MeshRoadEditor","Mesh Road Editor");
 	Lab.addPluginEditor("MeshRoadEditor",MeshRoadEditorGui);
 	Lab.addPluginGui("MeshRoadEditor",   MeshRoadEditorTools);
 	Lab.addPluginToolbar("MeshRoadEditor",MeshRoadEditorToolbar);
-	Lab.addPluginPalette("MeshRoadEditor",   MeshRoadEditorPalette);
-	Lab.createPlugin("MeshRoadEditor","Mesh Road Editor");
+	Lab.addPluginPalette("MeshRoadEditor",   MeshRoadEditorPalette);	
 	MeshRoadEditorPlugin.editorGui = MeshRoadEditorGui;
 	%map = new ActionMap();
 	%map.bindCmd( keyboard, "backspace", "MeshRoadEditorGui.deleteNode();", "" );

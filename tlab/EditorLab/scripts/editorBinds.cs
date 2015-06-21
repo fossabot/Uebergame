@@ -14,6 +14,7 @@ new ActionMap(EditorMap);
 //==============================================================================
 
 function EditorGlobalDelete() {
+	devLog("EditorGlobalDelete");
 	if ( isObject( Lab.currentEditor ) )
 		Lab.currentEditor.handleDelete();
 }
@@ -82,12 +83,21 @@ function editorWheelFadeScroll( %val ) {
 		EWorldEditor.fadeIconsDist = 0;
 }
 //------------------------------------------------------------------------------
+
+//==============================================================================
+function pressButton0( %val ) {
+	$Button0Pressed = %val;
+	devLog("Button 0 pressed = ",$Button0Pressed);
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 // Default Camera movement binds
 
 EditorMap.bind( mouse, xaxis, editorYaw );
 EditorMap.bind( mouse, yaxis, editorPitch );
 EditorMap.bind( mouse, zaxis, mouseWheelScroll );
+EditorMap.bind( keyboard, "tab", pressButton0 );
+
 
 EditorMap.bind( mouse, "alt zaxis", editorWheelFadeScroll );
 EditorMap.bindCmd( keyboard, "ctrl o", "toggleDlg(LabSettingsDlg);","" );

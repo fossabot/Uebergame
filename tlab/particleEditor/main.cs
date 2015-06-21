@@ -33,6 +33,7 @@ function initializeParticleEditor() {
 function execParticleEd(%loadgui) {
 	if (%loadgui) {
 		exec( "./gui/ParticleEditor.gui" );
+		exec( "tlab/particleEditor/gui/ParticleEditorToolbar.gui" );
 	}
 
 	exec( "./scripts/particleEditor.cs" );

@@ -116,7 +116,7 @@ function Lab::initializeEditorGui( %this ) {
 	//Lab.addGui( ESnapOptions ,"Dialog");
 	ESnapOptions-->TabBook.selectPage(0);
 	// Transform Selection Window
-	Lab.addGui( EToolDecoyGroup ,"Overlay");
+	Lab.addGui( EToolOverlayGui ,"Overlay");
 	Lab.addGui( ETools ,"Dialog");
 	//Lab.addGui( ETransformSelection ,"Dialog");
 	//Lab.addGui( ECloneTool ,"Dialog");
@@ -126,12 +126,7 @@ function Lab::initializeEditorGui( %this ) {
 	Lab.addGui( EManageBookmarks ,"Dialog");
 	Lab.addGui( EManageSFXParameters ,"Dialog");
 	Lab.addGui( ESelectObjects ,"Dialog");
-	Lab.addGui( EToolCameraModeDlg ,"Dialog");
-	Lab.addGui(EToolbarObjectTransformDropdown,"Dialog");
-	Lab.addGui(EToolbarObjectCenterDropdown,"Dialog");
-	Lab.addGui(EToolDlgCameraTypes,"Dialog");
-	Lab.addGui(EToolDialogSliderMouse,"Dialog");
-	Lab.addGui( EMissionArea ,"Dialog");
+	
 	EWorldEditor.init();
 	EWorldEditor.setDisplayType($EditTsCtrl::DisplayTypePerspective);
 	ETerrainEditor.init();
@@ -172,14 +167,16 @@ function Lab::initializeEditorGui( %this ) {
 		%obj.onWorldEditorStartup();
 	}
 
+	Lab.AddSelectionCallback("ETransformBox.updateSource","Transform");
 	//Lab.setCameraViewMode("Standard Camera");
 	// With everything loaded, start up the settings window
 	// Start up initial editor plugin.
 	// Done.
 	LabEditor.isInitialized = true;
+	Lab.initCoreGuis();
 	Lab.resizeEditorGui();
 	//Lab.initObjectConfigArray(EWorldEditor,"WorldEditor","General");
-	EToolCamViewDlg.addCamViewToCtrl(EditorFrameWorld);
+	
 }
 //------------------------------------------------------------------------------
 

@@ -7,9 +7,8 @@
 
 //==============================================================================
 function Lab::addGui(%this,%gui,%type) {
-	%gui.defaultParent = %gui.parentGroup;
-	LabGuiSet.add(%gui); // Simset Holding all Editor Guis
-
+	
+%parent = %gui.parentGroup;
 	switch$(%type) {
 	case "Gui":
 		%container = $LabSettingContainer;
@@ -31,7 +30,7 @@ function Lab::addGui(%this,%gui,%type) {
 		%container = $LabDialogContainer;
 		LabDialogGuiSet.add(%gui);
 
-	case "Palette":
+	case "Palette":			
 		LabPaletteGuiSet.add(%gui);
 
 	case "Overlay":
@@ -42,7 +41,9 @@ function Lab::addGui(%this,%gui,%type) {
 		%container = $LabSettingContainer;
 		LabSettingGuiSet.add(%gui);
 	}
-
+	
+	%gui.defaultParent = %gui.parentGroup;
+	LabGuiSet.add(%gui); // Simset Holding all Editor Guis
 	hide(%gui);
 
 	if (isObject(%container)) {
@@ -52,6 +53,12 @@ function Lab::addGui(%this,%gui,%type) {
 }
 //------------------------------------------------------------------------------
 
+//==============================================================================
+function Lab::initCoreGuis(%this) {
+	foreach(%dlg in ETools){
+		hide(%dlg);
+	}
+}
 
 
 //==============================================================================

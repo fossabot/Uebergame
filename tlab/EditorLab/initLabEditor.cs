@@ -59,6 +59,8 @@ function Lab::initEditorGui( %this ) {
 //==============================================================================
 // All the plugins scripts have been loaded
 function Lab::pluginInitCompleted( %this ) {
+	%this.prepareAllPluginsGui();
+	ETools.initTools();
 	//Prepare the Settings
 	%this.initConfigSystem();
 }

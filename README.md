@@ -1,5 +1,12 @@
-# TorqueLab v0.1.4 - Early Alpha
+# TorqueLab v0.2 - Alpha Release
 **Early-Alpha version warning (Messy scripts and unused files present)**
+This is an early release which should be use for testing purpose mostly. It seem stable enough to be used as replacement editor for Torque3D game projects but some project incompatibilities might happen causing strange behaviours that might cause lost of data. (Ex: Forest .data files). You have been WARMED! Please post any major issue you encountered so those can be fixed in incoming releases.
+
+## Developer notes
+This is mostly a personal project that I decided to share with others because I think it make it easier to manage T3D projects than default T3D editors. TorqueLab is based on default T3D tools scripts which I have rearranged to be more modular and easier to edit. The scripts are not all optimized yet and some formatting are not looking good, I will try to improve the scripts during the development.
+
+### HelpersLab Required
+Current TorqueLab rely on my scripting helpers archives and I have not prepare a package which contain only the functions used in TorqueLab yet so you need to grab the latest HelpersLab release to use TorqueLab. Please visit HelpersLab repositiory for more informations. https://github.com/NordikLab/HelpersLab
 
 ## What's TorqueLab
 TorqueLab is a completly revamping on the native Torque3D game editors (tools folder). The initial releases doesn't provide much new features, the work is focus on the scripts structure and the interface. Once those are completed, new features would be added.

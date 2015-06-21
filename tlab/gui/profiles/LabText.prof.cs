@@ -24,6 +24,7 @@ singleton GuiControlProfile(ToolsTextBase : ToolsDefaultProfile) {
     fontSize = "15";
    fontColors[4] = "Magenta";
    fontColorLink = "Magenta";
+   opaque = "0";
 
 };
 singleton GuiControlProfile(ToolsTextBase_C : ToolsTextBase) {
@@ -56,6 +57,7 @@ singleton GuiControlProfile( ToolsTextBase_List : ToolsTextBase ) {
 singleton GuiControlProfile(ToolsTextBase_S1 : ToolsTextBase) {
     fontSize = "14";
     fontType = "Gotham Book";
+   fontColors[7] = "255 0 255 255";
 };
 singleton GuiControlProfile(ToolsTextBase_S1_C : ToolsTextBase_S1) {
     locked = true;
@@ -191,3 +193,16 @@ singleton GuiControlProfile(ToolsTextAlt_H1_R : ToolsTextAlt_H1) {
     justify = "Right";
 };
 //------------------------------------------------------------------------------
+
+singleton GuiControlProfile(ToolsTextBaseA : ToolsTextBase)
+{
+   fontColors[0] = "254 201 127 255";
+   fontColors[7] = "255 0 255 255";
+   fontColor = "254 201 127 255";
+   fontType = "Gotham Bold";
+};
+
+singleton GuiControlProfile(ToolsTextBaseA_S1 : ToolsTextBaseA)
+{
+   fontType = "Gotham Book";
+};

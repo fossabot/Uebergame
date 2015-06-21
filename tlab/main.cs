@@ -42,7 +42,7 @@ function loadTorqueLabProfiles( )
 	// Make sure we get editor profiles before any GUI's
 	// BUG: these dialogs are needed earlier in the init sequence, and should be moved to
 	// common, along with the guiProfiles they depend on.
-	exec( "tlab/EditorLab/gui/core/guiDialogs.ed.cs" );
+	//exec( "tlab/EditorLab/gui/core/guiDialogs.ed.cs" );
 }
 //==============================================================================
 // TorqueLab Package overiding some default functions

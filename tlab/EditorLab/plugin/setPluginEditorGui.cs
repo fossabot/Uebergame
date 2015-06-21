@@ -7,6 +7,8 @@
 //==============================================================================
 function Lab::setEditor( %this, %newEditor, %dontActivate ) {
 	//First make sure the new editor is valid
+	
+	
 	if (%newEditor $= "") {
 		%newEditor = Lab.defaultPlugin;
 
@@ -43,6 +45,7 @@ function Lab::setEditor( %this, %newEditor, %dontActivate ) {
 	if (!%this.currentEditor.isActivated)
 		%this.currentEditor.onActivated();
 
+Lab.activePluginName = %this.currentEditor.displayName;
 	//Lab.activatePlugin(%this.currentEditor);
 }
 function Lab::syncEditor( %this,%newEditor ) {

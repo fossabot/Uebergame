@@ -41,7 +41,7 @@ function execRoadEd(%loadGui) {
 		exec( "tlab/roadEditor/gui/roadEditorGui.gui" );
 		exec( "tlab/roadEditor/gui/RoadEditorTools.gui" );
 		exec( "tlab/roadEditor/gui/roadEditorToolbar.gui");
-		exec( "tlab/roadEditor/gui/roadEditorPalette.gui");
+		exec( "tlab/roadEditor/gui/RoadEditorPaletteGui.gui");
 	}
 
 	exec( "tlab/roadEditor/roadEditorGui.cs" );

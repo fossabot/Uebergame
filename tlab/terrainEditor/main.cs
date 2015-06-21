@@ -6,29 +6,29 @@
 function initializeTerrainEditor() {
 	echo( " - Initializing Terrain Editor" );
 	execTerrainEd(true);
-	Lab.createPlugin("TerrainEditor","Terrain Editor");
-	Lab.createPlugin("TerrainPainter","Terrain Painter");
+	
+	
 	//Add the plugin GUI elements
 	//----------------------------------------------
-	// Terrain Editor GUIs
+	// Terrain Editor Plugin
+	Lab.createPlugin("TerrainEditor","Terrain Editor");
 	Lab.addPluginToolbar("TerrainEditor",EWTerrainEditToolbar);
 	Lab.addPluginPalette("TerrainEditor",TerrainEditorPalette);
-	//Lab.addPluginDlg("TerrainEditor",TerrainEditorBrushDlg);
 	Lab.addPluginDlg("TerrainEditor",TerrainEditorDialogs);
+	TerrainEditorPlugin.PM = new PersistenceManager();
+	TerrainEditorPlugin.setEditorMode("Terrain");	
+	
 	//----------------------------------------------
-	// Terrain Painter GUIs
-	//Lab.addPluginEditor("TerrainPainter",EPainter);
+	// Terrain Painter Plugin
+	Lab.createPlugin("TerrainPainter","Terrain Painter");
 	Lab.addPluginGui("TerrainPainter",TerrainPainterTools);
 	Lab.addPluginToolbar("TerrainPainter",EWTerrainPainterToolbar);
 	Lab.addPluginPalette("TerrainPainter",TerrainPainterPalette);
 	Lab.addPluginDlg("TerrainPainter",TerrainPainterDialogs);
-	//Lab.addPluginDlg("TerrainPainter",TerrainPaintGeneratorGui);
-	//Lab.addPluginDlg("TerrainPainter",TerrainImportGui);
-	// create our persistence manager
-	TerrainEditorPlugin.PM = new PersistenceManager();
 	TerrainPainterPlugin.PM = new PersistenceManager();
-	TerrainEditorPlugin.setEditorMode("Terrain");
-	TerrainPainterPlugin.setEditorMode("Terrain");
+	TerrainPainterPlugin.setEditorMode("Terrain");	
+	
+	
 	%map = new ActionMap();
 	newSimSet("FilteredTerrainMaterialsSet");
 	TerrainMaterialDlg-->materialFilter.setText("");

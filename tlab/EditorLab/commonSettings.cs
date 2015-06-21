@@ -34,7 +34,7 @@ function Lab::initCommonParams( %this ) {
 	%ar = %this.newParamsArray("Camera","Common");
 	%ar.group[%gid++] = "Camera views settings";
 	%ar.setVal("cameraSpeed",      "1" TAB "Camera movement speed" TAB "sliderOnly" TAB "range>>0 200;;precision>>0" TAB "$Camera::movementSpeed"TAB %gid);
-	%ar.setVal("CamViewEnabled",       "1" TAB "CamViewEnabled" TAB "CheckBox" TAB "" TAB "EToolCamViewDlg.setState(**);" TAB %gid);
+	%ar.setVal("CamViewEnabled",       "1" TAB "CamViewEnabled" TAB "CheckBox" TAB "" TAB "ECamViewGui.setState(**);" TAB %gid);
 	%ar.setVal("cameraDisplayMode",       "Standard Camera" TAB "Initial Camera Mode" TAB "TextEdit" TAB "" TAB "Lab" TAB %gid);
 	%ar.setVal("cameraDisplayType",       $EditTsCtrl::DisplayTypePerspective TAB "cameraDisplayType" TAB "TextEdit" TAB "" TAB "Lab" TAB %gid);
 	%ar.setVal("LaunchInFreeview",       "1" TAB "Launch with free view" TAB "Checkbox" TAB "" TAB "Lab" TAB %gid);
@@ -47,6 +47,7 @@ function Lab::initCommonParams( %this ) {
 	%gid = 0;
 	%ar = %this.newParamsArray("Colors","WorldEditor");
 	%ar.group[%gid++] = "World editor colors settings";
+	%ar.setVal("gizmoGridColor",       "102 102 102 100" TAB "Gizmo grid color" TAB "ColorInt" TAB "" TAB "Lab.setGizmoGridColor(**);" TAB %gid);
 	%ar.setVal("gridColor",       "102 102 102 100" TAB "gridColor" TAB "ColorInt" TAB "" TAB "EWorldEditor" TAB %gid);
 	%ar.setVal("gridOriginColor",      "255 255 255 100"  TAB "gridOriginColor" TAB "ColorInt" TAB "" TAB "EWorldEditor" TAB %gid);
 	%ar.setVal("gridMinorTickColor",     "51 51 51 100"     TAB "gridMinorTickColor" TAB "ColorInt" TAB "" TAB "EWorldEditor" TAB %gid);
@@ -104,13 +105,25 @@ function Lab::initCommonParams( %this ) {
 	%gid = 0;
 	%ar = %this.newParamsArray("AxisGizmo","WorldEditor");
 	%ar.group[%gid++] = "Axis gizmo settings";
-	%ar.setVal("axisGizmoMaxScreenLen",       "100" TAB "axisGizmoMaxScreenLen" TAB "TextEdit" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
-	%ar.setVal("rotationSnap",       "15" TAB "rotationSnap" TAB "TextEdit" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
-	%ar.setVal("snapRotations",       "0" TAB "snapRotations" TAB "TextEdit" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
-	%ar.setVal("mouseRotateScalar",       "0.8" TAB "mouseRotateScalar" TAB "TextEdit" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
-	%ar.setVal("mouseScaleScalar",       "0.8" TAB "mouseScaleScalar" TAB "TextEdit" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
-	%ar.setVal("renderWhenUsed",       "0" TAB "renderWhenUsed" TAB "TextEdit" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
-	%ar.setVal("renderInfoText",       "1" TAB "renderInfoText" TAB "TextEdit" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("gridColor",       "102 102 102 100" TAB "Grid color" TAB "ColorInt" TAB "" TAB "Lab.setGizmoGridColor(**);" TAB %gid);
+	%ar.setVal("gridSize",       "10" TAB "gridSize" TAB "SliderEdit" TAB "range>>0 200" TAB "Lab.setGizmoGridSize(**);" TAB %gid);
+	%ar.setVal("planeDim",       "500" TAB "planeDim" TAB "SliderEdit" TAB "range>>0 1000" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("screenLength",       "100" TAB "Gizmo size" TAB "SliderEdit" TAB "range>>0 200;;validate>>flen 2" TAB "GlobalGizmoProfile" TAB "flen 1" TAB %gid);
+	%ar.setVal("rotateScalar",       "0.8" TAB "rotateScalar" TAB "SliderEdit" TAB "range>>0 2;;tickAt>>0.01" TAB "Lab.setGizmoScalar(\"rotate\",**);" TAB %gid);
+	%ar.setVal("scaleScalar",       "0.8" TAB "scaleScalar" TAB "SliderEdit" TAB "range>>0 2;;tickAt>>0.01" TAB "Lab.setGizmoScalar(\"scale\",**);" TAB %gid);
+	%ar.setVal("snapToGrid",       "0" TAB "snapToGrid" TAB "Checkbox" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("allowSnapRotations",       "0" TAB "allowSnapRotations" TAB "Checkbox" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("rotationSnap",       "15" TAB "rotationSnap" TAB "SliderEdit" TAB "range>>0 45;;tickAt 1" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("allowSnapScale",       "0" TAB "allowSnapScale" TAB "Checkbox" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("scaleSnap",       "15" TAB "scaleSnap" TAB "SliderEdit" TAB "range>>0 2;;tickAt 0.05" TAB "GlobalGizmoProfile" TAB %gid);	
+	
+	%ar.setVal("renderWhenUsed",       "0" TAB "renderWhenUsed" TAB "Checkbox" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("renderInfoText",       "1" TAB "renderInfoText" TAB "Checkbox" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("renderPlane",       "1" TAB "renderPlane" TAB "Checkbox" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("renderPlaneHashes",       "1" TAB "renderPlaneHashes" TAB "Checkbox" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("renderSolid",       "0" TAB "renderSolid" TAB "Checkbox" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	%ar.setVal("renderMoveGrid",       "1" TAB "renderMoveGrid" TAB "Checkbox" TAB "" TAB "GlobalGizmoProfile" TAB %gid);
+	
 }
 //------------------------------------------------------------------------------
 

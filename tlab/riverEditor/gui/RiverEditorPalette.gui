@@ -1,17 +1,27 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiControl(RiverEditorPalette,EditorGuiGroup) {
-   canSaveDynamicFields = "0";
-   Enabled = "1";
-   isContainer = "1";
-   Profile = "ToolsDefaultProfile";
-   HorizSizing = "right";
-   VertSizing = "bottom";
-   Position = "0 0";
-   Extent = "1024 768";
-   MinExtent = "8 2";
-   canSave = "1";
-   Visible = "1";
-   hovertime = "1000";
+%guiContent = new GuiStackControl(RiverEditorPalette,ToolLabGuiGroup) {
+      stackingType = "Vertical";
+      horizStacking = "Left to Right";
+      vertStacking = "Top to Bottom";
+      padding = "0";
+      dynamicSize = "1";
+      dynamicNonStackExtent = "0";
+      dynamicPos = "0";
+      changeChildSizeToFit = "1";
+      changeChildPosition = "1";
+      position = "0 0";
+      extent = "28 168";
+      minExtent = "16 16";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      profile = "ToolsPanelDarkA";
+      visible = "1";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
    
    new GuiBitmapButtonCtrl(ERiverEditorSelectModeBtn) {
       canSaveDynamicFields = "0";
@@ -135,7 +145,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Insert Point (+)";
       hovertime = "1000";
-      bitmap = "tlab/gui/icons/default/road-river/add-point";
+     bitmap = "tlab/gui/buttons/palette-assets/NodeAdd";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };
@@ -157,7 +167,7 @@
       tooltipprofile = "ToolsGuiToolTipProfile";
       ToolTip = "Remove Point (-)";
       hovertime = "1000";
-      bitmap = "tlab/gui/icons/default/road-river/subtract-point";
+      bitmap = "tlab/gui/buttons/palette-assets/NodeRemove";
       buttonType = "RadioButton";
       useMouseEvents = "0";
    };

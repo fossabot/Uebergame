@@ -12,7 +12,7 @@
 function SceneEditorPlugin::initParamsArray( %this,%array ) {
 	$SceneEdCfg = newScriptObject("SceneEditorCfg");
 	%array.group[%groupId++] = "General settings";
-	%array.setVal("DefaultWidth",       "10" TAB "Default Width" TAB "SliderEdit"  TAB "range>>0 100;;tickAt>>1" TAB "SceneEditorCfg" TAB %groupId);
+
 	%array.setVal("DropLocation",       "10" TAB "Drop object location" TAB "Dropdown"  TAB "itemList>>$TLab_Object_DropTypes" TAB "SceneEditorCfg" TAB %groupId);
 	%array.setVal("AutoCreatePrefab",       "1" TAB "Create prefab automatically" TAB "Checkbox"  TAB "" TAB "SceneEditorCfg" TAB %groupId);
 	%array.group[%groupId++] = "MissionGroup Organizer";
@@ -123,6 +123,7 @@ function SceneEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
 //==============================================================================
 //
 function SceneEditorPlugin::handleDelete( %this ) {
+	devLog(" SceneEditorPlugin::handleDelete( %this ) ");
 	// The tree handles deletion and notifies the
 	// world editor to clear its selection.
 	//

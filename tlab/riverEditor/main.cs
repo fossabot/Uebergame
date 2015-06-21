@@ -55,7 +55,7 @@ function execRiverEd(%loadGui) {
 		exec( "tlab/riverEditor/gui/riverEditorGui.gui" );
 		exec( "tlab/riverEditor/gui/RiverEditorTools.gui" );
 		exec( "tlab/riverEditor/gui/riverEditorToolbar.gui" );
-		exec( "tlab/riverEditor/gui/riverEditorPalette.gui" );
+		exec( "tlab/riverEditor/gui/riverEditorPaletteGui.gui" );
 		exec( "tlab/riverEditor/gui/riverEditorDialogs.gui" );
 	}
 

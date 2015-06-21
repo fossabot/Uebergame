@@ -219,7 +219,7 @@ function Lab::setCameraViewType( %this, %type ) {
 		LocalClientConnection.camera.setRotation( %this.lastPerspectiveCamRotation );
 
 	%this.cameraDisplayType = %type;
-	EToolCamViewDlg.updateCurrentView();
+	ECamViewGui.updateCurrentView();
 }
 //------------------------------------------------------------------------------
 //==============================================================================

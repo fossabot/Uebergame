@@ -13,6 +13,24 @@ exec("tlab/EditorLab/commonSettings.cs");
 
 //------------------------------------------------------------------------------
 //Load GameLab system (In-Game Editor)
+function tlabExecCore( %loadGui ) {
+	if(%loadGui) {
+		
+		exec("tlab/EditorLab/gui/core/EditorLoadingGui.gui");
+		exec("tlab/EditorLab/gui/core/simViewDlg.ed.gui");
+		exec("tlab/EditorLab/gui/core/colorPicker.ed.gui");
+		exec("tlab/EditorLab/gui/core/scriptEditorDlg.ed.gui");
+		exec("tlab/EditorLab/gui/core/GuiEaseEditDlg.ed.gui");
+		exec("tlab/EditorLab/gui/core/uvEditor.ed.gui");
+	}
+
+	exec("tlab/EditorLab/gui/core/fileDialogBase.ed.cs");
+	exec("tlab/EditorLab/gui/core/openFileDialog.ed.cs");
+	exec("tlab/EditorLab/gui/core/saveFileDialog.ed.cs");
+	exec("tlab/EditorLab/gui/core/GuiEaseEditDlg.ed.cs");
+}
+tlabExecCore($LabExecGui);
+%execAll = strAddWord(%execAll,"tlabExecCore");
 
 
 //------------------------------------------------------------------------------
@@ -20,10 +38,11 @@ exec("tlab/EditorLab/commonSettings.cs");
 
 function tlabExecMenubar( %loadGui ) {
 	exec("tlab/EditorLab/menubar/manageMenu.cs");
+	exec("tlab/EditorLab/menubar/defineMenus.cs");
+	exec("tlab/EditorLab/menubar/menuHandlers.cs");
 	exec("tlab/EditorLab/menubar/labstyle/menubarScript.cs");
 	exec("tlab/EditorLab/menubar/labstyle/buildWorldMenu.cs");
-	exec("tlab/EditorLab/menubar/native/menus.cs");
-	exec("tlab/EditorLab/menubar/native/menuHandlers.cs");
+	exec("tlab/EditorLab/menubar/native/buildNativeMenu.cs");
 	exec("tlab/EditorLab/menubar/native/lightingMenu.cs");
 }
 tlabExecMenubar($LabExecGui);
@@ -45,19 +64,18 @@ tlabExecHelpers($LabExecGui);
 //------------------------------------------------------------------------------
 //Load the Editor Main Gui
 
-function tlabExecFunctions(%loadGui ) {
-	exec("tlab/EditorLab/functions/objectsGroup.cs");
-	exec("tlab/EditorLab/functions/objectsSelect.cs");
-	exec("tlab/EditorLab/functions/objectsCopy.cs");
+function tlabExecScene(%loadGui ) {
+	execPattern("tlab/EditorLab/scene/*.cs");
 }
-tlabExecFunctions($LabExecGui);
-%execAll = strAddWord(%execAll,"tlabExecFunctions");
+tlabExecScene($LabExecGui);
+%execAll = strAddWord(%execAll,"tlabExecScene");
 //------------------------------------------------------------------------------
 //Load the LabGui (Cleaned EditorGui files)
 function tlabExecEditor(%loadGui ) {
 	if (%loadGui) {
 		exec("tlab/EditorLab/editor/gui/EditorGui.gui");
 		exec("tlab/EditorLab/gui/cursors.cs");
+		
 	}
 
 	exec("tlab/EditorLab/editor/EditorOpen.cs");
@@ -73,11 +91,7 @@ tlabExecEditor($LabExecGui);
 //------------------------------------------------------------------------------
 //Load the Tools scripts (Toolbar and special functions)
 function tlabExecToolbar(%loadGui ) {
-	exec("tlab/EditorLab/toolbar/toolbarInit.cs");
-	exec("tlab/EditorLab/toolbar/toolbarDragDrop.cs");
-	exec("tlab/EditorLab/toolbar/toolbarDialogs.cs");
-	exec("tlab/EditorLab/toolbar/statusbarSetup.cs");
-	exec("tlab/EditorLab/toolbar/palettebarSetup.cs");
+	execPattern("tlab/EditorLab/toolbar/*.cs");
 }
 tlabExecToolbar($LabExecGui);
 %execAll = strAddWord(%execAll,"tlabExecToolbar");
@@ -117,20 +131,15 @@ function tlabExecDialogs(%loadGui ) {
 		exec("tlab/EditorLab/gui/dialogs/ESelectObjects.gui");
 		exec("tlab/EditorLab/gui/dialogs/EManageBookmarks.gui");
 		exec("tlab/EditorLab/gui/dialogs/ESceneManager.gui");
-		exec("tlab/EditorLab/gui/dialogs/EToolDlgGroup.gui");
-		exec("tlab/EditorLab/gui/dialogs/EToolCamViewDlg.gui");
-		exec("tlab/EditorLab/gui/dialogs/EMissionArea.gui");
 		exec("tlab/EditorLab/gui/dialogs/ColladaImportDlg.gui");
 		exec("tlab/EditorLab/gui/dialogs/ColladaImportProgress.gui");
 		execPattern("tlab/EditorLab/gui/tools/*.gui");
 	}
 
+	exec("tlab/EditorLab/gui/dialogs/EObjectSelection.cs");
 	exec("tlab/EditorLab/gui/dialogs/ESelectObjects.cs");
 	exec("tlab/EditorLab/gui/dialogs/EManageBookmarks.cs");
 	exec("tlab/EditorLab/gui/dialogs/ESceneManager.cs");
-	exec("tlab/EditorLab/gui/dialogs/EToolDlgGroup.cs");
-	exec("tlab/EditorLab/gui/dialogs/EToolCamViewDlg.cs");
-	exec("tlab/EditorLab/gui/dialogs/EMissionArea.cs");
 	exec("tlab/EditorLab/gui/commonDialogs.cs");
 	exec("tlab/EditorLab/gui/dialogs/ColladaImportDlg.cs");
 	execPattern("tlab/EditorLab/gui/tools/*.cs");
