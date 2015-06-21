@@ -7,6 +7,7 @@ This is mostly a personal project that I decided to share with others because I 
 
 ### HelpersLab Required
 Current TorqueLab rely on my scripting helpers archives and I have not prepare a package which contain only the functions used in TorqueLab yet so you need to grab the latest HelpersLab release to use TorqueLab. Please visit HelpersLab repositiory for more informations. https://github.com/NordikLab/HelpersLab
+For now, the entire HelpersLab files are included in the release. If you don't have installed the HelpersLab files from https://github.com/NordikLab/HelpersLab, you will need to add the helpers folder included into tlab folder (see installation) 
 
 ## What's TorqueLab
 TorqueLab is a completly revamping on the native Torque3D game editors (tools folder). The initial releases doesn't provide much new features, the work is focus on the scripts structure and the interface. Once those are completed, new features would be added.
@@ -20,7 +21,11 @@ TorqueLab is a completly revamping on the native Torque3D game editors (tools fo
 if (isToolBuild())
     $userDirs = "tlab;" @ $userDirs;  //replaced tools with tlab
 ```
-* If using without the Native tools folder, you need to paste the supplied tools/ folder since some images path are set directly in the engine code
+- If using without the Native tools folder, you need to paste the supplied tools/ folder since some images path are set directly in the engine code
+### HelpersLab
+HelpersLab files are include in /helpers/ folder and those files are needed to run TorqueLab. If you just want HelpersLab to be used with TorqueLab, you can simply paste the helpers/ folder in tlab/ folder. HelpersLab will be automatically executed if tlab/helpers/initHelpers.cs file is found.
+
+- Copy folder helpers/ to tlab/ folder root
 
 ## Notes
 * TorqueLab will work without any code changes but some features might requires some changes in the code. Those would be disabled unless you make the needed changes.

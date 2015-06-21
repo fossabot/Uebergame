@@ -1,0 +1,8 @@
+//==============================================================================
+//Documentation generate with HelperLab doc generator
+//------------------------------------------------------------------------------
+<hr><br>
+ Align control with parent
+ Set a GuiControl to be aligned with parent top, bottom, left or right
+ Optional: You can set a margin to be added to the new position
+ Usage: GuiControl.AlignCtrlToParent("top",10); //The Y position will be set to 10
