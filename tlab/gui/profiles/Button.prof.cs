@@ -50,6 +50,42 @@ singleton GuiControlProfile( ToolsButtonHighlight : ToolsButtonProfile ) {
     bitmap = "tlab/gui/assets/button/GuiButtonHighlight.png";
 };
 //------------------------------------------------------------------------------
+
+singleton GuiControlProfile( ToolsButtonArray : ToolsButtonProfile) {   
+    fillColor = "225 243 252 255";
+    fillColorHL = "225 243 252 0";
+    fillColorNA = "225 243 252 0";
+    fillColorSEL = "225 243 252 0";
+
+    //tab = true;
+    //canKeyFocus = true;
+
+    fontType = "Gotham Book";
+    fontSize = "14";
+
+    fontColor = "250 250 247 255";
+    fontColorSEL = "43 107 206";
+    fontColorHL = "244 244 244";
+    fontColorNA = "100 100 100";
+
+    border = 1;
+    borderColor   = "153 222 253 255";
+    borderColorHL = "156 156 156";
+    borderColorNA = "153 222 253 0";
+
+    //bevelColorHL = "255 255 255";
+    //bevelColorLL = "0 0 0";
+  
+    fontColors[1] = "244 244 244 255";
+    fontColors[2] = "100 100 100 255";
+    fontColors[3] = "43 107 206 255";
+    fontColors[9] = "255 0 255 255";
+   fontColors[0] = "250 250 247 255";
+   
+    modal = 1;
+};
+//------------------------------------------------------------------------------
+
 //==============================================================================
 // GuiCheckboxCtrl Profiles
 //==============================================================================

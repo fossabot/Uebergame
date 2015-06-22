@@ -462,7 +462,7 @@ function ShapeEdSelectWindow::findIconCtrl( %this, %name ) {
 
 function ShapeEdSelectWindow::createIcon( %this ) {
 	%ctrl = new GuiIconButtonCtrl() {
-		profile = "GuiCreatorIconButtonProfile";
+		profile = "ToolsButtonArray";
 		iconLocation = "Left";
 		textLocation = "Right";
 		extent = "348 19";
@@ -671,7 +671,7 @@ function ShapeEdSelectWindow::addObjectHint( %this, %type, %name, %desc, %presen
 	if ( ShapeHintControls.getCount() == 0 ) {
 		// Create a new hint gui control
 		%ctrl = new GuiIconButtonCtrl() {
-			profile = "GuiCreatorIconButtonProfile";
+			profile = "ToolsButtonArray";
 			iconLocation = "Left";
 			textLocation = "Right";
 			extent = "348 19";

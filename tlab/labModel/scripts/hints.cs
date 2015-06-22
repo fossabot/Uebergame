@@ -111,7 +111,7 @@ function LabModelSelectWindow::addObjectHint( %this, %type, %name, %desc, %prese
 	if ( LabShapeHintControls.getCount() == 0 ) {
 		// Create a new hint gui control
 		%ctrl = new GuiIconButtonCtrl() {
-			profile = "GuiCreatorIconButtonProfile";
+			profile = "ToolsButtonArray";
 			iconLocation = "Left";
 			textLocation = "Right";
 			extent = "348 19";

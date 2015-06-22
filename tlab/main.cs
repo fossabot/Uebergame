@@ -4,6 +4,11 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 
+%helpersLab = "tlab/helpers/initHelpers.cs";
+if (isFile(%helpersLab))
+	exec(%helpersLab);
+
+
 //==============================================================================
 // TorqueLab Core Global Settings
 //==============================================================================
@@ -19,8 +24,8 @@ $Lab::loadFirst = "editorClasses base sceneEditor";
 // These folders must be skipped for initial load
 $LabIgnoreEnableFolderList = "base debugger editorClasses forestEditor levels resources";
 
-if (!$HelperLabLoaded)
-   exec("tlab/helpers/initHelpers.cs"); 
+
+
 //---------------------------------------------------------------------------------------------
 // Tools Package.
 //---------------------------------------------------------------------------------------------

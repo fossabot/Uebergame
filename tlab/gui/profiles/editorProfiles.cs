@@ -50,6 +50,7 @@ singleton GuiControlProfile (EditorTextProfileWhite) {
 singleton GuiControlProfile (WorldEditorProfile) {
     canKeyFocus = true;
     category = "Editor";
+    modal = true;
 };
 
 singleton GuiControlProfile (EditorScrollProfile) {

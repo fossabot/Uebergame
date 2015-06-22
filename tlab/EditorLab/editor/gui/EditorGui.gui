@@ -52,7 +52,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolsGuiMenuBarProfile";
+         profile = "ToolsMenuBarProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";

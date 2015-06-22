@@ -38,7 +38,7 @@ function AssetsLab::navigateAssets( %this, %searchFolder ) {
 }
 function AssetsLab::createIcon( %this ) {
 	%ctrl = new GuiIconButtonCtrl() {
-		profile = "GuiCreatorIconButtonProfile";
+		profile = "ToolsButtonArray";
 		buttonType = "radioButton";
 		groupNum = "-1";
 	};

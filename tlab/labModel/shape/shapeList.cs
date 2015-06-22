@@ -138,7 +138,7 @@ function LabModelSelectWindow::findIconCtrl( %this, %name ) {
 
 function LabModelSelectWindow::createIcon( %this ) {
 	%ctrl = new GuiIconButtonCtrl() {
-		profile = "GuiCreatorIconButtonProfile";
+		profile = "ToolsButtonArray";
 		iconLocation = "Left";
 		textLocation = "Right";
 		extent = "348 19";

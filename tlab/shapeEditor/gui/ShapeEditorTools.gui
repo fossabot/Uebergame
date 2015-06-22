@@ -372,7 +372,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "GuiCreatorIconButtonProfile";
+                     profile = "ToolsButtonArray";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdSelectWindow.navigateDown( \"art\" );";
@@ -402,7 +402,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "GuiCreatorIconButtonProfile";
+                     profile = "ToolsButtonArray";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdSelectWindow.navigateDown( \"core\" );";
@@ -432,7 +432,7 @@
                      minExtent = "8 2";
                      horizSizing = "right";
                      vertSizing = "bottom";
-                     profile = "GuiCreatorIconButtonProfile";
+                     profile = "ToolsButtonArray";
                      visible = "1";
                      active = "1";
                      altCommand = "ShapeEdSelectWindow.navigateDown( \"tlab\" );";

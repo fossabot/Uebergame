@@ -63,6 +63,9 @@ singleton GuiControlProfile(ToolsPanelDarkA : ToolsDefaultProfile) {
     fontColors[9] = "Magenta";
     fontColors[7] = "255 0 255 255";
     fillColorHL = "228 228 235 255";
+   border = "-2";
+   fontColors[5] = "Fuchsia";
+   fontColorLinkHL = "Fuchsia";
 };
 singleton GuiControlProfile(ToolsPanelDarkB : ToolsPanelDarkA) {
     fillColor = "58 64 68 255";
@@ -147,3 +150,4 @@ singleton GuiControlProfile(ToolsPanelDarkA_T50 : ToolsPanelDarkA)
 {
    fillColor = "1 1 1 131";
 };
+

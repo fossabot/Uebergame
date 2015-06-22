@@ -6,7 +6,7 @@
 //==============================================================================
 
 //Arial= ToolsGuiToolTipProfile ToolsPanelDarkA GuiBackFillProfile GuiInspectorTextEditProfile GuiInspectorGroupProfile GuiInspectorFieldProfile
-//       GuiInspectorDynamicFieldProfile GuiInspectorRolloutProfile0 GuiInspectorTypeFileNameProfile GuiDirectoryTreeProfile GuiDirectoryFileListProfile GuiCreatorIconButtonProfile
+//       GuiInspectorDynamicFieldProfile GuiInspectorRolloutProfile0 GuiInspectorTypeFileNameProfile GuiDirectoryTreeProfile GuiDirectoryFileListProfile ToolsButtonArray
 //Lab.extractProfilesWithField("bevelColorHL");
 //==============================================================================
 //FONTS -> Change the font to all profile or only those specified in the list

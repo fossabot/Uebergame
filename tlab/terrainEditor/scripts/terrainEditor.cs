@@ -151,7 +151,7 @@ function TerrainPainterPlugin::setEditorFunction(%this, %overrideGroup) {
 
 function EPainterIconBtn::onMouseDragged( %this ) {
 	%payload = new GuiControl() {
-		profile = GuiCreatorIconButtonProfile;
+		profile = ToolsButtonArray;
 		position = "0 0";
 		extent = %this.extent.x SPC "5";
 		dragSourceControl = %this;
