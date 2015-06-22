@@ -44,6 +44,7 @@ function EOverlay::toggleSlider(%this,%decoyMode,%topCenterPos,%options,%value) 
 
 	%slider = EToolOverlay-->SliderMouseDlg;
 	%slider.ticks = "";
+	%slider.snap = false;
 	if (%options !$= "") {
 		for(%i=0; %i<getRecordCount(%options); %i++) {
 			%record = getRecord(%options,%i);

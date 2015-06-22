@@ -1,5 +1,5 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiStackControl(EWTerrainPainterToolbar) {
+new GuiStackControl(EWTerrainPainterToolbar) {
    stackingType = "Horizontal";
    horizStacking = "Left to Right";
    vertStacking = "Top to Bottom";
@@ -10,23 +10,25 @@
    changeChildSizeToFit = "0";
    changeChildPosition = "1";
    position = "245 0";
-   extent = "742 32";
+   extent = "710 32";
    minExtent = "16 16";
    horizSizing = "width";
    vertSizing = "bottom";
    profile = "ToolsDefaultProfile";
-   visible = "1";
+   visible = "0";
    active = "1";
    tooltipProfile = "ToolsGuiToolTipProfile";
    hovertime = "1000";
    isContainer = "1";
    internalName = "TerrainPainterToolbar";
    superClass = "ToolbarPluginStack";
+   hidden = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "guiGroup";
-      defaultStack = "11651";
-      EditorContainer = "4014";
+      defaultStack = "11595";
+      disabledGroup = "11636";
+      EditorContainer = "4085";
       editorParent = "EditorGuiToolbarStack";
       plugin = "TerrainPainter";
 
@@ -41,7 +43,7 @@
       changeChildSizeToFit = "1";
       changeChildPosition = "1";
       position = "0 0";
-      extent = "102 30";
+      extent = "70 30";
       minExtent = "4 16";
       horizSizing = "right";
       vertSizing = "bottom";
@@ -141,7 +143,8 @@
          internalName = "box";
          superClass = "ToolbarIcon";
          canSave = "1";
-         canSaveDynamicFields = "0";
+         canSaveDynamicFields = "1";
+            toolbar = "11595";
       };
       new GuiIconButtonCtrl() {
          buttonMargin = "2 2";
@@ -173,35 +176,6 @@
          canSave = "1";
          canSaveDynamicFields = "0";
       };
-      new GuiIconButtonCtrl() {
-         buttonMargin = "3 3";
-         iconBitmap = "tlab/gui/icons/toolbar-assets/BrushOptions.png";
-         iconLocation = "Center";
-         sizeIconToButton = "1";
-         makeIconSquare = "1";
-         textLocation = "Left";
-         textMargin = "4";
-         autoSize = "0";
-         groupNum = "-1";
-         buttonType = "PushButton";
-         useMouseEvents = "1";
-         position = "72 0";
-         extent = "30 30";
-         minExtent = "8 2";
-         horizSizing = "right";
-         vertSizing = "bottom";
-         profile = "ToolsButtonDark";
-         visible = "1";
-         active = "1";
-         command = "TerrainPainterDialogs.toggleDlg(\"BrushManager\");";
-         tooltipProfile = "GuiToolTipProfile";
-         tooltip = "Changes the softness curve";
-         hovertime = "1000";
-         isContainer = "0";
-         superClass = "ToolbarIcon";
-         canSave = "1";
-         canSaveDynamicFields = "0";
-      };
    };
    new GuiStackControl() {
       stackingType = "Horizontal";
@@ -213,7 +187,7 @@
       dynamicPos = "0";
       changeChildSizeToFit = "1";
       changeChildPosition = "1";
-      position = "107 0";
+      position = "75 0";
       extent = "546 30";
       minExtent = "4 16";
       horizSizing = "right";
@@ -869,7 +843,61 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "658 0";
+      position = "0 0";
+      extent = "84 30";
+      minExtent = "8 2";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      profile = "ToolsDefaultProfile";
+      visible = "0";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      internalName = "DisabledIcons";
+      hidden = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+
+      new GuiIconButtonCtrl() {
+         buttonMargin = "3 3";
+         iconBitmap = "tlab/gui/icons/toolbar-assets/BrushOptions.png";
+         iconLocation = "Center";
+         sizeIconToButton = "1";
+         makeIconSquare = "1";
+         textLocation = "Left";
+         textMargin = "4";
+         autoSize = "0";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "1";
+         position = "0 0";
+         extent = "30 30";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsButtonDark";
+         visible = "1";
+         active = "1";
+         command = "TerrainPainterDialogs.toggleDlg(\"BrushManager\");";
+         tooltipProfile = "GuiToolTipProfile";
+         tooltip = "Changes the softness curve";
+         hovertime = "1000";
+         isContainer = "0";
+         superClass = "ToolbarIcon";
+         locked = "1";
+         canSave = "1";
+         canSaveDynamicFields = "1";
+      };
+   };
+   new GuiContainer() {
+      margin = "0 0 0 0";
+      padding = "0 0 0 0";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "626 0";
       extent = "84 30";
       minExtent = "8 2";
       horizSizing = "right";

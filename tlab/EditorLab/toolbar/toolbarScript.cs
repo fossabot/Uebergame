@@ -9,6 +9,7 @@
 //==============================================================================
 //==============================================================================
 function Lab::initAllPluginsToolbar() {
+	EGuiCustomizer-->saveToolbar.active = false;
 	foreach(%gui in LabToolbarGuiSet) {
 		
 		Lab.initPluginToolbar(%gui);
@@ -21,6 +22,9 @@ function Lab::initPluginToolbar(%this,%gui) {
 	if (%gui.plugin $= "")
 		%gui.plugin = strreplace(%gui.getName(),"Toolbar","");
 	%pluginObj = %gui.plugin@"Plugin";
+	%pluginObj.iconList = "";
+	%pluginObj.toolbarGui = %gui;
+	devLog("initPluginToolbar Plugin = ",%gui.plugin,"PluginObj",%pluginObj);
 	if (!isObject(%pluginObj))
 		warnLog("Can't find the plugin obj for gui:",%gui,%gui.getName());
 		
@@ -42,9 +46,29 @@ function Lab::initPluginToolbar(%this,%gui) {
       %defaultStack.add(%end);
 	}
 	
+	%disabled = %gui.defaultStack-->DisabledIcons;
+	if (!isObject(%disabled)){
+		%disabled =  new GuiContainer() {        
+         extent = "84 30";        
+         profile = "ToolsDefaultProfile";        
+         internalName = "DisabledIcons";
+         visible = 0;      
+      };
+      %defaultStack.add(%disabled);
+	}
+	%gui.disabledGroup = %disabled;	
+	/*
+	for(%i = %disabled.getCount()-1;%i>=0;%i--){
+		%icon = %disabled.getObject(%i);
+		EToolbarIconTrash.add(%icon);
+		%pluginObj.iconList = strAddWord(%pluginObj.iconList,%icon.getId());
+	}
+
+	*/	
 	
 	%defaultStack.pushToBack(%end);
 	%pluginObj.toolbarGroups = "";
+	
 	foreach(%ctrl in %defaultStack)
 		if (%ctrl.getClassName() $= "GuiStackControl")
 			%pluginObj.toolbarGroups = strAddWord(%pluginObj.toolbarGroups,%ctrl.getId());
@@ -59,19 +83,65 @@ function Lab::initPluginToolbar(%this,%gui) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::scanPluginToolbarGroup(%this,%group,%level,%pluginObj) {
-	
+	devLog("scanPluginToolbarGroup:%group",%group,"Level",%level,"Obj",%pluginObj);		
 	foreach(%ctrl in %group) {
 		
-		if (%ctrl.getCount() > 0){
+		if (%ctrl.isMemberOfClass("GuiStackControl")){
 			
-			%this.scanPluginToolbarGroup(%ctrl,%level++);
+			%this.scanPluginToolbarGroup(%ctrl,%level++,%pluginObj);
 			continue;
 		}
-		if (%ctrl.isMemberOfClass("GuiIconButtonCtrl")){			
+		if (%ctrl.isMemberOfClass("GuiIconButtonCtrl")){	
+			devLog("Icon found for plugin:",%pluginObj,"%group",%group.internalName);		
 			%ctrl.superClass = "ToolbarIcon";	
-			%ctrl.useMouseEvents = true;	
+			%ctrl.useMouseEvents = true;
+			%ctrl.toolbar = %pluginObj.toolbarGui;		
+			%pluginObj.iconList = strAddWord(%pluginObj.iconList,%ctrl.getId());
+		}
+		else if (%group.isMemberOfClass("GuiStackControl")){
+			%ctrl.toolbar = %pluginObj.toolbarGui;	
+			%pluginObj.iconList = strAddWord(%pluginObj.iconList,%ctrl.getId());	
 		}
 	}
+}
+
+//------------------------------------------------------------------------------
+//==============================================================================
+function Lab::activatePluginToolbar(%this,%pluginObj) {
+	devLog("activatePluginToolbar:%pluginObj",%pluginObj);	
+	
+	%iconList = %pluginObj.iconList;
+	
+	if (%iconList $= "")
+		return;
+	foreach(%icon in %pluginObj.toolbarGui-->DisabledIcons){
+			%clone = %icon.deepClone();
+			%clone.srcCtrl = %icon;
+			show(%clone);
+			EToolbarIconTrash.add(%clone);
+	}	
+	return;
+	foreach$(%icon in %iconList){
+		if (%icon.locked)
+			EToolbarIconTrash.add(%icon);
+	}	
+}
+
+//------------------------------------------------------------------------------
+//==============================================================================
+function Lab::deactivatePluginToolbar(%this,%pluginObj) {
+	devLog("deactivatePluginToolbar:%pluginObj",%pluginObj);	
+	EToolbarIconTrash.clear();
+	return;
+	%iconList = %pluginObj.iconList;
+	if (%iconList $= "")
+		return;
+	%toolbar = %pluginObj.toolbarGui;
+	%disabledGroup = %toolbar.disabledGroup;
+	foreach$(%icon in %iconList){
+		if (%icon.locked)
+			%disabledGroup.add(%icon);
+	}	
 }
 
 //------------------------------------------------------------------------------
@@ -91,6 +161,37 @@ function Lab::toggleToolbarGroupVisible(%this,%groupId,%itemId) {
 }
 //------------------------------------------------------------------------------
 
+//==============================================================================
+function Lab::setToolbarIconDisabled(%this,%icon,%disabled) {
+	%icon.canSaveDynamicFields = true;
+	if (%icon.locked $= %disabled)
+		return;
+	EGuiCustomizer-->saveToolbar.active = true;
+	%icon.locked = %disabled;
+	if (!%disabled)
+		return;
+	devLog("Disabling icon:",%icon,"Gui",%icon.toolbar);
+	%disabledGroup = %icon.toolbar-->DisabledIcons;
+	if (%disabled && isObject(%disabledGroup))
+		%disabledGroup.add(%icon);
+		
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function Lab::saveToolbar(%this,%icon,%disabled) {
+	EGuiCustomizer-->saveToolbar.active = false;
+	Lab.toolbarIsDirty = true;
+}
+//------------------------------------------------------------------------------
+
+//==============================================================================
+function Lab::storePluginsToolbarState(%this) {
+	foreach(%gui in LabToolbarGuiSet) {		
+		%gui.save(%gui.getFilename());
+	}
+	Lab.toolbarIsDirty = false;
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 // Show Popup Options
 //==============================================================================

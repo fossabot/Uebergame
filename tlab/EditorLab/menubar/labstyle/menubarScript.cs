@@ -272,6 +272,8 @@ function LabMenu::onMenuItemSelect(%this,%menuId,%menuText,%menuItemId,%menuItem
 	%menuItemText 	Text of the selected menu item
 
 	*/
+
+		
 	%callBack =  $LabMenuCallback[%menuId,%menuItemId,%menuItemText];
 	eval(%callBack);
 }

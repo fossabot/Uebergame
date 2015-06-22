@@ -11,6 +11,18 @@ function FEP_Manager::initDataGenerator( %this ) {
 	FEP_ForestDataGenerator-->groupName.setText("[Brush group name]");
 	FEP_ForestDataGenerator-->prefix.setText("[Data prefix]");
 	FEP_ForestDataGenerator-->doBackup.setStateOn("1");
+	
+	%settingContainer = FEP_ForestDataGenerator-->settings;
+	%settingContainer-->scaleMin.setText("1");
+	%settingContainer-->scaleMax.setText("1");
+	%settingContainer-->scaleExponent.setText("1");
+	%settingContainer-->sinkMin.setText("0");
+	%settingContainer-->sinkMax.setText("0");
+	%settingContainer-->sinkRadius.setText("0");
+	%settingContainer-->slopeMin.setText("0");
+	%settingContainer-->slopeMax.setText("90");
+	%settingContainer-->elevationMin.setText("-1000");
+	%settingContainer-->elevationMax.setText("1000");
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -27,9 +39,16 @@ function FEP_Manager::generateForestData( %this, %path ) {
 	%prefix = FEP_ForestDataGenerator-->prefix.getText();
 	%backup = FEP_ForestDataGenerator-->doBackup.isStateOn();
 	devLog("Folder",%baseFolder,"Name",%name,"Prefix",%prefix,"Backup",%backup);
-	buildForestDataFromFolder(%baseFolder,%name,%prefix,%backup,$FEP_CreateBrushGroupAsParentFolder);
+	%settingContainer = FEP_ForestDataGenerator-->settings;
+	buildForestDataFromFolder(%baseFolder,%name,%prefix,%backup,$FEP_CreateBrushGroupAsParentFolder,%settingContainer);
 }
 //------------------------------------------------------------------------------
+
+
+
+              
+                  
+                  
 //==============================================================================
 function FEP_Manager::doOpenDialog( %this, %filter, %callback ) {
 	%currentFile = "art/shapes/";

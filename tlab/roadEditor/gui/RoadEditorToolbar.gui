@@ -1,5 +1,5 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiStackControl(RoadEditorToolbar) {
+new GuiStackControl(RoadEditorToolbar) {
    stackingType = "Horizontal";
    horizStacking = "Left to Right";
    vertStacking = "Top to Bottom";
@@ -26,8 +26,9 @@
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "guiGroup";
-      defaultStack = "10552";
-      EditorContainer = "4013";
+      defaultStack = "10488";
+      disabledGroup = "10519";
+      EditorContainer = "4085";
       editorParent = "EditorGuiToolbarStack";
       plugin = "RoadEditor";
 
@@ -704,6 +705,29 @@
             canSaveDynamicFields = "0";
          };
       };
+   };
+   new GuiContainer() {
+      margin = "0 0 0 0";
+      padding = "0 0 0 0";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "0 0";
+      extent = "84 30";
+      minExtent = "8 2";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      profile = "ToolsDefaultProfile";
+      visible = "0";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      internalName = "DisabledIcons";
+      hidden = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
    };
    new GuiContainer() {
       margin = "0 0 0 0";

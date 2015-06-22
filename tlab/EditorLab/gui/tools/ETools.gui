@@ -8,21 +8,21 @@
    anchorLeft = "1";
    anchorRight = "0";
    position = "0 0";
-   extent = "1248 818";
+   extent = "1123 820";
    minExtent = "8 2";
    horizSizing = "right";
    vertSizing = "bottom";
    profile = "ToolsGuiModelessDialogProfile";
-   visible = "0";
+   visible = "1";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
    isContainer = "1";
-   hidden = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "guiGroup";
-      EditorContainer = "4194";
+      EditorContainer = "4197";
+      editorParent = "EditorFrameTools";
 
    new GuiContainer(EToolbarObjectCenterDropdown) {
       margin = "0 0 0 0";
@@ -487,7 +487,7 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "501 368";
+      position = "438 369";
       extent = "246 82";
       minExtent = "8 2";
       horizSizing = "center";
@@ -10213,13 +10213,12 @@
       horizSizing = "windowRelative";
       vertSizing = "windowRelative";
       profile = "ToolsWindowProfile";
-      visible = "0";
+      visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
       hovertime = "1000";
       isContainer = "1";
       internalName = "GuiCustomizer";
-      hidden = "1";
       canSave = "1";
       canSaveDynamicFields = "1";
          decoyMode = "0";
@@ -10431,7 +10430,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "174 64";
+                     extent = "174 85";
                      minExtent = "16 16";
                      horizSizing = "right";
                      vertSizing = "bottom";
@@ -10568,6 +10567,27 @@
                            canSaveDynamicFields = "0";
                         };
                      };
+                     new GuiButtonCtrl() {
+                        text = "Save toolbar";
+                        groupNum = "-1";
+                        buttonType = "PushButton";
+                        useMouseEvents = "0";
+                        position = "0 64";
+                        extent = "174 21";
+                        minExtent = "8 2";
+                        horizSizing = "right";
+                        vertSizing = "bottom";
+                        profile = "ToolsButtonProfile";
+                        visible = "1";
+                        active = "1";
+                        command = "Lab.saveToolbar();";
+                        tooltipProfile = "GuiToolTipProfile";
+                        hovertime = "1000";
+                        isContainer = "0";
+                        internalName = "saveToolbar";
+                        canSave = "1";
+                        canSaveDynamicFields = "0";
+                     };
                   };
                };
                new GuiContainer() {
@@ -10663,7 +10683,7 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "647 255";
+      position = "752 255";
       extent = "210 257";
       minExtent = "198 130";
       horizSizing = "windowRelative";
@@ -10775,7 +10795,7 @@
                sinkAllKeyEvents = "0";
                password = "0";
                passwordMask = "•";
-               text = "0.7";
+               text = "4";
                maxLength = "6";
                margin = "0 0 0 0";
                padding = "0 0 0 0";

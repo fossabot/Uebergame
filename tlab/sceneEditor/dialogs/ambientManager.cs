@@ -11,6 +11,7 @@ function SceneEditorDialogs::onActivated( %this ) {
 	SEP_AmbientBook.selectPage(SceneEditorDialogs.selectedPage);
 	SEP_ScatterSkyBook.selectPage(0);
 	SEP_PrecipitationBook.selectPage(0);
+	SEP_AmbientManager.initBasicCloudsData();
 	SEP_ScatterSkyManager.initData();
 }
 //------------------------------------------------------------------------------

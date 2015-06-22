@@ -46,6 +46,9 @@ function EditorGui::onSleep( %this ) {
 
 	if( Lab.currentEditor.isActivated )
 		Lab.currentEditor.onDeactivated();
+		
+	if (Lab.toolbarIsDirty)
+		Lab.storePluginsToolbarState();
 
 	Lab.saveAllPluginData();
 	LabCfg.write();

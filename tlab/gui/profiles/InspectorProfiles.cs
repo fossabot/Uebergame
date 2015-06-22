@@ -363,7 +363,6 @@ singleton GuiControlProfile( GuiInspectorRolloutProfile0 : ToolsDefaultProfile) 
     fontColors[1] = "32 100 100 255";
     fontColors[9] = "255 0 255 255";
      modal = true;
-     
 };
 //==============================================================================
 // Used in SourceCode

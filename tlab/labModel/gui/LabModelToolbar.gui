@@ -1,25 +1,30 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiControl(LabModelToolbar,EditorGuiGroup) {
+new GuiControl(LabModelToolbar,EditorGuiGroup) {
    position = "195 0";
-   extent = "2208 32";
+   extent = "4609 32";
    minExtent = "8 2";
    horizSizing = "width";
    vertSizing = "bottom";
    profile = "ToolsDefaultProfile";
-   visible = "1";
+   visible = "0";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
    isContainer = "1";
+   hidden = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
       canClose = "0";
       canMaximize = "0";
       canMinimize = "0";
       canMove = "0";
-      defaultParent = "2531";
+      defaultParent = "3987";
+      defaultStack = "9102";
+      disabledGroup = "9117";
       edgeSnap = "0";
-      EditorContainer = "2733";
+      EditorContainer = "4085";
+      editorParent = "EditorGuiToolbarStack";
+      plugin = "LabModel";
       resizeHeight = "0";
       resizeWidth = "0";
       tooltipWidth = "500";
@@ -34,9 +39,8 @@
       dynamicPos = "0";
       changeChildSizeToFit = "0";
       changeChildPosition = "1";
-      preventReordering = "0";
       position = "0 0";
-      extent = "410 33";
+      extent = "496 33";
       minExtent = "16 16";
       horizSizing = "width";
       vertSizing = "bottom";
@@ -46,6 +50,7 @@
       tooltipProfile = "ToolsGuiToolTipProfile";
       hovertime = "1000";
       isContainer = "1";
+      superClass = "ToolbarPluginStack";
       canSave = "1";
       canSaveDynamicFields = "0";
 
@@ -365,7 +370,7 @@
          groupNum = "-1";
          buttonType = "ToggleButton";
          useMouseEvents = "0";
-         position = "322 0";
+         position = "340 0";
          extent = "88 16";
          minExtent = "8 2";
          horizSizing = "left";
@@ -379,6 +384,52 @@
          tooltip = "Forces loading of DAE files (ignores cached.dts if present)";
          hovertime = "1000";
          isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiContainer() {
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "0 0";
+         extent = "84 30";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsDefaultProfile";
+         visible = "0";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         internalName = "DisabledIcons";
+         hidden = "1";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiContainer() {
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "412 0";
+         extent = "84 30";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsDefaultProfile";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         internalName = "StackEnd";
+         superClass = "PluginToolbarEnd";
          canSave = "1";
          canSaveDynamicFields = "0";
       };

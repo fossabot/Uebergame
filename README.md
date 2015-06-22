@@ -5,6 +5,15 @@ This is an early release which should be use for testing purpose mostly. It seem
 ## Developer notes
 This is mostly a personal project that I decided to share with others because I think it make it easier to manage T3D projects than default T3D editors. TorqueLab is based on default T3D tools scripts which I have rearranged to be more modular and easier to edit. The scripts are not all optimized yet and some formatting are not looking good, I will try to improve the scripts during the development.
 
+### Unfinished Plugins port
+At current development stage, some stock T3D Editor plugins port to TorqueLab are not completed. Those might be unstable and should be avoided for production work (If you do, make sure to backup related files...)
+#### MeshRoadEditor
+The Mesh Road Editor port is limited for now. The focus is made on the RoadEditor and once the Road Editor is completed, the Mesh Road Editor will be base on it. It still should be working as it was in stock Torque3D editor.
+#### ShapeEditor
+The ShapeEditor is working but the Interface is not very good. It's a quite complex plugin and I start some work on a simplified version called Model Lab (labModel folder). Model lab would have same features as ShapeEditor without the animations part.
+#### ConvexEditor
+The ConvexEditor (SketchTool) is a basic port of stock ConvexEditor. It should be working but haven't been tested much since this tool need a major update to be usefull.
+
 ### HelpersLab Required
 Current TorqueLab rely on my scripting helpers archives and I have not prepare a package which contain only the functions used in TorqueLab yet so you need to grab the latest HelpersLab release to use TorqueLab. Please visit HelpersLab repositiory for more informations. https://github.com/NordikLab/HelpersLab
 For now, the entire HelpersLab files are included in the release. If you don't have installed the HelpersLab files from https://github.com/NordikLab/HelpersLab, you will need to add the helpers folder included into tlab folder (see installation) 

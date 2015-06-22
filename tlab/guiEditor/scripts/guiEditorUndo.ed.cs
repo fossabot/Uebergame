@@ -260,10 +260,12 @@ function GenericUndoAction::create() {
 }
 
 function GenericUndoAction::watch(%this, %object) {
-	// make sure we're working with the object id, because it cannot change.
 	%object = %object.getId();
-	%fieldCount = %object.getFieldCount();
-	%dynFieldCount = %object.getDynamicFieldCount();
+
+	if (%object.getClassName() $= "GuiMenuBar") {
+		warnLog("GenericUndoAction watch", %object,"Skipping watch for GuiMenuBar");
+		return;
+	}
 
 	// inspect all the fields on the object, including dyanamic ones.
 	// record field names and values.
@@ -289,6 +291,12 @@ function GenericUndoAction::watch(%this, %object) {
 function GenericUndoAction::learn(%this, %object) {
 	// make sure we're working with the object id, because it cannot change.
 	%object = %object.getId();
+
+	if (%object.getClassName() $= "GuiMenuBar") {
+		warnLog("GenericUndoAction learn", %object,"Skipping learn for GuiMenuBar");
+		return;
+	}
+
 	%fieldCount = %object.getFieldCount();
 	%dynFieldCount = %object.getDynamicFieldCount();
 
@@ -478,8 +486,13 @@ function GuiEditor::onPostEdit(%this, %selection) {
 
 	%this.updateUndoMenu();
 }
-
+$SkipThis = true;
 function GuiEditor::onPreSelectionNudged(%this, %selection) {
+	if ($SkipThis) {
+		warnLog("Skipping onPreSelectionNudged", %selection);
+		return;
+	}
+
 	%this.onPreEdit(%selection);
 	%this.pendingGenericUndoAction.actionName = "Nudge";
 }
@@ -513,6 +526,12 @@ function GuiEditor::onTrashSelection(%this, %selection) {
 function GuiEditor::onControlInspectPreApply(%this, %object) {
 	%set = new SimSet();
 	%set.add(%object);
+
+	if ($SkipThis) {
+		warnLog("Skipping onControlInspectPreApply", %object);
+		return;
+	}
+
 	%this.onPreEdit(%set);
 	%this.pendingGenericUndoAction.actionName = "Change Properties";
 	%set.delete();

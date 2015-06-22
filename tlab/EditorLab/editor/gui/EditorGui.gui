@@ -20,7 +20,7 @@
    langTableMod = "Default";
    canSave = "1";
    canSaveDynamicFields = "1";
-      previousGui = "2019";
+      previousGui = "1920";
       saveAs = "0";
       tooltipWidth = "500";
 
@@ -32,11 +32,11 @@
       anchorLeft = "1";
       anchorRight = "0";
       position = "0 0";
-      extent = "1440 26";
+      extent = "1440 24";
       minExtent = "8 2";
       horizSizing = "width";
       vertSizing = "bottom";
-      profile = "ToolsPanelDarkA";
+      profile = "ToolsGuiMenuBarProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
@@ -52,7 +52,7 @@
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "bottom";
-         profile = "ToolsMenuBarProfile";
+         profile = "ToolsGuiMenuProfile";
          visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
@@ -69,7 +69,7 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "0 26";
+      position = "0 24";
       extent = "1440 36";
       minExtent = "8 2";
       horizSizing = "width";
@@ -744,14 +744,14 @@
       autoBalance = "1";
       fudgeFactor = "0";
       docking = "Client";
-      margin = "62 0 0 0";
+      margin = "60 0 0 0";
       padding = "0 0 0 0";
       anchorTop = "0";
       anchorBottom = "0";
       anchorLeft = "0";
       anchorRight = "1";
-      position = "0 62";
-      extent = "1440 818";
+      position = "0 60";
+      extent = "1440 820";
       minExtent = "8 2";
       horizSizing = "width";
       vertSizing = "height";
@@ -772,7 +772,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "0 0";
-         extent = "1123 818";
+         extent = "1123 820";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
@@ -794,7 +794,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "1123 818";
+            extent = "1123 820";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -842,7 +842,7 @@
                isDirty = "0";
                stickToGround = "0";
                toggleIgnoreList = "0";
-               gridSize = "4.1";
+               gridSize = "4";
                gridColor = "9 254 83 101";
                gridOriginColor = "255 160 0 251";
                gridMinorTickColor = "222 254 219 173";
@@ -873,7 +873,7 @@
                anchorLeft = "0";
                anchorRight = "0";
                position = "0 0";
-               extent = "1123 818";
+               extent = "1123 820";
                minExtent = "8 8";
                horizSizing = "width";
                vertSizing = "height";
@@ -941,7 +941,7 @@
                anchorLeft = "0";
                anchorRight = "0";
                position = "0 0";
-               extent = "1123 818";
+               extent = "1123 820";
                minExtent = "8 8";
                horizSizing = "width";
                vertSizing = "height";
@@ -968,7 +968,7 @@
                   anchorBottom = "0";
                   anchorLeft = "1";
                   anchorRight = "0";
-                  position = "0 802";
+                  position = "0 804";
                   extent = "1123 16";
                   minExtent = "8 8";
                   horizSizing = "width";
@@ -1039,7 +1039,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "1123 818";
+            extent = "1123 820";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -1083,7 +1083,7 @@
                groupNum = "1";
                buttonType = "RadioButton";
                useMouseEvents = "0";
-               position = "133594 0";
+               position = "134083 0";
                extent = "36 40";
                minExtent = "7 2";
                horizSizing = "left";
@@ -1101,7 +1101,7 @@
                canSaveDynamicFields = "0";
             };
             new GuiDynamicCtrlArrayControl(ToolsToolbarArray) {
-               colCount = "3755";
+               colCount = "3769";
                colSize = "36";
                rowCount = "1";
                rowSize = "40";
@@ -1113,7 +1113,7 @@
                dynamicSize = "0";
                padding = "0 0 0 0";
                position = "4 0";
-               extent = "138969 40";
+               extent = "139458 40";
                minExtent = "1024 32";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -2790,7 +2790,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "1123 818";
+            extent = "1123 820";
             minExtent = "8 2";
             horizSizing = "width";
             vertSizing = "height";
@@ -2813,7 +2813,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "1125 0";
-         extent = "315 818";
+         extent = "315 820";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";

@@ -6,8 +6,8 @@
 $Precipitation::Default_["numDrops"] = "4096";
 $Precipitation::Default_["boxWidth"] = "400";
 $Precipitation::Default_["boxHeight"] = "200";
-$Precipitation::Default_["dropSize"] = "400";
-$Precipitation::Default_["splashSize"] = "400";
+$Precipitation::Default_["dropSize"] = "1";
+$Precipitation::Default_["splashSize"] = "1";
 $Precipitation::Default_["splashMS"] = "400";
 
 //==============================================================================

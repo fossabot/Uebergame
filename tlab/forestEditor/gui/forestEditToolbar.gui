@@ -1,5 +1,5 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiStackControl(ForestEditToolbar) {
+new GuiStackControl(ForestEditToolbar) {
    stackingType = "Horizontal";
    horizStacking = "Left to Right";
    vertStacking = "Top to Bottom";
@@ -15,19 +15,22 @@
    horizSizing = "right";
    vertSizing = "bottom";
    profile = "ToolsDefaultProfile";
-   visible = "1";
+   visible = "0";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
    isContainer = "1";
    internalName = "PluginStack";
-   superClass = "ToolbarContainer";
+   superClass = "ToolbarPluginStack";
+   hidden = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "guiGroup";
-      defaultStack = "8718";
-      EditorContainer = "4012";
+      defaultStack = "8642";
+      disabledGroup = "8676";
+      EditorContainer = "4085";
       editorParent = "EditorGuiToolbarStack";
+      plugin = "ForestEditor";
       preventReordering = "0";
 
    new GuiStackControl() {
@@ -248,6 +251,7 @@
          class = "AggregateBox";
          canSave = "1";
          canSaveDynamicFields = "1";
+            toolbar = "8642";
 
          new GuiTextCtrl() {
             text = "Global scale";
@@ -365,6 +369,7 @@
          canSave = "1";
          canSaveDynamicFields = "1";
             aggregateCtrls = "FET_HardnessBox";
+            toolbar = "8642";
 
          new GuiTextCtrl() {
             text = "Hardness";
@@ -481,6 +486,7 @@
          canSave = "1";
          canSaveDynamicFields = "1";
             aggregateCtrls = "FET_PressureBox";
+            toolbar = "8642";
 
          new GuiTextCtrl() {
             text = "Pressure";
@@ -597,6 +603,7 @@
          canSave = "1";
          canSaveDynamicFields = "1";
             aggregateCtrls = "FET_TipSizeBox";
+            toolbar = "8642";
 
          new GuiTextCtrl() {
             text = "Tip Size";
@@ -692,6 +699,29 @@
             canSaveDynamicFields = "0";
          };
       };
+   };
+   new GuiContainer() {
+      margin = "0 0 0 0";
+      padding = "0 0 0 0";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "0 0";
+      extent = "84 30";
+      minExtent = "8 2";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      profile = "ToolsDefaultProfile";
+      visible = "0";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      internalName = "DisabledIcons";
+      hidden = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
    };
    new GuiContainer() {
       margin = "0 0 0 0";

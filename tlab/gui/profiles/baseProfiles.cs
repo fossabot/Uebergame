@@ -40,7 +40,7 @@ new GuiControlProfile (ToolsDefaultProfile) {
     textOffset = "0 0";
 
     // used by guiTextControl
-    modal = true;
+    modal = "1";
     justify = "left";
     autoSizeWidth = false;
     autoSizeHeight = false;
@@ -66,7 +66,8 @@ new GuiControlProfile (ToolsGuiTransparentProfile : ToolsDefaultProfile) {
     opaque = false;
     border = false;
     category = "Tools";
-    modal = false;
+    modal = "1";
+   fontColors[9] = "Magenta";
 };
 
 new GuiControlProfile( ToolsGuiGroupBorderProfile ) {
@@ -144,30 +145,7 @@ new GuiControlProfile( ToolsGuiRadioProfile ) {
 
 
 
-new GuiControlProfile( ToolsGuiOverlayProfile ) {
-    opaque = true;
-    fillcolor = "255 255 255";
-    fontColor = "0 0 0";
-    fontColorHL = "255 255 255";
-    fillColor = "0 0 0 100";
-    category = "Tools";
-};
-singleton GuiControlProfile(ToolsGuiMenuProfile) {
-    opaque = true;
-    fillcolor = "255 255 255";
-    fontColor = "0 0 0";
-    fontColorHL = "255 255 255";
-    fillColor = "0 0 0 100";
-    category = "Tools";
-};
-singleton GuiControlProfile(ToolsGuiMenuAltProfile) {
-    opaque = true;
-    fillcolor = "255 255 255";
-    fontColor = "0 0 0";
-    fontColorHL = "255 255 255";
-    fillColor = "0 0 0 100";
-    category = "Tools";
-};
+
 
 
 new GuiControlProfile( ToolsGuiListBoxProfile ) {
@@ -222,3 +200,66 @@ singleton GuiControlProfile( ToolsGuiBackFillProfile ) {
 
 
 
+//==============================================================================
+// Used in SourceCode
+singleton GuiControlProfile (ToolsGuiMenuBarProfile) {
+    opaque = true;
+    border = "1";
+    category = "Tools";
+   fillColor = "48 48 48 255";
+   fontType = "Gotham Book";
+   fontSize = "18";
+   fontColors[0] = "0 226 255 255";
+   fontColor = "0 226 255 255";
+   justify = "Bottom";
+   textOffset = "10 4";
+   fontColors[8] = "255 0 255 255";
+   fillColorHL = "97 97 97 66";
+   fillColorNA = "127 64 29 255";
+   fontColors[1] = "37 183 254 255";
+   fontColors[2] = "208 132 6 255";
+   fontColors[3] = "240 185 39 255";
+   fontColorHL = "37 183 254 255";
+   fontColorNA = "208 132 6 255";
+   fontColorSEL = "240 185 39 255";
+   cursorColor = "255 0 255 255";
+   modal = true;
+   borderColorHL = "254 254 222 236";
+   borderColorNA = "255 213 0 210";
+   bevelColorHL = "106 106 106 255";
+   bevelColorLL = "3 3 213 255";
+   autoSizeWidth = "1";
+   autoSizeHeight = "1";
+   borderColor = "0 148 255 67";
+};
+//------------------------------------------------------------------------------
+singleton GuiControlProfile( ToolsGuiMenuProfile ) {
+    opaque = true;
+    fillcolor = "41 41 41 238";
+    fontColor = "206 243 254 255";
+    fontColorHL = "64 222 254 255";
+    fillColor = "0 0 0 100";
+    category = "Tools";
+   fillColorHL = "43 43 43 241";
+   fontType = "Gotham Book Bold";
+   fontSize = "17";
+   fontColors[0] = "206 243 254 255";
+   fontColors[1] = "64 222 254 255";
+   fillColorNA = "29 132 21 252";
+   fillColorSEL = "11 43 190 255";
+   justify = "Center";
+   fontColors[2] = "102 62 27 188";
+   fontColors[3] = "254 227 97 255";
+   fontColorNA = "102 62 27 188";
+   fontColorSEL = "254 227 97 255";
+   cursorColor = "0 0 0 255";
+};
+
+singleton GuiControlProfile(ToolsGuiMenuAltProfile) {
+    opaque = true;
+    fillcolor = "255 255 255";
+    fontColor = "0 0 0";
+    fontColorHL = "255 255 255";
+    fillColor = "0 0 0 100";
+    category = "Tools";
+};

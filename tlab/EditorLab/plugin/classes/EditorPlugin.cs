@@ -73,6 +73,8 @@ function EditorPlugin::onActivated( %this ) {
 	} else {
 		warnLog("The plugin",%this.displayName,"have no editor GUI assigned. Using default World Editor GUI");
 	}
+	
+	Lab.activatePluginToolbar(%this);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -82,6 +84,7 @@ function EditorPlugin::onDeactivated( %this,%newEditor ) {
 	endToolTime(%this.getName());
 	hide(%this.editorGui);
 	%this.isActivated = false;
+	Lab.deactivatePluginToolbar(%this);
 }
 //------------------------------------------------------------------------------
 //==============================================================================

@@ -64,7 +64,8 @@ function EToolbarIconTrash::onControlDropped(%this, %control, %dropPoint) {
 		show(%droppedCtrl);
 		return;
 	}
-
+	if(isObject(%droppedCtrl.srcCtrl))
+		return;
 	if (%droppedCtrl.getClassName() $= "GuiStackControl") {
 		show(%droppedCtrl);
 
@@ -80,9 +81,14 @@ function EToolbarIconTrash::onControlDropped(%this, %control, %dropPoint) {
 		%droppedCtrl.delete();
 		return;
 	}
-
-	show(%droppedCtrl);
-	%this.add(%droppedCtrl);
+	
+	
+	Lab.setToolbarIconDisabled(%droppedCtrl,true);
+	%clone = %droppedCtrl.deepClone();
+	%clone.srcCtrl = %droppedCtrl;
+	
+	show(%clone);
+	%this.add(%clone);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -97,10 +103,17 @@ function ToolbarIcon::onControlDropped(%this, %control, %dropPoint) {
 		return;
 	}
 
+	if(isObject(%droppedCtrl.srcCtrl))
+	{
+		devLog("Clone dropped, delete it");
+		%clone = %droppedCtrl;
+		%droppedCtrl = %droppedCtrl.srcCtrl;
+		delObj(%clone);
+	}
 	%addToThis = %this.parentGroup;
 	%addBefore = %this;
 	show(%droppedCtrl);
-
+	
 	if (%droppedCtrl.getClassName() $= "GuiStackControl") {
 		%stackAndChild = Lab.findObjectToolbarStack(%this,true);
 		%addToThis = getWord(%stackAndChild,0);
@@ -132,7 +145,13 @@ function PluginToolbarEnd::onControlDropped(%this, %control, %dropPoint) {
 		show(%droppedCtrl);
 		return;
 	}
-
+	if(isObject(%droppedCtrl.srcCtrl))
+	{
+		devLog("Clone dropped, delete it");
+		%clone = %droppedCtrl;
+		%droppedCtrl = %droppedCtrl.srcCtrl;
+		delObj(%clone);
+	}
 	show(%droppedCtrl);
 	%stackAndChild = Lab.findObjectToolbarStack(%this,true);
 	%addToThis = getWord(%stackAndChild,0);
@@ -231,7 +250,7 @@ function Lab::addToolbarItemToGroup(%this,%item,%group,%addBefore) {
 				%obj.extent.x = "6";
 		}
 	}
-
+	%this.setToolbarIconDisabled(%item,false);
 	%group.add(%item);
 	%group.updateStack();
 	%group.reorderChild(%item,%addBefore);

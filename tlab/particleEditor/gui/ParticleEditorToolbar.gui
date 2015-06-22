@@ -1,5 +1,5 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiStackControl(ParticleEditorToolbar) {
+new GuiStackControl(ParticleEditorToolbar) {
    stackingType = "Horizontal";
    horizStacking = "Left to Right";
    vertStacking = "Top to Bottom";
@@ -9,22 +9,28 @@
    dynamicPos = "1";
    changeChildSizeToFit = "1";
    changeChildPosition = "1";
-   position = "210 0";
-   extent = "84 32";
+   position = "122 0";
+   extent = "172 32";
    minExtent = "16 16";
    horizSizing = "right";
    vertSizing = "bottom";
    profile = "ToolsPanelDarkB";
-   visible = "1";
+   visible = "0";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
    isContainer = "1";
    internalName = "ParticleEditorToolbar";
+   superClass = "ToolbarPluginStack";
+   hidden = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "guiGroup";
-      EditorContainer = "4056";
+      defaultStack = "10076";
+      disabledGroup = "10080";
+      EditorContainer = "4085";
+      editorParent = "EditorGuiToolbarStack";
+      plugin = "ParticleEditor";
       preventReordering = "0";
 
    new GuiBitmapButtonCtrl() {
@@ -36,7 +42,7 @@
       groupNum = "-1";
       buttonType = "PushButton";
       useMouseEvents = "0";
-      position = "-1 0";
+      position = "0 0";
       extent = "12 32";
       minExtent = "7 2";
       horizSizing = "left";
@@ -62,7 +68,7 @@
       autoSize = "0";
       groupNum = "-1";
       buttonType = "PushButton";
-      useMouseEvents = "0";
+      useMouseEvents = "1";
       position = "16 0";
       extent = "32 32";
       minExtent = "8 2";
@@ -76,6 +82,7 @@
       tooltip = "Drops Particle Effect in front of the Camera";
       hovertime = "1000";
       isContainer = "0";
+      superClass = "ToolbarIcon";
       canSave = "1";
       canSaveDynamicFields = "0";
    };
@@ -90,7 +97,7 @@
       autoSize = "0";
       groupNum = "-1";
       buttonType = "PushButton";
-      useMouseEvents = "0";
+      useMouseEvents = "1";
       position = "52 0";
       extent = "32 32";
       minExtent = "8 2";
@@ -104,6 +111,53 @@
       tooltip = "Play Particle Effect from Start";
       hovertime = "1000";
       isContainer = "0";
+      superClass = "ToolbarIcon";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+   };
+   new GuiContainer() {
+      margin = "0 0 0 0";
+      padding = "0 0 0 0";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "0 0";
+      extent = "84 30";
+      minExtent = "8 2";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      profile = "ToolsDefaultProfile";
+      visible = "0";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      internalName = "DisabledIcons";
+      hidden = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+   };
+   new GuiContainer() {
+      margin = "0 0 0 0";
+      padding = "0 0 0 0";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "88 0";
+      extent = "84 32";
+      minExtent = "8 2";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      profile = "ToolsDefaultProfile";
+      visible = "1";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      internalName = "StackEnd";
+      superClass = "PluginToolbarEnd";
       canSave = "1";
       canSaveDynamicFields = "0";
    };

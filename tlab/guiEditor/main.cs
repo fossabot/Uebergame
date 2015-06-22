@@ -30,7 +30,7 @@ function execGuiEdit(%execGui) {
 	exec( "./scripts/guiEditorInspector.ed.cs" );
 	exec( "tlab/guiEditor/scripts/guiEditorProfiles.ed.cs" );
 	exec( "./scripts/guiEditorGroup.ed.cs" );
-	exec( "./scripts/guiEditorUndo.ed.cs" );
+	exec( "tlab/guiEditor/scripts/guiEditorUndo.ed.cs" );
 	exec( "tlab/guiEditor/scripts/guiEditorCanvas.ed.cs" );
 	exec( "./scripts/guiEditorContentList.ed.cs" );
 	exec( "./scripts/guiEditorStatusBar.ed.cs" );

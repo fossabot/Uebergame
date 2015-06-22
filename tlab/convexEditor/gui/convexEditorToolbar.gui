@@ -1,28 +1,33 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiControl(ConvexEditorToolbar,EditorGuiGroup) {
+new GuiControl(ConvexEditorToolbar,EditorGuiGroup) {
    position = "164 0";
-   extent = "1100 32";
+   extent = "3501 32";
    minExtent = "8 2";
    horizSizing = "width";
    vertSizing = "bottom";
    profile = "ToolsDefaultProfile";
-   visible = "1";
+   visible = "0";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
-   tooltipWidth = "500";
    isContainer = "1";
+   hidden = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
       canClose = "0";
       canMaximize = "0";
       canMinimize = "0";
       canMove = "0";
-      defaultParent = "2056";
+      defaultParent = "3987";
+      defaultStack = "8412";
+      disabledGroup = "8413";
       edgeSnap = "0";
-      EditorContainer = "2254";
+      EditorContainer = "4085";
+      editorParent = "EditorGuiToolbarStack";
+      plugin = "ConvexEditor";
       resizeHeight = "0";
       resizeWidth = "0";
+      tooltipWidth = "500";
 
    new GuiTextCtrl() {
       text = "Sketch Tool";
@@ -38,22 +43,68 @@
       minExtent = "8 8";
       horizSizing = "right";
       vertSizing = "bottom";
-      profile = "ToolsGuiTextTiny";
+      profile = "GuiTextProfile";
       visible = "1";
       active = "1";
       tooltipProfile = "GuiToolTipProfile";
       hovertime = "1000";
-      tooltipWidth = "500";
       isContainer = "1";
+      superClass = "ToolbarPluginStack";
       canSave = "1";
       canSaveDynamicFields = "0";
+
+      new GuiContainer() {
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "0 0";
+         extent = "84 30";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsDefaultProfile";
+         visible = "0";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         internalName = "DisabledIcons";
+         hidden = "1";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiContainer() {
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "0 0";
+         extent = "84 30";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsDefaultProfile";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         internalName = "StackEnd";
+         superClass = "PluginToolbarEnd";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
    };
    new GuiStackControl() {
       stackingType = "Horizontal";
       horizStacking = "Left to Right";
       vertStacking = "Top to Bottom";
       padding = "2";
-      preventReordering = "1";
       dynamicSize = "1";
       dynamicNonStackExtent = "0";
       dynamicPos = "0";
@@ -69,7 +120,6 @@
       active = "1";
       tooltipProfile = "ToolsGuiToolTipProfile";
       hovertime = "1000";
-      tooltipWidth = "500";
       isContainer = "1";
       canSave = "1";
       canSaveDynamicFields = "0";
@@ -90,12 +140,11 @@
          vertSizing = "bottom";
          profile = "ToolsButtonProfile";
          visible = "1";
-         active = "1";
+         active = "0";
          command = "ConvexEditorGui.handleDelete();";
          tooltipProfile = "ToolsGuiToolTipProfile";
          tooltip = "Delete selection [Disabled] (Delete)";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";
@@ -116,12 +165,11 @@
          vertSizing = "bottom";
          profile = "ToolsButtonProfile";
          visible = "1";
-         active = "1";
+         active = "0";
          command = "ConvexEditorGui.splitSelectedFace();";
          tooltipProfile = "ToolsGuiToolTipProfile";
          tooltip = "Split selected face [Disabled]\nUse Ctrl + Rotate instead for more control";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";
@@ -147,7 +195,6 @@
          tooltipProfile = "ToolsGuiToolTipProfile";
          tooltip = "Create ConvexShape Box\nUse Alt + Click-Drag instead of this for more control of starting placement.";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";
@@ -165,7 +212,6 @@
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
-         tooltipWidth = "500";
          isContainer = "0";
          canSave = "1";
          canSaveDynamicFields = "0";

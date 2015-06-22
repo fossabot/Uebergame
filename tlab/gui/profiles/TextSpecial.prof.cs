@@ -106,7 +106,7 @@ singleton GuiControlProfile(ToolsTextEditDark_Blue_S1 : ToolsTextEditDark_Blue)
 
 //==============================================================================
 // Used in SourceCode
-singleton GuiControlProfile (ToolsMenuBarProfile : ToolsDefaultProfile) {   
+singleton GuiControlProfile (ToolsGuiMenuBarProfile : ToolsDefaultProfile) {   
   
    fontType = "Gotham Book";
    fontSize = "17";

@@ -1,5 +1,5 @@
 //--- OBJECT WRITE BEGIN ---
-%guiContent = new GuiStackControl(MaterialEditorToolbar) {
+new GuiStackControl(MaterialEditorToolbar) {
    stackingType = "Horizontal";
    horizStacking = "Left to Right";
    vertStacking = "Top to Bottom";
@@ -15,19 +15,22 @@
    horizSizing = "right";
    vertSizing = "bottom";
    profile = "ToolsDefaultProfile";
-   visible = "1";
+   visible = "0";
    active = "1";
    tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
    isContainer = "1";
    internalName = "PluginStack";
-   superClass = "ToolbarContainer";
+   superClass = "ToolbarPluginStack";
+   hidden = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "guiGroup";
-      defaultStack = "9481";
-      EditorContainer = "4012";
+      defaultStack = "9422";
+      disabledGroup = "9428";
+      EditorContainer = "4085";
       editorParent = "EditorGuiToolbarStack";
+      plugin = "MaterialEditor";
       preventReordering = "0";
 
    new GuiStackControl() {
@@ -142,6 +145,29 @@
          canSave = "1";
          canSaveDynamicFields = "0";
       };
+   };
+   new GuiContainer() {
+      margin = "0 0 0 0";
+      padding = "0 0 0 0";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "0 0";
+      extent = "84 30";
+      minExtent = "8 2";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      profile = "ToolsDefaultProfile";
+      visible = "0";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      internalName = "DisabledIcons";
+      hidden = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
    };
    new GuiContainer() {
       margin = "0 0 0 0";
