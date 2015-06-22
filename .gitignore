@@ -50,7 +50,6 @@
 *.psd
 /*_src
 *.max
-/tlab
 /tools
 *.lnk
 *.dll

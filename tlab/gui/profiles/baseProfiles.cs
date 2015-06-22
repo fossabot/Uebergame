@@ -66,6 +66,7 @@ new GuiControlProfile (ToolsGuiTransparentProfile : ToolsDefaultProfile) {
     opaque = false;
     border = false;
     category = "Tools";
+    modal = false;
 };
 
 new GuiControlProfile( ToolsGuiGroupBorderProfile ) {

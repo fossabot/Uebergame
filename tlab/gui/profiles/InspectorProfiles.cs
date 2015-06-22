@@ -120,6 +120,7 @@ singleton GuiControlProfile( GuiButtonProfile : ToolsDefaultProfile ) {
    textOffset = "0 2";
    autoSizeWidth = "1";
    autoSizeHeight = "1";
+    modal = true;
 };
 //------------------------------------------------------------------------------
 
@@ -147,6 +148,7 @@ singleton GuiControlProfile( GuiInspectorCheckBoxProfile : ToolsDefaultProfile )
     fontColors[2] = "200 200 200 255";
    fontColors[4] = "Fuchsia";
    fontColorLink = "Fuchsia";
+    modal = true;
 };
 //------------------------------------------------------------------------------
 
@@ -170,6 +172,7 @@ singleton GuiControlProfile( GuiInspectorButtonProfile : ToolsButtonProfile ) {
    autoSizeWidth = "1";
    autoSizeHeight = "1";
     category = "Editor";
+     modal = true;
 };
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -188,6 +191,7 @@ singleton GuiControlProfile(GuiInspectorSwatchButtonProfile : GuiInspectorButton
    border = "-1";
    fontColors[2] = "Black";
    fontColorNA = "Black";
+    modal = true;
 };
 //------------------------------------------------------------------------------
 
@@ -197,7 +201,7 @@ singleton GuiControlProfile(GuiInspectorSwatchButtonProfile : GuiInspectorButton
 
 //==============================================================================
 // SourceCode TextEdit Profile
-singleton GuiControlProfile( GuiInspectorTextEditProfile ) {
+singleton GuiControlProfile( GuiInspectorTextEditProfile : ToolsDefaultProfile ) {
     borderColor = "100 100 100 255";
     borderColorNA = "75 75 75 255";
     fillColorNA = "White";
@@ -220,12 +224,15 @@ singleton GuiControlProfile( GuiInspectorTextEditProfile ) {
     fontColor = "231 224 178 255";
    bitmap = "tlab/gui/assets/element/GuiTextEditDark.png";
    hasBitmapArray = "1";
+   modal = true;
+  
 };
 //------------------------------------------------------------------------------
 //==============================================================================
 singleton GuiControlProfile( GuiDropdownTextEditProfile :  GuiInspectorTextEditProfile ) {
     bitmap = "tlab/gui/icons/default/dropdown-textEdit";
     category = "Editor";
+     modal = true;
 };
 //------------------------------------------------------------------------------
 
@@ -270,7 +277,7 @@ singleton GuiControlProfile( GuiInspectorGroupProfile : ToolsDefaultProfile ) {
 //==============================================================================
 //==============================================================================
 // Used in SourceCode
-singleton GuiControlProfile( GuiInspectorFieldProfile ) {
+singleton GuiControlProfile( GuiInspectorFieldProfile : ToolsDefaultProfile ) {
     fontType    = "Arial";
     fontSize    = "14";
 
@@ -331,7 +338,7 @@ singleton GuiControlProfile( GuiInspectorDynamicFieldProfile : GuiInspectorField
 
 //==============================================================================
 // Used in SourceCode -> Rollout for Array settings (Ex: GroundCover Layers)
-singleton GuiControlProfile( GuiInspectorRolloutProfile0 ) {
+singleton GuiControlProfile( GuiInspectorRolloutProfile0 : ToolsDefaultProfile) {
     // font
     fontType = "Gotham Book";
     fontSize = 14;
@@ -355,6 +362,8 @@ singleton GuiControlProfile( GuiInspectorRolloutProfile0 ) {
     fontColors[0] = "254 229 115 255";
     fontColors[1] = "32 100 100 255";
     fontColors[9] = "255 0 255 255";
+     modal = true;
+     
 };
 //==============================================================================
 // Used in SourceCode
@@ -374,7 +383,7 @@ singleton GuiControlProfile( GuiInspectorStackProfile ) {
 
 
 //==============================================================================
-// Used in SourceCode
+// Used in SourceCode - Inspector Checkbox single profile
 singleton GuiControlProfile( InspectorTypeCheckboxProfile : GuiInspectorFieldProfile ) {
     bitmap = "tlab/gui/assets/button/GuiCheckboxProfile_S1.png";
     hasBitmapArray = true;
@@ -382,6 +391,7 @@ singleton GuiControlProfile( InspectorTypeCheckboxProfile : GuiInspectorFieldPro
     border=false;
     textOffset = "4 0";
     category = "Editor";
+    modal = true;
 };
 //------------------------------------------------------------------------------
 
