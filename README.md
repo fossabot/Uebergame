@@ -30,8 +30,8 @@ HelpersLab files are include in /helpers/ folder and those files are needed to r
 ### Torque3D source code changes
 Some features require some simple code changes. You can get those changes from the TorqueLab branch on our Torque3D fork: [https://github.com/NordikLab/Torque3D/tree/TorqueLab](https://github.com/NordikLab/Torque3D/tree/TorqueLab)
 
-For a list of changes, you can find them by comparing TorqueLab branch with Torque3D Master:
-[https://github.com/GarageGames/Torque3D/compare/master...NordikLab:TorqueLab](https://github.com/GarageGames/Torque3D/compare/master...NordikLab:TorqueLab)
+For a list of changes, you can find them by comparing TorqueLab branch with Torque3D Development branch:
+[https://github.com/GarageGames/Torque3D/compare/development...NordikLab:TorqueLab](https://github.com/GarageGames/Torque3D/compare/development...NordikLab:TorqueLab)
 
 [TorquelLab Changes Patch.diff](https://github.com/NordikLab/TorqueLab/wiki/TorqueLab-Code-Changes-Patch)
 ## Notes
