@@ -77,6 +77,7 @@ function initClient()
    exec("art/gui/chatHud.gui");
    exec("art/gui/playerList.gui");
    exec("art/gui/hudlessGui.gui");
+   exec("art/gui/mainMenuLevelSplashGui.gui");
 
    // Load up the shell GUIs
    exec("art/gui/mainMenuGui.gui");
@@ -87,7 +88,7 @@ function initClient()
    exec("art/gui/loadingGui.gui");
    exec("art/gui/optionsDlg.gui");
    exec("art/gui/remapDlg.gui");
-   
+
    // Gui scripts
    exec("./playerList.cs");
    exec("./chatHud.cs");
@@ -96,12 +97,13 @@ function initClient()
    exec("scripts/gui/chooseLevelDlg.cs");
    exec("scripts/gui/loadingGui.cs");
    exec("scripts/gui/optionsDlg.cs");
-
+   
    // Client scripts
    exec("./client.cs");
    exec("./game.cs");
    exec("./missionDownload.cs");
    exec("./serverConnection.cs");
+   exec("./mainMenuLevel.cs");
 
    // Load useful Materials
    exec("./shaders.cs");

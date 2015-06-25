@@ -39,7 +39,6 @@ function StartLevel( %mission, %hostingType )
       else
          %serverType = "SinglePlayer";
    }
-
    // Show the loading screen immediately.
    if ( isObject( LoadingGui ) )
    {
@@ -322,7 +321,15 @@ function getLevelInfo( %missionFile )
 			if( %line $= "new ScriptObject(LevelInfo) {" )
 				%inInfoBlock = true;
          else if( %line $= "new LevelInfo(theLevelInfo) {" )
-				%inInfoBlock = true;
+		 {
+            // We need to modify the level info line to not
+            // include a name as that could conflict with a
+            // currently loaded level.  This does not affect
+            // the operation of the level info processing as
+            // it uses the object's SimObject ID.
+            %line = "new LevelInfo() {";
+            %inInfoBlock = true;
+         }
 			else if( %inInfoBlock && %line $= "};" ) {
 				%inInfoBlock = false;
 				%LevelInfoObject = %LevelInfoObject @ %line; 

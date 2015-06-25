@@ -453,6 +453,14 @@
 // not have a lingering mouseUp event lingering in the ether.
 function ChooseLevelDlgGoBtn::onMouseUp( %this )
 {
+   // If we are displaying a mission during the main
+   // menu, then disconnect.
+   if (isObject(MainMenuGui) && 
+       Canvas.getContent() $= MainMenuGui.getId())
+   {
+      disconnect();
+   }
+
    // So we can't fire the button when loading is in progress.
    if ( isObject( ServerGroup ) )
       return;

@@ -537,6 +537,13 @@ function JoinServerDlg::join(%this)
 
    // The server info index is stored in the row along with the
    // rest of displayed info.
+   
+   // If we are displaying a mission during the main
+   // menu, then disconnect.
+   if (isObject(MainMenuGui) && Canvas.getContent() $= MainMenuGui.getId())
+   {
+      disconnect();
+   }
 
    if( setServerInfo( %index ) )
    {

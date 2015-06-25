@@ -112,7 +112,7 @@ function toggleEditor(%make)
       if( $InGuiEditor )
          GuiEdit();
          
-      if( !$missionRunning )
+       if ( !$missionRunning || $Server::MissionFile $= "tools/levels/mainMenuLevel.mis" ) //makes chooselevel appear anyways
       {
          // Flag saying, when level is chosen, launch it with the editor open.
          ChooseLevelDlg.launchInEditor = true;
