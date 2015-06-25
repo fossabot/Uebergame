@@ -725,6 +725,48 @@ function brake(%val)
    $mvTriggerCount2++;
 }
 
+// #inventory start
+// Inventory and Equipment functions
+
+function InventoryGui::toggle(%this)  
+{  
+    if(%this.isAwake())  
+    {  
+        Canvas.popDialog(%this);  
+    }  
+    else  
+    {  
+        Canvas.pushDialog(%this);  
+    }  
+} 
+
+movemap.bindCmd( keyboard, "i", "InventoryGui.toggle();", "" );
+
+function EquipmentGui::toggle(%this)  
+{  
+    if(%this.isAwake())  
+    {  
+        Canvas.popDialog(%this);  
+    }  
+    else  
+    {  
+        Canvas.pushDialog(%this);  
+    }  
+} 
+
+movemap.bindCmd( keyboard, "o", "EquipmentGui.toggle();", "" );
+
+// Function that enables using the mouse cursor inside the game.
+function toggleMouseLock()
+{
+   Canvas.getContent().noCursor = 
+         !Canvas.getContent().noCursor;
+   Canvas.checkCursor();
+}
+
+moveMap.bindCmd(keyboard, "m", "toggleMouseLock();", "");
+// #inventory end
+
 vehicleMap.bind( keyboard, w, moveforward );
 vehicleMap.bind( keyboard, s, movebackward );
 vehicleMap.bind( keyboard, up, moveforward );
