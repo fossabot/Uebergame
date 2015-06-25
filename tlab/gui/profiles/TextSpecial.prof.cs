@@ -104,28 +104,4 @@ singleton GuiControlProfile(ToolsTextEditDark_Blue_S1 : ToolsTextEditDark_Blue)
 };
 
 
-//==============================================================================
-// Used in SourceCode
-singleton GuiControlProfile (ToolsGuiMenuBarProfile : ToolsDefaultProfile) {   
-  
-   fontType = "Gotham Book";
-   fontSize = "17";
-   fontColors[0] = "254 254 254 255";
-   fontColor = "254 254 254 255";
-   justify = "Center";
-   textOffset = "10 6";
-   fontColors[8] = "255 0 255 255";
-   modal = "1";      
-   fontColors[1] = "37 183 254 255";
-   fontColors[2] = "208 132 6 255";
-   fontColors[3] = "240 185 39 255";
-   fontColors[9] = "Fuchsia";
-   fontColorHL = "37 183 254 255";
-   fontColorNA = "208 132 6 255";
-   fontColorSEL = "240 185 39 255";
-   cursorColor = "255 0 255 255";
-   fillColor = "48 48 48 255";
-   fillColorHL = "97 97 97 255";
-   fillColorNA = "127 64 29 255";
-};
-//------------------------------------------------------------------------------
+

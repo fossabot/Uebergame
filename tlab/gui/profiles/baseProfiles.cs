@@ -198,11 +198,12 @@ singleton GuiControlProfile( ToolsGuiBackFillProfile ) {
 };
 
 
-
-
 //==============================================================================
-// Used in SourceCode
-singleton GuiControlProfile (ToolsGuiMenuBarProfile) {
+// TorqueLab Top Menu Bar Profiles
+//==============================================================================
+//==============================================================================
+// MenuBar Background
+singleton GuiControlProfile (ToolsGuiMenuBarProfile  : ToolsDefaultProfile) {
     opaque = true;
     border = "1";
     category = "Tools";
@@ -233,9 +234,11 @@ singleton GuiControlProfile (ToolsGuiMenuBarProfile) {
    borderColor = "0 148 255 67";
 };
 //------------------------------------------------------------------------------
-singleton GuiControlProfile( ToolsGuiMenuProfile ) {
+//==============================================================================
+// MenuBar Items
+singleton GuiControlProfile( ToolsGuiMenuProfile : ToolsGuiMenuBarProfile) {
     opaque = true;
-    fillcolor = "41 41 41 238";
+    fillcolor = "43 43 43 243";
     fontColor = "206 243 254 255";
     fontColorHL = "64 222 254 255";
     fillColor = "0 0 0 100";
@@ -253,8 +256,18 @@ singleton GuiControlProfile( ToolsGuiMenuProfile ) {
    fontColorNA = "102 62 27 188";
    fontColorSEL = "254 227 97 255";
    cursorColor = "0 0 0 255";
+   modal = true;
+   border = "0";
+   borderColor = "122 118 122 255";
+   borderColorHL = "141 141 141 255";
+   borderColorNA = "120 113 120 255";
+   fontColors[7] = "255 0 255 255";
+   bevelColorHL = "104 104 104 255";
+   bevelColorLL = "157 157 157 255";
 };
+//------------------------------------------------------------------------------
 
+//------------------------------------------------------------------------------
 singleton GuiControlProfile(ToolsGuiMenuAltProfile) {
     opaque = true;
     fillcolor = "255 255 255";
