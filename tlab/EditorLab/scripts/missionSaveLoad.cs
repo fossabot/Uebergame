@@ -53,7 +53,7 @@ function EditorSaveMission() {
 	for ( %i = 0; %i < EditorPluginSet.getCount(); %i++ ) {
 		%obj = EditorPluginSet.getObject(%i);
 
-		if ( %obj.isDirty() )
+		//if ( %obj.isDirty() )
 			%obj.onSaveMission( $Server::MissionFile );
 	}
 

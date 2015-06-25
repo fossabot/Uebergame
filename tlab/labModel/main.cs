@@ -47,7 +47,6 @@ function initializeLabModel() {
 function execLabModel(%loadGui) {
 	if (%loadGui) {
 		exec("tlab/LabModel/gui/LabModelPreviewGui.gui");
-		exec("tlab/LabModel/gui/LabModelAnimWindow.gui");
 		exec("tlab/LabModel/gui/LabModelToolbar.gui");
 		exec("tlab/LabModel/gui/LabModelPalette.gui");
 		exec("tlab/LabModel/gui/LabModelTools.gui");

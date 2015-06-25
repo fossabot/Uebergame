@@ -32,6 +32,10 @@ function SEP_GroundCover::createGroundCover( %this ) {
 		shapeCullRadius = $GroundCover::Default_["shapeCullRadius"];
 	};
 	%group = SceneCreatorWindow.getActiveSimGroup();
+	if (!isObject(%group))
+		%group = MissionGroup;
+	
+	%groundCover.setFileName(%group.getFilename());
 	%group.add(%groundCover);
 	SEP_GroundCover.selectedGroundCover = %groundCover;
 	%this.getMissionGroundCover();
@@ -303,45 +307,3 @@ function SEP_GroundCoverCheck::onClick( %this ) {
 //------------------------------------------------------------------------------
 
 
-
-new GroundCover(envGroundCover)
-{
-   Material = "fpMeadowA01_baseFarmGrass_MeadowA30";
-   radius = "400";
-   dissolveRadius = "200";
-   maxElements = "90000";
-   shapeCullRadius = "400";
-   shapeFilename[0] = "art/modelPacks/FarmPack/Nature/Grass/Long/fpGrassLongA_02.DAE";
-   shapeFilename[1] = "art/modelPacks/FarmPack/Nature/Grass/Meadow/fpMSparseA_t4_01.DAE";
-   shapeFilename[2] = "art/modelPacks/FarmPack/Nature/Trees/MountainAsh/fpMountainAshA_01.DAE";
-   shapeFilename[3] = "art/modelPacks/FarmPack/Nature/Flower/Poppy/fpPoppyA_4b_01.dae";
-   layer[0] = "gc_GrassSparse_Ground_g2";
-   layer[1] = "gc_GrassSparse_Ground_g2";
-   layer[2] = "gc_GrassSparse_Ground_g2";
-   layer[3] = "gc_GrassSparse_Ground_g2";
-   probability[0] = "1";
-   probability[1] = "1";
-   probability[2] = "1";
-   probability[3] = "4";
-   sizeMin[3] = "1.4";
-   sizeMax[1] = "2";
-   sizeMax[3] = "3";
-};
-
-new GroundCover(envGroundCover2)
-{
-   Material = "fpMeadowA01_baseFarmGrass_MeadowA30";
-   dissolveRadius = "200";
-   maxElements = "30000";
-   shapeCullRadius = "400";
-   shapeFilename[0] = "art/modelPacks/FarmPack/Nature/Flower/Susan/fpSusanA_4f_01.DAE";
-   shapeFilename[1] = "art/modelPacks/FarmPack/Nature/Trees/Alder/fpAlderA_01.DAE";
-   shapeFilename[2] = "art/modelPacks/FarmPack/Nature/Rock/MedBoulders/fpMB_BasicA_5.dae";
-   layer[0] = "gc_GrassLush_Agrass1";
-   layer[1] = "gc_GrassLush_Agrass1";
-   layer[2] = "gc_GrassLush_Agrass1";
-   probability[0] = "1";
-   probability[1] = "0.1";
-   probability[2] = "1";
-   sizeMax[0] = "2";
-};

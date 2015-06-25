@@ -133,6 +133,7 @@ function tlabExecDialogs(%loadGui ) {
 		exec("tlab/EditorLab/gui/dialogs/ESceneManager.gui");
 		exec("tlab/EditorLab/gui/dialogs/ColladaImportDlg.gui");
 		exec("tlab/EditorLab/gui/dialogs/ColladaImportProgress.gui");
+		exec("tlab/EditorLab/gui/dialogs/GameLabGui.gui");
 		execPattern("tlab/EditorLab/gui/tools/*.gui");
 	}
 
@@ -142,6 +143,7 @@ function tlabExecDialogs(%loadGui ) {
 	exec("tlab/EditorLab/gui/dialogs/ESceneManager.cs");
 	exec("tlab/EditorLab/gui/commonDialogs.cs");
 	exec("tlab/EditorLab/gui/dialogs/ColladaImportDlg.cs");
+	exec("tlab/EditorLab/gui/dialogs/GameLabGui.cs");
 	execPattern("tlab/EditorLab/gui/tools/*.cs");
 }
 tlabExecDialogs($LabExecGui);

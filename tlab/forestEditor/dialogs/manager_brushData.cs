@@ -4,49 +4,85 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 $FEP_ElementProperties = "scaleMin scaleMax scaleExponent elevationMin elevationMax sinkMin sinkMax sinkRadius slopeMin slopeMax rotationRange probability ForestItemData";
-function FEP_Manager::updateBrushProperties( %this,%item ) {
-	%selectedItem = ForestManagerBrushTree.getSelectedItem();
-	%selectedObject = ForestManagerBrushTree.getSelectedObject();
-	%selCount = ForestManagerBrushTree.getSelectedItemsCount();
-	devLog("Item=",%item,"SelectedItem = ",%selectedItem,"SelectedObj=",%selectedObject);
-	FEP_Manager.selectedBrushName = %item.internalName;
-	%this.selectedObject = %item;
 
-	if (%item.getClassName() $= "SimGroup")
-		%selType = "Group";
-	else if (%item.getClassName() $= "ForestBrush")
-		%selType = "Brush";
-	else if (%item.getClassName() $= "ForestBrushElement")
-		%selType = "Element";
 
-	foreach(%cont in FEP_ManagerBrushProperties) {
-		if (%cont.internalName $= %selType)
-			%cont.visible = true;
-		else
-			%cont.visible = false;
-	}
-
-	switch$(%selType) {
-	case "Group":
-	case "Brush":
-	case "Element":
-		devLog("Setting element",%item);
-
-		foreach$(%field in $FEP_ElementProperties)
-			eval("FEP_ManagerBrushProperties-->"@%field@".setText(%item."@%field@");");
-	}
-}
 //==============================================================================
-function FEP_ManagerElementEdit::onValidate( %this ) {
-	%element = FEP_Manager.selectedObject;
+function FEP_Manager::initBrushData( %this,%reset ) {	
+	if (isObject(ForestBrushGroup)){
+		ForestBrushGroup.remove(FEP_LevelBrushSet);
+		if (ForestBrushGroup.getCount() <= 0)
+			%reset = true;
+	}
+	
+	if (%reset)
+		delObj(ForestBrushGroup);
+	
+	if (!isObject(ForestBrushGroup)){
+		%brushPath = "art/forest/brushes.cs";
+		if ( !isFile( %brushPath ) )
+			createPath( %brushPath );
 
-	if (%element.getClassName() !$= "ForestBrushElement")
-		return;
+		// This creates the ForestBrushGroup, all brushes, and elements.
+		exec( "art/forest/brushes.cs" );	
+	}
 
-	%value = %this.getValue();
-	eval("%element."@%this.internalName@" = %value;");
-	FEP_Manager.setDirty();
+	if ( !isObject( ForestBrushGroup ) ) {
+		new SimGroup( ForestBrushGroup );
+		ForestBrushGroup.internalName = "ForestBrush";
+		%this.showError = true;
+	}
+	%this.updateBrushData();
 }
+//------------------------------------------------------------------------------
+//==============================================================================
+function FEP_Manager::updateBrushData( %this ) {
+	if (isObject(MissionForestBrushGroup)){
+		MissionCleanup.add(MissionForestBrushGroup);		
+		if (!isObject(FEP_LevelBrushSet))	
+			$FEP_LevelBrushSet = newSimSet("FEP_LevelBrushSet","","Level Brushes");
+		else
+			FEP_LevelBrushSet.clear();
+		
+		foreach(%obj in MissionForestBrushGroup)
+			FEP_LevelBrushSet.add(%obj);
+			
+		ForestBrushGroup.add(FEP_LevelBrushSet);		
+	}
+		
+	ForestEditBrushTree.open( ForestBrushGroup );
+	ForestEditBrushTree.buildVisibleTree( true );
+	
+	
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function FEP_Manager::saveBrushData( %this,%forced ) {
+	if (!FEP_Manager.dirty && !%forced)
+		return;
+		
+	if (isObject(MissionForestBrushGroup)){
+		ForestBrushGroup.remove(FEP_LevelBrushSet);
+		MissionForestBrushGroup.save( MissionForestBrushGroup.getFileName() );
+	}		
+	ForestBrushGroup.save( "art/forest/brushes.cs" );
+	if (isObject(MissionForestBrushGroup))
+		ForestBrushGroup.add( FEP_LevelBrushSet );
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function FEP_Manager::detachMissionBrushData( %this ) {
+	if (isObject(MissionForestBrushGroup))
+		MissionCleanup.add(MissionForestBrushGroup);			
+	
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function FEP_Manager::attachMissionBrushData( %this ) {
+	if (isObject(MissionForestBrushGroup))
+		ForestBrushGroup.add(MissionForestBrushGroup);			
+	
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 // Brush Tree Functions
 //==============================================================================
@@ -83,6 +119,8 @@ function FEP_Manager::newBrushGroup( %this ) {
 	ForestManagerBrushTree.addSelection( %item );
 	ForestManagerBrushTree.scrollVisible( %item );
 	ForestEditorPlugin.dirty = true;
+	
+	FEP_Manager.updateBrushData();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -112,6 +150,7 @@ function FEP_Manager::newBrush( %this ) {
 	ForestManagerBrushTree.addSelection( %item );
 	ForestManagerBrushTree.scrollVisible( %item );
 	ForestEditorPlugin.dirty = true;
+	FEP_Manager.initBrushData();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -139,6 +178,7 @@ function FEP_Manager::newBrushElement( %this ) {
 	ForestManagerBrushTree.scrollVisible( %item );
 	ForestManagerBrushTree.addSelection( %item );
 	ForestEditorPlugin.dirty = true;
+	FEP_Manager.updateBrushData();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -181,6 +221,7 @@ function ForestManagerBrushTree::onClearSelection( %this,%arg1 ) {
 //==============================================================================
 function ForestManagerBrushTree::onDeleteObject( %this,%obj ) {
 	devLog("ForestManagerBrushTree::onDeleteObject( %this,%obj )",%this,%obj );
+	
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -243,15 +284,78 @@ function ForestManagerBrushTree::onRightMouseUp( %this,%itemId,%mousePos,%obj ) 
 //==============================================================================
 function ForestManagerBrushTree::onSelect( %this,%item ) {
 	devLog("ForestManagerBrushTree::onSelect( %this,%item )",%this,%item );
-	FEP_Manager.updateBrushProperties(%item);
+	FEP_Manager.updateBrushTreeSelection(%item);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function ForestManagerBrushTree::onUnselect( %this,%item ) {
 	devLog("ForestManagerBrushTree::onUnselect( %this,%item )",%this,%item );
-	FEP_Manager.updateBrushProperties();
+	FEP_Manager.updateBrushTreeSelection();
+	
+	
 }
 //------------------------------------------------------------------------------
+//==============================================================================
+function FEP_Manager::updateForestBrush( %this,%item ) {
+	
+}
+//------------------------------------------------------------------------------
+
+function FEP_Manager::updateBrushTreeSelection( %this,%item ) {
+	%selectedItem = ForestManagerBrushTree.getSelectedItem();
+	%selectedObject = ForestManagerBrushTree.getSelectedObject();
+	%selCount = ForestManagerBrushTree.getSelectedItemsCount();
+	devLog("Item=",%item,"SelectedItem = ",%selectedItem,"SelectedObj=",%selectedObject);
+	FEP_Manager.selectedBrushName = %item.internalName;
+	%this.selectedObject = %item;
+	if (!isObject(%item)){
+		foreach(%cont in FEP_ManagerBrushProperties) 
+			%cont.visible = false;
+		return;
+	}
+	%class = %item.getClassName();
+	foreach(%cont in FEP_ManagerBrushProperties) {
+		if (%cont.internalName $= %class)
+			%cont.visible = true;
+		else
+			%cont.visible = false;
+	}
+	
+	switch$(%class){
+		case "ForestBrushElement":
+			FEP_Manager.updateBrushTreeElement(%item);
+		case "ForestBrush":
+		FEP_Manager.updateBrushTreeBrush(%item);
+		
+		case "SimGroup":
+		FEP_Manager.updateBrushTreeGroup(%item);
+	}	
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function FEP_Manager::updateBrushTreeElement( %this,%item ) {
+	foreach$(%field in $FEP_ElementProperties)
+			eval("FEP_ManagerBrushProperties-->"@%field@".setText(%item."@%field@");");
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function FEP_Manager::updateBrushTreeBrush( %this,%item ) {
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function FEP_Manager::updateBrushTreeGroup( %this,%item ) {
+}
+//------------------------------------------------------------------------------
+function FEP_ManagerElementEdit::onValidate( %this ) {
+	%element = FEP_Manager.selectedObject;
+
+	if (%element.getClassName() !$= "ForestBrushElement")
+		return;
+
+	%value = %this.getValue();
+	eval("%element."@%this.internalName@" = %value;");
+	FEP_Manager.setDirty(true);
+}
 /*
 
 void 	onInspect (int itemOrObjectId)

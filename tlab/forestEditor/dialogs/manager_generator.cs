@@ -3,11 +3,13 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
-$FEP_CreateBrushGroupAsParentFolder = true;
+$FEP_GeneratorDeleteExistBrush = true;
+$FEP_GeneratorLevelItemsMode = false;
 $FEP_RegenerateExistingData = false;
 //==============================================================================
 function FEP_Manager::initDataGenerator( %this ) {
-	FEP_ForestDataGenerator-->sourceFolder.setText("[Select model folder to generate from]");
+	if (FEP_ForestDataGenerator-->sourceFolder.getText() $= "")
+		FEP_ForestDataGenerator-->sourceFolder.setText("[Select model folder to generate from]");
 	FEP_ForestDataGenerator-->groupName.setText("[Brush group name]");
 	FEP_ForestDataGenerator-->prefix.setText("[Data prefix]");
 	FEP_ForestDataGenerator-->doBackup.setStateOn("1");
@@ -36,17 +38,32 @@ function FEP_Manager::dataGenFolder( %this, %path ) {
 function FEP_Manager::generateForestData( %this, %path ) {
 	%baseFolder = FEP_ForestDataGenerator-->sourceFolder.getText();
 	%name = FEP_ForestDataGenerator-->groupName.getText();
-	%prefix = FEP_ForestDataGenerator-->prefix.getText();
-	%backup = FEP_ForestDataGenerator-->doBackup.isStateOn();
-	devLog("Folder",%baseFolder,"Name",%name,"Prefix",%prefix,"Backup",%backup);
+	%prefix = FEP_ForestDataGenerator-->prefix.getText();	
 	%settingContainer = FEP_ForestDataGenerator-->settings;
-	buildForestDataFromFolder(%baseFolder,%name,%prefix,%backup,$FEP_CreateBrushGroupAsParentFolder,%settingContainer);
+	buildForestDataFromFolder(%baseFolder,%name,%prefix,%settingContainer,$FEP_GeneratorDeleteExistBrush,$FEP_GeneratorLevelItemsMode);
+	
+	%this.updateBrushData();
+	%this.setDirty(true);
 }
 //------------------------------------------------------------------------------
 
+//==============================================================================
+function FEP_Manager::deleteAllBrushes( %this ) {
+	ForestBrushGroup.deleteAllObjects();
+}
+//------------------------------------------------------------------------------
 
+ //==============================================================================
+function FEP_Manager::removeInvalidBrushes( %this ) {
+	warnLog("Sooooon");
+}
+//------------------------------------------------------------------------------  
 
-              
+ //==============================================================================
+function FEP_Manager::removeInvalidItems( %this ) {
+	warnLog("Sooooon");
+}
+//------------------------------------------------------------------------------             
                   
                   
 //==============================================================================

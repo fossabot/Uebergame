@@ -154,7 +154,6 @@ function TerrainMaterialDlg::dialogCancel( %this ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function TerrainMaterialTreeCtrl::onSelect( %this, %item ) {
-	devLog("TerrainMaterialTreeCtrl::onSelect",%item);
 	TerrainMaterialDlg.setActiveMaterial( %item );
 }
 //------------------------------------------------------------------------------

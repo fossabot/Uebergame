@@ -115,7 +115,14 @@ function strRemoveWord(%str,%word) {
 	return %str;
 }
 //------------------------------------------------------------------------------
-
+//==============================================================================
+/// Get the characters at end of string for the specified count
+/// Optional: %count -> Will return that amount of characters. (default = 1)
+function getLastWord(%str) {
+	%lastWord = getWord(%str,getWordCount(%str)-1);
+	return %lastWord;
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 // Check if the word contain any of the supplied words. Return true if found.
 // Optional: %all -> If %all is true, must find all words to return true;

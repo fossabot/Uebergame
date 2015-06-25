@@ -76,8 +76,7 @@ function buildParamsArray( %array,%syncAfter ) {
          %baseCtrl = %groupOption[%gid,"Container"];	
 		
 		  if (%groupOption[%gid,"Stack"] !$= ""){
-		  		%baseCtrl = %array.container.findObjectByInternalName(%groupOption[%gid,"Stack"],true);
-         	devLog("Params base control set from Internal name:",%groupOption[%gid,"Stack"],"Found obj=",%baseCtrl);
+		  		%baseCtrl = %array.container.findObjectByInternalName(%groupOption[%gid,"Stack"],true);         
 		  }
       
       
