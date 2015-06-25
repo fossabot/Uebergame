@@ -6,43 +6,28 @@
 //==============================================================================
 // Prepare the default config array for the Scene Editor Plugin
 //SEP_ScatterSkyManager.buildParams();
-function SEP_AmbientManager::buildBasicCloudsParams( %this ) {
-	%arCfg = createParamsArray("SEP_BasicClouds",SEP_BasicCloudsProperties);
-	%arCfg.updateFunc = "SEP_AmbientManager.updateBasicCloudsParam";
+function FEP_Manager::buildBrushParams( %this ) {
+	%arCfg = createParamsArray("FEP_Brush",FEP_ManagerBrushProperties);
+	%arCfg.updateFunc = "FEP_Manager.updateSimGroupParam";
 	%arCfg.style = "LabCfgB_230";
 	%arCfg.useNewSystem = true;
 
-	%arCfg.group[%gid++] = "Cloud Layer #1" TAB "Stack StackA";
+	%arCfg.group[%gid++] = "Group settings" TAB "Stack GroupStack";
 
-	%arCfg.setVal("layerEnabled[0]",       "" TAB "Enabled" TAB "Checkbox" TAB "" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texture[]",       "" TAB "Texture" TAB "FileSelect" TAB "callback>>SEP_AmbientManager.getBasicCloudTexture(0);" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texScale[0]",       "" TAB "Layer scale" TAB "SliderEdit" TAB "range>>0 5" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texDirection[0]",       "" TAB "Layer direction" TAB "TextEdit" TAB "" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texSpeed[0]",       "" TAB "Layer speed" TAB "SliderEdit" TAB "range>>0 5" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texOffset[0]",       "" TAB "Layer offset" TAB "TextEdit" TAB "" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("height[0]",       "" TAB "Layer heigth" TAB "SliderEdit" TAB "range>>0 10;;tickAt 1" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-
-	%arCfg.group[%gid++] = "Cloud Layer #2" TAB "Stack StackA";
-
-	%arCfg.setVal("layerEnabled[1]",       "" TAB "Enabled" TAB "Checkbox" TAB "" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texture[1]",       "" TAB "Texture" TAB "FileSelect" TAB "callback>>SEP_AmbientManager.getBasicCloudTexture(1);" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texScale[1]",       "" TAB "Layer scale" TAB "SliderEdit" TAB "range>>0 5" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texDirection[1]",       "" TAB "Layer direction" TAB "TextEdit" TAB "" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texSpeed[1]",       "" TAB "Layer speed" TAB "SliderEdit" TAB "range>>0 5" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texOffset[1]",       "" TAB "Layer offset" TAB "TextEdit" TAB "" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("height[1]",       "" TAB "Layer heigth" TAB "SliderEdit" TAB "range>>0 10;;tickAt 1" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
+	%arCfg.setVal("groupScaleScalar",       "" TAB "childScaleScalar" TAB "SliderEdit" TAB "range>>0 100" TAB "FEP_Manager.selectedBrushGroup" TAB %gid);
+	%arCfg.setVal("groupSinkScalar",        "" TAB "childSinkScalar" TAB "SliderEdit" TAB "range>>0 100" TAB "FEP_Manager.selectedBrushGroup" TAB %gid);
+	%arCfg.setVal("groupElevationScalar",   "" TAB "childElevationScalar" TAB "SliderEdit" TAB "range>>0 100" TAB "FEP_Manager.selectedBrushGroup" TAB %gid);
+	%arCfg.setVal("groupSlopeScalar",        "" TAB "childSlopeScalar" TAB "SliderEdit" TAB "range>>0 100" TAB "FEP_Manager.selectedBrushGroup" TAB %gid);
 	
-	%arCfg.group[%gid++] = "Cloud Layer #3" TAB "Stack StackB";
+	%arCfg.group[%gid++] = "Brush settings" TAB "Stack BrushStack";
 
-	%arCfg.setVal("layerEnabled[2]",       "" TAB "Enabled" TAB "Checkbox" TAB "" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texture[2]",       "" TAB "Texture" TAB "FileSelect" TAB "callback>>SEP_AmbientManager.getBasicCloudTexture(2);" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texScale[2]",       "" TAB "Layer scale" TAB "SliderEdit" TAB "range>>0 5" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texDirection[2]",       "" TAB "Layer direction" TAB "TextEdit" TAB "" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texSpeed[2]",       "" TAB "Layer speed" TAB "SliderEdit" TAB "range>>0 5" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("texOffset[2]",       "" TAB "Layer offset" TAB "TextEdit" TAB "" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
-	%arCfg.setVal("height[2]",       "" TAB "Layer heigth" TAB "SliderEdit" TAB "range>>0 10;;tickAt 1" TAB "SEP_AmbientManager.selectedBasicClouds" TAB %gid);
+	%arCfg.setVal("brushScaleScalar",       "" TAB "childScaleScalar" TAB "SliderEdit" TAB "range>>0 100" TAB "FEP_Manager.selectedBrush" TAB %gid);
+	%arCfg.setVal("brushSinkScalar",        "" TAB "childSinkScalar" TAB "SliderEdit" TAB "range>>0 100" TAB "FEP_Manager.selectedBrush" TAB %gid);
+	%arCfg.setVal("brushElevationScalar",   "" TAB "childElevationScalar" TAB "SliderEdit" TAB "range>>0 100" TAB "FEP_Manager.selectedBrush" TAB %gid);
+	%arCfg.setVal("brushSlopeScalar",        "" TAB "childSlopeScalar" TAB "SliderEdit" TAB "range>>0 100" TAB "FEP_Manager.selectedBrush" TAB %gid);
+	
 	buildParamsArray(%arCfg,false);
-	%this.BasicCloudsParamArray = %arCfg;
+	%this.brushParamArray = %arCfg;
 }
 //------------------------------------------------------------------------------
 
@@ -78,8 +63,6 @@ function SEP_AmbientManager::setBasicCloudTexture( %this,%file ) {
 // Sync the current profile values into the params objects
 function SEP_AmbientManager::updateBasicCloudField( %this,%field, %value,%layerId ) { 
 	devLog("SEP_AmbientManager::updateBasicCloudField( %this,%field, %value,%layerId )",%this,%field, %value,%layerId );
-	
-	SEP_AmbientManager.buildBasicCloudsParams();
  	%obj = %this.selectedBasicClouds;
 
 	if (!isObject(%obj)) {

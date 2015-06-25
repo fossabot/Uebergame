@@ -28,21 +28,10 @@ function ForestEditorPlugin::initParamsArray( %this,%cfgArray ) {
 function ForestEditorPlugin::onWorldEditorStartup( %this ) {
 	Parent::onWorldEditorStartup( %this );
 	new PersistenceManager( ForestDataManager );
-	%brushPath = "art/forest/brushes.cs";
-
-	if ( !isFile( %brushPath ) )
-		createPath( %brushPath );
-
-	// This creates the ForestBrushGroup, all brushes, and elements.
-	exec( %brushpath );
-
-	if ( !isObject( ForestBrushGroup ) ) {
-		new SimGroup( ForestBrushGroup );
-		ForestBrushGroup.internalName = "ForestBrush";
-		%this.showError = true;
-	}
-
-	ForestEditBrushTree.open( ForestBrushGroup );
+	
+	FEP_Manager.init();
+	
+	
 
 	if ( !isObject( ForestItemDataSet ) )
 		new SimSet( ForestItemDataSet );
@@ -56,11 +45,15 @@ function ForestEditorPlugin::onWorldEditorStartup( %this ) {
 	//FEP_ForestManager.init();
 	ForestEditorPlugin.brushPressure = ForestEditorCfg.defaultBrushPressure;
 	FEP_BrushManager.setBrushPressure();
+	
 }
 
 function ForestEditorPlugin::onWorldEditorShutdown( %this ) {
 	if ( isObject( ForestBrushGroup ) )
 		ForestBrushGroup.delete();
+	
+	if ( isObject( MissionForestBrushGroup ) )
+		MissionForestBrushGroup.delete();
 
 	if ( isObject( ForestDataManager ) )
 		ForestDataManager.delete();
@@ -69,14 +62,17 @@ function ForestEditorPlugin::onWorldEditorShutdown( %this ) {
 //==============================================================================
 // Called when the Plugin is activated (Active TorqueLab plugin)
 function ForestEditorPlugin::onActivated( %this ) {
+	//FEP_Manager.attachMissionBrushData();
+	FEP_Manager.initBrushData();
 	EditorGui.bringToFront( ForestEditorGui );
 	ForestEditorGui.setVisible( true );
 	ForestEditorGui.makeFirstResponder( true );
 	//ForestEditToolbar.setVisible( true );
 	%this.map.push();
 	Parent::onActivated(%this);
-	ForestEditBrushTree.open( ForestBrushGroup );
-	ForestEditMeshTree.open( ForestItemDataSet );
+	ForestEditMeshTree.initTree();
+	ForestEditBrushTree.initTree();
+	
 	// Open the Brush tab.
 	ForestEditTabBook.selectPage(0);
 	// Sync the pallete button state
@@ -152,6 +148,8 @@ function ForestEditorPlugin::onActivated( %this ) {
 //==============================================================================
 // Called when the Plugin is deactivated (active to inactive transition)
 function ForestEditorPlugin::onDeactivated( %this ) {
+	
+	//FEP_Manager.detachMissionBrushData();
 	ForestEditorGui.setVisible( false );
 	ETerrainEditor.setBrushSize( this.previousBrushSize);
 	%tool = ForestEditorGui.getActiveTool();
@@ -174,9 +172,40 @@ function ForestEditorPlugin::onPluginCreated( %this ) {
 
 //==============================================================================
 // Called when the mission file has been saved
-function SceneEditorPlugin::onSaveMission( %this, %file ) {
+function ForestEditorPlugin::onNewLevelLoaded( %this, %file ) {
+	devLog("ForestEditorPlugin::onNewLevelLoaded");
+	
+	//FEP_Manager.initBrushData();
+	Parent::onNewLevelLoaded( %this, %file );
 }
 //------------------------------------------------------------------------------
+function ForestEditorPlugin::isDirty( %this ) {
+	%dirty = %this.dirty || ForestEditorGui.isDirty();
+	return %dirty;
+}
+
+function ForestEditorPlugin::clearDirty( %this ) {
+	%this.dirty = false;
+}
+
+function ForestEditorPlugin::onSaveMission( %this, %missionFile ) {
+	devLog("ForestEditorPlugin::onSaveMission");
+	ForestDataManager.saveDirty();
+	%file = theForest.datafile;
+
+	if (!isFile(%file))
+		%file = filePath(theForest.getFilename())@"/data.forest";
+
+	//%file = strreplace(theForest.getFilename(),".mis",".forest");
+
+	if (isFile(%file))
+		theForest.saveDataFile(%file);
+		
+	FEP_Manager.saveBrushData();
+	
+}
+
+
 //==============================================================================
 // Called when TorqueLab is closed
 function ForestEditorPlugin::onEditorSleep( %this ) {
@@ -188,37 +217,27 @@ function ForestEditorPlugin::onEditorSleep( %this ) {
 
 //==============================================================================
 //
-function SceneEditorPlugin::handleDelete( %this ) {
-	// The tree handles deletion and notifies the
-	// world editor to clear its selection.
-	//
-	// This is because non-SceneObject elements like
-	// SimGroups also need to be destroyed.
-	//
-	// See EditorTree::onObjectDeleteCompleted().
-	%selSize = EWorldEditor.getSelectionSize();
+function ForestEditorPlugin::handleDelete( %this ) {
 
-	if( %selSize > 0 )
-		SceneEditorTree.deleteSelection();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function SceneEditorPlugin::handleDeselect() {
-	EWorldEditor.clearSelection();
+function ForestEditorPlugin::handleDeselect() {
+	
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function SceneEditorPlugin::handleCut() {
-	EWorldEditor.cutSelection();
+function ForestEditorPlugin::handleCut() {
+
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function SceneEditorPlugin::handleCopy() {
-	EWorldEditor.copySelection();
+function ForestEditorPlugin::handleCopy() {
+	
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function SceneEditorPlugin::handlePaste() {
-	EWorldEditor.pasteSelection();
+function ForestEditorPlugin::handlePaste() {
+
 }
 //------------------------------------------------------------------------------

@@ -3,6 +3,12 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
+
+function ForestEditBrushTree::initTree( %this ) {
+	ForestEditBrushTree.open( ForestBrushGroup );
+	ForestManagerBrushTree.open( ForestBrushGroup );
+}
+
 function ForestEditorGui::setBrushFilter( %this,%text ) {
 	%filtertext = strreplace(%text,"Filter...","");
 	ForestEditBrushTree.setFilterText(%filtertext);
@@ -35,6 +41,7 @@ function ForestEditorGui::newGroup( %this ) {
 	ForestEditBrushTree.addSelection( %item );
 	ForestEditBrushTree.scrollVisible( %item );
 	ForestEditorPlugin.dirty = true;
+	FEP_Manager.updateBrushData();
 }
 
 function ForestEditorGui::newBrush( %this ) {
@@ -63,6 +70,7 @@ function ForestEditorGui::newBrush( %this ) {
 	ForestEditBrushTree.addSelection( %item );
 	ForestEditBrushTree.scrollVisible( %item );
 	ForestEditorPlugin.dirty = true;
+	FEP_Manager.updateBrushData();
 }
 
 function ForestEditorGui::newElement( %this ) {
@@ -89,6 +97,7 @@ function ForestEditorGui::newElement( %this ) {
 	ForestEditBrushTree.scrollVisible( %item );
 	ForestEditBrushTree.addSelection( %item );
 	ForestEditorPlugin.dirty = true;
+	FEP_Manager.updateBrushData();
 }
 function ForestEditBrushTree::onRemoveSelection( %this, %obj ) {
 	%this.buildVisibleTree( true );
@@ -109,10 +118,24 @@ function ForestEditBrushTree::onAddSelection( %this, %obj ) {
 	else
 		ForestEditorInspector.inspect( "" );
 }
+function ForestEditBrushTree::onSelect( %this,%item ) {	
+	if (%item.getClassName() $= "SimSet"){				
+		foreach(%obj in %item){
+			%itemId = %this.findItemByObjectId(%obj);
+			%this.addSelection(%itemId);			
+		}		
+	}
+}
 
 
 function ForestEditBrushTree::onDeleteSelection( %this ) {
 	%list = ForestEditBrushTree.getSelectedObjectList();
+	foreach(%obj in %list)
+		if (%obj.isCoreSet)
+			%removeList = strAddWord(%removeList,%obj);
+	foreach$(%obj in %removeList)
+		%list = strRemoveWord(%obj);
+		
 	MEDeleteUndoAction::submit( %list, true );
 	ForestEditorPlugin.dirty = true;
 }

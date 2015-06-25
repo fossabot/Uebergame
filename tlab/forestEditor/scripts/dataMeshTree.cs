@@ -5,6 +5,12 @@
 //==============================================================================
 // Schedule global on-off - Used to limit output of fast logs
 //==============================================================================
+
+function ForestEditMeshTree::initTree( %this ) {
+	ForestEditMeshTree.open( ForestItemDataSet );
+	ForestManagerItemTree.open( ForestItemDataSet );
+}
+
 function ForestEditorGui::setItemFilter( %this,%text ) {
 	%filtertext = strreplace(%text,"Filter...","");
 	ForestEditMeshTree.setFilterText(%filtertext);

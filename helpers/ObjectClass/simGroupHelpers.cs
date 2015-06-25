@@ -23,10 +23,10 @@ function newSimSet( %name, %target,%internalName ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 // SimSet Creator function
-function newSimGroup( %name, %target ) {
+function newSimGroup( %name, %target,%internalName ) {
 	delObj(%name);
 	%obj = new SimGroup(%name);
-	%obj.internalName = %name;
+	%obj.internalName = %internalName;
 	eval("$"@%name@" = %obj;");
 
 	if (isObject(%target))

@@ -25,6 +25,7 @@ singleton GuiControlProfile (ForestEditorProfile) {
 };
 function initializeForestEditor() {
 	echo(" % - Initializing Forest Editor");
+	//$FEP_BrushSet = newSimSet("FEP_BrushSet");
 	execFEP(true);
 	//Add the different editor GUIs to the LabEditor
 	Lab.addPluginEditor("ForestEditor",ForestEditorGui);

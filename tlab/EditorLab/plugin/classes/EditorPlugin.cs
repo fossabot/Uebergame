@@ -38,7 +38,10 @@ function EditorPlugin::onWorldEditorStartup( %this ) {
 function EditorPlugin::onWorldEditorShutdown( %this ) {
 }
 //------------------------------------------------------------------------------
-
+//==============================================================================
+function EditorPlugin::onNewLevelLoaded( %this,%levelName ) {
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 /// Callback right before the editor is opened.
 function EditorPlugin::onEditorWake( %this ) {

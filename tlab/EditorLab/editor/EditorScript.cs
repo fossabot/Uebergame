@@ -158,5 +158,8 @@ function EditorGui::onNewLevelLoaded( %this, %levelName ) {
 	new ScriptObject( EditorMissionCleanup ) {
 		parentGroup = "MissionCleanup";
 	};
+	
+	foreach(%plugin  in LabPluginGroup)
+		%plugin.onNewLevelLoaded(%levelName);
 }
 //------------------------------------------------------------------------------

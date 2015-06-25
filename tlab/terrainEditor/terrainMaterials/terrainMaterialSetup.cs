@@ -139,8 +139,7 @@ function TerrainMaterialDlg::createMat( %this ) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function TerrainMaterialDlg::cloneMat( %this ) {
-	devLog("TerrainMaterialDlg::cloneMat");
+function TerrainMaterialDlg::cloneMat( %this ) {	
 	%src = %this.activeMat;
 
 	if (!isObject(%src)) {
@@ -206,9 +205,7 @@ function TerrainMaterialDlg::activateMaterialCtrls( %this, %active ) {
 //------------------------------------------------------------------------------
 
 //==============================================================================
-
-function TerrainMaterialDlg::setActiveMaterial( %this, %mat ) {
-	devLog("TerrainMaterialDlg::setActiveMaterial",%mat);
+function TerrainMaterialDlg::setActiveMaterial( %this, %mat ) {	
 
 	if (  isObject( %mat ) &&
 			%mat.isMemberOfClass( TerrainMaterial ) ) {

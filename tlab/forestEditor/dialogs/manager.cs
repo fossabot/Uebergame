@@ -13,16 +13,20 @@ function FEP_Manager::onWake( %this ) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function FEP_Manager::init( %this ) {
+function FEP_Manager::init( %this ) {	
 	FEP_Manager.initDataGenerator();
+	FEP_Manager.buildBrushParams();
+	FEP_Manager.initBrushData(true);
 	%this-->brush_filters.setText("Filters...");
 	%this.filters["brush"] = "";
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 function FEP_Manager::loadData( %this ) {
-	ForestManagerBrushTree.open( ForestBrushGroup );
-	ForestManagerItemTree.open( ForestItemDataSet );
+	ForestEditBrushTree.initTree();
+	ForestEditMeshTree.initTree();
+	
+
 	%this.dataTree["brush"] = ForestManagerBrushTree;
 	%this.dataTree["item"] = ForestManagerItemTree;
 }
@@ -37,9 +41,10 @@ function FEP_Manager::saveData( %this ) {
 //------------------------------------------------------------------------------
 
 //==============================================================================
-function FEP_Manager::setDirty( %this ) {
-	ForestDataManager.dirty = true;
-	%this-->saveChangesButton.active = true;
+function FEP_Manager::setDirty( %this,%isDirty ) {
+	FEP_Manager.dirty = %isDirty;
+	ForestDataManager.dirty = %isDirty;
+	%this-->saveChangesButton.active = %isDirty;
 }
 //------------------------------------------------------------------------------
 

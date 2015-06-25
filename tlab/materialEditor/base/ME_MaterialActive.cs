@@ -266,13 +266,5 @@ function MaterialEditorGui::updateActiveMaterialName(%this, %name) {
 	// Material.
 	MaterialEditorGui.updateMaterialReferences( MissionGroup, %action.oldName, %action.newName );
 }
-//--- OBJECT WRITE BEGIN ---
-
-//--- OBJECT WRITE END ---
 
 
-singleton Material(baseArtMed_DecoFloor_mat) {
-	mapTo = "baseArtMed_DecoFloor";
-	diffuseMap[0] = "art/modelArteria/medieval/Village/images/DecoFloor.png";
-	translucentBlendOp = "None";
-};

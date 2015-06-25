@@ -183,7 +183,7 @@ singleton GuiControlProfile( ToolsRadioProfile_L1 : ToolsRadioProfile ) {
 // Swatch Button Profile -> Used in stock code (Do not remove)
 //==============================================================================
 //------------------------------------------------------------------------------
-singleton GuiControlProfile(GuiSwatchButtonProfile : GuiDefaultProfile)
+singleton GuiControlProfile(GuiSwatchButtonProfile : ToolsDefaultProfile)
 {
 	fillColor = "254 253 253 255";
 	fillColorHL = "221 221 221 255";
