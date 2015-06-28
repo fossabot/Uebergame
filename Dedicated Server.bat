@@ -1,0 +1,1 @@
+start Uebergame-Win-32-Bit -dedicated -level TG_DesertRuins_day.mis -type TDM

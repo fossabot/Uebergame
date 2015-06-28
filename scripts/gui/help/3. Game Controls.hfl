@@ -1,0 +1,14 @@
+<lmargin%:5><rmargin%:95><font:Arial Bold:20>Default Game Control Setup...<font:Arial:16>
+<tab:105,200>
+<font:Arial:16>To re map a control simply double click the control name. A dialog will pop up waiting for you to press the key you wish to map. Pressing backspace when the dialog is open will clear the current key map for that control. Pressing escape will return you to the control menu without changing anything.
+
+<font:Arial Bold:16>Movement<font:Arial:16>
+W			Move Forward
+S			Move Backward
+A			Strafe Left
+D			Strafe Right
+Space			Jump / Exit Vehicle
+Mouse Button 0		Fire
+Mouse Button 1		Alt Fire
+Mouse Button 2		Thrust / Throw Flag
+			

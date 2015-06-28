@@ -84,19 +84,30 @@ function initClient()
    exec("art/gui/endGameGui.gui");
    exec("art/gui/exitGameGui.gui");
    exec("art/gui/chooseLevelDlg.gui");
+   exec("art/gui/serverOptionsDlg.gui");
    exec("art/gui/loadingGui.gui");
    exec("art/gui/optionsDlg.gui");
    exec("art/gui/remapDlg.gui");
+   exec("art/gui/ipJoinDlg.gui");
+   exec("art/gui/HelpDlg.gui");
+   exec("art/gui/guiMusicPlayer.gui");
+   exec("art/gui/RecordingsDlg.gui");
    
    // Gui scripts
    exec("./playerList.cs");
    exec("./chatHud.cs");
    exec("./messageHud.cs");
    exec("scripts/gui/playGui.cs");
+   exec("scripts/gui/joinServerDlg.cs" );
    exec("scripts/gui/chooseLevelDlg.cs");
+   exec("scripts/gui/serverOptionsDlg.cs");
    exec("scripts/gui/loadingGui.cs");
    exec("scripts/gui/optionsDlg.cs");
-
+   exec("scripts/gui/keyRemaps.cs" );
+   exec("scripts/gui/HelpDlg.cs" );
+   exec("scripts/gui/guiMusicPlayer.cs" );
+   exec("scripts/gui/recordingsDlg.cs" );
+   
    // Client scripts
    exec("./client.cs");
    exec("./game.cs");

@@ -9,10 +9,6 @@ core/fonts/*
 #screenshots
 screens/*
 
-#compilergarbage
-*.exp
-*.bat
-
 #console outpout
 console.log
 

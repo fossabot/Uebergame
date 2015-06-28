@@ -115,13 +115,12 @@ function GraphicsQualityPopup::apply( %this, %qualityGroup, %testNeedApply )
 
 function OptionsDlg::setPane(%this, %pane)
 {
+   %this-->OptPlayerPane.setVisible(false);
    %this-->OptAudioPane.setVisible(false);
    %this-->OptGraphicsPane.setVisible(false);
    %this-->OptAdvGraphicsPane.setVisible(false);
    %this-->OptNetworkPane.setVisible(false);
    %this-->OptControlsPane.setVisible(false);
-   %this-->OptGeneralPane.setVisible(false);
-   %this-->OptServerPane.setVisible(false);
    
    %this.findObjectByInternalName( "Opt" @ %pane @ "Pane", true ).setVisible(true);
    
@@ -133,6 +132,36 @@ function OptionsDlg::setPane(%this, %pane)
 
 function OptionsDlg::onWake(%this)
 {
+//------------------------------------------
+   // KeyMaps and Mouse Pane
+
+   // Initialize the Control Options controls:
+   OptBindListMenu.init();
+
+   MouseXSlider.setValue( moveMap.getScale( mouse, xaxis ) / 2 );
+   MouseYSlider.setValue( moveMap.getScale( mouse, yaxis ) / 2 );
+   InvertMouseTgl.setValue( moveMap.isInverted( mouse, yaxis ) );
+
+   MouseZActionMenu.clear();
+   MouseZActionMenu.add( "Nothing", 1 );
+   MouseZActionMenu.add( "Cycle Weapon", 2 );
+   MouseZActionMenu.add( "Next Weapon Only", 3 );
+   MouseZActionMenu.add( "Cycle Zoom Level", 4 );
+
+   %bind = moveMap.getCommand( "mouse", "zaxis" );
+   %selId = 1;
+   switch$ ( %bind )
+   {
+      case "cycleWeaponAxis":
+         %selId = 2;
+      case "cycleNextWeaponOnly":
+         %selId = 3;
+      case "setZoomFOV":
+         %selId = 4;
+   }
+   MouseZActionMenu.setSelected( %selId );
+
+   //------------------------------------------
    if ( isFunction("getWebDeployment") && getWebDeployment() )
    {
       // Cannot enable full screen under web deployment
@@ -162,8 +191,7 @@ function OptionsDlg::onWake(%this)
    %this-->Tgl_13.setStateOn( $pref::LightManager::Enable::LightRay );
    %this-->Tgl_14.setStateOn( $pref::LightManager::Enable::DOF );
    
-   //%this-->Tgl_DisplayMaster.setStateOn($pref::Net::DisplayOnMaster);
-
+   %this-->Tgl_DisplayMaster.setStateOn($pref::Net::DisplayOnMaster);
 
    OptionsDlg.initResMenu();
    %resSelId = OptionsDlg-->OptGraphicsResolutionMenu.findText( _makePrettyResString( $pref::Video::mode ) );
@@ -236,6 +264,8 @@ function OptionsDlg::onWake(%this)
    else
 	   OptAudioProviderList.setSelected( %selId );
 	   
+   OptAudioUpdate();
+	   
    // Populate the Anti-aliasing popup.
    %aaMenu = %this-->OptAAQualityPopup;
    %aaMenu.clear();
@@ -253,8 +283,42 @@ function OptionsDlg::onWake(%this)
 
 function OptionsDlg::onSleep(%this)
 {
+   // Mouse
+   %xSens = MouseXSlider.getValue() * 2;
+   %ySens = MouseYSlider.getValue() * 2;
+   moveMap.bind( mouse, xaxis, "S", %xSens, "yaw" );
+   %yFlags = InvertMouseTgl.getValue() ? "SI" : "S";
+   moveMap.bind( mouse, yaxis, %yFlags, %ySens, "pitch" );
+
    // write out the control config into the rw/config.cs file
-   moveMap.save( "scripts/client/config.cs" );
+   moveMap.save( "scripts/client/config.cs", false );
+   spectatorMap.save( "scripts/client/config.cs", true );
+   vehicleMap.save( "scripts/client/config.cs", true );
+}
+
+function OptionsDlg::saveSettings(%this)
+{
+   switch$ (%this.pane)
+   {
+      case "Player":
+
+      case "Network":
+
+      case "Audio":
+
+      case "Controls":
+         switch ( MouseZActionMenu.getSelected() )
+         {
+            case 2:
+               moveMap.bind( mouse, zaxis, cycleWeaponAxis );
+            case 3:
+               moveMap.bind( mouse, zaxis, cycleNextWeaponOnly );
+            case 4:
+               moveMap.bind( mouse, zaxis, setZoomFOV );
+            default:
+               moveMap.unbind( mouse, zaxis );
+         }
+   }
 }
 
 function OptGraphicsDriverMenu::onSelect( %this, %id, %text )
@@ -464,80 +528,14 @@ function OptionsDlg::_autoDetectQuality( %this )
    }
 }
 
-$RemapCount = 0;
-$RemapName[$RemapCount] = "Forward";
-$RemapCmd[$RemapCount] = "moveforward";
-$RemapCount++;
-$RemapName[$RemapCount] = "Backward";
-$RemapCmd[$RemapCount] = "movebackward";
-$RemapCount++;
-$RemapName[$RemapCount] = "Strafe Left";
-$RemapCmd[$RemapCount] = "moveleft";
-$RemapCount++;
-$RemapName[$RemapCount] = "Strafe Right";
-$RemapCmd[$RemapCount] = "moveright";
-$RemapCount++;
-$RemapName[$RemapCount] = "Toggle Sprinting";
-$RemapCmd[$RemapCount] = "doSprint";
-$RemapCount++;
-$RemapName[$RemapCount] = "Jump";
-$RemapCmd[$RemapCount] = "jump";
-$RemapCount++;
-$RemapName[$RemapCount] = "Crouch";
-$RemapCmd[$RemapCount] = "doCrouch";
-$RemapCount++;
-$RemapName[$RemapCount] = "Fire Weapon";
-$RemapCmd[$RemapCount] = "mouseFire";
-$RemapCount++;
-$RemapName[$RemapCount] = "Next Weapon";
-$RemapCmd[$RemapCount] = "nextWeapon";
-$RemapCount++;
-$RemapName[$RemapCount] = "Previous Weapon";
-$RemapCmd[$RemapCount] = "prevWeapon";
-$RemapCount++;
-$RemapName[$RemapCount] = "Free Look";
-$RemapCmd[$RemapCount] = "toggleFreeLook";
-$RemapCount++;
-$RemapName[$RemapCount] = "Chat to Everyone";
-$RemapCmd[$RemapCount] = "toggleMessageHud";
-$RemapCount++;
-$RemapName[$RemapCount] = "Message Hud PageUp";
-$RemapCmd[$RemapCount] = "pageMessageHudUp";
-$RemapCount++;
-$RemapName[$RemapCount] = "Message Hud PageDown";
-$RemapCmd[$RemapCount] = "pageMessageHudDown";
-$RemapCount++;
-$RemapName[$RemapCount] = "Resize Message Hud";
-$RemapCmd[$RemapCount] = "resizeMessageHud";
-$RemapCount++;
-$RemapName[$RemapCount] = "Show Scores";
-$RemapCmd[$RemapCount] = "showPlayerList";
-$RemapCount++;
-$RemapName[$RemapCount] = "Hide HUD";
-$RemapCmd[$RemapCount] = "hideHUDs";
-$RemapCount++;
-$RemapName[$RemapCount] = "Throw Weapon";
-$RemapCmd[$RemapCount] = "throwWeapon";
-$RemapCount++;
-$RemapName[$RemapCount] = "Switch 1st/3rd";
-$RemapCmd[$RemapCount] = "toggleFirstPerson";
-$RemapCount++;
-$RemapName[$RemapCount] = "Start Recording Demo";
-$RemapCmd[$RemapCount] = "startRecordingDemo";
-$RemapCount++;
-$RemapName[$RemapCount] = "Stop Recording Demo";
-$RemapCmd[$RemapCount] = "stopRecordingDemo";
-$RemapCount++;
-$RemapName[$RemapCount] = "Screenshot";
-$RemapCmd[$RemapCount] = "doScreenShot";
-$RemapCount++;
-$RemapName[$RemapCount] = "Screenshot HUDless";
-$RemapCmd[$RemapCount] = "doScreenShotHudless";
-$RemapCount++;
+//------------------------------------------------------------------------------
+// Keymaps
 
 function restoreDefaultMappings()
 {
    moveMap.delete();
+   spectatorMap.delete();
+   vehicleMap.delete();
    exec( "scripts/client/default.bind.cs" );
    optionsDlg.fillRemapList();
 }
@@ -601,12 +599,44 @@ function getMapDisplayName( %device, %action )
 	return( "??" );		
 }
 
+function OptBindListMenu::init(%this)
+{
+   %selId = %this.getSelected();
+   %this.clear();
+   %this.add( "Main", 0 );
+   %this.add( "Spectator", 1 );
+   %this.add( "Vehicle", 2 );
+   %this.setSelected( %selId );
+   %this.onSelect( %selId, %this.getTextById( %selId ) );
+}
+
+function OptBindListMenu::onSelect( %this, %id, %text )
+{
+   OptControlsPane.group = %text;
+   OptionsDlg.fillRemapList();
+}
+
 function buildFullMapString( %index )
 {
+   switch$ ( OptControlsPane.group )
+   {
+      case "Spectator":
+         %actionMap  = spectatorMap;
+         %name       = $SpecRemapName[%index];
+         %cmd        = $SpecRemapCmd[%index];
+
+      case "Vehicle":
+         %actionMap  = vehicleMap;
+         %name       = $VehRemapName[%index];
+         %cmd        = $VehRemapCmd[%index];
+
+      default:
+         %actionMap  = moveMap;
    %name       = $RemapName[%index];
    %cmd        = $RemapCmd[%index];
+   }
 
-   %temp = moveMap.getBinding( %cmd );
+   %temp = %actionMap.getBinding( %cmd );
    if ( %temp $= "" )
       return %name TAB "";
 
@@ -623,47 +653,101 @@ function buildFullMapString( %index )
       %mapString = %mapString @ getMapDisplayName( %device, %object );
    }
 
-   return %name TAB %mapString; 
+   return( %name TAB %mapString ); 
 }
 
 function OptionsDlg::fillRemapList( %this )
 {
+   switch$ ( OptControlsPane.group )
+   {
+      case "Spectator":
+         %count = $SpecRemapCount;
+      case "Vehicle":
+         %count = $VehRemapCount;
+      default:
+         %count = $RemapCount;
+   }
+
    %remapList = %this-->OptRemapList;
    
 	%remapList.clear();
-   for ( %i = 0; %i < $RemapCount; %i++ )
+   for ( %i = 0; %i < %count; %i++ )
       %remapList.addRow( %i, buildFullMapString( %i ) );
 }
 
 function OptionsDlg::doRemap( %this )
 {
    %remapList = %this-->OptRemapList;
-   
 	%selId = %remapList.getSelectedId();
-   %name = $RemapName[%selId];
 
-	RemapDlg-->OptRemapText.setValue( "Re-bind \"" @ %name @ "\" to..." );
+   switch$ ( OptControlsPane.group )
+   {
+      case "Spectator":
+         %name = $SpecRemapName[%selId];
+      case "Vehicle":
+         %name = $VehRemapName[%selId];
+      default:
+   %name = $RemapName[%selId];
+   }
+   //RemapDlg-->OptRemapText.setValue( "Re-bind \"" @ %name @ "\" to..." );
+   RemapDlg-->OptRemapText.addtext("Re-bind \"" @ %name @ "\""
+                        @ "\n\nPressing backspace will clear the current key map for that control."
+                        @ "\n\nPressing escape will return you to the control menu without changing anything.");
+
+
 	OptRemapInputCtrl.index = %selId;
 	Canvas.pushDialog( RemapDlg );
 }
 
 function redoMapping( %device, %action, %cmd, %oldIndex, %newIndex )
 {
+   switch$ ( OptControlsPane.group )
+   {
+      case "Spectator":
+         %actionMap = spectatorMap;
+
+      case "Vehicle":
+         %actionMap = vehicleMap;
+
+      default:
+         %actionMap = moveMap;
+   }
 	//%actionMap.bind( %device, %action, $RemapCmd[%newIndex] );
-	moveMap.bind( %device, %action, %cmd );
+   %actionMap.bind( %device, %action, %cmd );
 	
    %remapList = %this-->OptRemapList;
 	%remapList.setRowById( %oldIndex, buildFullMapString( %oldIndex ) );
 	%remapList.setRowById( %newIndex, buildFullMapString( %newIndex ) );
+
+   OptionsDlg.fillRemapList();
 }
 
 function findRemapCmdIndex( %command )
 {
+   switch$ ( OptControlsPane.group )
+   {
+      case "Spectator":
+         for ( %i = 0; %i < $SpecRemapCount; %i++ )
+         {
+            if ( %command $= $SpecRemapCmd[%i] )
+               return( %i );
+         }
+
+      case "Vehicle":
+         for ( %i = 0; %i < $VehRemapCount; %i++ )
+         {
+            if ( %command $= $VehRemapCmd[%i] )
+               return( %i );
+         }
+
+      default:
 	for ( %i = 0; %i < $RemapCount; %i++ )
 	{
 		if ( %command $= $RemapCmd[%i] )
 			return( %i );			
 	}
+   }
+
 	return( -1 );	
 }
 
@@ -671,7 +755,19 @@ function findRemapCmdIndex( %command )
 /// particular moveMap %commmand.
 function unbindExtraActions( %command, %count )
 {
-   %temp = moveMap.getBinding( %command );
+   switch$ ( OptControlsPane.group )
+   {
+      case "Spectator":
+         %actionMap = spectatorMap;
+
+      case "Vehicle":
+         %actionMap = vehicleMap;
+
+      default:
+         %actionMap = moveMap;
+   }
+
+   %temp = %actionMap.getBinding( %command );
    if ( %temp $= "" )
       return;
 
@@ -681,7 +777,7 @@ function unbindExtraActions( %command, %count )
       %device = getField( %temp, %i + 0 );
       %action = getField( %temp, %i + 1 );
       
-      moveMap.unbind( %device, %action );
+      %actionMap.unbind( %device, %action );
    }
 }
 
@@ -689,6 +785,28 @@ function OptRemapInputCtrl::onInputEvent( %this, %device, %action )
 {
    //error( "** onInputEvent called - device = " @ %device @ ", action = " @ %action @ " **" );
    Canvas.popDialog( RemapDlg );
+
+   switch$ ( OptControlsPane.group )
+   {
+      case "Spectator":
+         %actionMap = spectatorMap;
+         %cmd = $SpecRemapCmd[%this.index];
+         %name = $SpecRemapName[%this.index];
+
+      case "Vehicle":
+         %actionMap = vehicleMap;
+         %cmd = $VehRemapCmd[%this.index];
+         %name = $VehRemapName[%this.index];
+
+      default:
+         %actionMap = moveMap;
+         %cmd  = $RemapCmd[%this.index];
+         %name = $RemapName[%this.index];
+   }
+
+   //%actionMap = moveMap;
+   //%cmd  = $RemapCmd[%this.index];
+   //%name = $RemapName[%this.index];
 
    // Test for the reserved keystrokes:
    if ( %device $= "keyboard" )
@@ -699,24 +817,38 @@ function OptRemapInputCtrl::onInputEvent( %this, %device, %action )
          // Do nothing...
          return;
       }
-   }
+      // Taken from this resource by OneST8
+      // http://www.garagegames.com/index.php?sec=mg&mod=resource&page=view&qid=7311
+      if ( %action $= "backspace" ) // clear the current binding.
+      {
+         //get the current binding, device and action
+         %bind = %actionMap.getBinding( %cmd );
+         %device = getWord( %bind, 0 );
+         %action = getWord( %bind, 1 );
 
-   %cmd  = $RemapCmd[%this.index];
-   %name = $RemapName[%this.index];
+         //remove the binding
+         unbindExtraActions( %cmd, 1 );
+         %actionMap.unbind( %device, %action );
+
+         //refresh the options dialog to reflect the change
+         optionsDlg-->OptRemapList.setRowById( %this.index, buildFullMapString( %this.index ) );
+         return;
+      }
+   }
 
    // Grab the friendly display name for this action
    // which we'll use when prompting the user below.
    %mapName = getMapDisplayName( %device, %action );
    
    // Get the current command this action is mapped to.
-   %prevMap = moveMap.getCommand( %device, %action );
+   %prevMap = %actionMap.getCommand( %device, %action );
 
    // If nothing was mapped to the previous command 
    // mapping then it's easy... just bind it.
    if ( %prevMap $= "" )
    {
       unbindExtraActions( %cmd, 1 );
-      moveMap.bind( %device, %action, %cmd );
+      %actionMap.bind( %device, %action, %cmd );
       optionsDlg-->OptRemapList.setRowById( %this.index, buildFullMapString( %this.index ) );
       return;
    }
@@ -727,7 +859,7 @@ function OptRemapInputCtrl::onInputEvent( %this, %device, %action )
    if ( %prevMap $= %cmd )
    {
       unbindExtraActions( %cmd, 0 );
-      moveMap.bind( %device, %action, %cmd );
+      %actionMap.bind( %device, %action, %cmd );
       optionsDlg-->OptRemapList.setRowById( %this.index, buildFullMapString( %this.index ) );
       return;   
    }
@@ -750,13 +882,67 @@ function OptRemapInputCtrl::onInputEvent( %this, %device, %action )
    
    // Warn that we're about to remove the old mapping and
    // replace it with another.
+   switch$ ( OptControlsPane.group )
+   {
+      case "Spectator":
+         %prevCmdName = $SpecRemapName[%prevMapIndex];
+      case "Vehicle":
+         %prevCmdName = $VehRemapName[%prevMapIndex];
+      default:
    %prevCmdName = $RemapName[%prevMapIndex];
+   }
+
    MessageBoxYesNo( "Warning",
       "\"" @ %mapName @ "\" is already bound to \""
       @ %prevCmdName @ "\"!\nDo you wish to replace this mapping?",
        %callback, "" );
 }
 
+//------------------------------------------
+// Mouse
+
+function MouseXSlider::sync( %this )
+{
+   %thisValue = %this.getValue();
+   MouseXText.setValue( "(" @ getSubStr( %thisValue, 0, 4 ) @ ")" );
+   if ( $pref::Input::LinkMouseSensitivity )
+   {
+      if ( MouseYSlider.getValue() != %thisValue )
+         MouseYSlider.setValue( %thisValue );
+   }
+}
+
+function MouseYSlider::sync( %this )
+{
+   %thisValue = %this.getValue();
+   MouseYText.setValue( "(" @ getSubStr( %thisValue, 0, 4 ) @ ")" );
+   if ( $pref::Input::LinkMouseSensitivity )
+   {
+      if ( MouseXSlider.getValue() != %thisValue )
+         MouseXSlider.setValue( %thisValue );
+   }
+}
+
+function toggleInvertYAxis()
+{
+   // Catch the case where this is toggled in-game while in a vehicle:
+   if ( isObject( vehicleMap ) )
+   {
+      %bind = vehicleMap.getBinding( pitch );
+      if ( %bind !$= "" )
+      {
+         %device = getField( %bind, 0 );
+         %action = getField( %bind, 1 );
+         %flags = $pref::Vehicle::InvertYAxis ? "SDI" : "SD";
+         %deadZone = vehicleMap.getDeadZone( %device, %action );
+         %scale = vehicleMap.getScale( %device, %action );
+         vehicleMap.bind( %device, %action, %flags, %deadZone, %scale, pitch );
+      }
+   }
+}
+
+//------------------------------------------------------------------------------
+// Audio
 $AudioTestHandle = 0;
 // Description to use for playing the volume test sound.  This isn't
 // played with the description of the channel that has its volume changed
@@ -826,6 +1012,8 @@ function OptAudioProviderList::onSelect( %this, %id, %text )
       OptAudioDeviceList.setFirstSelected();
    else
    OptAudioDeviceList.setSelected( %selId );
+
+   OptAudioUpdate();
 }
 
 function OptAudioDeviceList::onSelect( %this, %id, %text )
@@ -850,7 +1038,27 @@ function OptMouseSetSensitivity(%value)
    $pref::Input::LinkMouseSensitivity = %value;  
 }  
 
+/*
+function OptAudioHardwareToggle::onClick(%this)
+{
+   if (!sfxCreateDevice($pref::SFX::provider, $pref::SFX::device, $pref::SFX::useHardware, -1))
+      error("Unable to create SFX device: " @ $pref::SFX::provider SPC $pref::SFX::device SPC $pref::SFX::useHardware);
+}
+*/
 
+function OptAudioUpdate()
+{
+   // set the driver text
+   OptAudioInfo.setText("");
+   %text = sfxGetDeviceInfo();
+
+   %count = getFieldCount( %text );
+   for( %i=0; %i < %count; %i++ )
+   {
+      %line = getField( %text, %i );
+      OptAudioInfo.addtext(%line @ "\n", true);
+   }
+}
 
 //-----------------------------------------------------------------------------
 function Tgl_9::onAction(%this)

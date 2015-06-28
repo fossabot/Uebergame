@@ -1,6 +1,6 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiChunkedBitmapCtrl(MainMenuGui) {
-   bitmap = "art/gui/space_background_big.dds";
+   bitmap = "art/gui/images/space_background_big.dds";
    useVariable = "0";
    tile = "1";
    position = "0 0";
@@ -20,13 +20,13 @@
       isDecoy = "0";
 
    new GuiBitmapCtrl(MainMenuAppLogo) {
-      bitmap = "art/gui/uebergame-logo.png";
+      bitmap = "art/gui/mainMenuGui/uebergame-logo.png";
       wrap = "0";
-      position = "0 -8";
+      position = "0 640";
       extent = "432 128";
       minExtent = "8 2";
-      horizSizing = "windowRelative";
-      vertSizing = "windowRelative";
+      horizSizing = "right";
+      vertSizing = "top";
       profile = "GuiDefaultProfile";
       visible = "1";
       active = "1";
@@ -38,111 +38,8 @@
          enabled = "1";
          isDecoy = "0";
    };
-   new GuiButtonCtrl(Join) {
-      text = "Join";
-      groupNum = "-1";
-      buttonType = "PushButton";
-      useMouseEvents = "0";
-      position = "49 118";
-      extent = "179 64";
-      minExtent = "8 8";
-      horizSizing = "relative";
-      vertSizing = "bottom";
-      profile = "GuiMenuButtonProfile";
-      visible = "1";
-      active = "1";
-      command = "Canvas.pushDialog(joinServerDlg);JoinServerDlg.query();";
-      tooltipProfile = "GuiToolTipProfile";
-      hovertime = "1000";
-      isContainer = "0";
-      internalName = "GuiEditorButton";
-      canSave = "1";
-      canSaveDynamicFields = "0";
-   };
-   new GuiButtonCtrl(Host) {
-      text = "Host";
-      groupNum = "-1";
-      buttonType = "PushButton";
-      useMouseEvents = "1";
-      position = "241 118";
-      extent = "179 64";
-      minExtent = "8 8";
-      horizSizing = "relative";
-      vertSizing = "bottom";
-      profile = "GuiMenuButtonProfile";
-      visible = "1";
-      active = "1";
-      command = "Canvas.pushDialog(ChooseLevelDlg);";
-      tooltipProfile = "GuiToolTipProfile";
-      hovertime = "1000";
-      isContainer = "0";
-      canSave = "1";
-      canSaveDynamicFields = "0";
-   };
-   new GuiButtonCtrl(Options) {
-      text = "Options";
-      groupNum = "-1";
-      buttonType = "PushButton";
-      useMouseEvents = "0";
-      position = "433 118";
-      extent = "179 64";
-      minExtent = "8 8";
-      horizSizing = "relative";
-      vertSizing = "bottom";
-      profile = "GuiMenuButtonProfile";
-      visible = "1";
-      active = "1";
-      command = "Canvas.pushDialog(optionsDlg);";
-      tooltipProfile = "GuiToolTipProfile";
-      hovertime = "1000";
-      isContainer = "0";
-      canSave = "1";
-      canSaveDynamicFields = "0";
-   };
-   new GuiButtonCtrl() {
-      text = "Editor";
-      groupNum = "-1";
-      buttonType = "PushButton";
-      useMouseEvents = "0";
-      position = "625 118";
-      extent = "179 64";
-      minExtent = "8 8";
-      horizSizing = "relative";
-      vertSizing = "bottom";
-      profile = "GuiMenuButtonProfile";
-      visible = "1";
-      active = "1";
-      command = "toggleEditor(1);";
-      tooltipProfile = "GuiToolTipProfile";
-      hovertime = "1000";
-      isContainer = "0";
-      internalName = "WorldEditorButton";
-      canSave = "1";
-      canSaveDynamicFields = "0";
-   };
-   new GuiButtonCtrl() {
-      text = "Exit";
-      groupNum = "-1";
-      buttonType = "PushButton";
-      useMouseEvents = "0";
-      position = "817 118";
-      extent = "179 64";
-      minExtent = "8 8";
-      horizSizing = "relative";
-      vertSizing = "bottom";
-      profile = "GuiMenuButtonProfile";
-      visible = "1";
-      active = "1";
-      command = "quit();";
-      tooltipProfile = "GuiToolTipProfile";
-      hovertime = "1000";
-      isContainer = "0";
-      internalName = "ExitButton";
-      canSave = "1";
-      canSaveDynamicFields = "0";
-   };
-   new GuiTextCtrl(Version_Number) {
-      text = "Version: 0.02";
+   new GuiTextCtrl(MainMenuVersionText) {
+      text = "Version 1.0.2.0";
       maxLength = "1024";
       margin = "0 0 0 0";
       padding = "0 0 0 0";
@@ -150,11 +47,11 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "828 6";
-      extent = "196 33";
+      position = "800 736";
+      extent = "224 32";
       minExtent = "8 2";
       horizSizing = "left";
-      vertSizing = "bottom";
+      vertSizing = "top";
       profile = "GuiBigTextProfile";
       visible = "1";
       active = "1";
@@ -163,6 +60,201 @@
       isContainer = "1";
       canSave = "1";
       canSaveDynamicFields = "0";
+   };
+   new GuiControl(MainMenuButtons) {
+      position = "0 0";
+      extent = "1024 64";
+      minExtent = "8 2";
+      horizSizing = "width";
+      vertSizing = "bottom";
+      profile = "GuiDefaultProfile";
+      visible = "1";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+
+      new GuiButtonCtrl(JoinButton) {
+         text = "Join";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "0";
+         position = "50 -1";
+         extent = "160 64";
+         minExtent = "8 8";
+         horizSizing = "relative";
+         vertSizing = "bottom";
+         profile = "GuiMenuButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "Canvas.pushDialog(joinServerDlg);JoinServerDlg.query();";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         internalName = "GuiEditorButton";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiButtonCtrl(HostButton) {
+         text = "Host";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "1";
+         position = "242 -1";
+         extent = "160 64";
+         minExtent = "8 8";
+         horizSizing = "relative";
+         vertSizing = "bottom";
+         profile = "GuiMenuButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "Canvas.pushDialog(ChooseLevelDlg);";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiButtonCtrl(OptionsButton) {
+         text = "Options";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "0";
+         position = "434 -1";
+         extent = "160 64";
+         minExtent = "8 8";
+         horizSizing = "relative";
+         vertSizing = "bottom";
+         profile = "GuiMenuButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "Canvas.pushDialog(optionsDlg);";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiButtonCtrl(WorldEditorButton) {
+         text = "Editor";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "0";
+         position = "626 -1";
+         extent = "160 64";
+         minExtent = "8 8";
+         horizSizing = "relative";
+         vertSizing = "bottom";
+         profile = "GuiMenuButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "toggleEditor(1);";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         internalName = "WorldEditorButton";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiButtonCtrl(ExitButton) {
+         text = "Exit";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "0";
+         position = "818 -1";
+         extent = "160 64";
+         minExtent = "8 8";
+         horizSizing = "relative";
+         vertSizing = "bottom";
+         profile = "GuiMenuButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "quit();";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         internalName = "ExitButton";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+   };
+   new GuiControl() {
+      position = "0 736";
+      extent = "1024 32";
+      minExtent = "8 2";
+      horizSizing = "width";
+      vertSizing = "top";
+      profile = "GuiDefaultProfile";
+      visible = "1";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+
+      new GuiButtonCtrl(MusicButton) {
+         text = "Music";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "1";
+         position = "554 0";
+         extent = "120 32";
+         minExtent = "8 8";
+         horizSizing = "left";
+         vertSizing = "top";
+         profile = "GuiMenuButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "Canvas.pushDialog(guiMusicPlayer);";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiButtonCtrl(HelpButton) {
+         text = "Help";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "0";
+         position = "680 0";
+         extent = "120 32";
+         minExtent = "8 8";
+         horizSizing = "left";
+         vertSizing = "top";
+         profile = "GuiMenuButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "Canvas.pushDialog(HelpDlg);";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiButtonCtrl(RecordingsButton) {
+         text = "Recordings";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "1";
+         position = "428 0";
+         extent = "120 32";
+         minExtent = "8 8";
+         horizSizing = "left";
+         vertSizing = "top";
+         profile = "GuiMenuButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "Canvas.pushDialog(RecordingsDlg);";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
    };
 };
 //--- OBJECT WRITE END ---
@@ -173,4 +265,10 @@ function MainMenuGui::onWake(%this)
        getWebDeployment() &&
        isObject(%this-->ExitButton))
       %this-->ExitButton.setVisible(false);
+}
+
+function MainMenuGui::onWake(%this)
+{
+   %header = "Version" SPC getVersionString();
+   MainMenuVersionText.setText(%header);
 }
