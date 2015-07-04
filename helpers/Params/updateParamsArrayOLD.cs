@@ -3,7 +3,7 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
-function syncParamArray(%paramArray) {
+function syncParamArray(%paramArray,%keepEmptyValue) {
 
    %i = 0;
 	   for( ; %i < %paramArray.count() ; %i++) {
@@ -50,9 +50,13 @@ function syncParamArray(%paramArray) {
       }      
       //devLog("Value for field:",%field,"Is:",%value);
       
-      if (%value $= "") continue;
+      if (%value $= "" && !%keepEmptyValue) continue;
       
       %ctrl = %paramArray.container.findObjectByInternalName(%field,true);
+      if (!isObject(%ctrl)){
+      	warnLog("Couln't find a valid GuiControl holding the value for field:",%field);
+      	return;
+      }
       %ctrl.setTypeValue(%value);     
    }	
 }

@@ -15,15 +15,29 @@ function GuiControl::onAdd	(%this) {
 
 //==============================================================================
 // Clear the editors menu (for dev purpose only as now)
-function GuiControl::fitIntoParents( %this ) {	
-
+function GuiControl::fitIntoParents( %this,%mode ) {	
+	
+	
    %parent = %this.parentGroup;
-
 	%pos = "0 0";
 	%extent = %parent.extent;
+	if (%mode $= "" || %mode $= "width"){
+		%this.position.x = 0;
+		%this.extent.x = %extent.x;
+	}
+	if (%mode $= "" || %mode $= "height"){
+		%this.position.y = 0;
+		%this.extent.y = %extent.y;
+	}
+}
+//------------------------------------------------------------------------------
 
-	%this.position = %pos;
-	%this.extent = %extent;
+//==============================================================================
+// Clear the editors menu (for dev purpose only as now)
+function GuiControl::clearChildResponder( %this ) {		
+	%responder = %this.getFirstResponder();	
+	if (isObject(%responder))
+		%responder.clearFirstResponder();
 }
 //------------------------------------------------------------------------------
 
@@ -81,6 +95,8 @@ function GuiControl::setTypeValue( %this,%value,%updateFriends ) {
 		%this.updateColor();
 	case "Text":
 		%this.setText(%value);
+	default:
+		%this.setValue(%value);
 	}
 	if (%updateFriends)
 		%this.updateFriends();
@@ -135,7 +151,7 @@ function GuiControl::AlignCtrlToParent(%this,%direction,%margin) {
          case "top": //Set max left of parent        
             %posY = %margin;
           case "bottom": //Set max right of parent         
-          %newPosY = %parent.getExtent().y - %this.getExtent().y -%margin;          
+          %posY = %parent.getExtent().y - %this.getExtent().y -%margin;          
           
            
          case "centerX": //Set max right of parent    
