@@ -140,11 +140,11 @@ function Lab::resizeEditorGui( %this ) {
 	EVisibility.Position = getWord(visibilityToggleBtn.position, 0) SPC getWord(EditorGuiToolbar.extent, 1);
 	//-----------------------------------------------------
 	// CameraSpeedDropdownCtrlContainer
-	CameraSpeedDropdownCtrlContainerA.position = firstWord(CameraSpeedDropdownContainer.position) + firstWord(EditorGuiToolbar.position) + -6 SPC
+/*	CameraSpeedDropdownCtrlContainerA.position = firstWord(CameraSpeedDropdownContainer.position) + firstWord(EditorGuiToolbar.position) + -6 SPC
 			(getWord(CameraSpeedDropdownContainer, 1)) + 31;
 	softSnapSizeSliderCtrlContainer-->slider.position = firstWord(SceneEditorToolbar-->softSnapSizeTextEdit.getGlobalPosition()) - 12 SPC
 			(getWord(SceneEditorToolbar-->softSnapSizeTextEdit.getGlobalPosition(), 1)) + 18;
-
+*/
 	foreach(%gui in $LabEditorContainer)
 		%gui.fitIntoParents();
 

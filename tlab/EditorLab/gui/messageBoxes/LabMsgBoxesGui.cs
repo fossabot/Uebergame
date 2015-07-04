@@ -23,7 +23,7 @@ function LabMsgBoxesGui::showWindow( %this,%type,%title,%message,%callback1,%cal
 	%buttonData = $LabMsgButtons[%type];
 	%buttonCoord = $LabMsgButtonsCoord[%type];
 	%buttonCount = getFieldCount(%buttonData);
-	devLog("LabMsgBoxesGui::showWindow",%title);
+
 	// LabMsgBoxesGui.callOnChildrenNoRecurse("setVisible",false);
 	pushDlg(LabMsgBoxesGui);
 	%dlg = LabMsgBoxesGui-->dialogBase;
@@ -39,10 +39,7 @@ function LabMsgBoxesGui::showWindow( %this,%type,%title,%message,%callback1,%cal
 	for(; %i < 3; %i++) {
 		%text = getField(%buttonData,%i);
 		%coord = getField(%buttonCoord,%i);
-		%callBackCmd =  %callback[%i+1];
-
-		if (%callBackCmd $= "")
-			%callBackCmd = "devLog(\"No callback specified for this button\");";
+		%callBackCmd =  %callback[%i+1];		
 
 		LabMsgBoxesGui.callbacks["button"@%i+1] = %callBackCmd;
 		%button = %dlg.findObjectByInternalName("button"@%i+1);
@@ -60,9 +57,7 @@ function LabMsgBoxesGui::showWindow( %this,%type,%title,%message,%callback1,%cal
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function LabMsgBoxesGui::hideWindow( %this ) {
-	devLog("LabMsgBoxesGui::hideWindow",%this);
-	//LabMsgBoxesGui.callOnChildrenNoRecurse("setVisible",false);
+function LabMsgBoxesGui::hideWindow( %this ) {	
 	popDlg(LabMsgBoxesGui);
 }
 //------------------------------------------------------------------------------

@@ -39,7 +39,8 @@ function RoadEditorPlugin::onWorldEditorStartup( %this ) {
 	Parent::onWorldEditorStartup( %this );
 	// Add ourselves to the Editor Settings window
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorPlugin::onActivated( %this ) {
 	%this.readSettings();
 	RoadEd_TabBook.selectPage(0);
@@ -52,24 +53,26 @@ function RoadEditorPlugin::onActivated( %this ) {
 	RoadEditorOptionsWindow.setVisible( true );
 	RoadEditorTreeWindow.setVisible( true );
 	RoadTreeView.open(ServerDecalRoadSet,true);
-	%this.map.push();
+	
 	// Set the status bar here until all tool have been hooked up
 	EditorGuiStatusBar.setInfo("Road editor.");
 	EditorGuiStatusBar.setSelection("");
 	RoadEditorGui.prepSelectionMode();
 	Parent::onActivated(%this);
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorPlugin::onDeactivated( %this ) {
 	%this.writeSettings();
 	RoadEditorGui.setVisible( false );
 	RoadEditorToolbar.setVisible( false );
 	RoadEditorOptionsWindow.setVisible( false );
 	RoadEditorTreeWindow.setVisible( false );
-	%this.map.pop();
+	
 	Parent::onDeactivated(%this);
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
 	%hasSelection = false;
 
@@ -82,27 +85,32 @@ function RoadEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
 	%editMenu.enableItem( 6, %hasSelection ); // Delete
 	%editMenu.enableItem( 8, false ); // Deselect
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorPlugin::handleDelete( %this ) {
 	RoadEditorGui.onDeleteKey();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorPlugin::handleEscape( %this ) {
 	devLog("RoadEditorPlugin::handleEscape");
 	return RoadEditorGui.onEscapePressed();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorPlugin::isDirty( %this ) {
 	return RoadEditorGui.isDirty;
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorPlugin::onSaveMission( %this, %missionFile ) {
 	if( RoadEditorGui.isDirty ) {
 		MissionGroup.save( %missionFile );
 		RoadEditorGui.isDirty = false;
 	}
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorPlugin::setEditorFunction( %this ) {
 	%terrainExists = parseMissionGroup( "TerrainBlock" );
 
@@ -111,4 +119,4 @@ function RoadEditorPlugin::setEditorFunction( %this ) {
 
 	return %terrainExists;
 }
-
+//------------------------------------------------------------------------------

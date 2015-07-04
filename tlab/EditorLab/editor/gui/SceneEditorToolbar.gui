@@ -244,7 +244,7 @@
          canSave = "1";
          canSaveDynamicFields = "0";
 
-         new GuiTextEditCtrl() {
+         new GuiTextEditCtrl(SET_softSnapSizeTextEdit) {
             historySize = "0";
             tabComplete = "0";
             sinkAllKeyEvents = "0";

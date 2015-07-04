@@ -18,7 +18,7 @@ function ETools::initTools(%this) {
 function ETools::toggleTool(%this,%tool) {
 	%dlg = %this.findObjectByInternalName(%tool,true);
 	%this.fitIntoParents();
-	devLog("Toogletool:",%tool);
+	
 	ETools.visible = true;
 
 	if (%dlg.visible) {
@@ -47,7 +47,7 @@ function ETools::toggleTool(%this,%tool) {
 function ETools::showTool(%this,%tool) {
 	%dlg = %this.findObjectByInternalName(%tool,true);
 	%this.fitIntoParents();
-	devLog("Toogletool:",%tool);
+	
 	ETools.visible = true;
 
 
@@ -62,7 +62,7 @@ function ETools::showTool(%this,%tool) {
 function ETools::hideTool(%this,%tool) {
 	%dlg = %this.findObjectByInternalName(%tool,true);
 	
-	devLog("Toogletool:",%tool);	
+
 
 
 	%dlg.setVisible(false);

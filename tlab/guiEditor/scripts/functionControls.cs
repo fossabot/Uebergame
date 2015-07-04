@@ -101,31 +101,3 @@ function Lab::setControlReferenceField(%this,%field) {
 	}
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-function Lab::copySelectedControlData(%this,%dataType) {
-	%selection =  GuiEditor.getSelection();
-	%control = %selection.getObject(0);
-	$GuiEditor_CopiedData["position"] = %control.position;
-	$GuiEditor_CopiedData["extent"] = %control.extent;
-}
-//------------------------------------------------------------------------------
-
-//==============================================================================
-function Lab::assignFieldsFromReference(%this) {
-	%obj = $GuiEditor_ReferenceControl;
-
-	if (!isObject(%obj)) {
-		warnLog("No reference object setted");
-		return;
-	}
-
-	%selection =  GuiEditor.getSelection();
-	%i = 0;
-
-	while(isObject(%selection.getObject(%i))) {
-		%control = %selection.getObject(%i);
-		%control.assignFieldsFrom(%obj);
-		%i++;
-	}
-}
-//------------------------------------------------------------------------------

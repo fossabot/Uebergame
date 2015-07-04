@@ -19,10 +19,10 @@ $Lab::resourcePath = "tlab/";
 $Lab::materialEditorList = "";
 
 // These must be loaded first, in this order, before anything else is loaded
-$Lab::loadFirst = "editorClasses base sceneEditor";
+$Lab::loadFirst = "sceneEditor";
 
 // These folders must be skipped for initial load
-$LabIgnoreEnableFolderList = "base debugger editorClasses forestEditor levels resources";
+$LabIgnoreEnableFolderList = "debugger forestEditor levels";
 
 
 
@@ -43,11 +43,11 @@ function loadTorqueLabProfiles( )
 	//Start by loading the Gui Profiles
 	exec("tlab/gui/initGuiProfiles.cs");
 	exec( "tlab/EditorLab/gui/core/cursors.ed.cs" );
-	exec( "tlab/editorClasses/gui/panels/navPanelProfiles.ed.cs" );
+//	exec( "tlab/editorClasses/gui/panels/navPanelProfiles.ed.cs" );
 	// Make sure we get editor profiles before any GUI's
 	// BUG: these dialogs are needed earlier in the init sequence, and should be moved to
 	// common, along with the guiProfiles they depend on.
-	//exec( "tlab/EditorLab/gui/core/guiDialogs.ed.cs" );
+
 }
 //==============================================================================
 // TorqueLab Package overiding some default functions
@@ -78,8 +78,9 @@ package Lab {
         }
 
         $Lab = new ScriptObject(Lab);
-        $LabExecGui = true;
-        exec("tlab/EditorLab/execScripts.cs");
+       
+        exec("tlab/core/execScripts.cs");
+        $LabGuiExeced = true;
         // Common GUI stuff.
         Lab.initLabEditor();
 
@@ -133,7 +134,7 @@ package Lab {
             if( isFunction( %initializeFunction ) )
                 call( %initializeFunction );
         }
-
+		
         // Popuplate the default SimObject icons that
         // are used by the various editors.
         EditorIconRegistry::loadFromPath( "tlab/gui/icons/class_assets/" );
@@ -196,6 +197,7 @@ package Lab {
 
     // Shutdown.
     function onExit() {
+    
         if( LabEditor.isInitialized )
             EditorGui.shutdown();
 

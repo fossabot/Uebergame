@@ -55,13 +55,21 @@ function SEP_AmbientManager::updateCloudLayerParam(%this,%field,%value,%ctrl,%ar
 function SEP_AmbientManager::initCloudLayerData( %this ) {
 	SEP_AmbientManager.buildCloudLayerParams();
 	%CloudLayerList = Lab.getMissionObjectClassList("CloudLayer");
-	%selected = 0;
+	%first = getWord(%CloudLayerList,0);
+	if (isObject(%first))
+		%selected = %first.getId();
+	
+	if (isObject(%this.selectedCloudLayer))
+		%currentId = %this.selectedCloudLayer.getId();
+	SEP_CloudLayerMenu.clear();	
 	SEP_CloudLayerMenu.add("None",0);
 	foreach$(%layer in %CloudLayerList){
 		SEP_CloudLayerMenu.add(%layer.getName(),%layer.getId());
-		if (%this.selectCloudLayer.getId() $= %layer.getId())
+		if (%currentId $= %layer.getId())
 			%selected = %layer.getId();
 	}
+		if (%selected $= "")
+		%selected = 0;
 	SEP_CloudLayerMenu.setSelected(%selected);
 	//%this.selectCloudLayer(getWord(%CloudLayerList,0));	
 }
@@ -165,6 +173,13 @@ function SEP_AmbientManager::setCloudLayerDirty(%this,%isDirty) {
 
 	%this.isDirty = %isDirty;
 	SEP_CloudLayerSaveButton.active = %isDirty;
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function SEP_AmbientManager::deleteCloudLayer(%this) {
+	delObj(%this.selectedCloudLayer);
+	
+	%this.initCloudLayerData();	
 }
 //------------------------------------------------------------------------------
 //==============================================================================

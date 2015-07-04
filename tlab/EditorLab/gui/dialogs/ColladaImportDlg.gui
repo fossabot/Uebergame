@@ -13,12 +13,12 @@
    isContainer = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
-      cmd = "SceneCreatorWindow.createStatic( \"art/modelPacks/FarmPack/Nature/Rock/Boulders/Soft/fpBoulderSoftA01_4.dae\" );";
+      cmd = "SceneCreatorWindow.createStatic( \"art/models/FarmPack/Nature/Rock/Boulders/Soft/fpBoulderSoftA01_4.dae\" );";
       constructor = "-1";
-      Path = "art/modelPacks/FarmPack/Nature/Rock/Boulders/Soft/fpBoulderSoftA01_4.dae";
+      Path = "art/models/FarmPack/Nature/Rock/Boulders/Soft/fpBoulderSoftA01_4.dae";
 
    new GuiWindowCtrl() {
-      text = "COLLADA Import: art/modelPacks/FarmPack/Nature/Rock/Boulders/Soft/fpBoulderSoftA01_4.dae";
+      text = "COLLADA Import: art/models/FarmPack/Nature/Rock/Boulders/Soft/fpBoulderSoftA01_4.dae";
       resizeWidth = "0";
       resizeHeight = "0";
       canMove = "1";

@@ -3,7 +3,7 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
-//"art/textures/terrains/*.cs";
+//"art/terrains/*.cs";
 $TerrainMaterialFolders="art/textures/FarmPack/Terrains/" TAB "art/";
 
 //==============================================================================
@@ -15,11 +15,11 @@ function TerrainMaterialDlg::initFiltersData( %this ) {
 
 	for(%j=0; %j<getFieldCount($TerrainMaterialFolders); %j++) {
 		%pathBase = getField($TerrainMaterialFolders,%j);
-		devLog("Scanning foldeR:",%pathBase);
+		
 		%filePathScript = %pathBase@"*.cs";
 
 		for(%file = findFirstFile(%filePathScript); %file !$= ""; %file = findNextFile(%filePathScript)) {
-			devLog("File:",%file);
+		
 			//get folder
 			%folder = filePath(%file);
 			%folderStr = strreplace(%folder,"/","\t");

@@ -59,7 +59,7 @@ function TerrainPainterPlugin::onWorldEditorStartup( %this ) {
 function TerrainPainterPlugin::onActivated( %this ) {
 	Parent::onActivated( %this );
 	EWTerrainPainterToolbarBrushType->ellipse.performClick();// Circle Brush
-	%this.map.push();
+	
 	EditorGui.bringToFront( ETerrainEditor );
 	ETerrainEditor.setVisible( true );
 	ETerrainEditor.attachTerrain();
@@ -75,7 +75,7 @@ function TerrainPainterPlugin::onActivated( %this ) {
 
 function TerrainPainterPlugin::onDeactivated( %this ) {
 	Parent::onDeactivated( %this );
-	%this.map.pop();
+	
 	//EditorGui-->TerrainPainter.setVisible(false);
 	//EditorGui-->TerrainPainterPreview.setVisible(false);
 	//EWTerrainPainterToolbar.setVisible(false);

@@ -22,7 +22,7 @@ singleton GuiControlProfile(GuiShapeEdTextListProfile : ToolsTextBase_List) {
 };
 
 singleton GuiControlProfile(GuiShapeEdRolloutProfile : GuiInspectorRolloutProfile0) {
-	bitmap = "tlab/editorclasses/gui/images/rollout";
+	bitmap = "tlab/gui/icons/default/classImages/rollout";
 	category = "Editor";
 };
 

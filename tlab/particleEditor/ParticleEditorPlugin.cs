@@ -25,7 +25,7 @@ function ParticleEditorPlugin::onActivated( %this ) {
 	EditorGui.bringToFront( PE_Window);
 	PE_Window.setVisible( true );
 	PE_Window.makeFirstResponder( true );
-	%this.map.push();
+	
 	ParticleEditor.resetEmitterNode();
 	// Set the status bar here
 	EditorGuiStatusBar.setInfo( "Particle editor." );
@@ -42,7 +42,6 @@ function ParticleEditorPlugin::onDeactivated( %this ) {
 	if( isObject( $ParticleEditor::emitterNode) )
 		$ParticleEditor::emitterNode.delete();
 
-	%this.map.pop();
 	Parent::onDeactivated( %this );
 }
 

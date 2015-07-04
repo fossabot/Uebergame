@@ -1,10 +1,10 @@
 //--- OBJECT WRITE BEGIN ---
 new DecalRoad() {
-   Material = "road_asphalt_stripes";
+   Material = "Mat_UberRoadA";
    textureLength = "16";
    breakAngle = "2";
    renderPriority = "10";
-   position = "145.997 249.198 -1.90616";
+   position = "145.997 249.198 -1.90625";
    rotation = "1 0 0 0";
    scale = "1 1 1";
    canSave = "1";

@@ -1119,7 +1119,7 @@
                      canSaveDynamicFields = "0";
 
                      new GuiBitmapCtrl() {
-                        bitmap = "art/textures/terrains/GreenCountry/Diffuse/Diffuse_DirtA";
+                        bitmap = "art/terrains/GreenCountry/Diffuse/Diffuse_DirtA";
                         wrap = "0";
                         position = "1 1";
                         extent = "64 64";
@@ -1186,7 +1186,7 @@
                      canSaveDynamicFields = "0";
 
                      new GuiBitmapCtrl() {
-                        bitmap = "art/textures/terrains/GreenCountry/Ground/GroundRocky_A_detail";
+                        bitmap = "art/terrains/GreenCountry/Ground/GroundRocky_A_detail";
                         wrap = "0";
                         position = "1 1";
                         extent = "64 64";
@@ -1713,7 +1713,7 @@
                      canSaveDynamicFields = "0";
 
                      new GuiBitmapCtrl() {
-                        bitmap = "art/textures/terrains/GreenCountry/Ground/GroundRocky_A_n";
+                        bitmap = "art/terrains/GreenCountry/Ground/GroundRocky_A_n";
                         wrap = "0";
                         position = "1 1";
                         extent = "64 64";
@@ -2062,7 +2062,7 @@
                      canSaveDynamicFields = "0";
 
                      new GuiBitmapCtrl() {
-                        bitmap = "art/textures/terrains/GreenCountry/Macro/Dirt_B";
+                        bitmap = "art/terrains/GreenCountry/Macro/Dirt_B";
                         wrap = "0";
                         position = "1 1";
                         extent = "64 64";

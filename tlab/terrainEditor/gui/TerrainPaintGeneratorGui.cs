@@ -231,8 +231,7 @@ function TerrainPaintGeneratorGui::moveDown(%this, %buttonCtrl) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function TPG_PillEdit::onValidate(%this) {
-	devLog("TPG_PillEdit::onValidate",%this.internalName,%this.layerObj);
+function TPG_PillEdit::onValidate(%this) {	
 	TPG.validateLayerSetting(%this.internalName,%this.layerObj);
 }
 //------------------------------------------------------------------------------

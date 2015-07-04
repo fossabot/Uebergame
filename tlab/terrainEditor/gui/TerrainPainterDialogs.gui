@@ -2187,7 +2187,7 @@
                      sinkAllKeyEvents = "0";
                      password = "0";
                      passwordMask = "*";
-                     text = "art/modelPacks/FarmPack/Nature/Trees/Maple";
+                     text = "art/models/FarmPack/Nature/Trees/Maple";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";

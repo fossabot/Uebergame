@@ -1,9 +1,10 @@
 //==============================================================================
-// TorqueLab ->
+// TorqueLab -> RoadEditorGui Editor GUI
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
 
+//==============================================================================
 function RoadEditorGui::onWake( %this ) {
 	$DecalRoad::EditorOpen = true;
 	%count = EWorldEditor.getSelectionSize();
@@ -24,22 +25,21 @@ function RoadEditorGui::onWake( %this ) {
 
 	%this.onNodeSelected(-1);
 }
-
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorGui::showDefaultMaterialSaveDialog( %this, %toMaterial ) {
 	%fromMaterial = RoadEditorGui.materialName;
 	RoadEditorGui.materialName = %toMaterial.getName();
 	Lab.syncConfigParamField(arRoadEditorCfg.paramObj,"materialName",%toMaterial.getName());
 	devLog("RoadEditorGui Default material changed from:",%fromMaterial,"To:",%toMaterial);
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorGui::onSleep( %this ) {
 	$DecalRoad::EditorOpen = false;
 }
-
-
-
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorGui::onEscapePressed( %this ) {
 	if( %this.getMode() $= "RoadEditorAddNodeMode" ) {
 		%this.prepSelectionMode();
@@ -48,11 +48,12 @@ function RoadEditorGui::onEscapePressed( %this ) {
 
 	return false;
 }
-
-//just in case we need it later
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorGui::onRoadCreation( %this ) {
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadEditorGui::onBrowseClicked( %this ) {
 	//%filename = RETextureFileCtrl.getText();
 	%dlg = new OpenFileDialog() {
@@ -73,8 +74,8 @@ function RoadEditorGui::onBrowseClicked( %this ) {
 
 	%dlg.delete();
 }
-
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadTreeView::onSelect(%this, %obj) {
 	RoadEditorGui.road = %obj;
 	RoadInspector.inspect( %obj );
@@ -83,7 +84,9 @@ function RoadTreeView::onSelect(%this, %obj) {
 		RoadEditorGui.setSelectedRoad( %obj );
 	}
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function RoadDefaultWidthSliderCtrlContainer::onWake(%this) {
 	RoadDefaultWidthSliderCtrlContainer-->slider.setValue(RoadDefaultWidthTextEditContainer-->textEdit.getText());
 }
+//------------------------------------------------------------------------------

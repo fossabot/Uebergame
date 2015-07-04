@@ -13,7 +13,7 @@ function MeshRoadEditorPlugin::onActivated( %this ) {
 	EditorGui.bringToFront( MeshRoadEditorGui );
 	MeshRoadEditorGui.makeFirstResponder( true );
 	MeshRoadTreeView.open(ServerMeshRoadSet,true);
-	%this.map.push();
+	
 	// Store this on a dynamic field
 	// in order to restore whatever setting
 	// the user had before.
@@ -28,7 +28,7 @@ function MeshRoadEditorPlugin::onActivated( %this ) {
 }
 
 function MeshRoadEditorPlugin::onDeactivated( %this ) {
-	%this.map.pop();
+	
 	// Restore the previous Gizmo
 	// alignment settings.
 	Lab.setGizmoAlignment(%this.prevGizmoAlignment);

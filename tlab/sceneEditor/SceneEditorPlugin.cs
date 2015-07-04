@@ -58,6 +58,8 @@ function SceneEditorPlugin::onWorldEditorStartup( %this ) {
 	%this.initAssets();
 	SEP_GroundCover.buildLayerSettingGui();
 	SEP_CreatorPage.initArrayCfg();
+	
+	ETransformBox.deactivate();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -69,7 +71,7 @@ function SceneEditorPlugin::onActivated( %this ) {
 	SceneEditorTreeFilter.extent.x = SceneEditorTreeTabBook.extent.x -  56;
 	SceneEditorTreeTabBook.selectPage(0);
 	SceneEditorModeTab.selectPage(0);
-	%this.map.push();
+	
 	SEP_GroupPage.updateContent();
 
 	if (SceneEditorPlugin.getCfg("DropType") !$= "")
@@ -80,7 +82,7 @@ function SceneEditorPlugin::onActivated( %this ) {
 // Called when the Plugin is deactivated (active to inactive transition)
 function SceneEditorPlugin::onDeactivated( %this ) {
 	Parent::onDeactivated( %this );
-	%this.map.pop();
+
 }
 //------------------------------------------------------------------------------
 //==============================================================================

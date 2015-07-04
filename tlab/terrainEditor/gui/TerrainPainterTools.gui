@@ -29,7 +29,7 @@
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "GuiGroup";
-      defaultTexturesFolder = "art/textures/terrains/GreenCountry/";
+      defaultTexturesFolder = "art/terrains/GreenCountry/";
       EditorContainer = "4215";
       editorParent = "4027";
       plugin = "TerrainPainter";
@@ -133,7 +133,7 @@
                canSaveDynamicFields = "0";
 
                new GuiBitmapCtrl(ETerrainMaterialSelected) {
-                  bitmap = "art/textures/terrains/GreenCountry/Grass/GrassLush_A_col";
+                  bitmap = "art/terrains/GreenCountry/Grass/GrassLush_A_col";
                   wrap = "0";
                   position = "0 0";
                   extent = "190 165";
@@ -265,7 +265,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiBitmapCtrl(ETerrainMaterialSelected_M) {
-                        bitmap = "art/textures/terrains/GreenCountry/Macro/Grassy_A_spec";
+                        bitmap = "art/terrains/GreenCountry/Macro/Grassy_A_spec";
                         wrap = "0";
                         position = "0 17";
                         extent = "95 63";
@@ -820,7 +820,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Ground/SandYellow_A_col";
+                  iconBitmap = "art/terrains/GreenCountry/Ground/SandYellow_A_col";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -1676,7 +1676,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Diffuse/Diffuse_DirtB";
+                  iconBitmap = "art/terrains/GreenCountry/Diffuse/Diffuse_DirtB";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -2532,7 +2532,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Rock/RockRough_A_col";
+                  iconBitmap = "art/terrains/GreenCountry/Rock/RockRough_A_col";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -3388,7 +3388,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Rock/RockRough_A_detailCol";
+                  iconBitmap = "art/terrains/GreenCountry/Rock/RockRough_A_detailCol";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -4243,7 +4243,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Grass/GrassLush_A_col";
+                  iconBitmap = "art/terrains/GreenCountry/Grass/GrassLush_A_col";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -5099,7 +5099,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Diffuse/Diffuse_RockBaseC";
+                  iconBitmap = "art/terrains/GreenCountry/Diffuse/Diffuse_RockBaseC";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -5955,7 +5955,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Grass/GrassLush_Dirt_col";
+                  iconBitmap = "art/terrains/GreenCountry/Grass/GrassLush_Dirt_col";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -6811,7 +6811,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Grass/GrassLush_B_col";
+                  iconBitmap = "art/terrains/GreenCountry/Grass/GrassLush_B_col";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -7667,7 +7667,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Grass/GrassLush_1_A_col";
+                  iconBitmap = "art/terrains/GreenCountry/Grass/GrassLush_1_A_col";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -8523,7 +8523,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Grass/GrassLush_A_col";
+                  iconBitmap = "art/terrains/GreenCountry/Grass/GrassLush_A_col";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -10235,7 +10235,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Diffuse/Diffuse_DirtB";
+                  iconBitmap = "art/terrains/GreenCountry/Diffuse/Diffuse_DirtB";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";
@@ -11091,7 +11091,7 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "4 4";
-                  iconBitmap = "art/textures/terrains/GreenCountry/Grass/GrassLush_Dirt_col";
+                  iconBitmap = "art/terrains/GreenCountry/Grass/GrassLush_Dirt_col";
                   iconLocation = "Left";
                   sizeIconToButton = "1";
                   makeIconSquare = "1";

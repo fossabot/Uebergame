@@ -6,14 +6,7 @@
 
 //==============================================================================
 function FEP_Manager::createLevelItemGroup( %this ) {
-	%itemGroup = MissionGroup-->ForestItems;
-	if (!isObject(%itemGroup)){
-		%itemGroup = new SimGroup();
-		%itemGroup.internalName = "ForestItems";
-		%itemGroup.parentGroup = "MissionGroup";
-		
-	}
-	%itemGroup.visible = 0;
+	
 }
 //------------------------------------------------------------------------------
 

@@ -18,6 +18,8 @@ function initializeTerrainEditor() {
 	TerrainEditorPlugin.PM = new PersistenceManager();
 	TerrainEditorPlugin.setEditorMode("Terrain");	
 	
+	
+	
 	//----------------------------------------------
 	// Terrain Painter Plugin
 	Lab.createPlugin("TerrainPainter","Terrain Painter");
@@ -34,6 +36,8 @@ function initializeTerrainEditor() {
 	TerrainMaterialDlg-->materialFilter.setText("");
 	//Create scriptobject for paint generator
 	$TPG = newScriptObject("TPG");
+	
+	
 	/*  %map.bindCmd( keyboard, "1", "LabSceneNoneModeBtn.performClick();", "" ); // Select
 	  %map.bindCmd( keyboard, "2", "LabSceneMoveModeBtn.performClick();", "" );   // Move
 	  %map.bindCmd( keyboard, "3", "LabSceneRotateModeBtn.performClick();", "" ); // Rotate
@@ -66,7 +70,7 @@ function execTerrainEd(%loadGui) {
 	exec("tlab/terrainEditor/gui/TerrainImportGui.cs");
 	exec("tlab/terrainEditor/gui/TerrainExportGui.cs");
 	exec("tlab/terrainEditor/gui/TerrainCreatorGui.cs" );
-	exec("tlab/terrainEditor/TerrainEditorDialogs.cs" );
+
 
 	//----------------------------------------------
 	// Terrain Painter GUIs
@@ -83,11 +87,9 @@ function execTerrainEd(%loadGui) {
 
 	exec("tlab/terrainEditor/terrainPainterPlugin.cs");
 	exec("tlab/terrainEditor/terrainEditorPlugin.cs");
-	exec("tlab/terrainEditor/TerrainPainterDialogs.cs" );
+
 	exec("tlab/terrainEditor/gui/TerrainPaintGeneratorGui.cs");
-//	exec("tlab/terrainEditor/scripts/paintGenerator.cs");
-	//	exec("tlab/terrainEditor/scripts/painterBrushes.cs");
-	//exec("tlab/terrainEditor/scripts/terrainEditor.cs");
+
 	execPattern("tlab/terrainEditor/scripts/*.cs");
 	execPattern("tlab/terrainEditor/painter/*.cs");
 	execPattern("tlab/terrainEditor/editor/*.cs");

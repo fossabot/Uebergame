@@ -35,13 +35,7 @@ function TerrainEditorPlugin::initParamsArray( %this,%cfgArray ) {
 	%cfgArray.setVal("DefaultBrushSetHeight",       "1" TAB "Default brush set height" TAB "TextEdit" TAB "" TAB "TerrainEditorPlugin" TAB %gid);
 }
 
-
-//------------------------------------------------------------------------------
-// TerrainEditorPlugin
-//------------------------------------------------------------------------------
-
-function TerrainEditorPlugin::onWorldEditorStartup( %this ) {
-	Parent::onWorldEditorStartup( %this );
+function TerrainEditorPlugin::initBinds( %this ) {
 	%map = new ActionMap();
 	%map.bindCmd( keyboard, "1", "EWToolsPaletteArray->brushAdjustHeight.performClick();", "" );    //Grab Terrain
 	%map.bindCmd( keyboard, "2", "EWToolsPaletteArray->raiseHeight.performClick();", "" );     // Raise Height
@@ -65,6 +59,15 @@ function TerrainEditorPlugin::onWorldEditorStartup( %this ) {
 	%map.bindCmd( keyboard, "'", "TerrainBrushSoftnessTextEditContainer->textEdit.text += 5", "" );// +5 Softness
 	%map.bindCmd( keyboard, ";", "TerrainBrushSoftnessTextEditContainer->textEdit.text -= 5", "" );// -5 Softness*/
 	TerrainEditorPlugin.map = %map;
+}
+
+//------------------------------------------------------------------------------
+// TerrainEditorPlugin
+//------------------------------------------------------------------------------
+
+function TerrainEditorPlugin::onWorldEditorStartup( %this ) {
+	Parent::onWorldEditorStartup( %this );
+	%this.initBinds();
 	Lab.terrainMenu = new PopupMenu() {
 		superClass = "MenuBuilder";
 		barTitle = "Terrain";
@@ -93,7 +96,7 @@ function TerrainEditorPlugin::onActivated( %this ) {
 	ETerrainEditor.setup();
 	TerrainEditorPlugin.syncBrushInfo();
 	EditorGuiStatusBar.setSelection("");
-	%this.map.push();
+	
 }
 
 function TerrainEditorPlugin::onDeactivated( %this ) {
@@ -102,7 +105,7 @@ function TerrainEditorPlugin::onDeactivated( %this ) {
 	EWTerrainEditToolbar.setVisible( false );
 	ETerrainEditor.setVisible( false );
 	Lab.removeDynamicMenu(Lab.terrainMenu);
-	%this.map.pop();
+	
 }
 
 function TerrainEditorPlugin::syncBrushInfo( %this ) {
@@ -137,7 +140,8 @@ function TerrainEditorPlugin::keyboardModifyBrushSize( %this, %amt) {
 //------------------------------------------------------------------------------
 // TerrainTextureEditorTool
 //------------------------------------------------------------------------------
-
+//REMOVEME Seem to be unused
+/*
 function TerrainTextureEditorTool::onActivated( %this ) {
 	EditorGui.bringToFront( ETerrainEditor );
 	ETerrainEditor.setVisible( true );
@@ -151,4 +155,4 @@ function TerrainTextureEditorTool::onDeactivated( %this ) {
 	EditorGui-->TextureEditor.setVisible(false);
 	ETerrainEditor.setVisible( false );
 }
-
+*/

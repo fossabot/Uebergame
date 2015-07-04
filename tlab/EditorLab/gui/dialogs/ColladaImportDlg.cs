@@ -419,10 +419,12 @@ function updateTSShapeLoadProgress(%progress, %msg) {
 	// Check if the loading GUI is visible and use that instead of the
 	// separate import progress GUI if possible
 	if ( isObject(DlgLoadingLevel) && DlgLoadingLevel.isAwake() ) {
+		%loadProgressCtrl = DlgLoadingLevel-->LoadingProgress;
+		%loadProgressTxtCtrl = DlgLoadingLevel-->LoadingProgressTxt;
 		// Save/Restore load progress at the start/end of the import process
 		if ( %progress == 0 ) {
-			ColladaImportProgress.savedProgress = LoadingProgress.getValue();
-			ColladaImportProgress.savedText = LoadingProgressTxt.getValue();
+			ColladaImportProgress.savedProgress = %loadProgressCtrl.getValue();
+			ColladaImportProgress.savedText = %loadProgressTxtCtrl.getValue();
 			ColladaImportProgress.msgPrefix = "Importing " @ %msg;
 			%msg = "Reading file into memory...";
 		} else if ( %progress == 1.0 ) {

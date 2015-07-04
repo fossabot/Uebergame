@@ -77,3 +77,8 @@ singleton GuiControlProfile( ToolsBoxTitleBar : ToolsDefaultProfile ) {
    fontColor = "222 222 222 255";
 };
 //------------------------------------------------------------------------------
+
+singleton GuiControlProfile(ToolsBoxTitleBar_Thin : ToolsBoxTitleBar)
+{
+   bitmap = "tlab/gui/assets/container-assets/GuiBoxTitleBar_Thin.png";
+};

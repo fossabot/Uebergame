@@ -133,6 +133,7 @@ function MaterialEditorGui::updateReflectionType( %this, %type ) {
 		MaterialEditorGui.updateActiveMaterial( "planarReflection", false );
 	} else {
 		if(%type $= "cubeMap") {
+			devLog("ShowCubemap button");
 			MaterialEditorPropertiesWindow-->matEd_cubemapEditBtn.setVisible(1);
 			MaterialEditorGui.updateActiveMaterial( %type, materialEd_previewMaterial.cubemap );
 		} else {

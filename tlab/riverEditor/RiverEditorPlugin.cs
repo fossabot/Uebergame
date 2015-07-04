@@ -40,7 +40,7 @@ function RiverEditorPlugin::onActivated( %this ) {
 	RiverEditorOptionsWindow.setVisible( true );
 	RiverEditorTreeWindow.setVisible( true );
 	RiverTreeView.open(ServerRiverSet,true);
-	%this.map.push();
+	
 	// Store this on a dynamic field
 	// in order to restore whatever setting
 	// the user had before.
@@ -61,7 +61,7 @@ function RiverEditorPlugin::onDeactivated( %this ) {
 	RiverEditorToolbar.setVisible(false);
 	RiverEditorOptionsWindow.setVisible( false );
 	RiverEditorTreeWindow.setVisible( false );
-	%this.map.pop();
+
 	// Restore the previous Gizmo
 	// alignment settings.
 	GlobalGizmoProfile.alignment = %this.prevGizmoAlignment;
