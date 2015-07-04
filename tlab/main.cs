@@ -15,6 +15,7 @@ if (isFile(%helpersLab))
 // Path to the folder that contains the editors we will load.
 $Lab::resourcePath = "tlab/";
 
+$LabGameMap = "moveMap";
 // Global holding material list for active simobject
 $Lab::materialEditorList = "";
 
