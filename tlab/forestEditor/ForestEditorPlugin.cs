@@ -31,7 +31,8 @@ function ForestEditorPlugin::onWorldEditorStartup( %this ) {
 	
 	FEP_Manager.init();
 	
-	
+	if (isObject(theForest) && ForestEditorGui.isMethod("setActiveForest"))
+		ForestEditorGui.setActiveForest(theForest);
 
 	if ( !isObject( ForestItemDataSet ) )
 		new SimSet( ForestItemDataSet );
@@ -175,6 +176,8 @@ function ForestEditorPlugin::onPluginCreated( %this ) {
 function ForestEditorPlugin::onNewLevelLoaded( %this, %file ) {
 	devLog("ForestEditorPlugin::onNewLevelLoaded");
 	
+	if (isObject(theForest) && ForestEditorGui.isMethod("setActiveForest"))
+		ForestEditorGui.setActiveForest(theForest);
 	//FEP_Manager.initBrushData();
 	Parent::onNewLevelLoaded( %this, %file );
 }
@@ -211,33 +214,4 @@ function ForestEditorPlugin::onSaveMission( %this, %missionFile ) {
 function ForestEditorPlugin::onEditorSleep( %this ) {
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-// Callbacks Handlers - Called on specific editor actions
-//==============================================================================
 
-//==============================================================================
-//
-function ForestEditorPlugin::handleDelete( %this ) {
-
-}
-//------------------------------------------------------------------------------
-//==============================================================================
-function ForestEditorPlugin::handleDeselect() {
-	
-}
-//------------------------------------------------------------------------------
-//==============================================================================
-function ForestEditorPlugin::handleCut() {
-
-}
-//------------------------------------------------------------------------------
-//==============================================================================
-function ForestEditorPlugin::handleCopy() {
-	
-}
-//------------------------------------------------------------------------------
-//==============================================================================
-function ForestEditorPlugin::handlePaste() {
-
-}
-//------------------------------------------------------------------------------

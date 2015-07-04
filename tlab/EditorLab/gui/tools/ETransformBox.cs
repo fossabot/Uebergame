@@ -13,7 +13,7 @@ function ETransformBoxGui::initTool( %this ) {
 	ETransformBox.position = "2000 0";
 		hide(ETransformBoxSettings);
 	ETransformBox.updateGui();
-
+	hide(ETransformBox);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
