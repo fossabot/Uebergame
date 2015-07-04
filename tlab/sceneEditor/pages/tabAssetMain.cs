@@ -12,16 +12,8 @@ $AssetsLab_DisplayList = "List" TAB "Small icons" TAB "Large icons";
 function SceneEditorPlugin::initAssets( %this ) {
 	if (!isObject(AssetsLab))
 		$AssetsLab = newScriptObject("AssetsLab");
-
-	//Fill the menus
-	AssetPathMenu.clear();
-	AssetPathMenu.add("All",0);
-
-	for(%i=0; %i<getFieldCount($AssetsLab_PathList); %i++) {
-		%item = getField($AssetsLab_PathList,%i);
-		AssetPathMenu.add(%item,%i+1);
-	}
-
+	
+	%this.getAssetFolders();
 	//Fill the menus
 	AssetCategoryMenu.clear();
 	AssetCategoryMenu.add("All",0);
@@ -40,6 +32,7 @@ function SceneEditorPlugin::initAssets( %this ) {
 	}
 }
 //------------------------------------------------------------------------------
+
 //==============================================================================
 //SEP_AssetPage.setMeshFolderDepth($ThisControl);
 function AssetsLab::onMenuSelect( %this,%menu ) {
@@ -49,15 +42,91 @@ function AssetsLab::onMenuSelect( %this,%menu ) {
 	case "SearchPath":
 		%path = %menu.getText();
 		devLog("AssetsLab_Path Selected Text=",%path);
-		AssetsLab.navigateAssets(%path);
+		AssetsLab.navigateAssets(getField(%path,1));
 
 	case "Category":
 		%category = %menu.getText();
-		devLog("AssetsLab_Category Selected Text=",%category);
+		%folders = SceneEditorPlugin.getAssetsInCategory(%category);
+		devLog("AssetsLab_Category Selected Text=",%category,"Folders",%folders);
 
 	case "Display":
 		%displayMode = %menu.getText();
 		devLog("AssetsLab_Display Selected Text=",%displayMode);
 	}
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+//SceneEditorPlugin.getAssetFolders();
+function SceneEditorPlugin::getAssetFolders( %this ) {
+	//Fill the menus
+	AssetPathMenu.clear();
+	AssetPathMenu.add("All",0);
+		AssetCategoryMenu.clear();
+	AssetCategoryMenu.add("All",0);
+	AssetCategoryMenu.currentId = 0;
+	SEP_AssetManager.assetCategories = "";
+	%next = true;
+	%i = 0;
+	while(%next){
+		%data = %this.getCfg("AssetData"@%i);		
+		if (%data $= ""){
+			%next = false;
+			SceneEditorPlugin.nextAssetId = %i;
+			continue;
+		}
+		%folder = getField(%data,0);
+		%name = getField(%data,1);
+		%cat = getField(%data,2);		
+		%this.updateCategoryList(%cat);
+		AssetPathMenu.add(%name TAB %folder,%i+1);
+		%i++;		
+	}
+	AssetPathMenu.setSelected(0);
+	AssetCategoryMenu.setSelected(0);
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+//SceneEditorPlugin.addAssetFolder("Test/Folder","New Asset 1","Rocks");
+function SceneEditorPlugin::addAssetFolder( %this,%folder,%name,%cat ) {
+	%id = %this.nextAssetId;
+	%this.setCfg("AssetData"@%id,%folder @"\t"@%name@"\t"@%cat);
+	%this.getAssetFolders();
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+//SceneEditorPlugin.addAssetFolder("Test/Folder","New Asset 1","Rocks");
+function SceneEditorPlugin::updateCategoryList( %this,%cat ) {
+	%isInMenu = AssetCategoryMenu.findText(%cat);
+	if (%isInMenu > 0)
+		return;
+	
+	AssetCategoryMenu.add(%cat, AssetCategoryMenu.currentId++);
+	SEP_AssetManager.assetCategories = strAddField(SEP_AssetManager.assetCategories,%cat);
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+//SceneEditorPlugin.getAssetFolders();
+function SceneEditorPlugin::getAssetsInCategory( %this,%findCat ) {
+	//Fill the menus
+	%folderList = "";	
+	%next = true;
+	%i = 0;
+	while(%next){
+		%data = %this.getCfg("AssetData"@%i);		
+		if (%data $= ""){
+			%next = false;
+			SceneEditorPlugin.nextAssetId = %i;
+			continue;
+		}
+		%folder = getField(%data,0);
+		%name = getField(%data,1);
+		%cat = getField(%data,2);
+		if (%cat $= %findCat)
+			%folderList = strAddField(%folderList,%folder);
+		
+		%i++;		
+	}
+	
+	return %folderList;
 }
 //------------------------------------------------------------------------------

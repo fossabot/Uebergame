@@ -68,7 +68,7 @@ singleton GuiControlProfile( ToolsButtonArray : ToolsButtonProfile) {
     fontColorHL = "244 244 244";
     fontColorNA = "100 100 100";
 
-    border = 1;
+    border = "-2";
     borderColor   = "153 222 253 255";
     borderColorHL = "156 156 156";
     borderColorNA = "153 222 253 0";
@@ -83,6 +83,7 @@ singleton GuiControlProfile( ToolsButtonArray : ToolsButtonProfile) {
    fontColors[0] = "250 250 247 255";
    
     modal = 1;
+   bitmap = "tlab/gui/assets/button/GuiButtonDark.png";
 };
 //------------------------------------------------------------------------------
 

@@ -1,13 +1,13 @@
 //==============================================================================
-// TorqueLab ->
+// TorqueLab -> SceneEditor Inspector script
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 // Allow to manage different GUI Styles without conflict
 //==============================================================================
 
-
+//==============================================================================
 function SceneInspector::onInspectorFieldModified( %this, %object, %fieldName, %arrayIndex, %oldValue, %newValue ) {
-	devLog("SceneInspector::onInspectorFieldModified( %this, %object, %fieldName, %arrayIndex, %oldValue, %newValue )",%this, %object, %fieldName, %arrayIndex, %oldValue, %newValue );
+	
 	// The instant group will try to add our
 	// UndoAction if we don't disable it.
 	pushInstantGroup();
@@ -42,11 +42,13 @@ function SceneInspector::onInspectorFieldModified( %this, %object, %fieldName, %
 		EWorldEditor.invalidateSelectionCentroid();
 	}
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneInspector::onFieldSelected( %this, %fieldName, %fieldTypeStr, %fieldDoc ) {
 	SceneFieldInfoControl.setText( "<font:ArialBold:14>" @ %fieldName @ "<font:ArialItalic:14> (" @ %fieldTypeStr @ ") " NL "<font:Arial:14>" @ %fieldDoc );
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 // The following three methods are for fields that edit field value live and thus cannot record
 // undo information during edits.  For these fields, undo information is recorded in advance and
 // then either queued or disarded when the field edit is finished.
@@ -86,7 +88,8 @@ function SceneInspector::onInspectorPreFieldModification( %this, %fieldName, %ar
 	%this.currentFieldEditAction = %action;
 	popInstantGroup();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneInspector::onInspectorPostFieldModification( %this ) {
 	if( %this.currentFieldEditAction.isMemberOfClass( "CompoundUndoAction" ) ) {
 		// Finish multiple field edit.
@@ -99,7 +102,8 @@ function SceneInspector::onInspectorPostFieldModification( %this ) {
 	%this.currentFieldEditAction = "";
 	EWorldEditor.isDirty = true;
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneInspector::onInspectorDiscardFieldModification( %this ) {
 	%this.currentFieldEditAction.undo();
 
@@ -113,7 +117,8 @@ function SceneInspector::onInspectorDiscardFieldModification( %this ) {
 
 	%this.currentFieldEditAction = "";
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneInspector::inspect( %this, %obj ) {
 	//echo( "inspecting: " @ %obj );
 	%name = "";
@@ -126,15 +131,19 @@ function SceneInspector::inspect( %this, %obj ) {
 	//InspectorNameEdit.setValue( %name );
 	Parent::inspect( %this, %obj );
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneInspector::onBeginCompoundEdit( %this ) {
 	Editor.getUndoManager().pushCompound( "Multiple Field Edit" );
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneInspector::onEndCompoundEdit( %this ) {
 	Editor.getUndoManager().popCompound();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function SceneInspector::onCancelCompoundEdit( %this ) {
 	Editor.getUndoManager().popCompound( true );
 }
+//------------------------------------------------------------------------------

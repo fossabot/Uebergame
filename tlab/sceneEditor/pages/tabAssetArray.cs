@@ -21,6 +21,7 @@ function AssetsLab::setMeshFolderDepth( %this, %ctrl ) {
 
 //==============================================================================
 // Navigate through Asset Book Data
+//AssetsLab.navigateAssets("art/modelPacks/");
 function AssetsLab::navigateAssets( %this, %searchFolder ) {
 	SEP_AssetPage.isList = true;
 	AssetIconArray.clear();
@@ -31,8 +32,7 @@ function AssetsLab::navigateAssets( %this, %searchFolder ) {
 	%pattern = %searchFolder@"*.dae";
 
 	//Start by loading all bind functions
-	for(%file = findFirstFile(%pattern); %file !$= ""; %file = findNextFile(%pattern)) {
-		devLog("Fullpath:",%file);
+	for(%file = findFirstFile(%pattern); %file !$= ""; %file = findNextFile(%pattern)) {		
 		%this.addStaticIcon( %file );
 	}
 }

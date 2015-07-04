@@ -238,7 +238,7 @@ singleton GuiControlProfile (ToolsGuiMenuBarProfile  : ToolsDefaultProfile) {
 // MenuBar Items
 singleton GuiControlProfile( ToolsGuiMenuProfile : ToolsGuiMenuBarProfile) {
     opaque = true;
-    fillcolor = "43 43 43 243";
+    fillcolor = "21 21 21 216";
     fontColor = "206 243 254 255";
     fontColorHL = "64 222 254 255";
     fillColor = "0 0 0 100";

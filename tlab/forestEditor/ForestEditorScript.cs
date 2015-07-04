@@ -18,6 +18,10 @@ function ForestEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
 	%editMenu.enableItem( 8, %hasSelection ); // Deselect
 }
 
+//==============================================================================
+// Callbacks Handlers - Called on specific editor actions
+//==============================================================================
+
 function ForestEditorPlugin::handleDelete( %this ) {
 	ForestTools->SelectionTool.deleteSelection();
 }

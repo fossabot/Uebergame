@@ -267,4 +267,3 @@ function MaterialEditorGui::updateActiveMaterialName(%this, %name) {
 	MaterialEditorGui.updateMaterialReferences( MissionGroup, %action.oldName, %action.newName );
 }
 
-
