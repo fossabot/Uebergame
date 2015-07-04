@@ -35,7 +35,7 @@ function DatablockEditorPlugin::onActivated( %this ) {
 	DatablockEditorTreeWindow.setVisible( true );
 	DatablockEditorInspectorWindow.setVisible( true );
 	DatablockEditorInspectorWindow.makeFirstResponder( true );
-	%this.map.push();
+	
 	// Set the status bar here until all tool have been hooked up
 	EditorGuiStatusBar.setInfo( "Datablock editor." );
 	%numSelected = %this.getNumSelectedDatablocks();
@@ -58,7 +58,7 @@ function DatablockEditorPlugin::onActivated( %this ) {
 
 function DatablockEditorPlugin::onDeactivated( %this ) {
 	//DatablockEditorPlugin.writeSettings();
-	%this.map.pop();
+
 	Parent::onDeactivated(%this);
 }
 

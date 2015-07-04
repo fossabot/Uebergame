@@ -25,8 +25,7 @@ function GuiEdit( %loadLast ) {
 		//Store current Content to return to it
 		%initialContent = Canvas.getContent();
 
-		if ( isObject(GuiEditor.forceContent)) {
-			info("Editing the world EditorGui");
+		if ( isObject(GuiEditor.forceContent)) {		
 			%initialContent = GuiEditor.forceContent;
 		}
 

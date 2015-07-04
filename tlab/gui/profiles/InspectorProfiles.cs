@@ -289,7 +289,7 @@ singleton GuiControlProfile( GuiInspectorFieldProfile : ToolsDefaultProfile ) {
     opaque = false;
     border = false;
 
-    bitmap = "tlab/editorclasses/gui/images/rollout";
+    bitmap = "tlab/gui/icons/default/classImages/rollout";
 
     textOffset = "10 0";
 

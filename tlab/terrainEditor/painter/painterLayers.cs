@@ -83,7 +83,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
 		%ctrl.terrainMat = %mat;
 		%ctrl.layerId = %i;
 		%bitmapButton = %ctrl-->bitmapButton;
-		%bitmapButton.internalName = "EPainterMaterialButton" @ %i;
+		//%bitmapButton.internalName = "EPainterMaterialButton" @ %i;
 		%bitmapButton.command = %command;
 		%bitmapButton.altCommand = %altCommand;
 		%bitmapButton.setBitmap( %mat.diffuseMap );
@@ -118,7 +118,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
 			%compactCtrl = %ctrl-->compactCtrl;
 			%compactCtrl-->matName.text = %matInternalName;
 			%bitmapButtonCompact = %compactCtrl-->bitmapButton;
-			%bitmapButtonCompact.internalName = "EPainterMaterialButton" @ %i;
+		//	%bitmapButtonCompact.internalName = "EPainterMaterialButton" @ %i;
 			%bitmapButtonCompact.command = %command;
 			%bitmapButtonCompact.altCommand = %altCommand;
 			//%bitmapButtonCompact.setBitmap( %mat.diffuseMap );
@@ -135,7 +135,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
 			%extendedCtrl-->ctrlActive.visible = 0;
 			%extendedCtrl-->dropLayer.visible = 0;
 			%bitmapButtonExt = %extendedCtrl-->bitmapButton;
-			%bitmapButtonExt.internalName = "EPainterMaterialButton" @ %i;
+			//%bitmapButtonExt.internalName = "EPainterMaterialButton" @ %i;
 			%bitmapButtonExt.command = %command;
 			%bitmapButtonExt.altCommand = %altCommand;
 			//%bitmapButtonExt.setBitmap( %mat.diffuseMap );
@@ -209,15 +209,16 @@ function EPainter::updateLayers( %this, %matIndex ) {
 	// To make things simple... click the paint material button to
 	// active it and initialize other state.
 	%ctrl = EPainterStack.getObject( %matIndex );
-	%ctrl-->bitmapButton.performClick();
+	if (isObject(%ctrl))				
+		%ctrl-->bitmapButton.performClick(); //FIXME something wrong here
+	
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 // Update the active material layers list
 function EPainter::setPaintLayer( %this, %matIndex) {
 	%ctrl = EPainterStack.findObjectByInternalName("Layer_"@%matIndex,true);
-	%terrainMat = %ctrl.terrainMat;
-	devLog("Set paint layer:",%terrainMat,"ctrl:",%ctrl);
+	%terrainMat = %ctrl.terrainMat;	
 	%pill = EPainterStack.getObject(%matIndex);
 
 	foreach(%ctrl in EPainterStack)
@@ -352,7 +353,6 @@ function EPainter::saveDirtyMaterials( %this ) {
 //==============================================================================
 // Update the active material layers list
 function PainterLayerMouse::onMouseDragged( %this,%modifier,%pos,%clicks) {
-	devLog("PainterLayerMouse::onMouseDragged(%this, %modifier,%pos,%clicks)",%this,%modifier,%pos,%clicks);
 	%dragClone = %this.baseCtrl;
 
 	if (isObject(%this.dragClone))
@@ -370,7 +370,7 @@ function PainterLayerMouse::onMouseDragged( %this,%modifier,%pos,%clicks) {
 //==============================================================================
 // Update the active material layers list
 function LayerDropClass::onControlDropped(%this, %control, %dropPoint) {
-	devLog("LayerDropClass::onControlDropped(%this, %control, %dropPoint)",%this, %control, %dropPoint);
+	
 	%droppedOnLayer = %this.layerID;
 	%droppedLayer = %control.dragSourceControl.layerID;
 	ETerrainEditor.reorderMaterial(%droppedLayer,%droppedOnLayer);
@@ -382,9 +382,7 @@ function LayerDropClass::onControlDropped(%this, %control, %dropPoint) {
 }
 //==============================================================================
 // Update the active material layers list
-function EPainter::layerDragFailed( %this,%modifier,%pos,%clicks) {
-	devLog("EPainter::layerDragFailed( %this,%modifier,%pos,%clicks)",%this,%modifier,%pos,%clicks);
-
+function EPainter::layerDragFailed( %this,%modifier,%pos,%clicks) {	
 	foreach(%ctrl in EPainterStack)
 		%ctrl.dropLayer.visible = 0;
 }

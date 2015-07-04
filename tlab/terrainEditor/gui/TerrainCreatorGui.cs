@@ -24,6 +24,7 @@ function CreateNewTerrainGui::create( %this ) {
 	%resolution = %this-->theRezList.getSelected();
 	%materialName = %this-->theMaterialList.getText();
 	%genNoise = %this-->noiseRadio.getValue();
+	devLog("NewTerrain Name",%terrainName,"Res",%resolution,"Mat",%materialName,"Noise",%genNoise);
 	%obj = TerrainBlock::createNew( %terrainName, %resolution, %materialName, %genNoise );
 
 	if( %genNoise )

@@ -31,6 +31,7 @@ function FEP_Manager::initBrushData( %this,%reset ) {
 		ForestBrushGroup.internalName = "ForestBrush";
 		%this.showError = true;
 	}
+	MissionCleanup.add(ForestBrushGroup);
 	%this.updateBrushData();
 }
 //------------------------------------------------------------------------------
@@ -51,7 +52,7 @@ function FEP_Manager::updateBrushData( %this ) {
 		
 	ForestEditBrushTree.open( ForestBrushGroup );
 	ForestEditBrushTree.buildVisibleTree( true );
-	
+
 	
 }
 //------------------------------------------------------------------------------

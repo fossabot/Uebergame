@@ -121,8 +121,8 @@ function Lab::buildMenus(%this) {
 	if(!isWebDemo()) {
 		%fileMenu.appendItem("New Level" TAB "" TAB "schedule( 1, 0, \"EditorNewLevel\" );");
 		%fileMenu.appendItem("Open Level..." TAB %cmdCtrl SPC "O" TAB "schedule( 1, 0, \"EditorOpenMission\" );");
-		%fileMenu.appendItem("Save Level" TAB %cmdCtrl SPC "S" TAB "EditorSaveMissionMenu();");
-		%fileMenu.appendItem("Save Level As..." TAB "" TAB "EditorSaveMissionAs();");
+		%fileMenu.appendItem("Save Level" TAB %cmdCtrl SPC "S" TAB "Lab.SaveCurrentMission();");
+		%fileMenu.appendItem("Save Level As..." TAB "" TAB "Lab.SaveCurrentMission(true);");
 		%fileMenu.appendItem("-");
 
 		if( $platform $= "windows" ) {

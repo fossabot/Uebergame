@@ -5,7 +5,7 @@
 // Allow to manage different GUI Styles without conflict
 //==============================================================================
 $AssetsLab_CategoryList = "Map models" TAB "Trees" TAB "Plants/Flowers" TAB "Grass";
-$AssetsLab_PathList = "art/modelPacks/" TAB "art/modelPacks/" TAB "art/shapes/";
+$AssetsLab_PathList = "art/models/" TAB "art/models/" TAB "art/shapes/";
 $AssetsLab_DisplayList = "List" TAB "Small icons" TAB "Large icons";
 //==============================================================================
 //SEP_AssetPage.setMeshFolderDepth($ThisControl);
@@ -40,18 +40,15 @@ function AssetsLab::onMenuSelect( %this,%menu ) {
 
 	switch$(%menuType) {
 	case "SearchPath":
-		%path = %menu.getText();
-		devLog("AssetsLab_Path Selected Text=",%path);
+		%path = %menu.getText();		
 		AssetsLab.navigateAssets(getField(%path,1));
 
 	case "Category":
 		%category = %menu.getText();
-		%folders = SceneEditorPlugin.getAssetsInCategory(%category);
-		devLog("AssetsLab_Category Selected Text=",%category,"Folders",%folders);
+		%folders = SceneEditorPlugin.getAssetsInCategory(%category);		
 
 	case "Display":
-		%displayMode = %menu.getText();
-		devLog("AssetsLab_Display Selected Text=",%displayMode);
+		%displayMode = %menu.getText();		
 	}
 }
 //------------------------------------------------------------------------------

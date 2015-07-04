@@ -24,6 +24,7 @@ singleton GuiControlProfile (ForestEditorProfile) {
 	category = "Editor";
 };
 function initializeForestEditor() {
+	return;
 	echo(" % - Initializing Forest Editor");
 	//$FEP_BrushSet = newSimSet("FEP_BrushSet");
 	execFEP(true);

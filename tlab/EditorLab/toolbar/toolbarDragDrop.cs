@@ -94,7 +94,7 @@ function EToolbarIconTrash::onControlDropped(%this, %control, %dropPoint) {
 //==============================================================================
 // Dragged control dropped over a toolbar icon
 function ToolbarIcon::onControlDropped(%this, %control, %dropPoint) {
-	DevLog("Icon dropped in ToolbarIcon");
+
 	%droppedCtrl = %control.dragSourceControl;
 
 	if (%control.dropType !$= "Toolbar") {
@@ -105,7 +105,7 @@ function ToolbarIcon::onControlDropped(%this, %control, %dropPoint) {
 
 	if(isObject(%droppedCtrl.srcCtrl))
 	{
-		devLog("Clone dropped, delete it");
+	
 		%clone = %droppedCtrl;
 		%droppedCtrl = %droppedCtrl.srcCtrl;
 		delObj(%clone);
@@ -147,7 +147,7 @@ function PluginToolbarEnd::onControlDropped(%this, %control, %dropPoint) {
 	}
 	if(isObject(%droppedCtrl.srcCtrl))
 	{
-		devLog("Clone dropped, delete it");
+		
 		%clone = %droppedCtrl;
 		%droppedCtrl = %droppedCtrl.srcCtrl;
 		delObj(%clone);

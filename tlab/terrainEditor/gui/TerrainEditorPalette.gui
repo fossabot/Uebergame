@@ -45,7 +45,7 @@
       canSave = "1";
       canSaveDynamicFields = "0";
    };
-   new GuiBitmapButtonCtrl() {
+   new GuiBitmapButtonCtrl(TEPBrush_raiseHeight) {
       bitmap = "tlab/gui/buttons/palette-assets/TerrainRaise";
       bitmapMode = "Stretched";
       autoFitExtents = "0";

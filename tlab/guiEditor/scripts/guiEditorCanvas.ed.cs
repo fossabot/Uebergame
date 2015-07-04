@@ -181,18 +181,22 @@ function GuiEditCanvas::onCreateMenu(%this) {
 			item[8] = "Show Guides" TAB "" TAB "GuiEditor.toggleDrawGuides();";
 			item[9] = "Clear Guides" TAB "" TAB "GuiEditor.clearGuides();";
 		};
+		
 		new PopupMenu() {
 			superClass = "MenuBuilder";
 			barTitle = "Lab Menu";
 			internalName = "LabMenu";
-			item[0] = "-> Lab Editors GUIs <-";
-			item[1] = "Remove from EditorGui" TAB "" TAB "Lab.setGuisToDefault();";
-			item[2] = "Add to EditorGui" TAB "" TAB "Lab.setGuisToEditor();";
-			item[3] = "-> General Editors GUIs <-";
-			item[4] = "Toggle Editors GUI listing" TAB "" TAB "Lab.toggleEditorGuiListing();";
-			item[5] = "Dettach the Editor GUIs" TAB "" TAB "Lab.detachEditorGuis();";
-			item[6] = "Attach the Editor GUIs" TAB "" TAB "Lab.attachEditorGuis();";
-			item[7] = "Toggle Lab Editor Settings" TAB "" TAB "toggleDlg(LabEditorSettings);";
+
+			item[%id = 0] = "-> Lab Editors GUIs <-";
+			item[%id++] = "Remove from EditorGui" TAB "" TAB "Lab.setGuisToDefault();";
+			item[%id++] = "Add to EditorGui" TAB "" TAB "Lab.setGuisToEditor();";
+			item[%id++] = "-> General Editors GUIs <-";
+			item[%id++] = "Toggle Editors GUI listing" TAB "" TAB "Lab.toggleEditorGuiListing();";
+			item[%id++] = "Dettach the Editor GUIs" TAB "" TAB "Lab.detachEditorGuis();";
+			item[%id++] = "Attach the Editor GUIs" TAB "" TAB "Lab.attachEditorGuis();";
+			item[%id++] = "Toggle Lab Editor Settings" TAB "" TAB "toggleDlg(LabEditorSettings);";
+			item[%id++] = "-> Special Editors GUIs <-";
+			item[%id++] = "Toggle Field Duplicator" TAB  "Alt-Shift D" TAB "Lab.toggleDuplicator();";
 		};
 		new PopupMenu() {
 			superClass = "MenuBuilder";

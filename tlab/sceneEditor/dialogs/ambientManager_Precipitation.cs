@@ -322,6 +322,13 @@ function SEP_PrecipitationManager::applyDataFile( %this,%file ) {
 	SEP_PrecipitationManager.updateDataFieldValue(%field,%file);
 }
 //------------------------------------------------------------------------------
+//==============================================================================
+// Prepare the default config array for the Scene Editor Plugin
+function SEP_PrecipitationBook::onTabSelected( %this,%text,%index ) {	
+	
+	$SEP_PrecipitationBook_PageId = %index;
+}
+//------------------------------------------------------------------------------
 /*
 General:
 	dataBlock = "HeavyRain";

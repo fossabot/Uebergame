@@ -91,8 +91,11 @@ function MaterialEditorPlugin::onActivated( %this ) {
 	MaterialEditorGui.currentObject = $Lab::materialEditorList;
 	// Execute the back end scripts that actually do the work.
 	MaterialEditorGui.open();
-	%this.map.push();
+	
 	Parent::onActivated(%this);
+	hide(MEP_CallbackArea);
+	hide(matEd_addCubemapWindow);
+	matEd_addCubemapWindow.setVisible(0);
 }
 
 function MaterialEditorPlugin::onEditMenuSelect( %this, %editMenu ) {
@@ -106,6 +109,6 @@ function MaterialEditorPlugin::onDeactivated( %this ) {
 	WEditorPlugin.onDeactivated();
 	MaterialEditorGui.quit();
 	SceneEditorToolbar.setVisible( false );
-	%this.map.pop();
+	
 	Parent::onDeactivated(%this);
 }

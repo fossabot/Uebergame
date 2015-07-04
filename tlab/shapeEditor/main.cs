@@ -11,12 +11,14 @@
 function initializeShapeEditor() {
 	echo(" % - Initializing Shape Editor");
 	execShapeEd(true);
+	Lab.createPlugin("ShapeEditor","Shape Editor");
 	Lab.addPluginGui("ShapeEditor",ShapeEditorTools);
 	Lab.addPluginEditor("ShapeEditor",ShapeEdPreviewGui);
-	Lab.addPluginEditor("ShapeEditor",ShapeEdAnimWindow,true);
+	//Lab.addPluginEditor("ShapeEditor",ShapeEdAnimWindow,true);
 	Lab.addPluginToolbar("ShapeEditor",ShapeEditorToolbar);
 	Lab.addPluginPalette("ShapeEditor",   ShapeEditorPalette);
-	Lab.createPlugin("ShapeEditor","Shape Editor");
+	Lab.addPluginDlg("ShapeEditor",   ShapeEditorDialogs);
+	
 	ShapeEditorPlugin.editorGui = ShapeEdShapeView;
 	// Add windows to editor gui
 	%map = new ActionMap();
@@ -49,19 +51,21 @@ function execShapeEd(%loadGui) {
 	if (%loadGui) {
 		exec("./gui/Profiles.cs");
 		exec("tlab/shapeEditor/gui/shapeEdPreviewWindow.gui");
-		exec("tlab/shapeEditor/gui/shapeEdAnimWindow.gui");
+		exec("tlab/shapeEditor/gui/ShapeEditorDialogs.gui");
 		exec("tlab/shapeEditor/gui/shapeEditorToolbar.gui");
 		exec("tlab/shapeEditor/gui/shapeEditorPalette.gui");
 		exec("tlab/shapeEditor/gui/ShapeEditorTools.gui");
+		
 	}
 
 	exec("./scripts/shapeEditor.cs");
 	exec("./scripts/shapeEditorHints.cs");
 	exec("./scripts/shapeEditorActions.cs");
+	exec("./scripts/shapeEditorUtility.cs");
 	exec("tlab/shapeEditor/ShapeEditorPlugin.cs");
-	exec("tlab/shapeEditor/ShapeEditorParams.cs");
 	exec("tlab/shapeEditor/ShapeEditorTools.cs");
-	execPattern("tlab/shapeEditor/propPanel/*.cs");
+	execPattern("tlab/shapeEditor/guiScript/*.cs");
+	execPattern("tlab/shapeEditor/editor/*.cs");
 }
 //------------------------------------------------------------------------------
 

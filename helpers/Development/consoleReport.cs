@@ -289,3 +289,19 @@ function writeOutClasses() {
 	dumpConsoleClasses();
 	logger.delete();
 }
+//------------------------
+//Display all value of object in console
+function logObj(%obj,%prefix, %dynamicOnly) {
+	if (!%dynamicOnly) {
+		%count = %obj.getFieldCount();
+		for(%i=0; %i<%count; %i++) {
+			%field = %obj.getField(%i);
+			%value = %obj.getFieldValue(%field);
+		}
+	}
+	%count = %obj.getDynamicFieldCount();
+	for(%i=0; %i<%count; %i++) {
+		%field = %obj.getDynamicField(%i);
+		%value = %obj.getFieldValue(%field);
+	}
+}

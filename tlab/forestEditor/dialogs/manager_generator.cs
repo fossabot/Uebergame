@@ -12,7 +12,7 @@ function FEP_Manager::initDataGenerator( %this ) {
 		FEP_ForestDataGenerator-->sourceFolder.setText("[Select model folder to generate from]");
 	FEP_ForestDataGenerator-->groupName.setText("[Brush group name]");
 	FEP_ForestDataGenerator-->prefix.setText("[Data prefix]");
-	FEP_ForestDataGenerator-->doBackup.setStateOn("1");
+
 	
 	%settingContainer = FEP_ForestDataGenerator-->settings;
 	%settingContainer-->scaleMin.setText("1");

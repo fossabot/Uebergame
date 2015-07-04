@@ -1,30 +1,140 @@
-//-----------------------------------------------------------------------------
-// Copyright (c) 2012 GarageGames, LLC
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to
-// deal in the Software without restriction, including without limitation the
-// rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-// sell copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-// IN THE SOFTWARE.
-//-----------------------------------------------------------------------------
-
+//==============================================================================
+// TorqueLab -> ShapeEditor -> Shape Hints
+// Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
+//------------------------------------------------------------------------------
 // The Shape Editor tool can provide some simple hints about which nodes and
 // sequences are required/desired for a particular type of shape to work with
-// Torque. The following objects define the node and sequence hints, and the
+// Torque. The objects at bottom define the node and sequence hints, and the
 // Shape Editor gui marks them as present or not-present in the current shape.
+//==============================================================================
 
+//==============================================================================
+// Shape Hints Methods
+//==============================================================================
+function ShapeEdHintMenu::onSelect( %this, %id, %text ) {
+	ShapeEdSelectWindow.updateHints();
+}
+
+function ShapeEdSelectWindow::updateHints( %this ) {
+	%objectType = ShapeEdHintMenu.getText();
+	ShapeEdSelectWindow-->nodeHints.freeze( true );
+	ShapeEdSelectWindow-->sequenceHints.freeze( true );
+
+	// Move all current hint controls to a holder SimGroup
+	for ( %i = ShapeEdSelectWindow-->nodeHints.getCount()-1; %i >= 0; %i-- )
+		ShapeHintControls.add( ShapeEdSelectWindow-->nodeHints.getObject( %i ) );
+
+	for ( %i = ShapeEdSelectWindow-->sequenceHints.getCount()-1; %i >= 0; %i-- )
+		ShapeHintControls.add( ShapeEdSelectWindow-->sequenceHints.getObject( %i ) );
+
+	// Update node and sequence hints, modifying and/or creating gui controls as needed
+	for ( %i = 0; %i < ShapeHintGroup.getCount(); %i++ ) {
+		%hint = ShapeHintGroup.getObject( %i );
+
+		if ( ( %objectType $= %hint.objectType ) || isMemberOfClass( %objectType, %hint.objectType ) ) {
+			for ( %idx = 0; %hint.node[%idx] !$= ""; %idx++ )
+				ShapeEdHintMenu.processHint( "node", %hint.node[%idx] );
+
+			for ( %idx = 0; %hint.sequence[%idx] !$= ""; %idx++ )
+				ShapeEdHintMenu.processHint( "sequence", %hint.sequence[%idx] );
+		}
+	}
+
+	ShapeEdSelectWindow-->nodeHints.freeze( false );
+	ShapeEdSelectWindow-->nodeHints.updateStack();
+	ShapeEdSelectWindow-->sequenceHints.freeze( false );
+	ShapeEdSelectWindow-->sequenceHints.updateStack();
+}
+
+function ShapeEdHintMenu::processHint( %this, %type, %hint ) {
+	%name = getField( %hint, 0 );
+	%desc = getField( %hint, 1 );
+	// check for arrayed names (ending in 0-N or 1-N)
+	%pos = strstr( %name, "0-" );
+
+	if ( %pos == -1 )
+		%pos = strstr( %name, "1-" );
+
+	if ( %pos > 0 ) {
+		// arrayed name => add controls for each name in the array, but collapse
+		// consecutive indices where possible. eg.  if the model only has nodes
+		// mount1-3, we should create: mount0 (red), mount1-3 (green), mount4-31 (red)
+		%base = getSubStr( %name, 0, %pos );      // array name
+		%first = getSubStr( %name, %pos, 1 );     // first index
+		%last = getSubStr( %name, %pos+2, 3 );    // last index
+		// get the state of the first element
+		%arrayStart = %first;
+		%prevPresent = ShapeEditor.hintNameExists( %type, %base @ %first );
+
+		for ( %j = %first + 1; %j <= %last; %j++ ) {
+			// if the state of this element is different to the previous one, we
+			// need to add a hint
+			%present = ShapeEditor.hintNameExists( %type, %base @ %j );
+
+			if ( %present != %prevPresent ) {
+				ShapeEdSelectWindow.addObjectHint( %type, %base, %desc, %prevPresent, %arrayStart, %j-1 );
+				%arrayStart = %j;
+				%prevPresent = %present;
+			}
+		}
+
+		// add hint for the last group
+		ShapeEdSelectWindow.addObjectHint( %type, %base, %desc, %prevPresent, %arrayStart, %last );
+	} else {
+		// non-arrayed name
+		%present = ShapeEditor.hintNameExists( %type, %name );
+		ShapeEdSelectWindow.addObjectHint( %type, %name, %desc, %present );
+	}
+}
+
+function ShapeEdSelectWindow::addObjectHint( %this, %type, %name, %desc, %present, %start, %end ) {
+	// Get a hint gui control (create one if needed)
+	if ( ShapeHintControls.getCount() == 0 ) {
+		// Create a new hint gui control
+		%ctrl = new GuiIconButtonCtrl() {
+			profile = "ToolsButtonArray";
+			iconLocation = "Left";
+			textLocation = "Right";
+			extent = "348 19";
+			textMargin = 8;
+			buttonMargin = "2 2";
+			autoSize = true;
+			buttonType = "radioButton";
+			groupNum = "-1";
+			iconBitmap = "tlab/gui/icons/default/classImages/iconCancel";
+			text = "hint";
+			tooltip = "";
+		};
+		ShapeHintControls.add( %ctrl );
+	}
+
+	%ctrl = ShapeHintControls.getObject( 0 );
+	// Initialise the control, then add it to the appropriate list
+	%name = %name @ %start;
+
+	if ( %end !$= %start )
+		%ctrl.text = %name @ "-" @ %end;
+	else
+		%ctrl.text = %name;
+
+	%ctrl.tooltip = %desc;
+	%ctrl.setBitmap( "tlab/gui/icons/default/classImages/" @ ( %present ? "iconAccept" : "iconCancel" ) );
+	%ctrl.setStateOn( false );
+	%ctrl.resetState();
+
+	switch$ ( %type ) {
+	case "node":
+		%ctrl.altCommand = %present ? "" : "ShapeEdNodes.onAddNode( \"" @ %name @ "\" );";
+		ShapeEdSelectWindow-->nodeHints.addGuiControl( %ctrl );
+
+	case "sequence":
+		%ctrl.altCommand = %present ? "" : "ShapeEdSequences.onAddSequence( \"" @ %name @ "\" );";
+		ShapeEdSelectWindow-->sequenceHints.addGuiControl( %ctrl );
+	}
+}
+//==============================================================================
+// Shape Hints Objects
+//==============================================================================
 new SimGroup (ShapeHintControls) {
 };
 

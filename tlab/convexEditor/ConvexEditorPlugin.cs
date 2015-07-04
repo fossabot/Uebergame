@@ -25,7 +25,7 @@ function ConvexEditorPlugin::onActivated( %this ) {
 	ConvexEditorGui.setVisible( true );
 	ConvexEditorToolbar.setVisible( true );
 	ConvexEditorGui.makeFirstResponder( true );
-	%this.map.push();
+	
 	// Set the status bar here until all tool have been hooked up
 	EditorGuiStatusBar.setInfo( "Sketch Tool." );
 	EditorGuiStatusBar.setSelection( "" );
@@ -57,7 +57,7 @@ function ConvexEditorPlugin::onDeactivated( %this ) {
 	//ConvexEditorOptionsWindow.setVisible( false );
 	//ConvexEditorTreeWindow.setVisible( false );
 	//ConvexEditorToolbar.setVisible( false );
-	%this.map.pop();
+	
 	// Remove our menu.
 	Lab.removeDynamicMenu(ConvexActionsMenu);
 	// Lab.menuBar.remove( ConvexActionsMenu );

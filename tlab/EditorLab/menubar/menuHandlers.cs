@@ -32,54 +32,13 @@ package BootEditor {
 
 //////////////////////////////////////////////////////////////////////////
 
-/// Checks the various dirty flags and returns true if the
-/// mission or other related resources need to be saved.
-function EditorIsDirty() {
-	// We kept a hard coded test here, but we could break these
-	// into the registered tools if we wanted to.
-	%isDirty =  ( isObject( "ETerrainEditor" ) && ( ETerrainEditor.isMissionDirty || ETerrainEditor.isDirty ) )
-					|| ( isObject( "EWorldEditor" ) && EWorldEditor.isDirty )
-					|| ( isObject( "ETerrainPersistMan" ) && ETerrainPersistMan.hasDirty() );
 
-	// Give the editor plugins a chance to set the dirty flag.
-	for ( %i = 0; %i < EditorPluginSet.getCount(); %i++ ) {
-		%obj = EditorPluginSet.getObject(%i);
-		%isDirty |= %obj.isDirty();
-	}
 
-	return %isDirty;
-}
 
-/// Clears all the dirty state without saving.
-function EditorClearDirty() {
-	EWorldEditor.isDirty = false;
-	ETerrainEditor.isDirty = false;
-	ETerrainEditor.isMissionDirty = false;
-	ETerrainPersistMan.clearAll();
-
-	for ( %i = 0; %i < EditorPluginSet.getCount(); %i++ ) {
-		%obj = EditorPluginSet.getObject(%i);
-		%obj.clearDirty();
-	}
-}
-
-function EditorQuitGame() {
-	if( EditorIsDirty() && !isWebDemo()) {
-		LabMsgYesNoCancel("Level Modified", "Would you like to save your changes before quitting?", "EditorSaveMissionMenu(); quit();", "quit();", "" );
-	} else
-		quit();
-}
-
-function EditorExitMission() {
-	if( EditorIsDirty() && !isWebDemo() ) {
-		LabMsgYesNoCancel("Level Modified", "Would you like to save your changes before exiting?", "EditorDoExitMission(true);", "EditorDoExitMission(false);", "");
-	} else
-		EditorDoExitMission(false);
-}
 
 function EditorDoExitMission(%saveFirst) {
 	if(%saveFirst && !isWebDemo()) {
-		EditorSaveMissionMenu();
+		Lab.SaveCurrentMission();
 	} else {
 		EditorClearDirty();
 	}
@@ -161,7 +120,8 @@ function EditorOpenDeclarationInTorsion( %object ) {
 	EditorOpenFileInTorsion( makeFullPath( %fileName ), %object.getDeclarationLine() );
 }
 
-function EditorNewLevel( %file,%forceSave ) {
+function EditorNewLevel( %file,%forceSave,%confirmed ) {
+	devLog("EditorNewLevel( %file,%forceSave,%confirmed )",%file,%forceSave,%confirmed );
 	if(isWebDemo())
 		return;
 
@@ -175,15 +135,15 @@ function EditorNewLevel( %file,%forceSave ) {
 		%noConfirm =  true;
 	}
 
-	if ( EditorIsDirty() && !%noConfirm) {
+	if ( EditorIsDirty() && !%confirmed) {
 		error(knob);
-		ToolsMsgBoxYesNoCancel("Mission Modified", "Would you like to save changes to the current mission \"" @
-									  $Server::MissionFile @ "\" before creating a new mission?", "EditorNewLevel("@%file@",true);","EditorNewLevel("@%file@",false);");
+		LabMsgYesNoCancel("Mission Modified", "Would you like to save changes to the current mission \"" @
+									  $Server::MissionFile @ "\" before creating a new mission?", "EditorNewLevel("@%file@",true,true)","EditorNewLevel("@%file@",false,true)");
 		return;
 	}
 
 	if(%saveFirst)
-		EditorSaveMission();
+		Lab.SaveMission();
 
 	// Clear dirty flags first to avoid duplicate dialog box from EditorOpenMission()
 	if( isObject( Editor ) ) {
@@ -205,23 +165,7 @@ function EditorNewLevel( %file,%forceSave ) {
 	EditorGui.saveAs = true;
 }
 
-function EditorSaveMissionMenu() {
-	if(!$Pref::disableSaving && !isWebDemo()) {
-		if(EditorGui.saveAs)
-			EditorSaveMissionAs();
-		else
-			EditorSaveMission();
-	} else {
-		EditorSaveMissionMenuDisableSave();
-	}
-}
 
-
-function EditorSaveMissionMenuDisableSave() {
-	GenericPromptDialog-->GenericPromptWindow.text = "Warning";
-	GenericPromptDialog-->GenericPromptText.setText("Saving disabled in demo mode.");
-	Canvas.pushDialog( GenericPromptDialog );
-}
 
 
 

@@ -22,6 +22,7 @@ function execGuiEdit(%execGui) {
 		exec( "./gui/guiEditorSelectDlg.ed.gui" );
 		exec( "./gui/EditorChooseGUI.ed.gui" );
 		exec( "./gui/LabWidgetBuilderDlg.gui" );
+		exec( "tlab/guiEditor/gui/GuiEditFieldDuplicator.gui" );
 	}
 
 	// Scripts.
@@ -42,7 +43,7 @@ function execGuiEdit(%execGui) {
 	exec( "./scripts/EditorChooseGUI.ed.cs" );
 	exec( "./gui/LabWidgetBuilderDlg.cs" );
 	exec( "tlab/guiEditor/scripts/functionControls.cs" );
-	exec( "tlab/guiEditor/lab/widgetBuilder.cs" );
+	execPattern( "tlab/guiEditor/lab/*.cs" );
 }
 
 function destroyGuiEditor() {

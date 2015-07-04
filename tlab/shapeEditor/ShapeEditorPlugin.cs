@@ -1,20 +1,46 @@
 //==============================================================================
-// LabEditor ->
+// TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
 
-
-// Replace the command field in an Editor PopupMenu item (returns the original value)
-function ShapeEditorPlugin::replaceMenuCmd(%this, %menuTitle, %id, %newCmd) {
-	if (!$Cfg_UseCoreMenubar) return;
-
-	%menu = Lab.findMenu( %menuTitle );
-	%cmd = getField( %menu.item[%id], 2 );
-	%menu.setItemCommand( %id, %newCmd );
-	return %cmd;
+//==============================================================================
+// Scene Editor Params - Used set default settings and build plugins options GUI
+//==============================================================================
+//==============================================================================
+// Prepare the default config array for the Scene Editor Plugin
+function ShapeEditorPlugin::initParamsArray( %this,%array ) {
+	$SceneEdCfg = newScriptObject("ShapeEditorCfg");
+	%array.group[%gId++] = "General settings";
+	%array.setVal("BackgroundColor",       "0 0 0 100" TAB "BackgroundColor" TAB "TextEdit" TAB "" TAB "ShapeEdPreviewGui-->previewBackground.color" TAB %gId);
+	%array.setVal("HighlightMaterial",   "1" TAB "HighlightMaterial" TAB "TextEdit" TAB "" TAB "" TAB %gId);
+	%array.setVal("ShowNodes","1" TAB "ShowNodes" TAB "TextEdit" TAB "" TAB "" TAB %gId);
+	%array.setVal("ShowBounds",       "0" TAB "ShowBounds" TAB "TextEdit" TAB "" TAB "" TAB %gId);
+	%array.setVal("ShowObjBox",       "1" TAB "ShowObjBox" TAB "TextEdit" TAB "" TAB "" TAB %gId);
+	%array.setVal("RenderMounts",       "1" TAB "RenderMounts" TAB "TextEdit" TAB "" TAB "" TAB %gId);
+	%array.setVal("RenderCollision",       "0" TAB "RenderCollision" TAB "TextEdit" TAB "" TAB "" TAB %gId);
+	%array.setVal("AdvancedWindowVisible",       "1" TAB "RenderCollision" TAB "TextEdit" TAB "" TAB "" TAB %gId);
+	%array.setVal("AnimationBarVisible",       "1" TAB "RenderCollision" TAB "TextEdit" TAB "" TAB "" TAB %gId);
+	
+	%array.group[%gId++] = "Grid settings";
+	%array.setVal("ShowGrid",       "1" TAB "ShowGrid" TAB "TextEdit" TAB "" TAB "ShapeEdShapeView" TAB %gId);
+	%array.setVal("GridSize",       "0.1" TAB "GridSize" TAB "TextEdit" TAB "" TAB "ShapeEdShapeView" TAB %gId);
+	%array.setVal("GridDimension",       "40 40" TAB "GridDimension" TAB "TextEdit" TAB "" TAB "ShapeEdShapeView" TAB %gId);
+	
+	%array.group[%gId++] = "Sun settings";
+	%array.setVal("SunDiffuseColor",       "255 255 255 255" TAB "SunDiffuseColor" TAB "TextEdit" TAB "" TAB "ShapeEdShapeView" TAB %gId);
+	%array.setVal("SunAmbientColor",       "180 180 180 255" TAB "SunAmbientColor" TAB "TextEdit" TAB "" TAB "ShapeEdShapeView" TAB %gId);
+	%array.setVal("SunAngleX",       "45" TAB "SunAngleX" TAB "TextEdit" TAB "" TAB "ShapeEdShapeView" TAB %gId);
+	%array.setVal("SunAngleZ",       "135" TAB "SunAngleZ" TAB "TextEdit" TAB "" TAB "ShapeEdShapeView" TAB %gId);
 }
+//------------------------------------------------------------------------------
 
+//==============================================================================
+// Plugin Object Callbacks - Called from TLab plugin management scripts
+//==============================================================================
+
+//==============================================================================
+// Called when TorqueLab is launched for first time
 function ShapeEditorPlugin::onWorldEditorStartup(%this) {
 	Parent::onWorldEditorStartup( %this );
 	// Add ourselves to the Editor Settings window
@@ -35,8 +61,10 @@ function ShapeEditorPlugin::onWorldEditorStartup(%this) {
 		ShapeEdHintMenu.add(%hint.objectType, %hint);
 	}
 }
-
-function ShapeEditorPlugin::open(%this, %filename) {
+//------------------------------------------------------------------------------
+//==============================================================================
+// Called when the Plugin is activated (Active TorqueLab plugin)
+function ShapeEditorPlugin::onActivated(%this) {
 	if ( !%this.isActivated ) {
 		// Activate the Shape Editor
 		// Lab.setEditor( %this, true );
@@ -58,7 +86,7 @@ function ShapeEditorPlugin::open(%this, %filename) {
 		ShapeEdShapeTreeView.buildVisibleTree(true);
 		EditorGui.bringToFront(ShapeEdPreviewGui);
 		EWToolsPaletteArray->WorldEditorMove.performClick();
-		%this.map.push();
+		
 		// Switch to the ShapeEditor UndoManager
 		%this.oldUndoMgr = Editor.getUndoManager();
 		Editor.setUndoManager( ShapeEdUndoManager );
@@ -69,54 +97,16 @@ function ShapeEditorPlugin::open(%this, %filename) {
 		%this.oldCamFitOrbitCmd = %this.replaceMenuCmd( "Camera", 9, "ShapeEdShapeView.fitToShape();" );
 		Parent::onActivated(%this);
 	}
-
-	// Select the new shape
-	if (isObject(ShapeEditor.shape) && (ShapeEditor.shape.baseShape $= %filename)) {
-		// Shape is already selected => re-highlight the selected material if necessary
-		ShapeEdMaterials.updateSelectedMaterial(ShapeEdMaterials-->highlightMaterial.getValue());
-	} else if (%filename !$= "") {
-		ShapeEditor.selectShape(%filename, ShapeEditor.isDirty());
-		// 'fitToShape' only works after the GUI has been rendered, so force a repaint first
-		Canvas.repaint();
-		ShapeEdShapeView.fitToShape();
-	}
-}
-
-function ShapeEditorPlugin::onActivated(%this) {
-	%this.open("");
+	show(ShapeEdSelectWindow);
+		show(ShapeEdPropWindow);
 	//Assign the Camera fit to the GuiShapeEdPreview
 	Lab.fitCameraGui = ShapeEdShapeView;
 	// Try to start with the shape selected in the world editor
-	%count = EWorldEditor.getSelectionSize();
-
-	for (%i = 0; %i < %count; %i++) {
-		%obj = EWorldEditor.getSelectedObject(%i);
-		%shapeFile = ShapeEditor.getObjectShapeFile(%obj);
-
-		if (%shapeFile !$= "") {
-			if (!isObject(ShapeEditor.shape) || (ShapeEditor.shape.baseShape !$= %shapeFile)) {
-				// Call the 'onSelect' method directly if the object is not in the
-				// MissionGroup tree (such as a Player or Projectile object).
-				ShapeEdShapeTreeView.clearSelection();
-
-				if (!ShapeEdShapeTreeView.selectItem(%obj))
-					ShapeEdShapeTreeView.onSelect(%obj);
-
-				// 'fitToShape' only works after the GUI has been rendered, so force a repaint first
-				Canvas.repaint();
-				ShapeEdShapeView.fitToShape();
-			}
-
-			break;
-		}
-	}
+	ShapeEditor.selectWorldEditorShape();	
 }
-
-function ShapeEditorPlugin::initStatusBar(%this) {
-	EditorGuiStatusBar.setInfo("Shape editor ( Shift Click ) to speed up camera.");
-	EditorGuiStatusBar.setSelection( ShapeEditor.shape.baseShape );
-}
-
+//------------------------------------------------------------------------------
+//==============================================================================
+// Called when the Plugin is deactivated (active to inactive transition)
 function ShapeEditorPlugin::onDeactivated(%this) {
 	// Notify game objects if shape has been modified
 	if ( ShapeEditor.isDirty() )
@@ -129,7 +119,7 @@ function ShapeEditorPlugin::onDeactivated(%this) {
 		ShapeEdMaterials.editSelectedMaterialEnd( true );
 	}
 
-	%this.map.pop();
+
 	// Restore the original undo manager
 	Editor.setUndoManager( %this.oldUndoMgr );
 	// Restore menu bar
@@ -137,7 +127,15 @@ function ShapeEditorPlugin::onDeactivated(%this) {
 	%this.replaceMenuCmd( "Camera", 9, %this.oldCamFitOrbitCmd );
 	Parent::onDeactivated(%this);
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
+// Called from TorqueLab after plugin is initialize to set needed settings
+function SceneEditorPlugin::onPluginCreated( %this ) {
+	EWorldEditor.dropType = SceneEditorPlugin.getCfg("DropType");
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+// Called from TorqueLab when exitting the mission
 function ShapeEditorPlugin::onExitMission( %this ) {
 	// unselect the current shape
 	ShapeEdShapeView.setModel( "" );
@@ -157,20 +155,12 @@ function ShapeEditorPlugin::onExitMission( %this ) {
 	ShapeEdThreadWindow-->seqList.clear();
 	ShapeEdThreadList.clear();
 }
+//------------------------------------------------------------------------------
+//==============================================================================
 
-function ShapeEditorPlugin::openShape( %this, %path, %discardChangesToCurrent ) {
-//    Lab.setEditor( ShapeEditorPlugin );
-	if( ShapeEditor.isDirty() && !%discardChangesToCurrent ) {
-		LabMsgYesNo( "Save Changes?",
-						 "Save changes to current shape?",
-						 "ShapeEditor.saveChanges(); ShapeEditorPlugin.openShape(\"" @ %path @ "\");",
-						 "ShapeEditorPlugin.openShape(\"" @ %path @ "\");" );
-		return;
-	}
 
-	ShapeEditor.selectShape( %path );
-	ShapeEdShapeView.fitToShape();
-}
+
+
 function ShapeEditorPlugin::onPreSave( %this ) {
 	ShapeEdShapeView.selectedNode = "-1";
 	ShapeEdShapeView.selectedObject = "-1";
@@ -178,3 +168,13 @@ function ShapeEditorPlugin::onPreSave( %this ) {
 	ShapeEdShapeView.activeThread = "-1";
 }
 
+
+// Replace the command field in an Editor PopupMenu item (returns the original value)
+function ShapeEditorPlugin::replaceMenuCmd(%this, %menuTitle, %id, %newCmd) {
+	if (!$Cfg_UseCoreMenubar) return;
+
+	%menu = Lab.findMenu( %menuTitle );
+	%cmd = getField( %menu.item[%id], 2 );
+	%menu.setItemCommand( %id, %newCmd );
+	return %cmd;
+}

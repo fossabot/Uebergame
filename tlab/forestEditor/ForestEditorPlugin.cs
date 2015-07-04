@@ -39,6 +39,8 @@ function ForestEditorPlugin::onWorldEditorStartup( %this ) {
 
 	if ( !isObject( ForestMeshGroup ) )
 		new SimGroup( ForestMeshGroup );
+		
+	MissionCleanup.add(ForestMeshGroup);
 
 	ForestEditMeshTree.open( ForestItemDataSet );
 	ForestEditTabBook.selectPage(0);
@@ -69,7 +71,7 @@ function ForestEditorPlugin::onActivated( %this ) {
 	ForestEditorGui.setVisible( true );
 	ForestEditorGui.makeFirstResponder( true );
 	//ForestEditToolbar.setVisible( true );
-	%this.map.push();
+	
 	Parent::onActivated(%this);
 	ForestEditMeshTree.initTree();
 	ForestEditBrushTree.initTree();
@@ -160,7 +162,7 @@ function ForestEditorPlugin::onDeactivated( %this ) {
 
 	// Also take this opportunity to save.
 	ForestDataManager.saveDirty();
-	%this.map.pop();
+	
 	Parent::onDeactivated(%this);
 }
 //------------------------------------------------------------------------------

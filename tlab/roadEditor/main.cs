@@ -1,9 +1,10 @@
 //==============================================================================
-// TorqueLab ->
+// TorqueLab -> RoadEditorPlugin Initialization
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
 
+//==============================================================================
 function initializeRoadEditor() {
 	echo( " - Initializing Road and Path Editor" );
 	execRoadEd(true);
@@ -34,10 +35,12 @@ function initializeRoadEditor() {
 	RoadEditorPlugin.map = %map;
 	//RoadEditorPlugin.initSettings();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
+// Load all the Scripts and GUIs (if specified)
 function execRoadEd(%loadGui) {
 	if (%loadGui) {
-		exec( "tlab/roadEditor/roadEditorProfiles.cs" );
+		exec( "tlab/roadEditor/gui/guiProfiles.cs" );
 		exec( "tlab/roadEditor/gui/roadEditorGui.gui" );
 		exec( "tlab/roadEditor/gui/RoadEditorTools.gui" );
 		exec( "tlab/roadEditor/gui/roadEditorToolbar.gui");
@@ -46,9 +49,11 @@ function execRoadEd(%loadGui) {
 
 	exec( "tlab/roadEditor/roadEditorGui.cs" );
 	exec( "tlab/roadEditor/RoadEditorPlugin.cs" );
-	execPattern("tlab/roadEditor/scripts/*.cs");
+	execPattern("tlab/roadEditor/editor/*.cs");
+	execPattern("tlab/roadEditor/nodeManager/*.cs");
 }
-
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function destroyRoadEditor() {
 }
+//------------------------------------------------------------------------------

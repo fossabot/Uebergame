@@ -21,13 +21,13 @@ function AssetsLab::setMeshFolderDepth( %this, %ctrl ) {
 
 //==============================================================================
 // Navigate through Asset Book Data
-//AssetsLab.navigateAssets("art/modelPacks/");
+//AssetsLab.navigateAssets("art/models/");
 function AssetsLab::navigateAssets( %this, %searchFolder ) {
 	SEP_AssetPage.isList = true;
 	AssetIconArray.clear();
 
 	if (%searchFolder $= "")
-		%searchFolder = "art/modelPacks/";
+		%searchFolder = "art/models/";
 
 	%pattern = %searchFolder@"*.dae";
 

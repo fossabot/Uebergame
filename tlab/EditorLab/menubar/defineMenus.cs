@@ -23,8 +23,8 @@ function Lab::initLabMenuData(%this,%buildAfter) {
 	%itemId = -1;
 	$LabMenu[%id++] = "File";
 	$LabMenuItem[%id,%itemId++] = "Open Level..." TAB "numpad0" TAB "schedule( 1, 0, \"EditorOpenMission\");";
-	$LabMenuItem[%id,%itemId++] = "Save Level" TAB "Ctrl S" TAB "EditorSaveMissionMenu();";
-	$LabMenuItem[%id,%itemId++] = "Save Level As..." TAB "" TAB "EditorSaveMissionAs();";
+	$LabMenuItem[%id,%itemId++] = "Save Level" TAB "Ctrl S" TAB "Lab.SaveCurrentMission();";
+	$LabMenuItem[%id,%itemId++] = "Save Level As..." TAB "" TAB "Lab.SaveCurrentMission(true);";
 	$LabMenuItem[%id,%itemId++] = "-";
 	$LabMenuItem[%id,%itemId++] =  "Open Project in Torsion" TAB "" TAB "EditorOpenTorsionProject();";
 	$LabMenuItem[%id,%itemId++] =  "Open Level File in Torsion" TAB "" TAB "EditorOpenFileInTorsion();";

@@ -49,8 +49,12 @@ function EditorGui::onWake( %this ) {
 	startFileChangeNotifications();
 	// Notify the editor plugins that the editor has started.
 
-	foreach( %plugin in EditorPluginSet )
+	foreach( %plugin in EditorPluginSet ){
 		%plugin.onEditorWake();
+	}
+	
+	//Reset the GameLabGui to default state
+	GameLabGui.reset();
 
 	// Push the ActionMaps in the order that we want to have them
 	// before activating an editor plugin, so that if the plugin

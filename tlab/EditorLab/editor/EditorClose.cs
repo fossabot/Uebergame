@@ -97,3 +97,16 @@ function EditorMissionCleanup::onRemove( %this ) {
 }
 //------------------------------------------------------------------------------
 
+function EditorQuitGame() {
+	if( EditorIsDirty() && !isWebDemo()) {
+		LabMsgYesNoCancel("Level Modified", "Would you like to save your changes before quitting?", "Lab.SaveCurrentMission(); quit();", "quit();", "" );
+	} else
+		quit();
+}
+
+function EditorExitMission() {
+	if( EditorIsDirty() && !isWebDemo() ) {
+		LabMsgYesNoCancel("Level Modified", "Would you like to save your changes before exiting?", "EditorDoExitMission(true);", "EditorDoExitMission(false);", "");
+	} else
+		EditorDoExitMission(false);
+}
