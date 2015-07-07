@@ -20,39 +20,42 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
-//-----------------------------------------------------------------------------
-// DefaultTrigger is used by the mission editor.  This is also an example
-// of trigger methods and callbacks.
-
-datablock TriggerData(DefaultTrigger)
+function clientCmdToggleFireTeamHud(%val, %class)
 {
-   // The period is value is used to control how often the console
-   // onTriggerTick callback is called while there are any objects
-   // in the trigger.  The default value is 100 MS.
-   tickPeriodMS = 100;
-};
+   if ( %val )
+   {
+      FireTeamHud.setVisible(true);
+      //Canvas.getContent().add(FireTeamHud);
+   }
+   else
+   {
+      FireTeamHud.setVisible(false);
+      //Canvas.getContent().remove(FireTeamHud);
+   }
+}
 
-datablock TriggerData(ClientTrigger : DefaultTrigger)
-{
-   clientSide = true;
-};
+addMessageCallback( 'MsgFTPlayers', updateFTPlayers );
 
-datablock TriggerData(GameTrigger)
+function updateFTPlayers(%msgType, %msgString, %fTeam, %clientId, %count)
 {
-   tickPeriodMS = 500;
-};
+   // Look for this player in the player array and update it's objects team
+   %player = $PlayerList[%clientId];
+   if ( %player )
+   {
+      FTPlayersText.clear();
+      FTPlayersText.addRow(0, "Fire Team" SPC %fTeam);
+      FTPlayersText.addRow(%count, %player.playerName);
+      FTPlayersText.setSelectedRow(0);
+   }
 
-datablock TriggerData(hairTrigger)
-{
-   tickPeriodMS = 30;
-};
+   FTBase.resize(firstWord(FTBase.position), getWord(FTBase.position, 1),
+                 firstWord(FTBase.extent), getWord(FTPlayersText.extent, 1) + 5);
+}
 
-datablock TriggerData(slowTrigger)
+function clientCmdfireTeamInvitation(%cName, %fTeam)
 {
-   tickPeriodMS = 1000;
-};
-
-datablock TriggerData(DamageTrigger)
-{
-   tickPeriodMS = 1000;
-};
+   %leader = stripChars(detag(getTaggedString(%cName)), "\cp\co\c6\c7\c8\c9");
+   %fireTeam = deTag(%fTeam);
+   %text = "Invitation from" @" "@ %leader @" "@ "to join Fire Team" @" "@ %fireTeam;
+   MessageBoxYesNo( %text, "Accept?", "commandToServer('acceptInvite', %fireTeam);", "commandToServer('declineInvite', %fireTeam);");
+}

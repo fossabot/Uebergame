@@ -53,9 +53,12 @@
 
 //-----------------------------------------------------------------------------
 
-function initServer()
+function Torque::initServer(%this)
 {
    echo("\n--------- Initializing " @ $appName @ ": Server Scripts ---------");
+   $Server::BotCount = 0;
+   $Server::GameType = $appName;
+   $Server::TestCheats = 0; // Dev purposes for testing and editing
 
    // Server::Status is returned in the Game Info Query and represents the
    // current status of the server. This string sould be very short.
@@ -78,19 +81,37 @@ function initServer()
 
 //-----------------------------------------------------------------------------
 
-function initDedicated()
+function Torque::initDedicated(%this)
 {
    enableWinConsole(true);
    echo("\n--------- Starting Dedicated Server ---------");
 
+   echo("$levelToLoad:" SPC $levelToLoad SPC "$missionTypeArg" SPC $missionTypeArg);
+
    // Make sure this variable reflects the correct state.
    $Server::Dedicated = true;
 
-   // The server isn't started unless a mission has been specified.
-   if ($missionArg !$= "") {
-      createServer("MultiPlayer", $missionArg);
+ 
+   // The server isn't started unless a mission and type has been specified.
+   if ( $levelToLoad $= "" || $missionTypeArg $= "" )
+   {
+      error( "No level or game type specified. Creation of server failed." );
+      return false;
    }
-   else
-      echo("No mission specified (use -mission filename)");
+
+   %level = "";
+   for( %file = findFirstFile( $Server::MissionFileSpec ); %file !$= ""; %file = findNextFile( $Server::MissionFileSpec ) )
+   {
+      if ( fileName( %file ) $= $levelToLoad )
+      {
+         %level = %file;
+         break;
+      }
+   }
+
+   if ( !isFile( %level ) )
+      return false;
+
+   tge.createServer( "MultiPlayer", %level, $missionTypeArg );
 }
 

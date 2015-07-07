@@ -775,3 +775,283 @@ singleton GuiControlProfile(GuiButtonProfile)
    fontColors[1] = "230 127 25 255";
    fontColorHL = "230 127 25 255";
 };
+
+//Project-Z merge, sort out later
+
+if(!isObject(GuiMainMenuBarProfile)) new GuiControlProfile (GuiMainMenuBarProfile)
+{
+   opaque = true;
+
+   fontType = "Arial Bold";
+   fontSize = 14;
+
+// lightgrey: 211 211 211
+// gray: 190 190 190
+// darkgray: 169 169 169
+// dimgray: 105 105 105
+
+   fontColor = "190 190 190";
+   fontColorHL = "211 211 211";
+   fontColorNA = "169 169 169";
+
+   fillColor = "0 0 0";
+   fillColorHL = "105 105 105";
+
+   border = true;
+   borderThickness = 4;
+   borderColor   = "105 105 105";
+   borderColorHL = "169 169 169";
+   borderColorNA = "64 64 64";
+
+   textOffset = "6 6";
+   fixedExtent = true;
+   justify = "center";
+   canKeyFocus = false;
+   mouseOverSelected = true;
+   bitmap = "art/gui/torqueMenu";
+   hasBitmapArray = true;
+};
+
+//-----------------------------------------------------------------------------
+// Black text profiles
+
+if( !isObject( GuiTextProfile ) )
+new GuiControlProfile (GuiTextProfile)
+{
+   justify = "left";
+   fontColor = "20 20 20";
+   category = "Core";
+};
+
+if( !isObject( GuiTextRightProfile ) )
+new GuiControlProfile (GuiTextRightProfile : GuiTextProfile)
+{
+   justify = "right";
+   category = "Core";
+};
+
+if( !isObject( GuiTextCenterProfile ) )
+new GuiControlProfile (GuiTextCenterProfile : GuiTextProfile)
+{
+   justify = "center";
+   category = "Core";
+};
+
+if( !isObject( GuiAutoSizeTextProfile ) )
+new GuiControlProfile (GuiAutoSizeTextProfile)
+{
+   fontColor = "0 0 0";
+   autoSizeWidth = true;
+   autoSizeHeight = true;   
+   category = "Core";
+};
+
+if( !isObject( GuiMediumTextProfile ) )
+new GuiControlProfile( GuiMediumTextProfile : GuiTextProfile )
+{
+   fontSize = 24;
+   category = "Core";
+};
+
+if(!isObject(GuiMediumTextRightProfile))
+new GuiControlProfile(GuiMediumTextRightProfile : GuiTextProfile)
+{
+   fontSize = 24;
+   justify = "right";
+   category = "Core";
+};
+
+if(!isObject(GuiMediumTextCenterProfile))
+new GuiControlProfile(GuiMediumTextCenterProfile : GuiTextProfile)
+{
+   fontSize = 24;
+   justify = "center";
+   category = "Core";
+};
+
+if( !isObject( GuiBigTextProfile ) )
+new GuiControlProfile( GuiBigTextProfile : GuiTextProfile )
+{
+   fontSize = 36;
+   category = "Core";
+};
+
+if(!isObject(GuiBigTextRightProfile))
+new GuiControlProfile(GuiBigTextRightProfile : GuiTextProfile)
+{
+   fontSize = 36;
+   justify = "right";
+   category = "Core";
+};
+
+if(!isObject(GuiBigTextCenterProfile))
+new GuiControlProfile(GuiBigTextCenterProfile : GuiTextProfile)
+{
+   fontSize = 36;
+   justify = "center";
+   category = "Core";
+};
+
+//-----------------------------------------------------------------------------
+// White text profiles
+
+if(!isObject(GuiTxtWhtProfile)) new GuiControlProfile(GuiTxtWhtProfile : GuiTextProfile)
+{
+   fontColor = "255 255 255";
+   category = "Text";
+};
+
+if(!isObject(GuiBoldTextWhtProfile)) new GuiControlProfile(GuiBoldTextWhtProfile : GuiTextProfile)
+{
+   fontType = "Arial Bold";
+   fontColor = "255 255 255";
+   category = "Text";
+};
+
+if(!isObject(GuiTxtCenterWhtProfile)) new GuiControlProfile(GuiTxtCenterWhtProfile : GuiTextProfile)
+{
+   fontColor = "255 255 255";
+   justify = "center";
+   category = "Text";
+};
+
+if(!isObject(GuiTxtRightWhtProfile)) new GuiControlProfile(GuiTxtRightWhtProfile : GuiTextProfile)
+{
+   fontColor = "255 255 255";
+   justify = "right";
+   category = "Text";
+};
+
+if(!isObject(GuiMedTxtWhtProfile)) new GuiControlProfile(GuiMedTxtWhtProfile : GuiTextProfile)
+{
+   fontColor = "255 255 255";
+   fontSize = 24;
+   category = "Text";
+};
+
+if(!isObject(GuiMediumTextWhtRightProfile)) new GuiControlProfile(GuiMediumTextWhtRightProfile : GuiTextProfile)
+{
+   fontColor = "255 255 255";
+   fontSize = 24;
+   justify = "right";
+   category = "Text";
+};
+
+if(!isObject(GuiMediumTextWhtCenterProfile)) new GuiControlProfile(GuiMediumTextWhtCenterProfile : GuiTextProfile)
+{
+   fontColor = "255 255 255";
+   fontSize = 24;
+   justify = "center";
+   category = "Text";
+};
+
+if(!isObject(GuiBigTxtWhtProfile)) new GuiControlProfile(GuiBigTxtWhtProfile : GuiTextProfile)
+{
+   fontColor = "255 255 255";
+   fontSize = 36;
+   category = "Text";
+};
+
+if(!isObject(GuiBigTxtRightWhtProfile)) new GuiControlProfile(GuiBigTxtRightWhtProfile : GuiTextProfile)
+{
+   fontColor = "255 255 255";
+   fontSize = 36;
+   justify = "right";
+   category = "Text";
+};
+
+if(!isObject(GuiBigTxtCenterWhtProfile)) new GuiControlProfile(GuiBigTxtCenterWhtProfile : GuiTextProfile)
+{
+   fontColor = "255 255 255";
+   fontSize = 36;
+   justify = "center";
+   category = "Text";
+};
+
+//-----------------------------------------------------------------------------
+// Yellow text profiles
+
+if(!isObject(GuiTxtYelProfile)) new GuiControlProfile(GuiTxtYelProfile : GuiTextProfile)
+{
+   fontColor = "255 255 128";
+   category = "Text";
+};
+
+if(!isObject(GuiBoldTextYelProfile)) new GuiControlProfile(GuiBoldTextYelProfile : GuiTextProfile)
+{
+   fontType = "Arial Bold";
+   fontColor = "255 255 128";
+   category = "Text";
+};
+
+if(!isObject(GuiTxtCenterYelProfile)) new GuiControlProfile(GuiTxtCenterYelProfile : GuiTextProfile)
+{
+   fontColor = "255 255 128";
+   justify = "center";
+   category = "Text";
+};
+
+if(!isObject(GuiTxtRightYelProfile)) new GuiControlProfile(GuiTxtRightYelProfile : GuiTextProfile)
+{
+   fontColor = "255 255 128";
+   justify = "right";
+   category = "Text";
+};
+
+if(!isObject(GuiMedTxtYelProfile)) new GuiControlProfile(GuiMedTxtYelProfile : GuiTextProfile)
+{
+   fontColor = "255 255 128";
+   fontSize = 24;
+   category = "Text";
+};
+
+if(!isObject(GuiMediumTextYelRightProfile)) new GuiControlProfile(GuiMediumTextYelRightProfile : GuiTextProfile)
+{
+   fontColor = "255 255 128";
+   fontSize = 24;
+   justify = "right";
+   category = "Text";
+};
+
+if(!isObject(GuiMediumTextYelCenterProfile)) new GuiControlProfile(GuiMediumTextYelCenterProfile : GuiTextProfile)
+{
+   fontColor = "255 255 128";
+   fontSize = 24;
+   justify = "center";
+   category = "Text";
+};
+
+if(!isObject(GuiBigTxtYelProfile)) new GuiControlProfile(GuiBigYelWhtProfile : GuiTextProfile)
+{
+   fontColor = "255 255 128";
+   fontSize = 36;
+   category = "Text";
+};
+
+if(!isObject(GuiBigTxtRightYelProfile)) new GuiControlProfile(GuiBigTxtRightYelProfile : GuiTextProfile)
+{
+   fontColor = "255 255 128";
+   fontSize = 36;
+   justify = "right";
+   category = "Text";
+};
+
+if(!isObject(GuiBigTxtCenterYelProfile)) new GuiControlProfile(GuiBigTxtCenterYelProfile : GuiTextProfile)
+{
+   fontSize = 36;
+   fontColor = "255 255 128";
+   justify = "center";
+   category = "Text";
+};
+
+//-----------------------------------------------------------------------------
+
+if( !isObject( GuiHEaderTextProfile ) )
+new GuiControlProfile (GuiHeaderTextProfile)
+{
+   fontType = "Arial";
+   fontSize = 36;
+   fontColor = "255 255 255";
+   justify = "center";
+   category = "Text";
+};

@@ -21,38 +21,15 @@
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
-// DefaultTrigger is used by the mission editor.  This is also an example
-// of trigger methods and callbacks.
+// Define a datablock class to use for our observer camera
+//-----------------------------------------------------------------------------
 
-datablock TriggerData(DefaultTrigger)
+datablock CameraData(Observer)
 {
-   // The period is value is used to control how often the console
-   // onTriggerTick callback is called while there are any objects
-   // in the trigger.  The default value is 100 MS.
-   tickPeriodMS = 100;
+   mode = "Observer";
 };
 
-datablock TriggerData(ClientTrigger : DefaultTrigger)
+datablock CameraData(Spectator)
 {
-   clientSide = true;
-};
-
-datablock TriggerData(GameTrigger)
-{
-   tickPeriodMS = 500;
-};
-
-datablock TriggerData(hairTrigger)
-{
-   tickPeriodMS = 30;
-};
-
-datablock TriggerData(slowTrigger)
-{
-   tickPeriodMS = 1000;
-};
-
-datablock TriggerData(DamageTrigger)
-{
-   tickPeriodMS = 1000;
+   mode = "SpectatorFly";
 };

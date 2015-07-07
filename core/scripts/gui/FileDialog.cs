@@ -1,4 +1,4 @@
-exec("./FileDialog.gui");
+exec("core/art/gui/FileDialog.gui");
 
 function PlatformFileDialog::buildFilters(%this)
 {

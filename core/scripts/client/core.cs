@@ -24,21 +24,12 @@
 // initializeCore
 // Initializes core game functionality.
 //---------------------------------------------------------------------------------------------
-function initializeCore()
+function Torque::initializeCore(%this)
 {
    // Not Reentrant
    if( $coreInitialized == true )
       return;
       
-   // Core keybindings.
-//   GlobalActionMap.bind(keyboard, tilde, toggleConsole);
-   GlobalActionMap.bind(keyboard, "ctrl p", doScreenShot);
-   GlobalActionMap.bindcmd(keyboard, "alt enter", "Canvas.attemptFullscreenToggle();","");
-   GlobalActionMap.bindcmd(keyboard, "alt k", "cls();",  "");
-//   GlobalActionMap.bindCmd(keyboard, "escape", "", "handleEscape();");
-   
-   
-   
    // Very basic functions used by everyone.
    exec("./audio.cs");
    exec("./canvas.cs");
@@ -73,6 +64,8 @@ function initializeCore()
    exec("~/art/gui/console.gui");
    exec("~/art/gui/consoleVarDlg.gui");
    exec("~/art/gui/netGraphGui.gui");
+   exec("~/art/gui/recordingsDlg.gui");
+   exec("~/art/gui/guiMusicPlayer.gui");
    
    // Gui Helper Scripts.
    exec("~/scripts/gui/help.cs");
@@ -274,4 +267,27 @@ function reloadMaterials()
    reloadTextures();
    loadMaterials();
    reInitMaterials();
+}
+
+// From Martin "Founder" Hoover.
+// http://www.garagegames.com/my/home/view.profile.php?qid=5055
+function cropXDecimals(%num, %count)
+{
+   %length = strlen(%num);
+   %dot = 0;
+   for ( %i = 0; %i < %length; %i++ )
+   {
+      if ( getSubStr( %num, %i, 1 ) $= "." )
+      {
+         %dot = %i;
+         break;
+      }
+   }
+
+   if ( %dot > 0 )
+      %final = getSubStr( %num, 0, %dot + %count );
+   else
+      %final = %num;
+
+   return %final;
 }

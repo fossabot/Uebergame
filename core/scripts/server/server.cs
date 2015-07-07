@@ -26,7 +26,7 @@ function initBaseServer()
    exec("./audio.cs");
    exec("./message.cs");
    exec("./commands.cs");
-   exec("./levelInfo.cs");
+   exec("./missionInfo.cs");
    exec("./missionLoad.cs");
    exec("./missionDownload.cs");
    exec("./clientConnection.cs");
@@ -35,6 +35,7 @@ function initBaseServer()
    exec("./spawn.cs");
    exec("./camera.cs");
    exec("./centerPrint.cs");
+   exec("./library.cs");
 }
 
 /// Attempt to find an open port to initialize the server with
@@ -52,22 +53,22 @@ function portInit(%port)
 /// create a local client connection to the server.
 //
 /// @return true if successful.
-function createAndConnectToLocalServer( %serverType, %level )
+function createAndConnectToLocalServer( %serverType, %level, %missionType )
 {
-   if( !createServer( %serverType, %level ) )
+   if( !tge.createServer( %serverType, %level, %missionType ) )
       return false;
    
    %conn = new GameConnection( ServerConnection );
    RootGroup.add( ServerConnection );
 
-   %conn.setConnectArgs( $pref::Player::Name );
+   %conn.setConnectArgs( getField($pref::Player, 0), getField($pref::Player, 1));
    %conn.setJoinPassword( $Client::Password );
    
    %result = %conn.connectLocal();
    if( %result !$= "" )
    {
       %conn.delete();
-      destroyServer();
+      tge.destroyServer();
       
       return false;
    }
@@ -77,7 +78,7 @@ function createAndConnectToLocalServer( %serverType, %level )
 
 /// Create a server with either a "SinglePlayer" or "MultiPlayer" type
 /// Specify the level to load on the server
-function createServer(%serverType, %level)
+function Torque::createServer(%this, %serverType, %level, %missionType)
 {
    // Increase the server session number.  This is used to make sure we're
    // working with the server session we think we are.
@@ -91,13 +92,19 @@ function createServer(%serverType, %level)
    
    // Make sure our level name is relative so that it can send
    // across the network correctly
-   %level = makeRelativePath(%level, getWorkingDirectory());
+   //%relPath = makeRelativePath(%level, getWorkingDirectory());
+   //echo( "c4\Relative Path:" SPC %relPath );
 
-   destroyServer();
+   tge.destroyServer();
 
    $missionSequence = 0;
    $Server::PlayerCount = 0;
    $Server::ServerType = %serverType;
+   // Server::GameType is sent to the master server.
+
+   // Server::MissionType sent to the master server.  Clients can
+   // filter servers based on mission type.
+   $Server::MissionType = %missionType;
    $Server::LoadFailMsg = "";
    $Physics::isSinglePlayer = true;
    
@@ -118,7 +125,7 @@ function createServer(%serverType, %level)
    }
 
    // Create the ServerGroup that will persist for the lifetime of the server.
-   new SimGroup(ServerGroup);
+   $ServerGroup = new SimGroup(ServerGroup);
 
    // Load up any core datablocks
    exec("core/art/datablocks/datablockExec.cs");
@@ -127,32 +134,53 @@ function createServer(%serverType, %level)
    // the server has been created
    onServerCreated();
 
-   loadMission(%level, true);
+   // GameStartTime is the sim time the game started. Used to calculate game elapsed time.
+   $Game::StartTime = 0;
+
+   // Load the level
+   %this.loadMission(%level, %missionType, true);
    
    return true;
 }
 
 /// Shut down the server
-function destroyServer()
+function Torque::destroyServer(%this)
 {
    $Server::ServerType = "";
    allowConnections(false);
    stopHeartbeat();
    $missionRunning = false;
+   $Game::Running = false;
+
+   // Destroy the server physcis world
+   physicsDestroyWorld( "server" );
    
-   // End any running levels
-   endMission();
-   onServerDestroyed();
+   // Delete all the server objects
+   if (isObject(MissionGroup))
+      MissionGroup.delete();
+   if (isObject(MissionCleanup))
+      MissionCleanup.delete();
+
+   if(isObject(Game)) // Clean up the Game object
+   {
+      Game.deactivatePackages();
+      Game.delete();
+   }
 
    // Delete all the server objects
-   if (isObject(ServerGroup))
-      ServerGroup.delete();
+   if (isObject($ServerGroup))
+      $ServerGroup.delete();
 
    // Delete all the connections:
-   while (ClientGroup.getCount())
+   // Something is wrong with aiClient that causes an infinite loop when you try to delete
+   //while ( ClientGroup.getCount() )
+   //{
+   //   %client = ClientGroup.getObject(0);
+   //   %client.delete();
+   //}
+   for (%i = 0; %i < ClientGroup.getCount(); %i++)
    {
-      %client = ClientGroup.getObject(0);
-      %client.delete();
+      ClientGroup.getObject(%i).delete();
    }
 
    $Server::GuidList = "";
@@ -162,7 +190,7 @@ function destroyServer()
    
    // Save any server settings
    echo( "Exporting server prefs..." );
-   export( "$Pref::Server::*", "~/prefs.cs", false );
+   export( "$Pref::*", "prefs/prefs.cs", false );
 
    // Increase the server session number.  This is used to make sure we're
    // working with the server session we think we are.
@@ -173,12 +201,18 @@ function destroyServer()
 function resetServerDefaults()
 {
    echo( "Resetting server defaults..." );
-   
-   exec( "~/defaults.cs" );
-   exec( "~/prefs.cs" );
+   $resettingServer = true;
+   if(isObject(Game))
+      Game.endGame();
 
-   // Reload the current level
-   loadMission( $Server::MissionFile );
+   exec( "./defaults.cs" );
+   exec( "prefs/prefs.cs" );
+
+   allowConnections(true); // ZOD: Open up the server for connections again.
+
+   tge.loadMission( $pref::Server::MissionFile, $pref::Server::MissionType, false );
+   $resettingServer = false;
+   echo( "Server reset complete." );
 }
 
 /// Guid list maintenance functions
@@ -213,4 +247,23 @@ function removeFromServerGuidList( %guid )
 function onServerInfoQuery()
 {
    return "Doing Ok";
+}
+
+function listClients()
+{
+   for(%i = 0; %i < ClientGroup.getCount(); %i++)
+   {
+      %cl = ClientGroup.getObject(%i);
+      %type = "";
+      if(%cl.isAiControlled())
+         %type = "Bot ";
+      if(%cl.isAdmin)
+         %type = %status @ "Admin ";
+      if(%cl.isSuperAdmin)
+         %type = %status @ "SuperAdmin ";
+      if(%type $= "")
+         %type = "<normal>";
+
+      echo("client: " @ %cl @ " player: " @ %cl.player @ " name: " @ %cl.nameBase @ " team: " @ %cl.team @ " status: " @ %status);
+   }
 }

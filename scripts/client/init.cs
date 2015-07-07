@@ -49,16 +49,33 @@
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
-function initClient()
+function Torque::initClient(%this)
 {
    echo("\n--------- Initializing " @ $appName @ ": Client Scripts ---------");
 
+   // Set a background image for the main guis
+   if ( $pref::MainGui::LastBackground $= "" || $pref::MainGui::LastBackground >= 2 )
+      $pref::MainGui::LastBackground = 0;
+
+   switch( $pref::MainGui::LastBackground )
+   {
+      case 0:
+         $MainGuiBackground = "art/gui/space_background_big.dds";
+      case 1:
+         $MainGuiBackground = "art/gui/space_background_big.dds";
+      default:
+         $MainGuiBackground = "art/gui/space_background_big.dds";
+   }
+   $pref::MainGui::LastBackground++;
+
    // Make sure this variable reflects the correct state.
-   $Server::Dedicated = false;
+   // Obviously the gui is loading/loaded, so no way should we be dedicated.
+   $Server::Dedicated = $pref::Server::Dedicated = false;
 
    // Game information used to query the master server
    $Client::GameTypeQuery = $appName;
    $Client::MissionTypeQuery = "Any";
+   $Client::GameType = "";
 
    // These should be game specific GuiProfiles.  Custom profiles are saved out
    // from the Gui Editor.  Either of these may override any that already exist.
@@ -72,12 +89,17 @@ function initClient()
    configureCanvas();
 
    // Load up the Game GUIs
-   exec("art/gui/defaultGameProfiles.cs");
    exec("art/gui/playGui.gui");
    exec("art/gui/chatHud.gui");
    exec("art/gui/playerList.gui");
    exec("art/gui/hudlessGui.gui");
-
+   exec("art/gui/armoryHud.gui");
+   exec("art/gui/bombTimerDlg.gui");
+   exec("art/gui/fireTeamHud.gui");
+   exec("art/gui/voteHudDlg.gui");
+   exec("art/gui/scoreHud.gui");
+   exec("art/gui/quickChatHud.gui");
+   
    // Load up the shell GUIs
    exec("art/gui/mainMenuGui.gui");
    exec("art/gui/joinServerDlg.gui");
@@ -90,8 +112,7 @@ function initClient()
    exec("art/gui/remapDlg.gui");
    exec("art/gui/ipJoinDlg.gui");
    exec("art/gui/HelpDlg.gui");
-   exec("art/gui/guiMusicPlayer.gui");
-   exec("art/gui/RecordingsDlg.gui");
+   exec("art/gui/adminDlg.gui");
    
    // Gui scripts
    exec("./playerList.cs");
@@ -105,8 +126,12 @@ function initClient()
    exec("scripts/gui/optionsDlg.cs");
    exec("scripts/gui/keyRemaps.cs" );
    exec("scripts/gui/HelpDlg.cs" );
-   exec("scripts/gui/guiMusicPlayer.cs" );
-   exec("scripts/gui/recordingsDlg.cs" );
+   exec("scripts/gui/armoryHud.cs");
+   exec("scripts/gui/adminDlg.cs");
+   exec("scripts/gui/fireTeamHud.cs");
+   exec("scripts/gui/scoreHud.cs");
+   exec("scripts/gui/quickChat.cs");
+   exec("scripts/gui/quickChatHud.cs");
    
    // Client scripts
    exec("./client.cs");
@@ -147,23 +172,26 @@ function initClient()
    }
 
    // Connect to server if requested.
-   if ($JoinGameAddress !$= "") {
+   if ($JoinGameAddress !$= "")
+   {
       // If we are instantly connecting to an address, load the
       // loading GUI then attempt the connect.
-      loadLoadingGui();
-      connect($JoinGameAddress, "", $Pref::Player::Name);
+      tge.loadLoadingGui();
+      connect($JoinGameAddress, $Client::Password, getField($pref::Player, 0), getField($pref::Player, 1));
    }
-   else {
+   else
+   {
       // Otherwise go to the splash screen.
       Canvas.setCursor("DefaultCursor");
-      loadMainMenu();
+      tge.loadMainMenu();
+      //loadStartup();
    }   
 }
 
 
 //-----------------------------------------------------------------------------
 
-function loadMainMenu()
+function Torque::loadMainMenu(%this)
 {
    // Startup the client with the Main menu...
    if (isObject( MainMenuGui ))
@@ -189,7 +217,7 @@ function loadMainMenu()
       %file = findFirstFile(%levelFile);
 
       if(%file !$= "")
-         createAndConnectToLocalServer( "SinglePlayer", %file );
+         createAndConnectToLocalServer("SinglePlayer", %file, $pref::Server::MissionType);
    }
 }
 

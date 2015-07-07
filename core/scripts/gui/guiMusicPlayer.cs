@@ -26,7 +26,7 @@
 // Prerequisites.
 
 if( !isObject( GuiMusicPlayer ) )
-   exec( "./guiMusicPlayer.gui" );
+   exec("core/art/gui/guiMusicPlayer.gui");
 
 //---------------------------------------------------------------------------------------------
 // Preferences.

@@ -86,23 +86,30 @@ function Weapon::onUse(%data, %obj)
 
 function Weapon::onPickup(%this, %obj, %shape, %amount)
 {
+   //echo("\c3Weapon::onPickup(" SPC %this.getName() @", "@ %obj.getDataBlock().getName() @", "@ %shape.client.nameBase @", "@ %amount SPC ")");
    // The parent Item method performs the actual pickup.
    // For player's we automatically use the weapon if the
    // player does not already have one in hand.
    if (Parent::onPickup(%this, %obj, %shape, %amount))
    {
       serverPlay3D(WeaponPickupSound, %shape.getTransform());
-      if (%shape.getClassName() $= "Player" && %shape.getMountedImage($WeaponSlot) == 0)
+      if ( %shape.getClassName() $= "Player" || %shape.getClassName() $= "AIPlayer" && %shape.getMountedImage($WeaponSlot) == 0)
          %shape.use(%this);
    }
 }
 
-function Weapon::onInventory(%this, %obj, %amount)
+function Weapon::incCatagory(%data, %obj)
 {
-   // Weapon inventory has changed, make sure there are no weapons
-   // of this type mounted if there are none left in inventory.
-   if (!%amount && (%slot = %obj.getMountSlot(%this.image)) != -1)
-      %obj.unmountImage(%slot);
+   // Certain items are not added to the weapon count
+   if ( !$SMS::ShowInInv[%data] )
+      %obj.weaponCount++;   
+}
+
+function Weapon::decCatagory(%data, %obj)
+{
+   // Certain items are not removed from the weapon count
+   if ( !$SMS::ShowInInv[%data] )
+      %obj.weaponCount--;   
 }
 
 //-----------------------------------------------------------------------------
@@ -111,9 +118,16 @@ function Weapon::onInventory(%this, %obj, %amount)
 
 function WeaponImage::onMount(%this, %obj, %slot)
 {
+   //echo("\c3WeaponImage::onMount( " @ %this.getName() @ ", " @ %obj.client.nameBase @ ", " @ %slot @ " )");
+   // Called from within the C++ source
+   // Images assume a false ammo state on load.  We need to set the state according to the current inventory.
+
+   // Basically setting this to false would change the state to NoAmmo, thus disabling any firing, setting 
+   // it back to true would enable changing to the fire state again.
    // Images assume a false ammo state on load.  We need to
    // set the state according to the current inventory.
-   if(%this.isField("clip"))
+
+   if( %this.isField("clip") )
    {
       // Use the clip system for this weapon.  Check if the player already has
       // some ammo in a clip.
@@ -138,10 +152,10 @@ function WeaponImage::onMount(%this, %obj, %slot)
       }
       
       %amountInClips = %obj.getInventory(%this.clip);
-      %amountInClips *= %this.ammo.maxInventory;
+      //%amountInClips *= %this.ammo.maxInventory;
       
-      if (%obj.client !$= "" && !%obj.isAiControlled)
-         %obj.client.RefreshWeaponHud(%currentAmmo, %this.item.previewImage, %this.item.reticle, %this.item.zoomReticle, %amountInClips);
+      if ( isObject(%obj.client) && !%obj.client.isAiControlled() )
+         messageClient( %obj.client, 'MsgAmmoCnt', "", addTaggedString($DataToName[%this.item]), %slot, addTaggedString(%currentAmmo), addTaggedString(%amountInClips) );
    }
    else if(%this.ammo !$= "")
    {
@@ -154,15 +168,26 @@ function WeaponImage::onMount(%this, %obj, %slot)
       else
          %currentAmmo = 0;
 
-      if (%obj.client !$= "" && !%obj.isAiControlled)
-         %obj.client.RefreshWeaponHud( 1, %this.item.previewImage, %this.item.reticle, %this.item.zoomReticle, %currentAmmo );
+      if ( isObject(%obj.client) && !%obj.client.isAiControlled() )
+         messageClient( %obj.client, 'MsgAmmoCnt', "", addTaggedString($DataToName[%this.item]), %slot, addTaggedString(%currentAmmo), '0' );
    }
 }
 
 function WeaponImage::onUnmount(%this, %obj, %slot)
 {
-   if (%obj.client !$= "" && !%obj.isAiControlled)
-      %obj.client.RefreshWeaponHud(0, "", "");
+   //echo("\c3WeaponImage::onUnmount( " @ %this.getName() @ ", " @ obj.client.nameBase @ ", " @ %slot @ " )");
+   // Store the last weapon used so we can switch back to it if we wish
+   %obj.setArmThread(looknw);
+   %obj.lastWeapon = %this.item;
+
+   // Assuming we have nothing mounted update the hud
+   if ( isObject( %obj.client ) && !%obj.client.isAiControlled() )
+   {
+      //commandToClient(%obj.client, 'HideReticle');
+      messageClient( %obj.client, 'MsgAmmoCnt', "", 'Empty', %slot, '0', '0' );
+   }
+
+   Parent::onUnmount(%this, %obj, %slot);
 }
 
 // ----------------------------------------------------------------------------
@@ -375,6 +400,37 @@ function WeaponImage::onWetFire(%this, %obj, %slot)
 }
 
 //-----------------------------------------------------------------------------
+// Grenade Class 
+//-----------------------------------------------------------------------------
+
+function GrenadeImage::onMount(%data, %player, %slot)
+{
+   if ( %data.ammo !$= "" )
+   {
+      if( %player.getInventory(%data.ammo) )
+         %player.setImageAmmo(%slot, true);
+
+      // Send the ammo amount
+      if ( isObject( %player.client ) )
+         messageClient(%player.client, 'MsgGrenadeCnt', "", addTaggedString($DataToName[%data.item]), %player.getInventory(%data.ammo));
+   }
+   else // Energy based weapon
+   {
+      if ( isObject( %player.client ) )
+         messageClient(%player.client, 'MsgGrenadeCnt', "", addTaggedString($DataToName[%data.item]), '*');
+   }
+}
+
+function GrenadeImage::onUnmount(%data, %player, %slot)
+{
+   // Assuming we have nothing mounted update the hud
+   if ( isObject( %player.client ) )
+      messageClient(%player.client, 'MsgGrenadeCnt', "", 'Empty', '0');
+
+   Parent::onUnmount(%this, %player, %slot);
+}
+
+//-----------------------------------------------------------------------------
 // Clip Management
 //-----------------------------------------------------------------------------
 
@@ -495,7 +551,8 @@ function AmmoClip::onPickup(%this, %obj, %shape, %amount)
          %amountInClips *= %image.ammo.maxInventory;
          %amountInClips += %obj.getFieldValue( "remaining" @ %this.ammo.getName() );
          
-         %shape.client.setAmmoAmountHud(%currentAmmo, %amountInClips );
+         if ( isObject(%shape.client) && !%shape.client.isAiControlled() )
+            messageClient(%shape.client, 'MsgAmmoCnt', "", addTaggedString($DataToName[%image.item]), %i, addTaggedString(%currentAmmo), addTaggedString(%amountInClips));
          
          if (%outOfAmmo)
          {

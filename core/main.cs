@@ -28,19 +28,22 @@ $WORD::BITDEPTH = 3;
 $WORD::REFRESH = 4;
 $WORD::AA = 5;
 
+// Debugging
+$GameBase::boundingBox = false;
+
 //---------------------------------------------------------------------------------------------
 // CorePackage
 // Adds functionality for this mod to some standard functions.
 //---------------------------------------------------------------------------------------------
-package CorePackage
+package scripts
 {
 //---------------------------------------------------------------------------------------------
 // onStart
 // Called when the engine is starting up. Initializes this mod.
 //---------------------------------------------------------------------------------------------
-function onStart()
+function Torque::onStart(%this)
 {
-   Parent::onStart();
+   Parent::onStart(%this);
 
    // Here is where we will do the video device stuff, so it overwrites the defaults
    // First set the PCI device variables (yes AGP/PCI-E works too)
@@ -72,7 +75,7 @@ function onStart()
       //$pref::Video::displayDevice = "D3D9";
    
    // Initialise stuff.
-   exec("./scripts/client/core.cs");
+   exec("./core/scripts/client/core.cs");
    initializeCore();
 
    exec("./scripts/client/client.cs");
@@ -108,7 +111,8 @@ function loadKeybindings()
 // displayHelp
 // Prints the command line options available for this mod.
 //---------------------------------------------------------------------------------------------
-function displayHelp() {
+function Torque::displayHelp(%this)
+{
    // Let the parent do its stuff.
    Parent::displayHelp();
 
@@ -126,10 +130,10 @@ function displayHelp() {
 // parseArgs
 // Parses the command line arguments and processes those valid for this mod.
 //---------------------------------------------------------------------------------------------
-function parseArgs()
+function Torque::parseArgs(%this)
 {
    // Let the parent grab the arguments it wants first.
-   Parent::parseArgs();
+   Parent::parseArgs(%this);
 
    // Loop through the arguments.
    for (%i = 1; %i < $Game::argc; %i++)

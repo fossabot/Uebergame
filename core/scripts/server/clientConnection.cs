@@ -30,7 +30,14 @@
 function GameConnection::onConnectRequest( %client, %netAddress, %name, %skin )
 {
    echo("Connect request from: " @ %netAddress);
-   if($Server::PlayerCount >= $pref::Server::MaxPlayers)
+
+   %guid = %client.getCleanIP();
+   if ( %client.isOnServerBanList( %guid ) )
+   {
+      return "CR_YOUAREBANNED";
+   }
+
+   if(($Server::PlayerCount + $Server::BotCount) >= $pref::Server::MaxPlayers)
       return "CR_SERVERFULL";
    return "";
 }
@@ -40,6 +47,7 @@ function GameConnection::onConnectRequest( %client, %netAddress, %name, %skin )
 //
 function GameConnection::onConnect( %client, %name, %skin )
 {
+   LogEcho("GameConnection::onConnect(" SPC %client @", "@ %name @", "@ %skin SPC ")");
    // Send down the connection error info, the client is
    // responsible for displaying this message if a connection
    // error occures.
@@ -54,71 +62,112 @@ function GameConnection::onConnect( %client, %name, %skin )
    // Get the client's unique id:
    // %authInfo = %client.getAuthInfo();
    // %client.guid = getField( %authInfo, 3 );
-   %client.guid = 0;
+   %client.guid = %client.getCleanIP();
    addToServerGuidList( %client.guid );
    
    // Set admin status
-   if (%client.getAddress() $= "local") {
+   if (%client.getAddress() $= "local")
+   {
       %client.isAdmin = true;
       %client.isSuperAdmin = true;
    }
-   else {
+   else
+   {
+      if ( isOnSuperAdminList( %client ) )
+      {
+      %client.isAdmin = true;
+      %client.isSuperAdmin = true;
+   }
+      else if ( isOnAdminList( %client ) )
+      {
+         %client.isAdmin = true;
+      }
+      else
+      {
       %client.isAdmin = false;
       %client.isSuperAdmin = false;
+   }
    }
 
    // Save client preferences on the connection object for later use.
    %client.gender = "Male";
-   %client.armor = "Light";
+   %client.armor = "Soldier";
    %client.race = "Human";
    %client.skin = addTaggedString($pref::Player::Skin);
    %client.setPlayerName(%name);
-   %client.team = "";
-   %client.score = 0;
+   %client.ready = false;
+   %client.team = 0;
+   %client.lastTeam = 0;
+   %client.justConnected = true; // Set the flag they just joined, put in spec.
+   %client.isWaiting = false; // Team change wait flag
+   %client.isReady = false; // For tournament mode play
+   %client.SadAttempts = 0; // Start off with 0 SAD access attempts.
+
+   // Setup for voice
+   %client.voiceTag = "default";
+   %client.voicePitch = 1;
 
    // 
    echo("CADD: " @ %client @ " " @ %client.getAddress());
 
    // Inform the client of all the other clients
    %count = ClientGroup.getCount();
-   for (%cl = 0; %cl < %count; %cl++) {
+   for (%cl = 0; %cl < %count; %cl++)
+   {
       %other = ClientGroup.getObject(%cl);
-      if ((%other != %client)) {
+      if ((%other != %client))
+      {
          // These should be "silent" versions of these messages...
          messageClient(%client, 'MsgClientJoin', "", 
                %other.playerName,
                %other,
-               %other.sendGuid,
-               %other.team,
-               %other.score, 
+               %other.guid,
                %other.isAIControlled(),
                %other.isAdmin, 
-               %other.isSuperAdmin);
+               %other.isSuperAdmin,
+               %other.team,
+			   0,
+               %other.getPing(),
+               %other.getPacketLoss());
       }
    }
 
    // Inform the client we've joined up
    messageClient(%client,
-      'MsgClientJoin', 'Welcome to a Torque application %1.', 
+      'MsgClientJoin', 'Welcome to Uebergame %1.', 
       %client.playerName, 
       %client,
-      %client.sendGuid,
+      %client.guid,
+	  0,
+      //%client.isAiControlled(),
+      %client.isAdmin,
+      %client.isSuperAdmin,
       %client.team,
-      %client.score,
-      %client.isAiControlled(), 
-      %client.isAdmin, 
-      %client.isSuperAdmin);
+	  0,
+      %client.getPing(),
+      %client.getPacketLoss());
 
    // Inform all the other clients of the new guy
    messageAllExcept(%client, -1, 'MsgClientJoin', '\c1%1 joined the game.', 
       %client.playerName, 
       %client,
-      %client.sendGuid,
+      %client.guid,
+	  0,
+      //%client.isAiControlled(),
+      %client.isAdmin,
+      %client.isSuperAdmin,
       %client.team,
-      %client.score,
-      %client.isAiControlled(), 
-      %client.isAdmin, 
-      %client.isSuperAdmin);
+	  0,
+      %client.getPing(),
+      %client.getPacketLoss());
+
+   // ZOD: Send this player their client ID etc.
+   messageClient(%client, 'MsgYourInfo', "", %client.nameBase, %client);
+
+   // Setup the default player class
+   SmsInv.setDefaultInventory(%client);
+
+   %client.SadAttempts = 0; // Start off with 0 SAD access attempts.
 
    // If the mission is running, go ahead download it to the client
    if ($missionRunning)
@@ -130,6 +179,66 @@ function GameConnection::onConnect( %client, %name, %skin )
       messageClient(%client, 'MsgLoadFailed', $Server::LoadFailMsg);
    }
    $Server::PlayerCount++;
+
+   if( $pref::Server::ConnectLog && $Server::Dedicated )
+   {
+      writeConnectionLog();
+   }
+}
+
+function writeConnectionLog()
+{
+   %file = $pref::Server::LogPath @"/"@ "connections.csv";
+   %conn = new FileObject();
+   if ( %conn.openForAppend( %file ) )
+   {
+      %conn.writeLine("\"" @ %client.nameBase @ "," @ %client.getAddress() );
+   }
+   %conn.close();
+   %conn.delete();
+   echo( "exporting client info to connection.csv..." );
+}
+
+function readConnectionLog()
+{
+   %file = $pref::Server::LogPath @"/"@ "connections.csv";
+   %conn = new FileObject();
+   if( %conn.openForRead( %file ) )
+   {	
+      while( !%conn.isEOF() )
+      {
+         %line = %conn.readLine();
+         echo(%line);
+      }	
+      %conn.close();
+   }
+   else
+   {
+      error("Failed to read connection log file. Does it exist?");  
+   }    
+
+   %conn.delete();
+}
+
+function GameConnection::getCleanIP(%client)
+{
+   return 0;
+
+   // Get the client's unique transport address
+   %ipString = %client.getAddress();
+
+   // Find the char count of the address
+   %count = strlen(%ipString);
+
+   // Strip the "IP:" string from the address, first 3 char
+   %address = getSubStr(%ipString, 3, %count);
+
+   // Search the address for the port start ":"
+   %port = strchr(%address, ":");
+
+   // Rip the port out of the address and we are left with a clean ip
+   %ip = getSubStr(%address, 0, %port);
+   return %ip;
 }
 
 //-----------------------------------------------------------------------------
@@ -137,29 +246,46 @@ function GameConnection::onConnect( %client, %name, %skin )
 // now we use the one passed from the client.
 // %realName = getField( %authInfo, 0 );
 //
-function GameConnection::setPlayerName(%client,%name)
+function GameConnection::setPlayerName(%client, %name)
 {
-   %client.sendGuid = 0;
-
+   LogEcho("GameConnection::setPlayerName(" SPC %client @", "@ %name SPC ")");
    // Minimum length requirements
    %name = trim( strToPlayerName( %name ) );
+
+   // Zod: Make use of the bad word filter ;)
+   if ( $pref::enableBadWordFilter )
+   {
+      if ( containsBadWords( %name ) )
+         %name = "Potty Mouth";
+   }
+
    if ( strlen( %name ) < 3 )
       %name = "Poser";
+
+   LogEcho("After length checks and bad word check, name is:" SPC %name);
 
    // Make sure the alias is unique, we'll hit something eventually
    if (!isNameUnique(%name))
    {
       %isUnique = false;
-      for (%suffix = 1; !%isUnique; %suffix++)  {
+      for (%suffix = 1; !%isUnique; %suffix++)
+      {
          %nameTry = %name @ "." @ %suffix;
          %isUnique = isNameUnique(%nameTry);
       }
-      %name = %nameTry;
+      %client.nameBase = %nameTry;
+      //%client.playerName = addTaggedString(%nameTry);
+      %client.playerName = addTaggedString("\cp\c8" @ %nameTry @ "\co");
+      MessageAll( 'MsgClientNameChanged', '\c2The smurf \"%1\" is now called \"%2\".', %name, %nameTry, %client );
    }
-
+   else
+   {
    // Tag the name with the "smurf" color:
    %client.nameBase = %name;
+      //%client.playerName = addTaggedString(%name);
    %client.playerName = addTaggedString("\cp\c8" @ %name @ "\co");
+      LogEcho("After Unique check name is:" SPC StripMLControlChars( detag( getTaggedString( %client.playerName ) ) ) );
+   }
 }
 
 function isNameUnique(%name)
@@ -168,7 +294,8 @@ function isNameUnique(%name)
    for ( %i = 0; %i < %count; %i++ )
    {
       %test = ClientGroup.getObject( %i );
-      %rawName = stripChars( detag( getTaggedString( %test.playerName ) ), "\cp\co\c6\c7\c8\c9" );
+      //%rawName = stripChars( detag( getTaggedString( %test.playerName ) ), "\cp\co\c6\c7\c8\c9" );
+      %rawName = StripMLControlChars( detag( getTaggedString( %test.playerName ) ) );
       if ( strcmp( %name, %rawName ) == 0 )
          return false;
    }
@@ -180,31 +307,88 @@ function isNameUnique(%name)
 //
 function GameConnection::onDrop(%client, %reason)
 {
-   %client.onClientLeaveGame();
+   if(isObject(Game))
+      Game.onClientLeaveGame(%client);
    
    removeFromServerGuidList( %client.guid );
    messageAllExcept(%client, -1, 'MsgClientDrop', '\c1%1 has left the game.', %client.playerName, %client);
 
    removeTaggedString(%client.playerName);
+   removeTaggedString(%client.skin);
+
    echo("CDROP: " @ %client @ " " @ %client.getAddress());
    $Server::PlayerCount--;
    
    // Reset the server if everyone has left the game
-   if( $Server::PlayerCount == 0 && $Server::Dedicated)
-      schedule(0, 0, "resetServerDefaults");
+   if( $Server::PlayerCount == 0 && $Server::Dedicated && !$resettingServer && !$LoadingMission )
+      schedule(10, 0, "resetServerDefaults");
 }
-
 
 //-----------------------------------------------------------------------------
+// Mission Loading
+// The server portion of the client/server mission loading process
+//-----------------------------------------------------------------------------
 
-function GameConnection::startMission(%this)
+//--------------------------------------------------------------------------
+// Loading Phases:
+// Phase 1: Transmit Datablocks
+//          Transmit targets
+// Phase 2: Transmit Ghost Objects
+// Phase 3: Start Game
+//
+// The server invokes the client MissionStartPhase[1-3] function to request
+// permission to start each phase.  When a client is ready for a phase,
+// it responds with MissionStartPhase[1-3]Ack.
+
+function GameConnection::loadMission(%client)
 {
-   // Inform the client the mission starting
-   commandToClient(%this, 'MissionStart', $missionSequence);
+   // Send over the information that will display the server info
+   // when we learn it got there, we'll send the data blocks
+   %client.currentPhase = 0;
+   commandToClient(%client, 'MissionStartPhase1', $missionSequence, $Server::MissionFile, MissionGroup.musicTrack);
+   echo("<>>>> Sending mission load to client: " @ $Server::MissionFile @ "  <<<<>");
 }
 
+function GameConnection::onDataBlocksDone( %client, %missionSequence )
+{
+   // Make sure to ignore calls from a previous mission load
+   if (%missionSequence != $missionSequence)
+      return;
+   if (%client.currentPhase != 1)
+      return;
+   %client.currentPhase = 1.5;
 
-function GameConnection::endMission(%this)
+   // On to the next phase
+   commandToClient(%client, 'MissionStartPhase2', $missionSequence, $Server::MissionFile);
+}
+
+function GameConnection::clientWantsGhostAlwaysRetry(%client)
+{
+   if($MissionRunning)
+      %client.activateGhosting();
+}
+
+function GameConnection::onGhostAlwaysFailed(%client)
+{
+   // Unused, console spam placeholder
+}
+
+function GameConnection::onGhostAlwaysObjectsReceived(%client)
+{
+   // Ready for next phase.
+   commandToClient(%client, 'MissionStartPhase3', $missionSequence, $Server::MissionFile);
+
+   // Send the list of available vehicles
+   %client.SendVehicleList();
+}
+
+function GameConnection::startMission(%client)
+{
+   // Inform the client the mission starting
+   commandToClient(%client, 'MissionStart', $missionSequence);
+}
+
+function GameConnection::endMission(%client)
 {
    // Inform the client the mission is done.  Note that if this is
    // called as part of the server destruction routine, the client will
@@ -212,9 +396,33 @@ function GameConnection::endMission(%this)
    // be destroyed before another round of command processing occurs.
    // In this case, the client will only see the disconnect from the server
    // and should manually trigger a mission cleanup.
-   commandToClient(%this, 'MissionEnd', $missionSequence);
+   commandToClient(%client, 'MissionEnd', $missionSequence);
 }
 
+// This just keeps the player from changing teams too fast which could crash the server.
+function GameConnection::waitTimeout(%client)
+{
+   %client.isWaiting = false;
+}
+
+// Sends the list of vehicles on the server for the vehicle hud
+function GameConnection::SendVehicleList(%client)
+{
+   //error("GameConnection::SendVehicleList(" SPC %client.nameBase SPC ")");
+   for ( %i = 0; %i < $SMS::MaxVehicles; %i++ )
+   {
+      if ( !$GameBanList[$VehicleToName[$InvVehicle[%i]]] )
+      {
+         %list = %list $="" ? $VehicleToName[$InvVehicle[%i]] : %list TAB $VehicleToName[$InvVehicle[%i]];
+         %bitmap = %bitmap $="" ? fileBase( $InvVehicle[%i].shapeFile ) : %bitmap TAB fileBase( $InvVehicle[%i].shapeFile );
+      }
+   }
+
+   //error("Server Vehicle List:" SPC %list);
+   //error("Server Bitmap List:" SPC %bitmap);
+   commandToClient(%client, 'GetVBitmapList', addTaggedString(%bitmap));
+   commandToClient(%client, 'GetVehicleList', addTaggedString(%list));
+}
 
 //--------------------------------------------------------------------------
 // Sync the clock on the client.
@@ -224,12 +432,3 @@ function GameConnection::syncClock(%client, %time)
    commandToClient(%client, 'syncClock', %time);
 }
 
-
-//--------------------------------------------------------------------------
-// Update all the clients with the new score
-
-function GameConnection::incScore(%this,%delta)
-{
-   %this.score += %delta;
-   messageAll('MsgClientScoreChanged', "", %this.score, %this);
-}
