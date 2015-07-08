@@ -1,4 +1,4 @@
-# TorqueLab v0.2 - Alpha Release
+# TorqueLab v0.3 - Alpha Release
 **Early-Alpha version warning (Messy scripts and unused files present)**
 This is an early release which should be use for testing purpose mostly. It seem stable enough to be used as replacement editor for Torque3D game projects but some project incompatibilities might happen causing strange behaviours that might cause lost of data. (Ex: Forest .data files). You have been WARMED! Please post any major issue you encountered so those can be fixed in incoming releases.
 
