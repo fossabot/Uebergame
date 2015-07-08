@@ -71,7 +71,7 @@ function Lab::SaveMission(%this) {
 
 	// first check for dirty and read-only files:
 	if((EWorldEditor.isDirty || ETerrainEditor.isMissionDirty) && !isWriteableFileName($Server::MissionFile)) {
-		ToolsMsgBox("Error", "Mission file \""@ $Server::MissionFile @ "\" is read-only.  Continue?", "Ok", "Stop");
+		LabMsgOkCancel("Error", "Mission file \""@ $Server::MissionFile @ "\" is read-only.  Continue?", "Ok", "Stop");
 		return false;
 	}
 
@@ -81,7 +81,7 @@ function Lab::SaveMission(%this) {
 
 		while ((%terrainObject = containerSearchNext()) != 0) {
 			if (!isWriteableFileName(%terrainObject.terrainFile)) {
-				if (ToolsMsgBox("Error", "Terrain file \""@ %terrainObject.terrainFile @ "\" is read-only.  Continue?", "Ok", "Stop") == $MROk)
+				if (LabMsgOkCancel("Error", "Terrain file \""@ %terrainObject.terrainFile @ "\" is read-only.  Continue?", "Ok", "Stop") == $MROk)
 					continue;
 				else
 					return false;
@@ -259,7 +259,7 @@ function Lab::SaveMissionAs(%this) {
 function EditorOpenMission(%filename) {
 	if( EditorIsDirty() && !isWebDemo() ) {
 		// "EditorSaveBeforeLoad();", "getLoadFilename(\"*.mis\", \"EditorDoLoadMission\");"
-		if(ToolsMsgBox("Mission Modified", "Would you like to save changes to the current mission \"" @
+		if(LabMsgOkCancel("Mission Modified", "Would you like to save changes to the current mission \"" @
 							$Server::MissionFile @ "\" before opening a new mission?", SaveDontSave, Question) == $MROk) {
 			if(! Lab.SaveMission())
 				return;

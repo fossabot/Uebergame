@@ -488,9 +488,9 @@ function GuiEditor::onPostEdit(%this, %selection) {
 
 	%this.updateUndoMenu();
 }
-$SkipThis = true;
+$SkipPreNudge = false;
 function GuiEditor::onPreSelectionNudged(%this, %selection) {
-	if ($SkipThis) {
+	if ($SkipPreNudge) {
 		warnLog("Skipping onPreSelectionNudged", %selection);
 		return;
 	}

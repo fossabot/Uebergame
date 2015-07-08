@@ -17,6 +17,26 @@ function ECamViewTool::onWake(%this) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
+function ECamViewGui::onShow(%this) {
+	EditorGuiStatusBar-->camViewBoxState.setStateOn(true);
+	if (!isObject(ECamViewGui.currentGui))
+		ECamViewGui.currentGui = ECamViewCompact;
+	
+	ECamViewBox.visible = 0;
+	ECamViewCompact.visible = 0;
+	ECamViewGui.currentGui.visible = 1;
+	$Lab_CamViewEnabled = true;
+	
+}
+//==============================================================================
+function ECamViewGui::onHide(%this) {
+	EditorGuiStatusBar-->camViewBoxState.setStateOn(false);
+	
+	ECamViewBox.visible = 0;
+	ECamViewCompact.visible = 0;
+	$Lab_CamViewEnabled = false;
+}
+//==============================================================================
 function ECamViewGui::initTool(%this) {
 	%this.setCompactMode(true);	
 }
@@ -32,6 +52,10 @@ function ECamViewGui::setState(%this,%isActive) {
 	ECamViewCompact.visible = 0;
 	if (%isActive && isObject(ECamViewGui.currentGui))	{
 		ECamViewGui.currentGui.visible = 1;
+		ETools.showTool("CamView");
+	}
+	else {
+		ETools.hideTool("CamView");
 	}	
 }
 //==============================================================================
@@ -62,8 +86,7 @@ function ECamViewGui::updateCurrentView(%this) {
 //==============================================================================
 function ECamViewTool::updateCurrentView(%this) {
 	%curCamId = Lab.cameraDisplayType;
-	%text = getWord($LabCameraDisplayName[%curCamId],0);
-	echo("Text:",%text);
+	%text = getWord($LabCameraDisplayName[%curCamId],0);	
 
 	if (%text $= "Standard")
 		%text = "3D";

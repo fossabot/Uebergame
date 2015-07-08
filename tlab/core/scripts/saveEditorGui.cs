@@ -69,7 +69,7 @@ function Lab::saveEditorGui(%this,%filename) {
 		EditorGui.setFileName( makeRelativePath( %filename, getMainDotCsDir() ) );
 		GuiEditorStatusBar.print( "Saved file '" @ EditorGui.getFileName() @ "'" );
 	} else
-		ToolsMsgBox( "Error writing to file", "There was an error writing to file '" @ %filename @ "'. The file may be read-only.", "Ok", "Error" );
+		LabMsgOkCancel( "Error writing to file", "There was an error writing to file '" @ %filename @ "'. The file may be read-only.", "Ok", "Error" );
 
 	if (%reattach) {
 		Lab.attachEditorGuis();

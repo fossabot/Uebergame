@@ -171,5 +171,5 @@ function Lab::savePluginGui(%this,%plugin) {
 		%currentObject.setFileName( makeRelativePath( %filename, getMainDotCsDir() ) );
 		GuiEditorStatusBar.print( "Saved file '" @ %parent.getFileName() @ "'" );
 	} else
-		ToolsMsgBoxOk( "Error writing to file", "There was an error writing to file '" @ %currentFile @ "'. The file may be read-only." );
+		LabMsgOk( "Error writing to file", "There was an error writing to file '" @ %currentFile @ "'. The file may be read-only." );
 }

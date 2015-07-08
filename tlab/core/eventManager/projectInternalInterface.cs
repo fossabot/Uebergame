@@ -68,7 +68,7 @@ function ProjectBase::_onProjectOpen( %this, %data ) {
 	}
 
 	if( !%this.LoadProject( %data ) ) {
-		ToolsMsgBoxOk("Unable to Load Project",
+		LabMsgOk("Unable to Load Project",
 						  "The project file you're attempting to open was created with an incompatible version of this software\n\nConversion of 1.1.X projects will be addressed soon," @
 						  " we apologize for the inconvenience.");
 		return false;

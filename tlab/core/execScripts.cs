@@ -25,8 +25,7 @@ function tlabExecCore( %loadGui ) {
 	execPattern("tlab/core/params/*.cs");
 
 	
-	exec("tlab/core/eventManager/inputEvents.cs");
-	exec("tlab/core/eventManager/projectEvents.cs");
+	
 	
 	exec("tlab/core/classBase/popupMenu.cs");
 	exec("tlab/core/classBase/guiInspector.cs");
@@ -115,7 +114,6 @@ function tlabExecGui(%loadGui ) {
 		exec("tlab/EditorLab/gui/GameLabGui.gui");
 	}
 
-	exec("tlab/EditorLab/gui/messageBoxes/ToolsMsgBox.cs");
 	exec("tlab/EditorLab/gui/messageBoxes/LabMsgBoxesGui.cs");
 	exec("tlab/EditorLab/gui/DlgManageSFXParameters.cs" );
 	exec("tlab/EditorLab/gui/DlgAddFMODProject.cs");
@@ -164,8 +162,8 @@ function execTools( ) {
 
 $TLabExecAllList = %execAll;
 function tlabExec( ) {
-	foreach$(%func in $TLabExecAllList) {
-		devLog("Calling exec function:",%func);
+	foreach$(%func in $TLabExecAllList) {		
 		eval(%func@"();");
 	}
+	info("All core TorqueLab scripts executed.");
 }

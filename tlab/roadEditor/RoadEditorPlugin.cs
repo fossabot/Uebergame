@@ -42,7 +42,7 @@ function RoadEditorPlugin::onWorldEditorStartup( %this ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function RoadEditorPlugin::onActivated( %this ) {
-	%this.readSettings();
+	
 	RoadEd_TabBook.selectPage(0);
 	RoadEditorGui.clearRoadNodesData();
 	EWToolsPaletteArray->RoadEditorAddRoadMode.performClick();
@@ -63,7 +63,7 @@ function RoadEditorPlugin::onActivated( %this ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function RoadEditorPlugin::onDeactivated( %this ) {
-	%this.writeSettings();
+	
 	RoadEditorGui.setVisible( false );
 	RoadEditorToolbar.setVisible( false );
 	RoadEditorOptionsWindow.setVisible( false );

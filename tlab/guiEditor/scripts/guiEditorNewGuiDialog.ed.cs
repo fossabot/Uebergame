@@ -74,7 +74,7 @@ function GuiEditorNewGuiDialog::onOK( %this ) {
 	// If there's an existing non-GUIControl with the name, or the name is invalid, refuse to create.
 
 	if( isObject( %name ) && %name.isMemberOfClass( "GuiControl" ) ) {
-		if( ToolsMsgBox( "Warning", "Replace the existing control '" @ %name @ "'?", "OkCancel", "Question" ) == $MROk )
+		if( LabMsgOkCancel( "Warning", "Replace the existing control '" @ %name @ "'?" ) == $MROk )
 			%name.delete();
 		else
 			return;
