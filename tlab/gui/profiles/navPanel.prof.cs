@@ -12,44 +12,44 @@ singleton GuiControlProfile (NavPanelProfile) {
 
 
 singleton GuiControlProfile (NavPanel : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/navPanel";
+	bitmap = "tlab/gui/icons/default/panels/navPanel";
 	category = "Editor";
 };
 
 singleton GuiControlProfile (NavPanelBlue : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/navPanel_blue";
+	bitmap = "tlab/gui/icons/default/panels/navPanel_blue";
 	category = "Editor";
 };
 
 singleton GuiControlProfile (NavPanelGreen : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/navPanel_green";
+	bitmap = "tlab/gui/icons/default/panels/navPanel_green";
 	category = "Editor";
 };
 
 singleton GuiControlProfile (NavPanelRed : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/navPanel_red";
+	bitmap = "tlab/gui/icons/default/panels/navPanel_red";
 	category = "Editor";
 };
 
 singleton GuiControlProfile (NavPanelWhite : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/navPanel_white";
+	bitmap = "tlab/gui/icons/default/panels/navPanel_white";
 	category = "Editor";
 };
 
 singleton GuiControlProfile (NavPanelYellow : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/navPanel_yellow";
+	bitmap = "tlab/gui/icons/default/panels/navPanel_yellow";
 	category = "Editor";
 };
 singleton GuiControlProfile (menubarProfile : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/menubar";
+	bitmap = "tlab/gui/icons/default/panels/menubar";
 	category = "Editor";
 };
 singleton GuiControlProfile (editorMenubarProfile : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/editor-menubar";
+	bitmap = "tlab/gui/icons/default/panels/editor-menubar";
 	category = "Editor";
 };
 singleton GuiControlProfile (editorMenu_wBorderProfile : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/menu-fullborder";
+	bitmap = "tlab/gui/icons/default/panels/menu-fullborder";
 	category = "Editor";
 };
 singleton GuiControlProfile (inspectorStyleRolloutListProfile : NavPanelProfile) {
@@ -58,7 +58,7 @@ singleton GuiControlProfile (inspectorStyleRolloutListProfile : NavPanelProfile)
 	hasBitmapArray = "1";
 };
 singleton GuiControlProfile (inspectorStyleRolloutListProfile : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/inspector-style-rollout-list";
+	bitmap = "tlab/gui/icons/default/panels/inspector-style-rollout-list";
 	category = "Editor";
 };
 singleton GuiControlProfile (inspectorStyleRolloutInnerProfile : NavPanelProfile) {
@@ -76,10 +76,10 @@ singleton GuiControlProfile (inspectorStyleRolloutInnerProfile : NavPanelProfile
 	fontColorHL = "0 0 0 255";
 };
 singleton GuiControlProfile (inspectorStyleRolloutNoHeaderProfile : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/inspector-style-rollout-noheader";
+	bitmap = "tlab/gui/icons/default/panels/inspector-style-rollout-noheader";
 	category = "Editor";
 };
 singleton GuiControlProfile (IconDropdownProfile : NavPanelProfile) {
-	bitmap = "art/gui/icons/default/panels/icon-dropdownbar";
+	bitmap = "tlab/gui/icons/default/panels/icon-dropdownbar";
 	category = "Editor";
 };

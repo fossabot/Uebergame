@@ -153,11 +153,6 @@ function REP::setCurrentNode( %this,%nodeId ) {
 
 		%selPill-->SelectBtn.active = 0;
 	}
-
-	%nodeWidth = RoadEditorGui.getNodeWidth(%nodeId);
-	%nodePos = RoadEditorGui.getNodePosition(%nodeId);
-	REP_GlobalNodeBox-->CurrentWidthEdit.setValue(%nodeWidth);
-	REP_GlobalNodeBox-->CurrentWidthEdit.node = %nodeId;
 	
 	Lab.linkedRoadNodes = strAddWord(Lab.linkedRoadNodes,%ctrl.node,true);
 	RoadEditorGui.updateNodeManagerGui();

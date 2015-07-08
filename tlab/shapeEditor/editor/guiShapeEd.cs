@@ -7,17 +7,8 @@
 //==============================================================================
 // SceneEditorTools Frame Set Scripts
 //==============================================================================
-function ShapeEdAnimWindow::onShow( %this ) {	
-	ShapeEdAnimWindow.fitIntoParents("width");
-	ShapeEdAnimWindow.AlignCtrlToParent("bottom");
-}
 
 
-function ShapeEditorPlugin::toggleAnimBar(%this) {
-	ShapeEditorDialogs.toggleDlg("AnimBar",true);
-	ShapeEditorToolbar-->showAnimBar.setStateOn(ShapeEditorDialogs-->AnimBar.isVisible());
-	
-}
 function ShapeEditorPlugin::toggleAdvancedOptions(%this) {
 	ShapeEditorDialogs.toggleDlg("Advanced",true);
 	ShapeEditorToolbar-->showAdvanced.setStateOn(ShapeEditorDialogs-->Advanced.isVisible());

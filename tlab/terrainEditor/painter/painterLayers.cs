@@ -287,7 +287,7 @@ function PainterLayerEdit::onValidate( %this) {
 //==============================================================================
 // Update the active material layers list
 function PainterLayerMouse::onMouseDown( %this,%modifier,%pos,%clicks) {
-	devLog("PainterLayerMouse onMouseDown::",%modifier,%pos,%clicks);
+	logd("PainterLayerMouse onMouseDown::",%modifier,%pos,%clicks);
 
 	if (%clicks > 1)
 		eval(%this.altCommand);

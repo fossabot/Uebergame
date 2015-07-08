@@ -3,7 +3,9 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
-
+$LabGameMap.bindCmd(keyboard, "ctrl 0", "GameLabGui.toggleMe();");
+$LabGameMap.bindCmd(keyboard, "ctrl i", "GameLabGui.toggleCursor();");
+$LabGameMap.bindCmd(keyboard, "ctrl m", "Lab.toggleGameDlg(\"SceneEditorDialogs\",\"AmbientManager\");");
 
 //==============================================================================
 function GameLabGui::onWake( %this ) {	
@@ -19,14 +21,14 @@ function GameLabGui::onWake( %this ) {
 //==============================================================================
 function GameLabGui::onSleep( %this ) {	
 	hideCursor();
-	moveMap.push();
+	$LabGameMap.push();
 	//Canvas.schedule(300,"hideCursor");
 	//Canvas.schedule(300,"cursorOff");
 }
 
 //------------------------------------------------------------------------------
 	
-hudMap.bindCmd(keyboard, "ctrl 0", "GameLabGui.toggleMe();");
+
 //==============================================================================
 function GameLabGui::toggleMe( %this ) {
 	toggleDlg(GameLabGui);
@@ -147,8 +149,7 @@ function GameLabGui::closeAll( %this ) {
 	popDlg(%this);
 }
 //------------------------------------------------------------------------------
-hudMap.bindCmd(keyboard, "ctrl i", "GameLabGui.toggleCursor();");
-hudMap.bindCmd(keyboard, "ctrl m", "Lab.toggleGameDlg(\"SceneEditorDialogs\",\"AmbientManager\");");
+
 
 //==============================================================================
 function GameLabGui::toggleCursor( %this,%show ) {

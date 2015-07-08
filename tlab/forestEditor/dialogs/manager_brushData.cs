@@ -9,7 +9,8 @@ $FEP_ElementProperties = "scaleMin scaleMax scaleExponent elevationMin elevation
 //==============================================================================
 function FEP_Manager::initBrushData( %this,%reset ) {	
 	if (isObject(ForestBrushGroup)){
-		ForestBrushGroup.remove(FEP_LevelBrushSet);
+		if (ForestBrushGroup.isMember(FEP_LevelBrushSet))
+			ForestBrushGroup.remove(FEP_LevelBrushSet);
 		if (ForestBrushGroup.getCount() <= 0)
 			%reset = true;
 	}
@@ -62,7 +63,8 @@ function FEP_Manager::saveBrushData( %this,%forced ) {
 		return;
 		
 	if (isObject(MissionForestBrushGroup)){
-		ForestBrushGroup.remove(FEP_LevelBrushSet);
+		if (ForestBrushGroup.isMember(FEP_LevelBrushSet))
+			ForestBrushGroup.remove(FEP_LevelBrushSet);
 		MissionForestBrushGroup.save( MissionForestBrushGroup.getFileName() );
 	}		
 	ForestBrushGroup.save( "art/forest/brushes.cs" );

@@ -1,13 +1,13 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiWindowCollapseCtrl(PE_Window) {
-   text = "Particle Editor - Emitters";
-   resizeWidth = "1";
-   resizeHeight = "1";
-   canMove = "1";
+   text = "Particle Editor - Particles";
+   resizeWidth = "0";
+   resizeHeight = "0";
+   canMove = "0";
    canClose = "0";
    canMinimize = "0";
    canMaximize = "0";
-   canCollapse = "1";
+   canCollapse = "0";
    edgeSnap = "0";
    docking = "Client";
    margin = "0 0 0 0";
@@ -17,7 +17,7 @@
    anchorLeft = "1";
    anchorRight = "0";
    position = "0 0";
-   extent = "280 814";
+   extent = "285 820";
    minExtent = "210 140";
    horizSizing = "windowRelative";
    vertSizing = "windowRelative";
@@ -29,21 +29,22 @@
    isContainer = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
-      defaultParent = "guiGroup";
-      EditorContainer = "4098";
-      editorParent = "2289";
+      defaultParent = "GuiGroup";
+      EditorContainer = "5261";
+      editorParent = "5261";
       enabled = "1";
       minSize = "50 50";
+      plugin = "ParticleEditor";
       tooltipWidth = "500";
 
    new GuiTabBookCtrl(PE_TabBook) {
       tabPosition = "Top";
-      tabMargin = "0";
+      tabMargin = "8";
       minTabWidth = "64";
       tabHeight = "17";
       allowReorder = "0";
       defaultPage = "-1";
-      selectedPage = "0";
+      selectedPage = "1";
       frontTabPadding = "0";
       docking = "Client";
       margin = "0 0 0 0";
@@ -52,8 +53,8 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "5 27";
-      extent = "270 780";
+      position = "6 24";
+      extent = "273 790";
       minExtent = "8 2";
       horizSizing = "width";
       vertSizing = "height";
@@ -79,16 +80,17 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "0 17";
-         extent = "270 763";
+         extent = "273 773";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
          profile = "ToolsPanelDarkA";
-         visible = "1";
+         visible = "0";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
          isContainer = "1";
+         hidden = "1";
          canSave = "1";
          canSaveDynamicFields = "0";
 
@@ -108,7 +110,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "270 763";
+            extent = "273 773";
             minExtent = "8 8";
             horizSizing = "width";
             vertSizing = "height";
@@ -132,7 +134,7 @@
                changeChildSizeToFit = "1";
                changeChildPosition = "1";
                position = "3 3";
-               extent = "270 703";
+               extent = "273 703";
                minExtent = "16 16";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -147,7 +149,7 @@
 
                new GuiControl(PEE_EmitterSelector_Control) {
                   position = "0 0";
-                  extent = "270 26";
+                  extent = "273 26";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -175,7 +177,7 @@
                      anchorLeft = "1";
                      anchorRight = "0";
                      position = "4 4";
-                     extent = "196 18";
+                     extent = "199 18";
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -205,7 +207,7 @@
                      anchorLeft = "1";
                      anchorRight = "0";
                      position = "4 4";
-                     extent = "172 19";
+                     extent = "175 19";
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -220,80 +222,116 @@
                      canSave = "1";
                      canSaveDynamicFields = "0";
                   };
-                  new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/icons/default/new";
-                     bitmapMode = "Stretched";
-                     autoFitExtents = "0";
-                     useModifiers = "0";
-                     useStates = "1";
-                     groupNum = "-1";
-                     buttonType = "PushButton";
-                     useMouseEvents = "0";
-                     position = "204 5";
-                     extent = "17 17";
+                  new GuiDynamicCtrlArrayControl() {
+                     colCount = "3";
+                     colSize = "20";
+                     rowCount = "1";
+                     rowSize = "20";
+                     rowSpacing = "0";
+                     colSpacing = "0";
+                     frozen = "0";
+                     autoCellSize = "0";
+                     fillRowFirst = "0";
+                     dynamicSize = "1";
+                     padding = "0 0 0 0";
+                     position = "206 2";
+                     extent = "60 20";
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
                      profile = "ToolsDefaultProfile";
                      visible = "1";
                      active = "1";
-                     command = "PE_EmitterEditor.showNewDialog();";
                      tooltipProfile = "GuiToolTipProfile";
-                     tooltip = "Create New Emitter";
                      hovertime = "1000";
-                     isContainer = "0";
+                     isContainer = "1";
                      canSave = "1";
                      canSaveDynamicFields = "0";
-                  };
-                  new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/icons/default/save-icon";
-                     bitmapMode = "Stretched";
-                     autoFitExtents = "0";
-                     useModifiers = "0";
-                     useStates = "1";
-                     groupNum = "-1";
-                     buttonType = "PushButton";
-                     useMouseEvents = "0";
-                     position = "220 5";
-                     extent = "17 17";
-                     minExtent = "8 2";
-                     horizSizing = "left";
-                     vertSizing = "bottom";
-                     profile = "ToolsDefaultProfile";
-                     visible = "1";
-                     active = "1";
-                     command = "PE_EmitterEditor.saveEmitter(  ); PE_ParticleEditor.saveParticle( PE_ParticleEditor.currParticle );";
-                     tooltipProfile = "GuiToolTipProfile";
-                     tooltip = "Save Current Emitter";
-                     hovertime = "1000";
-                     isContainer = "0";
-                     canSave = "1";
-                     canSaveDynamicFields = "0";
-                  };
-                  new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/icons/default/delete";
-                     bitmapMode = "Stretched";
-                     autoFitExtents = "0";
-                     useModifiers = "0";
-                     useStates = "1";
-                     groupNum = "-1";
-                     buttonType = "PushButton";
-                     useMouseEvents = "0";
-                     position = "237 5";
-                     extent = "17 17";
-                     minExtent = "8 2";
-                     horizSizing = "left";
-                     vertSizing = "bottom";
-                     profile = "ToolsDefaultProfile";
-                     visible = "1";
-                     active = "1";
-                     command = "PE_EmitterEditor.showDeleteDialog();";
-                     tooltipProfile = "GuiToolTipProfile";
-                     tooltip = "Delete Current Emitter";
-                     hovertime = "1000";
-                     isContainer = "0";
-                     canSave = "1";
-                     canSaveDynamicFields = "0";
+
+                     new GuiIconButtonCtrl() {
+                        buttonMargin = "3 3";
+                        iconBitmap = "tlab/gui/icons/24-assets/file_save.png";
+                        iconLocation = "Left";
+                        sizeIconToButton = "1";
+                        makeIconSquare = "0";
+                        textLocation = "Left";
+                        textMargin = "4";
+                        autoSize = "0";
+                        groupNum = "-1";
+                        buttonType = "PushButton";
+                        useMouseEvents = "0";
+                        position = "0 0";
+                        extent = "20 20";
+                        minExtent = "8 2";
+                        horizSizing = "right";
+                        vertSizing = "bottom";
+                        profile = "ToolsButtonProfile";
+                        visible = "1";
+                        active = "1";
+                        command = "PE_EmitterEditor.saveEmitter(  ); PE_ParticleEditor.saveParticle( PE_ParticleEditor.currParticle );";
+                        tooltipProfile = "GuiToolTipProfile";
+                        tooltip = "Save Current Emitter";
+                        hovertime = "1000";
+                        isContainer = "0";
+                        canSave = "1";
+                        canSaveDynamicFields = "0";
+                     };
+                     new GuiIconButtonCtrl() {
+                        buttonMargin = "3 3";
+                        iconBitmap = "tlab/gui/icons/24-assets/file_new.png";
+                        iconLocation = "Left";
+                        sizeIconToButton = "1";
+                        makeIconSquare = "0";
+                        textLocation = "Left";
+                        textMargin = "4";
+                        autoSize = "0";
+                        groupNum = "-1";
+                        buttonType = "PushButton";
+                        useMouseEvents = "0";
+                        position = "20 0";
+                        extent = "20 20";
+                        minExtent = "8 2";
+                        horizSizing = "right";
+                        vertSizing = "bottom";
+                        profile = "ToolsButtonProfile";
+                        visible = "1";
+                        active = "1";
+                        command = "PE_EmitterEditor.showNewDialog();";
+                        tooltipProfile = "GuiToolTipProfile";
+                        tooltip = "Create New Emitter";
+                        hovertime = "1000";
+                        isContainer = "0";
+                        canSave = "1";
+                        canSaveDynamicFields = "0";
+                     };
+                     new GuiIconButtonCtrl() {
+                        buttonMargin = "2 2";
+                        iconBitmap = "tlab/gui/icons/24-assets/trash.png";
+                        iconLocation = "Center";
+                        sizeIconToButton = "1";
+                        makeIconSquare = "0";
+                        textLocation = "Left";
+                        textMargin = "4";
+                        autoSize = "0";
+                        groupNum = "-1";
+                        buttonType = "PushButton";
+                        useMouseEvents = "0";
+                        position = "40 0";
+                        extent = "20 20";
+                        minExtent = "8 2";
+                        horizSizing = "right";
+                        vertSizing = "bottom";
+                        profile = "ToolsButtonProfile";
+                        visible = "1";
+                        active = "1";
+                        command = "PE_EmitterEditor.showDeleteDialog();";
+                        tooltipProfile = "GuiToolTipProfile";
+                        tooltip = "Delete Current Emitter";
+                        hovertime = "1000";
+                        isContainer = "0";
+                        canSave = "1";
+                        canSaveDynamicFields = "0";
+                     };
                   };
                };
                new GuiRolloutCtrl() {
@@ -305,7 +343,7 @@
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 26";
-                  extent = "270 133";
+                  extent = "273 133";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -331,7 +369,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "262 108";
+                     extent = "265 108";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -346,7 +384,7 @@
 
                      new GuiControl() {
                         position = "0 0";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -370,7 +408,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "181 18";
+                           extent = "184 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -388,7 +426,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "250";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -419,7 +457,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -438,7 +476,7 @@
                      };
                      new GuiControl() {
                         position = "0 20";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -462,7 +500,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -480,7 +518,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "0";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -511,7 +549,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -530,7 +568,7 @@
                      };
                      new GuiControl() {
                         position = "0 40";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -553,7 +591,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "229 18";
+                           extent = "232 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -571,7 +609,7 @@
                            groupNum = "-1";
                            buttonType = "ToggleButton";
                            useMouseEvents = "0";
-                           position = "234 0";
+                           position = "237 0";
                            extent = "15 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -590,7 +628,7 @@
                      };
                      new GuiControl() {
                         position = "0 60";
-                        extent = "262 8";
+                        extent = "265 8";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -607,7 +645,7 @@
                            bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
-                           extent = "261 2";
+                           extent = "264 2";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -623,7 +661,7 @@
                      };
                      new GuiControl() {
                         position = "0 68";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -647,7 +685,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -665,7 +703,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "20";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -696,7 +734,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -715,7 +753,7 @@
                      };
                      new GuiControl() {
                         position = "0 88";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -739,7 +777,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -757,7 +795,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "10";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -788,7 +826,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -816,7 +854,7 @@
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 159";
-                  extent = "270 133";
+                  extent = "273 133";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -842,7 +880,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "262 108";
+                     extent = "265 108";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -857,7 +895,7 @@
 
                      new GuiControl() {
                         position = "0 0";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -881,7 +919,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "181 18";
+                           extent = "184 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -899,7 +937,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "1";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -930,7 +968,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -949,7 +987,7 @@
                      };
                      new GuiControl() {
                         position = "0 20";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -973,7 +1011,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -991,7 +1029,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "1";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1022,7 +1060,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1041,7 +1079,7 @@
                      };
                      new GuiControl() {
                         position = "0 40";
-                        extent = "262 8";
+                        extent = "265 8";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1058,7 +1096,7 @@
                            bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
-                           extent = "261 2";
+                           extent = "264 2";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1074,7 +1112,7 @@
                      };
                      new GuiControl() {
                         position = "0 48";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1097,7 +1135,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "229 18";
+                           extent = "232 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1115,7 +1153,7 @@
                            groupNum = "-1";
                            buttonType = "ToggleButton";
                            useMouseEvents = "0";
-                           position = "234 0";
+                           position = "237 0";
                            extent = "15 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1134,7 +1172,7 @@
                      };
                      new GuiControl() {
                         position = "0 68";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1157,7 +1195,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "229 18";
+                           extent = "232 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1175,7 +1213,7 @@
                            groupNum = "-1";
                            buttonType = "ToggleButton";
                            useMouseEvents = "0";
-                           position = "234 0";
+                           position = "237 0";
                            extent = "15 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1194,7 +1232,7 @@
                      };
                      new GuiControl() {
                         position = "0 88";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1217,7 +1255,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1244,7 +1282,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "147 0";
+                           position = "150 0";
                            extent = "100 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1272,7 +1310,7 @@
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 292";
-                  extent = "270 133";
+                  extent = "273 133";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -1298,7 +1336,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "262 108";
+                     extent = "265 108";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -1313,7 +1351,7 @@
 
                      new GuiControl() {
                         position = "0 0";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1330,7 +1368,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "151 0";
+                           position = "154 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1348,7 +1386,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "163 0";
+                           position = "166 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1366,7 +1404,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "175 0";
+                           position = "178 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1384,7 +1422,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "187 0";
+                           position = "190 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1402,7 +1440,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "200 0";
+                           position = "203 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1427,7 +1465,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "181 18";
+                           extent = "184 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1445,7 +1483,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "0";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1476,7 +1514,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1495,7 +1533,7 @@
                      };
                      new GuiControl() {
                         position = "0 20";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1512,7 +1550,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "151 0";
+                           position = "154 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1530,7 +1568,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "163 0";
+                           position = "166 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1548,7 +1586,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "175 0";
+                           position = "178 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1566,7 +1604,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "187 0";
+                           position = "190 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1584,7 +1622,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "200 0";
+                           position = "203 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -1609,7 +1647,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1627,7 +1665,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "180";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1658,7 +1696,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1677,7 +1715,7 @@
                      };
                      new GuiControl() {
                         position = "0 40";
-                        extent = "262 8";
+                        extent = "265 8";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1694,7 +1732,7 @@
                            bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
-                           extent = "261 2";
+                           extent = "264 2";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1710,7 +1748,7 @@
                      };
                      new GuiControl() {
                         position = "0 48";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1734,7 +1772,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1752,7 +1790,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "360";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1783,7 +1821,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1802,7 +1840,7 @@
                      };
                      new GuiControl() {
                         position = "0 68";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1826,7 +1864,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1844,7 +1882,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "0";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1875,7 +1913,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1894,7 +1932,7 @@
                      };
                      new GuiControl() {
                         position = "0 88";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -1918,7 +1956,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -1936,7 +1974,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "0";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1966,7 +2004,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -1994,7 +2032,7 @@
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 425";
-                  extent = "270 105";
+                  extent = "273 105";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -2020,7 +2058,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "262 80";
+                     extent = "265 80";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -2035,7 +2073,7 @@
 
                      new GuiControl(PEE_EmitterParticle1) {
                         position = "0 0";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2058,7 +2096,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "181 18";
+                           extent = "184 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2084,7 +2122,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "147 0";
+                           position = "150 0";
                            extent = "100 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2103,7 +2141,7 @@
                      };
                      new GuiControl(PEE_EmitterParticle2) {
                         position = "0 20";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2126,7 +2164,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2152,7 +2190,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "147 0";
+                           position = "150 0";
                            extent = "100 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2177,7 +2215,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "129 1";
+                           position = "132 1";
                            extent = "17 17";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2196,7 +2234,7 @@
                      };
                      new GuiControl(PEE_EmitterParticle3) {
                         position = "0 40";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2219,7 +2257,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2245,7 +2283,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "147 0";
+                           position = "150 0";
                            extent = "100 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2270,7 +2308,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "129 1";
+                           position = "132 1";
                            extent = "17 17";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2289,7 +2327,7 @@
                      };
                      new GuiControl(PEE_EmitterParticle4) {
                         position = "0 60";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2312,7 +2350,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2338,7 +2376,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "147 0";
+                           position = "150 0";
                            extent = "100 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2363,7 +2401,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "129 1";
+                           position = "132 1";
                            extent = "17 17";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2391,7 +2429,7 @@
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 530";
-                  extent = "270 173";
+                  extent = "273 173";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -2417,7 +2455,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "262 148";
+                     extent = "265 148";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -2432,7 +2470,7 @@
 
                      new GuiControl() {
                         position = "0 0";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2455,7 +2493,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "181 18";
+                           extent = "184 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2481,7 +2519,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "147 0";
+                           position = "150 0";
                            extent = "100 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2500,7 +2538,7 @@
                      };
                      new GuiControl() {
                         position = "0 20";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2524,7 +2562,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2542,7 +2580,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "1";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2573,7 +2611,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2592,7 +2630,7 @@
                      };
                      new GuiControl() {
                         position = "0 40";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2616,7 +2654,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "222 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2634,7 +2672,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "0";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2665,7 +2703,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2684,7 +2722,7 @@
                      };
                      new GuiControl() {
                         position = "0 60";
-                        extent = "262 8";
+                        extent = "265 8";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2701,7 +2739,7 @@
                            bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
-                           extent = "261 2";
+                           extent = "264 2";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2717,7 +2755,7 @@
                      };
                      new GuiControl() {
                         position = "0 68";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2740,7 +2778,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "229 18";
+                           extent = "232 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2758,7 +2796,7 @@
                            groupNum = "-1";
                            buttonType = "ToggleButton";
                            useMouseEvents = "0";
-                           position = "234 0";
+                           position = "237 0";
                            extent = "15 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2777,7 +2815,7 @@
                      };
                      new GuiControl() {
                         position = "0 88";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2800,7 +2838,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "229 18";
+                           extent = "232 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2818,7 +2856,7 @@
                            groupNum = "-1";
                            buttonType = "ToggleButton";
                            useMouseEvents = "0";
-                           position = "234 0";
+                           position = "237 0";
                            extent = "15 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2837,7 +2875,7 @@
                      };
                      new GuiControl() {
                         position = "0 108";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2860,7 +2898,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "229 18";
+                           extent = "232 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2878,7 +2916,7 @@
                            groupNum = "-1";
                            buttonType = "ToggleButton";
                            useMouseEvents = "0";
-                           position = "234 0";
+                           position = "237 0";
                            extent = "15 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2897,7 +2935,7 @@
                      };
                      new GuiControl() {
                         position = "0 128";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -2920,7 +2958,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "229 18";
+                           extent = "232 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -2938,7 +2976,7 @@
                            groupNum = "-1";
                            buttonType = "ToggleButton";
                            useMouseEvents = "0";
-                           position = "234 0";
+                           position = "237 0";
                            extent = "15 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -2972,17 +3010,16 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "0 17";
-         extent = "270 887";
+         extent = "273 773";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
          profile = "ToolsPanelDarkA";
-         visible = "0";
+         visible = "1";
          active = "1";
          tooltipProfile = "GuiToolTipProfile";
          hovertime = "1000";
          isContainer = "1";
-         hidden = "1";
          canSave = "1";
          canSaveDynamicFields = "0";
 
@@ -3002,7 +3039,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 0";
-            extent = "270 887";
+            extent = "273 773";
             minExtent = "8 8";
             horizSizing = "width";
             vertSizing = "height";
@@ -3026,7 +3063,7 @@
                changeChildSizeToFit = "1";
                changeChildPosition = "1";
                position = "1 3";
-               extent = "270 578";
+               extent = "273 578";
                minExtent = "16 16";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -3041,7 +3078,7 @@
 
                new GuiControl(PEP_ParticleSelector_Control) {
                   position = "0 0";
-                  extent = "270 26";
+                  extent = "273 26";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -3069,7 +3106,7 @@
                      anchorLeft = "1";
                      anchorRight = "0";
                      position = "4 4";
-                     extent = "196 18";
+                     extent = "199 18";
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -3099,7 +3136,7 @@
                      anchorLeft = "1";
                      anchorRight = "0";
                      position = "4 4";
-                     extent = "172 19";
+                     extent = "175 19";
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -3114,17 +3151,20 @@
                      canSave = "1";
                      canSaveDynamicFields = "0";
                   };
-                  new GuiBitmapButtonCtrl(PEP_NewParticleButton) {
-                     bitmap = "tlab/gui/icons/default/new";
-                     bitmapMode = "Stretched";
-                     autoFitExtents = "0";
-                     useModifiers = "1";
-                     useStates = "1";
-                     groupNum = "-1";
-                     buttonType = "PushButton";
-                     useMouseEvents = "0";
-                     position = "204 5";
-                     extent = "17 17";
+                  new GuiDynamicCtrlArrayControl() {
+                     colCount = "3";
+                     colSize = "20";
+                     rowCount = "1";
+                     rowSize = "20";
+                     rowSpacing = "0";
+                     colSpacing = "0";
+                     frozen = "0";
+                     autoCellSize = "0";
+                     fillRowFirst = "0";
+                     dynamicSize = "1";
+                     padding = "0 0 0 0";
+                     position = "206 2";
+                     extent = "60 20";
                      minExtent = "8 2";
                      horizSizing = "left";
                      vertSizing = "bottom";
@@ -3132,61 +3172,94 @@
                      visible = "1";
                      active = "1";
                      tooltipProfile = "GuiToolTipProfile";
-                     tooltip = "Add New Particle To Current Emitter";
                      hovertime = "1000";
-                     isContainer = "0";
+                     isContainer = "1";
                      canSave = "1";
                      canSaveDynamicFields = "0";
-                  };
-                  new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/icons/default/save-icon";
-                     bitmapMode = "Stretched";
-                     autoFitExtents = "0";
-                     useModifiers = "0";
-                     useStates = "1";
-                     groupNum = "-1";
-                     buttonType = "PushButton";
-                     useMouseEvents = "0";
-                     position = "220 5";
-                     extent = "17 17";
-                     minExtent = "8 2";
-                     horizSizing = "left";
-                     vertSizing = "bottom";
-                     profile = "ToolsDefaultProfile";
-                     visible = "1";
-                     active = "1";
-                     command = "PE_ParticleEditor.saveParticle( PE_ParticleEditor.currParticle );";
-                     tooltipProfile = "GuiToolTipProfile";
-                     tooltip = "Save Current Particle";
-                     hovertime = "1000";
-                     isContainer = "0";
-                     canSave = "1";
-                     canSaveDynamicFields = "0";
-                  };
-                  new GuiBitmapButtonCtrl() {
-                     bitmap = "tlab/gui/icons/default/delete";
-                     bitmapMode = "Stretched";
-                     autoFitExtents = "0";
-                     useModifiers = "0";
-                     useStates = "1";
-                     groupNum = "-1";
-                     buttonType = "PushButton";
-                     useMouseEvents = "0";
-                     position = "237 5";
-                     extent = "17 17";
-                     minExtent = "8 2";
-                     horizSizing = "left";
-                     vertSizing = "bottom";
-                     profile = "ToolsDefaultProfile";
-                     visible = "1";
-                     active = "1";
-                     command = "PE_ParticleEditor.showDeleteDialog();";
-                     tooltipProfile = "GuiToolTipProfile";
-                     tooltip = "Delete Current Particle";
-                     hovertime = "1000";
-                     isContainer = "0";
-                     canSave = "1";
-                     canSaveDynamicFields = "0";
+
+                     new GuiIconButtonCtrl() {
+                        buttonMargin = "3 3";
+                        iconBitmap = "tlab/gui/icons/24-assets/file_save.png";
+                        iconLocation = "Left";
+                        sizeIconToButton = "1";
+                        makeIconSquare = "0";
+                        textLocation = "Left";
+                        textMargin = "4";
+                        autoSize = "0";
+                        groupNum = "-1";
+                        buttonType = "PushButton";
+                        useMouseEvents = "0";
+                        position = "0 0";
+                        extent = "20 20";
+                        minExtent = "8 2";
+                        horizSizing = "right";
+                        vertSizing = "bottom";
+                        profile = "ToolsButtonProfile";
+                        visible = "1";
+                        active = "1";
+                        command = "PE_ParticleEditor.saveParticle( PE_ParticleEditor.currParticle );";
+                        tooltipProfile = "GuiToolTipProfile";
+                        tooltip = "Save Current Particle";
+                        hovertime = "1000";
+                        isContainer = "0";
+                        canSave = "1";
+                        canSaveDynamicFields = "0";
+                     };
+                     new GuiIconButtonCtrl(PEP_NewParticleButton) {
+                        buttonMargin = "3 3";
+                        iconBitmap = "tlab/gui/icons/24-assets/file_new.png";
+                        iconLocation = "Left";
+                        sizeIconToButton = "1";
+                        makeIconSquare = "0";
+                        textLocation = "Left";
+                        textMargin = "4";
+                        autoSize = "0";
+                        groupNum = "-1";
+                        buttonType = "PushButton";
+                        useMouseEvents = "0";
+                        position = "20 0";
+                        extent = "20 20";
+                        minExtent = "8 2";
+                        horizSizing = "right";
+                        vertSizing = "bottom";
+                        profile = "ToolsButtonProfile";
+                        visible = "1";
+                        active = "1";
+                        tooltipProfile = "GuiToolTipProfile";
+                        tooltip = "Add New Particle To Current Emitter";
+                        hovertime = "1000";
+                        isContainer = "0";
+                        canSave = "1";
+                        canSaveDynamicFields = "0";
+                     };
+                     new GuiIconButtonCtrl() {
+                        buttonMargin = "2 2";
+                        iconBitmap = "tlab/gui/icons/24-assets/trash.png";
+                        iconLocation = "Center";
+                        sizeIconToButton = "1";
+                        makeIconSquare = "0";
+                        textLocation = "Left";
+                        textMargin = "4";
+                        autoSize = "0";
+                        groupNum = "-1";
+                        buttonType = "PushButton";
+                        useMouseEvents = "0";
+                        position = "40 0";
+                        extent = "20 20";
+                        minExtent = "8 2";
+                        horizSizing = "right";
+                        vertSizing = "bottom";
+                        profile = "ToolsButtonProfile";
+                        visible = "1";
+                        active = "1";
+                        command = "PE_ParticleEditor.showDeleteDialog();";
+                        tooltipProfile = "GuiToolTipProfile";
+                        tooltip = "Delete Current Particle";
+                        hovertime = "1000";
+                        isContainer = "0";
+                        canSave = "1";
+                        canSaveDynamicFields = "0";
+                     };
                   };
                };
                new GuiRolloutCtrl() {
@@ -3198,7 +3271,7 @@
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 26";
-                  extent = "270 125";
+                  extent = "273 125";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -3224,7 +3297,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "262 100";
+                     extent = "265 100";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -3245,7 +3318,7 @@
                         anchorLeft = "1";
                         anchorRight = "0";
                         position = "0 0";
-                        extent = "262 52";
+                        extent = "265 52";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -3354,7 +3427,7 @@
                            buttonType = "ToggleButton";
                            useMouseEvents = "0";
                            position = "55 14";
-                           extent = "157 18";
+                           extent = "535 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3384,7 +3457,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "55 31";
-                           extent = "193 19";
+                           extent = "571 19";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3404,7 +3477,7 @@
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3422,7 +3495,7 @@
                      };
                      new GuiControl() {
                         position = "0 52";
-                        extent = "262 8";
+                        extent = "265 8";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -3439,7 +3512,7 @@
                            bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
-                           extent = "261 2";
+                           extent = "264 2";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3455,7 +3528,7 @@
                      };
                      new GuiControl() {
                         position = "0 60";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -3479,7 +3552,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3497,7 +3570,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "800";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3528,7 +3601,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3547,7 +3620,7 @@
                      };
                      new GuiControl() {
                         position = "0 80";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -3571,7 +3644,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3589,7 +3662,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "300";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3620,7 +3693,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3648,7 +3721,7 @@
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 151";
-                  extent = "270 113";
+                  extent = "273 113";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -3674,7 +3747,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "262 88";
+                     extent = "265 88";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -3689,7 +3762,7 @@
 
                      new GuiControl() {
                         position = "0 0";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -3713,7 +3786,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "181 18";
+                           extent = "559 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3731,7 +3804,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "0";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3762,7 +3835,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3781,7 +3854,7 @@
                      };
                      new GuiControl() {
                         position = "0 20";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -3805,7 +3878,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3823,7 +3896,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "-0.83";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3854,7 +3927,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3873,7 +3946,7 @@
                      };
                      new GuiControl() {
                         position = "0 40";
-                        extent = "262 8";
+                        extent = "265 8";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -3890,7 +3963,7 @@
                            bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
-                           extent = "261 2";
+                           extent = "264 2";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3906,7 +3979,7 @@
                      };
                      new GuiControl() {
                         position = "0 48";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -3923,7 +3996,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "175 0";
+                           position = "178 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -3948,7 +4021,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -3966,7 +4039,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "-0.100122";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -3997,7 +4070,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4016,7 +4089,7 @@
                      };
                      new GuiControl() {
                         position = "0 68";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4040,7 +4113,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4058,7 +4131,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "0.997067";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4089,7 +4162,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4117,7 +4190,7 @@
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 264";
-                  extent = "270 93";
+                  extent = "273 93";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -4143,7 +4216,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "262 68";
+                     extent = "265 68";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -4158,7 +4231,7 @@
 
                      new GuiControl() {
                         position = "0 0";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4175,7 +4248,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "175 0";
+                           position = "178 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -4200,7 +4273,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "181 18";
+                           extent = "559 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4218,7 +4291,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "-180";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4249,7 +4322,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4268,7 +4341,7 @@
                      };
                      new GuiControl() {
                         position = "0 20";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4285,7 +4358,7 @@
                         new GuiBitmapCtrl() {
                            bitmap = "tlab/gui/assets/gfx/separator-h";
                            wrap = "0";
-                           position = "175 0";
+                           position = "178 0";
                            extent = "2 18";
                            minExtent = "0 0";
                            horizSizing = "left";
@@ -4310,7 +4383,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4328,7 +4401,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "180";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4359,7 +4432,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4378,7 +4451,7 @@
                      };
                      new GuiControl() {
                         position = "0 40";
-                        extent = "262 8";
+                        extent = "265 8";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4395,7 +4468,7 @@
                            bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
-                           extent = "261 2";
+                           extent = "264 2";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4411,7 +4484,7 @@
                      };
                      new GuiControl() {
                         position = "0 48";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4435,7 +4508,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4453,7 +4526,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "1";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4484,7 +4557,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4512,7 +4585,7 @@
                   hideHeader = "0";
                   autoCollapseSiblings = "0";
                   position = "0 357";
-                  extent = "270 221";
+                  extent = "273 221";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "bottom";
@@ -4538,7 +4611,7 @@
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
                      position = "4 25";
-                     extent = "262 196";
+                     extent = "265 196";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "bottom";
@@ -4553,7 +4626,7 @@
 
                      new GuiControl() {
                         position = "0 0";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4576,7 +4649,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "181 18";
+                           extent = "559 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4592,11 +4665,10 @@
                         new GuiSwatchButtonCtrl(PE_ColorTintSwatch0) {
                            color = "0.496063 0.393701 0.299213 0.685039";
                            gridBitmap = "tools/gui/images/transp_grid";
-                           autoMap = "0";
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "1";
-                           position = "148 0";
+                           position = "151 0";
                            extent = "18 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4616,11 +4688,10 @@
                         new GuiSwatchButtonCtrl(PE_ColorTintSwatch1) {
                            color = "0.685039 0.606299 0.527559 0.346457";
                            gridBitmap = "tools/gui/images/transp_grid";
-                           autoMap = "0";
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "1";
-                           position = "175 0";
+                           position = "178 0";
                            extent = "18 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4640,11 +4711,10 @@
                         new GuiSwatchButtonCtrl(PE_ColorTintSwatch2) {
                            color = "0.897638 0.84252 0.795276 0";
                            gridBitmap = "tools/gui/images/transp_grid";
-                           autoMap = "0";
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "1";
-                           position = "202 0";
+                           position = "205 0";
                            extent = "18 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4664,11 +4734,10 @@
                         new GuiSwatchButtonCtrl(PE_ColorTintSwatch3) {
                            color = "1 1 1 1";
                            gridBitmap = "tools/gui/images/transp_grid";
-                           autoMap = "0";
                            groupNum = "-1";
                            buttonType = "PushButton";
                            useMouseEvents = "1";
-                           position = "229 0";
+                           position = "232 0";
                            extent = "18 18";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4688,7 +4757,7 @@
                      };
                      new GuiControl() {
                         position = "0 20";
-                        extent = "262 8";
+                        extent = "265 8";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4705,7 +4774,7 @@
                            bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
-                           extent = "261 2";
+                           extent = "264 2";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4721,7 +4790,7 @@
                      };
                      new GuiControl() {
                         position = "0 28";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4745,7 +4814,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4763,10 +4832,10 @@
                            ticks = "0";
                            snap = "0";
                            value = "0.997986";
-                           position = "147 2";
-                           extent = "58 12";
+                           position = "49 2";
+                           extent = "159 12";
                            minExtent = "8 2";
-                           horizSizing = "left";
+                           horizSizing = "width";
                            vertSizing = "bottom";
                            profile = "ToolsSliderProfile";
                            visible = "1";
@@ -4794,7 +4863,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4813,7 +4882,7 @@
                      };
                      new GuiControl() {
                         position = "0 48";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4837,7 +4906,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4855,7 +4924,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "1.99902";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4886,7 +4955,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4905,7 +4974,7 @@
                      };
                      new GuiControl() {
                         position = "0 68";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -4929,7 +4998,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -4947,7 +5016,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "2.49954";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4978,7 +5047,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -4997,7 +5066,7 @@
                      };
                      new GuiControl() {
                         position = "0 88";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -5021,7 +5090,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -5039,7 +5108,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "1";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5070,7 +5139,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5089,7 +5158,7 @@
                      };
                      new GuiControl() {
                         position = "0 108";
-                        extent = "262 8";
+                        extent = "265 8";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -5106,7 +5175,7 @@
                            bitmap = "tlab/gui/assets/gfx/separator-v";
                            wrap = "0";
                            position = "0 3";
-                           extent = "261 2";
+                           extent = "264 2";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -5122,7 +5191,7 @@
                      };
                      new GuiControl() {
                         position = "0 116";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -5146,7 +5215,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -5164,7 +5233,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "0";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5195,7 +5264,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5214,7 +5283,7 @@
                      };
                      new GuiControl() {
                         position = "0 136";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -5238,7 +5307,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -5256,7 +5325,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "0.494118";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5287,7 +5356,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5306,7 +5375,7 @@
                      };
                      new GuiControl() {
                         position = "0 156";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -5330,7 +5399,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -5348,7 +5417,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "1";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5379,7 +5448,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5398,7 +5467,7 @@
                      };
                      new GuiControl() {
                         position = "0 176";
-                        extent = "262 20";
+                        extent = "265 20";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -5422,7 +5491,7 @@
                            anchorLeft = "1";
                            anchorRight = "0";
                            position = "1 0";
-                           extent = "219 18";
+                           extent = "597 18";
                            minExtent = "8 2";
                            horizSizing = "width";
                            vertSizing = "bottom";
@@ -5440,7 +5509,7 @@
                            ticks = "0";
                            snap = "0";
                            value = "1";
-                           position = "147 2";
+                           position = "150 2";
                            extent = "58 12";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5471,7 +5540,7 @@
                            anchorBottom = "0";
                            anchorLeft = "1";
                            anchorRight = "0";
-                           position = "211 0";
+                           position = "214 0";
                            extent = "36 19";
                            minExtent = "8 2";
                            horizSizing = "left";
@@ -5494,55 +5563,88 @@
          };
       };
    };
-   new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/particleEditor/images/play_btn";
-      bitmapMode = "Stretched";
-      autoFitExtents = "0";
-      useModifiers = "0";
-      useStates = "1";
-      groupNum = "-1";
-      buttonType = "PushButton";
-      useMouseEvents = "0";
-      position = "239 25";
-      extent = "18 18";
+   new GuiDynamicCtrlArrayControl() {
+      colCount = "2";
+      colSize = "20";
+      rowCount = "1";
+      rowSize = "20";
+      rowSpacing = "0";
+      colSpacing = "0";
+      frozen = "0";
+      autoCellSize = "0";
+      fillRowFirst = "0";
+      dynamicSize = "1";
+      padding = "0 0 0 0";
+      position = "238 23";
+      extent = "40 20";
       minExtent = "8 2";
       horizSizing = "left";
       vertSizing = "bottom";
-      profile = "ToolsButtonProfile";
+      profile = "ToolsDefaultProfile";
       visible = "1";
       active = "1";
-      command = "ParticleEditor.updateEmitterNode();";
-      tooltipProfile = "ToolsGuiToolTipProfile";
-      tooltip = "Play Particle Effect from Start";
+      tooltipProfile = "GuiToolTipProfile";
       hovertime = "1000";
-      isContainer = "0";
+      isContainer = "1";
       canSave = "1";
       canSaveDynamicFields = "0";
-   };
-   new GuiBitmapButtonCtrl() {
-      bitmap = "tlab/gui/icons/class_assets/camera";
-      bitmapMode = "Stretched";
-      autoFitExtents = "0";
-      useModifiers = "0";
-      useStates = "1";
-      groupNum = "-1";
-      buttonType = "PushButton";
-      useMouseEvents = "0";
-      position = "259 26";
-      extent = "16 16";
-      minExtent = "8 2";
-      horizSizing = "left";
-      vertSizing = "bottom";
-      profile = "ToolsButtonProfile";
-      visible = "1";
-      active = "1";
-      command = "ParticleEditor.resetEmitterNode();";
-      tooltipProfile = "ToolsGuiToolTipProfile";
-      tooltip = "Drops Particle Effect in front of the Camera";
-      hovertime = "1000";
-      isContainer = "0";
-      canSave = "1";
-      canSaveDynamicFields = "0";
+
+      new GuiIconButtonCtrl() {
+         buttonMargin = "3 3";
+         iconBitmap = "tlab/gui/icons/24-assets/media/media2_playfwd.png";
+         iconLocation = "Left";
+         sizeIconToButton = "1";
+         makeIconSquare = "0";
+         textLocation = "Left";
+         textMargin = "4";
+         autoSize = "0";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "0";
+         position = "0 0";
+         extent = "20 20";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "ParticleEditor.updateEmitterNode();";
+         tooltipProfile = "GuiToolTipProfile";
+         tooltip = "Play Particle Effect from Start";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
+      new GuiIconButtonCtrl() {
+         buttonMargin = "3 3";
+         iconBitmap = "tlab/gui/icons/24-assets/cam_3d.png";
+         iconLocation = "Left";
+         sizeIconToButton = "1";
+         makeIconSquare = "0";
+         textLocation = "Left";
+         textMargin = "4";
+         autoSize = "0";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         useMouseEvents = "0";
+         position = "20 0";
+         extent = "20 20";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsButtonProfile";
+         visible = "1";
+         active = "1";
+         command = "ParticleEditor.resetEmitterNode();";
+         tooltipProfile = "GuiToolTipProfile";
+         tooltip = "Drops Particle Effect in front of the Camera";
+         hovertime = "1000";
+         isContainer = "0";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
    };
 };
 //--- OBJECT WRITE END ---

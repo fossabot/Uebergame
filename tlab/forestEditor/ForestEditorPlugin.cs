@@ -175,8 +175,7 @@ function ForestEditorPlugin::onPluginCreated( %this ) {
 
 //==============================================================================
 // Called when the mission file has been saved
-function ForestEditorPlugin::onNewLevelLoaded( %this, %file ) {
-	devLog("ForestEditorPlugin::onNewLevelLoaded");
+function ForestEditorPlugin::onNewLevelLoaded( %this, %file ) {	
 	
 	if (isObject(theForest) && ForestEditorGui.isMethod("setActiveForest"))
 		ForestEditorGui.setActiveForest(theForest);

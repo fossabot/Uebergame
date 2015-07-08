@@ -63,6 +63,7 @@ function SEP_PrecipitationManager::createPrecipitation(%this) {
 		splashMS = $Precipitation::Default_["splashMS"];
 		dataBlock = %this.defaultDatablock;
 	};
+	%precipitation.setFilename(MissionGroup.getFilename());
 	%group = SceneCreatorWindow.getActiveSimGroup();
 	%group.add(%precipitation);
 	SEP_PrecipitationMenu.add(%name,%precipitation.getId());
@@ -280,7 +281,7 @@ function SEP_PrecipitationManager::selectPrecipitationData(%this,%dataId) {
 		%ctrl.setTypeValue(%value);
 	}
 
-	%this.updateFieldValue("dataBlock",%this.selectedPrecipitationDataName);
+	%this.updateFieldValue("data"@"Block",%this.selectedPrecipitationDataName);
 }
 //------------------------------------------------------------------------------
 //==============================================================================

@@ -284,9 +284,8 @@ function GuiEditCanvas::load( %this, %filename ) {
 	// The GUI file should have contained a GUIControl which should now be in the instant
 	// group. And, it should be the only thing in the group.
 	if( !isObject( %guiContent ) ) {
-		ToolsMsgBox( getEngineName(),
-						 "You have loaded a Gui file that was created before this version.  It has been loaded but you must open it manually from the content list dropdown",
-						 "Ok", "Information" );
+		LabMsgOk( getEngineName(),
+						 "You have loaded a Gui file that was created before this version.  It has been loaded but you must open it manually from the content list dropdown");
 		return 0;
 	}
 
@@ -329,7 +328,7 @@ function GuiEditCanvas::save( %this, %selectedOnly, %noPrompt ) {
 		if( !%selected.getCount() )
 			return;
 		else if( %selected.getCount() > 1 ) {
-			ToolsMsgBox( "Invalid selection", "Only a single control hierarchy can be saved to a file.  Make sure you have selected only one control in the tree view." );
+			LabMsgOk( "Invalid selection", "Only a single control hierarchy can be saved to a file.  Make sure you have selected only one control in the tree view." );
 			return;
 		}
 
@@ -446,7 +445,7 @@ function GuiEditCanvas::save( %this, %selectedOnly, %noPrompt ) {
 		%currentObject.setFileName( makeRelativePath( %filename, getMainDotCsDir() ) );
 		GuiEditorStatusBar.print( "Saved file '" @ %currentObject.getFileName() @ "'" );
 	} else
-		ToolsMsgBox( "Error writing to file", "There was an error writing to file '" @ %currentFile @ "'. The file may be read-only.", "Ok", "Error" );
+		LabMsgOk( "Error writing to file", "There was an error writing to file '" @ %currentFile @ "'. The file may be read-only." );
 }
 
 //---------------------------------------------------------------------------------------------
@@ -469,7 +468,7 @@ function GuiEditCanvas::append( %this ) {
 	// Find guiContent.
 
 	if( !isObject( %guiContent ) ) {
-		ToolsMsgBox( "Error loading GUI file", "The GUI content controls could not be found.  This function can only be used with files saved by the GUI editor.", "Ok", "Error" );
+		LabMsgOk( "Error loading GUI file", "The GUI content controls could not be found.  This function can only be used with files saved by the GUI editor." );
 		return;
 	}
 
@@ -497,7 +496,7 @@ function GuiEditCanvas::revert( %this ) {
 	if( %filename $= "" )
 		return;
 
-	if( ToolsMsgBox( "Revert Gui", "Really revert the current Gui?  This cannot be undone.", "OkCancel", "Question" ) == $MROk )
+	if( LabMsgOkCancel( "Revert Gui", "Really revert the current Gui?  This cannot be undone.", "OkCancel", "Question" ) == $MROk )
 		%this.load( %filename );
 }
 

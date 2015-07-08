@@ -205,8 +205,11 @@ function Lab::setCameraViewType( %this, %type ) {
 	if ($LabCameraDisplayType[%type] !$="")
 		%type = $LabCameraDisplayType[%type];
 
+	%typeName = $LabCameraDisplayName[%type];
 	Lab.checkMenuItem("viewTypeMenu",0, 7, %type );
-	EWorldEditorStatusBarCamera.setText(%type);
+
+	EditorGuiStatusBar.setCamera(%typeName,false);
+
 
 	// Store the current camera rotation so we can restore it correctly when
 	// switching back to perspective view
@@ -219,7 +222,7 @@ function Lab::setCameraViewType( %this, %type ) {
 		LocalClientConnection.camera.setRotation( %this.lastPerspectiveCamRotation );
 
 	%this.cameraDisplayType = %type;
-	ECamViewGui.updateCurrentView();
+	ECamViewGui.updateCurrentView();	
 }
 //------------------------------------------------------------------------------
 //==============================================================================

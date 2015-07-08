@@ -50,7 +50,7 @@
 *.psd
 /*_src
 *.max
-/tools
+
 *.lnk
 *.dll
 *.exp

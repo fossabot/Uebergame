@@ -22,15 +22,17 @@ function ETools::toggleTool(%this,%tool) {
 	ETools.visible = true;
 
 	if (%dlg.visible) {
-		%dlg.setVisible(false);
-		%position = getRealCursorPos();
-		%dlg.position = %position;
-		%dlg.position.x -= %dlg.extent.x/2;
+		%this.hideTool(%tool);
+		//%dlg.setVisible(false);
+		//%position = getRealCursorPos();
+		//%dlg.position = %position;
+		//%dlg.position.x -= %dlg.extent.x/2;
 		//%dlg.position.y -= EditorGuiMenubar.extent.y;
 	} else {
-		%dlg.setVisible(true);
+		%this.showTool(%tool);
+		//%dlg.setVisible(true);
 	}
-	
+	return;
 	%hideMe = true;
 	foreach(%gui in %this)
 		if (%gui.visible)
@@ -55,6 +57,9 @@ function ETools::showTool(%this,%tool) {
 		
 	if (isObject(%dlg.linkedButton))
 		%dlg.linkedButton.setStateOn(%dlg.visible);
+		
+	if (%dlg.isMethod("onShow"))
+		%dlg.onShow();
 }
 //------------------------------------------------------------------------------
 
@@ -77,5 +82,8 @@ function ETools::hideTool(%this,%tool) {
 		
 	if (isObject(%dlg.linkedButton))
 		%dlg.linkedButton.setStateOn(%dlg.visible);
+		
+	if (%dlg.isMethod("onHide"))
+		%dlg.onHide();
 }
 //------------------------------------------------------------------------------

@@ -103,6 +103,8 @@ function ShapeEditorPlugin::onActivated(%this) {
 	Lab.fitCameraGui = ShapeEdShapeView;
 	// Try to start with the shape selected in the world editor
 	ShapeEditor.selectWorldEditorShape();	
+	
+	ShapeEditorPlugin.updateAnimBar();
 }
 //------------------------------------------------------------------------------
 //==============================================================================

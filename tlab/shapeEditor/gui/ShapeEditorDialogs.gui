@@ -18,11 +18,15 @@
    tooltipProfile = "GuiToolTipProfile";
    hovertime = "1000";
    isContainer = "1";
+   superClass = "PluginDlg";
    canSave = "1";
    canSaveDynamicFields = "1";
       defaultParent = "GuiGroup";
-      EditorContainer = "5261";
+      EditorContainer = "5260";
       editorParent = "EditorFrameTools";
+      isDlg = "1";
+      plugin = "ShapeEditor";
+      pluginObj = "ShapeEditorPlugin";
 
    new GuiContainer(ShapeEdAnimWindow) {
       docking = "Bottom";
@@ -32,8 +36,8 @@
       anchorBottom = "0";
       anchorLeft = "0";
       anchorRight = "0";
-      position = "0 767";
-      extent = "1123 53";
+      position = "0 778";
+      extent = "1123 42";
       minExtent = "8 2";
       horizSizing = "width";
       vertSizing = "top";
@@ -65,7 +69,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "0 0";
-         extent = "1123 53";
+         extent = "1123 42";
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
@@ -245,10 +249,10 @@
             anchorBottom = "0";
             anchorLeft = "1";
             anchorRight = "0";
-            position = "384 19";
+            position = "384 15";
             extent = "323 24";
             minExtent = "8 2";
-            horizSizing = "right";
+            horizSizing = "center";
             vertSizing = "bottom";
             profile = "ToolsBoxDarkA";
             visible = "1";
@@ -588,6 +592,78 @@
                };
             };
          };
+         new GuiBitmapCtrl() {
+            bitmap = "tlab/shapeEditor/images/trigger_marker";
+            wrap = "0";
+            position = "1234 0";
+            extent = "2 12";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "ToolsDefaultProfile";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            internalName = "trigger5";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+         new GuiBitmapCtrl() {
+            bitmap = "tlab/shapeEditor/images/trigger_marker";
+            wrap = "0";
+            position = "625 0";
+            extent = "2 12";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "ToolsDefaultProfile";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            internalName = "trigger1";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+         new GuiBitmapCtrl() {
+            bitmap = "tlab/shapeEditor/images/trigger_marker";
+            wrap = "0";
+            position = "1213 0";
+            extent = "2 12";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "ToolsDefaultProfile";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            internalName = "trigger2";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+         new GuiBitmapCtrl() {
+            bitmap = "tlab/shapeEditor/images/trigger_marker";
+            wrap = "0";
+            position = "968 0";
+            extent = "2 12";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "ToolsDefaultProfile";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            internalName = "trigger4";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
       };
    };
    new GuiWindowCollapseCtrl(ShapeEdAdvancedWindow,EditorGuiGroup) {
@@ -607,7 +683,7 @@
       anchorBottom = "0";
       anchorLeft = "1";
       anchorRight = "0";
-      position = "450 0";
+      position = "325 0";
       extent = "295 458";
       minExtent = "210 253";
       horizSizing = "left";
@@ -797,8 +873,8 @@
                   canSaveDynamicFields = "0";
                };
                new GuiSliderCtrl() {
-                  range = "0 9";
-                  ticks = "8";
+                  range = "0 1";
+                  ticks = "0";
                   snap = "1";
                   value = "0";
                   position = "5 3";
@@ -936,7 +1012,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiTextCtrl() {
-                        text = "4494";
+                        text = "12834";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -1012,7 +1088,7 @@
                         sinkAllKeyEvents = "0";
                         password = "0";
                         passwordMask = "*";
-                        text = "300";
+                        text = "2";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -1085,7 +1161,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiTextCtrl() {
-                        text = "1044.08";
+                        text = "1719.03";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -1156,7 +1232,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiTextCtrl() {
-                        text = "6.08175";
+                        text = "1.5615";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -1298,7 +1374,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiTextCtrl() {
-                        text = "6";
+                        text = "58";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -1440,7 +1516,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiTextCtrl() {
-                        text = "3639";
+                        text = "15322";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -1511,7 +1587,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiTextCtrl() {
-                        text = "5";
+                        text = "0";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -1581,7 +1657,7 @@
                         canSaveDynamicFields = "0";
                      };
                      new GuiTextCtrl() {
-                        text = "68";
+                        text = "0";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -2915,7 +2991,7 @@
                         fitParentWidth = "1";
                         clipColumnText = "1";
                         position = "3 3";
-                        extent = "226 119";
+                        extent = "226 17";
                         minExtent = "8 11";
                         horizSizing = "right";
                         vertSizing = "bottom";
@@ -3138,7 +3214,7 @@
                      anchorLeft = "1";
                      anchorRight = "0";
                      position = "160 25";
-                     extent = "47 19";
+                     extent = "132 19";
                      minExtent = "8 2";
                      horizSizing = "width";
                      vertSizing = "top";
@@ -3402,6 +3478,7 @@
                         sbUsesNAColor = "0";
                         reverseTextList = "0";
                         bitmapBounds = "16 16";
+                        text = "10-DOP Y";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
