@@ -114,7 +114,7 @@ function TerrainMaterialDlg::changeNormal( %this ) {
 function TerrainMaterialDlg::newMat( %this ) {
 	if (isObject(%this.activeMat)) {
 		LabMsgYesNo("New terrain material","Do you want to clone the current terrain material:" SPC %this.activeMat.internalName SPC " or you prefer to create a blank one?" SPC
-						"Cloned material will be stored in same file as clone, new material will be saved in art/terrains/materials.cs.","TerrainMaterialDlg.cloneMat();","TerrainMaterialDlg.createMat();");
+						"Cloned material will be stored in same file as clone, new material will be saved in art/terrains/materials.cs." NL "Clone current material?","TerrainMaterialDlg.cloneMat();","TerrainMaterialDlg.createMat();");
 	} else
 		%this.createMat();
 }

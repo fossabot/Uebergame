@@ -7,9 +7,30 @@
 //==============================================================================
 // Field Duplicator
 //==============================================================================
-%fs = "extent position command altCommand tooltip internalName";
+%fs = "extent position command altCommand tooltip internalName horizSizing vertSizing profile";
 $GuiEditDuplicator_fields = %fs;
 
+//==============================================================================
+//Lab.buildDuplicatorParams();
+function Lab::buildDuplicatorParams(%this) {
+	%arCfg = createParamsArray("GuiEdit_Duplicator",GuiEdit_DuplicatorStack);
+	%arCfg.updateFunc = "Lab.updateGuiEditDuplicatorField";
+	//%arCfg.style = "LabCfgB_304";
+	%arCfg.useNewSystem = true;
+
+	%arCfg.group[%gid++] = "Select fields to copy";
+	foreach$(%field in $GuiEditDuplicator_fields)
+		%arCfg.setVal(%field,       "" TAB %field TAB "Checkbox" TAB "variable>>$GuiEditDuplicator_"@%field TAB "$GuiEditDuplicator_" TAB %gid);	
+	
+	buildParamsArray(%arCfg,true);
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+// Called from the duplicator fields params and nothing to do yet
+function Lab::updateGuiEditDuplicatorField(%this,%field,%value,%ctrl) {	
+	
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 //Lab.toggleDuplicator();
 function Lab::toggleDuplicator(%this) {

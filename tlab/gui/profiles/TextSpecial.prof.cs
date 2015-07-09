@@ -85,8 +85,9 @@ singleton GuiControlProfile( ToolsTextEditDark : ToolsDefaultProfile ) {
 singleton GuiControlProfile( ToolsTextEditDark_Blue : ToolsTextEditDark ) {  
     bitmap = "tlab/gui/assets/element/GuiTextEditDark_Blue.png";
    bevelColorLL = "Magenta";
-   fontSize = "17";
+   fontSize = "15";
    textOffset = "0 0";
+   justify = "Top";
 };
 //------------------------------------------------------------------------------
 //ToolsTextEditDark Blue border variation

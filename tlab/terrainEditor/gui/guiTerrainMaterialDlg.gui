@@ -13,10 +13,10 @@
    isContainer = "1";
    canSave = "1";
    canSaveDynamicFields = "1";
-      activeMat = "10052";
+      activeMat = "4005";
       folderFilter = "GreenCountry";
-      matIndex = "11";
-      onApplyCallback = "EPainter_TerrainMaterialUpdateCallback";
+      matIndex = "7";
+      onApplyCallback = "EPainter_TerrainMaterialAddCallback";
       surfaceFilter = "All";
       tooltipWidth = "500";
 
@@ -38,7 +38,7 @@
       anchorBottom = "0";
       anchorLeft = "0";
       anchorRight = "0";
-      position = "20 177";
+      position = "214 165";
       extent = "630 603";
       minExtent = "358 432";
       horizSizing = "right";
@@ -281,7 +281,7 @@
                         sbUsesNAColor = "0";
                         reverseTextList = "0";
                         bitmapBounds = "16 16";
-                        text = "GreenCountry";
+                        text = "All";
                         maxLength = "1024";
                         margin = "0 0 0 0";
                         padding = "0 0 0 0";
@@ -442,7 +442,7 @@
                         anchorLeft = "0";
                         anchorRight = "0";
                         position = "0 18";
-                        extent = "112 21";
+                        extent = "112 19";
                         minExtent = "8 2";
                         horizSizing = "width";
                         vertSizing = "bottom";
@@ -535,8 +535,8 @@
                   compareToObjectID = "1";
                   canRenameObjects = "1";
                   renameInternal = "0";
-                  position = "3 3";
-                  extent = "212 462";
+                  position = "3 -3";
+                  extent = "235 609";
                   minExtent = "8 2";
                   horizSizing = "right";
                   vertSizing = "bottom";
@@ -697,9 +697,9 @@
                };
                new GuiIconButtonCtrl() {
                   buttonMargin = "1 1";
-                  iconBitmap = "tlab/gui/icons/tools-assets/file_new.png";
+                  iconBitmap = "tlab/gui/icons/24-assets/clone.png";
                   iconLocation = "Left";
-                  sizeIconToButton = "0";
+                  sizeIconToButton = "1";
                   makeIconSquare = "0";
                   textLocation = "Left";
                   textMargin = "4";
@@ -726,7 +726,7 @@
                   buttonMargin = "1 1";
                   iconBitmap = "tlab/gui/icons/24-assets/trash.png";
                   iconLocation = "Left";
-                  sizeIconToButton = "0";
+                  sizeIconToButton = "1";
                   makeIconSquare = "0";
                   textLocation = "Left";
                   textMargin = "4";
@@ -802,7 +802,7 @@
                sinkAllKeyEvents = "0";
                password = "0";
                passwordMask = "*";
-               text = "gc_GroundRocky_A";
+               text = "gc_GrassLush_A";
                maxLength = "1024";
                margin = "0 0 0 0";
                padding = "0 0 0 0";
@@ -938,7 +938,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiTextCtrl() {
-                     text = "Diffuse_DirtA";
+                     text = "GrassLush_A_col";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -990,7 +990,7 @@
                      sinkAllKeyEvents = "0";
                      password = "0";
                      passwordMask = "*";
-                     text = "256";
+                     text = "128";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -1119,7 +1119,7 @@
                      canSaveDynamicFields = "0";
 
                      new GuiBitmapCtrl() {
-                        bitmap = "art/terrains/GreenCountry/Diffuse/Diffuse_DirtA";
+                        bitmap = "art/terrains/GreenCountry/Grass/GrassLush_A_col";
                         wrap = "0";
                         position = "1 1";
                         extent = "64 64";
@@ -1186,7 +1186,7 @@
                      canSaveDynamicFields = "0";
 
                      new GuiBitmapCtrl() {
-                        bitmap = "art/terrains/GreenCountry/Ground/GroundRocky_A_detail";
+                        bitmap = "art/terrains/GreenCountry/Grass/GrassLush_A_detail";
                         wrap = "0";
                         position = "1 1";
                         extent = "64 64";
@@ -1228,7 +1228,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiTextCtrl() {
-                     text = "GroundRocky_A_detail";
+                     text = "GrassLush_A_detail";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -1280,7 +1280,7 @@
                      sinkAllKeyEvents = "0";
                      password = "0";
                      passwordMask = "*";
-                     text = "10";
+                     text = "25";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -1611,7 +1611,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiTextCtrl() {
-                     text = "GroundRocky_A_n";
+                     text = "grass_sparse_mossy_normal";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -1663,7 +1663,7 @@
                      sinkAllKeyEvents = "0";
                      password = "0";
                      passwordMask = "*";
-                     text = "0";
+                     text = "0.05";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -1713,7 +1713,7 @@
                      canSaveDynamicFields = "0";
 
                      new GuiBitmapCtrl() {
-                        bitmap = "art/terrains/GreenCountry/Ground/GroundRocky_A_n";
+                        bitmap = "art/terrains/UberPack/grass/grass_sparse_mossy_normal";
                         wrap = "0";
                         position = "1 1";
                         extent = "64 64";
@@ -1777,7 +1777,7 @@
                      canSaveDynamicFields = "0";
                   };
                   new GuiTextCtrl() {
-                     text = "Dirt_B";
+                     text = "Grassy_A_spec";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -1829,7 +1829,7 @@
                      sinkAllKeyEvents = "0";
                      password = "0";
                      passwordMask = "*";
-                     text = "31";
+                     text = "200";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -1881,7 +1881,7 @@
                      sinkAllKeyEvents = "0";
                      password = "0";
                      passwordMask = "*";
-                     text = "0.8";
+                     text = "0.7";
                      maxLength = "1024";
                      margin = "0 0 0 0";
                      padding = "0 0 0 0";
@@ -2062,7 +2062,7 @@
                      canSaveDynamicFields = "0";
 
                      new GuiBitmapCtrl() {
-                        bitmap = "art/terrains/GreenCountry/Macro/Dirt_B";
+                        bitmap = "art/terrains/GreenCountry/Macro/Grassy_A_spec";
                         wrap = "0";
                         position = "1 1";
                         extent = "64 64";
