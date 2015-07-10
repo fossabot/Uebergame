@@ -3,30 +3,49 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 // Allow to update multiple GUIs sharing same GuiGroup at same time
+// Usage:
+// Add a guiGroup field with a value representing a data which is used by others
+// To update a GuiControl with the same GuiGroup all at once, use doGuiGroupAction
+// function in which you can specified multiple action to be called on all controls
+// in the GuiGroup. Actions can be a function ("setValue(100);" or a value("value = 100;")
 //==============================================================================
 
 //==============================================================================
-// Add a GuiControl to it's GuiGroup SimSet
-function addCtrlToGuiGroup(%ctrl) {
-    //logd("addCtrlToGuiGroup(%ctrl)",%ctrl);
-    
-    //Leave if invalid object
-    if (!isObject(%ctrl)) return;
+/// Add a GuiControl to a GuiGroup. Called in general from onAdd method but can
+/// be used to add dynamically from script a Ctrl to a group
+/// %ctrl: The control to add to the GuiGroup
+/// %guiGroup(opt.): The GuiGroup to which the control will be assigned. If no
+///      GuiGroup specified, it must be set in the ctrl already.
+function addCtrlToGuiGroup(%ctrl,%guiGroup) {   
+	//Leave if invalid object
+	if (!isObject(%ctrl)) return;
+	
+	//Assign GuiGroup to control if specified
+	if (%guiGroup !$= "")
+    	%ctrl.guiGroup = %guiGroup;
+	
+	//Exit if not guiGroup found
+	if (%ctrl.guiGroup $= "") return;
 
-    %group = $GuiGroup_[%ctrl.guiGroup];
+	//Get the SimSet GuiGroup object or create if inexistant
+	%group = $GuiGroup_[%ctrl.guiGroup];
     if (!isObject(%group)) {
         %group = newSimSet("GuiGroup_"@%ctrl.guiGroup,$Group_GuiGroup);
     }
+    //Return if the ctrl is already part of the group
     else if (%group.getObjectIndex(%ctrl) >= 0){
        //warnLog("Object:",%ctrl.getName(),"is already in the group:",%ctrl.guiGroup);       
        return;
     }
+    //Add ctrl to the GuiGroup
     %group.add(%ctrl);
 
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-// Add a GuiControl to it's GuiGroup SimSet
+/// Get the list of the Control IDs contained in a group.
+/// %groupType: name of the GuiGroup to be searched
+/// Return: List of Ctrl IDs seperated with space
 function getGuiGroupList(%groupType) {
     //logd("addCtrlToGuiGroup(%ctrl)",%ctrl);
     %group = $GuiGroup_[%groupType];

@@ -16,11 +16,13 @@
 /// @sourceCtrl The control use as drag source
 /// @defaultCallback Function to call when default onControlDropped is called
 /// @dropType Variable used to validate the dropped ON control
-function startDragAndDropCtrl( %sourceCtrl,%defaultCallback,%dropType ){
+function startDragAndDropCtrl( %sourceCtrl,%dropType,%defaultCallback,%failCallback ){
    if (!isObject(%sourceCtrl)){
       warnLog("Trying to drop something that is not an object:",%sourceCtrl);
       return;
    }  
+   if (%failCallback $= "")
+   	%failCallback = "DragFailed";
    // First we construct a new temporary swatch button that becomes the payload for our
    // drag operation and give it the properties of the swatch button we want to copy.
    %payload = %sourceCtrl.deepClone();
@@ -30,6 +32,7 @@ function startDragAndDropCtrl( %sourceCtrl,%defaultCallback,%dropType ){
    %payload.dropType = %dropType;
    %payload.failOnDefault = true;
 %payload.defaultCallback = %defaultCallback;
+%payload.failCallback = %failCallback;
    // Calculate the offset of the GuiDragAndDropControl from the mouse cursor.  Here we center
    // it on the cursor.
 
@@ -78,7 +81,7 @@ function startDragAndDropCtrl( %sourceCtrl,%defaultCallback,%dropType ){
 }
 
 //==============================================================================
-// SimObject / SimGroup Helpers
+// OLD DRAG AND DROPPED TO BE REMOVED ONCE CONFIRMED
 //==============================================================================
 /// Drag a ctrl and drop it in container with field set to dropType only
 /// @dropType The control will only be dropped in ctrl with dropType field
@@ -153,22 +156,34 @@ function dragAndDropCtrl( %sourceCtrl,%dropType,%failCallback,%useDefault ){
 //==============================================================================
 
 //==============================================================================
-// Initialize the client-side scripts
+/// Called when a drag&drop operation through GuiDragAndDropControl has entered the control. 
+/// This is only called for topmost visible controls as the GuiDragAndDropControl moves over them.
+/// @param control The payload of the drag operation.
+/// @param dropPoint The point at which the payload would be dropped if it were released now.  Relative to the canvas.
 function GuiControl::onControlDragEnter(%this, %control,%dropPoint) {  
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-// Initialize the client-side scripts
+/// Called when a drag&drop operation through GuiDragAndDropControl has exited the control and moved over a different control.  
+/// This is only called for topmost visible controls as the GuiDragAndDropControl moves off of them.
+/// @param control The payload of the drag operation.
+/// @param dropPoint The point at which the payload would be dropped if it were released now.  Relative to the canvas.
 function GuiControl::onControlDragExit(%this, %control, %dropPoint) {  
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-// Initialize the client-side scripts
+/// Called when a drag&drop operation through GuiDragAndDropControl is moving across the control after it has entered it. 
+/// This is only called for topmost visible controls as the GuiDragAndDropControl moves across them.
+/// @param control The payload of the drag operation.
+/// @param dropPoint The point at which the payload would be dropped if it were released now.  Relative to the canvas.
 function GuiControl::onControlDragged(%this, %control, %dropPoint) {  
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-// Initialize the client-side scripts
+/// Called when a drag&drop operation through GuiDragAndDropControl has completed and is dropping its payload onto the control.
+/// This is only called for topmost visible controls as the GuiDragAndDropControl drops its payload on them.
+/// @param control The control that is being dropped onto this control.
+/// @param dropPoint The point at which the control is being dropped.  Relative to the canvas.
 function GuiControl::onControlDropped(%this, %control, %dropPoint) {  
 	
 	if (%control.defaultCallback !$= ""){		

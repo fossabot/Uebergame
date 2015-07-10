@@ -1,27 +1,28 @@
 //==============================================================================
-// GameLab ->
+// HelpersLab -> GuiFrameSetCtrl helpers 
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
+// Initial implementation and not used yet - Would be expanded once needed
 //==============================================================================
-//==============================================================================
-// String Manipulation Helpers
-//==============================================================================
+
 //==============================================================================
 // Set a new rows value and refresh the frame set
+/// Rows are set like: %rowA_Y SPC %rowB_Y ... SPC %rowZ_Y;
 function GuiFrameSetCtrl::setRows(%this,%rows,%fitAll){
 	%this.rows = %rows;
 	%this.updateSizes();
 	
 }
-
+//------------------------------------------------------------------------------
 //==============================================================================
-// Set a new rows value and refresh the frame set
+/// Hide a GuiFrameSet child and push it to back
 function GuiFrameSetCtrl::hideCtrl(%this,%ctrl){
 	hide(%ctrl);
 	%this.pushToBack(%ctrl);
 }
+//------------------------------------------------------------------------------
 //==============================================================================
-// Set a new rows value and refresh the frame set
+/// Show a GuiFrameSet child and reorder it to index 
 function GuiFrameSetCtrl::showCtrl(%this,%ctrl,%index){
 	
 	show(%ctrl);	
@@ -36,6 +37,7 @@ function GuiFrameSetCtrl::showCtrl(%this,%ctrl,%index){
 	
 	%this.reorderChild(%ctrl, %currentIndexHolder);	
 }	
+//------------------------------------------------------------------------------
 //==============================================================================
 // References
 //==============================================================================

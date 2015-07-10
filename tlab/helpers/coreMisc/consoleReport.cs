@@ -1,7 +1,10 @@
 //==============================================================================
-// GameLab Helpers -> Console Reporting helpers
+// HelpersLab -> Console Reporting helpers
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
+// Those functions are meant to replace echo(), warning() and error() console
+// logging with something slightly more advanced and flexible. You can define
+// the levels of logging to only show the logs that you need.
 //==============================================================================
 $pref::Dev::TraceLogLevel = 5;
 $pref::Console::ShowNotes = 1;
@@ -189,7 +192,28 @@ function loge(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a12)
 //------------------------------------------------------------------------------
 
 //==============================================================================
-//DevLog: Show a log to the console for development
+/// Warning log are used to show warning and errors in console with their own style
+/// to make it easier to spot them.
+//------------------------------------------------------------------------------
+function warnLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a12) {
+
+	%echo = "\c3Warning==>\c4" SPC %text;
+
+	%i = 1;
+	while(%a[%i] !$="") {
+		%id = %i;
+		if (%id > 9) %id = %id - 9;
+		%echo = %echo SPC $LogCol[%id] SPC %a[%i];
+		%i++;
+	}
+	echo(%echo);
+}
+//------------------------------------------------------------------------------
+
+//==============================================================================
+// Development log are made to be easy to found in console and should be used
+// by developpers to keep track of some data
+//------------------------------------------------------------------------------
 function devLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a12) {
 	if ($pref::Console::DevLogLevel <= 0)
 		return;
@@ -207,8 +231,11 @@ function devLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a1
 
 }
 //------------------------------------------------------------------------------
+
 //==============================================================================
-//DevLog: Show a log to the console for development
+// Mouse log are made specifically for mouse event reporting and have it's own
+// pref because onMouseMove can fill the console very quickly.
+//------------------------------------------------------------------------------
 function mouseLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a12) {
 	if (!$pref::Console::MouseLog)
 		return;
@@ -216,7 +243,8 @@ function mouseLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-//DevLog: Show a log to the console for development
+//Mouse Drag log are made specifically for tracking mouse dragging and use
+// a delay determined in prefs for the time between each report.
 function mouseDragLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a12) {
 	if (!$pref::Console::MouseDragLog)
 		return;
@@ -228,7 +256,8 @@ function mouseDragLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a1
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-//DevLog: Show a log to the console for development
+/// Mouse move log are made specifically for tracking mouse move and use
+/// a delay determined in prefs for the time between each report.
 function mouseMoveLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a12) {
 	if (!$pref::Console::MouseMoveLog)
 		return;
@@ -239,41 +268,9 @@ function mouseMoveLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a1
    devLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a12);
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-//WarnLog: Show a warning log about something wrong
-function warnLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a12) {
 
-	%echo = "\c3Warning==>\c4" SPC %text;
 
-	%i = 1;
-	while(%a[%i] !$="") {
-		%id = %i;
-		if (%id > 9) %id = %id - 9;
-		%echo = %echo SPC $LogCol[%id] SPC %a[%i];
-		%i++;
-	}
-	echo(%echo);
-}
-//------------------------------------------------------------------------------
 
-//==============================================================================
-//WarnLog: Show a warning log about something wrong
-function debugLog(%text,%a1, %a2, %a3, %a4,%a5, %a6, %a7, %a8,%a9, %a10, %a11, %a12) {
-	
-	if (!isDebugBuild())
-		return;
-	%echo = "\c3Debug Log==>\c4" SPC %text;
-
-	%i = 1;
-	while(%a[%i] !$="") {
-		%id = %i;
-		if (%id > 9) %id = %id - 9;
-		%echo = %echo SPC $LogCol[%id] SPC %a[%i];
-		%i++;
-	}
-	echo(%echo);
-}
-//------------------------------------------------------------------------------
 
 
 // Writes out all script functions to a file.
