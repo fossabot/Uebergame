@@ -252,7 +252,7 @@ function PluginIcon::onMouseDragged( %this,%a1,%a2,%a3 ) {
 		return;
 	}
 
-	dragAndDropCtrl(%this,"PluginIcon","DragFailed");
+	startDragAndDropCtrl(%this,"PluginIcon");
 	hide(%this);
 	Lab.openDisabledPluginsBin(true);
 }
@@ -326,7 +326,7 @@ function PluginIcon::onControlDropped( %this,%ctrl,%position ) {
 
 //==============================================================================
 function DisabledPluginIcon::onMouseDragged( %this,%a1,%a2,%a3 ) {
-	dragAndDropCtrl(%this,"PluginIcon","DragFailed");
+	startDragAndDropCtrl(%this,"PluginIcon");
 	hide(%this);
 	Lab.openDisabledPluginsBin(true);
 }

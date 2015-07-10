@@ -14,7 +14,7 @@ function ToolbarIcon::onMouseDragged( %this,%a1,%a2,%a3 ) {
 		return;
 	}
 
-	startDragAndDropCtrl(%this,"Lab.onToolbarIconDroppedDefault","Toolbar");
+	startDragAndDropCtrl(%this,"Toolbar","Lab.onToolbarIconDroppedDefault");
 	hide(%this);
 }
 //------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ function ToolbarBoxChild::onMouseDragged( %this,%a1,%a2,%a3 ) {
 	}
 
 	%src = %this.parentGroup;
-	startDragAndDropCtrl(%src,"Lab.onToolbarIconDroppedDefault","Toolbar");
+	startDragAndDropCtrl(%src,"Toolbar","Lab.onToolbarIconDroppedDefault");
 	hide(%src);
 }
 //------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ function ToolbarGroup::onMouseDragged( %this,%a1,%a2,%a3 ) {
 	if (%group.getClassName() !$= "GuiStackControl")
 		return;
 
-	startDragAndDropCtrl(%group,"Lab.onToolbarIconDroppedDefault","Toolbar");
+	startDragAndDropCtrl(%group,"Toolbar","Lab.onToolbarIconDroppedDefault");
 	hide(%group);
 }
 //------------------------------------------------------------------------------
@@ -269,7 +269,7 @@ function NewToolbarGroup::onMouseDragged( %this,%a1,%a2,%a3 ) {
 
 	%group = %this.parentGroup;
 	%group.isNewGroup = true;
-	startDragAndDropCtrl(%group,"Lab.onToolbarIconDroppedDefault","Toolbar");
+	startDragAndDropCtrl(%group,"Toolbar","Lab.onToolbarIconDroppedDefault");
 }
 //------------------------------------------------------------------------------
 

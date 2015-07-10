@@ -195,15 +195,17 @@ function ForestEditorPlugin::clearDirty( %this ) {
 function ForestEditorPlugin::onSaveMission( %this, %missionFile ) {
 	devLog("ForestEditorPlugin::onSaveMission");
 	ForestDataManager.saveDirty();
-	%file = theForest.datafile;
+	if (isObject(theForest)){
+		%file = theForest.datafile;
 
-	if (!isFile(%file))
-		%file = filePath(theForest.getFilename())@"/data.forest";
+		if (!isFile(%file))
+			%file = filePath(theForest.getFilename())@"/data.forest";
 
-	//%file = strreplace(theForest.getFilename(),".mis",".forest");
+		//%file = strreplace(theForest.getFilename(),".mis",".forest");
 
-	if (isFile(%file))
-		theForest.saveDataFile(%file);
+		if (isFile(%file))
+			theForest.saveDataFile(%file);
+	}
 		
 	FEP_Manager.saveBrushData();
 	

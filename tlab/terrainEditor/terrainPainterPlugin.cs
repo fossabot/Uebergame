@@ -58,7 +58,10 @@ function TerrainPainterPlugin::onWorldEditorStartup( %this ) {
 
 function TerrainPainterPlugin::onActivated( %this ) {
 	Parent::onActivated( %this );
-	EWTerrainPainterToolbarBrushType->ellipse.performClick();// Circle Brush
+	if( !isObject( ETerrainMaterialPersistMan ) )
+		new PersistenceManager( ETerrainMaterialPersistMan );
+		
+	EWTerrainPainterToolbar-->ellipse.performClick();// Circle Brush
 	
 	EditorGui.bringToFront( ETerrainEditor );
 	ETerrainEditor.setVisible( true );

@@ -79,7 +79,8 @@ function EditorGui::shutdown( %this ) {
 	// Store settings.
 	LabCfg.write();
 	// Deactivate current editor.
-	Lab.setEditor( "" );
+	if ( isObject( Lab.currentEditor ) && Lab.currentEditor.isActivated)
+		Lab.currentEditor.onDeactivated();
 
 	// Call the shutdown callback on the editor plugins.
 	foreach( %plugin in EditorPluginSet )

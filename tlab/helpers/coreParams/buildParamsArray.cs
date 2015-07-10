@@ -162,16 +162,7 @@ function buildParamsArray( %array,%syncAfter ) {
 
 		if (%pData.Title $= "") %pData.Title = %pData.Setting;
 
-		%pData.InternalName = %pData.Setting;
-		%pData.Variable = "";
-
-		if (getSubStr(%pData.InternalName,0,1) $= "$") {
-			%pData.Variable = %pData.InternalName;
-			%pData.InternalName = strreplace(%pData.InternalName,"$","");
-			%pData.InternalName = strreplace(%pData.InternalName,"::","__");
-			devLog("EVALUATING:","%pData.Value = "@%pData.Variable@";");
-			eval("%pData.Value = "@%pData.Variable@";");
-		}
+		
 
 		%pillSrc = %pData.Type;
 
@@ -214,7 +205,22 @@ function buildParamsArray( %array,%syncAfter ) {
 			%pData.OptionCmd[%pData.Setting,%optField] = "."@%optField@" = \""@ %optCmd  @"\";";
 			%pData.OptionList[%pData.Setting] = trim(%pData.OptionList[%pData.Setting] SPC %optField);
 		}
+		
+		%pData.InternalName = %pData.Setting;
+		%pData.Variable = "";
 
+		if (getSubStr(%pData.InternalName,0,1) $= "$") {
+			%pData.Variable = %pData.InternalName;
+			%pData.InternalName = strreplace(%pData.InternalName,"$","");
+			%pData.InternalName = strreplace(%pData.InternalName,"::","__");
+			devLog("EVALUATING:","%pData.Value = "@%pData.Variable@";");
+			eval("%pData.Value = "@%pData.Variable@";");
+		}
+		
+		
+		if (%pData.Option[%pData.Setting,"variable"] !$= "")
+			%pData.Variable = %pData.Option[%pData.Setting,"variable"];
+			
 		%tmpFieldValue = %pData.Value;
 		%multiplier = 1;
 		%tooltip = %pData.Option[%pData.Setting,"tooltip"];

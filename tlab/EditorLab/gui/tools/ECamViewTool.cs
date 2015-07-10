@@ -110,7 +110,7 @@ function ECamViewToolDrag::onMouseDragged( %this,%a1,%a2,%a3 ) {
 		warnLog("Can't find cam box to drag!",%dragCtrl);
 		return;
 	}
-	dragAndDropCtrl(%dragCtrl);
+	startDragAndDropCtrl(%dragCtrl);
 	hide(%dragCtrl);
 }
 //------------------------------------------------------------------------------

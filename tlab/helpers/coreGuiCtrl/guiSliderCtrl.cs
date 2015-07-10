@@ -1,9 +1,11 @@
 //==============================================================================
-// Boost! -> Helper functions for common settings GUI needs
+// HelpersLab! -> GuiSliderCtrl helpers
 // Copyright NordikLab Studio, 2013
+//------------------------------------------------------------------------------
 //==============================================================================
 
-
+//==============================================================================
+// Get the amount of ticks needed for a range and a tick step size desired
 function getTicksFromRange(%range,%stepSize) {
 	%min = %range.x;
 	%max = %range.y;
@@ -17,3 +19,4 @@ function getTicksFromRange(%range,%stepSize) {
 	return %stepSafe - 1;
    
 }
+//------------------------------------------------------------------------------
