@@ -4,8 +4,60 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 //"art/terrains/*.cs";
-$TerrainMaterialFolders="art/textures/FarmPack/Terrains/" TAB "art/";
+$TerrainMaterialFolders="art/Terrains/";
 
+
+//==============================================================================
+function TerrainMaterialDlg::refreshMaterialTree( %this,%selected ) {
+	// Refresh the material list.
+	%matLibTree = %this-->matLibTree;
+	%matLibTree.clear();
+	%matLibTree.open( FilteredTerrainMaterialsSet, false );
+	%matLibTree.buildVisibleTree( true );
+	%item = %matLibTree.getFirstRootItem();
+	%matLibTree.expandItem( %item );
+	%this.activateMaterialCtrls( true );
+}
+//------------------------------------------------------------------------------
+
+//==============================================================================
+function TerrainMaterialDlg::selectObjectInTree( %this,%matObjectId,%selectFirstIfInvalid ) {	
+	%matLibTree = %this-->matLibTree;
+	%matLibTree.clearSelection();
+	%item = %matLibTree.findItemByObjectId( %matObjectId );
+
+	if ( %item != -1 ) {
+		%matLibTree.selectItem( %item );
+		%matLibTree.scrollVisible( %item );
+	} else if (%selectFirstIfInvalid) {
+		for( %i = 1; %i < %matLibTree.getItemCount(); %i++ ) {
+			%terrMat = TerrainMaterialDlg-->matLibTree.getItemValue(%i);
+
+			if( %terrMat.getClassName() $= "TerrainMaterial" ) {
+				%matLibTree.selectItem( %i, true );
+				%matLibTree.scrollVisible( %i );
+				break;
+			}
+		}
+	}
+
+}
+//------------------------------------------------------------------------------
+
+//==============================================================================
+function TerrainMaterialTreeCtrl::onSelect( %this, %item ) {
+	TerrainMaterialDlg.setActiveMaterial( %item );
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function TerrainMaterialTreeCtrl::onUnSelect( %this, %item ) {
+	if ($TerrainMatDlg_SaveWhenUnselected)
+		TerrainMaterialDlg.saveDirtyMaterial( %item );
+	else
+		warnLog("Saving when unselect material is disabled");
+	TerrainMaterialDlg.setActiveMaterial( 0 );
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 function TerrainMaterialDlg::initFiltersData( %this ) {
 	%folderMenu = %this-->menuFolders;
@@ -56,11 +108,22 @@ function TerrainMaterialDlg::initFiltersData( %this ) {
 
 //==============================================================================
 function TerrainMaterialDlg::changeFolderFilter( %this ) {
+	%this.canSaveDirty = false;
 	%folderMenu = %this-->menuFolders;
 	%id = %folderMenu.getSelected();
 	%folder = %folderMenu.getTextById(%id);
 	TerrainMaterialDlg.folderFilter = %folder;
 	%this.setFilteredMaterialsSet();
+	%matLibTree = %this-->matLibTree;
+	%matLibTree.clearSelection();
+		
+	%item = %matLibTree.findItemByObjectId( %this.activeMat );
+
+	if ( %item $= "-1" ) {
+		%item = FilteredTerrainMaterialsSet.getObject(0);
+		%matLibTree.selectItem( %item );
+		%matLibTree.scrollVisible( %item );
+	}
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -106,14 +169,8 @@ function TerrainMaterialDlg::applyMaterialFilters( %this ) {
 			}
 		}
 
-		if (!$Cfg_MaterialEditor_ShowMaterialClones) {
-			%len = strlen(%mat.getName());
-			%twoLast = getSubStr(%mat.getName(),%len-2);
-
-			if(%twoLast $= "_1" || %twoLast $= "_2" || %twoLast $= "_3" || %twoLast $= "_4") {
-				%hideMe = true;
-			}
-		}
+		if (!$Cfg_MaterialEditor_ShowGroundCoverMaterial && (%mat.isGroundCoverMat || %mat.isGroundCoverMat $= "1") ) 
+			%hideMe = true;
 
 		if (%hideMe) {
 			%matLibTree.removeItem(%item);
@@ -132,6 +189,7 @@ function TerrainMaterialDlg::applyMaterialFilters( %this ) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
+
 function TerrainMaterialDlg::setFilteredMaterialsSet( %this,%reset ) {
 	FilteredTerrainMaterialsSet.clear();
 
@@ -166,15 +224,9 @@ function TerrainMaterialDlg::setFilteredMaterialsSet( %this,%reset ) {
 			}
 		}
 
-		if (!$Cfg_MaterialEditor_ShowMaterialClones) {
-			%len = strlen(%mat.getName());
-			%twoLast = getSubStr(%mat.getName(),%len-2);
-
-			if(%twoLast $= "_1" || %twoLast $= "_2" || %twoLast $= "_3" || %twoLast $= "_4") {
-				%hideMe = true;
-			}
-		}
-
+		if (!$Cfg_MaterialEditor_ShowGroundCoverMaterial && (%mat.isGroundCoverMat || %mat.isGroundCoverMat $="1") ) 
+			%hideMe = true;
+			
 		if (!%hideMe) {
 			FilteredTerrainMaterialsSet.add(%mat);
 		}

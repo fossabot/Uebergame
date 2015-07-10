@@ -15,8 +15,9 @@ function EPainter::onActivated( %this ) {
 	hide(EPainter_LayerMixedSrc);
 	EPainter_DisplayMode.clear();
 	EPainter_DisplayMode.add("Compact listing",0);
-	EPainter_DisplayMode.add("Extended listing",1);
+	EPainter_DisplayMode.add("Detailled listing",1);
 	EPainter_DisplayMode.add("Mixed listing",2);
+	EPainter_DisplayMode.add("Extended listing",3);
 	EPainter_DisplayMode.setSelected($EPainter_DisplayMode,false);
 	// Update the layer listing.
 	%this.updateLayers( %matIndex );
@@ -41,7 +42,8 @@ function EPainter_DisplayMode::onSelect( %this,%id,%text ) {
 //==============================================================================
 // Painter Active Layers Functions
 //==============================================================================
-$PainterMatFields = "detailMap detailSize detailStrength detailDistance macroMap macroSize macroStrength macroDistance diffuseSize diffuseMap";
+$PainterMatFields = "detailMap detailSize detailStrength detailDistance macroMap macroSize macroStrength macroDistance diffuseSize diffuseMap parallaxScale";
+
 //==============================================================================
 // Update the active material layers list
 function EPainter::updateLayers( %this, %matIndex ) {
@@ -58,6 +60,8 @@ function EPainter::updateLayers( %this, %matIndex ) {
 		%ctrlSrc = EPainter_LayerSrc;
 	else if ($EPainter_DisplayMode $= "2")
 		%ctrlSrc = EPainter_LayerMixedSrc;
+	else if ($EPainter_DisplayMode $= "3")
+		%ctrlSrc = EPainter_LayerExtendedSrc;
 	else
 		%ctrlSrc = EPainter_LayerCompactSrc;
 
@@ -65,6 +69,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
 	hide(EPainter_LayerSrc);
 	hide(EPainter_LayerCompactSrc);
 	hide(EPainter_LayerMixedSrc);
+	hide(EPainter_LayerExtendedSrc);
 	show(EPainterStack);
 	EPainterStack.clear();
 
@@ -82,11 +87,14 @@ function EPainter::updateLayers( %this, %matIndex ) {
 		%ctrl = cloneObject(%ctrlSrc,"","Layer_"@%index,EPainterStack);
 		%ctrl.terrainMat = %mat;
 		%ctrl.layerId = %i;
-		%bitmapButton = %ctrl-->bitmapButton;
-		//%bitmapButton.internalName = "EPainterMaterialButton" @ %i;
-		%bitmapButton.command = %command;
-		%bitmapButton.altCommand = %altCommand;
-		%bitmapButton.setBitmap( %mat.diffuseMap );
+		if ($EPainter_DisplayMode !$= "3") {
+			%bitmapButton = %ctrl-->bitmapButton;
+			//%bitmapButton.internalName = "EPainterMaterialButton" @ %i;
+			%bitmapButton.command = %command;
+			%bitmapButton.altCommand = %altCommand;
+			%bitmapButton.setBitmap( %mat.diffuseMap );
+		}
+		
 		%editButton = %ctrl-->editButton;
 		%editButton.command =  "TerrainMaterialDlg.show( " @ %index @ ", " @ %mat @ ", EPainter_TerrainMaterialUpdateCallback );";
 		%deleteButton = %ctrl-->deleteButton;
@@ -115,6 +123,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
 			}
 		} else if ($EPainter_DisplayMode $= "2") {
 			%ctrl-->extendButton.baseCtrl = %ctrl;
+			%ctrl-->detailButton.baseCtrl = %ctrl;
 			%compactCtrl = %ctrl-->compactCtrl;
 			%compactCtrl-->matName.text = %matInternalName;
 			%bitmapButtonCompact = %compactCtrl-->bitmapButton;
@@ -130,15 +139,57 @@ function EPainter::updateLayers( %this, %matIndex ) {
 			%mouseEvent.dragClone = %compactCtrl;
 			%compactCtrl-->ctrlActive.visible = 0;
 			%compactCtrl-->dropLayer.visible = 0;
+			
+			//---------------------------------------------------------------------
+			// Detailled View
+			%detailledCtrl = %ctrl-->detailledCtrl;
+			%detailledCtrl-->matName.text = %matInternalName;
+			%detailledCtrl-->ctrlActive.visible = 0;
+			%detailledCtrl-->dropLayer.visible = 0;
+			%bitmapButtonDet = %detailledCtrl-->bitmapButton;
+			//%bitmapButtonExt.internalName = "EPainterMaterialButton" @ %i;
+			%bitmapButtonDet.command = %command;
+			%bitmapButtonDet.altCommand = %altCommand;
+			//%bitmapButtonExt.setBitmap( %mat.diffuseMap );
+			%mouseEventDet = %detailledCtrl-->mouseEvent;
+			%mouseEventDet.command = %command;
+			%mouseEventDet.altCommand = %altCommand;
+			%mouseEventDet.superClass = "PainterLayerMouse";
+			%mouseEventDet.baseCtrl = %ctrl;
+			%mouseEventDet.dragClone = %detailledCtrl;
+			
+			//---------------------------------------------------------------------
+			// Extended View
 			%extendedCtrl = %ctrl-->extendedCtrl;
 			%extendedCtrl-->matName.text = %matInternalName;
 			%extendedCtrl-->ctrlActive.visible = 0;
 			%extendedCtrl-->dropLayer.visible = 0;
-			%bitmapButtonExt = %extendedCtrl-->bitmapButton;
-			//%bitmapButtonExt.internalName = "EPainterMaterialButton" @ %i;
-			%bitmapButtonExt.command = %command;
-			%bitmapButtonExt.altCommand = %altCommand;
-			//%bitmapButtonExt.setBitmap( %mat.diffuseMap );
+		
+			%extendedCtrl-->bitmapDiffuse.command = %command;
+			%extendedCtrl-->bitmapDiffuse.altCommand = %altCommand;
+			%extendedCtrl-->bitmapDiffuse.setBitmap( %mat.diffuseMap );
+			
+			%extendedCtrl-->bitmapDetail.command = %command;
+			%extendedCtrl-->bitmapDetail.altCommand = %altCommand;
+			%extendedCtrl-->bitmapDetail.setBitmap( %mat.detailMap );
+			
+			%extendedCtrl-->bitmapNormal.command = %command;
+			%extendedCtrl-->bitmapNormal.altCommand = %altCommand;
+			%extendedCtrl-->bitmapNormal.setBitmap( %mat.normalMap );
+			
+			%extendedCtrl-->bitmapMacro.command = %command;
+			%extendedCtrl-->bitmapMacro.altCommand = %altCommand;
+			%extendedCtrl-->bitmapMacro.setBitmap( %mat.macroMap );
+			
+			%extendedCtrl-->diffuseMapBase.text = fileBase(%mat.diffuseMap);
+			%extendedCtrl-->detailMapBase.text = fileBase(%mat.detailMap);
+			%extendedCtrl-->normalMapBase.text = fileBase(%mat.normalMap);
+			%extendedCtrl-->macroMapBase.text = fileBase(%mat.macroMap);
+			
+			%extendedCtrl-->parallaxScaleSlider.setValue(%mat.parallaxScale);
+			%extendedCtrl-->parallaxScaleSlider.mat = %mat;
+			%extendedCtrl-->parallaxScaleSlider.nameCtrl = %ctrl-->matName;
+						
 			%mouseEventExt = %extendedCtrl-->mouseEvent;
 			%mouseEventExt.command = %command;
 			%mouseEventExt.altCommand = %altCommand;
@@ -147,18 +198,48 @@ function EPainter::updateLayers( %this, %matIndex ) {
 			%mouseEventExt.dragClone = %extendedCtrl;
 
 			foreach$(%field in $PainterMatFields) {
-				%fieldCtrl = %ctrl.findObjectByInternalName(%field,true);
+				foreach$(%dataCtrl in %detailledCtrl SPC %extendedCtrl){
+					%fieldCtrl = %dataCtrl.findObjectByInternalName(%field,true);
 
+					if (!isObject(%fieldCtrl))
+						continue;
+
+					%fieldCtrl.setValue(%mat.getFieldValue(%field));
+					%fieldCtrl.mat = %mat;
+					%fieldCtrl.superClass = "PainterLayerEdit";
+					%fieldCtrl.nameCtrl = %ctrl-->matName;
+				}
+			}
+
+			%this.setMixedView(%ctrl,true);
+		}
+		else if ($EPainter_DisplayMode $= "3") {
+			foreach$(%field in $PainterMatFields) {				
+				%fieldCtrl = %ctrl.findObjectByInternalName(%field,true);
 				if (!isObject(%fieldCtrl))
 					continue;
-
 				%fieldCtrl.setValue(%mat.getFieldValue(%field));
 				%fieldCtrl.mat = %mat;
 				%fieldCtrl.superClass = "PainterLayerEdit";
 				%fieldCtrl.nameCtrl = %ctrl-->matName;
 			}
-
-			%this.setMixedView(%ctrl,true);
+			%ctrl-->bitmapDiffuse.command = %command;
+			%ctrl-->bitmapDiffuse.altCommand = %altCommand;
+			%ctrl-->bitmapDiffuse.setBitmap( %mat.diffuseMap );
+			%ctrl-->bitmapDetail.command = %command;
+			%ctrl-->bitmapDetail.altCommand = %altCommand;
+			%ctrl-->bitmapDetail.setBitmap( %mat.detailMap );
+			%ctrl-->bitmapNormal.command = %command;
+			%ctrl-->bitmapNormal.altCommand = %altCommand;
+			%ctrl-->bitmapNormal.setBitmap( %mat.normalMap );
+			%ctrl-->bitmapMacro.command = %command;
+			%ctrl-->bitmapMacro.altCommand = %altCommand;
+			%ctrl-->bitmapMacro.setBitmap( %mat.macroMap );
+			
+			%ctrl-->diffuseMapBase.text = fileBase(%mat.diffuseMap);
+			%ctrl-->detailMapBase.text = fileBase(%mat.detailMap);
+			%ctrl-->normalMapBase.text = fileBase(%mat.normalMap);
+			%ctrl-->macroMapBase.text = fileBase(%mat.macroMap);
 		}
 
 		%tooltip = %matInternalName;
@@ -170,6 +251,7 @@ function EPainter::updateLayers( %this, %matIndex ) {
 
 		%bitmapButton.tooltip = %tooltip;
 	}
+	
 
 	%matCount = EPainterStack.getCount();
 	// Add one more layer as the 'add new' layer.
@@ -249,27 +331,37 @@ function EPainter::setPaintLayer( %this, %matIndex) {
 // Update the active material layers list
 function EPainterToggleMixedButton::onClick( %this) {
 	%ctrl = %this.baseCtrl;
-	EPainter.setMixedView(%ctrl,!%ctrl-->compactCtrl.isVisible());
+	if (%this.internalName $= "detailButton")
+		EPainter.setMixedView(%ctrl,!%ctrl-->compactCtrl.isVisible());
+	else if (%this.internalName $= "extendButton")
+		EPainter.setMixedView(%ctrl,!%ctrl-->compactCtrl.isVisible(),true);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 // Update the active material layers list
-function EPainter::setMixedView( %this,%ctrl,%isCompact) {
+function EPainter::setMixedView( %this,%ctrl,%isCompact,%isExtended) {
 	%compactCtrl = %ctrl-->compactCtrl;
 	%compactCtrl.visible = %isCompact;
-	%extendedCtrl = %ctrl-->extendedCtrl;
-	%extendedCtrl.visible = !%isCompact;
+	if (%isExtended)
+		%mixCtrl = %ctrl-->extendedCtrl;
+	else
+		%mixCtrl = %ctrl-->detailledCtrl;
+	
+	%ctrl-->extendedCtrl.visible = 0;	
+	%ctrl-->detailledCtrl.visible = 0;	
+	%mixCtrl.visible = !%isCompact;
 	%compactCtrl-->dropLayer.visible = 0;
-	%extendedCtrl-->dropLayer.visible = 0;
+	%mixCtrl-->dropLayer.visible = 0;
 
 	if (%isCompact) {
 		%ctrl.extent = %ctrl-->compactCtrl.extent;
 		%ctrl.isActiveCtrl = %compactCtrl-->ctrlActive;
 		%ctrl.dropLayer = %compactCtrl-->dropLayer;
 	} else {
-		%ctrl.isActiveCtrl = %extendedCtrl-->ctrlActive;
-		%ctrl.extent = %ctrl-->extendedCtrl.extent;
-		%ctrl.dropLayer = %extendedCtrl-->dropLayer;
+		devLog("Showing mix control:",%mixCtrl,"Internal",%mixCtrl.internalName,"Extent:",%mixCtrl.extent);
+		%ctrl.isActiveCtrl = %mixCtrl-->ctrlActive;
+		%ctrl.extent = %mixCtrl.extent;
+		%ctrl.dropLayer = %mixCtrl-->dropLayer;
 	}
 
 	%ctrl-->iconStack.AlignCtrlToParent("right");
@@ -282,6 +374,19 @@ function PainterLayerEdit::onValidate( %this) {
 	devLog("PainterLayerEdit onValidate:: FIELD:",%this.internalName,"Mat:",%this.mat);
 	%this.mat.setFieldValue(%this.internalName,%this.getText());
 	EPainter.setMaterialDirty( %this.mat,%this.nameCtrl );
+	
+	%this.updateFriends();
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+// Update the active material layers list
+function PainterLayerSlider::onMouseDragged( %this) {
+	devLog("PainterLayerSlider onMouseDragged:: FIELD:",%this.internalName,"Mat:",%this.mat);
+	%field = strreplace(%this.internalName,"Slider","");
+	%this.mat.setFieldValue(%field,%this.getValue());
+	EPainter.setMaterialDirty( %this.mat,%this.nameCtrl );
+	
+	%this.updateFriends();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -363,7 +468,7 @@ function PainterLayerMouse::onMouseDragged( %this,%modifier,%pos,%clicks) {
 	foreach(%ctrl in EPainterStack)
 		%ctrl.dropLayer.visible = 1;
 
-	dragAndDropCtrl(%dragClone,"TerrainLayer","EPainter.layerDragFailed();");
+	startDragAndDropCtrl(%dragClone,"TerrainLayer","","EPainter.layerDragFailed();");
 }
 //------------------------------------------------------------------------------
 
