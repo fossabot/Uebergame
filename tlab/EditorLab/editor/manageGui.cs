@@ -157,3 +157,30 @@ function Lab::resizeEditorGui( %this ) {
 	}
 }
 //------------------------------------------------------------------------------
+
+//==============================================================================
+function Lab::togglePluginTools(%this) {
+	if (getWordCount(EditorFrameMain.columns) > 1)
+		%this.hidePluginTools();
+	else
+		%this.showPluginTools();	
+}
+//------------------------------------------------------------------------------
+
+//==============================================================================
+function Lab::hidePluginTools(%this) {
+	EditorFrameMain.lastToolsCol = getWord(EditorFrameMain.columns,1);
+	EditorFrameMain.columns = "0";
+	EditorFrameMain.updateSizes();
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function Lab::showPluginTools(%this) {
+	%sideCol = EditorFrameMain.lastToolsCol;
+	if (%sideCol $= "")
+		%sideCol = mCeil(EditorFrameMain.extent.x * 0.75);
+	EditorFrameMain.columns = "0" SPC %sideCol;
+	EditorFrameMain.updateSizes();
+
+}
+//------------------------------------------------------------------------------

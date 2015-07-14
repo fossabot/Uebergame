@@ -4,6 +4,7 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 $TerrainMatDlg_SaveWhenUnselected = true;
+$TerrainMatDlg_CreateFromClone = true;
 //==============================================================================
 function TerrainMaterialDlg::show( %this, %matIndex, %terrMat, %onApplyCallback ) {
 	Canvas.pushDialog( %this );
@@ -45,6 +46,8 @@ function TerrainMaterialDlg::onWake( %this ) {
 	// Refresh the material list.
 	%this.setFilteredMaterialsSet();
 	$TerrainMaterialDlg_Initialized = true;
+	TerrainMatDlg_MaterialInfo.expanded = false;
+	TerrainMatDlg_Cloning.expanded = false;
 	//%this.activateMaterialCtrls( true );
 }
 //------------------------------------------------------------------------------

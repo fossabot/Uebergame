@@ -209,6 +209,7 @@ function TerrainMaterialDlg::setActiveMaterial( %this, %mat ) {
 	}
 	
 	%this.setCloningSource(%this.activeMat);
+	%this.updateMaterialMapping(%this.activeMat);
 }
 //------------------------------------------------------------------------------
 //==============================================================================

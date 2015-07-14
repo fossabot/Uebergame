@@ -10,21 +10,30 @@
 // Standard Text Profiles
 //==============================================================================
 singleton GuiControlProfile(ToolsTextBase : ToolsDefaultProfile) {
-    fontColor = "254 254 254 255";
+    fontColor = "252 254 252 255";
     fontType = "Gotham Bold";
     fillColor = "238 236 240 255";
     bevelColorHL = "Magenta";
     justify = "Left";
-    category = "LabText";
-    fontColors[0] = "254 254 254 255";
-    fontColors[1] = "254 254 254 255";
-    fontColors[2] = "254 254 254 255";
-    fontColorHL = "254 254 254 255";
-    fontColorNA = "254 254 254 255";
+    category = "ToolsText";
+    fontColors[0] = "252 254 252 255";
+    fontColors[1] = "252 189 81 255";
+    fontColors[2] = "254 227 83 255";
+    fontColorHL = "252 189 81 255";
+    fontColorNA = "254 227 83 255";
     fontSize = "15";
-   fontColors[4] = "Magenta";
-   fontColorLink = "Magenta";
+   fontColors[4] = "238 255 0 255";
+   fontColorLink = "238 255 0 255";
    opaque = "0";
+   fontColors[3] = "254 3 62 255";
+   fontColors[5] = "3 254 148 255";
+   fontColors[6] = "3 21 254 255";
+   fontColors[7] = "254 236 3 255";
+   fontColors[8] = "254 3 43 255";
+   fontColors[9] = "3 48 248 255";
+   fontColorSEL = "254 3 62 255";
+   fontColorLinkHL = "3 254 148 255";
+   colorFont = "DefaultFontA";
 
 };
 singleton GuiControlProfile(ToolsTextBase_C : ToolsTextBase) {
@@ -70,7 +79,7 @@ singleton GuiControlProfile(ToolsTextBase_S1_R : ToolsTextBase_S1) {
 //------------------------------------------------------------------------------
 //==============================================================================
 singleton GuiControlProfile(ToolsTextBase_L1 : ToolsTextBase) {
-    fontSize = "28";
+    fontSize = "20";
 };
 singleton GuiControlProfile(ToolsTextBase_L1_C : ToolsTextBase_L1) {
     locked = true;
@@ -87,19 +96,29 @@ singleton GuiControlProfile(ToolsTextBase_L1_R : ToolsTextBase_L1) {
 // Standard Text Header Profiles
 //==============================================================================
 //==============================================================================
-singleton GuiControlProfile(ToolsTextBase_H1 : ToolsDefaultProfile) {
-    fontColor = "254 254 254 255";
-    fontType = "Gotham Black";
+singleton GuiControlProfile(ToolsTextBase_H1 : ToolsTextBase) {
+    fontType = "Gotham Bold";
     fillColor = "238 236 240 255";
     bevelColorHL = "Magenta";
     justify = "Left";
-    category = "LabText";
-    fontColors[0] = "254 254 254 255";
-    fontColors[1] = "254 254 254 255";
-    fontColors[2] = "254 254 254 255";
-    fontColorHL = "254 254 254 255";
-    fontColorNA = "254 254 254 255";
+    category = "ToolsText";
     fontSize = "17";
+   fontColors[0] = "192 252 254 255";
+   fontColors[1] = "252 189 81 255";
+   fontColors[2] = "254 227 83 255";
+   fontColors[3] = "254 3 62 255";
+   fontColors[4] = "238 255 0 255";
+   fontColors[5] = "3 254 148 255";
+   fontColors[6] = "3 21 254 255";
+   fontColors[7] = "254 236 3 255";
+   fontColors[8] = "254 3 43 255";
+   fontColors[9] = "3 48 248 255";
+   fontColor = "192 252 254 255";
+   fontColorHL = "252 189 81 255";
+   fontColorNA = "254 227 83 255";
+   fontColorSEL = "254 3 62 255";
+   fontColorLink = "238 255 0 255";
+   fontColorLinkHL = "3 254 148 255";
 
 };
 singleton GuiControlProfile(ToolsTextBase_H1_C : ToolsTextBase_H1) {
@@ -118,11 +137,11 @@ singleton GuiControlProfile(ToolsTextBase_H1_R : ToolsTextBase_H1) {
 //==============================================================================
 singleton GuiControlProfile(ToolsTextAlt : ToolsDefaultProfile) {
     fontColor = "254 224 97 255";
-    fontType = "Gotham Black";
+    fontType = "Anson Regular";
     fillColor = "238 236 240 255";
     bevelColorHL = "Magenta";
     justify = "left";
-    category = "LabText";
+    category = "ToolsText";
    fontSize = "16";
    fontColors[0] = "254 224 97 255";
 
@@ -169,18 +188,12 @@ singleton GuiControlProfile(ToolsTextAlt_L1_R : ToolsTextAlt_L1) {
 // Standard Text Header Profiles
 //==============================================================================
 //==============================================================================
-singleton GuiControlProfile(ToolsTextAlt_H1 : ToolsDefaultProfile) {
+singleton GuiControlProfile(ToolsTextAlt_H1 : ToolsTextAlt) {
     fontColor = "0 255 231 208";
-    fontType = "Gotham Black";
     fillColor = "238 236 240 255";
     bevelColorHL = "Magenta";
     justify = "Left";
-    category = "LabText";
-    fontColors[0] = "0 255 231 208";
-    fontColors[1] = "254 254 254 255";
-    fontColors[2] = "254 254 254 255";
-    fontColorHL = "254 254 254 255";
-    fontColorNA = "254 254 254 255";
+    category = "ToolsText";   
     fontSize = "24";
 
 };

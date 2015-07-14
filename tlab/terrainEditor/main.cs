@@ -96,6 +96,7 @@ function execTerrainEd(%loadGui) {
 	execPattern("tlab/terrainEditor/editor/*.cs");
 	execPattern("tlab/terrainEditor/terrainMaterials/*.cs");
 	execPattern("tlab/terrainEditor/terrainMatManager/*.cs");
+	execPattern("tlab/terrainEditor/autoPainter/*.cs");
 }
 
 
