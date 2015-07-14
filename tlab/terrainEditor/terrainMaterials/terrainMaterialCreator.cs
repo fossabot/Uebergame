@@ -51,17 +51,20 @@ function TerrainMaterialDlg::cloneMat( %this, %internalName,%tags,%isGroundCover
 		internalName = %matName;
 		parentGroup = TerrainMaterialDlgNewGroup;
 	};
-	%newMat.assignFieldsFrom(%src);
+	if ($TerrainMatDlg_CreateFromClone){
+		%newMat.assignFieldsFrom(%src);
+		if (%newMat.isGroundCoverMat !$= "")
+			%newMat.isGroundCoverMat = false;
+		if (%isGroundCoverMat)	
+			%newMat.isGroundCoverMat = true;
+	}		
+
 	%newMat.internalName = %matName;
 	
 	if (%tags !$= "")
 		%newMat.customTags = %tags;
 	
-	if (%newMat.isGroundCoverMat !$= "")
-		%newMat.isGroundCoverMat = false;
-		
-	if (%isGroundCoverMat)	
-		%newMat.isGroundCoverMat = true;
+
 	%file = %src.getFileName();
 	%newMat.setFileName( %file );
 	// Mark it as dirty and to be saved in the default location.
@@ -125,5 +128,18 @@ function TerrainMaterialDlg::deleteMat( %this ) {
 	%matLibTree = %this-->matLibTree;
 	%matLibTree.open( TerrainMaterialSet, false );
 	%matLibTree.selectItem( 1 );
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function TerrainMaterialDlg::setCreateMode( %this,%mode ) {
+	switch$(%mode){
+		case "Clone":
+			$TerrainMatDlg_CreateFromClone = true;
+		
+			TerrainMatDlg_Cloning-->CloneOptions.visible = 1;
+		case "Blank":
+		$TerrainMatDlg_CreateFromClone = false;
+			TerrainMatDlg_Cloning-->CloneOptions.visible = 0;
+	}
 }
 //------------------------------------------------------------------------------

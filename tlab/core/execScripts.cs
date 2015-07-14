@@ -111,6 +111,7 @@ function tlabExecGui(%loadGui ) {
 		exec("tlab/EditorLab/gui/core/scriptEditorDlg.ed.gui");
 		exec("tlab/EditorLab/gui/core/GuiEaseEditDlg.ed.gui");
 		exec("tlab/EditorLab/gui/core/uvEditor.ed.gui");
+		exec("tlab/EditorLab/gui/core/LabDevGui.gui");
 		exec("tlab/EditorLab/gui/GameLabGui.gui");
 	}
 
@@ -119,10 +120,12 @@ function tlabExecGui(%loadGui ) {
 	exec("tlab/EditorLab/gui/DlgAddFMODProject.cs");
 	exec("tlab/EditorLab/gui/DlgEditorChooseLevel.cs");
 	exec( "tlab/EditorLab/gui/Settings/LabMissionSettingsDlg.cs" );
+	
 	execPattern("tlab/EditorLab/gui/MaterialSelector/*.cs");
 	
 	exec("tlab/EditorLab/gui/core/fileDialogBase.ed.cs");
 	exec("tlab/EditorLab/gui/core/GuiEaseEditDlg.ed.cs");
+	exec("tlab/EditorLab/gui/core/LabDevGui.cs");
 	exec("tlab/EditorLab/gui/GameLabGui.cs");
 }
 tlabExecGui(!$LabGuiExeced);
