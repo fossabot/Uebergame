@@ -189,7 +189,7 @@ function disconnect()
    disconnectedCleanup();
 
    // Call destroyServer in case we're hosting
-   destroyServer();
+   Torque::destroyServer();
 }
 
 function disconnectedCleanup()

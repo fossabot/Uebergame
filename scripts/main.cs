@@ -23,130 +23,29 @@
 // Load up core script base
 tge.loadDir("core"); // Should be loaded at a higher level, but for now leave -- SRZ 11/29/07
 
+//-----------------------------------------------------------------------------
+// Package overrides to initialize the mod.
+package fps {
 
-
-// Debugging
-$GameBase::boundingBox = false;
-
-//---------------------------------------------------------------------------------------------
-// CorePackage
-// Adds functionality for this mod to some standard functions.
-//---------------------------------------------------------------------------------------------
-package scripts
-{
-//---------------------------------------------------------------------------------------------
-// onStart
-// Called when the engine is starting up. Initializes this mod.
-//---------------------------------------------------------------------------------------------
-function Torque::onStart(%this)
-{
-   Parent::onStart(%this);
-
-
-   exec( "./client/defaults.cs" );
-   exec( "./server/defaults.cs" );
-             
-   // Load up our saved prefs
-   if (isFile("prefs/prefs.cs"))
-      exec( "prefs/prefs.cs" );
-
-   $ScriptGroup = new SimGroup(ScriptClassGroup);
-
-   // Build the mission listing for server and client
-   echo("----- Adding missions to list -----");
-   %this.buildMissionList();
-
-   // Load the scripts that start it all...
-   exec("./client/init.cs");
-   exec("./server/init.cs");
-   
-   // Init the physics plugin.
-   physicsInit();
-      
-   // Start up the audio system.
-   sfxStartup();
-
-   // Server gets loaded for all sessions, since clients
-   // can host in-game servers.
-   %this.initServer();
-
-   // Start up in either client, or dedicated server mode
-   if ( $isDedicated || $pref::Server::Dedicated )
-   {
-      tge.initDedicated();
-   }
-   else
-      tge.initClient();
-}
-
-//---------------------------------------------------------------------------------------------
-// onExit
-// Called when the engine is shutting down. Shutdowns this mod.
-//---------------------------------------------------------------------------------------------
-function onExit()
-{
-   // Stop file change events.
-   stopFileChangeNotifications();
-   
-   sfxShutdown();
-
-   // Ensure that we are disconnected and/or the server is destroyed.
-   // This prevents crashes due to the SceneGraph being deleted before
-   // the objects it contains.
-   if ($Server::Dedicated)
-      tge.destroyServer();
-   else
-      disconnect();
-   
-   // Destroy the physics plugin.
-   physicsDestroy();
-      
-   echo("Exporting client control configuration");
-   if (isObject(moveMap))
-   {
-      moveMap.save("prefs/config.cs", false);
-
-      // Append the other action maps:
-      spectatorMap.save("prefs/config.cs", true);
-      vehicleMap.save("prefs/config.cs", true);
-   }
-	  
-   echo("Exporting client and server prefs");
-   export("$pref::*", "prefs/prefs.cs", false);
-
-   BanList::Export("prefs/banlist.cs");
-
-   Parent::onExit();
-}
-
-//---------------------------------------------------------------------------------------------
-// displayHelp
-// Prints the command line options available for this mod.
-//---------------------------------------------------------------------------------------------
-function Torque::displayHelp(%this)
-{
-   // Let the parent do its stuff.
+function Torque::displayHelp() {
    Parent::displayHelp();
-
-   error("Command line options:\n" @
-         "  -dedicated             Start as dedicated server\n"@
-         "  -connect <address>     For non-dedicated: Connect to a game at <address>\n" @
-         "  -level <filename>      For dedicated: Load the mission\n" @
-         "  -type <game_type>      For dedicated: Use the specified gametype\n"
+   error(
+      "Fps Mod options:\n"@
+      "  -dedicated             Start as dedicated server\n"@
+      "  -connect <address>     For non-dedicated: Connect to a game at <address>\n" @
+      "  -mission <filename>    For dedicated: Load the mission\n" @
+	   "  -level <filename>      For dedicated: Load the mission\n" @
+      "  -type <game_type>      For dedicated: Use the specified gametype\n"
    );
 }
 
-//---------------------------------------------------------------------------------------------
-// parseArgs
-// Parses the command line arguments and processes those valid for this mod.
-//---------------------------------------------------------------------------------------------
-function Torque::parseArgs(%this)
+function Torque::parseArgs()
 {
-   // Let the parent grab the arguments it wants first.
-   Parent::parseArgs(%this);
+   // Call the parent
+   Parent::parseArgs();
 
-   // Loop through the arguments.
-   for (%i = 1; %i < $Game::argc; %i++)
+   // Arguments, which override everything else.
+   for (%i = 1; %i < $Game::argc ; %i++)
    {
       %arg = $Game::argv[%i];
       %nextArg = $Game::argv[%i+1];
@@ -154,12 +53,11 @@ function Torque::parseArgs(%this)
    
       switch$ (%arg)
       {
-         //--------------------
          case "-dedicated":
             $pref::Server::Dedicated = true;
             enableWinConsole(true);
             $argUsed[%i]++;
-
+			
          case "-connect":
             $argUsed[%i]++;
             if (%hasNextArg) {
@@ -218,7 +116,80 @@ function Torque::parseArgs(%this)
       }
    }
 }
-};
+
+function Torque::onStart()
+{
+   // The core does initialization which requires some of
+   // the preferences to loaded... so do that first.  
+   exec( "./client/defaults.cs" );
+   exec( "./server/defaults.cs" );
+             
+   Parent::onStart();
+   echo("\n--------- Initializing Directory: scripts ---------");
+
+   // Load the scripts that start it all...
+   exec("./client/init.cs");
+   exec("./server/init.cs");
+   
+   // Init the physics plugin.
+   physicsInit();
+      
+   // Start up the audio system.
+   sfxStartup();
+
+   // Server gets loaded for all sessions, since clients
+   // can host in-game servers.
+   Torque::initServer();
+
+   // Start up in either client, or dedicated server mode
+   if ( $isDedicated || $pref::Server::Dedicated )
+   {
+      tge.initDedicated();
+   }
+   else
+      tge.initClient();
+}
+
+function onExit()
+{
+   // Stop file change events.
+   stopFileChangeNotifications();
+   
+   sfxShutdown();
+
+   // Ensure that we are disconnected and/or the server is destroyed.
+   // This prevents crashes due to the SceneGraph being deleted before
+   // the objects it contains.
+   if ($Server::Dedicated)
+      destroyServer();
+   else
+      disconnect();
+   
+   // Destroy the physics plugin.
+   physicsDestroy();
+      
+   echo("Exporting client control configuration");
+   if (isObject(moveMap))
+   {
+      moveMap.save("prefs/config.cs", false);
+
+      // Append the other action maps:
+      spectatorMap.save("prefs/config.cs", true);
+      vehicleMap.save("prefs/config.cs", true);
+   }
+	  
+   echo("Exporting client and server prefs");
+   export("$pref::*", "prefs/prefs.cs", false);
+
+   BanList::Export("prefs/banlist.cs");
+
+   Parent::onExit();
+}
+
+}; // package fps
+
+// Activate the game package.
+activatePackage(fps);
 
 function LogEcho(%string)
 {
@@ -253,9 +224,9 @@ function Torque::getMissionTypeDisplayNames(%this)
          $HostTypeDisplayName[%type] = "Retrieve the Flag";
       else if ( $HostTypeName[%type] $= MfD )
          $HostTypeDisplayName[%type] = "Marked For Death";
-            else
+      else
          $HostTypeDisplayName[%type] = $HostTypeName[%type];
-      }
+   }
 }
 
 function Torque::buildMissionList(%this)
@@ -390,3 +361,4 @@ function Torque::getMissionCount(%this, %type)
    }
    return $HostMissionCount[%count];
 }
+

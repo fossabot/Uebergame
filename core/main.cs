@@ -35,7 +35,7 @@ $GameBase::boundingBox = false;
 // CorePackage
 // Adds functionality for this mod to some standard functions.
 //---------------------------------------------------------------------------------------------
-package scripts
+package CorePackage
 {
 //---------------------------------------------------------------------------------------------
 // onStart
@@ -75,8 +75,8 @@ function Torque::onStart(%this)
       //$pref::Video::displayDevice = "D3D9";
    
    // Initialise stuff.
-   exec("./core/scripts/client/core.cs");
-   initializeCore();
+   exec("./scripts/client/core.cs");
+   Torque::initializeCore();
 
    exec("./scripts/client/client.cs");
    exec("./scripts/server/server.cs");
@@ -184,4 +184,3 @@ function Torque::parseArgs(%this)
 };
 
 activatePackage(CorePackage);
-
