@@ -53,12 +53,28 @@ function TerrainPainterPlugin::onWorldEditorStartup( %this ) {
 
 	%map.bindCmd( keyboard, 0, "TerrainPainterPlugin.keyboardSetMaterial(10);", "" );
 	TerrainPainterPlugin.map = %map;
+	
+	%map = new ActionMap();
+	%map.bindCmd( keyboard, "lalt", "TPG.getCurrentHeight();", "" );// +1 Brush Size
+	%map.bindCmd( keyboard, "ctrl 1", "TPG.getCurrentHeight(1);", "" );// +1 Brush Size
+	%map.bindCmd( keyboard, "ctrl 2", "TPG.getCurrentHeight(2);", "" );// +1 Brush Size
+	%map.bindCmd( keyboard, "ctrl 3", "TPG.getCurrentHeight(3);", "" );// +1 Brush Size
+	%map.bindCmd( keyboard, "ctrl 4", "TPG.getCurrentHeight(4);", "" );// +1 Brush Size
+	%map.bindCmd( keyboard, "lshift 1", "TPG.setCurrentHeight(1);", "" );// +1 Brush Size
+	%map.bindCmd( keyboard, "lshift 2", "TPG.setCurrentHeight(2);", "" );// +1 Brush Size
+	%map.bindCmd( keyboard, "lshift 3", "TPG.setCurrentHeight(3);", "" );// +1 Brush Size
+	%map.bindCmd( keyboard, "lshift 4", "TPG.setCurrentHeight(4);", "" );// +1 Brush Size
+	%map.bindCmd( keyboard, "-", "TPG.getCurrentSlope();", "" );// +1 Brush Size
+	TPG.map = %map;
 	//TPP_BrushManager.validateBrushSlopeMin(%this.defaultBrushSlopeMin);
 }
 
 function TerrainPainterPlugin::onActivated( %this ) {
 	Parent::onActivated( %this );
-	EWTerrainPainterToolbarBrushType->ellipse.performClick();// Circle Brush
+	if( !isObject( ETerrainMaterialPersistMan ) )
+		new PersistenceManager( ETerrainMaterialPersistMan );
+		
+	EWTerrainPainterToolbar-->ellipse.performClick();// Circle Brush
 	
 	EditorGui.bringToFront( ETerrainEditor );
 	ETerrainEditor.setVisible( true );

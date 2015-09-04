@@ -83,6 +83,7 @@ function execTerrainEd(%loadGui) {
 		exec("tlab/terrainEditor/gui/TerrainPainterToolbar.gui");
 		exec("tlab/terrainEditor/gui/TerrainPainterPalette.gui");
 		exec("tlab/terrainEditor/gui/TerrainPainterDialogs.gui");
+		exec("tlab/terrainEditor/gui/TerrainMaterialManager.gui");
 	}
 
 	exec("tlab/terrainEditor/terrainPainterPlugin.cs");
@@ -93,9 +94,9 @@ function execTerrainEd(%loadGui) {
 	execPattern("tlab/terrainEditor/scripts/*.cs");
 	execPattern("tlab/terrainEditor/painter/*.cs");
 	execPattern("tlab/terrainEditor/editor/*.cs");
-	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialDlg.cs");
-	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialFilters.cs");
-	exec("tlab/terrainEditor/terrainMaterials/terrainMaterialSetup.cs");
+	execPattern("tlab/terrainEditor/terrainMaterials/*.cs");
+	execPattern("tlab/terrainEditor/terrainMatManager/*.cs");
+	execPattern("tlab/terrainEditor/autoPainter/*.cs");
 }
 
 

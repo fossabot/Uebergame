@@ -3,7 +3,32 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
-
+//==============================================================================
+function TerrainMatDlgActiveNameEdit::onValidate( %this ) {
+	devLog("TerrainMatDlgActiveNameEdit::onValidate",%this.getText());
+	TerrainMaterialDlg.setMaterialName(%this.getText());	
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function TerrainMaterialDlg::nameAltCommand( %this, %newName ) {
+	devLog("TerrainMaterialDlg::nameAltCommand",%newName);
+	
+	
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function TMD_MaterialEdit::onValidate( %this ) {	
+	devLog("TMD_MaterialEdit onValidate");
+	//if (!isObject(%this.activeMat)) return;
+	
+	//%this.mat.setFieldValue(%this.internalName,%this.getText());
+	//EPainter.setMaterialDirty( %this.mat,%this.nameCtrl );
+	
+	TerrainMaterialDlg.dirtyMat[TerrainMaterialDlg.activeMat] = true;
+	TerrainMaterialDlg-->saveMatButton.setActive(true);
+	
+}
+//------------------------------------------------------------------------------
 
 //==============================================================================
 function TerrainMaterialDlg::setMaterialName( %this, %newName ) {
@@ -26,7 +51,7 @@ function TerrainMaterialDlg::setMaterialName( %this, %newName ) {
 function TerrainMaterialDlg::changeBase( %this ) {
 	%ctrl = %this-->baseTexCtrl;
 	%file = %ctrl.bitmap;
-
+	devLog("changeBase File:",%file);
 	if( getSubStr( %file, 0 , 6 ) $= "tlab/" )
 		%file = "";
 
@@ -48,7 +73,7 @@ function TerrainMaterialDlg::changeBase( %this ) {
 function TerrainMaterialDlg::changeDetail( %this ) {
 	%ctrl = %this-->detailTexCtrl;
 	%file = %ctrl.bitmap;
-
+devLog("changeDetail File:",%file);
 	if( getSubStr( %file, 0 , 6 ) $= "tlab/" )
 		%file = "";
 
@@ -70,7 +95,7 @@ function TerrainMaterialDlg::changeDetail( %this ) {
 function TerrainMaterialDlg::changeMacro( %this ) {
 	%ctrl = %this-->macroTexCtrl;
 	%file = %ctrl.bitmap;
-
+devLog("changeMacro File:",%file);
 	if( getSubStr( %file, 0 , 6 ) $= "tlab/" )
 		%file = "";
 
@@ -92,7 +117,7 @@ function TerrainMaterialDlg::changeMacro( %this ) {
 function TerrainMaterialDlg::changeNormal( %this ) {
 	%ctrl = %this-->normTexCtrl;
 	%file = %ctrl.bitmap;
-
+devLog("changeNormal File:",%file);
 	if( getSubStr( %file, 0 , 6 ) $= "tlab/" )
 		%file = "";
 
@@ -110,90 +135,12 @@ function TerrainMaterialDlg::changeNormal( %this ) {
 	%this-->normalMapFile.setText( fileBase(%file) );
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-function TerrainMaterialDlg::newMat( %this ) {
-	if (isObject(%this.activeMat)) {
-		LabMsgYesNo("New terrain material","Do you want to clone the current terrain material:" SPC %this.activeMat.internalName SPC " or you prefer to create a blank one?" SPC
-						"Cloned material will be stored in same file as clone, new material will be saved in art/terrains/materials.cs.","TerrainMaterialDlg.cloneMat();","TerrainMaterialDlg.createMat();");
-	} else
-		%this.createMat();
-}
-function TerrainMaterialDlg::createMat( %this ) {
-	devLog("TerrainMaterialDlg::newMat");
-	show(TMD_NewMaterialContainer);
-	// Create a unique material name.
-	%matName = getUniqueInternalName( "newMaterial", TerrainMaterialSet, true );
-	// Create the new material.
-	%newMat = new TerrainMaterial() {
-		internalName = %matName;
-		parentGroup = TerrainMaterialDlgNewGroup;
-	};
-	%newMat.setFileName( "art/terrains/materials.cs" );
-	// Mark it as dirty and to be saved in the default location.
-	ETerrainMaterialPersistMan.setDirty( %newMat, "art/terrains/materials.cs" );
-	%this.setFilteredMaterialsSet(true);
-	%matLibTree = %this-->matLibTree;
-	%matLibTree.buildVisibleTree( true );
-	%item = %matLibTree.findItemByObjectId( %newMat );
-	%matLibTree.selectItem( %item );
-}
-//------------------------------------------------------------------------------
-//==============================================================================
-function TerrainMaterialDlg::cloneMat( %this ) {	
-	%src = %this.activeMat;
 
-	if (!isObject(%src)) {
-		warnLog("Invalid TerrainMaterial to clone from:",%src,"Creating a new material instead.");
-		%this.newMat();
-		return;
-	}
-
-	// Create a unique material name.
-	%matName = getUniqueInternalName( %src.internalName, TerrainMaterialSet, true );
-	// Create the new material.
-	%newMat = new TerrainMaterial() {
-		internalName = %matName;
-		parentGroup = TerrainMaterialDlgNewGroup;
-	};
-	%newMat.assignFieldsFrom(%src);
-	%newMat.internalName = %matName;
-	%file = %src.getFileName();
-	%newMat.setFileName( %file );
-	// Mark it as dirty and to be saved in the default location.
-	ETerrainMaterialPersistMan.setDirty( %newMat,%file );
-	devLog("New mat id:",%newMat.getId());
-	FilteredTerrainMaterialsSet.add(%newMat);
-	%this.refreshMaterialTree(%newMat);
-	%matLibTree = %this-->matLibTree;
-	//%matLibTree.buildVisibleTree( true );
-	%matLibTree.schedule(200,"selectItem",%newMat.getId());
-	%matLibTree.selectItem(%newMat.getId());
-}
-//------------------------------------------------------------------------------
 function TerrainMaterialDlg::selectMatId( %this,%matId ) {
 	%item = %matLibTree.findItemByObjectId( %matId );
 	%matLibTree.selectItem( %item );
 }
-//==============================================================================
-function TerrainMaterialDlg::deleteMat( %this ) {
-	if( !isObject( %this.activeMat ) )
-		return;
 
-	// Cannot delete this material if it is the only one left on the Terrain
-	if ( ( ETerrainEditor.getMaterialCount() == 1 ) &&
-			( ETerrainEditor.getMaterialIndex( %this.activeMat.internalName ) != -1 ) ) {
-		LabMsgOK( "Error", "Cannot delete this Material, it is the only " @
-					 "Material still in use by the active Terrain." );
-		return;
-	}
-
-	TerrainMaterialSet.remove( %this.activeMat );
-	TerrainMaterialDlgDeleteGroup.add( %this.activeMat );
-	%matLibTree = %this-->matLibTree;
-	%matLibTree.open( TerrainMaterialSet, false );
-	%matLibTree.selectItem( 1 );
-}
-//------------------------------------------------------------------------------
 //==============================================================================
 function TerrainMaterialDlg::activateMaterialCtrls( %this, %active ) {
 	%parent = %this-->matSettingsParent;
@@ -213,8 +160,9 @@ function TerrainMaterialDlg::setActiveMaterial( %this, %mat ) {
 				%mat.matSource.isMemberOfClass( TerrainMaterial ) ) {
 			warnLog("The material loaded is linked to another material:",%mat.matSource.getName());
 		}
-
-		%this.activeMat = %mat;
+		%this.canSaveDirty = true;
+		%this.activeMat = %mat;				
+	
 		%this-->matNameCtrl.setText( %mat.internalName );
 
 		if (%mat.diffuseMap $= "") {
@@ -259,6 +207,22 @@ function TerrainMaterialDlg::setActiveMaterial( %this, %mat ) {
 		%this.activeMat = 0;
 		%this.activateMaterialCtrls( false );
 	}
+	
+	%this.setCloningSource(%this.activeMat);
+	%this.updateMaterialMapping(%this.activeMat);
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function TerrainMaterialDlg::saveAllDirty( %this ) {
+	EPainter.saveDirtyMaterials();
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+function TerrainMaterialDlg::saveActiveDirty( %this ) {
+		%this.saveDirtyMaterial( %this.activeMat );
+	// Save all changes.
+	ETerrainMaterialPersistMan.saveDirty();
+
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -268,6 +232,10 @@ function TerrainMaterialDlg::saveDirtyMaterial( %this, %mat ) {
 			!%mat.isMemberOfClass( TerrainMaterial ) )
 		return;
 
+	if (!%this.canSaveDirty){
+		warnLog("Save dirty is disabled. Material skipped:",%mat.internalName);
+		return;
+	}
 	/*if(  isObject( %mat.matSource ) )	{
 		if (%mat.matSource.isMemberOfClass( TerrainMaterial )){
 		LabMsgOk("Can't save linked material","The current material is linked to:" SPC %mat.matSource.getName() SPC ". To avoid linkage issues, it's not possible to save the current material. Please apply the changes you want to the source material!");
@@ -327,8 +295,10 @@ function TerrainMaterialDlg::saveDirtyMaterial( %this, %mat ) {
 																		%mat.macroSize == %macroSize &&
 																		%mat.macroStrength == %macroStrength &&
 																		%mat.macroDistance == %macroDistance &&
-																		%mat.parallaxScale == %parallaxScale )
+																		%mat.parallaxScale == %parallaxScale ){
+		warnLog("No change detected, skipping save for mat:",%mat.internalName);
 		return;
+		}
 
 	// Make sure the material name is unique.
 
@@ -362,6 +332,7 @@ function TerrainMaterialDlg::saveDirtyMaterial( %this, %mat ) {
 //------------------------------------------------------------------------------
 
 //==============================================================================
+//Call when TerrainMaterialDlg is open and create a copy of all materials
 function TerrainMaterialDlg::snapshotMaterials( %this ) {
 	if( !isObject( TerrainMaterialDlgSnapshot ) )
 		new SimGroup( TerrainMaterialDlgSnapshot );
@@ -398,6 +369,7 @@ function TerrainMaterialDlg::snapshotMaterials( %this ) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
+// Restore the materials to the state of when the TerrainMaterialDlg was open
 function TerrainMaterialDlg::restoreMaterials( %this ) {
 	if( !isObject( TerrainMaterialDlgSnapshot ) ) {
 		error( "TerrainMaterial::restoreMaterials - no snapshot present" );

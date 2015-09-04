@@ -89,6 +89,7 @@ function TerrainEditor::onGuiUpdate(%this, %text) {
 	%minHeight = getWord(%text, 1);
 	%avgHeight = getWord(%text, 2);
 	%maxHeight = getWord(%text, 3);
+	%this.lastAverageHeight = %avgHeight;
 	%mouseBrushInfo = " (Mouse) #: " @ getWord(%text, 0) @ "  avg: " @ %avgHeight @ " " @ ETerrainEditor.currentAction;
 	%selectionInfo = "     (Selected) #: " @ getWord(%text, 4) @ "  avg: " @ getWord(%text, 5);
 	TEMouseBrushInfo.setValue(%mouseBrushInfo);

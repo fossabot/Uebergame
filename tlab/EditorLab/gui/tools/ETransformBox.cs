@@ -184,7 +184,7 @@ function ETransformBoxPos::OnValidate( %this ) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function ETransformBoxDrag::onMouseDragged( %this,%a1,%a2,%a3 ) {
-	dragAndDropCtrl(ETransformBox);
+	startDragAndDropCtrl(ETransformBox);
 	hide(ETransformBox);
 }
 //------------------------------------------------------------------------------

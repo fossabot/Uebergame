@@ -3,32 +3,17 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
-
+$TerrainMatDlg_SaveWhenUnselected = true;
+$TerrainMatDlg_CreateFromClone = true;
 //==============================================================================
 function TerrainMaterialDlg::show( %this, %matIndex, %terrMat, %onApplyCallback ) {
 	Canvas.pushDialog( %this );
 	%this.matIndex = %matIndex;
 	%this.onApplyCallback = %onApplyCallback;
-	%matLibTree = %this-->matLibTree;
-	%item = %matLibTree.findItemByObjectId( %terrMat );
-
-	if ( %item != -1 ) {
-		%matLibTree.selectItem( %item );
-		%matLibTree.scrollVisible( %item );
-	} else {
-		for( %i = 1; %i < %matLibTree.getItemCount(); %i++ ) {
-			%terrMat = TerrainMaterialDlg-->matLibTree.getItemValue(%i);
-
-			if( %terrMat.getClassName() $= "TerrainMaterial" ) {
-				%matLibTree.selectItem( %i, true );
-				%matLibTree.scrollVisible( %i );
-				break;
-			}
-		}
-	}
+	%this.selectObjectInTree(%terrMat,true);
+	
 }
 //------------------------------------------------------------------------------
-
 
 //==============================================================================
 //Show terrain material information (if no ObjectId, user need to select one)
@@ -36,18 +21,14 @@ function TerrainMaterialDlg::showByObjectId( %this, %matObjectId, %onApplyCallba
 	Canvas.pushDialog( %this );
 	%this.matIndex = -1;
 	%this.onApplyCallback = %onApplyCallback;
-	%matLibTree = %this-->matLibTree;
-	%matLibTree.clearSelection();
-	%item = %matLibTree.findItemByObjectId( %matObjectId );
-
-	if ( %item != -1 ) {
-		%matLibTree.selectItem( %item );
-		%matLibTree.scrollVisible( %item );
-	}
+	%this.selectObjectInTree(%matObjectId);
+	
 }
 //------------------------------------------------------------------------------
+
 //==============================================================================
 function TerrainMaterialDlg::onWake( %this ) {
+
 	if( !isObject( ETerrainMaterialPersistMan ) )
 		new PersistenceManager( ETerrainMaterialPersistMan );
 
@@ -65,21 +46,12 @@ function TerrainMaterialDlg::onWake( %this ) {
 	// Refresh the material list.
 	%this.setFilteredMaterialsSet();
 	$TerrainMaterialDlg_Initialized = true;
+	TerrainMatDlg_MaterialInfo.expanded = false;
+	TerrainMatDlg_Cloning.expanded = false;
 	//%this.activateMaterialCtrls( true );
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-function TerrainMaterialDlg::refreshMaterialTree( %this,%selected ) {
-	// Refresh the material list.
-	%matLibTree = %this-->matLibTree;
-	%matLibTree.clear();
-	%matLibTree.open( FilteredTerrainMaterialsSet, false );
-	%matLibTree.buildVisibleTree( true );
-	%item = %matLibTree.getFirstRootItem();
-	%matLibTree.expandItem( %item );
-	%this.activateMaterialCtrls( true );
-}
-//------------------------------------------------------------------------------
+
 //==============================================================================
 function TerrainMaterialDlg::onSleep( %this ) {
 	if( isObject( TerrainMaterialDlgSnapshot ) )
@@ -152,17 +124,7 @@ function TerrainMaterialDlg::dialogCancel( %this ) {
 	Canvas.popDialog( TerrainMaterialDlg );
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-function TerrainMaterialTreeCtrl::onSelect( %this, %item ) {
-	TerrainMaterialDlg.setActiveMaterial( %item );
-}
-//------------------------------------------------------------------------------
-//==============================================================================
-function TerrainMaterialTreeCtrl::onUnSelect( %this, %item ) {
-	TerrainMaterialDlg.saveDirtyMaterial( %item );
-	TerrainMaterialDlg.setActiveMaterial( 0 );
-}
-//------------------------------------------------------------------------------
+
 //==============================================================================
 function TerrainMaterialDlg::_selectTextureFileDialog( %this, %defaultFileName ) {
 	if( $Pref::TerrainEditor::LastPath $= "" )
