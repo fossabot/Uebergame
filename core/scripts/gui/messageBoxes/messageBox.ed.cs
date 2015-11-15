@@ -20,8 +20,11 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
+/*
+// BKS Always evaluate to 0 so commented out entire section for now
 if($GameCanvas == OculusCanvas)
    $GameCanvas = Canvas;
+*/
 
 // Cleanup Dialog created by 'core'
 if( isObject( MessagePopupDlg ) )
