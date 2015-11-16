@@ -21,19 +21,9 @@ new SimGroup(MissionGroup) {
       soundDistanceModel = "Linear";
       canSave = "1";
       canSaveDynamicFields = "1";
-         desc0 = "Level design by Duion.";
-         desc1 = "Training Level in the desert ruins at night";
+         desc0 = "Training Level in the desert ruins at night";
          enabled = "1";
-         levelName = "Desert Ruins night";
-         MissionTypes = "DM TDM RtF MfD";
-   };
-   new MissionArea(PlayArea) {
-      area = "-246 -231 488 478";
-      flightCeiling = "1000";
-      flightCeilingRange = "50";
-      canSave = "1";
-      canSaveDynamicFields = "1";
-         Bouncy = "1";
+         levelName = "TG_DesertRuins_night";
    };
    new ScatterSky(Sky) {
       skyBrightness = "15";
@@ -48,7 +38,7 @@ new SimGroup(MissionGroup) {
       zOffset = "0";
       azimuth = "50";
       elevation = "-50";
-      moonAzimuth = "30";
+      moonAzimuth = "40";
       moonElevation = "45";
       castShadows = "1";
       brightness = "1";
@@ -89,6 +79,7 @@ new SimGroup(MissionGroup) {
       baseTexFormat = "DDS";
       lightMapSize = "256";
       screenError = "16";
+      updateBasetex = "0";
       position = "-512 -512 -512";
       rotation = "1 0 0 0";
       canSave = "1";
@@ -992,7 +983,7 @@ new SimGroup(MissionGroup) {
          outdoorWeight = "1";
          isAIControlled = "0";
          dataBlock = "SpawnSphereMarker";
-         position = "19.461 -51.925 0.75";
+         position = "19.3258 -51.925 0.75";
          rotation = "1 0 0 0";
          scale = "1 1 1";
          canSave = "1";
@@ -8765,13 +8756,13 @@ new SimGroup(MissionGroup) {
          renderNormals = "0";
          forceDetail = "-1";
          position = "-6.25 -66.25 0";
-         rotation = "-0.0203374 -0.0203374 -0.999586 90.0223";
+         rotation = "-0.0203374 -0.0203374 -0.999586 90.0221";
          scale = "1 1 1";
          canSave = "1";
          canSaveDynamicFields = "1";
       };
    };
-   new SimGroup(levelborders) {
+   new SimGroup(levelBorders) {
       canSave = "1";
       canSaveDynamicFields = "1";
 
@@ -10519,12 +10510,12 @@ new SimGroup(MissionGroup) {
          isLooping = "1";
          isStreaming = "0";
          sourceGroup = "AudioChannelEffects";
-         volume = "0.6";
+         volume = "0.4";
          pitch = "1";
          fadeInTime = "0";
          fadeOutTime = "0";
          is3D = "1";
-         referenceDistance = "50";
+         referenceDistance = "40";
          maxDistance = "100";
          scatterDistance = "0 0 0";
          coneInsideAngle = "360";
@@ -10543,12 +10534,12 @@ new SimGroup(MissionGroup) {
          isLooping = "1";
          isStreaming = "0";
          sourceGroup = "AudioChannelEffects";
-         volume = "0.6";
+         volume = "0.4";
          pitch = "1";
          fadeInTime = "0";
          fadeOutTime = "0";
          is3D = "1";
-         referenceDistance = "50";
+         referenceDistance = "40";
          maxDistance = "100";
          scatterDistance = "0 0 0";
          coneInsideAngle = "360";
@@ -10567,12 +10558,12 @@ new SimGroup(MissionGroup) {
          isLooping = "1";
          isStreaming = "0";
          sourceGroup = "AudioChannelEffects";
-         volume = "0.6";
+         volume = "0.4";
          pitch = "1";
          fadeInTime = "0";
          fadeOutTime = "0";
          is3D = "1";
-         referenceDistance = "50";
+         referenceDistance = "40";
          maxDistance = "100";
          scatterDistance = "0 0 0";
          coneInsideAngle = "360";
@@ -10591,12 +10582,12 @@ new SimGroup(MissionGroup) {
          isLooping = "1";
          isStreaming = "0";
          sourceGroup = "AudioChannelEffects";
-         volume = "0.6";
+         volume = "0.4";
          pitch = "1";
          fadeInTime = "0";
          fadeOutTime = "0";
          is3D = "1";
-         referenceDistance = "50";
+         referenceDistance = "40";
          maxDistance = "100";
          scatterDistance = "0 0 0";
          coneInsideAngle = "360";
@@ -10615,7 +10606,7 @@ new SimGroup(MissionGroup) {
          isLooping = "1";
          isStreaming = "0";
          sourceGroup = "AudioChannelEffects";
-         volume = "0.6";
+         volume = "0.5";
          pitch = "1";
          fadeInTime = "0";
          fadeOutTime = "0";
@@ -10626,7 +10617,7 @@ new SimGroup(MissionGroup) {
          coneInsideAngle = "360";
          coneOutsideAngle = "360";
          coneOutsideVolume = "1";
-         position = "-282.273 -257.471 -15";
+         position = "-282.273 -257.471 60";
          rotation = "1 0 0 0";
          scale = "320 320 320";
          canSave = "1";
@@ -10639,7 +10630,7 @@ new SimGroup(MissionGroup) {
          isLooping = "1";
          isStreaming = "0";
          sourceGroup = "AudioChannelEffects";
-         volume = "0.6";
+         volume = "0.5";
          pitch = "1";
          fadeInTime = "0";
          fadeOutTime = "0";
@@ -10650,7 +10641,7 @@ new SimGroup(MissionGroup) {
          coneInsideAngle = "360";
          coneOutsideAngle = "360";
          coneOutsideVolume = "1";
-         position = "-282.273 268.102 -15";
+         position = "-282.273 268.102 60";
          rotation = "1 0 0 0";
          scale = "320 320 320";
          canSave = "1";
@@ -10663,7 +10654,7 @@ new SimGroup(MissionGroup) {
          isLooping = "1";
          isStreaming = "0";
          sourceGroup = "AudioChannelEffects";
-         volume = "0.6";
+         volume = "0.5";
          pitch = "1";
          fadeInTime = "0";
          fadeOutTime = "0";
@@ -10674,7 +10665,7 @@ new SimGroup(MissionGroup) {
          coneInsideAngle = "360";
          coneOutsideAngle = "360";
          coneOutsideVolume = "1";
-         position = "264.731 268.102 -15";
+         position = "264.731 268.102 60";
          rotation = "1 0 0 0";
          scale = "320 320 320";
          canSave = "1";
@@ -10687,7 +10678,7 @@ new SimGroup(MissionGroup) {
          isLooping = "1";
          isStreaming = "0";
          sourceGroup = "AudioChannelEffects";
-         volume = "0.6";
+         volume = "0.5";
          pitch = "1";
          fadeInTime = "0";
          fadeOutTime = "0";
@@ -10698,7 +10689,7 @@ new SimGroup(MissionGroup) {
          coneInsideAngle = "360";
          coneOutsideAngle = "360";
          coneOutsideVolume = "1";
-         position = "264.731 -302.984 -15";
+         position = "264.731 -302.984 60";
          rotation = "1 0 0 0";
          scale = "320 320 320";
          canSave = "1";
@@ -10862,7 +10853,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -10893,7 +10884,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -10924,7 +10915,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -10955,7 +10946,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -10986,7 +10977,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11017,7 +11008,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11048,7 +11039,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11079,7 +11070,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11110,7 +11101,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11141,7 +11132,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11172,7 +11163,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11203,7 +11194,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11234,7 +11225,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11270,7 +11261,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11312,7 +11303,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11354,7 +11345,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11396,7 +11387,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11438,7 +11429,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11480,7 +11471,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11538,7 +11529,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11569,7 +11560,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11589,7 +11580,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11631,7 +11622,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11651,7 +11642,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11693,7 +11684,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11718,7 +11709,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11826,7 +11817,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11890,7 +11881,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";
@@ -11954,7 +11945,7 @@ new SimGroup(MissionGroup) {
             meshCulling = "0";
             originSort = "0";
             collisionType = "Collision Mesh";
-            decalType = "Collision Mesh";
+            decalType = "Visible Mesh";
             allowPlayerStep = "1";
             alphaFadeEnable = "0";
             alphaFadeStart = "100";

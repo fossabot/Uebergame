@@ -13,13 +13,13 @@ singleton Material(TerrainFX_ter_forest_dirt_01)
 new TerrainMaterial()
 {
    diffuseMap = "art/terrains/forest/ter_forest_dirt_01_B";
-   diffuseSize = "150";
+   diffuseSize = "200";
    detailMap = "art/terrains/forest/ter_forest_dirt_01_D";
    detailDistance = "100";
-   macroSize = "64";
+   macroSize = "32";
    internalName = "ter_forest_dirt_01";
    detailSize = "5";
-   macroStrength = "0.3";
+   macroStrength = "0.5";
    parallaxScale = "0.04";
    normalMap = "art/terrains/forest/ter_forest_dirt_01_N";
    macroMap = "art/terrains/forest/ter_forest_dirt_01_M";
@@ -43,12 +43,12 @@ new TerrainMaterial()
    diffuseSize = "100";
    normalMap = "art/terrains/forest/ter_forest_grass_01_N";
    detailMap = "art/terrains/forest/ter_forest_grass_01_D";
-   detailStrength = "1.2";
+   detailStrength = "1";
    detailDistance = "100";
    macroMap = "art/terrains/forest/ter_forest_grass_01_M";
-   macroSize = "50";
+   macroSize = "40";
    macroStrength = "0.8";
-   parallaxScale = "0.05";
+   parallaxScale = "0.02";
    internalName = "ter_forest_grass_01";
 };
 
