@@ -36,7 +36,7 @@ $Tools::materialEditorList = "";
 //---------------------------------------------------------------------------------------------
 // Tools Package.
 //---------------------------------------------------------------------------------------------
-package tools
+package Tools
 {
    function loadKeybindings()
    {
@@ -46,9 +46,9 @@ package tools
    }
    
    // Start-up.
-   function Torque::onStart(%this)
+   function onStart()
    {
-      Parent::onStart(%this);      
+      Parent::onStart();            
       
       new Settings(EditorSettings) { file = "tools/settings.xml"; };
       EditorSettings.read();
@@ -131,12 +131,6 @@ package tools
       Tools::LoadResources( $Tools::resourcePath );
       
       //$Scripts::ignoreDSOs = %toggle;
-      
-      if(isWebDemo())
-      {
-         // if this is the web tool demo lets init some value storage
-         //$clicks
-      }
    }
    
    function startToolTime(%tool)
