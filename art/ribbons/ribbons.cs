@@ -41,6 +41,7 @@ datablock RibbonData(BasicRibbon)
    fadeAwayStep = 0.1;
    UseFadeOut = true;
    RibbonMaterial = BasicRibbonMat;
+   category = "FX";
 };
 
 datablock RibbonData(TexturedRibbon)
@@ -60,4 +61,5 @@ datablock RibbonData(TexturedRibbon)
    tileScale = 1;
    fixedTexCoords = true;
    TexcoordsRelativeToDistance = true;
+   category = "FX";
 };

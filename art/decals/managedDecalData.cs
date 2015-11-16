@@ -43,7 +43,7 @@ datablock DecalData(ScorchRXDecal)
    screenEndRadius = "100";
 };
 
-datablock DecalData(BulletHoleDecal)
+datablock DecalData(bulletHoleDecal)
 {
    Material = "DECAL_bulletHole";
    size = "0.35";
@@ -53,13 +53,13 @@ datablock DecalData(BulletHoleDecal)
    texCols = "2";
    screenStartRadius = "20";
    screenEndRadius = "5";
-   clippingAngle = "180";
+   clippingAngle = "45";
 };
 
 datablock DecalData(BloodDecalData)  
 {  
    Material = "DECAL_blood_splatter_01";  
-   size = "0.5";
+   size = "1";
    lifeSpan = "100000";
    randomize = "1";
    texRows = "2";
