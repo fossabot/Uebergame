@@ -2423,7 +2423,7 @@
                sinkAllKeyEvents = "0";
                password = "0";
                passwordMask = "*";
-               text = "2:duion.com:28002";
+               text = "2:88.198.65.149:28002";
                maxLength = "1024";
                margin = "0 0 0 0";
                padding = "0 0 0 0";

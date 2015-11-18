@@ -22,7 +22,7 @@
 
 // List of master servers to query, each one is tried in order
 // until one responds
-$pref::Master[0] = "2:duion.com:28002";
+$pref::Master[0] = "2:88.198.65.149:28002";
 $Pref::Server::RegionMask = 2; // 0 should mean all regions
 
 // Information about the server
