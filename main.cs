@@ -20,6 +20,9 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
+// BKS debug trace(1) set to trace(0) to disable
+trace(1);
+
 // Set the name of our application
 $appName = "Uebergame";
 
@@ -27,7 +30,7 @@ $appName = "Uebergame";
 $defaultGame = "scripts";
 
 // Set profile directory
-$Pref::Video::ProfilePath = "/scripts/client/profile";
+$Pref::Video::ProfilePath = "scripts/client/profile";
 
 function createCanvas(%windowTitle)
 {
@@ -69,7 +72,7 @@ function isScriptFile(%path)
 
 //------------------------------------------------------------------------------
 // Process command line arguments
-exec("/scripts/parseArgs.cs");
+exec("scripts/parseArgs.cs");
 
 $isDedicated = false;
 $dirCount = 2;
@@ -81,7 +84,7 @@ if (isToolBuild())
 
 
 // Parse the executable arguments with the standard
-// function from core/main.cs
+// function from scripts/coremain.cs
 defaultParseArgs();
 
 

@@ -72,11 +72,11 @@ function onStart()
       //$pref::Video::displayDevice = "D3D9";
    
    // Initialise stuff.
-   exec("/scripts/client/clientcore.cs");
+   exec("scripts/client/clientcore.cs");
    initializeCore();
 
-   exec("/scripts/client/coreclient.cs");
-   exec("/scripts/server/coreserver.cs");
+   exec("scripts/client/coreclient.cs");
+   exec("scripts/server/coreserver.cs");
    
    exec("./scripts/gui/guiTreeViewCtrl.cs");
    exec("./scripts/gui/messageBoxes/messageBox.ed.cs");

@@ -20,7 +20,7 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
-$PostFXManager::defaultPreset  = "/scripts/client/postFx/default.postfxpreset.cs";
+$PostFXManager::defaultPreset  = "scripts/client/postFx/default.postfxpreset.cs";
 
 function PostFXManager::settingsSetEnabled(%this, %bEnablePostFX)
 {
