@@ -25,15 +25,15 @@ function initBaseServer()
    // Base server functionality
    exec("./audio.cs");
    exec("./message.cs");
-   exec("./commands.cs");
+   exec("./corecommands.cs");
    exec("./levelInfo.cs");
    exec("./missionLoad.cs");
    exec("./missionDownload.cs");
    exec("./clientConnection.cs");
    exec("./kickban.cs");
-   exec("./game.cs");
+   exec("./coregame.cs");
    exec("./spawn.cs");
-   exec("./camera.cs");
+   exec("./corecamera.cs");
    exec("./centerPrint.cs");
 }
 
@@ -121,7 +121,7 @@ function createServer(%serverType, %level)
    new SimGroup(ServerGroup);
 
    // Load up any core datablocks
-   exec("core/art/datablocks/datablockExec.cs");
+   exec("art/datablocks/datablockExec.cs");
 
    // Let the game initialize some things now that the
    // the server has been created

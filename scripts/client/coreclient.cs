@@ -20,20 +20,43 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
-datablock MissionMarkerData(WayPointMarker)
+function initBaseClient()
 {
-   category = "Misc";
-   shapeFile = "core/art/shapes/octahedron.dts";
-};
+   // Base client functionality
+   exec( "./message.cs" );
+   exec( "./mission.cs" );
+   exec( "./commandmissiondownload.cs" );
+   exec( "./actionMap.cs" );
+   exec( "./renderManager.cs" );
+   exec( "./lighting.cs" );
+   
+   initRenderManager();
+   initLightingSystems();   
+}
 
-datablock MissionMarkerData(SpawnSphereMarker)
+/// A helper function which will return the ghosted client object
+/// from a server object when connected to a local server.
+function serverToClientObject( %serverObject )
 {
-   category = "Misc";
-   shapeFile = "core/art/shapes/octahedron.dts";
-};
+   assert( isObject( LocalClientConnection ), "serverToClientObject() - No local client connection found!" );
+   assert( isObject( ServerConnection ), "serverToClientObject() - No server connection found!" );      
+         
+   %ghostId = LocalClientConnection.getGhostId( %serverObject );
+   if ( %ghostId == -1 )
+      return 0;
+                
+   return ServerConnection.resolveGhostID( %ghostId );   
+}
 
-datablock MissionMarkerData(CameraBookmarkMarker)
+//----------------------------------------------------------------------------
+// Debug commands
+//----------------------------------------------------------------------------
+
+function netSimulateLag( %msDelay, %packetLossPercent )
 {
-   category = "Misc";
-   shapeFile = "core/art/shapes/camera.dts";
-};
+   if ( %packetLossPercent $= "" )
+      %packetLossPercent = 0;
+                  
+   commandToServer( 'NetSimulateLag', %msDelay, %packetLossPercent );
+}
+

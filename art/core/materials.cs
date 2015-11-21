@@ -20,13 +20,17 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
-// Load up all datablocks.  This function is called when
-// a server is constructed.
+singleton Material( BlankWhite )
+{
+   diffuseMap[0] = "art/core/white";
+   mapTo = "white";
+   materialTag0 = "Miscellaneous";
+   specularPower[0] = "1";
+   showFootprints = "0";
+   footstepSoundId = "0";
+   impactSoundId = "0";
+};
 
-// Set up the Camera's
-exec("./camera.cs");
-
-// Common Marker's
-exec("./markers.cs");
-
-exec("./defaultparticle.cs");
+singleton Material( Empty )
+{
+};

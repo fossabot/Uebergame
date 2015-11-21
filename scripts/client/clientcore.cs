@@ -40,22 +40,25 @@ function initializeCore()
    
    
    // Very basic functions used by everyone.
-   exec("./audio.cs");
-   exec("./canvas.cs");
-   exec("./cursor.cs");
-   exec("./persistenceManagerTest.cs");
+   exec("./audio.cs");						/*done*/
+   exec("./canvas.cs");						/*done*/
+   exec("./cursor.cs");						/*done*/
+   exec("./persistenceManagerTest.cs");		/*done*/
 
-   // Content.
-   exec("~/art/gui/profiles.cs");
-   exec("~/scripts/gui/cursors.cs");
+   // Content. 
+   //core/
+   exec("/art/core/gui/profiles.cs");		/*done*/
    
-   exec( "./audioEnvironments.cs" );
-   exec( "./audioDescriptions.cs" );
-   exec( "./audioStates.cs" );
-   exec( "./audioAmbiences.cs" );
+   exec("/scripts/gui/cursors.cs");			/*done*/
+   
+   exec( "./audioEnvironments.cs" );/*done*/
+   exec( "./audioDescriptions.cs" );/*done*/
+   exec( "./audioStates.cs" );/*done*/
+   exec( "./audioAmbiences.cs" );/*done*/
 
    // Input devices
-   exec("~/scripts/client/oculusVR.cs");
+   //core/
+   exec("/scripts/client/oculusVR.cs");/*done*/
 
    // Seed the random number generator.
    setRandomSeed();
@@ -70,51 +73,56 @@ function initializeCore()
    startFileChangeNotifications();
       
    // Core Guis.
-   exec("~/art/gui/console.gui");
-   exec("~/art/gui/consoleVarDlg.gui");
-   exec("~/art/gui/netGraphGui.gui");
-   exec("~/art/gui/RecordingsDlg.gui");
-   exec("~/art/gui/guiMusicPlayer.gui");
+   //core/
+   exec("/art/core/gui/console.gui");/*done*/
+   exec("/art/core/gui/consoleVarDlg.gui");/*done*/
+   exec("/art/core/gui/netGraphGui.gui");/*done*/
+   exec("/art/core/gui/RecordingsDlg.gui");/*done*/
+   exec("/art/core/gui/guiMusicPlayer.gui");/*done*/
 
 	
    // Gui Helper Scripts.
-   exec("~/scripts/gui/help.cs");
-   exec("~/scripts/gui/recordingsDlg.cs");
-   exec("~/scripts/gui/guiMusicPlayer.cs");
+
+   exec("/scripts/gui/help.cs");/*done*/
+   exec("/scripts/gui/recordingsDlg.cs");/*done*/
+   exec("/scripts/gui/guiMusicPlayer.cs");/*done*/
 
    // Random Scripts.
-   exec("~/scripts/client/screenshot.cs");
-   exec("~/scripts/client/scriptDoc.cs");
-   //exec("~/scripts/client/keybindings.cs");
-   exec("~/scripts/client/helperfuncs.cs");
-   exec("~/scripts/client/commands.cs");
+
+   exec("/scripts/client/screenshot.cs");/*done*/
+   exec("/scripts/client/scriptDoc.cs");/*done*/
+   //exec("~/scripts/client/keybindings.cs");/*done*/
+   exec("/scripts/client/helperfuncs.cs");/*done*/
+   exec("/scripts/client/commands.cs");/*done*/
    
    // Client scripts
-   exec("~/scripts/client/devHelpers.cs");
-   exec("~/scripts/client/metrics.cs");
-   exec("~/scripts/client/centerPrint.cs");
+
+   exec("/scripts/client/devHelpers.cs");/*done*/
+   exec("/scripts/client/metrics.cs");/*done*/
+   exec("/scripts/client/centerPrint.cs");/*done*/
    
    // Materials and Shaders for rendering various object types
    loadCoreMaterials();
 
-   exec("~/scripts/client/commonMaterialData.cs");
-   exec("~/scripts/client/shaders.cs");
-   exec("~/scripts/client/materials.cs");
-   exec("~/scripts/client/terrainBlock.cs");
-   exec("~/scripts/client/water.cs");
-   exec("~/scripts/client/imposter.cs");
-   exec("~/scripts/client/scatterSky.cs");
-   exec("~/scripts/client/clouds.cs");
+
+   exec("/scripts/client/commonMaterialData.cs");/*done*/
+   exec("/scripts/client/coreshaders.cs");/*done*/
+   exec("/scripts/client/materials.cs");/*done*/
+   exec("/scripts/client/terrainBlock.cs");/*done*/
+   exec("/scripts/client/water.cs");/*done*/
+   exec("/scripts/client/imposter.cs");/*done*/
+   exec("/scripts/client/scatterSky.cs");/*done*/
+   exec("/scripts/client/clouds.cs");/*done*/
    
    // Initialize all core post effects.   
-   exec("~/scripts/client/postFx.cs");
+   exec("/scripts/client/postFx.cs");/*done*/
    initPostEffects();
    
    // Initialize the post effect manager.
-   exec("~/scripts/client/postFx/postFXManager.gui");
-   exec("~/scripts/client/postFx/postFXManager.gui.cs");
-   exec("~/scripts/client/postFx/postFXManager.gui.settings.cs");
-   exec("~/scripts/client/postFx/postFXManager.persistance.cs");
+   exec("/scripts/client/postFx/postFXManager.gui");/*done*/
+   exec("/scripts/client/postFx/postFXManager.gui.cs");/*done*/
+   exec("/scripts/client/postFx/postFXManager.gui.settings.cs");/*done*/
+   exec("/scripts/client/postFx/postFXManager.persistance.cs");/*done*/
    
    PostFXManager.settingsApplyDefaultPreset();  // Get the default preset settings   
    
@@ -196,7 +204,9 @@ function handleEscape()
 function loadCoreMaterials()
 {
    // Load any materials files for which we only have DSOs.
-
+	error("function loadCoreMaterials executed")
+	/* BKS core is gone, this shoudnt be needed
+	// Remove completely after testing
    for( %file = findFirstFile( "core/materials.cs.dso" );
         %file !$= "";
         %file = findNextFile( "core/materials.cs.dso" ))
@@ -206,6 +216,7 @@ function loadCoreMaterials()
       if( !isFile( %csFileName ) )
          exec( %csFileName );
    }
+   */
 
    // Load all source material files.
 
