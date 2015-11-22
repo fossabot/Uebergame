@@ -3320,7 +3320,7 @@ function ShapeEdMountWindow::mountShape( %this, %slot )
    %type = %this-->mountType.getText();
 
    if ( %model $= "Browse..." )
-      %model = "art/core/shapes/octahedron.dts";
+      %model = "art/coreshapes/octahedron.dts";
 
    if ( ShapeEdShapeView.mountShape( %model, %node, %type, %slot ) )
    {

@@ -23,17 +23,17 @@
 datablock MissionMarkerData(WayPointMarker)
 {
    category = "Misc";
-   shapeFile = "art/core/shapes/octahedron.dts";
+   shapeFile = "art/coreshapes/octahedron.dts";
 };
 
 datablock MissionMarkerData(SpawnSphereMarker)
 {
    category = "Misc";
-   shapeFile = "art/core/shapes/octahedron.dts";
+   shapeFile = "art/coreshapes/octahedron.dts";
 };
 
 datablock MissionMarkerData(CameraBookmarkMarker)
 {
    category = "Misc";
-   shapeFile = "art/core/shapes/camera.dts";
+   shapeFile = "art/coreshapes/camera.dts";
 };
