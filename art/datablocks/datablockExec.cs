@@ -20,6 +20,11 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
+// Set up 3 core files
+exec("./camera.cs");
+exec("./markers.cs");
+exec("./defaultparticle.cs");
+
 // Load up all datablocks.  This function is called when
 // a server is constructed.
 

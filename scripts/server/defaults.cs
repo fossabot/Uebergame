@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------------
 
 // First we execute the core default preferences.
-exec( "core/scripts/server/defaults.cs" );
+exec( "./defaultprefs.cs" );
 
 
 // Now add your own game specific server preferences as

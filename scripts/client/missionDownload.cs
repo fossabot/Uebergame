@@ -23,7 +23,7 @@
 //----------------------------------------------------------------------------
 // Mission Loading & Mission Info
 // The mission loading server handshaking is handled by the
-// core/scripts/client/missingLoading.cs.  This portion handles the interface
+// /scripts/client/missingLoading.cs.  This portion handles the interface
 // with the game GUI.
 //----------------------------------------------------------------------------
 

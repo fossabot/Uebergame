@@ -1,0 +1,13 @@
+<TorsionProjectOptions>
+<Address>127.0.0.1</Address>
+<Password>password</Password>
+<Port>6060</Port>
+<LastConfig>Debug</LastConfig>
+<Breakpoints/>
+<Bookmarks/>
+<OpenFiles>
+<File ScrollX="0" ScrollY="60">core\scripts\server\game.cs</File>
+<File ScrollX="0" ScrollY="462">art\gui\joinServerDlg.gui</File>
+<File ScrollX="0" ScrollY="16" Active="true">scripts\server\server.cs</File>
+</OpenFiles>
+</TorsionProjectOptions>
