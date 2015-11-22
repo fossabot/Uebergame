@@ -344,7 +344,7 @@ new GuiControlProfile( GuiProgressTextProfile )
 };
 
 if( !isObject( GuiButtonProfile ) )
-new GuiControlProfile( GuiMenuButtonProfile )
+new GuiControlProfile( GuiButtonProfile )
 {
    opaque = true;
    border = "1";
