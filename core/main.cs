@@ -1,1 +1,0 @@
-exec("scripts/coremain.cs");

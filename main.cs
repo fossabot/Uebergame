@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------------
 
 // BKS debug trace(1) set to trace(0) to disable
-trace(1);
+trace(0);
 
 // Set the name of our application
 $appName = "Uebergame";
@@ -84,7 +84,7 @@ if (isToolBuild())
 
 
 // Parse the executable arguments with the standard
-// function from scripts/coremain.cs
+// function from scripts/main.cs
 defaultParseArgs();
 
 
