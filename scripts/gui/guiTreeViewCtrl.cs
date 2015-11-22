@@ -22,15 +22,15 @@
 
 function GuiTreeViewCtrl::onDefineIcons( %this )
 {
-   %icons = "art/****/gui/images/treeview/default:" @
-            "art/****/gui/images/treeview/simgroup:" @
-            "art/****/gui/images/treeview/simgroup_closed:" @
-            "art/****/gui/images/treeview/simgroup_selected:" @
-            "art/****/gui/images/treeview/simgroup_selected_closed:" @      
-            "art/****/gui/images/treeview/hidden:" @      
-            "art/****/gui/images/treeview/shll_icon_passworded_hi:" @
-            "art/****/gui/images/treeview/shll_icon_passworded:" @      
-            "art/****/gui/images/treeview/default";
+   %icons = "art/core/gui/images/treeview/default:" @
+            "art/core/gui/images/treeview/simgroup:" @
+            "art/core/gui/images/treeview/simgroup_closed:" @
+            "art/core/gui/images/treeview/simgroup_selected:" @
+            "art/core/gui/images/treeview/simgroup_selected_closed:" @      
+            "art/core/gui/images/treeview/hidden:" @      
+            "art/core/gui/images/treeview/shll_icon_passworded_hi:" @
+            "art/core/gui/images/treeview/shll_icon_passworded:" @      
+            "art/core/gui/images/treeview/default";
               
    %this.buildIconTable(%icons);   
 }
