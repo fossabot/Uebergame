@@ -20,6 +20,54 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
+
+
+//----------------------------------------------------------------------------
+// Server chat message handlers
+//----------------------------------------------------------------------------
+
+function serverCmdTeamMessageSent(%client, %text)
+{
+   if(strlen(%text) >= $Pref::Server::MaxChatLen)
+      %text = getSubStr(%text, 0, $Pref::Server::MaxChatLen);
+   chatMessageTeam(%client, %client.team, '\c3%1: %2', %client.playerName, %text);
+}
+
+function serverCmdMessageSent(%client, %text)
+{
+   if(strlen(%text) >= $Pref::Server::MaxChatLen)
+      %text = getSubStr(%text, 0, $Pref::Server::MaxChatLen);
+   chatMessageAll(%client, '\c4%1: %2', %client.playerName, %text);
+}
+
+//----------------------------------------------------------------------------
+// Debug commands
+//----------------------------------------------------------------------------
+
+function serverCmdNetSimulateLag( %client, %msDelay, %packetLossPercent )
+{
+   if ( %client.isAdmin )
+      %client.setSimulatedNetParams( %packetLossPercent / 100.0, %msDelay );   
+}
+
+//----------------------------------------------------------------------------
+// Server chat message handlers
+//----------------------------------------------------------------------------
+
+function serverCmdTeamMessageSent(%client, %text)
+{
+   if(strlen(%text) >= $Pref::Server::MaxChatLen)
+      %text = getSubStr(%text, 0, $Pref::Server::MaxChatLen);
+   chatMessageTeam(%client, %client.team, '\c3%1: %2', %client.playerName, %text);
+}
+
+function serverCmdMessageSent(%client, %text)
+{
+   if(strlen(%text) >= $Pref::Server::MaxChatLen)
+      %text = getSubStr(%text, 0, $Pref::Server::MaxChatLen);
+   chatMessageAll(%client, '\c4%1: %2', %client.playerName, %text);
+}
+
 //-----------------------------------------------------------------------------
 // Misc server commands avialable to clients
 //-----------------------------------------------------------------------------
@@ -74,6 +122,27 @@ function serverCmdThrow(%client, %data)
          if(%player.hasInventory(%data.getName()))
             %player.throw(%data);
    }
+}
+
+//----------------------------------------------------------------------------
+// Server admin
+//----------------------------------------------------------------------------
+
+function serverCmdSAD( %client, %password )
+{
+   if( %password !$= "" && %password $= $Pref::Server::AdminPassword)
+   {
+      %client.isAdmin = true;
+      %client.isSuperAdmin = true;
+      %name = getTaggedString( %client.playerName );
+      MessageAll( 'MsgAdminForce', "\c2" @ %name @ " has become Admin by force.", %client );   
+   }
+}
+
+function serverCmdSADSetPassword(%client, %password)
+{
+   if(%client.isSuperAdmin)
+      $Pref::Server::AdminPassword = %password;
 }
 
 // ----------------------------------------------------------------------------
