@@ -257,7 +257,7 @@ function onStart()
 
    // Load the scripts that start it all...
    exec("./client/init.cs");
-   exec("./server/init.cs");
+   exec("./server/server.cs");
    
    // Init the physics plugin.
    physicsInit();

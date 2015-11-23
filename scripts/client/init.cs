@@ -59,6 +59,7 @@ function initClient()
    // Game information used to query the master server
    $Client::GameTypeQuery = $appName;
    $Client::MissionTypeQuery = "Any";
+   $Client::GameType = ""; // PZ code
 
    // These should be game specific GuiProfiles.  Custom profiles are saved out
    // from the Gui Editor.  Either of these may override any that already exist.
@@ -71,25 +72,28 @@ function initClient()
    // Use our prefs to configure our Canvas/Window
    configureCanvas();
 
-   // Load up the Game GUIs
-   exec("art/gui/defaultGameProfiles.cs");
+ 
+   // Load up the shell GUIs
+    exec("art/gui/mainMenuGui.gui");
+    exec("art/gui/joinServerDlg.gui");
+    exec("art/gui/endGameGui.gui");
+	exec("art/gui/exitGameGui.gui");  
+    exec("art/gui/chooseLevelDlg.gui");
+
+
+    exec("art/gui/optionsDlg.gui");
+    exec("art/gui/loadingGui.gui");
+    exec("art/gui/remapDlg.gui");
+    exec("art/gui/extrasDlg.gui");
+    exec("art/gui/helpDlg.gui");
+   
+     // Load up the Game GUIs
    exec("art/gui/playGui.gui");
+   exec("art/gui/defaultGameProfiles.cs");
    exec("art/gui/chatHud.gui");
    exec("art/gui/playerList.gui");
    exec("art/gui/hudlessGui.gui");
 
-   // Load up the shell GUIs
-   exec("art/gui/mainMenuGui.gui");
-   exec("art/gui/joinServerDlg.gui");
-   exec("art/gui/endGameGui.gui");
-   exec("art/gui/exitGameGui.gui");
-   exec("art/gui/chooseLevelDlg.gui");
-   exec("art/gui/loadingGui.gui");
-   exec("art/gui/optionsDlg.gui");
-   exec("art/gui/remapDlg.gui");
-   exec("art/gui/extrasDlg.gui");
-   exec("art/gui/helpDlg.gui");
-   
    // Gui scripts
    exec("./playerList.cs");
    exec("./chatHud.cs");
@@ -181,7 +185,7 @@ function loadMainMenu()
       %file = findFirstFile(%levelFile);
 
       if(%file !$= "")
-         createAndConnectToLocalServer( "SinglePlayer", %file );
+         createAndConnectToLocalServer("SinglePlayer", %file, $pref::Server::MissionType);
    }
 }
 

@@ -21,7 +21,61 @@
 //-----------------------------------------------------------------------------
 
 // First we execute the core default preferences.
-exec( "./defaultprefs.cs" );
+// List of master servers to query, each one is tried in order
+// until one responds
+$Pref::Server::RegionMask = 2;
+$pref::Master[0] = "2:88.198.65.149:28002";
+
+// Information about the server
+$Pref::Server::Name = "Uebergame server";
+$Pref::Server::Info = "This is an Uebergame server.";
+
+// The network port is also defined by the client, this value 
+// overrides pref::net::port for dedicated servers
+$Pref::Server::Port = 28000;
+
+// If the password is set, clients must provide it in order
+// to connect to the server
+$Pref::Server::Password = "";
+// PZ Code
+// Text to appear on loading screen
+// Multiple lines possible just add more varibles
+$pref::Server::Message0 = "Server Information";
+$pref::Server::Message1 = "Welcome to the Ubergame server!";
+$pref::Server::Message2 = "Treat others with respect.";
+ 
+// The connection error message is transmitted to the client immediatly
+// on connection, if any further error occures during the connection
+// process, such as network traffic mismatch, or missing files, this error
+// message is display. This message should be replaced with information
+// usefull to the client, such as the url or ftp address of where the
+// latest version of the game can be obtained.
+$Pref::Server::ConnectionError =
+   "You likely do not have the correct version of the game installed or "@
+   "you are missing some of the related art and levels. "@
+   "Please contact the server administrator and try to solve the issue.";
+
+
+
+// Password for admin clients
+$Pref::Server::AdminPassword = "";
+$pref::Server::SuperAdminPassword = "changeme";
+
+// Misc server settings.
+$Pref::Server::MaxPlayers = 10;
+$pref::Game::Duration = 900;                 // specified in seconds
+$pref::Game::EndGameScore = 20;
+$pref::Game::EndGamePause = 5;               // specified in seconds
+$pref::Game::AllowCycling = 1;
+
+$pref::Server::MissionType = "DM";
+$pref::Server::EnableAI = 0;
+$Pref::Server::FloodProtectionEnabled = 1;
+$Pref::Server::MaxChatLen = 120;
+$Pref::Server::BanTime = 1800;               // specified in seconds
+$Pref::Server::KickBanTime = 300;            // specified in seconds
+
+$Pref::Server::TimeLimit = 0;               // In minutes //unused?!
 
 
 // Now add your own game specific server preferences as

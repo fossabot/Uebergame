@@ -26,3 +26,68 @@ function clientCmdSyncEditorGui()
    if (isObject(EditorGui))
       EditorGui.syncCameraGui();
 }
+
+//----------------------------------------------------------------------------
+// Game start / end events sent from the server
+//----------------------------------------------------------------------------
+
+function clientCmdGameStart(%seq)
+{
+   PlayerListGui.zeroScores();
+}
+
+function clientCmdGameEnd(%seq)
+{
+   // Stop local activity... the game will be destroyed on the server
+   sfxStopAll();
+   
+   if ((!EditorIsActive() && !GuiEditorIsActive()))
+   {
+      // Copy the current scores from the player list into the
+      // end game gui (bit of a hack for now).
+      EndGameGuiList.clear();
+      for (%i = 0; %i < PlayerListGuiList.rowCount(); %i++)
+      {
+      //error("PlayerListGuiList.rowCount loop at: " @ %i);
+         %text = PlayerListGuiList.getRowText(%i);
+         %id = PlayerListGuiList.getRowId(%i);
+         EndGameGuiList.addRow(%id, %text);
+      }
+      EndGameGuiList.sortNumerical(1, false);
+
+      // Display the end-game screen
+      Canvas.setContent(EndGameGui);
+   }
+}
+
+//-----------------------------------------------------------------------------
+// Damage Direction Indicator
+//-----------------------------------------------------------------------------
+
+function clientCmdSetDamageDirection(%direction)
+{
+   eval("%ctrl = DamageHUD-->damage_" @ %direction @ ";");
+   if (isObject(%ctrl))
+   {
+      // Show the indicator, and schedule an event to hide it again
+      cancelAll(%ctrl);
+      %ctrl.setVisible(true);
+      %ctrl.schedule(500, setVisible, false);
+   }
+}
+
+//-----------------------------------------------------------------------------
+// Damage Direction Indicator
+//-----------------------------------------------------------------------------
+
+function clientCmdSetDamageDirection(%direction)
+{
+   eval("%ctrl = DamageHUD-->damage_" @ %direction @ ";");
+   if (isObject(%ctrl))
+   {
+      // Show the indicator, and schedule an event to hide it again
+      cancelAll(%ctrl);
+      %ctrl.setVisible(true);
+      %ctrl.schedule(500, setVisible, false);
+   }
+}

@@ -20,6 +20,46 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
+function initBaseClient()
+{
+   // Base client functionality
+   exec( "./message.cs" );
+   exec( "./mission.cs" );
+   exec( "./commandmissiondownload.cs" );
+   exec( "./actionMap.cs" );
+   exec( "./renderManager.cs" );
+   exec( "./lighting.cs" );
+   
+   initRenderManager();
+   initLightingSystems();   
+}
+
+/// A helper function which will return the ghosted client object
+/// from a server object when connected to a local server.
+function serverToClientObject( %serverObject )
+{
+   assert( isObject( LocalClientConnection ), "serverToClientObject() - No local client connection found!" );
+   assert( isObject( ServerConnection ), "serverToClientObject() - No server connection found!" );      
+         
+   %ghostId = LocalClientConnection.getGhostId( %serverObject );
+   if ( %ghostId == -1 )
+      return 0;
+                
+   return ServerConnection.resolveGhostID( %ghostId );   
+}
+
+//----------------------------------------------------------------------------
+// Debug commands
+//----------------------------------------------------------------------------
+
+function netSimulateLag( %msDelay, %packetLossPercent )
+{
+   if ( %packetLossPercent $= "" )
+      %packetLossPercent = 0;
+                  
+   commandToServer( 'NetSimulateLag', %msDelay, %packetLossPercent );
+}
+
 //-----------------------------------------------------------------------------
 // Server Admin Commands
 //-----------------------------------------------------------------------------
@@ -46,20 +86,7 @@ function clientCmdSyncClock(%time)
 }
 
 //-----------------------------------------------------------------------------
-// Damage Direction Indicator
-//-----------------------------------------------------------------------------
 
-function clientCmdSetDamageDirection(%direction)
-{
-   eval("%ctrl = DamageHUD-->damage_" @ %direction @ ";");
-   if (isObject(%ctrl))
-   {
-      // Show the indicator, and schedule an event to hide it again
-      cancelAll(%ctrl);
-      %ctrl.setVisible(true);
-      %ctrl.schedule(500, setVisible, false);
-   }
-}
 
 //-----------------------------------------------------------------------------
 // Teleporter visual effect
