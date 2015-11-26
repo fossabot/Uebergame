@@ -256,9 +256,10 @@ function onStart()
    echo("\n--------- Initializing Directory: scripts ---------");
 
    // Load the scripts that start it all...
-   exec("./client/init.cs");
+   exec("./client/client.cs");
    exec("./server/server.cs");
    
+   exec("./client/init.cs");
    // Init the physics plugin.
    physicsInit();
       

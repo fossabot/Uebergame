@@ -48,11 +48,25 @@
 //    ( ) Pref::Server::MaxChatLen        Max chat message len
 //    ( ) Pref::Server::FloodProtectionEnabled Bool
 
+
 //-----------------------------------------------------------------------------
 
-function initBaseServer()
+function Torque::initServer(%this)
 {
-   $Server::MissionFileSpec = "levels/*.mis"; //PZ code
+   echo("\n--------- Initializing " @ $appName @ ": Server Scripts ---------");
+
+   // Server::Status is returned in the Game Info Query and represents the
+   // current status of the server. This string sould be very short.
+   $Server::Status = "Unknown";
+
+   // Turn on testing/debug script functions
+   $Server::TestCheats = false;
+
+   // Specify where the mission files are.
+   $Server::MissionFileSpec = "levels/*.mis";
+
+   // The common module provides the basic server functionality
+      $Server::MissionFileSpec = "levels/*.mis"; //PZ code
    // Base server functionality
    exec("./audio.cs");
    exec("./message.cs");
@@ -67,7 +81,32 @@ function initBaseServer()
    exec("./spawn.cs");
    exec("./corecamera.cs");
    exec("./centerPrint.cs");
+
+   // Load up game server support scripts
+   exec("./commands.cs");
+   exec("./game.cs");
 }
+
+
+//-----------------------------------------------------------------------------
+
+function Torque::initDedicated(%this)
+{
+   enableWinConsole(true);
+   echo("\n--------- Starting Dedicated Server ---------");
+
+   // Make sure this variable reflects the correct state.
+   $Server::Dedicated = true;
+
+   // The server isn't started unless a mission has been specified.
+   if ($missionArg !$= "") {
+      createServer("MultiPlayer", $missionArg);
+   }
+   else
+      echo("No mission specified (use -mission filename)");
+}
+
+
 
 /// Attempt to find an open port to initialize the server with
 function portInit(%port)
@@ -86,7 +125,7 @@ function portInit(%port)
 /// @return true if successful.
 function createAndConnectToLocalServer( %serverType, %level, %missionType )
 {
-   if( !createServer( %serverType, %level, %missionType ) )
+   if( !tge.createServer( %serverType, %level, %missionType ) )
       return false;
    
    %conn = new GameConnection( ServerConnection );
@@ -99,7 +138,7 @@ function createAndConnectToLocalServer( %serverType, %level, %missionType )
    if( %result !$= "" )
    {
       %conn.delete();
-      destroyServer();
+      tge.destroyServer();
       
       return false;
    }
@@ -109,7 +148,7 @@ function createAndConnectToLocalServer( %serverType, %level, %missionType )
 
 /// Create a server with either a "SinglePlayer" or "MultiPlayer" type
 /// Specify the level to load on the server
-function createServer(%this, %serverType, %level, %missionType)
+function Torque::createServer(%this, %serverType, %level, %missionType)
 {
    // Increase the server session number.  This is used to make sure we're
    // working with the server session we think we are.
@@ -125,7 +164,7 @@ function createServer(%this, %serverType, %level, %missionType)
    // across the network correctly
    %level = makeRelativePath(%level, getWorkingDirectory());
 
-   destroyServer();
+   tge.destroyServer();
 
    $missionSequence = 0;
    $Server::PlayerCount = 0;
@@ -151,7 +190,7 @@ function createServer(%this, %serverType, %level, %missionType)
    }
 
    // Create the ServerGroup that will persist for the lifetime of the server.
-   new SimGroup(ServerGroup);
+   $ServerGroup = new SimGroup(ServerGroup);
 
    // Load up any core datablocks
    exec("art/datablocks/datablockExec.cs");
@@ -160,18 +199,19 @@ function createServer(%this, %serverType, %level, %missionType)
    // the server has been created
    onServerCreated();
 
-   loadMission(%level, true);
+   %this.loadMission(%level, true);
    
    return true;
 }
 
 /// Shut down the server
-function destroyServer()
+function Torque::destroyServer(%this)
 {
    $Server::ServerType = "";
    allowConnections(false);
    stopHeartbeat();
    $missionRunning = false;
+   $Game::Running = false;
    
    // End any running levels
    endMission();
@@ -213,7 +253,7 @@ function resetServerDefaults()
    allowConnections(true); // ZOD: Open up the server for connections again.  
    
    // Reload the current level
-   loadMission( $Server::MissionFile );
+   tge.loadMission( $Server::MissionFile );
 }
 
 /// Guid list maintenance functions
@@ -248,48 +288,5 @@ function removeFromServerGuidList( %guid )
 function onServerInfoQuery()
 {
    return "Doing Ok";
-}
-
-//-----------------------------------------------------------------------------
-
-function initServer()
-{
-   echo("\n--------- Initializing " @ $appName @ ": Server Scripts ---------");
-
-   // Server::Status is returned in the Game Info Query and represents the
-   // current status of the server. This string sould be very short.
-   $Server::Status = "Unknown";
-
-   // Turn on testing/debug script functions
-   $Server::TestCheats = false;
-
-   // Specify where the mission files are.
-   $Server::MissionFileSpec = "levels/*.mis";
-
-   // The common module provides the basic server functionality
-   initBaseServer();
-
-   // Load up game server support scripts
-   exec("./commands.cs");
-   exec("./game.cs");
-}
-
-
-//-----------------------------------------------------------------------------
-
-function initDedicated()
-{
-   enableWinConsole(true);
-   echo("\n--------- Starting Dedicated Server ---------");
-
-   // Make sure this variable reflects the correct state.
-   $Server::Dedicated = true;
-
-   // The server isn't started unless a mission has been specified.
-   if ($missionArg !$= "") {
-      createServer("MultiPlayer", $missionArg);
-   }
-   else
-      echo("No mission specified (use -mission filename)");
 }
 

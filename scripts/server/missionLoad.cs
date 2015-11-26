@@ -30,8 +30,10 @@ $MissionLoadPause = 5000;
 
 //-----------------------------------------------------------------------------
 
-function loadMission( %missionName, %isFirstMission ) 
+function Torque::loadMission(%this, %missionName, %isFirstMission ) 
 {
+   // Do not allow clients to connect during loading process
+   //allowConnections(false);
    endMission();
    echo("*** LOADING MISSION: " @ %missionName);
    echo("*** Stage 1 load");
@@ -76,7 +78,7 @@ function loadMission( %missionName, %isFirstMission )
 
 //-----------------------------------------------------------------------------
 
-function loadMissionStage2() 
+function Torque::loadMissionStage2(%this) 
 {
    echo("*** Stage 2 load");
 
@@ -143,7 +145,7 @@ function loadMissionStage2()
 
 //-----------------------------------------------------------------------------
 
-function endMission()
+function Torque::endMission(%this)
 {
    if (!isObject( MissionGroup ))
       return;

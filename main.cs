@@ -163,6 +163,7 @@ new ScriptObject(tge)
 {
    class = Torque;
 };
+
 //------------------------------------------------------------------------------
 // Check if a script file exists, compiled or not.
 function isScriptFile(%path)
@@ -186,10 +187,8 @@ if (isToolBuild())
     $userDirs = "tools;" @ $userDirs;
 
 
-// Parse the executable arguments with the standard
-// function from scripts/main.cs
+// Parse the executable arguments with the standard function from scripts/main.cs
 defaultParseArgs();
-
 
 if($dirCount == 0) {
       $userDirs = $defaultGame;
@@ -199,15 +198,15 @@ if($dirCount == 0) {
 //-----------------------------------------------------------------------------
 // Display a splash window immediately to improve app responsiveness before
 // engine is initialized and main window created
- if (!$isDedicated)
- displaySplashWindow();
+if (!$isDedicated)
+   displaySplashWindow();
 
 
 //-----------------------------------------------------------------------------
 // The displayHelp, onStart, onExit and parseArgs function are overriden
 // by mod packages to get hooked into initialization and cleanup.
 
-function onStart()
+function Torque::onStart(%this)
 {
    // Default startup function
 }
@@ -218,7 +217,7 @@ function onExit()
    // invoked at the end of this file.
 }
 
-function parseArgs()
+function Torque::parseArgs(%this)
 {
    // Here for mod override, the arguments have already
    // been parsed.
@@ -244,7 +243,6 @@ function compileFiles(%pattern)
 
    $Scripts::OverrideDSOPath  = %saveDSO;
    $Scripts::ignoreDSOs       = %saveIgnore;
-   
 }
 
 if($compileAll)
@@ -313,28 +311,35 @@ if( !$logModeSpecified )
 nextToken($userDirs, currentMod, ";");
 
 // Execute startup scripts for each mod, starting at base and working up
-function loadDir(%dir)
+function Torque::loadDir(%this, %dir)
 {
    pushback($userDirs, %dir, ";");
 
    if (isScriptFile(%dir @ "/main.cs"))
-   exec(%dir @ "/main.cs");
+      exec(%dir @ "/main.cs");
+
+   if ( isPackage( %dir ) )
+      activatePackage( %dir );
 }
 
 echo("--------- Loading DIRS ---------");
-function loadDirs(%dirPath)
+function Torque::loadDirs(%this, %dirPath)
 {
    %dirPath = nextToken(%dirPath, token, ";");
    if (%dirPath !$= "")
-      loadDirs(%dirPath);
+      %this.loadDirs(%dirPath);
 
    if(exec(%token @ "/main.cs") != true)
    {
       error("Error: Unable to find specified directory: " @ %token );
       $dirCount--;
    }
+
+   // Activate the directories package if any (This will not activate the core directory)
+   if ( isPackage( %token ) )
+      activatePackage( %token );
 }
-loadDirs($userDirs);
+tge.loadDirs($userDirs);
 echo("");
 
 if($dirCount == 0) {
@@ -344,12 +349,12 @@ if($dirCount == 0) {
 }
 // Parse the command line arguments
 echo("--------- Parsing Arguments ---------");
-parseArgs();
+tge.parseArgs();
 
 // Either display the help message or startup the app.
 if ($displayHelp) {
    enableWinConsole(true);
-   displayHelp();
+   tge.displayHelp();
    quit();
 }
 else {
