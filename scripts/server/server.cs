@@ -70,16 +70,16 @@ function Torque::initServer(%this)
    // Base server functionality
    exec("./audio.cs");
    exec("./message.cs");
-   exec("./corecommands.cs");
+   //exec("./corecommands.cs");
    exec("./levelInfo.cs");
    exec("./missionLoad.cs");
    exec("./missionDownload.cs");
    exec("./clientConnection.cs");
-   exec("./admin.cs"); // PZ Code
+   // exec("./admin.cs"); // PZ Code
    exec("./kickban.cs");
-   exec("./coregame.cs");
+   exec("./gametypes/gamecore.cs");
+   // exec("./gametypes/coregame.cs"); // new gametypes code
    exec("./spawn.cs");
-   exec("./corecamera.cs");
    exec("./centerPrint.cs");
 
    // Load up game server support scripts

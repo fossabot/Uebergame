@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------------
 
 // BKS debug trace(1) set to trace(0) to disable
-trace(0);
+trace(1);
 
 // Set the name of our application
 $appName = "Uebergame";
@@ -271,8 +271,9 @@ package Help {
    }
 };
 
-function displayHelp() {
-   activatePackage(Help);
+function Torque::displayHelp(%this)
+{
+   activatePackage(help);
 
       // Notes on logmode: console logging is written to console.log.
       // -log 0 disables console logging.
@@ -329,6 +330,8 @@ function Torque::loadDirs(%this, %dirPath)
    if (%dirPath !$= "")
       %this.loadDirs(%dirPath);
 
+   echo("Loading Directory:" SPC %dirPath);
+
    if(exec(%token @ "/main.cs") != true)
    {
       error("Error: Unable to find specified directory: " @ %token );
@@ -358,7 +361,7 @@ if ($displayHelp) {
    quit();
 }
 else {
-   onStart();
+   tge.onStart();
    echo("Engine initialized...");
 
    if( !$isDedicated )

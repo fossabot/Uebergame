@@ -22,16 +22,7 @@
 
 function initBaseClient()
 {
-   // Base client functionality
-   exec( "./message.cs" );
-   exec( "./mission.cs" );
-   exec( "./commandmissiondownload.cs" );
-   exec( "./actionMap.cs" );
-   exec( "./renderManager.cs" );
-   exec( "./lighting.cs" );
-   
-   initRenderManager();
-   initLightingSystems();   
+  
 }
 
 /// A helper function which will return the ghosted client object

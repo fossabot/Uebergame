@@ -34,7 +34,7 @@ function Torque::loadMission(%this, %missionName, %isFirstMission )
 {
    // Do not allow clients to connect during loading process
    //allowConnections(false);
-   endMission();
+   %this.endMission();
    echo("*** LOADING MISSION: " @ %missionName);
    echo("*** Stage 1 load");
 
@@ -71,9 +71,9 @@ function Torque::loadMission(%this, %missionName, %isFirstMission )
    // if this isn't the first mission, allow some time for the server
    // to transmit information to the clients:
    if( %isFirstMission || $Server::ServerType $= "SinglePlayer" )
-      loadMissionStage2();
+      %this.loadMissionStage2();
    else
-      schedule( $MissionLoadPause, ServerGroup, loadMissionStage2 );
+      %this.schedule( $MissionLoadPause, ServerGroup, loadMissionStage2 );
 }
 
 //-----------------------------------------------------------------------------

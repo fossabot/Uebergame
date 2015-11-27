@@ -67,14 +67,35 @@ function Torque::initClient(%this)
    exec("art/gui/customProfiles.cs"); 
    
    // The common module provides basic client functionality
-   initBaseClient();
+//initBaseClient();
+   // Base client functionality
+   exec( "./message.cs" );
+   exec( "./mission.cs" );
+   exec("./missionDownload.cs");
+   exec( "./onmissiondownload.cs" );
+   exec( "./actionMap.cs" );
+   exec( "./renderManager.cs" );
+   exec( "./lighting.cs" );
+   
+ // Client scripts
+	exec("./serverConnection.cs");
+	//
+   	exec("./client.cs");
+	
+   	exec("./game.cs");
+   	
+   
+   initRenderManager();
+   initLightingSystems(); 
 
    // Use our prefs to configure our Canvas/Window
    configureCanvas();
 
  
    // Load up the shell GUIs
-    exec("art/gui/mainMenuGui.gui");
+    
+	
+	exec("art/gui/mainMenuGui.gui");
     exec("art/gui/joinServerDlg.gui");
     exec("art/gui/endGameGui.gui");
 	exec("art/gui/exitGameGui.gui");  
@@ -104,11 +125,8 @@ function Torque::initClient(%this)
    exec("scripts/gui/optionsDlg.cs");
    exec("scripts/gui/helpDlg.cs");
 
-   // Client scripts
-   exec("./client.cs");
-   exec("./game.cs");
-   exec("./missionDownload.cs");
-   exec("./serverConnection.cs");
+  
+   
 
    // Load useful Materials
    exec("./shaders.cs");
@@ -189,7 +207,7 @@ function Torque::loadMainMenu(%this)
    }
 }
 
-function loadLoadingGui(%displayText)
+function Torque::loadLoadingGui(%this, %displayText)
 {
    Canvas.setContent("LoadingGui");
    LoadingProgress.setValue(1);

@@ -192,8 +192,10 @@ function disconnect()
 
 function Torque::disconnectedCleanup(%this)
 {
+   // Clear misc script stuff
+   HudMessageVector.clear();
+ 
    // End mission, if it's running.
-   
    if( $Client::missionRunning )
       clientEndMission();
       
@@ -203,10 +205,6 @@ function Torque::disconnectedCleanup(%this)
    $lightingMission = false;
    $sceneLighting::terminateLighting = true;
    
-   // Clear misc script stuff
-   HudMessageVector.clear();
-   
-   //
    LagIcon.setVisible(false);
    PlayerListGui.clear();
    

@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------------
 
 // Load up core script base
-loadDir("core"); // Should be loaded at a higher level, but for now leave -- SRZ 11/29/07
+//loadDir("core"); // Should be loaded at a higher level, but for now leave -- SRZ 11/29/07
 
 // Constants for referencing video resolution preferences
 $WORD::RES_X = 0;
@@ -41,9 +41,9 @@ package CorePackage
 // onStart
 // Called when the engine is starting up. Initializes this mod.
 //---------------------------------------------------------------------------------------------
-function onStart()
+function Torque::onStart(%this)
 {
-   Parent::onStart();
+   Parent::onStart(%this);
 
    // Here is where we will do the video device stuff, so it overwrites the defaults
    // First set the PCI device variables (yes AGP/PCI-E works too)
@@ -75,8 +75,8 @@ function onStart()
       //$pref::Video::displayDevice = "D3D9";
    
    // Initialise stuff.
-   exec("scripts/client/clientcore.cs");
-   initializeCore();
+   exec("scripts/client/core.cs");
+   tge.initializeCore();
 
    exec("scripts/client/coreclient.cs");
    exec("scripts/server/coreserver.cs");
@@ -242,7 +242,7 @@ function parseArgs()
    }
 }
 
-function onStart()
+function Torque::onStart(%this)
 {
    // The core does initialization which requires some of
    // the preferences to loaded... so do that first.  
@@ -252,7 +252,7 @@ function onStart()
    //exec( "./client/defaultprefs.cs" );
    //exec( "./server/defaultprefs.cs" );
              
-   Parent::onStart();
+   Parent::onStart(%this);
    echo("\n--------- Initializing Directory: scripts ---------");
 
    // Load the scripts that start it all...
@@ -268,13 +268,13 @@ function onStart()
 
    // Server gets loaded for all sessions, since clients
    // can host in-game servers.
-   initServer();
+   tge.initServer();
 
    // Start up in either client, or dedicated server mode
    if ($Server::Dedicated)
       initDedicated();
    else
-      initClient();
+      tge.initClient();
 }
 
 function onExit()
