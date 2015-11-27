@@ -139,7 +139,7 @@ function Torque::loadMissionStage2(%this)
       ClientGroup.getObject(%clientIndex).loadMission();
 
    // Go ahead and launch the game
-   onMissionLoaded();
+   tge.onMissionLoaded();
 }
 
 
