@@ -64,6 +64,13 @@ function Torque::initClient(%this)
    // These should be game specific GuiProfiles.  Custom profiles are saved out
    // from the Gui Editor.  Either of these may override any that already exist.
    exec("art/gui/defaultGameProfiles.cs");
+   
+      // Default player key bindings
+   exec("./default.bind.cs");
+
+   if (isFile( GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/bindings.config.cs" ) )
+      exec( GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/bindings.config.cs" );
+	  
    exec("art/gui/customProfiles.cs"); 
    
    // The common module provides basic client functionality
@@ -73,69 +80,91 @@ function Torque::initClient(%this)
    exec( "./mission.cs" );
    exec("./missionDownload.cs");
    exec( "./onmissiondownload.cs" );
-   exec( "./actionMap.cs" );
+   
    exec( "./renderManager.cs" );
    exec( "./lighting.cs" );
+	exec( "./actionMap.cs" );
    
  // Client scripts
 	exec("./serverConnection.cs");
-	//
-   	exec("./client.cs");
-	
-   	exec("./game.cs");
+   //exec("./callbacks.cs"); // TODO BKS PRZ
+	exec("art/gui/playerList.gui");
+	  exec("./chatHud.cs");
    	
-   
-   initRenderManager();
-   initLightingSystems(); 
+	exec("./client.cs");	
+    exec("./messageHud.cs");
+	//exec("./game.cs");
+   	
+	initRenderManager();
+    initLightingSystems(); 
 
    // Use our prefs to configure our Canvas/Window
    configureCanvas();
 
- 
    // Load up the shell GUIs
-    
-	
+
 	exec("art/gui/mainMenuGui.gui");
-    exec("art/gui/joinServerDlg.gui");
     exec("art/gui/endGameGui.gui");
 	exec("art/gui/exitGameGui.gui");  
     exec("art/gui/chooseLevelDlg.gui");
-
-
+    //exec("~/gui/serverOptionsDlg.gui"); // TODO BKS PRZ
+    exec("art/gui/joinServerDlg.gui");
+    //exec("~/gui/ipJoinDlg.gui"); // TODO BKS PRZ
     exec("art/gui/optionsDlg.gui");
     exec("art/gui/loadingGui.gui");
     exec("art/gui/remapDlg.gui");
-    exec("art/gui/extrasDlg.gui");
+    //exec("~/gui/endGameGui.gui"); // TODO BKS PRZ
     exec("art/gui/helpDlg.gui");
-   
-     // Load up the Game GUIs
+    exec("art/gui/extrasDlg.gui");  
+     
+	 // Load up the Game GUIs
    exec("art/gui/playGui.gui");
-   exec("art/gui/defaultGameProfiles.cs");
-   exec("art/gui/chatHud.gui");
-   exec("art/gui/playerList.gui");
    exec("art/gui/hudlessGui.gui");
-
+   exec("art/gui/chatHud.gui");
+ /*
+   // BKS Projectz Files for reference and awaiting activation
+   exec("~/gui/messageHud.gui");
+   exec("~/gui/scoreHud.gui");
+   exec("~/gui/voteHudDlg.gui");
+   exec("~/gui/clusterHud.gui");
+   exec("~/gui/quickChatHud.gui");
+   exec("~/gui/adminDlg.gui");
+   exec("~/gui/armoryHud.gui");
+   exec("~/gui/vehicleHud.gui");
+   exec("~/gui/bombTimerDlg.gui");
+   exec("~/gui/fireTeamHud.gui");
+   exec("~/gui/guiMusicPlayer.gui");
+   exec("~/gui/RecordingsDlg.gui");
+*/
    // Gui scripts
+
+
    exec("./playerList.cs");
-   exec("./chatHud.cs");
-   exec("./messageHud.cs");
-   exec("scripts/gui/playGui.cs");
-   exec("scripts/gui/chooseLevelDlg.cs");
-   exec("scripts/gui/loadingGui.cs");
-   exec("scripts/gui/optionsDlg.cs");
-   exec("scripts/gui/helpDlg.cs");
+	exec("~/gui/chooseLevelDlg.cs");
+
+
+   
+   exec("~/gui/optionsDlg.cs"); 
+   exec("~/gui/loadingGui.cs");
+	exec("~/gui/playGui.cs");
+   exec("~/gui/helpDlg.cs");
 
   
    
 
+/*
+   // BKS Projectz Files for reference and awaiting activation
+   exec("~/gui/objectiveHud.cs");
+   exec("~/gui/scoreHud.cs");
+   exec("~/gui/armoryHud.cs");
+   exec("~/gui/vehicleHud.cs");
+   exec("~/gui/fireTeamHud.cs");
+   exec("~/gui/guiMusicPlayer.cs");
+*/
    // Load useful Materials
    exec("./shaders.cs");
 
-   // Default player key bindings
-   exec("./default.bind.cs");
 
-   if (isFile( GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/bindings.config.cs" ) )
-      exec( GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/bindings.config.cs" );
 
    loadMaterials();
 

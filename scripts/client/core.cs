@@ -78,9 +78,9 @@ function Torque::initializeCore(%this)
 	
    // Gui Helper Scripts.
 
-   exec("./help.cs");/*done*/
-   exec("./recordingsDlg.cs");/*done*/
-   exec("./guiMusicPlayer.cs");/*done*/
+   exec("scripts/gui/help.cs");/*done*/
+   exec("scripts/gui/recordingsDlg.cs");/*done*/
+   exec("scripts/gui/guiMusicPlayer.cs");/*done*/
 
    // Random Scripts.
 

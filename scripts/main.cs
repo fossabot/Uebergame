@@ -78,8 +78,8 @@ function Torque::onStart(%this)
    exec("scripts/client/core.cs");
    tge.initializeCore();
 
-   exec("scripts/client/coreclient.cs");
-   exec("scripts/server/coreserver.cs");
+   //exec("scripts/client/coreclient.cs");
+   //exec("scripts/server/coreserver.cs");
    
    exec("./gui/guiTreeViewCtrl.cs");
    exec("./gui/messageBoxes/messageBox.ed.cs");
