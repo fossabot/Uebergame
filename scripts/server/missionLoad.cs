@@ -87,7 +87,24 @@ function Torque::loadMissionStage2(%this)
 
    // Make sure the mission exists
    %file = $Server::MissionFile;
-   
+      // Create the mission group off the ServerGroup
+   $instantGroup = ServerGroup;
+
+   %missionType = "";
+   if ( %missionType $= "" )
+   {
+      new ScriptObject(Game) {
+         class = CoreGame;
+      };
+   }
+   else
+   {
+      new ScriptObject(Game) {
+         class = %missionType @ "Game";
+         superClass = CoreGame;
+      };
+   }
+
    if( !isFile( %file ) )
    {
       $Server::LoadFailMsg = "Could not find mission \"" @ %file @ "\"";

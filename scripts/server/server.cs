@@ -20,48 +20,12 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
-//-----------------------------------------------------------------------------
-
-// Variables used by server scripts & code.  The ones marked with (c)
-// are accessed from code.  Variables preceeded by Pref:: are server
-// preferences and stored automatically in the ServerPrefs.cs file
-// in between server sessions.
-//
-//    (c) Server::ServerType              {SinglePlayer, MultiPlayer}
-//    (c) Server::GameType                Unique game name
-//    (c) Server::Dedicated               Bool
-//    ( ) Server::MissionFile             Mission .mis file name
-//    (c) Server::MissionName             DisplayName from .mis file
-//    (c) Server::MissionType             Not used
-//    (c) Server::PlayerCount             Current player count
-//    (c) Server::GuidList                Player GUID (record list?)
-//    (c) Server::Status                  Current server status
-//
-//    (c) Pref::Server::Name              Server Name
-//    (c) Pref::Server::Password          Password for client connections
-//    ( ) Pref::Server::AdminPassword     Password for client admins
-//    (c) Pref::Server::Info              Server description
-//    (c) Pref::Server::MaxPlayers        Max allowed players
-//    (c) Pref::Server::RegionMask        Registers this mask with master server
-//    ( ) Pref::Server::BanTime           Duration of a player ban
-//    ( ) Pref::Server::KickBanTime       Duration of a player kick & ban
-//    ( ) Pref::Server::MaxChatLen        Max chat message len
-//    ( ) Pref::Server::FloodProtectionEnabled Bool
-
-//-----------------------------------------------------------------------------
-// Game duration in secs, no limit if the duration is set to 0
-$Game::Duration = 20 * 60;
-
-// When a client score reaches this value, the game is ended.
-$Game::EndGameScore = 30;
-
-// Pause while looking over the end game screen (in secs)
-$Game::EndGamePause = 10;
-
-
 function Torque::initServer(%this)
 {
    echo("\n--------- Initializing " @ $appName @ ": Server Scripts ---------");
+   $Server::BotCount = 0;
+   $Server::GameType = $appName;
+   $Server::TestCheats = 0; // Dev purposes for testing and editing
 
    // Server::Status is returned in the Game Info Query and represents the
    // current status of the server. This string sould be very short.
@@ -73,28 +37,27 @@ function Torque::initServer(%this)
    // Specify where the mission files are.
    $Server::MissionFileSpec = "levels/*.mis";
 
-   // The common module provides the basic server functionality
-      $Server::MissionFileSpec = "levels/*.mis"; //PZ code
    // Base server functionality
+   exec("prefs/banList.cs");
    exec("./audio.cs");
    exec("./message.cs");
-   //exec("./corecommands.cs");
-   exec("./levelInfo.cs");
+   exec("./commands.cs");
+   exec("./missionInfo.cs");
    exec("./missionLoad.cs");
    exec("./missionDownload.cs");
-   //exec("./clientConnection.cs"); //BKS Renamed to GameConnection
+
    exec("./gameConnection.cs");
-   // exec("./admin.cs"); // PZ Code
+   exec("./admin.cs");
    exec("./kickban.cs");
-      
-   exec("./gametypes/gamecore.cs");
-   // exec("./gametypes/coregame.cs"); // new gametypes code
-   exec("./spawn.cs");
+   exec("./camera.cs");
+
+
+
    exec("./centerPrint.cs");
-  exec("./library.cs");
-   // Load up game server support scripts
-   exec("./commands.cs");
-   //exec("./game.cs");
+   exec("./library.cs");
+
+
+
 }
 
 
@@ -102,21 +65,35 @@ function Torque::initServer(%this)
 
 function Torque::initDedicated(%this)
 {
-   enableWinConsole(true);
    echo("\n--------- Starting Dedicated Server ---------");
+
+   echo("$levelToLoad:" SPC $levelToLoad SPC "$missionTypeArg" SPC $missionTypeArg);
 
    // Make sure this variable reflects the correct state.
    $Server::Dedicated = true;
 
-   // The server isn't started unless a mission has been specified.
-   if ($missionArg !$= "") {
-      createServer("MultiPlayer", $missionArg);
+   // The server isn't started unless a mission and type has been specified.
+   if ( $levelToLoad $= "" || $missionTypeArg $= "" )
+   {
+      error( "No level or game type specified. Creation of server failed." );
+      return false;
    }
-   else
-      echo("No mission specified (use -mission filename)");
+
+   %level = "";
+   for( %file = findFirstFile( $Server::MissionFileSpec ); %file !$= ""; %file = findNextFile( $Server::MissionFileSpec ) )
+   {
+      if ( fileName( %file ) $= $levelToLoad )
+      {
+         %level = %file;
+         break;
+      }
+   }
+
+   if ( !isFile( %level ) )
+      return false;
+
+   tge.createServer( "MultiPlayer", %level, $missionTypeArg );
 }
-
-
 
 /// Attempt to find an open port to initialize the server with
 function portInit(%port)
@@ -141,7 +118,7 @@ function createAndConnectToLocalServer( %serverType, %level, %missionType )
    %conn = new GameConnection( ServerConnection );
    RootGroup.add( ServerConnection );
 
-   %conn.setConnectArgs( $pref::Player::Name );
+   %conn.setConnectArgs( getField($pref::Player, 0), getField($pref::Player, 1));
    %conn.setJoinPassword( $Client::Password );
    
    %result = %conn.connectLocal();
@@ -163,24 +140,30 @@ function Torque::createServer(%this, %serverType, %level, %missionType)
    // Increase the server session number.  This is used to make sure we're
    // working with the server session we think we are.
    $Server::Session++;
-   
+
    if (%level $= "")
    {
       error("createServer(): level name unspecified");
       return false;
    }
-   
+
    // Make sure our level name is relative so that it can send
    // across the network correctly
-   %level = makeRelativePath(%level, getWorkingDirectory());
+   //%relPath = makeRelativePath(%level, getWorkingDirectory());
+   //echo( "c4\Relative Path:" SPC %relPath );
 
    tge.destroyServer();
 
    $missionSequence = 0;
    $Server::PlayerCount = 0;
    $Server::ServerType = %serverType;
+   // Server::GameType is sent to the master server.
+
+   // Server::MissionType sent to the master server.  Clients can
+   // filter servers based on mission type.
    $Server::MissionType = %missionType;
    $Server::LoadFailMsg = "";
+
    $Physics::isSinglePlayer = true;
    
    // Setup for multi-player, the network must have been
@@ -202,10 +185,102 @@ function Torque::createServer(%this, %serverType, %level, %missionType)
    // Create the ServerGroup that will persist for the lifetime of the server.
    $ServerGroup = new SimGroup(ServerGroup);
 
-   // Load up any core datablocks
-   // Load up any objects or datablocks saved to the editor managed scripts
+   // Let the game initialize some things now that the the server has been created
+
+   // GameStartTime is the sim time the game started. Used to calculate game elapsed time.
+   $Game::StartTime = 0;
+/*
+   exec("./antispam.cs");
+   exec("./fireTeam.cs");
+   exec("./damageTypes.cs");
+   exec("./shapeBase.cs");
+   exec("./cameraData.cs");
+   exec("./deployables.cs");
+   exec("./power.cs");
+  */ 
+   // Create the server physics world.
+   physicsInitWorld( "server" );
+
+   // Load SMS Utilities  -Yardik-
+   //echo("<>>>> LOADING SMS <<<<>");
+   //exec("./sms.cs");
+
+   // Load up any objects or datablocks
+   exec("./audioProfiles.cs");
+   exec("./defaultEmitters.cs");
+   /*
+   exec("./explosions/smallExplosion.cs");
+   exec("./explosions/mediumExplosion.cs");
+   exec("./explosions/largeExplosion.cs");
+   exec("./explosions/bulletExplosion.cs");
+   exec("./explosions/grenadeExplosion.cs");
+   exec("./explosions/mineExplosion.cs");
+*/
+   exec("./markers.cs");
+   exec("./triggers.cs");
+   exec("./player.cs");
+   exec("./aiClient.cs");
+   exec("./aiPlayer.cs");
+   exec("./environment.cs");
+   exec("./lights.cs");
+/*
+   // Static Shapes
+   exec("./staticshapes/staticShape.cs");
+   exec("./staticshapes/crates.cs");
+   // exec("./staticshapes/doors.cs");
+   exec("./staticshapes/flagstand.cs");
+
+   // Rigid Shapes
+   exec("./rigidshapes/rigidShape.cs");
+   exec("./rigidshapes/crates.cs"); // Uses some player particle data
+   exec("./rigidshapes/boulder.cs");
+   exec("./rigidshapes/barrels.cs");
+
+   // items - Must be loaded before weapons, holds defaults
+   exec("./items/item.cs");
+   exec("./items/ammoBox.cs");
+   exec("./items/healthPatch.cs");
+   exec("./items/healthKit.cs");
+   exec("./items/armoryCrate.cs");
+   exec("./items/flag.cs");
+
+   exec("./grenades/grenade.cs");
+   exec("./grenades/smokeGrenade.cs");
+   exec("./grenades/proximityMine.cs");
+   // exec("./grenades/timeBomb.cs");
+
+   // Turrets
+   exec("./turrets/turret.cs");
+   exec("./turrets/sentryTurret.cs");
+
+   //weapons
+   exec("./weapon.cs");
+   exec("./radiusDamage.cs");
+   exec("./weapons/ryder.cs");
+   exec("./weapons/lurker.cs");
+   exec("./weapons/shotgun.cs");
+   exec("./weapons/sniperRifle.cs");
+   exec("./weapons/grenadeLauncher.cs");
+   exec("./weapons/rocketLauncher.cs");
+
+   //exec("./weapons/proximityMine.cs");
+   //exec("./weapons/deployedTurret.cs");
+   //exec("./weapons/grenade.cs");
+
+   exec("./specials/munitionsPack.cs");
+   exec("./specials/firstAidPack.cs");
+   exec("./specials/turretPack.cs");
+   exec("./specials/shapeCharge.cs");
+   exec("./specials/vehiclePack.cs");
+
+   // Vehicles
+   exec("./vehicles/vehicle.cs");
+   exec("./vehicles/vehicleEffects.cs");
+   exec("./vehicles/cheetahCar.cs"); // Load first, the rest of the vehicle use it's sound DB's for now
+   // exec("./vehicles/talonFighter.cs");
+   // exec("./vehicles/gravatron.cs");
+*/
    %datablockFiles = new ArrayObject();
-   %datablockFiles.add( "art/ribbons/ribbonExec.cs" );   
    %datablockFiles.add( "art/particles/managedParticleData.cs" );
    %datablockFiles.add( "art/particles/managedParticleEmitterData.cs" );
    %datablockFiles.add( "art/decals/managedDecalData.cs" );
@@ -214,33 +289,37 @@ function Torque::createServer(%this, %serverType, %level, %missionType)
    %datablockFiles.add( "art/datablocks/datablockExec.cs" );   
    loadDatablockFiles( %datablockFiles, true );
 
+   // Init the SMS functions -Yardik-
+   //SmsInv.SetupMaxWeapons();
+   //SmsInv.SetupMaxClips();
+   //SmsInv.SetupMaxAmmos();
+   //SmsInv.SetupMaxItems();
+   //SmsInv.SetupMaxGrenades();
+   //SmsInv.SetupMaxMines();
 
-   // Let the game initialize some things now that the
-   // the server has been created
-      // Server::GameType is sent to the master server.
-   // This variable should uniquely identify your game and/or mod.
-   $Server::GameType = $appName;
+   exec("./inventory.cs");
 
-   // Server::MissionType sent to the master server.  Clients can
-   // filter servers based on mission type.
-   $Server::MissionType = "Deathmatch";
+   // Game files
+   exec("./gametypes/CoreGame.cs"); // Parent to all, want this loaded first
 
-   // GameStartTime is the sim time the game started. Used to calculated
-   // game elapsed time.
-   $Game::StartTime = 0;
+   %search = "./gametypes/*Game.cs";
+   for(%file = findFirstFile(%search); %file !$= ""; %file = findNextFile(%search))
+   {
+     %type = fileBase(%file);
+     if(%type !$= CoreGame)
+        exec("./gametypes/" @ %type @ ".cs");
+   }
 
-   // Create the server physics world.
-   physicsInitWorld( "server" );
+   // Mission scripting support. Auto-execute files - Temporary until I figure out how to just exe the mapscript in the proper dir itself
+   %path = "levels/*.cs";
+   for( %file = findFirstFile( %path ); %file !$= ""; %file = findNextFile( %path ) )
+   {
+       if( fileBase(%file) $= fileBase(%level) )
+          exec( %file );
+   }
 
-
-
-   // Run the other gameplay scripts in this folder
-   exec("./scriptExec.cs");
-
-   // Keep track of when the game started
-   $Game::StartTime = $Sim::Time;
-
-   %this.loadMission(%level, true);
+   // Load the level
+   %this.loadMission(%level, %missionType, true);
    
    return true;
 }
@@ -253,30 +332,36 @@ function Torque::destroyServer(%this)
    stopHeartbeat();
    $missionRunning = false;
    $Game::Running = false;
-   
-   // End any running levels
-   endMission();
-   
-   // This function is called as part of a server shutdown.
 
+   // Destroy the server physcis world
    physicsDestroyWorld( "server" );
 
-   // Clean up the GameCore package here as it persists over the
-   // life of the server.
-   if (isPackage(GameCore))
+   // Delete all the server objects
+   if (isObject(MissionGroup))
+      MissionGroup.delete();
+   if (isObject(MissionCleanup))
+      MissionCleanup.delete();
+
+   if(isObject(Game)) // Clean up the Game object
    {
-      deactivatePackage(GameCore);
+      Game.deactivatePackages();
+      Game.delete();
    }
 
    // Delete all the server objects
-   if (isObject(ServerGroup))
-      ServerGroup.delete();
+   if (isObject($ServerGroup))
+      $ServerGroup.delete();
 
    // Delete all the connections:
-   while (ClientGroup.getCount())
+   // Something is wrong with aiClient that causes an infinite loop when you try to delete
+   //while ( ClientGroup.getCount() )
+   //{
+   //   %client = ClientGroup.getObject(0);
+   //   %client.delete();
+   //}
+   for (%i = 0; %i < ClientGroup.getCount(); %i++)
    {
-      %client = ClientGroup.getObject(0);
-      %client.delete();
+      ClientGroup.getObject(%i).delete();
    }
 
    $Server::GuidList = "";
@@ -286,7 +371,7 @@ function Torque::destroyServer(%this)
    
    // Save any server settings
    echo( "Exporting server prefs..." );
-   export("$Pref::Server::*", GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/server.config.cs", False);
+   export( "$Pref::*", "prefs/prefs.cs", false );
 
    // Increase the server session number.  This is used to make sure we're
    // working with the server session we think we are.
@@ -297,14 +382,18 @@ function Torque::destroyServer(%this)
 function resetServerDefaults()
 {
    echo( "Resetting server defaults..." );
-   
-   exec( "./defaults.cs" );
-   exec( GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/server.config.cs" );
+   $resettingServer = true;
+   if(isObject(Game))
+      Game.endGame();
 
-   allowConnections(true); // ZOD: Open up the server for connections again.  
-   
-   // Reload the current level
-   tge.loadMission( $Server::MissionFile );
+   exec( "./defaults.cs" );
+   exec( "prefs/prefs.cs" );
+
+   allowConnections(true); // ZOD: Open up the server for connections again.
+
+   tge.loadMission( $pref::Server::MissionFile, $pref::Server::MissionType, false );
+   $resettingServer = false;
+   echo( "Server reset complete." );
 }
 
 /// Guid list maintenance functions
@@ -316,7 +405,6 @@ function addToServerGuidList( %guid )
       if ( getField( $Server::GuidList, %i ) == %guid )
          return;
    }
-
    $Server::GuidList = $Server::GuidList $= "" ? %guid : $Server::GuidList TAB %guid;
 }
 
@@ -331,6 +419,8 @@ function removeFromServerGuidList( %guid )
          return;
       }
    }
+
+   // Huh, didn't find it.
 }
 
 /// When the server is queried for information, the value of this function is
@@ -341,138 +431,21 @@ function onServerInfoQuery()
    return "Doing Ok";
 }
 
-/*
-function onGameDurationEnd()
+function listClients()
 {
-   // This "redirect" is here so that we can abort the game cycle if
-   // the $Game::Duration variable has been cleared, without having
-   // to have a function to cancel the schedule.
-
-   if ($Game::Duration && !(EditorIsActive() && GuiEditorIsActive()))
-      Game.onGameDurationEnd();
-}
-*/
-
-//-----------------------------------------------------------------------------
-
-function cycleGame()
-{
-   // This is setup as a schedule so that this function can be called
-   // directly from object callbacks.  Object callbacks have to be
-   // carefull about invoking server functions that could cause
-   // their object to be deleted.
-
-   if (!$Game::Cycling)
+   for(%i = 0; %i < ClientGroup.getCount(); %i++)
    {
-      $Game::Cycling = true;
-      $Game::Schedule = schedule(0, 0, "onCycleExec");
+      %cl = ClientGroup.getObject(%i);
+      %type = "";
+      if(%cl.isAiControlled())
+         %type = "Bot ";
+      if(%cl.isAdmin)
+         %type = %status @ "Admin ";
+      if(%cl.isSuperAdmin)
+         %type = %status @ "SuperAdmin ";
+      if(%type $= "")
+         %type = "<normal>";
+
+      echo("client: " @ %cl @ " player: " @ %cl.player @ " name: " @ %cl.nameBase @ " team: " @ %cl.team @ " status: " @ %status);
    }
-}
-
-function onCycleExec()
-{
-   // End the current game and start another one, we'll pause for a little
-   // so the end game victory screen can be examined by the clients.
-
-   //endGame();
-   endMission();
-   $Game::Schedule = schedule($Game::EndGamePause * 1000, 0, "onCyclePauseEnd");
-}
-/* // old linear cycle mode, needs to be added later as $pref variable option inside the in-game menu
-function onCyclePauseEnd()
-{
-   $Game::Cycling = false;
-
-   // Just cycle through the missions for now.
-
-   %search = $Server::MissionFileSpec;
-   %oldMissionFile = makeRelativePath( $Server::MissionFile );
-      
-   for( %file = findFirstFile( %search ); %file !$= ""; %file = findNextFile( %search ) )
-   {
-      if( %file $= %oldMissionFile )
-      {
-         // Get the next one, back to the first if there is no next.
-         %file = findNextFile( %search );
-         if( %file $= "" )
-            %file = findFirstFile(%search);
-         break;
-      }
-   }
-
-   if( %file $= "" )
-      %file = findFirstFile( %search );
-
-   loadMission(%file);
-}
-*/
-
-// random map cycle function
-function onCyclePauseEnd()
-{
-   $Game::Cycling = false;
-
-   // Just cycle through the missions for now.
-
-   %search = $Server::MissionFileSpec;
-   %oldMissionFile = makeRelativePath( $Server::MissionFile );
-   
-    if(!isObject($MapList))
-    {
-        $MapList = new arrayobject();
-        %i=0;
-        		for( %file = findFirstFile( %search, true ); %file !$= ""; %file = findNextFile( %search ) )
-        {
-            $MapList.add(%file,%i);
-            %i++;            
-        }
-    }
-    
-   %file = $MapList.getKey(getRandom($MapList.count()-1));
-   loadMission(%file);
-}
-
-//-----------------------------------------------------------------------------
-// GameConnection Methods
-// These methods are extensions to the GameConnection class. Extending
-// GameConnection makes it easier to deal with some of this functionality,
-// but these could also be implemented as stand-alone functions.
-//-----------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------
-
-function GameConnection::onLeaveMissionArea(%this)
-{
-   // The control objects invoke this method when they
-   // move out of the mission area.
-
-   messageClient(%this, 'MsgClientJoin', '\c2Now leaving the mission area!');
-}
-
-function GameConnection::onEnterMissionArea(%this)
-{
-   // The control objects invoke this method when they
-   // move back into the mission area.
-
-   messageClient(%this, 'MsgClientJoin', '\c2Now entering the mission area.');
-}
-
-//-----------------------------------------------------------------------------
-
-function GameConnection::onDeath(%this, %sourceObject, %sourceClient, %damageType, %damLoc)
-{
-   game.onDeath(%this, %sourceObject, %sourceClient, %damageType, %damLoc);
-}
-
-// ----------------------------------------------------------------------------
-// weapon HUD
-// ----------------------------------------------------------------------------
-function GameConnection::setAmmoAmountHud(%client, %amount, %amountInClips )
-{
-   commandToClient(%client, 'SetAmmoAmountHud', %amount, %amountInClips);
-}
-
-function GameConnection::RefreshWeaponHud(%client, %amount, %preview, %ret, %zoomRet, %amountInClips)
-{
-   commandToClient(%client, 'RefreshWeaponHud', %amount, %preview, %ret, %zoomRet, %amountInClips);
 }
