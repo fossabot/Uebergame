@@ -86,6 +86,20 @@ function loadMissionStage2()
    // Make sure the mission exists
    %file = $Server::MissionFile;
    
+   %missionType = "";
+   if ( %missionType $= "" )
+   {
+      new ScriptObject(Game) {
+         class = CoreGame;
+      };
+   }
+   else
+   {
+      new ScriptObject(Game) {
+         class = %missionType @ "Game";
+         superClass = CoreGame;
+      };
+   }
    if( !isFile( %file ) )
    {
       $Server::LoadFailMsg = "Could not find mission \"" @ %file @ "\"";

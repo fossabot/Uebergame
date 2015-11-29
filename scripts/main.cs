@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------------
 
 // Load up core script base
-loadDir("core"); // Should be loaded at a higher level, but for now leave -- SRZ 11/29/07
+//loadDir("core"); // Should be loaded at a higher level, but for now leave -- SRZ 11/29/07
 
 // Constants for referencing video resolution preferences
 $WORD::RES_X = 0;
@@ -44,7 +44,7 @@ package CorePackage
 function onStart()
 {
    Parent::onStart();
-
+	exec( "art/core/gui/profiles.cs" );
    // Here is where we will do the video device stuff, so it overwrites the defaults
    // First set the PCI device variables (yes AGP/PCI-E works too)
    $isFirstPersonVar = 1;
@@ -75,14 +75,14 @@ function onStart()
       //$pref::Video::displayDevice = "D3D9";
    
    // Initialise stuff.
-   exec("scripts/client/clientcore.cs");
+   exec("scripts/client/core.cs");
    initializeCore();
 
-   exec("scripts/client/coreclient.cs");
-   exec("scripts/server/coreserver.cs");
+   //exec("scripts/client/coreclient.cs");
+   //exec("scripts/server/coreserver.cs");
    
-   exec("./scripts/gui/guiTreeViewCtrl.cs");
-   exec("./scripts/gui/messageBoxes/messageBox.ed.cs");
+   exec("./gui/guiTreeViewCtrl.cs");
+   exec("./gui/messageBoxes/messageBox.ed.cs");
    
    echo(" % - Initialized Core");
 }

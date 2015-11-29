@@ -56,17 +56,18 @@ function initBaseServer()
    // Base server functionality
    exec("./audio.cs");
    exec("./message.cs");
-   exec("./corecommands.cs");
+   exec("./commands.cs");
    exec("./levelInfo.cs");
    exec("./missionLoad.cs");
    exec("./missionDownload.cs");
    exec("./clientConnection.cs");
-   exec("./admin.cs"); // PZ Code
+   //exec("./admin.cs"); // PZ Code
    exec("./kickban.cs");
-   exec("./coregame.cs");
+   exec("./gametypes/coregame.cs");
    exec("./spawn.cs");
-   exec("./corecamera.cs");
+   exec("./camera.cs");
    exec("./centerPrint.cs");
+   //exec("./library.cs");
 }
 
 /// Attempt to find an open port to initialize the server with

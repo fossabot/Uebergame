@@ -67,7 +67,29 @@ function initClient()
    exec("art/gui/customProfiles.cs"); 
    
    // The common module provides basic client functionality
-   initBaseClient();
+//initBaseClient();
+   // Base client functionality
+   exec( "./message.cs" );
+   exec( "./mission.cs" );
+   exec( "./missionDownload.cs");
+   exec( "./onmissiondownload.cs" );
+   
+   exec( "./renderManager.cs" );
+   exec( "./lighting.cs" );
+	exec( "./actionMap.cs" );
+   
+ // Client scripts
+	exec("./serverConnection.cs");
+   //exec("./callbacks.cs"); // TODO BKS PRZ
+	exec("art/gui/playerList.gui");
+	  exec("./chatHud.cs");
+   	
+	exec("./client.cs");	
+    exec("./messageHud.cs");
+	//exec("./game.cs");
+   	
+	initRenderManager();
+    initLightingSystems(); 
 
    // Use our prefs to configure our Canvas/Window
    configureCanvas();
@@ -106,7 +128,7 @@ function initClient()
 
    // Client scripts
    exec("./client.cs");
-   exec("./game.cs");
+   //exec("./game.cs");
    exec("./missionDownload.cs");
    exec("./serverConnection.cs");
 
