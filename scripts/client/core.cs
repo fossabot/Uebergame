@@ -24,7 +24,7 @@
 // initializeCore
 // Initializes core game functionality.
 //---------------------------------------------------------------------------------------------
-function initializeCore()
+function Torque::initializeCore(%this)
 {
    // Not Reentrant
    if( $coreInitialized == true )

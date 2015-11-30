@@ -30,12 +30,16 @@ $MissionLoadPause = 5000;
 
 //-----------------------------------------------------------------------------
 
-function loadMission( %missionName, %isFirstMission ) 
+function Torque::loadMission(%this, %missionFile, %missionType, %isFirstMission)
 {
-   endMission();
-   echo("*** LOADING MISSION: " @ %missionName);
-   echo("*** Stage 1 load");
+   // cleanup
+   if(!%isFirstMission)
+      %this.endMission();
 
+   echo("<>>>> LOADING MISSION: " @ %missionFile @ " <<<<>");
+   echo("<>>>> Stage 1 load <<<<>");
+
+   $LoadingMission = true;
    // Reset all of these
    if (isFunction("clearCenterPrintAll"))
       clearCenterPrintAll();

@@ -41,9 +41,9 @@ package CorePackage
 // onStart
 // Called when the engine is starting up. Initializes this mod.
 //---------------------------------------------------------------------------------------------
-function onStart()
+function Torque::onStart(%this)
 {
-   Parent::onStart();
+   Parent::onStart(%this);
 	exec( "art/core/gui/profiles.cs" );
    // Here is where we will do the video device stuff, so it overwrites the defaults
    // First set the PCI device variables (yes AGP/PCI-E works too)
@@ -76,7 +76,7 @@ function onStart()
    
    // Initialise stuff.
    exec("scripts/client/core.cs");
-   initializeCore();
+   tge.initializeCore();
 
    //exec("scripts/client/coreclient.cs");
    //exec("scripts/server/coreserver.cs");
@@ -242,7 +242,7 @@ function parseArgs()
    }
 }
 
-function onStart()
+function Torque::onStart(%this)
 {
    // The core does initialization which requires some of
    // the preferences to loaded... so do that first.  
@@ -252,13 +252,14 @@ function onStart()
    //exec( "./client/defaultprefs.cs" );
    //exec( "./server/defaultprefs.cs" );
              
-   Parent::onStart();
+   Parent::onStart(%this);
    echo("\n--------- Initializing Directory: scripts ---------");
 
    // Load the scripts that start it all...
-   exec("./client/init.cs");
+   exec("./client/client.cs");
    exec("./server/server.cs");
    
+   exec("./client/init.cs");
    // Init the physics plugin.
    physicsInit();
       
@@ -267,13 +268,13 @@ function onStart()
 
    // Server gets loaded for all sessions, since clients
    // can host in-game servers.
-   initServer();
+   %this.initServer();
 
    // Start up in either client, or dedicated server mode
    if ($Server::Dedicated)
       initDedicated();
    else
-      initClient();
+      tge.initClient();
 }
 
 function onExit()

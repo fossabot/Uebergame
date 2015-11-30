@@ -49,10 +49,23 @@
 //    ( ) Pref::Server::FloodProtectionEnabled Bool
 
 //-----------------------------------------------------------------------------
-
-function initBaseServer()
+function Torque::initServer(%this)
 {
-   $Server::MissionFileSpec = "levels/*.mis"; //PZ code
+      echo("\n--------- Initializing " @ $appName @ ": Server Scripts ---------");
+   //$Server::BotCount = 0;	// PZ
+   $Server::GameType = $appName;
+   //$Server::TestCheats = 0; // PZ Dev purposes for testing and editing
+
+   // Server::Status is returned in the Game Info Query and represents the
+   // current status of the server. This string sould be very short.
+   $Server::Status = "Unknown";
+
+   // Turn on testing/debug script functions
+   $Server::TestCheats = false;
+
+   // Specify where the mission files are.
+   $Server::MissionFileSpec = "levels/*.mis";
+
    // Base server functionality
    exec("./audio.cs");
    exec("./message.cs");
@@ -63,11 +76,50 @@ function initBaseServer()
    exec("./clientConnection.cs");
    //exec("./admin.cs"); // PZ Code
    exec("./kickban.cs");
-   exec("./gametypes/coregame.cs");
+   //exec("./gametypes/coregame.cs");
    exec("./spawn.cs");
    exec("./camera.cs");
    exec("./centerPrint.cs");
    //exec("./library.cs");
+   
+   //initServer();
+}
+
+
+
+
+//-----------------------------------------------------------------------------
+
+function Torque::initDedicated(%this)
+{
+   echo("\n--------- Starting Dedicated Server ---------");
+
+   echo("$levelToLoad:" SPC $levelToLoad SPC "$missionTypeArg" SPC $missionTypeArg);
+
+   // Make sure this variable reflects the correct state.
+   $Server::Dedicated = true;
+
+   // The server isn't started unless a mission and type has been specified.
+   if ( $levelToLoad $= "" || $missionTypeArg $= "" )
+   {
+      error( "No level or game type specified. Creation of server failed." );
+      return false;
+   }
+
+   %level = "";
+   for( %file = findFirstFile( $Server::MissionFileSpec ); %file !$= ""; %file = findNextFile( $Server::MissionFileSpec ) )
+   {
+      if ( fileName( %file ) $= $levelToLoad )
+      {
+         %level = %file;
+         break;
+      }
+   }
+
+   if ( !isFile( %level ) )
+      return false;
+
+   tge.createServer( "MultiPlayer", %level, $missionTypeArg );
 }
 
 /// Attempt to find an open port to initialize the server with
@@ -87,7 +139,7 @@ function portInit(%port)
 /// @return true if successful.
 function createAndConnectToLocalServer( %serverType, %level, %missionType )
 {
-   if( !createServer( %serverType, %level, %missionType ) )
+   if( !tge.createServer( %serverType, %level, %missionType ) )
       return false;
    
    %conn = new GameConnection( ServerConnection );
@@ -100,7 +152,7 @@ function createAndConnectToLocalServer( %serverType, %level, %missionType )
    if( %result !$= "" )
    {
       %conn.delete();
-      destroyServer();
+      tge.destroyServer();
       
       return false;
    }
@@ -110,7 +162,7 @@ function createAndConnectToLocalServer( %serverType, %level, %missionType )
 
 /// Create a server with either a "SinglePlayer" or "MultiPlayer" type
 /// Specify the level to load on the server
-function createServer(%this, %serverType, %level, %missionType)
+function Torque::createServer(%this, %serverType, %level, %missionType)
 {
    // Increase the server session number.  This is used to make sure we're
    // working with the server session we think we are.
@@ -126,7 +178,7 @@ function createServer(%this, %serverType, %level, %missionType)
    // across the network correctly
    %level = makeRelativePath(%level, getWorkingDirectory());
 
-   destroyServer();
+   tge.destroyServer();
 
    $missionSequence = 0;
    $Server::PlayerCount = 0;
@@ -152,31 +204,93 @@ function createServer(%this, %serverType, %level, %missionType)
    }
 
    // Create the ServerGroup that will persist for the lifetime of the server.
-   new SimGroup(ServerGroup);
+   $ServerGroup = new SimGroup(ServerGroup);
 
    // Load up any core datablocks
    exec("art/datablocks/datablockExec.cs");
 
    // Let the game initialize some things now that the
    // the server has been created
-   onServerCreated();
+   // Start onServerCreated();
+      // Server::GameType is sent to the master server.
+   // This variable should uniquely identify your game and/or mod.
+   $Server::GameType = $appName;
 
-   loadMission(%level, true);
+   // Server::MissionType sent to the master server.  Clients can
+   // filter servers based on mission type.
+   $Server::MissionType = "Deathmatch";
+
+   // GameStartTime is the sim time the game started. Used to calculated
+   // game elapsed time.
+   $Game::StartTime = 0;
+
+   // Create the server physics world.
+   physicsInitWorld( "server" );
+
+   // Load up any objects or datablocks saved to the editor managed scripts
+   %datablockFiles = new ArrayObject();
+   %datablockFiles.add( "art/ribbons/ribbonExec.cs" );   
+   %datablockFiles.add( "art/particles/managedParticleData.cs" );
+   %datablockFiles.add( "art/particles/managedParticleEmitterData.cs" );
+   %datablockFiles.add( "art/decals/managedDecalData.cs" );
+   %datablockFiles.add( "art/datablocks/managedDatablocks.cs" );
+   %datablockFiles.add( "art/forest/managedItemData.cs" );
+   %datablockFiles.add( "art/datablocks/datablockExec.cs" );   
+   loadDatablockFiles( %datablockFiles, true );
+
+   // Run the other gameplay scripts in this folder
+   exec("./scriptExec.cs");
+
+   // Keep track of when the game started
+   $Game::StartTime = $Sim::Time;
+   // end onservercreated   
+   
+   // Game files
+   exec("./gametypes/CoreGame.cs"); // Parent to all, want this loaded first
+
+   %search = "./gametypes/*Game.cs";
+   for(%file = findFirstFile(%search); %file !$= ""; %file = findNextFile(%search))
+   {
+     %type = fileBase(%file);
+     if(%type !$= CoreGame)
+        exec("./gametypes/" @ %type @ ".cs");
+   }
+
+   // Mission scripting support. Auto-execute files - Temporary until I figure out how to just exe the mapscript in the proper dir itself
+   %path = "levels/*.cs";
+   for( %file = findFirstFile( %path ); %file !$= ""; %file = findNextFile( %path ) )
+   {
+       if( fileBase(%file) $= fileBase(%level) )
+          exec( %file );
+   }
+
+   // Load the level
+   %this.loadMission(%level, %missionType, true);
    
    return true;
 }
 
 /// Shut down the server
-function destroyServer()
+function Torque::destroyServer(%this)
 {
    $Server::ServerType = "";
    allowConnections(false);
    stopHeartbeat();
    $missionRunning = false;
+   $Game::Running = false;
    
    // End any running levels
    endMission();
-   onServerDestroyed();
+      // This function is called as part of a server shutdown.
+
+   physicsDestroyWorld( "server" );
+
+   // Clean up the GameCore package here as it persists over the
+   // life of the server.
+   if (isPackage(GameCore))
+   {
+      deactivatePackage(GameCore);
+   }
 
    // Delete all the server objects
    if (isObject(ServerGroup))
@@ -214,7 +328,9 @@ function resetServerDefaults()
    allowConnections(true); // ZOD: Open up the server for connections again.  
    
    // Reload the current level
-   loadMission( $Server::MissionFile );
+   tge.loadMission( $pref::Server::MissionFile, $pref::Server::MissionType, false );
+   $resettingServer = false;
+   echo( "Server reset complete." );
 }
 
 /// Guid list maintenance functions
@@ -253,27 +369,6 @@ function onServerInfoQuery()
 
 //-----------------------------------------------------------------------------
 
-function initServer()
-{
-   echo("\n--------- Initializing " @ $appName @ ": Server Scripts ---------");
-
-   // Server::Status is returned in the Game Info Query and represents the
-   // current status of the server. This string sould be very short.
-   $Server::Status = "Unknown";
-
-   // Turn on testing/debug script functions
-   $Server::TestCheats = false;
-
-   // Specify where the mission files are.
-   $Server::MissionFileSpec = "levels/*.mis";
-
-   // The common module provides the basic server functionality
-   initBaseServer();
-
-   // Load up game server support scripts
-   exec("./commands.cs");
-   exec("./game.cs");
-}
 
 
 //-----------------------------------------------------------------------------
