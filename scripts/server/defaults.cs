@@ -67,7 +67,8 @@ $pref::Game::Duration = 900;                 // specified in seconds
 $pref::Game::EndGameScore = 20;
 $pref::Game::EndGamePause = 5;               // specified in seconds
 $pref::Game::AllowCycling = 1;
-
+$pref::Server::MissionFile = "levels/TG_DesertRuins/TG_DesertRuins_day.mis";
+$pref::Server::ConnLogPath = "logs";
 $pref::Server::MissionType = "DM";
 $pref::Server::EnableAI = 0;
 $Pref::Server::FloodProtectionEnabled = 1;
