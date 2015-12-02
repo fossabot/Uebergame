@@ -88,8 +88,14 @@ function loadMissionStage2()
    $instantGroup = ServerGroup;
 
    // Make sure the mission exists
-   %file = $Server::MissionFile;
-   
+   if($Server::MissionFile $= ""){
+      error("Something has gone badlybadly wrong #BUG-UBER-001, Setting a backup");
+      %file = findFirstFile( $Server::MissionFileSpec );
+      //$Server::MissionFile="";   
+   }else{
+      %file = $Server::MissionFile;
+   }
+   echo("******"SPC $Server::MissionFile SPC"******");
    %missionType = "";
    if ( %missionType $= "" )
    {
@@ -104,6 +110,7 @@ function loadMissionStage2()
          superClass = CoreGame;
       };
    }
+   
    if( !isFile( %file ) )
    {
       $Server::LoadFailMsg = "Could not find mission \"" @ %file @ "\"";
@@ -155,7 +162,7 @@ function loadMissionStage2()
       ClientGroup.getObject(%clientIndex).loadMission();
 
    // Go ahead and launch the game
-   onMissionLoaded();
+   Game.onMissionLoaded();
 }
 
 
@@ -169,7 +176,7 @@ function endMission()
    echo("*** ENDING MISSION");
    
    // Inform the game code we're done.
-   onMissionEnded();
+   //onMissionEnded(); // BKS #Unused
 
    // Inform the clients
    for( %clientIndex = 0; %clientIndex < ClientGroup.getCount(); %clientIndex++ ) {

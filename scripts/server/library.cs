@@ -1061,7 +1061,7 @@ function getValidSpawnSurface(%pos, %radius)
 datablock StaticShapeData(markerObject)
 {
    category = "Misc";
-   shapeFile = "art/shapes/editor/octahedron.dts";
+   shapeFile = "art/coreshapes/octahedron.dts";
    dynamicType = $TypeMasks::StaticShapeObjectType;
 };
 

@@ -80,7 +80,7 @@ function Torque::initServer(%this)
    exec("./spawn.cs");
    exec("./camera.cs");
    exec("./centerPrint.cs");
-   //exec("./library.cs");
+   exec("./library.cs");
    
    //initServer();
 }

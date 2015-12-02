@@ -20,6 +20,7 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
+$GameCanvas=Canvas;
 
 // Cleanup Dialog created by 'core'
 if( isObject( MessagePopupDlg ) )
