@@ -210,13 +210,7 @@ if( !$logModeSpecified )
 nextToken($userDirs, currentMod, ";");
 
 // Execute startup scripts for each mod, starting at base and working up
-function loadDir(%dir)
-{
-   pushback($userDirs, %dir, ";");
-
-   if (isScriptFile(%dir @ "/main.cs"))
-   exec(%dir @ "/main.cs");
-}
+exec("Scripts/coremain.cs");  // Execute coremain before anything else
 
 echo("--------- Loading DIRS ---------");
 function loadDirs(%dirPath)

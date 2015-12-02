@@ -20,9 +20,6 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
-// Load up core script base
-loadDir("core"); // Should be loaded at a higher level, but for now leave -- SRZ 11/29/07
-
 //-----------------------------------------------------------------------------
 // Package overrides to initialize the mod.
 package fps {

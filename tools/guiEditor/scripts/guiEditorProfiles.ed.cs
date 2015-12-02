@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------------
 
 
-$GUI_EDITOR_DEFAULT_PROFILE_FILENAME = "art/gui/customProfiles.cs";
+$GUI_EDITOR_DEFAULT_PROFILE_FILENAME = "script/gui/customProfiles.cs";
 $GUI_EDITOR_DEFAULT_PROFILE_CATEGORY = "Other";
 
 
