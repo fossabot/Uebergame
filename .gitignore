@@ -37,6 +37,10 @@ libSDL2-2.0.so.1
 libSDL2-2.0.so.0.2.1
 
 #torsion garbage
-Uebergame.torsion
-Uebergame.torsion.exports
-Uebergame.torsion.opt
+*.torsion
+*.torsion.exports
+*.torsion.opt
+
+#Logfiles
+*.log
+*.bks.log
