@@ -21,12 +21,90 @@
 //-----------------------------------------------------------------------------
 
 // First we execute the core default preferences.
-exec( "./defaultprefs.cs" );
+// List of master servers to query, each one is tried in order
+// until one responds
+$Pref::Server::RegionMask = 2;
+$pref::Master[0] = "2:88.198.65.149:28002";
+
+// Information about the server
+$Pref::Server::Name = "Uebergame server";
+$Pref::Server::Info = "This is an Uebergame server.";
+
+// The network port is also defined by the client, this value 
+// overrides pref::net::port for dedicated servers
+$Pref::Server::Port = 28000;
+
+// If the password is set, clients must provide it in order
+// to connect to the server
+$Pref::Server::Password = "";
+
+// Text to appear on loading screen
+// Multiple lines possible just add more varibles
+$pref::Server::Message0 = "Server Information";
+$pref::Server::Message1 = "Welcome to the Ubergame server!";
+$pref::Server::Message2 = "Treat others with respect.";
+// The connection error message is transmitted to the client immediatly
+// on connection, if any further error occures during the connection
+// process, such as network traffic mismatch, or missing files, this error
+// message is display. This message should be replaced with information
+// usefull to the client, such as the url or ftp address of where the
+// latest version of the game can be obtained.
+$Pref::Server::ConnectionError =
+   "You likely do not have the correct version of the game installed or "@
+   "you are missing some of the related art and levels. "@
+   "Please contact the server administrator and try to solve the issue.";
+$pref::Server::Dedicated = 0;
+
+// Password for admin clients
+$Pref::Server::AdminPassword = "changeme";
+$pref::Server::SuperAdminPassword = "changemetoo";
+
+// Misc server settings.
+$pref::Server::BadWordFilter = 1;
+$pref::Server::AiCount = 0;
+$pref::Server::BaseSacking = 1;
+$pref::Server::ConnectLog = 0;
+$pref::Server::MissionFile = "levels/TG_DesertRuins/TG_DesertRuins_day.mis";
+$pref::Server::ConnLogPath = "logs";
+$pref::Server::MissionType = "DM";
+$Pref::Server::MaxPlayers = 16;
+$Pref::Server::TimeLimit = 30;               // In minutes
+$Pref::Server::KickBanTime = 300;            // specified in seconds
+$Pref::Server::BanTime = 1800;               // specified in seconds
+$Pref::Server::FloodProtectionEnabled = 1;
+$Pref::Server::MaxChatLen = 120;
+$Pref::Server::BanTime = 1800;               // specified in seconds
+$Pref::Server::KickBanTime = 300;            // specified in seconds
+$Pref::Server::TimeLimit = 0;               // In minutes //unused?!
+$pref::Server::teamName[0] = "Purgatory";
+$pref::Server::teamName[1] = "Green Team";
+$pref::Server::teamName[2] = "Red Team";
+$pref::Server::warmupTime = 30;
+$pref::Server::FriendlyFire = 1;
+$pref::Server::TournamentMode = 0;
+$pref::Server::DisallowVoteAdmin = 1;
+$pref::Server::DisallowVoteMission = 0;
+$pref::Server::DisallowVoteSkipMission = 0;
+$pref::Server::DisallowVoteFriendlyFire = 1;
+$pref::Server::DisallowVoteBaseSacking = 0;
+$pref::Server::DisallowVoteServerMode = 0;
+$pref::Server::DisallowVoteStartMatch = 0;
+$pref::Server::DisallowVoteTimeLimit = 0;
+
+
+
+
+
+
+
 
 
 // Now add your own game specific server preferences as
 // well as any overloaded core defaults here.
-
+$pref::Game::Duration = 900;                 // specified in seconds
+$pref::Game::EndGameScore = 20;
+$pref::Game::EndGamePause = 5;               // specified in seconds
+$pref::Game::AllowCycling = 1;
 
 
 
