@@ -60,6 +60,101 @@ $displayHelp = false;
 //saveJournal("editorOnFileQuitCrash.jrn");
 //playJournal("editorOnFileQuitCrash.jrn", false);
 
+// --------------------------------------------------------------------
+// Packages Bug fix Package
+// From Martin "Founder" Hoover.
+// http://www.garagegames.com/my/home/view.profile.php?qid=5055
+
+$TotalNumberOfPackages = 0;
+package PackageFix
+{
+   // Fixes bug whereby parent functions are lost when packages are deactivated.
+   function isActivePackage(%package)
+   {
+      for(%i = 0; %i < $TotalNumberOfPackages; %i++)
+      {
+         if($Package[%i] $= %package)
+         {
+            return true;
+            break;
+         }
+      }
+      return false;
+   }
+
+   function activatePackage(%this)
+   {
+      // This package name is allready active, so lets not activate it again.
+      if(isActivePackage(%this))
+      {
+         error(%this SPC "is a currently active package. activatePackage() failed.");
+         return;
+      }
+      Parent::ActivatePackage(%this);
+
+      if($TotalNumberOfPackages $= "")
+         $TotalNumberOfPackages = 0;
+
+      $Package[$TotalNumberOfPackages] = %this;
+      $TotalNumberOfPackages++;
+   }
+
+   function deactivatePackage(%this)
+   {
+      if(!isActivePackage(%this))
+      {
+         error(%this SPC "is not an active package. deactivatePackage() failed.");
+         return;
+      }
+      %count = 0;
+      %counter = 0;
+      //find the index number of the package to deactivate
+      for(%i = 0; %i < $TotalNumberOfPackages; %i++)
+      {
+         if($Package[%i] $= %this)
+            %breakpoint = %i;
+      }
+      for(%j = 0; %j < $TotalNumberOfPackages; %j++)
+      {
+         if(%j < %breakpoint)
+         {
+            //go ahead and assign temp array, save code
+            %tempPackage[%count] = $Package[%j];
+            %count++;
+         }
+         else if(%j > %breakpoint)
+         {
+            %reactivate[%counter] = $Package[%j];
+            $Package[%j] = "";
+            %counter++;
+         }
+      }
+      //deactivate all the packagess from the last to the current one
+      for(%k = (%counter - 1); %k > -1; %k--)
+         Parent::DeactivatePackage(%reactivate[%k]);
+
+      //deactivate the package that started all this
+      Parent::DeactivatePackage(%this);
+
+      //don't forget this
+      $TotalNumberOfPackages = %breakpoint;
+
+      //reactivate all those other packages
+      for(%l = 0; %l < %counter; %l++)
+      ActivatePackage(%reactivate[%l]);
+   }
+
+   function listPackages()
+   {
+      echo("----------------------------------------");
+      echo("Activated Packages:");
+      for(%i = 0; %i < $TotalNumberOfPackages; %i++)
+         echo($Package[%i]);
+
+      echo("----------------------------------------");
+   }
+};
+activatePackage(PackageFix);
 //------------------------------------------------------------------------------
 // Check if a script file exists, compiled or not.
 function isScriptFile(%path)
@@ -254,22 +349,6 @@ else {
       // This keeps things looking nice, instead of having a blank window
       closeSplashWindow();
       Canvas.showWindow();
-   }
-   
-   // Auto-load on the 360
-   if( $platform $= "xenon" )
-   {
-      %mission = "levels/Empty Terrain.mis";
-      
-      echo("Xbox360 Autoloading level: '" @ %mission @ "'");
-      
-      
-      if ($pref::HostMultiPlayer)
-         %serverType = "MultiPlayer";
-      else
-         %serverType = "SinglePlayer";
-
-      createAndConnectToLocalServer( %serverType, %mission );
    }
 }
 
