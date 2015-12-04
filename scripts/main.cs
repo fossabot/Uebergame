@@ -140,3 +140,175 @@ function onExit()
 
 // Activate the game package.
 activatePackage(fps);
+
+
+function LogEcho(%string)
+{
+   if( $pref::LogEchoEnabled )
+   {
+/*
+      %file = $pref::Server::LogPath @"/"@ "echos.txt";
+      %log = new FileObject();
+      %log.openForAppend(%file);
+      %log.writeLine("\"" @ %string );
+      %log.close();
+      %log.delete();
+*/
+      echo(%string);
+   }
+}
+
+//-----------------------------------------------------------------------------
+// Mission List Creation
+//-----------------------------------------------------------------------------
+
+// This can be easily overloaded for more types.
+function getMissionTypeDisplayNames(%this)
+{
+   for ( %type = 0; %type < $HostTypeCount; %type++ )
+   {
+      if       ( $HostTypeName[%type]  $= SDM )
+         $HostTypeDisplayName[%type]   = "Deathmatch";
+      else if  ( $HostTypeName[%type]  $= TDM )
+         $HostTypeDisplayName[%type]   = "Team Deathmatch";
+      else if  ( $HostTypeName[%type]  $= SPB )
+         $HostTypeDisplayName[%type]   = "Solo Paintball";
+      else if  ( $HostTypeName[%type]  $= TPB )
+         $HostTypeDisplayName[%type]   = "Team Paintball";
+      else
+         $HostTypeDisplayName[%type] = $HostTypeName[%type];
+   }
+}
+
+function buildMissionList(%this)
+{
+   %search = "levels/*.mis";
+   $HostTypeCount = 0;
+   $HostMissionCount = 0;
+
+   %i = 0;
+   for ( %file = findFirstFile(%search); %file !$= ""; %file = findNextFile(%search) )
+   {
+      // Skip our new level/mission if we arent choosing a level
+      // to launch in the editor.
+      %name = fileBase(%file); // get the name
+
+      // Do not add the new mission template into rotation.
+      if ( !$startWorldEditor && %name $= NewLevel )
+         continue;
+
+      %this.addMissionFile( %file );
+   }
+}
+
+function addMissionFile( %this, %file )
+{
+   %idx = $HostMissionCount;
+   $HostMissionCount++;
+   $HostMissionFile[%idx] = %file;
+   $HostMissionName[%idx] = fileBase(%file);
+
+   %LevelInfoObject = %this.getLevelInfo(%file);
+
+   if ( %LevelInfoObject != 0 )
+   {
+      if( %LevelInfoObject.levelName !$= "" )
+         $HostMissionName[%idx] = %LevelInfoObject.levelName;
+
+      if ( %LevelInfoObject.MissionTypes !$= "" )
+         %typeList = %LevelInfoObject.MissionTypes;
+
+      for ( %word = 0; ( %misType = getWord( %typeList, %word ) ) !$= ""; %word++ )
+      {
+         for ( %i = 0; %i < $HostTypeCount; %i++ )
+         {
+            if ( $HostTypeName[%i] $= %misType )
+               break;
+         }
+
+         if ( %i == $HostTypeCount )
+         {
+            $HostTypeCount++;
+            $HostTypeName[%i] = %misType;
+            $HostMissionCount[%i] = 0;
+         }
+
+         // add the mission to the type
+         %ct = $HostMissionCount[%i];
+         $HostMission[%i, $HostMissionCount[%i]] = %idx;
+         $HostMissionCount[%i]++;
+      }
+
+      for( %i = 0; %LevelInfoObject.desc[%i] !$= ""; %i++ )
+      {
+         $HostMissionDesc[$HostMissionFile[%idx], %i] = %LevelInfoObject.desc[%i];
+         //echo($HostMissionDesc[$HostMissionFile[%idx], %i]);
+      }
+
+      $MissionDisplayName[$HostMissionFile[%idx]] = $HostMissionName[%idx];
+
+      %LevelInfoObject.delete();
+
+      %this.getMissionTypeDisplayNames();
+
+      echo($HostMissionName[%idx] SPC "added to mission list");
+   }
+}
+
+// Read the level file and find the level object strings, then create the action object via eval so we
+// can extract the params from it and load them into global vars
+function getLevelInfo( %this, %missionFile ) 
+{
+   %file = new FileObject();
+   
+   %LevelInfoObject = "";
+   
+   if ( %file.openForRead( %missionFile ) )
+   {
+      %inInfoBlock = false;
+
+      while ( !%file.isEOF() )
+      {
+         %line = %file.readLine();
+         %line = trim( %line );
+         if( %line $= "new ScriptObject(LevelInfo) {" )
+            %inInfoBlock = true;
+         else if( %line $= "new LevelInfo(theLevelInfo) {" )
+            %inInfoBlock = true;
+         else if( %inInfoBlock && %line $= "};" ) {
+            %inInfoBlock = false;
+
+            %LevelInfoObject = %LevelInfoObject @ %line;
+            break;
+         }
+
+         if( %inInfoBlock )
+            %LevelInfoObject = %LevelInfoObject @ %line @ " ";
+      }
+
+      %file.close();
+   }
+   %file.delete();
+
+   if( %LevelInfoObject !$= "" )
+   {
+      %LevelInfoObject = "%LevelInfoObject = " @ %LevelInfoObject;
+      eval( %LevelInfoObject );
+
+      return %LevelInfoObject;
+   }
+	
+   // Didn't find our LevelInfo
+   return 0; 
+}
+
+function getMissionCount(%this, %type)
+{
+   // Find out how many mission files this gametype has associated with it
+   for ( %count = 0; %count < $HostTypeCount; %count++ )
+   {
+      if ( $HostTypeName[%count] $= %type )
+         break;
+   }
+   return $HostMissionCount[%count];
+}
