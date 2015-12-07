@@ -53,16 +53,7 @@ function initClient()
 {
    echo("\n--------- Initializing " @ $appName @ ": Client Scripts ---------");
 
-	   // Base client functionality
-   exec( "./message.cs" );
-   exec( "./mission.cs" );
-   exec( "./commandmissiondownload.cs" );
-   exec( "./actionMap.cs" );
-   exec( "./renderManager.cs" );
-   exec( "./lighting.cs" );
-   
-   initRenderManager();
-   initLightingSystems();  
+
    
    
    // Make sure this variable reflects the correct state.
@@ -80,7 +71,17 @@ function initClient()
    exec("scripts/gui/customProfiles.cs"); 
    
    // The common module provides basic client functionality
-   initBaseClient();
+	   // Base client functionality
+   exec( "./message.cs" );
+   exec( "./mission.cs" );
+   exec( "./commandmissiondownload.cs" );
+   exec( "./actionMap.cs" );
+   exec( "./renderManager.cs" );
+   exec( "./lighting.cs" );
+   
+   initRenderManager();
+   initLightingSystems();  
+   //initBaseClient();
 
    // Use our prefs to configure our Canvas/Window
    configureCanvas();

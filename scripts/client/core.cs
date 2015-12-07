@@ -46,7 +46,7 @@ function serverToClientObject( %serverObject )
 
 
 
-function initializeCore()
+function Torque::initializeCore(%this)
 {
    // Not Reentrant
    if( $coreInitialized == true )
