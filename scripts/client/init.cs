@@ -53,12 +53,26 @@ function initClient()
 {
    echo("\n--------- Initializing " @ $appName @ ": Client Scripts ---------");
 
+	   // Base client functionality
+   exec( "./message.cs" );
+   exec( "./mission.cs" );
+   exec( "./commandmissiondownload.cs" );
+   exec( "./actionMap.cs" );
+   exec( "./renderManager.cs" );
+   exec( "./lighting.cs" );
+   
+   initRenderManager();
+   initLightingSystems();  
+   
+   
    // Make sure this variable reflects the correct state.
-   $Server::Dedicated = false;
+   // Obviously the gui is loading/loaded, so no way should we be dedicated.
+   $Server::Dedicated = $pref::Server::Dedicated = false;
 
    // Game information used to query the master server
    $Client::GameTypeQuery = $appName;
    $Client::MissionTypeQuery = "Any";
+   $Client::GameType = "";
 
    // These should be game specific GuiProfiles.  Custom profiles are saved out
    // from the Gui Editor.  Either of these may override any that already exist.
@@ -72,7 +86,7 @@ function initClient()
    configureCanvas();
 
    // Load up the Game GUIs
-   exec("scripts/gui/defaultGameProfiles.cs");
+   exec("scripts/gui/serverOptionsDlg.gui");
    exec("scripts/gui/playGui.gui");
    exec("scripts/gui/chatHud.gui");
    exec("scripts/gui/playerList.gui");
@@ -94,8 +108,10 @@ function initClient()
    exec("./playerList.cs");
    exec("./chatHud.cs");
    exec("./messageHud.cs");
+   exec("scripts/gui/joinServerDlg.cs");
    exec("scripts/gui/playGui.cs");
    exec("scripts/gui/chooseLevelDlg.cs");
+   exec("scripts/gui/serverOptionsDlg.cs");
    exec("scripts/gui/loadingGui.cs");
    exec("scripts/gui/optionsDlg.cs");
    exec("scripts/gui/helpDlg.cs");
@@ -112,8 +128,8 @@ function initClient()
    // Default player key bindings
    exec("./default.bind.cs");
 
-   if (isFile( GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/bindings.config.cs" ) )
-      exec( GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/bindings.config.cs" );
+   if (isFile( GetUserHomeDirectory() @ "/My"SPC"Games/" @ $AppName @ "/bindings.config.cs" ) )
+      exec( GetUserHomeDirectory() @ "/My"SPC"Games/" @ $AppName @ "/bindings.config.cs" );
 
    loadMaterials();
 
@@ -181,7 +197,7 @@ function loadMainMenu()
       %file = findFirstFile(%levelFile);
 
       if(%file !$= "")
-         createAndConnectToLocalServer( "SinglePlayer", %file );
+         createAndConnectToLocalServer("SinglePlayer", %file, $pref::Server::MissionType);
    }
 }
 

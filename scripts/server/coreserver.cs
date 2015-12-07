@@ -26,7 +26,7 @@ function initBaseServer()
    exec("./audio.cs");
    exec("./message.cs");
    exec("./corecommands.cs");
-   exec("./levelInfo.cs");
+   exec("./missionInfo.cs");	//exec("./levelInfo.cs");
    exec("./missionLoad.cs");
    exec("./missionDownload.cs");
    exec("./clientConnection.cs");
@@ -52,9 +52,9 @@ function portInit(%port)
 /// create a local client connection to the server.
 //
 /// @return true if successful.
-function createAndConnectToLocalServer( %serverType, %level )
+function createAndConnectToLocalServer(  %serverType, %level, %missionType )
 {
-   if( !createServer( %serverType, %level ) )
+   if( !createServer(%serverType, %level, %missionType) )
       return false;
    
    %conn = new GameConnection( ServerConnection );
@@ -77,7 +77,7 @@ function createAndConnectToLocalServer( %serverType, %level )
 
 /// Create a server with either a "SinglePlayer" or "MultiPlayer" type
 /// Specify the level to load on the server
-function createServer(%serverType, %level)
+function createServer(%serverType, %level, %missionType)
 {
    // Increase the server session number.  This is used to make sure we're
    // working with the server session we think we are.

@@ -20,81 +20,51 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
+$WORD::RES_X = 0;
+$WORD::RES_Y = 1;
+$WORD::FULLSCREEN = 2;
+$WORD::BITDEPTH = 3;
+$WORD::REFRESH = 4;
+$WORD::AA = 5;
 //-----------------------------------------------------------------------------
 // Package overrides to initialize the mod.
-package fps {
-
-function displayHelp() {
-   Parent::displayHelp();
-   error(
-      "Fps Mod options:\n"@
-      "  -dedicated             Start as dedicated server\n"@
-      "  -connect <address>     For non-dedicated: Connect to a game at <address>\n" @
-      "  -mission <filename>    For dedicated: Load the mission\n"
-   );
-}
-
-function parseArgs()
-{
-   // Call the parent
-   Parent::parseArgs();
-
-   // Arguments, which override everything else.
-   for (%i = 1; %i < $Game::argc ; %i++)
-   {
-      %arg = $Game::argv[%i];
-      %nextArg = $Game::argv[%i+1];
-      %hasNextArg = $Game::argc - %i > 1;
-   
-      switch$ (%arg)
-      {
-         //--------------------
-         case "-dedicated":
-            $Server::Dedicated = true;
-            enableWinConsole(true);
-            $argUsed[%i]++;
-
-         //--------------------
-         case "-mission":
-            $argUsed[%i]++;
-            if (%hasNextArg) {
-               $missionArg = %nextArg;
-               $argUsed[%i+1]++;
-               %i++;
-            }
-            else
-               error("Error: Missing Command Line argument. Usage: -mission <filename>");
-
-         //--------------------
-         case "-connect":
-            $argUsed[%i]++;
-            if (%hasNextArg) {
-               $JoinGameAddress = %nextArg;
-               $argUsed[%i+1]++;
-               %i++;
-            }
-            else
-               error("Error: Missing Command Line argument. Usage: -connect <ip_address>");
-      }
-   }
-}
+package scripts{
+//---------------------------------------------------------------------------------------------
+// onStart
+// Called when the engine is starting up. Initializes this mod.
+//---------------------------------------------------------------------------------------------
 
 function onStart()
 {
-   // The core does initialization which requires some of
-   // the preferences to loaded... so do that first.  
+   Parent::onStart();
+
+   exec("art/core/gui/profiles.cs");
    exec( "./client/defaults.cs" );
    exec( "./server/defaults.cs" );
+
    
-   //exec( "./client/defaultprefs.cs" );
-   //exec( "./server/defaultprefs.cs" );
-             
-   Parent::onStart();
+   $ScriptGroup = new SimGroup(ScriptClassGroup);
+
+   // Build the mission listing for server and client
+   echo("----- Adding missions to list -----");
+   %this.buildMissionList();
+   
+   // Initialise stuff.
+   exec("scripts/client/clientcore.cs");
+   initializeCore();
+
+   
+  
+
+   
+   echo(" % - Initialized Core");
+   
+   
    echo("\n--------- Initializing Directory: scripts ---------");
 
    // Load the scripts that start it all...
    exec("./client/init.cs");
-   exec("./server/init.cs");
+   //exec("./server/init.cs");
    
    // Init the physics plugin.
    physicsInit();
@@ -102,6 +72,11 @@ function onStart()
    // Start up the audio system.
    sfxStartup();
 
+   exec("scripts/client/coreclient.cs");
+   exec("scripts/server/coreserver.cs");
+   
+   exec("./gui/guiTreeViewCtrl.cs");
+   exec("./gui/messageBoxes/messageBox.ed.cs");
    // Server gets loaded for all sessions, since clients
    // can host in-game servers.
    initServer();
@@ -132,15 +107,115 @@ function onExit()
    echo("Exporting server prefs");
    export("$Pref::Server::*", GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/server.config.cs", False);
    BanList::Export(GetUserHomeDirectory() @ "/My Games/" @ $AppName @ "/banlist.cs");
-
+	
+	   // Shutdown stuff.
+   shutdownCore();
    Parent::onExit();
 }
 
-}; // package fps
+
+function displayHelp() {
+   // Let the parent do its stuff.
+   Parent::displayHelp();
+
+   error("Core Mod options:\n" @
+         "  -fullscreen            Starts game in full screen mode\n" @
+         "  -windowed              Starts game in windowed mode\n" @
+         "  -autoVideo             Auto detect video, but prefers OpenGL\n" @
+         "  -openGL                Force OpenGL acceleration\n" @
+         "  -directX               Force DirectX acceleration\n" @
+         "  -voodoo2               Force Voodoo2 acceleration\n" @
+         "  -prefs <configFile>    Exec the config file\n");
+   
+   error(
+      "Fps Mod options:\n"@
+      "  -dedicated             Start as dedicated server\n"@
+      "  -connect <address>     For non-dedicated: Connect to a game at <address>\n" @
+      "  -mission <filename>    For dedicated: Load the mission\n"
+   );
+}
+
+function parseArgs()
+{
+   // Call the parent
+   Parent::parseArgs();
+
+   // Arguments, which override everything else.
+   for (%i = 1; %i < $Game::argc ; %i++)
+   {
+      %arg = $Game::argv[%i];
+      %nextArg = $Game::argv[%i+1];
+      %hasNextArg = $Game::argc - %i > 1;
+   
+      switch$ (%arg)
+      {
+         case "-fullscreen":
+            setFullScreen(true);
+            $argUsed[%i]++;
+
+         case "-windowed":
+            setFullScreen(false);
+            $argUsed[%i]++;
+
+         case "-openGL":
+            $pref::Video::displayDevice = "OpenGL";
+            $argUsed[%i]++;
+
+         case "-directX":
+            $pref::Video::displayDevice = "D3D";
+            $argUsed[%i]++;
+
+         case "-voodoo2":
+            $pref::Video::displayDevice = "Voodoo2";
+            $argUsed[%i]++;
+
+         case "-autoVideo":
+            $pref::Video::displayDevice = "";
+            $argUsed[%i]++;
+
+         case "-prefs":
+            $argUsed[%i]++;
+            if (%hasNextArg) {
+               exec(%nextArg, true, true);
+               $argUsed[%i+1]++;
+               %i++;
+            }
+		 //--------------------
+         case "-dedicated":
+            $Server::Dedicated = true;
+            enableWinConsole(true);
+            $argUsed[%i]++;
+
+         //--------------------
+         case "-mission":
+            $argUsed[%i]++;
+            if (%hasNextArg) {
+               $missionArg = %nextArg;
+               $argUsed[%i+1]++;
+               %i++;
+            }
+            else
+               error("Error: Missing Command Line argument. Usage: -mission <filename>");
+
+         //--------------------
+         case "-connect":
+            $argUsed[%i]++;
+            if (%hasNextArg) {
+               $JoinGameAddress = %nextArg;
+               $argUsed[%i+1]++;
+               %i++;
+            }
+            else
+               error("Error: Missing Command Line argument. Usage: -connect <ip_address>");
+      }
+   }
+}
+
+
+}; // package scripts
 
 // Activate the game package.
-activatePackage(fps);
-
+activatePackage(scripts);
 
 function LogEcho(%string)
 {
@@ -167,13 +242,13 @@ function getMissionTypeDisplayNames(%this)
 {
    for ( %type = 0; %type < $HostTypeCount; %type++ )
    {
-      if       ( $HostTypeName[%type]  $= SDM )
+      if       ( $HostTypeName[%type]  = "SDM" )
          $HostTypeDisplayName[%type]   = "Deathmatch";
-      else if  ( $HostTypeName[%type]  $= TDM )
+      else if  ( $HostTypeName[%type]  = "TDM" )
          $HostTypeDisplayName[%type]   = "Team Deathmatch";
-      else if  ( $HostTypeName[%type]  $= SPB )
+      else if  ( $HostTypeName[%type]  = "SPB" )
          $HostTypeDisplayName[%type]   = "Solo Paintball";
-      else if  ( $HostTypeName[%type]  $= TPB )
+      else if  ( $HostTypeName[%type]  = "TPB" )
          $HostTypeDisplayName[%type]   = "Team Paintball";
       else
          $HostTypeDisplayName[%type] = $HostTypeName[%type];
@@ -203,6 +278,7 @@ function buildMissionList(%this)
 
 function addMissionFile( %this, %file )
 {
+   
    %idx = $HostMissionCount;
    $HostMissionCount++;
    $HostMissionFile[%idx] = %file;

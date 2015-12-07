@@ -22,6 +22,7 @@
 
 function ChooseLevelDlg::onWake(%this)
 {
+   
    buildMissionTypePopup(CL_LevelType);
 
    // Select the saved-off prefs:
@@ -68,6 +69,8 @@ function ChooseLevelDlg::onSleep( %this )
 
 function buildMissionTypePopup(%popup)
 {
+   
+   getMissionTypeDisplayNames(%popup);
    %popup.clear();
    for(%type = 0; %type < $HostTypeCount; %type++)
       %popup.add($HostTypeDisplayName[%type], %type);
@@ -80,38 +83,24 @@ function buildMissionTypePopup(%popup)
 // not have a lingering mouseUp event lingering in the ether.
 
 function ChooseLevelDlgGoBtn::onMouseUp( %this )
-
 {
-
    // So we can't fire the button when loading is in progress.
-
    if ( isObject( ServerGroup ) )
-
       return;
 
-   %id = CL_LevelList.getSelectedId();
+  %id = CL_LevelList.getSelectedId();
    %mission = $HostMissionFile[%id];
 
    // Launch the chosen level with the editor open?
-
    if ( ChooseLevelDlg.launchInEditor )
-
    {
-
       activatePackage( "BootEditor" );
-
       ChooseLevelDlg.launchInEditor = false;
- 
      StartLevel( %mission, "SinglePlayer" );
-
    }
-
    else
-
    {
-
       StartLevel( %mission, "" );
- 
   }
 
 }

@@ -20,7 +20,40 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
-// ----------------------------------------------------------------------------
+// DisplayName = Master Gametype
+
+//--- GAME RULES BEGIN ---
+$HostGameRules["Core", 0] = "Eliminate the competition.";
+$HostGameRules["Core", 1] = "Last player standing is declared the winner or";
+$HostGameRules["Core", 2] = "player with most kills at timelimit.";
+//--- GAME RULES END ---
+
+//-----------------------------------------------------------------------------
+// <> EXECUTION ORDER <>
+//
+// CoreGame::activatePackages
+// CoreGame::onMissionLoaded
+// CoreGame::setupGameParams
+// CoreGame::checkMatchStart
+// CoreGame::Countdown
+// CoreGame::setClientState
+// CoreGame::onClientEnterGame
+// CoreGame::sendClientTeamList
+// CoreGame::spawnPlayer
+// CoreGame::pickSpawnPoint
+// CoreGame::createPlayer
+// CoreGame::loadOut
+// CoreGame::startGame
+//
+// CoreGame::EndCountdown
+// CoreGame::onGameDurationEnd
+// CoreGame::cycleGame
+// CoreGame::endGame
+// CoreGame::onCyclePauseEnd
+// CoreGame::deactivatePackages
+//
+//-----------------------------------------------------------------------------
+
 // GameCore
 // ----------------------------------------------------------------------------
 // This is the core of the gametype functionality. The "Default Game". All of
@@ -31,6 +64,25 @@
 //   - gameType = "Deathmatch";
 // If this information is missing then the GameCore will default to Deathmatch.
 // ----------------------------------------------------------------------------
+
+function CoreGame::activatePackages(%game)
+{
+   LogEcho("CoreGame::activatePackages(" SPC %game.class SPC ")");
+   // activate the default package for the game type
+   // ZOD: We don't have a default package as of yet if ever..
+   // All other gametypes MUST have a package even if just a dummy!
+   //activatePackage(CoreGame);
+   if ( isPackage( %game.class ) && %game.class !$= CoreGame )
+      activatePackage( %game.class );
+}
+
+function CoreGame::deactivatePackages(%game)
+{
+   LogEcho("CoreGame::deactivatePackages(" SPC %game.class SPC ")");
+   //deactivatePackage(CoreGame);
+   if ( isActivePackage( %game.class ) && %game.class !$= CoreGame )
+      deactivatePackage( %game.class );
+}
 
 // ----------------------------------------------------------------------------
 // Basic Functionality
@@ -1066,4 +1118,85 @@ function gameCoreDestroyServer(%serverSession)
          destroyServer();
       }
    }
+}
+
+// functions to deal with cycling missions with gametypes
+function gameCore::getNextMission(%game, %mission, %misType)
+{
+   // First find the index of the mission in the list:
+   for ( %mis = 0; %mis < $HostMissionCount; %mis++ )
+   {
+      if ( $HostMissionFile[%mis] $= %mission )
+         break;
+   }
+   if ( %mis == $HostMissionCount )
+      return "";
+
+   // Now find the index of the mission type:
+   for ( %type = 0; %type < $HostTypeCount; %type++ )
+   {
+      if ( $HostTypeName[%type] $= %misType )
+         break;
+   }
+   if ( %type == $HostTypeCount )
+      return "";
+
+   // Now find the mission's index in the mission-type specific sub-list:
+   for ( %i = 0; %i < $HostMissionCount[%type]; %i++ )
+   {
+      if($HostMission[%type, %i] == %mis)
+         break;
+   }
+
+   if ( $pref::Server::RandomMissions )
+   {
+      %i = mFloor( getRandom( 0, ( $HostMissionCount[%type] - 1 ) ) );
+
+      // If its same as last map, go back 1
+      if ( $HostMissionFile[$HostMission[%type, %i]] $= %mission )
+         %i--;
+
+      // If its greater then or equal to count, set to zero
+      %i = %i >= $HostMissionCount[%type] ? 0 : %i;
+   }
+   else
+   {
+      // Go BACKWARDS, because the missions are in reverse alphabetical order:
+      if(%i == 0)
+         %i = $HostMissionCount[%type] - 1;
+      else
+         %i--;
+   }
+   return $HostMission[%type, %i];
+}
+
+function gameCore::findNextCycleMission(%game)
+{
+   %tempMission = $Server::MissionFile;
+   %failsafe = 0;
+   while(1)
+   {
+      %nextMissionIndex = %game.getNextMission( %tempMission, $Server::MissionType );
+      %nextPotentialMission = $HostMissionFile[%nextMissionIndex];
+
+      //just cycle to the next if we've gone all the way around...
+      if ( %nextPotentialMission $= $Server::MissionFile || %failsafe >= 1000 )
+      {
+         %nextMissionIndex = %game.getNextMission( $Server::MissionFile, $Server::MissionType );
+         return $HostMissionFile[%nextMissionIndex];
+      }
+      return %nextPotentialMission;
+      %failsafe++;
+   }
+}
+
+function gameCore::cycleMissions(%game)
+{
+   LogEcho("\c4CoreGame::cycleMissions(" SPC %game.class SPC ")");
+   %nextMission = %game.findNextCycleMission();
+   if ( %nextMission $= "" ) // Failsafe
+      %nextMission = $Server::MissionFile;
+
+   messageAll('MsgLoading', 'Loading %1 (%2)...', %nextMission, $MissionTypeDisplayName);
+   tge.loadMission( %nextMission, $Server::MissionType, false );
 }

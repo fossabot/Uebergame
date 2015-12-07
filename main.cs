@@ -155,6 +155,7 @@ package PackageFix
    }
 };
 activatePackage(PackageFix);
+
 //------------------------------------------------------------------------------
 // Check if a script file exists, compiled or not.
 function isScriptFile(%path)
@@ -305,7 +306,7 @@ if( !$logModeSpecified )
 nextToken($userDirs, currentMod, ";");
 
 // Execute startup scripts for each mod, starting at base and working up
-exec("Scripts/coremain.cs");  // Execute coremain before anything else
+exec("Scripts/main.cs");  // Execute coremain before anything else
 
 echo("--------- Loading DIRS ---------");
 function loadDirs(%dirPath)

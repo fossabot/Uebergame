@@ -24,6 +24,28 @@
 // initializeCore
 // Initializes core game functionality.
 //---------------------------------------------------------------------------------------------
+
+function initBaseClient()
+{
+ 
+}
+
+/// A helper function which will return the ghosted client object
+/// from a server object when connected to a local server.
+function serverToClientObject( %serverObject )
+{
+   assert( isObject( LocalClientConnection ), "serverToClientObject() - No local client connection found!" );
+   assert( isObject( ServerConnection ), "serverToClientObject() - No server connection found!" );      
+         
+   %ghostId = LocalClientConnection.getGhostId( %serverObject );
+   if ( %ghostId == -1 )
+      return 0;
+                
+   return ServerConnection.resolveGhostID( %ghostId );   
+}
+
+
+
 function initializeCore()
 {
    // Not Reentrant
@@ -47,7 +69,7 @@ function initializeCore()
 
    // Content. 
    //core/
-   exec("art/core/gui/profiles.cs");		/*done*/
+   
    
    exec("scripts/gui/cursors.cs");			/*done*/
    
@@ -77,15 +99,15 @@ function initializeCore()
    exec("art/core/gui/console.gui");/*done*/
    exec("art/core/gui/consoleVarDlg.gui");/*done*/
    exec("art/core/gui/netGraphGui.gui");/*done*/
-   exec("art/core/gui/RecordingsDlg.gui");/*done*/
-   exec("art/core/gui/guiMusicPlayer.gui");/*done*/
+   //exec("art/core/gui/RecordingsDlg.gui");/*done*/
+   //exec("art/core/gui/guiMusicPlayer.gui");/*done*/
 
 	
    // Gui Helper Scripts.
 
    exec("scripts/gui/help.cs");/*done*/
-   exec("scripts/gui/recordingsDlg.cs");/*done*/
-   exec("scripts/gui/guiMusicPlayer.cs");/*done*/
+   //exec("scripts/gui/recordingsDlg.cs");/*done*/
+   //exec("scripts/gui/guiMusicPlayer.cs");/*done*/
 
    // Random Scripts.
 
@@ -290,4 +312,16 @@ function reloadMaterials()
    reloadTextures();
    loadMaterials();
    reInitMaterials();
+}
+
+//----------------------------------------------------------------------------
+// Debug commands
+//----------------------------------------------------------------------------
+
+function netSimulateLag( %msDelay, %packetLossPercent )
+{
+   if ( %packetLossPercent $= "" )
+      %packetLossPercent = 0;
+                  
+   commandToServer( 'NetSimulateLag', %msDelay, %packetLossPercent );
 }
