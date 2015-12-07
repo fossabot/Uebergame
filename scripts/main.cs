@@ -50,8 +50,8 @@ function onStart()
    %this.buildMissionList();
    
    // Initialise stuff.
-   exec("scripts/client/clientcore.cs");
    initializeCore();
+   exec("scripts/client/core.cs");
 
    
   

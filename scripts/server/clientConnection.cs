@@ -195,6 +195,59 @@ function GameConnection::onDrop(%client, %reason)
 }
 
 
+function GameConnection::loadMission(%this)
+{
+   // Send over the information that will display the server info
+   // when we learn it got there, we'll send the data blocks
+   %this.currentPhase = 0;
+   if (%this.isAIControlled())
+   {
+      // Cut to the chase...
+      %this.onClientEnterGame();
+   }
+   else
+   {
+      commandToClient(%this, 'MissionStartPhase1', $missionSequence,
+         $Server::MissionFile, MissionGroup.musicTrack);
+      echo("*** Sending mission load to client: " @ $Server::MissionFile);
+   }
+}
+
+function GameConnection::onDataBlocksDone( %this, %missionSequence )
+{
+   // Make sure to ignore calls from a previous mission load
+   if (%missionSequence != $missionSequence)
+      return;
+   if (%this.currentPhase != 1)
+      return;
+   %this.currentPhase = 1.5;
+
+   // On to the next phase
+   commandToClient(%this, 'MissionStartPhase2', $missionSequence, $Server::MissionFile);
+}
+
+function GameConnection::clientWantsGhostAlwaysRetry(%client)
+{
+   if($MissionRunning)
+      %client.activateGhosting();
+}
+
+function GameConnection::onGhostAlwaysFailed(%client)
+{
+
+}
+
+
+function GameConnection::onGhostAlwaysObjectsReceived(%client)
+{
+   // Ready for next phase.
+   commandToClient(%client, 'MissionStartPhase3', $missionSequence, $Server::MissionFile);
+}
+
+
+
+
+
 //-----------------------------------------------------------------------------
 
 function GameConnection::startMission(%this)
