@@ -103,6 +103,14 @@ function GameConnection::onConnectionAccepted(%this)
    physicsInitWorld( "client" );   
 }
 
+function GameConnection::onConnectionError(%this, %msg)
+{
+   // General connection error, usually raised by ghosted objects
+   // initialization problems, such as missing files.  We'll display
+   // the server's connection error message.
+   tge.disconnectedCleanup();
+   MessageBoxOK( "DISCONNECT", $ServerConnectionErrorMessage @ " (" @ %msg @ ")" );
+}
 function GameConnection::onConnectionTimedOut(%this)
 {
    // Called when an established connection times out
@@ -116,16 +124,6 @@ function GameConnection::onConnectionDropped(%this, %msg)
    disconnectedCleanup();
    MessageBoxOK( "DISCONNECT", "The server has dropped the connection: " @ %msg);
 }
-
-function GameConnection::onConnectionError(%this, %msg)
-{
-   // General connection error, usually raised by ghosted objects
-   // initialization problems, such as missing files.  We'll display
-   // the server's connection error message.
-   disconnectedCleanup();
-   MessageBoxOK( "DISCONNECT", $ServerConnectionErrorMessage @ " (" @ %msg @ ")" );
-}
-
 
 //----------------------------------------------------------------------------
 // Connection Failed Events
