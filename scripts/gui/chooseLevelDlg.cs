@@ -69,8 +69,6 @@ function ChooseLevelDlg::onSleep( %this )
 
 function buildMissionTypePopup(%popup)
 {
-   
-   getMissionTypeDisplayNames(%popup);
    %popup.clear();
    for(%type = 0; %type < $HostTypeCount; %type++)
       %popup.add($HostTypeDisplayName[%type], %type);
