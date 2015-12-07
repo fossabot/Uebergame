@@ -78,7 +78,7 @@ function Torque::initServer(%this)
    exec("./kickban.cs");
    exec("./coregame.cs");
    exec("./spawn.cs");
-   exec("./corecamera.cs");
+   exec("./camera.cs");
    exec("./centerPrint.cs");
 
    // Load up game server support scripts
