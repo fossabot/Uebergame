@@ -82,7 +82,6 @@ function Torque::initServer(%this)
    exec("./centerPrint.cs");
 
    // Load up game server support scripts
-   //exec("./commands.cs");
    exec("./game.cs");
 }
 
