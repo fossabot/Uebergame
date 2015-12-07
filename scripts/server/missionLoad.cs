@@ -30,14 +30,14 @@ $MissionLoadPause = 5000;
 
 //-----------------------------------------------------------------------------
 
-function loadMission( %missionFile, %missionType, %isFirstMission ) 
+function Torque::loadMission(%this, %missionFile, %missionType, %isFirstMission)
 {
    // Do not allow clients to connect during loading process
    //allowConnections(false);
 
    // cleanup
    if(!%isFirstMission)
-      endMission();
+      %this.endMission();
    echo("<>>>> LOADING MISSION: " @ %missionFile @ " <<<<>");
    echo("<>>>> Stage 1 load <<<<>");
 
@@ -89,14 +89,14 @@ function loadMission( %missionFile, %missionType, %isFirstMission )
    // if this isn't the first mission, allow some time for the server
    // to transmit information to the clients:
    if ( %isFirstMission || !$pref::Server::Multiplayer )
-      loadMissionStage2(%missionFile, %missionType, %isFirstMission); //loadMissionStage2();
+      %this.loadMissionStage2(%missionFile, %missionType, %isFirstMission); //loadMissionStage2();
    else
-      schedule( $MissionLoadPause, "loadMissionStage2", %missionFile, %missionType, %isFirstMission );	//schedule( $MissionLoadPause, ServerGroup, loadMissionStage2 );
+      %this.schedule( $MissionLoadPause, "loadMissionStage2", %missionFile, %missionType, %isFirstMission );	//schedule( $MissionLoadPause, ServerGroup, loadMissionStage2 );
 }
 
 //-----------------------------------------------------------------------------
 
-function loadMissionStage2(%missionFile, %missionType, %isFirstMission) 
+function Torque::loadMissionStage2(%this, %missionFile, %missionType, %isFirstMission) 
 {
    echo("<>>>> Stage 2 load <<<<>");
 
@@ -197,7 +197,7 @@ function loadMissionStage2(%missionFile, %missionType, %isFirstMission)
 
 //-----------------------------------------------------------------------------
 
-function endMission()
+function Torque::endMission(%this)
 {
    if (!isObject( MissionGroup ))
       return;

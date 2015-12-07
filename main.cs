@@ -157,6 +157,10 @@ package PackageFix
 activatePackage(PackageFix);
 
 //------------------------------------------------------------------------------
+new ScriptObject(tge)
+{
+   class = Torque;
+};
 // Check if a script file exists, compiled or not.
 function isScriptFile(%path)
 {
@@ -200,7 +204,7 @@ if($dirCount == 0) {
 // The displayHelp, onStart, onExit and parseArgs function are overriden
 // by mod packages to get hooked into initialization and cleanup.
 
-function onStart()
+function Torque::onStart(%this)
 {
    // Default startup function
 }
@@ -211,7 +215,7 @@ function onExit()
    // invoked at the end of this file.
 }
 
-function parseArgs()
+function Torque::parseArgs(%this)
 {
    // Here for mod override, the arguments have already
    // been parsed.
@@ -260,8 +264,10 @@ if($compileTools)
    quit();
 }
 
-package Help {
-   function onExit() {
+package help
+{
+   function onExit()
+   {
       // Override onExit when displaying help
    }
 };
@@ -277,7 +283,7 @@ function displayHelp() {
       // the logfile when the application shuts down.  (default)
 
    error(
-      "Torque Demo command line options:\n"@
+      "Main command line options:\n"@
       "  -log <logmode>         Logging behavior; see main.cs comments for details\n"@
       "  -game <game_name>      Reset list of mods to only contain <game_name>\n"@
       "  <game_name>            Works like the -game argument\n"@
@@ -309,19 +315,22 @@ nextToken($userDirs, currentMod, ";");
 exec("Scripts/main.cs");  // Execute coremain before anything else
 
 echo("--------- Loading DIRS ---------");
-function loadDirs(%dirPath)
+function Torque::loadDirs(%this, %dirPath)
 {
    %dirPath = nextToken(%dirPath, token, ";");
    if (%dirPath !$= "")
-      loadDirs(%dirPath);
+      %this.loadDirs(%dirPath);
 
+   echo("Loading Directory:" SPC %dirPath);
    if(exec(%token @ "/main.cs") != true)
    {
       error("Error: Unable to find specified directory: " @ %token );
       $dirCount--;
    }
+   if ( isPackage( %token ) )
+      activatePackage( %token );
 }
-loadDirs($userDirs);
+tge.loadDirs($userDirs);
 echo("");
 
 if($dirCount == 0) {
@@ -331,16 +340,16 @@ if($dirCount == 0) {
 }
 // Parse the command line arguments
 echo("--------- Parsing Arguments ---------");
-parseArgs();
+tge.parseArgs();
 
 // Either display the help message or startup the app.
 if ($displayHelp) {
    enableWinConsole(true);
-   displayHelp();
+   tge.displayHelp();
    quit();
 }
 else {
-   onStart();
+   tge.onStart();
    echo("Engine initialized...");
 
    if( !$isDedicated )

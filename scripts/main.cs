@@ -34,9 +34,9 @@ package scripts{
 // Called when the engine is starting up. Initializes this mod.
 //---------------------------------------------------------------------------------------------
 
-function onStart()
+function Torque::onStart(%this)
 {
-   Parent::onStart();
+   Parent::onStart(%this);
 
    exec("art/core/gui/profiles.cs");
    exec( "./client/defaults.cs" );
@@ -50,13 +50,9 @@ function onStart()
    %this.buildMissionList();
    
    // Initialise stuff.
-   initializeCore();
    exec("scripts/client/core.cs");
+   %this.initializeCore();
 
-   
-  
-
-   
    echo(" % - Initialized Core");
    
    
@@ -64,7 +60,7 @@ function onStart()
 
    // Load the scripts that start it all...
    exec("./client/init.cs");
-   //exec("./server/init.cs");
+   exec("./server/server.cs");
    
    // Init the physics plugin.
    physicsInit();
@@ -72,29 +68,32 @@ function onStart()
    // Start up the audio system.
    sfxStartup();
 
-   exec("scripts/client/coreclient.cs");
-   exec("scripts/server/coreserver.cs");
+   //exec("scripts/server/coreserver.cs");
    
    exec("./gui/guiTreeViewCtrl.cs");
    exec("./gui/messageBoxes/messageBox.ed.cs");
+   
    // Server gets loaded for all sessions, since clients
    // can host in-game servers.
-   initServer();
+   %this.initServer();
 
    // Start up in either client, or dedicated server mode
-   if ($Server::Dedicated)
-      initDedicated();
+   if ( $isDedicated || $pref::Server::Dedicated )
+   {
+      tge.initDedicated();
+   }
    else
-      initClient();
+      tge.initClient();
 }
 
 function onExit()
 {
+   sfxShutdown();
    // Ensure that we are disconnected and/or the server is destroyed.
    // This prevents crashes due to the SceneGraph being deleted before
    // the objects it contains.
    if ($Server::Dedicated)
-      destroyServer();
+      tge.destroyServer();
    else
       disconnect();
    
@@ -114,7 +113,8 @@ function onExit()
 }
 
 
-function displayHelp() {
+function Torque::displayHelp(%this)
+{
    // Let the parent do its stuff.
    Parent::displayHelp();
 
@@ -125,20 +125,18 @@ function displayHelp() {
          "  -openGL                Force OpenGL acceleration\n" @
          "  -directX               Force DirectX acceleration\n" @
          "  -voodoo2               Force Voodoo2 acceleration\n" @
-         "  -prefs <configFile>    Exec the config file\n");
-   
-   error(
-      "Fps Mod options:\n"@
-      "  -dedicated             Start as dedicated server\n"@
-      "  -connect <address>     For non-dedicated: Connect to a game at <address>\n" @
-      "  -mission <filename>    For dedicated: Load the mission\n"
+         "  -prefs <configFile>    Exec the config file\n" @
+         "  -dedicated             Start as dedicated server\n"@
+         "  -connect <address>     For non-dedicated: Connect to a game at <address>\n" @
+         "  -level <filename>      For dedicated: Load the mission\n" @
+         "  -type <game_type>      For dedicated: Use the specified gametype\n"
    );
 }
 
-function parseArgs()
+function Torque::parseArgs(%this)
 {
    // Call the parent
-   Parent::parseArgs();
+   Parent::parseArgs(%this);
 
    // Arguments, which override everything else.
    for (%i = 1; %i < $Game::argc ; %i++)
@@ -180,6 +178,8 @@ function parseArgs()
                $argUsed[%i+1]++;
                %i++;
             }
+            else
+               error("Error: Missing Command Line argument. Usage: -prefs <path/script.cs>");
 		 //--------------------
          case "-dedicated":
             $Server::Dedicated = true;
@@ -238,7 +238,7 @@ function LogEcho(%string)
 //-----------------------------------------------------------------------------
 
 // This can be easily overloaded for more types.
-function getMissionTypeDisplayNames(%this)
+function Torque::getMissionTypeDisplayNames(%this)
 {
    for ( %type = 0; %type < $HostTypeCount; %type++ )
    {
@@ -255,7 +255,7 @@ function getMissionTypeDisplayNames(%this)
    }
 }
 
-function buildMissionList(%this)
+function Torque::buildMissionList(%this)
 {
    %search = "levels/*.mis";
    $HostTypeCount = 0;
@@ -276,7 +276,7 @@ function buildMissionList(%this)
    }
 }
 
-function addMissionFile( %this, %file )
+function Torque::addMissionFile( %this, %file )
 {
    
    %idx = $HostMissionCount;
@@ -333,7 +333,7 @@ function addMissionFile( %this, %file )
 
 // Read the level file and find the level object strings, then create the action object via eval so we
 // can extract the params from it and load them into global vars
-function getLevelInfo( %this, %missionFile ) 
+function Torque::getLevelInfo( %this, %missionFile ) 
 {
    %file = new FileObject();
    
@@ -378,7 +378,7 @@ function getLevelInfo( %this, %missionFile )
    return 0; 
 }
 
-function getMissionCount(%this, %type)
+function Torque::getMissionCount(%this, %type)
 {
    // Find out how many mission files this gametype has associated with it
    for ( %count = 0; %count < $HostTypeCount; %count++ )

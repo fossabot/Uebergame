@@ -49,7 +49,7 @@
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
-function initClient()
+function Torque::initClient(%this)
 {
    echo("\n--------- Initializing " @ $appName @ ": Client Scripts ---------");
 
@@ -159,20 +159,21 @@ function initClient()
    if ($JoinGameAddress !$= "") {
       // If we are instantly connecting to an address, load the
       // loading GUI then attempt the connect.
-      loadLoadingGui();
+      tge.loadLoadingGui();
       connect($JoinGameAddress, "", $Pref::Player::Name);
+//	  connect($JoinGameAddress, $Client::Password, getField($pref::Player, 0), getField($pref::Player, 1)); #PZ
    }
    else {
       // Otherwise go to the splash screen.
       Canvas.setCursor("DefaultCursor");
-      loadMainMenu();
+      tge.loadMainMenu();
    }   
 }
 
 
 //-----------------------------------------------------------------------------
 
-function loadMainMenu()
+function Torque::loadMainMenu(%this)
 {
    // Startup the client with the Main menu...
    if (isObject( MainMenuGui ))
@@ -202,7 +203,7 @@ function loadMainMenu()
    }
 }
 
-function loadLoadingGui(%displayText)
+function Torque::loadLoadingGui(%this)
 {
    Canvas.setContent("LoadingGui");
    LoadingProgress.setValue(1);
