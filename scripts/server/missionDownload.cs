@@ -99,6 +99,6 @@ function serverCmdMissionStartPhase3Ack(%client, %seq)
    else
    {
       %client.startMission();
-      %client.onClientEnterGame();
-   }
+   //%client.onClientEnterGame();
+   Game.onClientEnterGame(%client);
 }
