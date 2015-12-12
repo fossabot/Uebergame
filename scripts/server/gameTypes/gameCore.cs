@@ -355,7 +355,9 @@ package GameCore
 
    function GameConnection::onClientEnterGame(%this)
    {
-      Game.onClientEnterGame(%this);
+      if(isObject(Game)){
+		Game.onClientEnterGame(%this);
+	  }
    }
 
    function GameConnection::onClientLeaveGame(%this)
