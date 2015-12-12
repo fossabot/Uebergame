@@ -69,29 +69,38 @@ function Torque::initClient(%this)
    // from the Gui Editor.  Either of these may override any that already exist.
    exec("scripts/gui/defaultGameProfiles.cs");
    exec("scripts/gui/customProfiles.cs"); 
+   exec("./default.bind.cs");
    
-   // The common module provides basic client functionality
-	   // Base client functionality
+   if (isFile( GetUserHomeDirectory() @ "/My"SPC"Games/" @ $AppName @ "/bindings.config.cs" ) )
+      exec( GetUserHomeDirectory() @ "/My"SPC"Games/" @ $AppName @ "/bindings.config.cs" );
+
+
+   // Base client functionality
    exec( "./message.cs" );
    exec( "./mission.cs" );
-   exec( "./commandmissiondownload.cs" );
-   exec( "./actionMap.cs" );
+   exec( "./missionDownload.cs" );
+   exec( "./onMissionDownload.cs" );
    exec( "./renderManager.cs" );
    exec( "./lighting.cs" );
-   
+   //exec( "./actionMap.cs" );
+
+
+
+   // Client scripts
+   exec("./serverConnection.cs");   
+
+   exec("./playerList.cs");
+   exec("./chatHud.cs");
+   exec("./messageHud.cs");
+
+
+
    initRenderManager();
    initLightingSystems();  
    //initBaseClient();
 
    // Use our prefs to configure our Canvas/Window
    configureCanvas();
-
-   // Load up the Game GUIs
-   exec("scripts/gui/serverOptionsDlg.gui");
-   exec("scripts/gui/playGui.gui");
-   exec("scripts/gui/chatHud.gui");
-   exec("scripts/gui/playerList.gui");
-   exec("scripts/gui/hudlessGui.gui");
 
    // Load up the shell GUIs
    exec("scripts/gui/mainMenuGui.gui");
@@ -104,11 +113,17 @@ function Torque::initClient(%this)
    exec("scripts/gui/remapDlg.gui");
    exec("scripts/gui/extrasDlg.gui");
    exec("scripts/gui/helpDlg.gui");
+   // Load up the Game GUIs
+   exec("scripts/gui/serverOptionsDlg.gui");
+   exec("scripts/gui/playGui.gui");
+   exec("scripts/gui/chatHud.gui");
+   exec("scripts/gui/playerList.gui");
+   exec("scripts/gui/hudlessGui.gui");
+
+
    
    // Gui scripts
-   exec("./playerList.cs");
-   exec("./chatHud.cs");
-   exec("./messageHud.cs");
+
    exec("scripts/gui/joinServerDlg.cs");
    exec("scripts/gui/playGui.cs");
    exec("scripts/gui/chooseLevelDlg.cs");
@@ -117,20 +132,7 @@ function Torque::initClient(%this)
    exec("scripts/gui/optionsDlg.cs");
    exec("scripts/gui/helpDlg.cs");
 
-   // Client scripts
-   exec("./client.cs");
-   exec("./game.cs");
-   exec("./missionDownload.cs");
-   exec("./serverConnection.cs");
 
-   // Load useful Materials
-   exec("./shaders.cs");
-
-   // Default player key bindings
-   exec("./default.bind.cs");
-
-   if (isFile( GetUserHomeDirectory() @ "/My"SPC"Games/" @ $AppName @ "/bindings.config.cs" ) )
-      exec( GetUserHomeDirectory() @ "/My"SPC"Games/" @ $AppName @ "/bindings.config.cs" );
 
    loadMaterials();
 

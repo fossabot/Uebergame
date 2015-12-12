@@ -34,188 +34,103 @@
 // Phase 3: Scene Lighting
 
 //----------------------------------------------------------------------------
-// Phase 1
+// Phase 1 
 //----------------------------------------------------------------------------
 
-function onMissionDownloadPhase1(%missionName, %musicTrack)
-{   
-   // Load the post effect presets for this mission.
-   %path = "levels/" @ fileBase( %missionName ) @ $PostFXManager::fileExtension;
-   if ( isScriptFile( %path ) )
-      postFXManager::loadPresetHandler( %path ); 
-   else
-      PostFXManager::settingsApplyDefaultPreset();
-               
-   // Close and clear the message hud (in case it's open)
-   if ( isObject( MessageHud ) )
-      MessageHud.close();
-
-   // Reset the loading progress controls:
-   if ( !isObject( LoadingProgress ) )
-      return;
-	  
-   LoadingProgress.setValue(0);
-   LoadingProgressTxt.setValue("LOADING DATABLOCKS");
-   Canvas.repaint();
+function clientCmdMissionStartPhase1(%seq, %missionName, %musicTrack)
+{
+   // These need to come after the cls.
+   echo ("*** New Mission: " @ %missionName);
+   echo ("*** Phase 1: Download Datablocks & Targets");
+   onMissionDownloadPhase1(%missionName, %musicTrack);
+   commandToServer('MissionStartPhase1Ack', %seq);
 }
 
-function onPhase1Progress(%progress)
+function onDataBlockObjectReceived(%index, %total)
 {
-   if ( !isObject( LoadingProgress ) )
-      return;
-      
-   LoadingProgress.setValue(%progress);
-   Canvas.repaint(33);
-}
-
-function onPhase1Complete()
-{
-   if ( !isObject( LoadingProgress ) )
-      return;
-	  
-   LoadingProgress.setValue( 1 );
-   Canvas.repaint();
+   onPhase1Progress(%index / %total);
 }
 
 //----------------------------------------------------------------------------
 // Phase 2
 //----------------------------------------------------------------------------
 
-function onMissionDownloadPhase2()
+function clientCmdMissionStartPhase2(%seq,%missionName)
 {
-   if ( !isObject( LoadingProgress ) )
-      return;
-      
-   LoadingProgress.setValue(0);
-   LoadingProgressTxt.setValue("LOADING OBJECTS");
-   Canvas.repaint();
+   onPhase1Complete();
+   echo ("*** Phase 2: Download Ghost Objects");
+   onMissionDownloadPhase2(%missionName);
+   commandToServer('MissionStartPhase2Ack', %seq, $pref::Player:PlayerDB);
 }
 
-function onPhase2Progress(%progress)
+function onGhostAlwaysStarted(%ghostCount)
 {
-   if ( !isObject( LoadingProgress ) )
-      return;
-        
-   LoadingProgress.setValue(%progress);
-   Canvas.repaint(33);
+   $ghostCount = %ghostCount;
+   $ghostsRecvd = 0;
 }
 
-function onPhase2Complete()
+function onGhostAlwaysObjectReceived()
 {
-   if ( !isObject( LoadingProgress ) )
-      return;
-	  
-   LoadingProgress.setValue( 1 );
-   Canvas.repaint();
-}   
-
-function onFileChunkReceived(%fileName, %ofs, %size)
-{
-   if ( !isObject( LoadingProgress ) )
-      return;     
-
-   LoadingProgress.setValue(%ofs / %size);
-   LoadingProgressTxt.setValue("Downloading " @ %fileName @ "...");
+   $ghostsRecvd++;
+   onPhase2Progress($ghostsRecvd / $ghostCount);
 }
 
 //----------------------------------------------------------------------------
 // Phase 3
 //----------------------------------------------------------------------------
 
-function onMissionDownloadPhase3()
+function clientCmdMissionStartPhase3(%seq,%missionName)
 {
-   if ( !isObject( LoadingProgress ) )
-      return;
-      
-   LoadingProgress.setValue(0);
-   LoadingProgressTxt.setValue("LIGHTING MISSION");
-   Canvas.repaint();
-}
-
-function onPhase3Progress(%progress)
-{
-   if ( !isObject( LoadingProgress ) )
-      return;
-	  
-   LoadingProgress.setValue(%progress);
-   Canvas.repaint(33);
-}
-
-function onPhase3Complete()
-{
-   $lightingMission = false;
-
-   if ( !isObject( LoadingProgress ) )
-      return;
-	  
-   LoadingProgressTxt.setValue("STARTING MISSION");
-   LoadingProgress.setValue( 1 );
-   Canvas.repaint();
-}
-
-//----------------------------------------------------------------------------
-// Mission loading done!
-//----------------------------------------------------------------------------
-
-function onMissionDownloadComplete()
-{
-   // Client will shortly be dropped into the game, so this is
-   // good place for any last minute gui cleanup.
-}
-
-
-//------------------------------------------------------------------------------
-// Before downloading a mission, the server transmits the mission
-// information through these messages.
-//------------------------------------------------------------------------------
-
-addMessageCallback( 'MsgLoadInfo', handleLoadInfoMessage );
-addMessageCallback( 'MsgLoadDescripition', handleLoadDescriptionMessage );
-addMessageCallback( 'MsgLoadInfoDone', handleLoadInfoDoneMessage );
-addMessageCallback( 'MsgLoadFailed', handleLoadFailedMessage );
-
-//------------------------------------------------------------------------------
-
-function handleLoadInfoMessage( %msgType, %msgString, %mapName ) 
-{
-   // Make sure the LoadingGUI is displayed
-   if (Canvas.getContent() != LoadingGui.getId())
-   {
-      loadLoadingGui("LOADING MISSION FILE");
-   }
+   onPhase2Complete();
+   StartClientReplication();
+   StartFoliageReplication();
    
-	// Clear all of the loading info lines:
-	for( %line = 0; %line < LoadingGui.qLineCount; %line++ )
-		LoadingGui.qLine[%line] = "";
-	LoadingGui.qLineCount = 0;
+   // Load the static mission decals.
+   decalManagerLoad( %missionName @ ".decals" );
+   
+   echo ("*** Phase 3: Mission Lighting");
+   $MSeq = %seq;
+   $Client::MissionFile = %missionName;
+
+   // Need to light the mission before we are ready.
+   // The sceneLightingComplete function will complete the handshake 
+   // once the scene lighting is done.
+   if (lightScene("sceneLightingComplete", ""))
+   {
+      echo("Lighting mission....");
+      schedule(1, 0, "updateLightingProgress");
+      onMissionDownloadPhase3(%missionName);
+      $lightingMission = true;
+   }
 }
 
-//------------------------------------------------------------------------------
-
-function handleLoadDescriptionMessage( %msgType, %msgString, %line )
+function updateLightingProgress()
 {
-	LoadingGui.qLine[LoadingGui.qLineCount] = %line;
-	LoadingGui.qLineCount++;
-
-   // Gather up all the previous lines, append the current one
-   // and stuff it into the control
-	%text = "<spush><font:Arial:16>";
-	
-	for( %line = 0; %line < LoadingGui.qLineCount - 1; %line++ )
-		%text = %text @ LoadingGui.qLine[%line] @ " ";
-   %text = %text @ LoadingGui.qLine[%line] @ "<spop>";
+   onPhase3Progress($SceneLighting::lightingProgress);
+   if ($lightingMission)
+      $lightingProgressThread = schedule(1, 0, "updateLightingProgress");
 }
 
-//------------------------------------------------------------------------------
-
-function handleLoadInfoDoneMessage( %msgType, %msgString )
+function sceneLightingComplete()
 {
-   // This will get called after the last description line is sent.
+   echo("Mission lighting done");
+   onPhase3Complete();
+   
+   // The is also the end of the mission load cycle.
+   onMissionDownloadComplete();
+   commandToServer('MissionStartPhase3Ack', $MSeq);
 }
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
+// Helper functions
+//----------------------------------------------------------------------------
 
-function handleLoadFailedMessage( %msgType, %msgString )
+function connect(%server)
 {
-   MessageBoxOK( "Mission Load Failed", %msgString NL "Press OK to return to the Main Menu", "disconnect();" );
+   %conn = new GameConnection(ServerConnection);
+   RootGroup.add(ServerConnection);
+   %conn.setConnectArgs($pref::Player::Name);
+   %conn.setJoinPassword($Client::Password);
+   %conn.connect(%server);
 }
+

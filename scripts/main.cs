@@ -60,18 +60,20 @@ function Torque::onStart(%this)
 
    // Load the scripts that start it all...
    exec("./client/init.cs");
+
+   exec("./client/client.cs");
    exec("./server/server.cs");
    
+   exec("./gui/guiTreeViewCtrl.cs");
+   exec("./gui/messageBoxes/messageBox.ed.cs");
+     
    // Init the physics plugin.
    physicsInit();
       
    // Start up the audio system.
    sfxStartup();
 
-   //exec("scripts/server/coreserver.cs");
-   
-   exec("./gui/guiTreeViewCtrl.cs");
-   exec("./gui/messageBoxes/messageBox.ed.cs");
+
    
    // Server gets loaded for all sessions, since clients
    // can host in-game servers.

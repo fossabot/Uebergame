@@ -46,22 +46,6 @@ function clientCmdSyncClock(%time)
 }
 
 //-----------------------------------------------------------------------------
-// Damage Direction Indicator
-//-----------------------------------------------------------------------------
-
-function clientCmdSetDamageDirection(%direction)
-{
-   eval("%ctrl = DamageHUD-->damage_" @ %direction @ ";");
-   if (isObject(%ctrl))
-   {
-      // Show the indicator, and schedule an event to hide it again
-      cancelAll(%ctrl);
-      %ctrl.setVisible(true);
-      %ctrl.schedule(500, setVisible, false);
-   }
-}
-
-//-----------------------------------------------------------------------------
 // Teleporter visual effect
 //-----------------------------------------------------------------------------
 
@@ -92,6 +76,22 @@ function clientCmdSetAmmoAmountHud(%amount, %amountInClips)
       AmmoAmount.setText("Ammo: " @ %amount @ "/" @ %amountInClips);
    }
 }
+
+/// A helper function which will return the ghosted client object
+/// from a server object when connected to a local server.
+function serverToClientObject( %serverObject )
+{
+   assert( isObject( LocalClientConnection ), "serverToClientObject() - No local client connection found!" );
+   assert( isObject( ServerConnection ), "serverToClientObject() - No server connection found!" );      
+         
+   %ghostId = LocalClientConnection.getGhostId( %serverObject );
+   if ( %ghostId == -1 )
+      return 0;
+                
+   return ServerConnection.resolveGhostID( %ghostId );   
+}
+
+
 
 // Here we update the Weapon Preview image & reticle for each weapon.  We also
 // update the Ammo Counter (just so we don't have to call it separately).

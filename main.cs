@@ -312,7 +312,17 @@ if( !$logModeSpecified )
 nextToken($userDirs, currentMod, ";");
 
 // Execute startup scripts for each mod, starting at base and working up
-exec("Scripts/main.cs");  // Execute coremain before anything else
+function Torque::loadDir(%this, %dir)
+{
+   pushback($userDirs, %dir, ";");
+
+   if (isScriptFile(%dir @ "/main.cs"))
+      exec(%dir @ "/main.cs");
+
+   if ( isPackage( %dir ) )
+      activatePackage( %dir );
+}
+//exec("Scripts/main.cs");  // Execute coremain before anything else
 
 echo("--------- Loading DIRS ---------");
 function Torque::loadDirs(%this, %dirPath)

@@ -1,1 +1,1 @@
-exec("scripts/coremain.cs");
+//exec("scripts/coremain.cs");

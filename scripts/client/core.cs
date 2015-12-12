@@ -25,24 +25,7 @@
 // Initializes core game functionality.
 //---------------------------------------------------------------------------------------------
 
-function initBaseClient()
-{
- 
-}
 
-/// A helper function which will return the ghosted client object
-/// from a server object when connected to a local server.
-function serverToClientObject( %serverObject )
-{
-   assert( isObject( LocalClientConnection ), "serverToClientObject() - No local client connection found!" );
-   assert( isObject( ServerConnection ), "serverToClientObject() - No server connection found!" );      
-         
-   %ghostId = LocalClientConnection.getGhostId( %serverObject );
-   if ( %ghostId == -1 )
-      return 0;
-                
-   return ServerConnection.resolveGhostID( %ghostId );   
-}
 
 
 
@@ -64,14 +47,10 @@ function Torque::initializeCore(%this)
    // Very basic functions used by everyone.
    exec("./audio.cs");						/*done*/
    exec("./canvas.cs");						/*done*/
+   exec("scripts/gui/cursors.cs");			/*done*/
    exec("./cursor.cs");						/*done*/
    exec("./persistenceManagerTest.cs");		/*done*/
-
-   // Content. 
-   //core/
    
-   
-   exec("scripts/gui/cursors.cs");			/*done*/
    
    exec( "./audioEnvironments.cs" );/*done*/
    exec( "./audioDescriptions.cs" );/*done*/
@@ -79,7 +58,6 @@ function Torque::initializeCore(%this)
    exec( "./audioAmbiences.cs" );/*done*/
 
    // Input devices
-   //core/
    exec("scripts/client/oculusVR.cs");/*done*/
 
    // Seed the random number generator.
@@ -118,9 +96,9 @@ function Torque::initializeCore(%this)
    exec("scripts/client/commands.cs");/*done*/
    
    // Client scripts
-
    exec("scripts/client/devHelpers.cs");/*done*/
    exec("scripts/client/metrics.cs");/*done*/
+   
    exec("scripts/client/centerPrint.cs");/*done*/
    
    // Materials and Shaders for rendering various object types
@@ -128,7 +106,7 @@ function Torque::initializeCore(%this)
 
 
    exec("scripts/client/commonMaterialData.cs");/*done*/
-   exec("scripts/client/coreshaders.cs");/*done*/
+   exec("scripts/client/shaders.cs");/*done*/
    exec("scripts/client/materials.cs");/*done*/
    exec("scripts/client/terrainBlock.cs");/*done*/
    exec("scripts/client/water.cs");/*done*/
@@ -151,7 +129,7 @@ function Torque::initializeCore(%this)
    // Set a default cursor.
    Canvas.setCursor(DefaultCursor);
    
-   loadKeybindings();
+   //loadKeybindings();	//	BKS This loads a function from inside tools, dont know why its here
 
    $coreInitialized = true;
 }

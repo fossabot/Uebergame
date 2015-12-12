@@ -49,3 +49,56 @@ function LoadingGui::onSleep(%this)
 
    // Stop sound...
 }
+
+
+addMessageCallback( 'MsgLoadInfo', handleLoadInfoMessage );
+addMessageCallback( 'MsgLoadDescripition', handleLoadDescriptionMessage );
+addMessageCallback( 'MsgLoadInfoDone', handleLoadInfoDoneMessage );
+addMessageCallback( 'MsgLoadFailed', handleLoadFailedMessage );
+
+//------------------------------------------------------------------------------
+
+function handleLoadInfoMessage( %msgType, %msgString, %mapName ) 
+{
+   // Make sure the LoadingGUI is displayed
+   if (Canvas.getContent() != LoadingGui.getId())
+   {
+      loadLoadingGui("LOADING MISSION FILE");
+   }
+   
+	// Clear all of the loading info lines:
+	for( %line = 0; %line < LoadingGui.qLineCount; %line++ )
+		LoadingGui.qLine[%line] = "";
+	LoadingGui.qLineCount = 0;
+}
+
+//------------------------------------------------------------------------------
+
+function handleLoadDescriptionMessage( %msgType, %msgString, %line )
+{
+	LoadingGui.qLine[LoadingGui.qLineCount] = %line;
+	LoadingGui.qLineCount++;
+
+   // Gather up all the previous lines, append the current one
+   // and stuff it into the control
+	%text = "<spush><font:Arial:16>";
+	
+	for( %line = 0; %line < LoadingGui.qLineCount - 1; %line++ )
+		%text = %text @ LoadingGui.qLine[%line] @ " ";
+   %text = %text @ LoadingGui.qLine[%line] @ "<spop>";
+}
+
+//------------------------------------------------------------------------------
+
+function handleLoadInfoDoneMessage( %msgType, %msgString )
+{
+   // This will get called after the last description line is sent.
+}
+
+//------------------------------------------------------------------------------
+
+function handleLoadFailedMessage( %msgType, %msgString )
+{
+   MessageBoxOK( "Mission Load Failed", %msgString NL "Press OK to return to the Main Menu", "disconnect();" );
+}
+
