@@ -28,60 +28,6 @@ function onServerCreated()
 {
    // Invoked by createServer(), when server is created and ready to go
 
-   // Server::GameType is sent to the master server.
-   // This variable should uniquely identify your game and/or mod.
-   $Server::GameType = "Test App";
-   
-   // Load up any objects or datablocks saved to the editor managed scripts
-   %datablockFiles = new ArrayObject();
-   %datablockFiles.add( "art/ribbons/ribbonExec.cs" );   
-   %datablockFiles.add( "art/particles/managedParticleData.cs" );
-   %datablockFiles.add( "art/particles/managedParticleEmitterData.cs" );
-   %datablockFiles.add( "art/decals/managedDecalData.cs" );
-   %datablockFiles.add( "art/datablocks/managedDatablocks.cs" );
-   %datablockFiles.add( "art/forest/managedItemData.cs" );
-   %datablockFiles.add( "art/datablocks/datablockExec.cs" );   
-   loadDatablockFiles( %datablockFiles, true );
-
-   // Run the other gameplay scripts in this folder
-   // Load up all scripts.  This function is called when
-// a server is constructed.
-exec("./camera.cs");
-exec("./triggers.cs");
-exec("./inventory.cs");
-exec("./shapeBase.cs");
-exec("./item.cs");
-exec("./health.cs");
-exec("./projectile.cs");
-exec("./radiusDamage.cs");
-exec("./teleporter.cs");
-
-// Load our supporting weapon script, it contains methods used by all weapons.
-exec("./weapon.cs");
-
-// Load our weapon scripts
-// We only need weapon scripts for those weapons that work differently from the
-// class methods defined in weapon.cs
-exec("./proximityMine.cs");
-
-// Load our default player script
-exec("./player.cs");
-
-// Load our player scripts
-exec("./aiPlayer.cs");
-
-exec("./vehicle.cs");
-exec("./vehicleWheeled.cs");
-exec("./cheetah.cs");
-
-// Load turret support scripts
-exec("./turret.cs");
-
-// Load our gametypes
-exec("./gameTypes/gameCore.cs"); // This is the 'core' of the gametype functionality.
-exec("./gameTypes/gameDM.cs"); // Overrides GameCore with DeathMatch functionality.
-exec("./gameTypes/gamePaintballDM.cs"); //comment this out to deactivate paintball
-
    // For backwards compatibility...
    createGame();
 }

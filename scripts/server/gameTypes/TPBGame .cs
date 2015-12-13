@@ -21,27 +21,27 @@
 //-----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
-// DeathmatchGame
+// Team Painball
 // ----------------------------------------------------------------------------
-// Depends on methods found in gameCore.cs.  Those added here are specific to
+// Depends on methods found in CoreGame.cs.  Those added here are specific to
 // this game type and/or over-ride the "default" game functionaliy.
 //
 // The desired Game Type must be added to each mission's LevelInfo object.
 //   - gameType = "Deathmatch";
-// If this information is missing then the GameCore will default to Deathmatch.
+// If this information is missing then the CoreGame will default to Deathmatch.
 // ----------------------------------------------------------------------------
 
-function DeathMatchGame::onMissionLoaded(%game)
+function TPBGame::onMissionLoaded(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::onMissionLoaded");
+   echo (%game @"\c4 -> "@ %game.class @" -> TPBGame::onMissionLoaded");
 
-   $Server::MissionType = "DeathMatch";
+   $Server::MissionType = "Team Paintball";
    parent::onMissionLoaded(%game);
 }
 
-function DeathMatchGame::initGameVars(%game)
+function TPBGame::initGameVars(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::initGameVars");
+   echo (%game @"\c4 -> "@ %game.class @" -> TPBGame::initGameVars");
 
    //-----------------------------------------------------------------------------
    // What kind of "player" is spawned is either controlled directly by the
@@ -75,37 +75,44 @@ function DeathMatchGame::initGameVars(%game)
    %game.allowCycling = $pref::Game::AllowCycling;   // Is mission cycling allowed?
 }
 
-function DeathMatchGame::startGame(%game)
+function TPBGame::startGame(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::startGame");
+   echo (%game @"\c4 -> "@ %game.class @" -> TPBGame::startGame");
 
    parent::startGame(%game);
 }
 
-function DeathMatchGame::endGame(%game)
+function TPBGame::endGame(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::endGame");
+   echo (%game @"\c4 -> "@ %game.class @" -> TPBGame::endGame");
 
    parent::endGame(%game);
 }
 
-function DeathMatchGame::onGameDurationEnd(%game)
+function TPBGame::endMission(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::onGameDurationEnd");
+   echo (%game @"\c4 -> "@ %game.class @" -> TPBGame::endMission");
+
+   parent::endGame(%game);
+}
+
+function TPBGame::onGameDurationEnd(%game)
+{
+   echo (%game @"\c4 -> "@ %game.class @" -> TPBGame::onGameDurationEnd");
 
    parent::onGameDurationEnd(%game);
 }
 
-function DeathMatchGame::onClientEnterGame(%game, %client)
+function TPBGame::onClientEnterGame(%game, %client)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::onClientEnterGame");
+   echo (%game @"\c4 -> "@ %game.class @" -> TPBGame::onClientEnterGame");
 
    parent::onClientEnterGame(%game, %client);
 }
 
-function DeathMatchGame::onClientLeaveGame(%game, %client)
+function TPBGame::onClientLeaveGame(%game, %client)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::onClientLeaveGame");
+   echo (%game @"\c4 -> "@ %game.class @" -> TPBGame::onClientLeaveGame");
 
    parent::onClientLeaveGame(%game, %client);
 

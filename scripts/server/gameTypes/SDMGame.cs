@@ -20,28 +20,75 @@
 // IN THE SOFTWARE.
 //-----------------------------------------------------------------------------
 
+// DisplayName = FFA Deathmatch
+//
+//-----------------------------------------------------------------------------
+// Solo DeathMatch (Free for All)
 // ----------------------------------------------------------------------------
-// DeathmatchGame
-// ----------------------------------------------------------------------------
-// Depends on methods found in gameCore.cs.  Those added here are specific to
+// Depends on methods found in CoreGame.cs.  Those added here are specific to
 // this game type and/or over-ride the "default" game functionaliy.
 //
 // The desired Game Type must be added to each mission's LevelInfo object.
 //   - gameType = "Deathmatch";
-// If this information is missing then the GameCore will default to Deathmatch.
+// If this information is missing then the CoreGame will default to Deathmatch.
 // ----------------------------------------------------------------------------
 
-function DeathMatchGame::onMissionLoaded(%game)
+//--- GAME RULES BEGIN ---
+$HostGameRules["Core", 0] = "Eliminate the competition.";
+$HostGameRules["Core", 1] = "Last player standing is declared the winner or";
+$HostGameRules["Core", 2] = "player with most kills at timelimit.";
+//--- GAME RULES END ---
+
+//-----------------------------------------------------------------------------
+// <> EXECUTION ORDER <>
+//
+// CoreGame::activatePackages
+// CoreGame::onMissionLoaded
+// CoreGame::setupGameParams
+// CoreGame::checkMatchStart
+// CoreGame::Countdown
+// CoreGame::setClientState
+// CoreGame::onClientEnterGame
+// CoreGame::sendClientTeamList
+// CoreGame::spawnPlayer
+// CoreGame::pickSpawnPoint
+// CoreGame::createPlayer
+// CoreGame::loadOut
+// CoreGame::startGame
+//
+// CoreGame::EndCountdown
+// CoreGame::onGameDurationEnd
+// CoreGame::cycleGame
+// CoreGame::endGame
+// CoreGame::onCyclePauseEnd
+// CoreGame::deactivatePackages
+
+
+function SDMGame::activatePackages(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::onMissionLoaded");
+   LogEcho("SDMGame::activatePackages(" SPC %game.class SPC ")");
+   if ( isPackage( %game.class ) && %game.class !$= CoreGame )
+      activatePackage( %game.class );
+}
+
+function SDMGame::deactivatePackages(%game)
+{
+   LogEcho("SDMGame::deactivatePackages(" SPC %game.class SPC ")");
+   if ( isActivePackage( %game.class ) && %game.class !$= CoreGame )
+      deactivatePackage( %game.class );
+}
+
+function SDMGame::onMissionLoaded(%game)
+{
+   echo (%game @"\c4 -> "@ %game.class @" -> SDMGame::onMissionLoaded");
 
    $Server::MissionType = "DeathMatch";
    parent::onMissionLoaded(%game);
 }
 
-function DeathMatchGame::initGameVars(%game)
+function SDMGame::initGameVars(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::initGameVars");
+   echo (%game @"\c4 -> "@ %game.class @" -> SDMGame::initGameVars");
 
    //-----------------------------------------------------------------------------
    // What kind of "player" is spawned is either controlled directly by the
@@ -75,38 +122,40 @@ function DeathMatchGame::initGameVars(%game)
    %game.allowCycling = $pref::Game::AllowCycling;   // Is mission cycling allowed?
 }
 
-function DeathMatchGame::startGame(%game)
+function SDMGame::startGame(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::startGame");
-
+   echo (%game @"\c4 -> "@ %game.class @" -> SDMGame::startGame");
    parent::startGame(%game);
 }
 
-function DeathMatchGame::endGame(%game)
+function SDMGame::endGame(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::endGame");
+   echo (%game @"\c4 -> "@ %game.class @" -> SDMGame::endGame");
+   parent::endGame(%game);
+}
+
+function SDMGame::endMission(%game)
+{
+   echo (%game @"\c4 -> "@ %game.class @" -> SDMGame::endMission");
 
    parent::endGame(%game);
 }
 
-function DeathMatchGame::onGameDurationEnd(%game)
-{
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::onGameDurationEnd");
 
+function SDMGame::onGameDurationEnd(%game)
+{
+   echo (%game @"\c4 -> "@ %game.class @" -> SDMGame::onGameDurationEnd");
    parent::onGameDurationEnd(%game);
 }
 
-function DeathMatchGame::onClientEnterGame(%game, %client)
+function SDMGame::onClientEnterGame(%game, %client)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::onClientEnterGame");
-
+   echo (%game @"\c4 -> "@ %game.class @" -> SDMGame::onClientEnterGame");
    parent::onClientEnterGame(%game, %client);
 }
 
-function DeathMatchGame::onClientLeaveGame(%game, %client)
+function SDMGame::onClientLeaveGame(%game, %client)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> DeathMatchGame::onClientLeaveGame");
-
+   echo (%game @"\c4 -> "@ %game.class @" -> SDMGame::onClientLeaveGame");
    parent::onClientLeaveGame(%game, %client);
-
 }

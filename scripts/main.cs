@@ -61,17 +61,18 @@ function Torque::onStart(%this)
    // Load the scripts that start it all...
    exec("./client/init.cs");
 
-   exec("./client/client.cs");
-   exec("./server/server.cs");
-   
-   exec("./gui/guiTreeViewCtrl.cs");
-   exec("./gui/messageBoxes/messageBox.ed.cs");
      
    // Init the physics plugin.
    physicsInit();
       
    // Start up the audio system.
    sfxStartup();
+   exec("./client/client.cs");
+   exec("./server/server.cs");
+   
+   exec("./gui/guiTreeViewCtrl.cs");
+   exec("./gui/messageBoxes/messageBox.ed.cs");
+
 
 
    
@@ -217,7 +218,7 @@ function Torque::parseArgs(%this)
 }; // package scripts
 
 // Activate the game package.
-activatePackage(scripts);
+//activatePackage(scripts);
 
 function LogEcho(%string)
 {
@@ -244,16 +245,18 @@ function Torque::getMissionTypeDisplayNames(%this)
 {
    for ( %type = 0; %type < $HostTypeCount; %type++ )
    {
-      if       ( $HostTypeName[%type]  = "SDM" )
+      if       ( $HostTypeName[%type]  $= SDM )
          $HostTypeDisplayName[%type]   = "Deathmatch";
-      else if  ( $HostTypeName[%type]  = "TDM" )
+      else if  ( $HostTypeName[%type]  $= TDM )
          $HostTypeDisplayName[%type]   = "Team Deathmatch";
-      else if  ( $HostTypeName[%type]  = "SPB" )
+      else if  ( $HostTypeName[%type]  $= SPB )
          $HostTypeDisplayName[%type]   = "Solo Paintball";
-      else if  ( $HostTypeName[%type]  = "TPB" )
+      else if  ( $HostTypeName[%type]  $= TPB )
          $HostTypeDisplayName[%type]   = "Team Paintball";
       else
          $HostTypeDisplayName[%type] = $HostTypeName[%type];
+	 
+	warn("ID=" @ %type @ "; $HostTypeDisplayName[%type] = " @ $HostTypeDisplayName[%type] @ "; $HostTypeName[%type] = " @ $HostTypeName[%type]);
    }
 }
 
@@ -331,6 +334,7 @@ function Torque::addMissionFile( %this, %file )
 
       echo($HostMissionName[%idx] SPC "added to mission list");
    }
+   warn("Levelinfo Skipped");
 }
 
 // Read the level file and find the level object strings, then create the action object via eval so we

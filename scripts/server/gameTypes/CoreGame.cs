@@ -54,7 +54,7 @@ $HostGameRules["Core", 2] = "player with most kills at timelimit.";
 //
 //-----------------------------------------------------------------------------
 
-// GameCore
+// CoreGame
 // ----------------------------------------------------------------------------
 // This is the core of the gametype functionality. The "Default Game". All of
 // the gametypes share or over-ride the scripted controls for the default game.
@@ -62,7 +62,7 @@ $HostGameRules["Core", 2] = "player with most kills at timelimit.";
 // The desired Game Type must be added to each mission's LevelInfo object.
 //   - gameType = "";
 //   - gameType = "Deathmatch";
-// If this information is missing then the GameCore will default to Deathmatch.
+// If this information is missing then the CoreGame will default to Deathmatch.
 // ----------------------------------------------------------------------------
 
 function CoreGame::activatePackages(%game)
@@ -91,14 +91,14 @@ function CoreGame::deactivatePackages(%game)
 // Static function to create the Game object.
 // Makes use of theLevelInfo object to determine the game type.
 // Returns: The Game object
-function GameCore::createGame()
+function CoreGame::createGame()
 {
    // Create Game Objects
    // Here begins our gametype functionality
    if (isObject(theLevelInfo))
    {
       $Server::MissionType = theLevelInfo.gameType;  //MissionInfo.gametype;
-      //echo("\c4 -> Parsed mission Gametype: "@ theLevelInfo.gameType); //MissionInfo.gametype);
+      echo("\c4 -> Parsed mission Gametype: "@ theLevelInfo.gameType); //MissionInfo.gametype);
    }
    else
    {
@@ -113,7 +113,7 @@ function GameCore::createGame()
    new ScriptObject(Game)
    {
       class = $Server::MissionType @"Game";
-      superClass = GameCore;
+      superClass = CoreGame;
    };
 
    // Activate the Game specific packages that are defined by the level's gameType
@@ -122,32 +122,32 @@ function GameCore::createGame()
    return Game;
 }
 
-function GameCore::activatePackages(%game)
+function CoreGame::activatePackages(%game)
 {
    echo (%game @"\c4 -> activatePackages");
 
    // Activate any mission specific game package
-   if (isPackage(%game.class) && %game.class !$= GameCore)
+   if (isPackage(%game.class) && %game.class !$= CoreGame)
       activatePackage(%game.class);
 }
 
-function GameCore::deactivatePackages(%game)
+function CoreGame::deactivatePackages(%game)
 {
    echo (%game @"\c4 -> deactivatePackages");
 
    // Deactivate any mission specific game package
-   if (isPackage(%game.class) && %game.class !$= GameCore)
+   if (isPackage(%game.class) && %game.class !$= CoreGame)
       deactivatePackage(%game.class);
 }
 
-function GameCore::onAdd(%game)
+function CoreGame::onAdd(%game)
 {
-   //echo (%game @"\c4 -> onAdd");
+   echo (%game @"\c4 -> onAdd");
 }
 
-function GameCore::onRemove(%game)
+function CoreGame::onRemove(%game)
 {
-   //echo (%game @"\c4 -> onRemove");
+   echo (%game @"\c4 -> onRemove");
 
    // Clean up
    %game.deactivatePackages();
@@ -157,16 +157,16 @@ function GameCore::onRemove(%game)
 // Package
 // ----------------------------------------------------------------------------
 
-// The GameCore package overides functions loadMissionStage2(), endMission(),
+// The CoreGame package overides functions loadMissionStage2(), endMission(),
 // and function resetMission() from "scripts/server/missionLoad.cs" in
 // order to create our Game object, which allows our gameType functionality to
 // be initiated.
 
-package GameCore
+package CoreGame
 {
    function loadMissionStage2()
    {
-      //echo("\c4 -> loadMissionStage2() override success");
+      echo("\c4 -> loadMissionStage2() override success");
 
       echo("*** Stage 2 load");
 
@@ -216,7 +216,7 @@ package GameCore
       $instantGroup = MissionCleanup;
 
       // Create the Game object
-      GameCore::createGame();
+      CoreGame::createGame();
 
       // Construct MOD paths
       pathOnMissionLoadDone();
@@ -235,7 +235,7 @@ package GameCore
 
    function endMission()
    {
-      //echo("\c4 -> endMission() override success");
+      echo("\c4 -> endMission() override success");
 
       // If there is no MissionGroup then there is no running mission.
       // It may have already been cleaned up.
@@ -271,7 +271,7 @@ package GameCore
    // need to expand on what is here, such as recreating runtime objects etc.
    function resetMission()
    {
-      //echo("\c4 -> resetMission() override success");
+      echo("\c4 -> resetMission() override success");
       echo("*** MISSION RESET");
 
       // Remove any temporary mission objects
@@ -285,7 +285,7 @@ package GameCore
       clearServerpaths();
 
       // Recreate the Game object
-      GameCore::createGame();
+      CoreGame::createGame();
 
       // Construct MOD paths
       pathOnMissionLoadDone();
@@ -364,7 +364,7 @@ package GameCore
    {
       // If this mission has ended before the client has left the game then
       // the Game object will have already been cleaned up.  See endMission()
-      // in the GameCore package.
+      // in the CoreGame package.
       if (isObject(Game))
       {
          Game.onClientLeaveGame(%this);
@@ -386,15 +386,15 @@ package GameCore
    }
 };
 // end of our package... now activate it!
-activatePackage(GameCore);
+activatePackage(CoreGame);
 
 // ----------------------------------------------------------------------------
 //  Game Control Functions
 // ----------------------------------------------------------------------------
 
-function GameCore::onMissionLoaded(%game)
+function CoreGame::onMissionLoaded(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::onMissionLoaded");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::onMissionLoaded");
 
    //set up the game and game variables
    %game.initGameVars(%game);
@@ -407,9 +407,9 @@ function GameCore::onMissionLoaded(%game)
    %game.startGame();
 }
 
-function GameCore::onMissionEnded(%game)
+function CoreGame::onMissionEnded(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::onMissionEnded");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::onMissionEnded");
 
    // Called by endMission(), right before the mission is destroyed
 
@@ -426,16 +426,16 @@ function GameCore::onMissionEnded(%game)
    $Game::Cycling = false;
 }
 
-function GameCore::onMissionReset(%game)
+function CoreGame::onMissionReset(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::onMissionReset");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::onMissionReset");
 }
 
-function GameCore::startGame(%game)
+function CoreGame::startGame(%game)
 {
    // This is where the game play should start
 
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::onStartGame");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::onStartGame");
    if ($Game::Running)
    {
       error("startGame: End the game first!");
@@ -463,11 +463,11 @@ function GameCore::startGame(%game)
 //    AIPlayer::spawn("Path1");
 }
 
-function GameCore::endGame(%game, %client)
+function CoreGame::endGame(%game, %client)
 {
    // This is where the game play should end
 
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::endGame");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::endGame");
 
    if (!$Game::Running)
    {
@@ -487,7 +487,7 @@ function GameCore::endGame(%game, %client)
    $Game::Running = false;
 }
 
-function GameCore::cycleGame(%game)
+function CoreGame::cycleGame(%game)
 {
    if (%game.allowCycling)
    {
@@ -501,13 +501,13 @@ function GameCore::cycleGame(%game)
       
       // Destroy server to remove all connected clients after they've seen the
       // end game GUI.
-      schedule($Game::EndGamePause * 1000, 0, "gameCoreDestroyServer", $Server::Session);
+      schedule($Game::EndGamePause * 1000, 0, "CoreGameDestroyServer", $Server::Session);
    }
 }
 
-function GameCore::onGameDurationEnd(%game)
+function CoreGame::onGameDurationEnd(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::onGameDurationEnd");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::onGameDurationEnd");
    if ($Game::Duration && (!EditorIsActive() && !GuiEditorIsActive()))
       %game.cycleGame();
 }
@@ -516,9 +516,9 @@ function GameCore::onGameDurationEnd(%game)
 //  Game Setup
 // ----------------------------------------------------------------------------
 
-function GameCore::initGameVars(%game)
+function CoreGame::initGameVars(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::initGameVars");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::initGameVars");
 
    //-----------------------------------------------------------------------------
    // What kind of "player" is spawned is either controlled directly by the
@@ -551,9 +551,9 @@ function GameCore::initGameVars(%game)
 //  Client Management
 // ----------------------------------------------------------------------------
 
-function GameCore::onClientEnterGame(%game, %client)
+function CoreGame::onClientEnterGame(%game, %client)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::onClientEntergame");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::onClientEntergame");
 
    // Sync the client's clocks to the server's
    commandToClient(%client, 'SyncClock', $Sim::Time - $Game::StartTime);
@@ -579,7 +579,7 @@ function GameCore::onClientEnterGame(%game, %client)
    
 }
 
-function GameCore::taskAfterGettingSKinInfo(%game, %client)
+function CoreGame::taskAfterGettingSkinInfo(%game, %client)
 {
    // Prepare the player object.
    %game.preparePlayer(%client);
@@ -634,9 +634,9 @@ function GameCore::taskAfterGettingSKinInfo(%game, %client)
       %client.isSuperAdmin);
 }
 
-function GameCore::onClientLeaveGame(%game, %client)
+function CoreGame::onClientLeaveGame(%game, %client)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::onClientLeaveGame");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::onClientLeaveGame");
 
    // Cleanup the camera
    if (isObject(%client.camera))
@@ -648,9 +648,9 @@ function GameCore::onClientLeaveGame(%game, %client)
 
 // Added this stage to creating a player so game types can override it easily.
 // This is a good place to initiate team selection.
-function GameCore::preparePlayer(%game, %client)
+function CoreGame::preparePlayer(%game, %client)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::preparePlayer");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::preparePlayer");
 
    // Find a spawn point for the player
    // This function currently relies on some helper functions defined in
@@ -666,9 +666,9 @@ function GameCore::preparePlayer(%game, %client)
    %game.loadOut(%client.player);
 }
 
-function GameCore::loadOut(%game, %player)
+function CoreGame::loadOut(%game, %player)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::loadOut");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::loadOut");
 
    %player.clearWeaponCycle();
    
@@ -736,9 +736,9 @@ function sendMsgClientKilled_Default( %msgType, %client, %sourceClient, %damLoc 
       messageAll( %msgType, '%1 got killed by %2!', %client.playerName, %sourceClient.playerName );
 }
 
-function GameCore::onDeath(%game, %client, %sourceObject, %sourceClient, %damageType, %damLoc)
+function CoreGame::onDeath(%game, %client, %sourceObject, %sourceClient, %damageType, %damLoc)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::onDeath");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::onDeath");
    
    // clear the weaponHUD
    %client.RefreshWeaponHud(0, "", "");
@@ -784,7 +784,7 @@ function GameCore::onDeath(%game, %client, %sourceObject, %sourceClient, %damage
 // Scoring
 // ----------------------------------------------------------------------------
 
-function GameCore::incKills(%game, %client, %kill, %dontMessageAll)
+function CoreGame::incKills(%game, %client, %kill, %dontMessageAll)
 {
    %client.kills += %kill;
    
@@ -792,7 +792,7 @@ function GameCore::incKills(%game, %client, %kill, %dontMessageAll)
       messageAll('MsgClientScoreChanged', "", %client.score, %client.kills, %client.deaths, %client);
 }
 
-function GameCore::incDeaths(%game, %client, %death, %dontMessageAll)
+function CoreGame::incDeaths(%game, %client, %death, %dontMessageAll)
 {
    %client.deaths += %death;
 
@@ -800,7 +800,7 @@ function GameCore::incDeaths(%game, %client, %death, %dontMessageAll)
       messageAll('MsgClientScoreChanged', "", %client.score, %client.kills, %client.deaths, %client);
 }
 
-function GameCore::incScore(%game, %client, %score, %dontMessageAll)
+function CoreGame::incScore(%game, %client, %score, %dontMessageAll)
 {
    %client.score += %score;
 
@@ -808,11 +808,11 @@ function GameCore::incScore(%game, %client, %score, %dontMessageAll)
       messageAll('MsgClientScoreChanged', "", %client.score, %client.kills, %client.deaths, %client);
 }
 
-function GameCore::getScore(%client) { return %client.score; }
-function GameCore::getKills(%client) { return %client.kills; }
-function GameCore::getDeaths(%client) { return %client.deaths; }
+function CoreGame::getScore(%client) { return %client.score; }
+function CoreGame::getKills(%client) { return %client.kills; }
+function CoreGame::getDeaths(%client) { return %client.deaths; }
 
-function GameCore::getTeamScore(%client)
+function CoreGame::getTeamScore(%client)
 {
    %score = %client.score;
    if ( %client.team !$= "" )
@@ -832,9 +832,9 @@ function GameCore::getTeamScore(%client)
 // Spawning
 // ----------------------------------------------------------------------------
 
-function GameCore::spawnPlayer(%game, %client, %spawnPoint, %noControl)
+function CoreGame::spawnPlayer(%game, %client, %spawnPoint, %noControl)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::spawnPlayer");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::spawnPlayer");
 
    if (isObject(%client.player))
    {
@@ -875,7 +875,7 @@ function GameCore::spawnPlayer(%game, %client, %spawnPoint, %noControl)
       if (isObject(%player))
       {
          // Pick a location within the spawn sphere.
-         %spawnLocation = GameCore::pickPointInSpawnSphere(%player, %spawnPoint);
+         %spawnLocation = CoreGame::pickPointInSpawnSphere(%player, %spawnPoint);
          %player.setTransform(%spawnLocation);
          
       }
@@ -999,7 +999,7 @@ function GameCore::spawnPlayer(%game, %client, %spawnPoint, %noControl)
       %client.setControlObject(%control);
 }
 
-function GameCore::pickPointInSpawnSphere(%objectToSpawn, %spawnSphere)
+function CoreGame::pickPointInSpawnSphere(%objectToSpawn, %spawnSphere)
 {
    %SpawnLocationFound = false;
    %attemptsToSpawn = 0;
@@ -1058,9 +1058,9 @@ function GameCore::pickPointInSpawnSphere(%objectToSpawn, %spawnSphere)
 // Observer
 // ----------------------------------------------------------------------------
 
-function GameCore::spawnObserver(%game, %client)
+function CoreGame::spawnObserver(%game, %client)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::spawnObserver");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::spawnObserver");
 
    // Position the camera on one of our observer spawn points
    %client.camera.setTransform(%game.pickObserverSpawnPoint());
@@ -1069,9 +1069,9 @@ function GameCore::spawnObserver(%game, %client)
    %client.setControlObject(%client.camera);
 }
 
-function GameCore::pickObserverSpawnPoint(%game)
+function CoreGame::pickObserverSpawnPoint(%game)
 {
-   //echo (%game @"\c4 -> "@ %game.class @" -> GameCore::pickObserverSpawnPoint");
+   echo (%game @"\c4 -> "@ %game.class @" -> CoreGame::pickObserverSpawnPoint");
 
    %groupName = "MissionGroup/ObserverSpawnPoints";
    %group = nameToID(%groupName);
@@ -1100,11 +1100,11 @@ function GameCore::pickObserverSpawnPoint(%game)
 // Server
 // ----------------------------------------------------------------------------
 
-// Called by GameCore::cycleGame() when we need to destroy the server
+// Called by CoreGame::cycleGame() when we need to destroy the server
 // because we're done playing.  We don't want to call destroyServer()
 // directly so we can first check that we're about to destroy the
 // correct server session.
-function gameCoreDestroyServer(%serverSession)
+function CoreGameDestroyServer(%serverSession)
 {
    if (%serverSession == $Server::Session)
    {
@@ -1123,7 +1123,7 @@ function gameCoreDestroyServer(%serverSession)
 }
 
 // functions to deal with cycling missions with gametypes
-function gameCore::getNextMission(%game, %mission, %misType)
+function CoreGame::getNextMission(%game, %mission, %misType)
 {
    // First find the index of the mission in the list:
    for ( %mis = 0; %mis < $HostMissionCount; %mis++ )
@@ -1172,7 +1172,7 @@ function gameCore::getNextMission(%game, %mission, %misType)
    return $HostMission[%type, %i];
 }
 
-function gameCore::findNextCycleMission(%game)
+function CoreGame::findNextCycleMission(%game)
 {
    %tempMission = $Server::MissionFile;
    %failsafe = 0;
@@ -1192,7 +1192,7 @@ function gameCore::findNextCycleMission(%game)
    }
 }
 
-function gameCore::cycleMissions(%game)
+function CoreGame::cycleMissions(%game)
 {
    LogEcho("\c4CoreGame::cycleMissions(" SPC %game.class SPC ")");
    %nextMission = %game.findNextCycleMission();

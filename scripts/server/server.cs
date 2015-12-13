@@ -55,6 +55,7 @@
 function Torque::initServer(%this)
 {
    echo("\n--------- Initializing " @ $appName @ ": Server Scripts ---------");
+   $Server::GameType = $appName;
 
    // Server::Status is returned in the Game Info Query and represents the
    // current status of the server. This string sould be very short.
@@ -131,7 +132,7 @@ function createAndConnectToLocalServer(  %serverType, %level, %missionType )
    if( %result !$= "" )
    {
       %conn.delete();
-      destroyServer();
+      tge.destroyServer();
       
       return false;
    }
@@ -161,8 +162,13 @@ function Torque::createServer(%this, %serverType, %level, %missionType)
    $missionSequence = 0;
    $Server::PlayerCount = 0;
    $Server::ServerType = %serverType;
+   // Server::GameType is sent to the master server.
+
+   // Server::MissionType sent to the master server.  Clients can
+   // filter servers based on mission type.
    $Server::MissionType = %missionType;
    $Server::LoadFailMsg = "";
+
    $Physics::isSinglePlayer = true;
    
    // Setup for multi-player, the network must have been
@@ -184,14 +190,73 @@ function Torque::createServer(%this, %serverType, %level, %missionType)
    // Create the ServerGroup that will persist for the lifetime of the server.
    $ServerGroup = new SimGroup(ServerGroup);
 
-   // Load up any core datablocks
-   exec("art/datablocks/datablockExec.cs");
+   // Let the game initialize some things now that the the server has been created
 
+	exec("./shapeBase.cs");
+	exec("./camera.cs");
+
+	exec("./projectile.cs");
+	exec("./radiusDamage.cs");
+	exec("./teleporter.cs");
+// 
+   // Load up any objects or datablocks
+	exec("./triggers.cs");
+	exec("./player.cs");
+	exec("./aiPlayer.cs");
+   // Static Shapes
+   exec("art/datablocks/datablockExec.cs");
+   // items - Must be loaded before weapons, holds defaults
+	exec("./item.cs");
+
+	exec("./health.cs");
+	exec("./proximityMine.cs");
+   // Turrets
+	exec("./turret.cs");
+   //weapons
+	exec("./weapon.cs");
+	exec("./vehicle.cs");
+	exec("./vehicleWheeled.cs");
+	exec("./cheetah.cs");
+   %datablockFiles = new ArrayObject();
+   %datablockFiles.add( "art/ribbons/ribbonExec.cs" );   
+   %datablockFiles.add( "art/particles/managedParticleData.cs" );
+   %datablockFiles.add( "art/particles/managedParticleEmitterData.cs" );
+   %datablockFiles.add( "art/decals/managedDecalData.cs" );
+   %datablockFiles.add( "art/datablocks/managedDatablocks.cs" );
+   %datablockFiles.add( "art/forest/managedItemData.cs" );
+   %datablockFiles.add( "art/datablocks/datablockExec.cs" );   
+   loadDatablockFiles( %datablockFiles, true );
    // Let the game initialize some things now that the
    // the server has been created
-   onServerCreated();
+	exec("./inventory.cs");
+   
+	// 	Load our gametypes
+	// 	BKS Note... Dont like this since game files use and potentially over ride a global
+	//	#TODO It may all end in tears, inspect and adjust if neccesary
+	// 	Double check to see if autoload from projact z is solution
+	exec("./gameTypes/CoreGame.cs"); // This is the 'core' of the gametype functionality.
+	//exec("./gameTypes/DMGame.cs"); // Overrides CoreGame with DeathMatch functionality.
+	//exec("./gameTypes/PaintballDMGame.cs"); //comment this out to deactivate paintball
 
-   tge.loadMission(%level, true);
+   %search = "./gametypes/*Game.cs";
+   for(%file = findFirstFile(%search); %file !$= ""; %file = findNextFile(%search))
+   {
+     %type = fileBase(%file);
+     if(%type !$= CoreGame)
+        exec("./gametypes/" @ %type @ ".cs");
+   }
+
+   // 	Mission scripting support. 
+   //	Auto-execute files - Temporary until I figure out how to just exe the mapscript in the proper dir itself
+   %path = "levels/*.cs";
+   for( %file = findFirstFile( %path ); %file !$= ""; %file = findNextFile( %path ) )
+   {
+       if( fileBase(%file) $= fileBase(%level) )
+          exec( %file );
+   }
+ // Load the level
+   %this.loadMission(%level, %missionType, true);
+  // tge.loadMission(%level, true);
    
    return true;
 }
@@ -204,7 +269,7 @@ function Torque::destroyServer(%this)
    $missionRunning = false;
    
    // End any running levels
-   endMission();
+   //endMission();
    onServerDestroyed();
 
    // Delete all the server objects
