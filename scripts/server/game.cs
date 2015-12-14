@@ -94,9 +94,12 @@ function onServerCreated()
 	exec("./turret.cs");
 
 	// Load our gametypes
-	exec("./gameTypes/gameCore.cs"); // This is the 'core' of the gametype functionality.
-	exec("./gameTypes/gameDM.cs"); // Overrides GameCore with DeathMatch functionality.
-	exec("./gameTypes/gamePaintballDM.cs"); //comment this out to deactivate paintball
+	exec("./gameTypes/CoreGame.cs"); // This is the 'core' of the gametype functionality.
+	exec("./gameTypes/SDMGame.cs"); 
+	exec("./gameTypes/TDMGame.cs"); 
+	exec("./gameTypes/SPBGame.cs"); 
+	exec("./gameTypes/TPBGame.cs"); 
+	
 
    // Keep track of when the game started
    $Game::StartTime = $Sim::Time;

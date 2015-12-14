@@ -244,16 +244,13 @@ function Torque::getMissionTypeDisplayNames(%this)
 {
    for ( %type = 0; %type < $HostTypeCount; %type++ )
    {
-      if       ( $HostTypeName[%type]  = "SDM" )
-         $HostTypeDisplayName[%type]   = "Deathmatch";
-      else if  ( $HostTypeName[%type]  = "TDM" )
-         $HostTypeDisplayName[%type]   = "Team Deathmatch";
-      else if  ( $HostTypeName[%type]  = "SPB" )
-         $HostTypeDisplayName[%type]   = "Solo Paintball";
-      else if  ( $HostTypeName[%type]  = "TPB" )
-         $HostTypeDisplayName[%type]   = "Team Paintball";
-      else
-         $HostTypeDisplayName[%type] = $HostTypeName[%type];
+      if       ( $HostTypeName[%type]  $= SDM ){ $HostTypeDisplayName[%type] = "Deathmatch";}
+      else if  ( $HostTypeName[%type]  $= TDM ){ $HostTypeDisplayName[%type] = "Team Deathmatch";}
+      else if  ( $HostTypeName[%type]  $= SPB ){ $HostTypeDisplayName[%type] = "Solo Paintball";}
+      else if  ( $HostTypeName[%type]  $= TPB ){ $HostTypeDisplayName[%type] = "Team Paintball";}
+      
+      else     {echo("You really shouldnt be here");}
+         
    }
 }
 
