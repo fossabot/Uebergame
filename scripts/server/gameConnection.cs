@@ -194,6 +194,21 @@ function GameConnection::onDrop(%client, %reason)
       schedule(0, 0, "resetServerDefaults");
 }
 
+//-----------------------------------------------------------------------------
+// Mission Loading
+// The server portion of the client/server mission loading process
+//-----------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------
+// Loading Phases:
+// Phase 1: Transmit Datablocks
+//          Transmit targets
+// Phase 2: Transmit Ghost Objects
+// Phase 3: Start Game
+//
+// The server invokes the client MissionStartPhase[1-3] function to request
+// permission to start each phase.  When a client is ready for a phase,
+// it responds with MissionStartPhase[1-3]Ack.
 
 function GameConnection::loadMission(%this)
 {
@@ -207,8 +222,7 @@ function GameConnection::loadMission(%this)
    }
    else
    {
-      commandToClient(%this, 'MissionStartPhase1', $missionSequence,
-         $Server::MissionFile, MissionGroup.musicTrack);
+      commandToClient(%this, 'MissionStartPhase1', $missionSequence, $Server::MissionFile, MissionGroup.musicTrack);
       echo("*** Sending mission load to client: " @ $Server::MissionFile);
    }
 }

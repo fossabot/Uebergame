@@ -74,7 +74,7 @@ function Torque::initServer(%this)
    exec("./missionInfo.cs");	//exec("./levelInfo.cs");
    exec("./missionLoad.cs");
    exec("./missionDownload.cs");
-   exec("./clientConnection.cs");
+   exec("./gameConnection.cs");
    exec("./kickban.cs");
    exec("./coregame.cs");
    exec("./spawn.cs");
