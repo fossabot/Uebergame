@@ -696,7 +696,7 @@ function CoreGame::loadOut(%game, %player)
    %player.setInventory(PaintballMarkerRed, 1);
    %player.setInventory(PaintballMarkerGreen, 1);
    %player.setInventory(PaintballMarkerYellow, 1);
-   %player.setInventory(PaintballClip, 10 );
+   %player.setInventory(PaintballClip, 5 );
    %player.setInventory(PaintballAmmo, %player.maxInventory(PaintballAmmo));
    %player.addToWeaponCycle(PaintballMarkerBlue);
    %player.addToWeaponCycle(PaintballMarkerRed);

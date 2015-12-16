@@ -61,17 +61,18 @@ function Torque::onStart(%this)
    // Load the scripts that start it all...
    exec("./client/init.cs");
 
-   exec("./client/client.cs");
-   exec("./server/server.cs");
-   
-   exec("./gui/guiTreeViewCtrl.cs");
-   exec("./gui/messageBoxes/messageBox.ed.cs");
      
    // Init the physics plugin.
    physicsInit();
       
    // Start up the audio system.
    sfxStartup();
+   exec("./client/client.cs");
+   exec("./server/server.cs");
+   
+   exec("./gui/guiTreeViewCtrl.cs");
+   exec("./gui/messageBoxes/messageBox.ed.cs");
+
 
 
    
@@ -217,7 +218,7 @@ function Torque::parseArgs(%this)
 }; // package scripts
 
 // Activate the game package.
-activatePackage(scripts);
+//activatePackage(scripts);
 
 function LogEcho(%string)
 {
@@ -328,6 +329,7 @@ function Torque::addMissionFile( %this, %file )
 
       echo($HostMissionName[%idx] SPC "added to mission list");
    }
+   warn("Levelinfo Skipped");
 }
 
 // Read the level file and find the level object strings, then create the action object via eval so we

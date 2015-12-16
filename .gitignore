@@ -7,7 +7,7 @@
 shaders/procedural/*
 
 #fonts cache
-core/fonts/*
+art/fonts/*
 
 #compiler garbage
 *.exp

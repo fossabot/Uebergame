@@ -111,7 +111,7 @@ datablock ProjectileData( PaintballProjectileRed )
    velInheritFactor    = 1;
 
    armingDelay         = 0;
-   lifetime            = 15000;
+   lifetime            = 12000;
    fadeDelay           = 0;
    bounceElasticity    = 0;
    bounceFriction      = 0;
@@ -125,7 +125,7 @@ function PaintballProjectileRed::onCollision(%this,%obj,%col,%fade,%pos,%normal)
    
    // Apply damage to the object all shape base objects
    if ( %col.getType() & $TypeMasks::GameBaseObjectType )
-      %col.damage(%obj,%pos,%this.directDamage,"PaintballProjectileRed");
+      %col.damage(%obj,%pos,%this.directDamage,"Paint");
 }
 
 //-----------------------------------------------------------------------------
@@ -148,7 +148,7 @@ datablock ItemData(PaintballMarkerRed)
    className = "Weapon";
 
    // Basic Item properties
-   shapeFile = "art/shapes/weapons/Ryder/TP_Ryder.dts";
+   shapeFile = "art/shapes/weapons/paintball/paintball_marker_01_red.dts";
    mass = 1;
    elasticity = 0.2;
    friction = 0.6;
@@ -165,8 +165,8 @@ datablock ItemData(PaintballMarkerRed)
 datablock ShapeBaseImageData(PaintballMarkerRedWeaponImage)
 {
    // Basic Item properties
-   shapeFile = "art/shapes/weapons/Ryder/TP_Ryder.dts";
-   shapeFileFP = "art/shapes/weapons/Ryder/FP_Ryder.dts";
+   shapeFile = "art/shapes/weapons/paintball/paintball_marker_01_red.dts";
+   shapeFileFP = "art/shapes/weapons/paintball/paintball_marker_01_red.dts";
    emap = true;
 
    imageAnimPrefix = "Pistol";
