@@ -103,7 +103,7 @@ singleton Material(DECAL_paint_splatter_01_red)
    pixelSpecular[0] = "0";
    specularPower[0] = "32";
    specular[1] = "1 1 1 1";
-   diffuseColor[0] = "0.913726 0.235294 0.00784314 1";
+   diffuseColor[0] = "1 0.3 0 1";
    castShadows = "1";
    subSurface[0] = "0";
    subSurfaceColor[0] = "1 0.2 0.2 1";

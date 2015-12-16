@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------------
 
 // Timeouts for corpse deletion.
-$CorpseTimeoutValue = 10 * 1000;
+$CorpseTimeoutValue = 20 * 1000;
 
 //----------------------------------------------------------------------------
 // Drowning script
@@ -264,26 +264,24 @@ function PlayerData::onImpact(%this, %obj, %collidedObject, %vec, %vecLen)
 }
 
 //----------------------------------------------------------------------------
-
-function PlayerData::damage(%this, %obj, %sourceObject, %position, %damage, %damageType)
-{
-   if (!isObject(%obj) || %obj.getState() $= "Dead" || !%damage)
-      return;	  
-
-   %location = %obj.getDamageLocation(%position);//"Body";
-   %bodyPart = getWord(%location, 0);
-   %region = getWord(%location, 1);
-   //echo(%obj @" \c4% DAMAGELOCATION:  bodyPart = "@ %bodyPart @" || REGION = "@ %region);
-   switch$ (%bodyPart)
-   {
-      case "head":
-         %damage = %damage*2.5; // 2,5 times the damage for a headshot
-      case "torso":
-      case "legs":
-         %damage = %damage/1.6; // about two third damage for legs
-   }
-   
-   //blood decals, commented out until they work on clientside also
+function DamageTypeCollision(%obj, %damage, %damageType, %position){
+       
+      switch$ (%damageType){
+       
+      case "Suicide":
+          return;
+             
+      case "Drowning":
+         return;
+         
+      case "Paint":
+         return;
+         
+      default:
+         // Process all other damage types
+                   
+        }
+       
    %centerpoint = %obj.getWorldBoxCenter();
    
    %normal[0] = "0.0 0.0 1.0";
@@ -302,23 +300,23 @@ function PlayerData::damage(%this, %obj, %sourceObject, %position, %damage, %dam
    %clientCount = ClientGroup.getCount();
    for (%i=0;%i<6;%i++)
    {
-       	%normalScaled = VectorScale(%normal[%i],-1); //distance to walls the blood splatters
-		%targetPoint = VectorAdd(%centerpoint,%normalScaled);
-		%mask = $TypeMasks::StaticObjectType | $TypeMasks::TerrainObjectType;
-		%hitObject = ContainerRayCast(%centerpoint, %targetPoint, %mask, %obj);
-        
+        %normalScaled = VectorScale(%normal[%i],-1); //distance to walls the blood splatters
+                %targetPoint = VectorAdd(%centerpoint,%normalScaled);
+                %mask = $TypeMasks::StaticObjectType | $TypeMasks::TerrainObjectType;
+                %hitObject = ContainerRayCast(%centerpoint, %targetPoint, %mask, %obj);
+       
         if (%hitObject)
         {
             %splatterPoint = getWords(%hitObject,1,3);
-			%splatterNorm = getWords(%hitObject,4,6);
-			%splatterScaling = getRandom()*1.5 + %damage/30;
-            %splatterVary = getRandom()*getword(%abNormal[%i],0)-getword(%abNormal[%i],0)/2 
-			SPC getRandom()*getword(%abNormal[%i],1)-getword(%abNormal[%i],1)/2 SPC getRandom()*getword(%abNormal[%i],2)-getword(%abNormal[%i],2)/2;            
+                        %splatterNorm = getWords(%hitObject,4,6);
+                        %splatterScaling = getRandom()*1.5 + %damage/30;
+            %splatterVary = getRandom()*getword(%abNormal[%i],0)-getword(%abNormal[%i],0)/2
+                        SPC getRandom()*getword(%abNormal[%i],1)-getword(%abNormal[%i],1)/2 SPC getRandom()*getword(%abNormal[%i],2)-getword(%abNormal[%i],2)/2;            
             %Decalposition = VectorAdd(%splatterPoint, %splatterVary);
-			if (%splatterScaling > 8)
-			{ %splatterScaling = 8;} 
-			   
-			for (%clientIndex = 0; %clientIndex < %clientCount; %clientIndex++)
+                        if (%splatterScaling > 8)
+                        { %splatterScaling = 8;}
+                           
+                        for (%clientIndex = 0; %clientIndex < %clientCount; %clientIndex++)
             {
                 %client = ClientGroup.getObject(%clientIndex);
                 %ghostIndex = %client.getGhostID(%obj);
@@ -327,8 +325,8 @@ function PlayerData::damage(%this, %obj, %sourceObject, %position, %damage, %dam
             }
         }
    }
-      
-   %particles = new ParticleEmitterNode()   
+     
+   %particles = new ParticleEmitterNode()  
    {  
       position = %position;  
       rotation = "1 0 0 0";  
@@ -338,24 +336,44 @@ function PlayerData::damage(%this, %obj, %sourceObject, %position, %damage, %dam
       velocity = "1";  
    };  
    MissionCleanup.add(%particles);  
-   %particles.schedule(1000, "delete");
-   //blood decals and particles finished
+   %particles.schedule(1000, "delete");       
+}
+ 
+function PlayerData::damage(%this, %obj, %sourceObject, %position, %damage, %damageType)
+{
+   if (!isObject(%obj) || %obj.getState() $= "Dead" || !%damage)
+      return;    
+ 
+   %location = %obj.getDamageLocation(%position);//"Body";
+   %bodyPart = getWord(%location, 0);
+   %region = getWord(%location, 1);
+   //echo(%obj @" \c4% DAMAGELOCATION:  bodyPart = "@ %bodyPart @" || REGION = "@ %region);
+   switch$ (%bodyPart)
+   {
+      case "head":
+         %damage = %damage*2.5; // 2,5 times the damage for a headshot
+      case "torso":
+      case "legs":
+         %damage = %damage/1.6; // about two third damage for legs
+   }
+   
+        DamageTypeCollision(%obj, %damage, %damageType, %position);
    
    %obj.applyDamage(%damage);
-
+ 
    %location = "Body";
-
+ 
    // Deal with client callbacks here because we don't have this
    // information in the onDamage or onDisable methods
    %client = %obj.client;
    %sourceClient = %sourceObject ? %sourceObject.client : 0;
-
+ 
    if (isObject(%client))
    {
       // Determine damage direction
       if (%damageType !$= "Suicide"&& %damageType !$= "Drowning")//prevent Damage Direction indicator while drowning
          %obj.setDamageDirection(%sourceObject, %position);
-
+ 
       if (%obj.getState() $= "Dead")
          %client.onDeath(%sourceObject, %sourceClient, %damageType, %location);
    }
@@ -489,7 +507,7 @@ function PlayerData::onStopSprintMotion(%this, %obj)
 
 function Player::kill(%this, %damageType)
 {
-   %this.damage(0, %this.getPosition(), 170, %damageType);
+   %this.damage(0, %this.getPosition(), 10000, %damageType);
 }
 
 //----------------------------------------------------------------------------

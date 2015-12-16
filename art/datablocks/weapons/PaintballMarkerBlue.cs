@@ -216,7 +216,7 @@ datablock ProjectileData( PaintballProjectileBlue )
    velInheritFactor    = 1;
 
    armingDelay         = 0;
-   lifetime            = 15000;
+   lifetime            = 12000;
    fadeDelay           = 0;
    bounceElasticity    = 0;
    bounceFriction      = 0;
@@ -227,10 +227,10 @@ datablock ProjectileData( PaintballProjectileBlue )
 function PaintballProjectileBlue::onCollision(%this,%obj,%col,%fade,%pos,%normal)
 {
    // Apply impact force from the projectile.
-   
+
    // Apply damage to the object all shape base objects
    if ( %col.getType() & $TypeMasks::GameBaseObjectType )
-      %col.damage(%obj,%pos,%this.directDamage,"PaintballProjectileBlue");
+      %col.damage(%obj,%pos,%this.directDamage,"Paint");
 }
 
 //-----------------------------------------------------------------------------
@@ -246,7 +246,7 @@ datablock ItemData(PaintballClip)
    className = "AmmoClip";
 
    // Basic Item properties
-   shapeFile = "art/shapes/weapons/Ryder/Ryder_clip.dts";
+   shapeFile = "art/shapes/weapons/paintball/paintball_marker_01_clip.dts";
    mass = 5;
    elasticity = 0.2;
    friction = 0.6;
@@ -274,7 +274,7 @@ datablock ItemData(PaintballAmmo)
 
    // Dynamic properties defined by the scripts
    pickUpName = "Paintball Ammo";
-   maxInventory = 30;
+   maxInventory = 100;
    clip = PaintballClip;
 };
 
@@ -294,7 +294,7 @@ datablock ItemData(PaintballMarkerBlue)
    className = "Weapon";
 
    // Basic Item properties
-   shapeFile = "art/shapes/weapons/Ryder/TP_Ryder.dts";
+   shapeFile = "art/shapes/weapons/paintball/paintball_marker_01_blue.dts";
    mass = 1;
    elasticity = 0.2;
    friction = 0.6;
@@ -311,8 +311,8 @@ datablock ItemData(PaintballMarkerBlue)
 datablock ShapeBaseImageData(PaintballMarkerBlueWeaponImage)
 {
    // Basic Item properties
-   shapeFile = "art/shapes/weapons/Ryder/TP_Ryder.dts";
-   shapeFileFP = "art/shapes/weapons/Ryder/FP_Ryder.dts";
+   shapeFile = "art/shapes/weapons/paintball/paintball_marker_01_blue.dts";
+   shapeFileFP = "art/shapes/weapons/paintball/paintball_marker_01_blue.dts";
    emap = true;
 
    imageAnimPrefix = "Pistol";
@@ -494,7 +494,6 @@ datablock ShapeBaseImageData(PaintballMarkerBlueWeaponImage)
    stateName[11]                    = "SprintEnter";
    stateTransitionGeneric0Out[11]   = "SprintExit";
    stateTransitionOnTimeout[11]     = "Sprinting";
-   stateWaitForTimeout[11]          = false;
    stateTimeoutValue[11]            = 0.5;
    stateWaitForTimeout[11]          = false;
    stateScaleAnimation[11]          = false;

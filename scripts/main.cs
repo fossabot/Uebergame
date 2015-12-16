@@ -81,8 +81,8 @@ function onStart()
    exec("scripts/client/coreclient.cs");
    exec("scripts/server/coreserver.cs");
    
-   exec("./scripts/gui/guiTreeViewCtrl.cs");
-   exec("./scripts/gui/messageBoxes/messageBox.ed.cs");
+   exec("./gui/guiTreeViewCtrl.cs");
+   exec("./gui/messageBoxes/messageBox.ed.cs");
    
    echo(" % - Initialized Core");
 }
