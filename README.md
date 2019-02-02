@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FBloodknight%2FUebergame.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FBloodknight%2FUebergame?ref=badge_shield)
+
 Übergame v1.03
 ===============
 
@@ -48,3 +50,7 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FBloodknight%2FUebergame.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FBloodknight%2FUebergame?ref=badge_large)
